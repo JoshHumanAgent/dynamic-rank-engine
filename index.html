@@ -3655,7 +3655,7 @@
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-item">
-                    <span class="stat-value date">Feb 2026</span>
+                    <span class="stat-value date" id="last-updated">Feb 26 14:58</span>
                     <span class="stat-label">Updated</span>
                 </div>
             </div>
@@ -4068,7 +4068,7 @@
 
         let currentGenres = ['all'];
         let currentEras = [];
-        let minScore = 6.5;
+        let minScore = 0;
         let searchTerm = '';
         let sortBy = 'rank';
         let viewMode = 'list';
@@ -4768,7 +4768,7 @@
                 });
             }
 
-            if (minScore > 6.5) {
+            if (minScore > 0) {
                 tags.push({ type: 'score', value: minScore, label: `Score: ${minScore}+` });
             }
 
@@ -4808,9 +4808,9 @@
                     });
                 }
             } else if (type === 'score') {
-                minScore = 6.5;
-                if (scoreFilter) scoreFilter.value = 6.5;
-                if (scoreValue) scoreValue.textContent = '6.5';
+                minScore = 0;
+                if (scoreFilter) scoreFilter.value = 0;
+                if (scoreValue) scoreValue.textContent = '0';
             } else if (type === 'genre') {
                 currentGenres = currentGenres.filter(g => g !== value);
                 if (currentGenres.length === 0) {
@@ -4830,13 +4830,13 @@
         window.clearAllFilters = function() {
             currentEras = [];
             currentGenres = ['all'];
-            minScore = 6.5;
+            minScore = 0;
             searchTerm = '';
             sortBy = 'rank';
 
             searchInput.value = '';
-            if (scoreFilter) scoreFilter.value = 6.5;
-            if (scoreValue) scoreValue.textContent = '6.5';
+            if (scoreFilter) scoreFilter.value = 0;
+            if (scoreValue) scoreValue.textContent = '0';
             sortSelect.value = 'rank';
 
             document.querySelectorAll('.fp-era-chip').forEach(b => b.classList.remove('active'));
