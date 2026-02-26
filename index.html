@@ -4022,7 +4022,11 @@
             const minutes = date.getMinutes().toString().padStart(2, '0');
             return `${month} ${day} ${hours}:${minutes}`;
         }
-        document.getElementById('last-updated').textContent = formatLastUpdated();
+        // Set date when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('last-updated');
+            if (el) el.textContent = formatLastUpdated();
+        });
         
         let showsReady = false;        // true once loadShowsData completes
         let initialAuthFired = false;   // distinguishes page-load auth from live login/logout
