@@ -3658,7 +3658,7 @@
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-item">
-                    <span class="stat-value date" id="last-updated">Feb 27 00:39</span>
+                    <span class="stat-value date" id="last-updated"></span>
                     <span class="stat-label">Updated</span>
                 </div>
             </div>
@@ -4007,6 +4007,23 @@
         });
         let currentUser = null;
         const ADMIN_UID = 'wdGsVfPu27OPx8hq7CSiIf0OUfG3'; // Josh's UID - Master Export access
+        
+        // Site last updated - used as base date for era filtering and displayed in header
+        // Format: YYYY-MM-DD HH:MM (24-hour)
+        const SITE_LAST_UPDATED = '2026-02-27 00:39';
+        
+        // Format and display the last updated date in header
+        function formatLastUpdated() {
+            const date = new Date(SITE_LAST_UPDATED);
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const month = months[date.getMonth()];
+            const day = date.getDate();
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            return `${month} ${day} ${hours}:${minutes}`;
+        }
+        document.getElementById('last-updated').textContent = formatLastUpdated();
+        
         let showsReady = false;        // true once loadShowsData completes
         let initialAuthFired = false;   // distinguishes page-load auth from live login/logout
 
@@ -4422,11 +4439,12 @@
         }
         
         // Check if a show falls within a specific time-based era
+        // Uses SITE_LAST_UPDATED as the base date (not browser's current time)
         function showInTimeEra(show, era) {
-            const now = new Date();
-            const currentYear = now.getFullYear();
+            const baseDate = new Date(SITE_LAST_UPDATED);
+            const currentYear = baseDate.getFullYear();
             
-            console.log('showInTimeEra called:', show.title, 'era:', era, 'show.year:', show.year, 'show.month:', show.month);
+            console.log('showInTimeEra called:', show.title, 'era:', era, 'show.year:', show.year, 'show.month:', show.month, 'baseDate:', baseDate.toISOString());
             
             // If no month data, use year-based approximation for recent shows
             if (!show.month) {
@@ -4447,15 +4465,15 @@
             // Precise calculation when month is available
             const showDate = new Date(show.year, show.month - 1, 15);
             
-            const threeMonthsAgo = new Date(now);
-            threeMonthsAgo.setMonth(now.getMonth() - 3);
+            const threeMonthsAgo = new Date(baseDate);
+            threeMonthsAgo.setMonth(baseDate.getMonth() - 3);
             
-            const sixMonthsAgo = new Date(now);
-            sixMonthsAgo.setMonth(now.getMonth() - 6);
+            const sixMonthsAgo = new Date(baseDate);
+            sixMonthsAgo.setMonth(baseDate.getMonth() - 6);
             
             // "Year" shows last 18 months to capture more recent content
-            const eighteenMonthsAgo = new Date(now);
-            eighteenMonthsAgo.setMonth(now.getMonth() - 18);
+            const eighteenMonthsAgo = new Date(baseDate);
+            eighteenMonthsAgo.setMonth(baseDate.getMonth() - 18);
             
             console.log('Date comparison:', show.title, 'showDate:', showDate.toISOString(), 'threeMonthsAgo:', threeMonthsAgo.toISOString(), 'result:', showDate >= threeMonthsAgo);
             
