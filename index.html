@@ -4423,8 +4423,11 @@
             const now = new Date();
             const currentYear = now.getFullYear();
             
+            console.log('showInTimeEra called:', show.title, 'era:', era, 'show.year:', show.year, 'show.month:', show.month);
+            
             // If no month data, use year-based approximation for recent shows
             if (!show.month) {
+                console.log('No month data for', show.title);
                 // For shows from current or previous year without month,
                 // assume they're recent enough for broad filters
                 const isRecentYear = show.year >= currentYear - 1;
@@ -4450,6 +4453,8 @@
             // "Year" shows last 18 months to capture more recent content
             const eighteenMonthsAgo = new Date(now);
             eighteenMonthsAgo.setMonth(now.getMonth() - 18);
+            
+            console.log('Date comparison:', show.title, 'showDate:', showDate.toISOString(), 'threeMonthsAgo:', threeMonthsAgo.toISOString(), 'result:', showDate >= threeMonthsAgo);
             
             switch(era) {
                 case 'last3mo': return showDate >= threeMonthsAgo;
