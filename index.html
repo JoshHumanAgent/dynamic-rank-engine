@@ -4581,10 +4581,9 @@
         }
 
         function renderShows() {
-            console.log('renderShows called, shows.length =', shows.length);
+            console.log('renderShows called, shows.length =', shows.length, 'minScore =', minScore, 'currentEras =', currentEras);
             let filtered = shows.filter(show => {
                 const matchesSearch = show.title.toLowerCase().includes(searchTerm.toLowerCase());
-                const matchesScore = show.final >= minScore;
                 
                 // Era filtering: handle time-based (overlapping) and decade-based separately
                 let matchesEra = true;
@@ -4592,7 +4591,9 @@
                     matchesEra = currentEras.some(era => {
                         // Time-based eras (overlapping)
                         if (['last3mo', 'last6mo', 'thisYear'].includes(era)) {
-                            return showInTimeEra(show, era);
+                            const inEra = showInTimeEra(show, era);
+                            console.log('Checking', show.title, 'for era', era, ':', inEra, 'showDate:', show.year, show.month);
+                            return inEra;
                         }
                         // Decade eras (exact match)
                         return getEra(show.year, show.month) === era;
@@ -4604,7 +4605,7 @@
                     matchesGenre = currentGenres.every(g => show.genres.includes(g));
                 }
 
-                return matchesSearch && matchesScore && matchesEra && matchesGenre;
+                return matchesSearch && matchesEra && matchesGenre;
             });
 
             filtered.sort((a, b) => {
