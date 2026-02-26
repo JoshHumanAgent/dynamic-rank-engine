@@ -24,6 +24,9 @@
     <!-- PWA / Mobile -->
     <meta name="theme-color" content="#d4af37">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link rel="apple-touch-icon" href="https://dynamicrankengine.com/assets/film-reel.svg">
     
     <title>Dynamic Rank Engine</title>
@@ -4012,7 +4015,7 @@
 
         async function loadShowsData() {
             try {
-                const response = await fetch('data/shows/index.json?v=1772102820891?v=' + Date.now());
+                const response = await fetch('data/shows/index.json?v=' + Date.now());
                 const data = await response.json();
                 shows = data.shows;
                 // Coerce any string finals to numbers (prevents .toFixed() crash)
