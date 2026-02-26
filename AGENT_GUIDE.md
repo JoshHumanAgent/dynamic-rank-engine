@@ -349,20 +349,45 @@ The app uses Firebase Authentication (Google + Email/Password) and Firestore for
 
 ## 11. DEPLOYMENT
 
-The site deploys to GitHub Pages via the `CNAME` file.
+### CRITICAL: There are TWO folders. Only ONE is the live site.
+
+| Folder | Git remote | Live site? |
+|--------|-----------|-----------|
+| `C:/Users/randl/Desktop/OpenClaw-Workspace/10-Projects/dynamic-rank-engine` | `https://github.com/JoshHumanAgent/dynamic-rank-engine.git` | **YES — this is dynamicrankengine.com** |
+| `C:/Users/randl/Desktop/OpenClaw-Workspace/10-Projects/tvshowsranked` | `https://github.com/JoshHumanAgent/tvshowsranked.git` | NO — old repo, ignore it |
+
+**Always work from `dynamic-rank-engine`. Never push from `tvshowsranked`.**
+
+### Deployment steps
 
 ```bash
-# Before deploying:
-node scripts/validate.js       # Must pass clean
-node scripts/generate-sitemap.js  # Rebuild sitemap if shows changed
+# 1. Make sure you're in the right directory
+cd "C:/Users/randl/Desktop/OpenClaw-Workspace/10-Projects/dynamic-rank-engine"
 
-# Deploy:
+# 2. Verify it's the right repo
+git remote -v
+# Should show: origin  https://github.com/JoshHumanAgent/dynamic-rank-engine.git
+
+# 3. Run validation before deploying
+node scripts/validate.js       # Must pass with no errors
+
+# 4. If shows changed, rebuild sitemap
+node scripts/generate-sitemap.js
+
+# 5. Stage, commit, and push
 git add -A
-git commit -m "Description of changes"
-git push origin main
+git commit -m "Description of what changed"
+git push origin master
 ```
 
-GitHub Pages serves from the root of the `main` branch. The `CNAME` points to the custom domain.
+**Branch is `master` (not `main`).** GitHub Pages serves from the root of `master`. The `CNAME` file routes `dynamicrankengine.com` to GitHub Pages.
+
+### How to verify a deployment worked
+
+After pushing, wait ~60 seconds then:
+1. Open `https://dynamicrankengine.com` in an incognito window
+2. Hard refresh (Ctrl+Shift+R)
+3. Confirm your changes are live
 
 ---
 
