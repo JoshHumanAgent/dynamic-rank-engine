@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "downton-abbey",
+    "title":  "Downton Abbey",
+    "year":  2010,
+    "month":  9,
+    "status":  "completed",
+    "seasons":  6,
+    "episodes":  52,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "historical"
+               ],
+    "creator":  "Julian Fellowes",
+    "network":  "ITV / PBS",
+    "tmdbId":  39534,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8,
+                                          "scale":  10,
+                                          "count":  "95000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt1606375/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  89,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/downton_abbey"
+                                                 },
+                             "metacritic":  {
+                                                "score":  72,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/downton-abbey"
+                                            }
+                         },
+    "consensus_highlights":  "A chronicle of the lives of the aristocratic Crawley family and their servants in early 20th century England.",
+    "ranking_system":  {
+                           "conc":  6,
+                           "resol":  7,
+                           "drive":  7,
+                           "cine":  8,
+                           "spect":  8,
+                           "final":  7.2,
+                           "world":  8,
+                           "char":  7
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "PBS",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "ITV",
+                                 "Britbox"
+                             ]
+                  }
+}

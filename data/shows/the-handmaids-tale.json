@@ -1,0 +1,80 @@
+{
+    "slug": "the-handmaids-tale",
+    "title": "The Handmaid's Tale",
+    "year": 2017,
+    "month": 4,
+    "status": "ended",
+    "seasons": 5,
+    "episodes": 56,
+    "runtime": "45-60",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "sci-fi",
+        "dystopian"
+    ],
+    "creator": [
+        "Bruce Miller"
+    ],
+    "network": "Hulu",
+    "external_ratings": {
+        "imdb": {
+            "score": 8.4,
+            "scale": 10,
+            "count": "380K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt5834204/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 86,
+                "scale": 100
+            },
+            "season_2": {
+                "score": 96,
+                "scale": 100
+            },
+            "season_3": {
+                "score": 95,
+                "scale": 100
+            },
+            "season_4": {
+                "score": 100,
+                "scale": 100
+            },
+            "season_5": {
+                "score": 96,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/the_handmaids_tale"
+        },
+        "metacritic": {
+            "score": 80,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/the-handmaids-tale"
+        }
+    },
+    "consensus_highlights": "The Handmaid's Tale is a dystopian drama based on Margaret Atwood's novel. In a totalitarian future where women have lost all rights, a handmaid is forced to bear children for the ruling class. The series has become a cultural touchstone for its powerful exploration of women's rights and resistance.",
+    "ranking_system": {
+        "characters": 7,
+        "world_building": 8,
+        "cinematography": 8.5,
+        "visual_spectacle": 7.5,
+        "conceptual_density": 8,
+        "narrative_drive": 5,
+        "resolution": 5,
+        "final_score": 7.03
+    },
+    "tmdbId": 71606,
+    "streaming": {
+        "us": [
+            "Hulu"
+        ],
+        "uk": [
+            "Channel 4",
+            "All 4"
+        ]
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taboo - "I Have a Use for You" | Dynamic Rank Engine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #2d2d2d; }
+        .rank-badge { display: inline-block; background: linear-gradient(135deg, #2d2d2d, #1a1a1a); color: #c0c0c0; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #a0a0a0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
+        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(45,45,45,0.3), rgba(0,0,0,0.9)); border: 3px solid #2d2d2d; border-radius: 8px; }
+        .score-value { font-size: 3rem; font-weight: 700; color: #a0a0a0; }
+        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #2d2d2d; }
+        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #a0a0a0; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .dimension { background: rgba(45,45,45,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
+        .dimension-name { font-weight: 700; color: #a0a0a0; margin-bottom: 0.3rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; }
+        .dimension-weight { font-size: 0.8rem; color: #666; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+        .info-value { font-size: 1.3rem; color: #a0a0a0; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="rank-badge">Rank #40</div>
+            <h1>Taboo</h1>
+            <p class="subtitle">"I Have a Use for You"</p>
+            <div class="score-badge">
+                <span class="score-value">7.80</span>
+                <span class="score-label">Final Score</span>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item"><div class="info-label">Year</div><div class="info-value">2017-</div></div>
+            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">8</div></div>
+            <div class="info-item"><div class="info-label">Network</div><div class="info-value">BBC One / FX</div></div>
+            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Steven Knight</div></div>
+        </div>
+
+        <div class="section">
+            <h2>What It Feels Like to Watch</h2>
+            <p>Taboo is Tom Hardy acting at full intensity for eight hours. That sounds like entertainment enough, but the show surrounding him is something special: a gothic thriller set in 1814 London, where James Keziah Delaney returns from Africa to inherit his father's shipping company, claim a piece of land crucial to the East India Company, and take revenge on everyone who wronged his family.</p>
+            <p>Hardy co-created the series with his father Chips and Steven Knight (Peaky Blinders), and it shows—it's a star vehicle designed to let him be as weird, as physical, as intense as he wants. James Delaney is believed dead for ten years. He returns to London with secrets, scars, and a reputation for sorcery. He speaks Twi and Portuguese. He has visions. He may or may not be insane. He definitely is dangerous.</p>
+            <p>The series pits Delaney against the East India Company, represented by Jonathan Pryce's sir Stuart Strange. Pryce plays corporate evil with perfect bureaucratic menace—he's not a villain who twirls mustaches; he's a man who signs execution orders with breakfast. The Company wants Nootka Sound, the Pacific Northwest territory Delaney inherited. Delaney won't sell. What follows is a slow-burn war of attrition, with poisonings, conspiracies, and a final act that shifts into full revolutionary mode.</p>
+            <p>The show's aesthetic is dark—the streets of London are mud and fog, the interiors are candlelit and claustrophobic, and Hardy prowls through all of it like an animal. The cinematography embraces the period's grime. This isn't the costume-drama version of history; it's the version where everything smells, where power is naked, where survival requires violence.</p>
+        </div>
+
+        <div class="section">
+            <h2>Why It Ranks</h2>
+            <div class="dimension-grid">
+                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
+                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">6</div><div class="dimension-weight">20% weight</div></div>
+            </div>
+            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Tom Hardy gives a committed, physical, strange performance. Jonathan Pryce is the perfect corporate antagonist. Oona Chaplin and Jessie Buckley round out a strong ensemble.</p>
+            <p><strong>World Building (9):</strong> 1814 London rendered in all its filth. The East India Company, the Crown, the underworld—all feel real and interconnected. The period detail is immersive without being precious.</p>
+            <p><strong>Resolution (6):</strong> Season one ends with Delaney heading to America. Season two has been promised but not yet produced. The story is incomplete.</p>
+        </div>
+
+        <div class="section">
+            <h2>Where to Watch</h2>
+            <p><strong>US:</strong> Hulu</p>
+            <p><strong>UK:</strong> BBC iPlayer</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For All Mankind - TV Shows Ranked</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e8e8e8;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(0,100,200,0.3) 0%, rgba(200,50,50,0.3) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.3"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .meta-info {
+            color: #888;
+            font-size: 1em;
+            margin-top: 15px;
+            position: relative;
+        }
+        
+        .creator {
+            color: #4a9eff;
+            font-weight: 600;
+        }
+        
+        .cast {
+            margin-top: 10px;
+            font-style: italic;
+            color: #aaa;
+        }
+        
+        section {
+            margin-bottom: 40px;
+            background: rgba(255,255,255,0.03);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #4a9eff;
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #4a9eff;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #4a9eff, transparent);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.3em;
+            margin: 25px 0 15px 0;
+            color: #e8e8e8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3::before {
+            content: '▸';
+            color: #4a9eff;
+            font-size: 0.8em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #c8c8c8;
+        }
+        
+        .dimension-block {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .dimension-block:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(74,158,255,0.3);
+            transform: translateX(5px);
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .dimension-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .dimension-icon {
+            font-size: 1.5em;
+        }
+        
+        .score-badge {
+            background: linear-gradient(135deg, #4a9eff 0%, #2d5a9e 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(74,158,255,0.3);
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .score-bar-container {
+            background: rgba(255,255,255,0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        
+        .score-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ff4444 0%, #ffaa00 50%, #44ff44 100%);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .dimension-analysis {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-top: 15px;
+        }
+        
+        .final-score-section {
+            background: linear-gradient(135deg, rgba(74,158,255,0.2) 0%, rgba(200,50,50,0.2) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(74,158,255,0.3);
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-score-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(74,158,255,0.1), transparent);
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .final-score-label {
+            font-size: 1.5em;
+            color: #888;
+            margin-bottom: 15px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+        
+        .final-score-value {
+            font-size: 5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #4a9eff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            text-shadow: 0 0 30px rgba(74,158,255,0.5);
+        }
+        
+        .final-score-verdict {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            color: #c8c8c8;
+            font-size: 1.1em;
+            line-height: 1.8;
+            position: relative;
+        }
+        
+        .show-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: #4a9eff;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 5px;
+        }
+        
+        .highlight {
+            color: #4a9eff;
+            font-weight: 600;
+        }
+        
+        .spoiler-warning {
+            background: rgba(200,50,50,0.2);
+            border: 1px solid rgba(200,50,50,0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            color: #ff8888;
+        }
+        
+        .premise-box {
+            background: linear-gradient(135deg, rgba(200,50,50,0.2) 0%, rgba(74,158,255,0.2) 100%);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .premise-title {
+            font-size: 1.3em;
+            color: #fff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .premise-text {
+            font-style: italic;
+            text-align: center;
+            color: #d0d0d0;
+            font-size: 1.1em;
+            line-height: 1.9;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+            color: #c8c8c8;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        .timeline-note {
+            background: rgba(74,158,255,0.1);
+            border-left: 3px solid #4a9eff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            color: #a0c8ff;
+            font-size: 0.95em;
+        }
+        
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .character-card {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        
+        .character-name {
+            color: #4a9eff;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .character-actor {
+            font-size: 0.9em;
+            color: #888;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>For All Mankind</h1>
+            <div class="meta-info">
+                <div>Apple TV+ Original Series</div>
+                <div class="creator">Created by Ronald D. Moore</div>
+                <div class="cast">Starring: Joel Kinnaman, Michael Dorman, Wrenn Schmidt, Sonya Walger</div>
+            </div>
+        </header>
+        
+        <div class="show-stats">
+            <div class="stat-card">
+                <div class="stat-value">4</div>
+                <div class="stat-label">Seasons</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">50</div>
+                <div class="stat-label">Episodes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2019</div>
+                <div class="stat-label">Premiered</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">Sci-Fi</div>
+                <div class="stat-label">Genre</div>
+            </div>
+        </div>
+
+        <section>
+            <h2>What It Feels Like to Watch</h2>
+            
+            <div class="premise-box">
+                <div class="premise-title">The Alternate History Hook</div>
+                <div class="premise-text">"What if the space race never ended?"</div>
+            </div>
+            
+            <p>
+                <span class="highlight">For All Mankind</span> opens with a punch to the gut that rewires your understanding of history. We see the familiar grainy footage of the 1969 moon landing—but it's not Armstrong's boot that touches the lunar surface first. It's a Soviet cosmonaut, planting the hammer and sickle on the Sea of Tranquility while American families watch in horror from their living rooms. This single devastating divergence doesn't just change history; it accelerates it, igniting a space race that burns hotter and longer than our timeline ever allowed.
+            </p>
+            
+            <p>
+                Watching this series feels like experiencing a grand elegy and a hopeful symphony simultaneously. There's profound melancholy in seeing what humanity <em>could</em> have accomplished—the permanent lunar bases by the 1970s, the Mars missions of the 1990s, the asteroid mining operations of the 2000s—contrasted against our own timeline's relative stagnation. Yet there's exhilaration too, in witnessing characters sacrifice everything for the frontier, in seeing marriages strained past breaking points by the void, in watching children grow up in low gravity calling a cramped habitat "home."
+            </p>
+            
+            <p>
+                The series operates on a scale that spans decades, following the Baldwin family and their compatriots from the desperate scramble of the early 1970s through to the corporate space age of the 2000s. Characters age, children become astronauts, enemies become allies, and the dream of space colonization evolves from nationalistic fervor to something more complex and nuanced. The passage of time is felt not just in makeup and costumes, but in the shifting priorities of a civilization learning to live among the stars.
+            </p>
+            
+            <div class="timeline-note">
+                The series covers an alternate timeline from 1969 through the early 2000s, with each season jumping forward several years to explore different eras of space exploration.
+            </div>
+            
+            <p>
+                There's a tactile quality to the show's emotional beats—the claustrophobia of early capsules, the vertigo of lunar vistas, the aching loneliness of being millions of miles from everyone you love. When characters stare out at the infinite black, you feel their smallness and their grandeur simultaneously. The series asks uncomfortable questions about what we're willing to sacrifice for progress, and the answers aren't always pretty. But they're always human.
+            </p>
+        </section>
+
+        <section>
+            <h2>Why It Ranks</h2>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <span class="dimension-icon">👤</span>
+                        Characters
+                    </div>
+                    <div class="score-badge">8.5</div>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 85%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>
+                        The character work in For All Mankind is exceptional in its scope and ambition, spanning multiple generations of interconnected families whose lives orbit the space program. <strong>Edward Baldwin</strong> (Joel Kinnaman) anchors the series as a hotshot pilot whose early failures and eventual redemption form the emotional spine of the narrative. His journey from disgraced astronaut to grizzled veteran captures the weight of decades spent chasing the frontier.
+                    </p>
+                    <p>
+                        <strong>Karen Baldwin</strong> (Shantel VanSanten) evolves from astronaut wife to business mogul, her arc exploring the cost of ambition from the ground while her husband reaches for the stars. The series excels at showing how space affects those left behind—the spouses who raise children alone, the kids who grow up without present parents, the communities fractured by constant danger and loss.
+                    </p>
+                    <p>
+                        The ensemble grows impressively across seasons, introducing new faces while meaningfully aging established characters. <strong>Ellen Waverly</strong> (Jodi Balfour) provides a compelling examination of identity and sacrifice in the closeted 1970s-80s NASA culture, while the Russian cosmonauts—particularly <strong>Margo Madison</strong> (Wrenn Schmidt)—offer perspectives that transcend the Cold War propaganda both nations perpetuate. Where the character work occasionally falters is in some secondary character decisions that feel more plot-driven than organic, and certain relationship beats that resolve too neatly given the complexity established.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <span class="dimension-icon">🌍</span>
+                        World Building
+                    </div>
+                    <div class="score-badge">9.0</div>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 90%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>
+                        This is arguably where For All Mankind achieves true greatness. The series constructs an alternate history with obsessive, loving detail that feels both plausible and aspirational. Every season expands the scope: Season 1 establishes lunar bases and extended stays, Season 2 brings interplanetary tensions and lunar resource wars, Season 3 reaches for Mars with private space corporations entering the fray, and Season 4 explores asteroid mining and the messy commercialization of space.
+                    </p>
+                    <p>
+                        The world-building extends beyond technology into cultural and political shifts. Extended space presence accelerates technological advancement—we see advanced computers, medical breakthroughs, and energy solutions years ahead of our timeline. The series thoughtfully explores how constant space focus affects domestic policy, international relations, and social movements. The depiction of Jamestown Base evolving from temporary outpost to permanent settlement, complete with bars, churches, and growing families, feels meticulously researched and emotionally authentic.
+                    </p>
+                    <p>
+                        The alternate history elements are woven organically throughout: different presidents, shifted political landscapes, changed technological trajectories, and the butterfly effects of sustained space investment. The series doesn't just show us different events; it shows us a world shaped by different priorities, one where humanity's expansion into the cosmos becomes normalized rather than exceptional. This is world-building as thesis statement—what if we had chosen the stars?
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <span class="dimension-icon">🎨</span>
+                        Cinematography
+                    </div>
+                    <div class="score-badge">8.5</div>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 85%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>
+                        The visual language of For All Mankind deliberately evokes both documentary realism and cinematic spectacle. The series employs a desaturated, filmic quality for Earthbound sequences that recalls period-appropriate 16mm and 35mm stocks, creating authentic texture for its various decades. When the camera reaches space, the palette opens up—deep blacks punctuated by stark whites and the blue-white glow of Earth hovering always at the edge of frame.
+                    </p>
+                    <p>
+                        The cinematography excels at conveying scale through contrast. A single astronaut silhouetted against the vast lunar horizon; the claustrophobic interiors of early capsules pressed against infinite void visible through tiny windows; the overwhelming scale of Jamestown Base gradually expanding across the lunar surface like a growing organism. Directors make smart use of aspect ratio shifts and lens choices to distinguish between the terrestrial and the cosmic.
+                    </p>
+                    <p>
+                        Where the cinematography occasionally struggles is in maintaining visual consistency across different directors and episodes. Some sequences lean heavily into blue/orange contrast typical of sci-fi aesthetics, while others pursue a more naturalistic approach. The Mars sequences of Season 3 showcase impressive location work and production design, though some VFX-heavy shots blend less seamlessly than the practical spacecraft interiors. Overall, however, the visual storytelling supports the emotional narrative remarkably well, using light and shadow to mirror character interiority against the harsh external environment of space.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <span class="dimension-icon">✨</span>
+                        Visual Spectacle
+                    </div>
+                    <div class="score-badge">9.0</div>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 90%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>
+                        Apple TV+ clearly invested heavily in making For All Mankind a visual showcase, and the results are frequently breathtaking. The space sequences achieve a level of photorealism that rivals feature films—Sat V launches shaking the frame with authentic fury, spacecraft maneuvering with Newtonian physics that feel correct, lunar landscapes rendered with geological accuracy that honors both NASA photography and imagination.
+                    </p>
+                    <p>
+                        The series builds its spectacle gradually, beginning with the familiar triumph and terror of Apollo-era missions before expanding to lunar surface operations, orbital construction, and eventually the red dust of Mars. Each escalation feels earned, grounded in the established technology and history. The show understands that true spectacle isn't just big images—it's the human reaction to overwhelming experience. A character's face in a helmet reflection conveys more awe than any CGI panorama.
+                    </p>
+                    <p>
+                        Standout sequences include the nail-biting lunar mining disaster of Season 2, the stunning Mars landing sequence of Season 3, and the intricate asteroid capture operation of Season 4. Practical effects blend seamlessly with digital work—physical sets, real capsule mockups, and location shooting in desert landscapes provide tangible texture that grounds the more fantastical elements. The visual effects team clearly researched actual NASA hardware and procedures, lending authenticity that enhances every moment of wonder and danger.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <span class="dimension-icon">🧠</span>
+                        Conceptual Density
+                    </div>
+                    <div class="score-badge">9.0</div>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 90%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>
+                        Ronald D. Moore brings the same philosophical ambition that distinguished Battlestar Galactica, though applied here to history rather than theology. The series interrogates numerous complex themes: nationalism versus internationalism, military versus civilian space priorities, the tension between exploration and exploitation, the psychological cost of frontier living, generational trauma passed through astronaut families, and the slow transformation of wonder into industry.
+                    </p>
+                    <p>
+                        The alternate history conceit isn't merely decorative—it enables serious exploration of counterfactual technological and social development. How would extended Cold War pressure accelerate renewable energy? What would permanent off-world habitation do to concepts of citizenship and nationhood? How might queer identity politics evolve in a world where closeted astronauts become public heroes? The series treats these questions with nuance rather than didacticism.
+                    </p>
+                    <p>
+                        The conceptual framework draws intelligently from real space history and speculative futurism. References to von Braun, O'Neill cylinders, and In-Situ Resource Utilization aren't just name-drops but functional elements of the narrative. The show engages with hard science fiction traditions while remaining accessible to general audiences. Its willingness to embrace technical detail—orbital mechanics, life support systems, political bureaucracy—without becoming overwhelming demonstrates sophisticated narrative design. The density rewards attentive viewers while never punishing casual engagement.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <span class="dimension-icon">📖</span>
+                        Narrative Drive
+                    </div>
+                    <div class="score-badge">9.0</div>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 90%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>
+                        The series maintains remarkable narrative momentum across its four seasons, each functioning as both standalone chapter and continuation of larger arcs. The structure of time jumps between seasons—moving from the 1970s to the 1980s, 1990s, and 2000s—creates unique storytelling opportunities. We see consequences ripple across decades, children become adults, grievances calcify or heal, and the grand sweep of history encompass individual lives.
+                    </p>
+                    <p>
+                        Each season follows a similar but effective pattern: establishing new status quo, introducing fresh conflicts both personal and geopolitical, building to crisis point involving space-based disaster or confrontation, then resolution that transforms the world for next iteration. Season 1 focuses on establishing lunar presence; Season 2 on resource conflict and Cold War escalation; Season 3 on the race to Mars; Season 4 on commercialization and new political realities. This progression feels natural while maintaining propulsive energy.
+                    </p>
+                    <p>
+                        The writing balances multiple storylines with impressive dexterity—political intrigue on Earth, technical challenges in space, family drama in both locations, and the slow-burn mysteries that connect them. Cliffhangers are deployed strategically rather than cynically, usually emerging organically from character decisions rather than artificial plotting. The dialogue captures period voices while remaining accessible, and the series isn't afraid to kill major characters when their story arcs conclude, maintaining genuine stakes. The seasonal arcs build effectively toward finales that recontextualize what's come before.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <span class="dimension-icon">🏁</span>
+                        Resolution
+                    </div>
+                    <div class="score-badge">8.5</div>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 85%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>
+                        Through its four seasons, For All Mankind demonstrates strong resolution instincts at both episode and seasonal levels. Individual episodes typically conclude with satisfying emotional beats while propelling larger narratives forward. Season finales have consistently delivered consequential developments that reframe the series' trajectory—major character deaths, historical revelations, and world-altering events that feel earned rather than shocking.
+                    </p>
+                    <p>
+                        The series takes risks with its resolutions that deserve credit. Major characters face permanent consequences—death, disability, betrayal, imprisonment. There's no magic reset button, and the alternate history proceeds inexorably forward. Season 4's conclusion sets fascinating stage for potential future exploration while providing satisfying closure to its specific asteroid mining narrative. The emotional resolution for the Baldwin family, in particular, demonstrates the show's commitment to honoring its long-term character investment.
+                    </p>
+                    <p>
+                        Where resolution occasionally falters is in some subplot conclusions that feel rushed or underdeveloped, particularly in the political storylines that sometimes span multiple seasons without clear focus. A few romantic entanglements resolve with unexpected tidiness given the complexity of their development. However, the core narrative—the colonization of space and its effect on humanity—resolves each season with genuine consequence and emotional weight. The series understands that in this genre, resolution is rarely final; it's the next launch pad.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="final-score-section">
+            <div class="final-score-label">Overall Score</div>
+            <div class="final-score-value">7.88</div>
+            <div class="final-score-verdict">
+                <p>
+                    <strong>For All Mankind</strong> stands as one of the most ambitious science fiction series ever produced for television—a sprawling alternate history that asks what humanity might have achieved if we'd never stopped reaching for the stars. Its 7.88 score reflects exceptional world-building, stunning visual realization, and genuinely moving character work across multiple generations. The series isn't perfect; some secondary plots meander, certain character decisions frustrate, and the demands of its scope occasionally strain coherence. But these are minor blemishes on a work of genuine vision.
+                </p>
+                <p style="margin-top: 15px;">
+                    What elevates the show beyond mere entertainment is its sincere engagement with the promise and cost of exploration. It neither romanticizes space colonization as simple heroism nor dismisses it as folly. Instead, it presents a complex vision of humanity slowly, painfully, gloriously expanding into the cosmos—making errors, learning, sacrificing, and occasionally transcending our limitations. For anyone who's ever looked up at the night sky and felt the ache of unfulfilled potential, this series provides both catharsis and challenge. In an era of diminishing space ambitions, For All Mankind dares to imagine the road not taken—and makes us wish desperately we could still take it.
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Analysis completed for TV Shows Ranked</p>
+            <p style="margin-top: 10px; font-size: 0.85em;">© TV Shows Ranked Project | Generated for reference purposes</p>
+        </footer>
+    </div>
+</body>
+</html>

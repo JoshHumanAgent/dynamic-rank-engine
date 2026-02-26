@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "mr-robot",
+    "title":  "Mr. Robot",
+    "year":  2015,
+    "month":  5,
+    "status":  "ended",
+    "seasons":  4,
+    "episodes":  45,
+    "runtime":  "49-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "thriller"
+               ],
+    "creator":  [
+                    "Sam Esmail"
+                ],
+    "network":  "USA Network",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.5,
+                                          "scale":  10,
+                                          "count":  "345K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt3778734/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  95,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/mr_robot"
+                                                 },
+                             "metacritic":  {
+                                                "score":  80,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/mr-robot"
+                                            }
+                         },
+    "consensus_highlights":  "Mr. Robot is a technological thriller that reimagines the hacker procedural for the prestige era. Rami Malek delivers a career-defining performance as Elliot Alderson, a cybersecurity engineer with social anxiety who becomes entangled with a mysterious anarchist called Mr. Robot. The series combines technical authenticity with psychological depth and social commentary.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  9,
+                           "drive":  7.5,
+                           "cine":  9,
+                           "spect":  6,
+                           "final":  7.82,
+                           "world":  7,
+                           "char":  8
+                       },
+    "notes":  "Mr. Robot proves that genre television can achieve artistic heights. Its exploration of surveillance capitalism and mental health was ahead of its time.",
+    "tmdbId":  62560,
+    "streaming":  {
+                      "us":  [
+                                 "Prime Video"
+                             ],
+                      "uk":  [
+                                 "Amazon Prime Video"
+                             ]
+                  }
+}

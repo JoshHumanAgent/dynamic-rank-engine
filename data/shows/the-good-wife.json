@@ -1,0 +1,27 @@
+{
+  "slug": "the-good-wife",
+  "title": "The Good Wife",
+  "year": 2009,
+  "month": 9,
+  "genres": ["drama"],
+  "final": 7.28,
+  "tmdbId": 1435,
+  "char": 8.0,
+  "world": 7.0,
+  "cine": 6.5,
+  "spect": 5.5,
+  "conc": 7.0,
+  "drive": 7.5,
+  "resol": 7.0,
+  "episodes": 156,
+  "poster": "https://image.tmdb.org/t/p/w500/lasNCd45fpPLirlA7QxkuopWro.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w780/uinrziSwEmS6s8VvGBad5sed7bF.jpg",
+  "streaming": {
+    "us": ["Paramount Plus"],
+    "uk": ["Netflix"]
+  },
+  "creators": ["Michelle King", "Robert King"],
+  "network": "CBS",
+  "status": "ended",
+  "scoring_notes": "Julianna Margulies Emmy-winning performance. Strong ensemble (Josh Charles, Christine Baranski). Procedural format but serialized character arcs. Fin polarizing but thematically appropriate."
+}

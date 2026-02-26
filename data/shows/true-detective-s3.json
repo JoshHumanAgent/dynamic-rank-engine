@@ -1,0 +1,63 @@
+﻿{
+    "slug":  "true-detective-s3",
+    "title":  "True Detective: Season 3",
+    "year":  2019,
+    "month":  1,
+    "status":  "ended",
+    "seasons":  1,
+    "episodes":  8,
+    "runtime":  "60-70",
+    "country":  "United States",
+    "genres":  [
+                   "crime",
+                   "drama",
+                   "mystery"
+               ],
+    "creator":  [
+                    "Nic Pizzolatto"
+                ],
+    "network":  "HBO",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.7,
+                                          "scale":  10,
+                                          "count":  "320K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt6084162/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  78,
+                                                     "scale":  100,
+                                                     "audience":  76,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/true_detective/season_3"
+                                                 },
+                             "metacritic":  {
+                                                "score":  72,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/true-detective/season-3"
+                                            }
+                         },
+    "consensus_highlights":  "True Detective Season 3 brings Nic Pizzolatto\u0027s anthology back to form with a haunting Arkansas mystery spanning three timelines. Mahershala Ali delivers an Emmy-winning performance as detective Wayne Hays, while the show\u0027s signature philosophical dialogue and atmospheric dread return in full force.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  8,
+                           "drive":  7,
+                           "cine":  8,
+                           "spect":  6,
+                           "final":  7.32,
+                           "world":  7.5,
+                           "char":  7.5
+                       },
+    "notes":  "Season 3 is widely considered the franchise\u0027s redemption after the mixed reception of Season 2. The Arkansas setting and multi-decade timeline showcase the anthology format at its best.",
+    "tmdbId":  46648,
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic"
+                             ]
+                  }
+}

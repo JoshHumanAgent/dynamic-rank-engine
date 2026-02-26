@@ -1,0 +1,69 @@
+{
+    "slug": "twin-peaks",
+    "title": "Twin Peaks",
+    "year": 1990,
+    "month": 4,
+    "status": "ended",
+    "seasons": 2,
+    "episodes": 30,
+    "runtime": "45-60",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "mystery",
+        "thriller"
+    ],
+    "creator": [
+        "David Lynch",
+        "Mark Frost"
+    ],
+    "network": "ABC",
+    "external_ratings": {
+        "imdb": {
+            "score": 8.8,
+            "scale": 10,
+            "count": "180K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt0098936/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 83,
+                "scale": 100
+            },
+            "season_2": {
+                "score": 85,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/twin_peaks"
+        },
+        "metacritic": {
+            "score": 80,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/twin-peaks"
+        }
+    },
+    "consensus_highlights": "Twin Peaks revolutionized television with its surreal blend of soap opera, film noir, and supernatural mystery. When the body of Laura Palmer is discovered in a small Washington state town, FBI Agent Dale Cooper begins an investigation that uncovers the town's dark secrets. David Lynch's creation spawned a cultural phenomenon.",
+    "ranking_system": {
+        "characters": 7.5,
+        "world_building": 8,
+        "cinematography": 8,
+        "visual_spectacle": 7,
+        "conceptual_density": 9,
+        "narrative_drive": 6,
+        "resolution": 6,
+        "final_score": 7.13
+    },
+    "tmdbId": 1964,
+    "streaming": {
+        "us": [
+            "Showtime",
+            "Paramount+"
+        ],
+        "uk": [
+            "BBC Two"
+        ]
+    }
+}

@@ -1,0 +1,53 @@
+﻿{
+    "slug":  "patrick-melrose",
+    "title":  "Patrick Melrose",
+    "year":  2018,
+    "month":  5,
+    "status":  "completed",
+    "seasons":  1,
+    "episodes":  5,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama"
+               ],
+    "creator":  "David Nicholls",
+    "network":  "Showtime",
+    "tmdbId":  78818,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.1,
+                                          "scale":  10,
+                                          "count":  "20000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt6583526/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  92,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/patrick_melrose"
+                                                 }
+                         },
+    "consensus_highlights":  "A critical look at the upper class, tracking the protagonist\u0027s odyssey from a traumatic childhood through substance abuse and toward recovery.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  9,
+                           "drive":  7,
+                           "cine":  8,
+                           "spect":  6,
+                           "final":  7.75,
+                           "world":  7,
+                           "char":  8.5
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Showtime",
+                                 "Paramount+"
+                             ],
+                      "uk":  [
+                                 "BBC iPlayer"
+                             ]
+                  }
+}

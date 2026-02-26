@@ -1,0 +1,27 @@
+{
+  "slug": "true-blood",
+  "title": "True Blood",
+  "year": 2008,
+  "month": 9,
+  "genres": ["drama", "fantasy", "horror"],
+  "final": 7.20,
+  "tmdbId": 10545,
+  "char": 7.5,
+  "world": 8.0,
+  "cine": 6.5,
+  "spect": 7.5,
+  "conc": 8.0,
+  "drive": 8.5,
+  "resol": 5.5,
+  "episodes": 80,
+  "poster": "https://image.tmdb.org/t/p/w500/ktEp6fzL4xzCWsSVtrcH8JaQNQy.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w780/nGhC6P0lgcrY57NRB9nweu4nWaK.jpg",
+  "streaming": {
+    "us": ["Max", "Hulu", "HBO Max Amazon Channel", "Apple TV", "Amazon Prime Video"],
+    "uk": ["Now TV", "Sky Store", "Apple TV", "Amazon Prime Video", "Rakuten TV"]
+  },
+  "creators": ["Alan Ball"],
+  "network": "HBO",
+  "status": "ended",
+  "scoring_notes": "Scored based on peak quality (seasons 1-3). Series finale penalty applied to resolution score. Peak RT: 91% (S3), Final RT: 44% (S7)."
+}

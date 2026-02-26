@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "mare-of-easttown",
+    "title":  "Mare of Easttown",
+    "year":  2021,
+    "month":  4,
+    "status":  "completed",
+    "seasons":  1,
+    "episodes":  7,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "crime",
+                   "drama",
+                   "mystery",
+                   "cop-show"
+               ],
+    "creator":  "Brad Ingelsby",
+    "network":  "HBO",
+    "tmdbId":  128816,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  7.5,
+                                          "scale":  10,
+                                          "count":  "95000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt10370288/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  93,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/mare_of_easttown"
+                                                 },
+                             "metacritic":  {
+                                                "score":  76,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/mare-of-easttown"
+                                            }
+                         },
+    "consensus_highlights":  "A detective in a small Pennsylvania town investigates a murder while dealing with personal demons.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  9,
+                           "drive":  8,
+                           "cine":  7,
+                           "spect":  5,
+                           "final":  7.52,
+                           "world":  7.5,
+                           "char":  8
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic"
+                             ]
+                  }
+}

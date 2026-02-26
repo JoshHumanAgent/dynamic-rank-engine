@@ -1,0 +1,85 @@
+﻿{
+    "slug":  "game-of-thrones-s1-4",
+    "title":  "Game of Thrones (S1-4)",
+    "year":  2011,
+    "month":  4,
+    "status":  "ended",
+    "seasons":  8,
+    "episodes":  73,
+    "runtime":  "49-82",
+    "country":  "United States",
+    "genres":  [
+                   "fantasy",
+                   "drama",
+                   "action"
+               ],
+    "creator":  [
+                    "David Benioff",
+                    "D.B. Weiss"
+                ],
+    "network":  "HBO",
+    "based_on":  "A Song of Ice and Fire by George R.R. Martin",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  9.2,
+                                          "scale":  10,
+                                          "count":  "2.5M",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0944947/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "season_1":  {
+                                                                      "score":  90,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_2":  {
+                                                                      "score":  97,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_3":  {
+                                                                      "score":  96,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_4":  {
+                                                                      "score":  97,
+                                                                      "scale":  100
+                                                                  },
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/game_of_thrones"
+                                                 },
+                             "metacritic":  {
+                                                "score":  81,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/game-of-thrones"
+                                            },
+                             "wikipedia_rankings":  {
+                                                        "description":  "Named one of the greatest TV series of all time by multiple publications",
+                                                        "date_accessed":  "2026-02-15",
+                                                        "url":  "https://en.wikipedia.org/wiki/Game_of_Thrones"
+                                                    }
+                         },
+    "consensus_highlights":  "Game of Thrones S1-4 is widely regarded as a landmark in television, featuring intricate political plotting, complex morally-ambiguous characters, stunning production values, and a willingness to subvert fantasy tropes. The adaptation masterfully brings George R.R. Martin\u0027s world to life with dialogue that crackles, characters you love to hate (and hate to love), and moments that redefined what TV could achieve cinematically.",
+    "ranking_system":  {
+                           "conc":  9,
+                           "resol":  9,
+                           "drive":  10,
+                           "cine":  8,
+                           "spect":  9.5,
+                           "final":  9.45,
+                           "world":  10,
+                           "char":  10
+                       },
+    "notes":  "Our ranking specifically evaluates Seasons 1-4, which represent the peak of the series before the decline in later seasons. This subset represents near-perfect television with consistent quality across writing, acting, and production.",
+    "tmdbId":  1399,
+    "streaming":  {
+                      "us":  [
+                                 "Max",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "NOW TV",
+                                 "Sky Atlantic"
+                             ]
+                  }
+}

@@ -1,0 +1,62 @@
+﻿{
+    "slug":  "the-marvelous-mrs-maisel",
+    "title":  "The Marvelous Mrs. Maisel",
+    "year":  2017,
+    "month":  3,
+    "status":  "ended",
+    "seasons":  5,
+    "episodes":  54,
+    "runtime":  "50-65",
+    "country":  "United States",
+    "genres":  [
+                   "comedy",
+                   "drama"
+               ],
+    "creator":  [
+                    "Amy Sherman-Palladino"
+                ],
+    "network":  "Prime Video",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.7,
+                                          "scale":  10,
+                                          "count":  "75K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tttt7683054/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  96,
+                                                     "scale":  100,
+                                                     "audience":  86,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/the_marvelous_mrs_maisel"
+                                                 },
+                             "metacritic":  {
+                                                "score":  80,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/the-marvelous-mrs-maisel"
+                                            }
+                         },
+    "consensus_highlights":  "Amy Sherman-Palladino\u0027s period comedy-drama follows 1960s housewife Miriam \u0027Midge\u0027 Maisel as she pursues stand-up comedy after her husband leaves. The show is a loving recreation of a bygone era, with witty dialogue, spectacular costumes, and a charismatic lead performance from Rachel Brosnahan.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  8,
+                           "drive":  7,
+                           "cine":  8,
+                           "spect":  7,
+                           "final":  7.25,
+                           "world":  7,
+                           "char":  7
+                       },
+    "notes":  "The show won multiple Emmys for its production design and writing. It\u0027s a celebration of female empowerment wrapped in gorgeous period aesthetics.",
+    "tmdbId":  70785,
+    "streaming":  {
+                      "us":  [
+                                 "Prime Video"
+                             ],
+                      "uk":  [
+                                 "Amazon Prime Video"
+                             ]
+                  }
+}

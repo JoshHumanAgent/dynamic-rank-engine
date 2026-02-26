@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sense8 - Eight Souls, One Mind | Dynamic Rank Engine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #805ad5; }
+        .rank-badge { display: inline-block; background: linear-gradient(135deg, #805ad5, #553c9a); color: #e9d8fd; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #d6bcfa; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
+        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(128,90,213,0.5), rgba(0,0,0,0.9)); border: 3px solid #805ad5; border-radius: 8px; }
+        .score-value { font-size: 3rem; font-weight: 700; color: #d6bcfa; }
+        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #805ad5; }
+        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #d6bcfa; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .dimension { background: rgba(128,90,213,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
+        .dimension-name { font-weight: 700; color: #d6bcfa; margin-bottom: 0.3rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; }
+        .dimension-weight { font-size: 0.8rem; color: #666; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+        .info-value { font-size: 1.3rem; color: #d6bcfa; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="rank-badge">Rank #47</div>
+            <h1>Sense8</h1>
+            <p class="subtitle">"I Am Also a We"</p>
+            <div class="score-badge">
+                <span class="score-value">7.35</span>
+                <span class="score-label">Final Score</span>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2015-2018</div></div>
+            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">24</div></div>
+            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Netflix</div></div>
+            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">The Wachowskis</div></div>
+        </div>
+
+        <div class="section">
+            <h2>What It Feels Like to Watch</h2>
+            <p>Sense8 is the Wachowskis' love letter to the world. Eight strangers across the globe discover they're psychically connected—sharing thoughts, skills, and sensations across continents. A hacker in Seoul becomes a fighter when a Kenyan bus driver lends her muscle memory. An Icelandic DJ shares her courage with an Indian pharmacist facing an arranged marriage.</p>
+            <p>The show's greatest strength is its empathy. Every character is the hero of their own story. The sensates visit each other's lives, experiencing different cultures, sexualities, and struggles. It's the most globally-minded show ever made—filmed in eight countries per season, with actual local casts and crews.</p>
+            <p>Netflix cancelled it after season 2, but fan outcry produced a feature-length finale. It's not enough—Sense8 deserved five seasons—but it provides closure. The show remains a beautiful, flawed experiment in radical connection.</p>
+        </div>
+
+        <div class="section">
+            <h2>Why It Ranks</h2>
+            <div class="dimension-grid">
+                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
+                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8.5</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">6</div><div class="dimension-weight">25% weight</div></div>
+            </div>
+            <p style="margin-top:1.5rem"><strong>World Building (8.5):</strong> Eight cities, eight lives, all interconnected. The sensate mythology is built organically—the cluster, Whispers, BPO—without exposition dumps. The global scope is unprecedented.</p>
+            <p><strong>Cinematography (9):</strong> This is one of the most beautifully shot shows ever made. Each location has distinct visual language. The cluster sequences—characters appearing in each other's environments—are technically flawless.</p>
+            <p><strong>Resolution (6):</strong> The two-hour finale is rushed. Storylines that deserved seasons are compressed. The show was cancelled too soon, and the ending feels like a cliff notes version of what was planned.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Episodes</h2>
+            <p><strong>"Limbic Resonance" (S1E1)</strong> — The pilot. Eight people wake up, see each other, realize they're not alone. The concept established in one breathless hour.</p>
+            <p><strong>"What's Going On?" (S1E9)</strong> — The sensates learn to share skills. A birthday party becomes a global celebration.</p>
+            <p><strong>"Amor Vincit Omnia" (S2E12)</strong> — The finale film. A rescue mission, a wedding, and bittersweet closure.</p>
+        </div>
+    </div>
+</body>
+</html>

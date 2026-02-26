@@ -1,0 +1,56 @@
+{
+    "slug": "justified",
+    "title": "Justified",
+    "year": 2010,
+    "month": 3,
+    "status": "completed",
+    "seasons": 6,
+    "episodes": 78,
+    "runtime": "45-60",
+    "country": "United States",
+    "genres": [
+        "crime",
+        "drama",
+        "western"
+    ],
+    "creator": "Graham Yost",
+    "network": "FX",
+    "tmdbId": 1435,
+    "external_ratings": {
+        "imdb": {
+            "score": 8.6,
+            "scale": 10,
+            "count": "129400",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt1489428/"
+        },
+        "rotten_tomatoes": {
+            "score": 97,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/justified"
+        }
+    },
+    "consensus_highlights": "U.S. Marshal Raylan Givens is reassigned to his hometown in Kentucky, where his old-school approach to law enforcement puts him at odds with criminals including his former friend Boyd Crowder.",
+    "ranking_system": {
+        "char": 8.1,
+        "world": 7.5,
+        "cine": 7.5,
+        "spect": 6.5,
+        "conc": 7.8,
+        "drive": 7.8,
+        "resol": 7.8,
+        "final": 7.75
+    },
+    "notes": "",
+    "streaming": {
+        "us": [
+            "Netflix",
+            "Amazon Prime Video",
+            "Hulu"
+        ],
+        "uk": [
+            "Amazon Prime Video"
+        ]
+    }
+}

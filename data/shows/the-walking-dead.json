@@ -1,0 +1,27 @@
+{
+  "slug": "the-walking-dead",
+  "title": "The Walking Dead",
+  "year": 2010,
+  "month": 10,
+  "genres": ["drama", "horror", "thriller"],
+  "final": 7.35,
+  "tmdbId": 1402,
+  "char": 7.5,
+  "world": 8.5,
+  "cine": 7.0,
+  "spect": 7.5,
+  "conc": 7.0,
+  "drive": 8.0,
+  "resol": 6.5,
+  "episodes": 177,
+  "poster": "https://image.tmdb.org/t/p/w500/ng3cMtxYKt1OSQYqFlnKWnVsqNO.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w780/rAOjnEFTuNysY7bot8zonhImGMh.jpg",
+  "streaming": {
+    "us": ["Netflix", "AMC Plus"],
+    "uk": ["Disney Plus", "Netflix"]
+  },
+  "creators": ["Frank Darabont"],
+  "network": "AMC",
+  "status": "ended",
+  "scoring_notes": "Scored on peak seasons 1-5 (8.3-8.6 TMDB). Massive cultural impact. Strong world-building (8.5) and drive (8.0). Resolution penalized for later season decline. Finale recovered to 8.4."
+}

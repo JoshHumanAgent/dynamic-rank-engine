@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of Thrones - "Winter is coming" | Dynamic Rank Engine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #100a05 50%, #0a0a0f 100%); min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #8d6e63; }
+        .rank-badge { display: inline-block; background: linear-gradient(135deg, #5d4037, #3e2723); color: #d7ccc8; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #bcaaa4; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
+        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(93,64,55,0.3), rgba(0,0,0,0.9)); border: 3px solid #5d4037; border-radius: 8px; }
+        .score-value { font-size: 3rem; font-weight: 700; color: #bcaaa4; }
+        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #5d4037; }
+        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #bcaaa4; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .dimension { background: rgba(93,64,55,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
+        .dimension-name { font-weight: 700; color: #bcaaa4; margin-bottom: 0.3rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; }
+        .dimension-weight { font-size: 0.8rem; color: #666; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+        .info-value { font-size: 1.3rem; color: #bcaaa4; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="rank-badge">Rank #5</div>
+            <h1>Game of Thrones</h1>
+            <p class="subtitle">"Winter is coming"</p>
+            <div class="score-badge">
+                <span class="score-value">8.48</span>
+                <span class="score-label">Final Score</span>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2011-2019</div></div>
+            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">73</div></div>
+            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
+            <div class="info-item"><div class="info-label">Creators</div><div class="info-value">David Benioff, D.B. Weiss</div></div>
+        </div>
+
+        <div class="section">
+            <h2>What It Feels Like to Watch</h2>
+            <p>Game of Thrones is epic fantasy as prestige television—George R.R. Martin's novels adapted into the most expensive, most watched, most discussed series of its era. Westeros: seven kingdoms, an iron throne, noble houses plotting and warring. Across the sea, the last heirs of a deposed dynasty plot return. Beyond the Wall, an ancient threat stirs—White Walkers, winter coming. "When you play the game of thrones, you win or you die," Cersei Lannister declares. Most die.</p>
+            <p>The show's innovation: moral complexity in fantasy. Ned Stark (Sean Bean), the honorable lord, is executed in season one—not saved by protagonist status. "The good guys" don't automatically win; virtue is not protection. The Lannisters—Cersei (Lena Headey), Jaime (Nikolaj Coster-Waldau), Tyrion (Peter Dinklage)—are villains and victims, monstrous and sympathetic. Daenerys Targaryen (Emilia Clarke) rises from exile to become a conqueror, liberating slaves, burning enemies, eventually becoming the very tyrant she opposed. Jon Snow (Kit Harington) is the hidden heir, the reluctant hero, the man who kills the woman he loves to save the world.</p>
+            <p>The scope is unprecedented: dozens of characters, multiple continents, battles and dragons and magic and politics. HBO's budget created spectacles—the Battle of the Bastards, the loot train attack, the Long Night. The production design: costumes, sets, locations across Europe and beyond. The themes: power corrupts, honor is expensive, everyone believes they're the hero. "Chaos isn't a pit," Littlefinger says. "Chaos is a ladder." Everyone climbs; most fall.</p>
+            <p>Eight seasons, seventy-three episodes, complete—and controversial. Seasons one through four adapt Martin's novels with brilliance. Seasons five and six slip without source material. Seasons seven and eight rush endings: Daenerys's turn to villainy in two episodes; the White Walkers defeated in one battle; Bran the Broken as king. The finale divided fans—some defended it; most despised it. But the journey matters: Game of Thrones changed television. Fantasy became prestige. Dragons became mainstream. The game continues—prequels, spin-offs—but the original earned its place.</p>
+        </div>
+
+        <div class="section">
+            <h2>Why It Ranks</h2>
+            <div class="dimension-grid">
+                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
+                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">6</div><div class="dimension-weight">20% weight</div></div>
+            </div>
+            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> Complete fantasy world. History, geography, culture. Houses, religions, legends. The standard for television fantasy.</p>
+            <p><strong>Visual Spectacle (10):</strong> Dragons, battles, ice zombies. Battle of the Bastards. The Long Night. Television's most expensive production.</p>
+            <p><strong>Characters & Acting (9):</strong> Peter Dinklage's Tyrion is iconic. Lena Headey's Cersei, Emilia Clarke's Daenerys. Ensemble depth.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Episodes</h2>
+            <p><strong>("Winter Is Coming" (S1E1)</strong> — The introduction. Three storylines begin. "The things I do for love."</p>
+            <p><strong>"Baelor" (S1E9)</strong> — Ned's execution. "The noblest man I ever met."</p>
+            <p><strong>"The Rains of Castamere" (S3E9)</strong> — The Red Wedding. "The Lannisters send their regards."</p>
+            <p><strong>("Battle of the Bastards" (S6E9)</strong> — Jon versus Ramsay. "I haven't fought in a war."</p>
+        </div>
+
+        <div class="section">
+            <h2>Where to Watch</h2>
+            <p><strong>US:</strong> HBO Max</p>
+            <p><strong>UK:</strong> Sky Go, NOW</p>
+        </div>
+    </div>
+</body>
+</html>

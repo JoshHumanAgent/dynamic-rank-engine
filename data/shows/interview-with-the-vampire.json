@@ -1,0 +1,45 @@
+﻿{
+    "slug":  "interview-with-the-vampire",
+    "title":  "Interview with the Vampire",
+    "year":  2022,
+    "month":  10,
+    "status":  "ongoing",
+    "seasons":  2,
+    "episodes":  18,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "horror",
+                   "drama",
+                   "fantasy"
+               ],
+    "creator":  [
+                    "TBD"
+                ],
+    "network":  "Streaming",
+    "tmdbId":  128098,
+    "external_ratings":  {
+
+                         },
+    "consensus_highlights":  "Interview with the Vampire is a horror series.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  7,
+                           "drive":  7,
+                           "cine":  8,
+                           "spect":  7,
+                           "final":  7.38,
+                           "world":  7.5,
+                           "char":  8
+                       },
+    "notes":  "Added from website sync",
+    "streaming":  {
+                      "us":  [
+                                 "AMC+",
+                                 "AMC"
+                             ],
+                      "uk":  [
+                                 "AMC+"
+                             ]
+                  }
+}

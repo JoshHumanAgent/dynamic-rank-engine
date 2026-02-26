@@ -1,0 +1,60 @@
+﻿{
+    "slug":  "utopia-uk",
+    "title":  "Utopia (UK)",
+    "year":  2013,
+    "month":  1,
+    "status":  "completed",
+    "seasons":  2,
+    "episodes":  12,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "sci-fi",
+                   "thriller",
+                   "drama"
+               ],
+    "creator":  "Dennis Kelly",
+    "network":  "Channel 4",
+    "tmdbId":  41810,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.4,
+                                          "scale":  10,
+                                          "count":  "35000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt2380424/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  90,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/utopia_uk"
+                                                 },
+                             "metacritic":  {
+                                                "score":  78,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/utopia-uk"
+                                            }
+                         },
+    "consensus_highlights":  "British conspiracy thriller about a group of strangers who find themselves in possession of a mysterious comic book.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  6,
+                           "drive":  9,
+                           "cine":  10,
+                           "spect":  7,
+                           "final":  7.78,
+                           "world":  7.5,
+                           "char":  7.5
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "Channel 4"
+                             ]
+                  }
+}

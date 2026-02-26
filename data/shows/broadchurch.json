@@ -1,0 +1,73 @@
+{
+    "slug": "broadchurch",
+    "title": "Broadchurch",
+    "year": 2013,
+    "month": 3,
+    "status": "ended",
+    "seasons": 3,
+    "episodes": 24,
+    "runtime": "45-50",
+    "country": "United Kingdom",
+    "genres": [
+        "drama",
+        "mystery",
+        "crime"
+    ],
+    "creator": [
+        "Chris Chibnall"
+    ],
+    "network": "ITV",
+    "external_ratings": {
+        "imdb": {
+            "score": 8.4,
+            "scale": 10,
+            "count": "110K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt2249364/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 92,
+                "scale": 100
+            },
+            "season_2": {
+                "score": 92,
+                "scale": 100
+            },
+            "season_3": {
+                "score": 91,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/broadchurch"
+        },
+        "metacritic": {
+            "score": 72,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/broadchurch"
+        }
+    },
+    "consensus_highlights": "Broadchurch is a British crime drama set in a small seaside town where the murder of a young boy rocks the community. The series explores the impact of tragedy on families and neighbors with sensitive storytelling. Known for its strong performances and intricate mystery plotting.",
+    "ranking_system": {
+        "characters": 7.5,
+        "world_building": 7,
+        "cinematography": 8,
+        "visual_spectacle": 6,
+        "conceptual_density": 7,
+        "narrative_drive": 8,
+        "resolution": 8,
+        "final_score": 7.21
+    },
+    "tmdbId": 50431,
+    "streaming": {
+        "us": [
+            "Hulu",
+            "Amazon Prime Video"
+        ],
+        "uk": [
+            "ITV",
+            "Britbox"
+        ]
+    }
+}

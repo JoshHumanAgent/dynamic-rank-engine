@@ -1,0 +1,63 @@
+{
+    "slug": "the-plot-against-america",
+    "title": "The Plot Against America",
+    "year": 2020,
+    "month": 3,
+    "status": "ended",
+    "seasons": 1,
+    "episodes": 6,
+    "runtime": "45-55",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "alternate-history"
+    ],
+    "creator": [
+        "David Simon",
+        "Ed Burns"
+    ],
+    "network": "HBO",
+    "external_ratings": {
+        "imdb": {
+            "score": 7.8,
+            "scale": 10,
+            "count": "35K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tttt10519086/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 90,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/the_plot_against_america"
+        },
+        "metacritic": {
+            "score": 80,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/the-plot-against-america"
+        }
+    },
+    "consensus_highlights": "The Plot Against America is an alternate history miniseries based on Philip Roth's novel. What if Charles Lindbergh, the famous aviator and Nazi sympathizer, had defeated Franklin Roosevelt in 1940? The series explores this disturbing possibility through the lens of a Jewish family in Newark, New Jersey.",
+    "ranking_system": {
+        "char": 7.5,
+        "world": 8,
+        "cine": 8,
+        "spect": 6,
+        "conc": 9,
+        "drive": 7,
+        "resol": 7,
+        "final": 7.23
+    },
+    "tmdbId": 83710,
+    "streaming": {
+        "us": [
+            "HBO Max"
+        ],
+        "uk": [
+            "Sky Atlantic"
+        ]
+    }
+}

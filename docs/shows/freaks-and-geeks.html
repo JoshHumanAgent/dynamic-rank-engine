@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freaks and Geeks - "I'm a Freak" | Dynamic Rank Engine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #f57c00; }
+        .rank-badge { display: inline-block; background: linear-gradient(135deg, #f57c00, #e65100); color: #fff3e0; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ffb74d; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
+        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(245,124,0,0.3), rgba(0,0,0,0.9)); border: 3px solid #f57c00; border-radius: 8px; }
+        .score-value { font-size: 3rem; font-weight: 700; color: #ffb74d; }
+        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #f57c00; }
+        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ffb74d; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .dimension { background: rgba(245,124,0,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
+        .dimension-name { font-weight: 700; color: #ffb74d; margin-bottom: 0.3rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; }
+        .dimension-weight { font-size: 0.8rem; color: #666; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+        .info-value { font-size: 1.3rem; color: #ffb74d; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="rank-badge">Rank #45</div>
+            <h1>Freaks and Geeks</h1>
+            <p class="subtitle">"I'm a Freak"</p>
+            <div class="score-badge">
+                <span class="score-value">7.85</span>
+                <span class="score-label">Final Score</span>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item"><div class="info-label">Years</div><div class="info-value">1999-2000</div></div>
+            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">18</div></div>
+            <div class="info-item"><div class="info-label">Network</div><div class="info-value">NBC</div></div>
+            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Paul Feig</div></div>
+        </div>
+
+        <div class="section">
+            <h2>What It Feels Like to Watch</h2>
+            <p>Freaks and Geeks is the show that got away. Eighteen episodes aired (three burned off months later), and then it was gone—too smart, too different, too committed to the awkward reality of being a teenager. Set in a Michigan high school in 1980-81, it follows two siblings: Lindsay Weir (Linda Cardellini), a former mathlete trying to reinvent herself as a burnout; and her younger brother Sam (John Frances Daley), a geek navigating the horrors of adolescence with his equally awkward friends.</p>
+            <p>The production design is meticulous—this is 1980, complete with bad hair, worse clothes, and a cultural landscape that still believes disco might come back. But the show's real achievement is emotional accuracy. Writer/producer Judd Apatow and creator Paul Feig built the series from their own experiences, and every episode contains at least one moment of recognition: the humiliation of wearing the wrong thing, the desperate desire to fit in, the discovery that the cool kids are just as lost as you are.</p>
+            <p>The cast is now legendary. James Franco, Seth Rogen, Jason Segel, Busy Philipps, Martin Starr—all young, all unformed, all delivering performances that would launch careers. But it's Cardellini who holds the series together, a former good girl drawn to the freaks not because they're cool, but because they're honest about their alienation. Her friendship with Kim (Philipps), the terrifying burnout girl, becomes the show's most surprising relationship—and the most real.</p>
+            <p>The finale, unaired during the original run, is perfect. Lindsay ditches an academic summer program to follow the Grateful Dead with Kim. It's a terrible decision, made for the right reasons. That's the whole show: young people making terrible decisions for the right reasons, learning to live with the consequences. Eighteen episodes. A career launcher. A cult classic. Cancelled before its time, perfect in what it left behind.</p>
+        </div>
+
+        <div class="section">
+            <h2>Why It Ranks</h2>
+            <div class="dimension-grid">
+                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
+                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">5</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
+            </div>
+            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Franco, Rogen, Segel, Cardellini—an entire generation of comedy launched from this cast.</p>
+            <p><strong>World Building (9):</strong> 1980 Michigan. Every detail is perfect, from the clothes to the music to the social hierarchies.</p>
+            <p><strong>Resolution (8):</strong> Eighteen episodes, one season. The Grateful Dead finale is perfect. The cancellation is tragic.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Episodes</h2>
+            <p><strong>"Pilot" (S1E1)</strong> — The introduction. The cafeteria. The first classification.</p>
+            <p><strong>"Dead Dogs and Gym Teachers" (S1E12)</strong> — Roswell. The breakup. The best episode of the series.</p>
+            <p><strong>"Discos and Dragons" (S1E18)</strong> — Series finale. The Dead show. The road trip. Perfect.</p>
+        </div>
+
+        <div class="section">
+            <h2>Where to Watch</h2>
+            <p><strong>US:</strong> Hulu</p>
+            <p><strong>UK:</strong> Disney+</p>
+        </div>
+    </div>
+</body>
+</html>

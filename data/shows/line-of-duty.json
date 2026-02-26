@@ -1,0 +1,62 @@
+﻿{
+    "slug":  "line-of-duty",
+    "title":  "Line of Duty",
+    "year":  2012,
+    "month":  3,
+    "status":  "completed",
+    "seasons":  6,
+    "episodes":  37,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "crime",
+                   "drama",
+                   "thriller",
+                   "cop-show"
+               ],
+    "creator":  "Jed Mercurio",
+    "network":  "BBC Two",
+    "tmdbId":  43865,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.3,
+                                          "scale":  10,
+                                          "count":  "65000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt2303687/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  93,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/line_of_duty"
+                                                 },
+                             "metacritic":  {
+                                                "score":  72,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/line-of-duty"
+                                            }
+                         },
+    "consensus_highlights":  "British police procedural focusing on the investigations of AC-12, an anti-corruption unit.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  7,
+                           "drive":  9,
+                           "cine":  7,
+                           "spect":  5,
+                           "final":  7.2,
+                           "world":  7,
+                           "char":  7.5
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "BBC One"
+                             ]
+                  }
+}

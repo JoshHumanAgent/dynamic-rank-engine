@@ -1,0 +1,27 @@
+{
+  "slug": "industry",
+  "title": "Industry",
+  "year": 2020,
+  "month": 11,
+  "genres": ["drama"],
+  "final": 6.95,
+  "tmdbId": 90812,
+  "char": 6.5,
+  "world": 7.5,
+  "cine": 6.5,
+  "spect": 5.5,
+  "conc": 7.0,
+  "drive": 7.0,
+  "resol": 6.0,
+  "episodes": 32,
+  "poster": "https://image.tmdb.org/t/p/w500/mZ7YFEOxAKfjXJKWm0sYFXQ8n8A.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w780/qcV7ebwtZcoRxBufUmXQl0KKdht.jpg",
+  "streaming": {
+    "us": ["Max"],
+    "uk": ["BBC iPlayer"]
+  },
+  "creators": ["Mickey Down", "Konrad Kay"],
+  "network": "HBO",
+  "status": "ongoing",
+  "scoring_notes": "Authentic finance world depiction. Strong world-building (7.5) with propulsive narrative drive (7.0). Resolution penalized for ongoing status. TMDB: 6.78."
+}

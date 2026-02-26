@@ -1,0 +1,44 @@
+﻿{
+    "slug":  "slow-horses",
+    "title":  "Slow Horses",
+    "year":  2022,
+    "month":  4,
+    "status":  "ongoing",
+    "seasons":  2,
+    "episodes":  18,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "thriller",
+                   "drama",
+                   "action"
+               ],
+    "creator":  [
+                    "TBD"
+                ],
+    "network":  "Streaming",
+    "tmdbId":  103516,
+    "external_ratings":  {
+
+                         },
+    "consensus_highlights":  "Slow Horses is a thriller series.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  7,
+                           "drive":  8,
+                           "cine":  7,
+                           "spect":  6,
+                           "final":  7.25,
+                           "world":  7,
+                           "char":  8
+                       },
+    "notes":  "Added from website sync",
+    "streaming":  {
+                      "us":  [
+                                 "Apple TV+"
+                             ],
+                      "uk":  [
+                                 "Apple TV+"
+                             ]
+                  }
+}

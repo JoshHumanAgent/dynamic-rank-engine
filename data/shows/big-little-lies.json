@@ -1,0 +1,66 @@
+{
+    "slug": "big-little-lies",
+    "title": "Big Little Lies",
+    "year": 2017,
+    "month": 2,
+    "status": "ended",
+    "seasons": 2,
+    "episodes": 14,
+    "runtime": "52-60",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "mystery"
+    ],
+    "creator": [
+        "David E. Kelley"
+    ],
+    "network": "HBO",
+    "external_ratings": {
+        "imdb": {
+            "score": 8.5,
+            "scale": 10,
+            "count": "250K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt4877742/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 93,
+                "scale": 100
+            },
+            "season_2": {
+                "score": 93,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/big_little_lies"
+        },
+        "metacritic": {
+            "score": 75,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/big-little-lies"
+        }
+    },
+    "consensus_highlights": "Big Little Lies follows three mothers in a California beach town whose lives unravel when a school function ends in tragedy. The series masterfully weaves together domestic drama, dark comedy, and mystery while exploring themes of domestic abuse and female friendship. The ensemble cast earned numerous awards.",
+    "ranking_system": {
+        "characters": 7.5,
+        "world_building": 7,
+        "cinematography": 8,
+        "visual_spectacle": 7,
+        "conceptual_density": 7,
+        "narrative_drive": 7,
+        "resolution": 8,
+        "final_score": 7.01
+    },
+    "tmdbId": 69629,
+    "streaming": {
+        "us": [
+            "HBO Max"
+        ],
+        "uk": [
+            "Sky Atlantic"
+        ]
+    }
+}

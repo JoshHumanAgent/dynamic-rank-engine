@@ -1,0 +1,72 @@
+{
+    "slug": "homicide-life-on-the-street",
+    "title": "Homicide: Life on the Street",
+    "year": 1993,
+    "month": 1,
+    "status": "ended",
+    "seasons": 7,
+    "episodes": 122,
+    "runtime": "45-60",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "crime"
+    ],
+    "creator": [
+        "Tom Fontana",
+        "Barry Levinson"
+    ],
+    "network": "NBC",
+    "external_ratings": {
+        "imdb": {
+            "score": 8.6,
+            "scale": 10,
+            "count": "20K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt0106028/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 93,
+                "scale": 100
+            },
+            "season_2": {
+                "score": 100,
+                "scale": 100
+            },
+            "season_3": {
+                "score": 100,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/homicide_life_on_the_street"
+        },
+        "metacritic": {
+            "score": 79,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/homicide-life-on-the-street"
+        }
+    },
+    "consensus_highlights": "Homicide: Life on the Street is an acclaimed police drama based on David Simon's book. The series follows the Baltimore homicide unit with a focus on realistic casework and character-driven storytelling. Known for its innovative style and strong performances, it ran for seven seasons.",
+    "ranking_system": {
+        "characters": 7.5,
+        "world_building": 6.5,
+        "cinematography": 6,
+        "visual_spectacle": 5,
+        "conceptual_density": 7,
+        "narrative_drive": 7,
+        "resolution": 7,
+        "final_score": 7.13
+    },
+    "tmdbId": 1597,
+    "streaming": {
+        "us": [
+            "Hulu",
+            "Peacock"
+        ],
+        "uk": [
+            "BBC Two"
+        ]
+    }
+}

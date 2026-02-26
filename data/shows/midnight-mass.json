@@ -1,0 +1,54 @@
+﻿{
+    "slug":  "midnight-mass",
+    "title":  "Midnight Mass",
+    "year":  2021,
+    "month":  9,
+    "status":  "completed",
+    "seasons":  1,
+    "episodes":  7,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "horror",
+                   "drama",
+                   "mystery"
+               ],
+    "creator":  "Mike Flanagan",
+    "network":  "Netflix",
+    "tmdbId":  93494,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  7.7,
+                                          "scale":  10,
+                                          "count":  "68000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt10519086/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  87,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/midnight_mass"
+                                                 }
+                         },
+    "consensus_highlights":  "A charismatic priest brings miracles and mysteries to a dying island community.",
+    "ranking_system":  {
+                           "conc":  9,
+                           "resol":  9,
+                           "drive":  7,
+                           "cine":  8,
+                           "spect":  6,
+                           "final":  7.7,
+                           "world":  7,
+                           "char":  7.5
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Netflix"
+                             ],
+                      "uk":  [
+                                 "Netflix"
+                             ]
+                  }
+}

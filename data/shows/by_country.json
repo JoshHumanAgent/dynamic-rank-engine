@@ -1,0 +1,630 @@
+﻿{
+    "description":  "Shows indexed by country",
+    "generated":  "2026-02-15",
+    "countries":  [
+                      {
+                          "country":  "Denmark",
+                          "count":  1,
+                          "shows":  [
+                                        {
+                                            "rank":  83,
+                                            "score":  7.23,
+                                            "title":  "The Killing (DK)",
+                                            "slug":  "the-killing-dk"
+                                        }
+                                    ]
+                      },
+                      {
+                          "country":  "Germany",
+                          "count":  2,
+                          "shows":  [
+                                        {
+                                            "rank":  21,
+                                            "score":  7.79,
+                                            "title":  "Dark",
+                                            "slug":  "dark"
+                                        },
+                                        {
+                                            "rank":  11,
+                                            "score":  8.03,
+                                            "title":  "Babylon Berlin",
+                                            "slug":  "babylon-berlin"
+                                        }
+                                    ]
+                      },
+                      {
+                          "country":  "United Kingdom",
+                          "count":  5,
+                          "shows":  [
+                                        {
+                                            "rank":  88,
+                                            "score":  7.21,
+                                            "title":  "Broadchurch",
+                                            "slug":  "broadchurch"
+                                        },
+                                        {
+                                            "rank":  98,
+                                            "score":  6.90,
+                                            "title":  "Killing Eve",
+                                            "slug":  "killing-eve"
+                                        },
+                                        {
+                                            "rank":  87,
+                                            "score":  7.22,
+                                            "title":  "Happy Valley",
+                                            "slug":  "happy-valley"
+                                        },
+                                        {
+                                            "rank":  15,
+                                            "score":  7.95,
+                                            "title":  "Adolescence",
+                                            "slug":  "adolescence"
+                                        },
+                                        {
+                                            "rank":  28,
+                                            "score":  7.71,
+                                            "title":  "It\u0027s a Sin",
+                                            "slug":  "its-a-sin"
+                                        }
+                                    ]
+                      },
+                      {
+                          "country":  "United States",
+                          "count":  92,
+                          "shows":  [
+                                        {
+                                            "rank":  66,
+                                            "score":  7.39,
+                                            "title":  "Twin Peaks: The Return",
+                                            "slug":  "twin-peaks-the-return"
+                                        },
+                                        {
+                                            "rank":  67,
+                                            "score":  7.39,
+                                            "title":  "Rome",
+                                            "slug":  "rome"
+                                        },
+                                        {
+                                            "rank":  65,
+                                            "score":  7.39,
+                                            "title":  "The Last of Us",
+                                            "slug":  "the-last-of-us"
+                                        },
+                                        {
+                                            "rank":  63,
+                                            "score":  7.40,
+                                            "title":  "The X-Files",
+                                            "slug":  "the-x-files"
+                                        },
+                                        {
+                                            "rank":  64,
+                                            "score":  7.40,
+                                            "title":  "Stranger Things",
+                                            "slug":  "stranger-things"
+                                        },
+                                        {
+                                            "rank":  68,
+                                            "score":  7.39,
+                                            "title":  "Silo",
+                                            "slug":  "silo"
+                                        },
+                                        {
+                                            "rank":  72,
+                                            "score":  7.36,
+                                            "title":  "Gomorrah",
+                                            "slug":  "gomorrah"
+                                        },
+                                        {
+                                            "rank":  73,
+                                            "score":  7.36,
+                                            "title":  "Downton Abbey",
+                                            "slug":  "downton-abbey"
+                                        },
+                                        {
+                                            "rank":  71,
+                                            "score":  7.37,
+                                            "title":  "Godless",
+                                            "slug":  "godless"
+                                        },
+                                        {
+                                            "rank":  69,
+                                            "score":  7.39,
+                                            "title":  "The Underground Railroad",
+                                            "slug":  "the-underground-railroad"
+                                        },
+                                        {
+                                            "rank":  70,
+                                            "score":  7.37,
+                                            "title":  "Penny Dreadful",
+                                            "slug":  "penny-dreadful"
+                                        },
+                                        {
+                                            "rank":  62,
+                                            "score":  7.44,
+                                            "title":  "Utopia (UK)",
+                                            "slug":  "utopia-uk"
+                                        },
+                                        {
+                                            "rank":  54,
+                                            "score":  7.47,
+                                            "title":  "Sharp Objects",
+                                            "slug":  "sharp-objects"
+                                        },
+                                        {
+                                            "rank":  55,
+                                            "score":  7.47,
+                                            "title":  "Patrick Melrose",
+                                            "slug":  "patrick-melrose"
+                                        },
+                                        {
+                                            "rank":  53,
+                                            "score":  7.48,
+                                            "title":  "Shogun (2024)",
+                                            "slug":  "shogun-2024"
+                                        },
+                                        {
+                                            "rank":  51,
+                                            "score":  7.49,
+                                            "title":  "Beef",
+                                            "slug":  "beef"
+                                        },
+                                        {
+                                            "rank":  52,
+                                            "score":  7.49,
+                                            "title":  "Severance",
+                                            "slug":  "severance"
+                                        },
+                                        {
+                                            "rank":  56,
+                                            "score":  7.47,
+                                            "title":  "Generation Kill",
+                                            "slug":  "generation-kill"
+                                        },
+                                        {
+                                            "rank":  60,
+                                            "score":  7.45,
+                                            "title":  "Pose",
+                                            "slug":  "pose"
+                                        },
+                                        {
+                                            "rank":  61,
+                                            "score":  7.45,
+                                            "title":  "The White Lotus",
+                                            "slug":  "the-white-lotus"
+                                        },
+                                        {
+                                            "rank":  59,
+                                            "score":  7.45,
+                                            "title":  "Borgen",
+                                            "slug":  "borgen"
+                                        },
+                                        {
+                                            "rank":  57,
+                                            "score":  7.46,
+                                            "title":  "Squid Game",
+                                            "slug":  "squid-game"
+                                        },
+                                        {
+                                            "rank":  58,
+                                            "score":  7.45,
+                                            "title":  "24",
+                                            "slug":  "24"
+                                        },
+                                        {
+                                            "rank":  92,
+                                            "score":  7.03,
+                                            "title":  "Foundation",
+                                            "slug":  "foundation"
+                                        },
+                                        {
+                                            "rank":  93,
+                                            "score":  7.03,
+                                            "title":  "The Handmaid\u0027s Tale",
+                                            "slug":  "the-handmaids-tale"
+                                        },
+                                        {
+                                            "rank":  91,
+                                            "score":  7.13,
+                                            "title":  "Homicide: Life on the Street",
+                                            "slug":  "homicide-life-on-the-street"
+                                        },
+                                        {
+                                            "rank":  89,
+                                            "score":  7.14,
+                                            "title":  "The Affair",
+                                            "slug":  "the-affair"
+                                        },
+                                        {
+                                            "rank":  90,
+                                            "score":  7.13,
+                                            "title":  "Twin Peaks",
+                                            "slug":  "twin-peaks"
+                                        },
+                                        {
+                                            "rank":  94,
+                                            "score":  7.01,
+                                            "title":  "The Bear",
+                                            "slug":  "the-bear"
+                                        },
+                                        {
+                                            "rank":  99,
+                                            "score":  6.88,
+                                            "title":  "Barry",
+                                            "slug":  "barry"
+                                        },
+                                        {
+                                            "rank":  100,
+                                            "score":  6.83,
+                                            "title":  "Westworld",
+                                            "slug":  "westworld"
+                                        },
+                                        {
+                                            "rank":  97,
+                                            "score":  6.96,
+                                            "title":  "The Marvelous Mrs. Maisel",
+                                            "slug":  "the-marvelous-mrs-maisel"
+                                        },
+                                        {
+                                            "rank":  95,
+                                            "score":  7.01,
+                                            "title":  "Big Little Lies",
+                                            "slug":  "big-little-lies"
+                                        },
+                                        {
+                                            "rank":  96,
+                                            "score":  6.97,
+                                            "title":  "True Detective S3",
+                                            "slug":  "true-detective-s3"
+                                        },
+                                        {
+                                            "rank":  86,
+                                            "score":  7.23,
+                                            "title":  "Dopesick",
+                                            "slug":  "dopesick"
+                                        },
+                                        {
+                                            "rank":  77,
+                                            "score":  7.30,
+                                            "title":  "Euphoria",
+                                            "slug":  "euphoria"
+                                        },
+                                        {
+                                            "rank":  78,
+                                            "score":  7.30,
+                                            "title":  "The Pacific",
+                                            "slug":  "the-pacific"
+                                        },
+                                        {
+                                            "rank":  76,
+                                            "score":  7.32,
+                                            "title":  "Mare of Easttown",
+                                            "slug":  "mare-of-easttown"
+                                        },
+                                        {
+                                            "rank":  74,
+                                            "score":  7.35,
+                                            "title":  "Hill Street Blues",
+                                            "slug":  "hill-street-blues"
+                                        },
+                                        {
+                                            "rank":  75,
+                                            "score":  7.33,
+                                            "title":  "The Boys",
+                                            "slug":  "the-boys"
+                                        },
+                                        {
+                                            "rank":  79,
+                                            "score":  7.30,
+                                            "title":  "Escape at Dannemora",
+                                            "slug":  "escape-at-dannemora"
+                                        },
+                                        {
+                                            "rank":  84,
+                                            "score":  7.23,
+                                            "title":  "The Penguin",
+                                            "slug":  "the-penguin"
+                                        },
+                                        {
+                                            "rank":  85,
+                                            "score":  7.23,
+                                            "title":  "The Plot Against America",
+                                            "slug":  "the-plot-against-america"
+                                        },
+                                        {
+                                            "rank":  82,
+                                            "score":  7.26,
+                                            "title":  "Oz",
+                                            "slug":  "oz"
+                                        },
+                                        {
+                                            "rank":  80,
+                                            "score":  7.30,
+                                            "title":  "Line of Duty",
+                                            "slug":  "line-of-duty"
+                                        },
+                                        {
+                                            "rank":  81,
+                                            "score":  7.26,
+                                            "title":  "Narcos",
+                                            "slug":  "narcos"
+                                        },
+                                        {
+                                            "rank":  18,
+                                            "score":  7.88,
+                                            "title":  "Mad Men",
+                                            "slug":  "mad-men"
+                                        },
+                                        {
+                                            "rank":  19,
+                                            "score":  7.88,
+                                            "title":  "Halt and Catch Fire",
+                                            "slug":  "halt-and-catch-fire"
+                                        },
+                                        {
+                                            "rank":  17,
+                                            "score":  7.88,
+                                            "title":  "For All Mankind",
+                                            "slug":  "for-all-mankind"
+                                        },
+                                        {
+                                            "rank":  14,
+                                            "score":  7.96,
+                                            "title":  "Andor",
+                                            "slug":  "andor"
+                                        },
+                                        {
+                                            "rank":  16,
+                                            "score":  7.90,
+                                            "title":  "True Detective S1",
+                                            "slug":  "true-detective-s1"
+                                        },
+                                        {
+                                            "rank":  20,
+                                            "score":  7.82,
+                                            "title":  "Angels in America",
+                                            "slug":  "angels-in-america"
+                                        },
+                                        {
+                                            "rank":  25,
+                                            "score":  7.73,
+                                            "title":  "Band of Brothers",
+                                            "slug":  "band-of-brothers"
+                                        },
+                                        {
+                                            "rank":  26,
+                                            "score":  7.73,
+                                            "title":  "Six Feet Under",
+                                            "slug":  "six-feet-under"
+                                        },
+                                        {
+                                            "rank":  24,
+                                            "score":  7.75,
+                                            "title":  "Justified",
+                                            "slug":  "justified"
+                                        },
+                                        {
+                                            "rank":  22,
+                                            "score":  7.78,
+                                            "title":  "Deadwood",
+                                            "slug":  "deadwood"
+                                        },
+                                        {
+                                            "rank":  23,
+                                            "score":  7.76,
+                                            "title":  "The Crown",
+                                            "slug":  "the-crown"
+                                        },
+                                        {
+                                            "rank":  13,
+                                            "score":  7.98,
+                                            "title":  "Boardwalk Empire",
+                                            "slug":  "boardwalk-empire"
+                                        },
+                                        {
+                                            "rank":  4,
+                                            "score":  8.74,
+                                            "title":  "Better Call Saul",
+                                            "slug":  "better-call-saul"
+                                        },
+                                        {
+                                            "rank":  5,
+                                            "score":  8.54,
+                                            "title":  "Chernobyl",
+                                            "slug":  "chernobyl"
+                                        },
+                                        {
+                                            "rank":  3,
+                                            "score":  8.74,
+                                            "title":  "The Wire",
+                                            "slug":  "the-wire"
+                                        },
+                                        {
+                                            "rank":  1,
+                                            "score":  9.50,
+                                            "title":  "Game of Thrones (S1-4)",
+                                            "slug":  "game-of-thrones-s1-4"
+                                        },
+                                        {
+                                            "rank":  2,
+                                            "score":  8.89,
+                                            "title":  "Breaking Bad",
+                                            "slug":  "breaking-bad"
+                                        },
+                                        {
+                                            "rank":  6,
+                                            "score":  8.38,
+                                            "title":  "The Sopranos",
+                                            "slug":  "the-sopranos"
+                                        },
+                                        {
+                                            "rank":  10,
+                                            "score":  8.03,
+                                            "title":  "Succession",
+                                            "slug":  "succession"
+                                        },
+                                        {
+                                            "rank":  12,
+                                            "score":  7.99,
+                                            "title":  "Mr. Robot",
+                                            "slug":  "mr-robot"
+                                        },
+                                        {
+                                            "rank":  9,
+                                            "score":  8.09,
+                                            "title":  "The Expanse",
+                                            "slug":  "the-expanse"
+                                        },
+                                        {
+                                            "rank":  7,
+                                            "score":  8.33,
+                                            "title":  "The Americans",
+                                            "slug":  "the-americans"
+                                        },
+                                        {
+                                            "rank":  8,
+                                            "score":  8.17,
+                                            "title":  "The Shield",
+                                            "slug":  "the-shield"
+                                        },
+                                        {
+                                            "rank":  43,
+                                            "score":  7.53,
+                                            "title":  "Station Eleven",
+                                            "slug":  "station-eleven"
+                                        },
+                                        {
+                                            "rank":  44,
+                                            "score":  7.53,
+                                            "title":  "House of the Dragon",
+                                            "slug":  "house-of-the-dragon"
+                                        },
+                                        {
+                                            "rank":  42,
+                                            "score":  7.55,
+                                            "title":  "Hannibal",
+                                            "slug":  "hannibal"
+                                        },
+                                        {
+                                            "rank":  40,
+                                            "score":  7.58,
+                                            "title":  "Wolf Hall",
+                                            "slug":  "wolf-hall"
+                                        },
+                                        {
+                                            "rank":  41,
+                                            "score":  7.58,
+                                            "title":  "Pluribus",
+                                            "slug":  "pluribus"
+                                        },
+                                        {
+                                            "rank":  45,
+                                            "score":  7.52,
+                                            "title":  "Black Mirror",
+                                            "slug":  "black-mirror"
+                                        },
+                                        {
+                                            "rank":  49,
+                                            "score":  7.50,
+                                            "title":  "Ozark",
+                                            "slug":  "ozark"
+                                        },
+                                        {
+                                            "rank":  50,
+                                            "score":  7.50,
+                                            "title":  "Peaky Blinders",
+                                            "slug":  "peaky-blinders"
+                                        },
+                                        {
+                                            "rank":  48,
+                                            "score":  7.50,
+                                            "title":  "Rectify",
+                                            "slug":  "rectify"
+                                        },
+                                        {
+                                            "rank":  46,
+                                            "score":  7.52,
+                                            "title":  "Midnight Mass",
+                                            "slug":  "midnight-mass"
+                                        },
+                                        {
+                                            "rank":  47,
+                                            "score":  7.51,
+                                            "title":  "Battlestar Galactica",
+                                            "slug":  "battlestar-galactica"
+                                        },
+                                        {
+                                            "rank":  39,
+                                            "score":  7.59,
+                                            "title":  "Friday Night Lights",
+                                            "slug":  "friday-night-lights"
+                                        },
+                                        {
+                                            "rank":  31,
+                                            "score":  7.68,
+                                            "title":  "Watchmen (2019)",
+                                            "slug":  "watchmen-2019"
+                                        },
+                                        {
+                                            "rank":  32,
+                                            "score":  7.68,
+                                            "title":  "The Bureau",
+                                            "slug":  "the-bureau"
+                                        },
+                                        {
+                                            "rank":  30,
+                                            "score":  7.68,
+                                            "title":  "Girls",
+                                            "slug":  "girls"
+                                        },
+                                        {
+                                            "rank":  27,
+                                            "score":  7.73,
+                                            "title":  "Fargo",
+                                            "slug":  "fargo"
+                                        },
+                                        {
+                                            "rank":  29,
+                                            "score":  7.68,
+                                            "title":  "When They See Us",
+                                            "slug":  "when-they-see-us"
+                                        },
+                                        {
+                                            "rank":  33,
+                                            "score":  7.67,
+                                            "title":  "Homeland",
+                                            "slug":  "homeland"
+                                        },
+                                        {
+                                            "rank":  37,
+                                            "score":  7.60,
+                                            "title":  "The Knick",
+                                            "slug":  "the-knick"
+                                        },
+                                        {
+                                            "rank":  38,
+                                            "score":  7.60,
+                                            "title":  "The Haunting of Hill House",
+                                            "slug":  "the-haunting-of-hill-house"
+                                        },
+                                        {
+                                            "rank":  36,
+                                            "score":  7.61,
+                                            "title":  "Lost",
+                                            "slug":  "lost"
+                                        },
+                                        {
+                                            "rank":  34,
+                                            "score":  7.66,
+                                            "title":  "The Queen\u0027s Gambit",
+                                            "slug":  "the-queens-gambit"
+                                        },
+                                        {
+                                            "rank":  35,
+                                            "score":  7.64,
+                                            "title":  "The Leftovers",
+                                            "slug":  "the-leftovers"
+                                        }
+                                    ]
+                      }
+                  ]
+}

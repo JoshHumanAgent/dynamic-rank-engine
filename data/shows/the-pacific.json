@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "the-pacific",
+    "title":  "The Pacific",
+    "year":  2010,
+    "month":  3,
+    "status":  "completed",
+    "seasons":  1,
+    "episodes":  10,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "war",
+                   "historical"
+               ],
+    "creator":  "Bruce C. McKenna, Graham Yost",
+    "network":  "HBO",
+    "tmdbId":  19609,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.1,
+                                          "scale":  10,
+                                          "count":  "55000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0374463/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  85,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/the_pacific"
+                                                 },
+                             "metacritic":  {
+                                                "score":  78,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/the-pacific"
+                                            }
+                         },
+    "consensus_highlights":  "A miniseries following the experiences of U.S. Marines during World War II in the Pacific theater.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  8,
+                           "drive":  7,
+                           "cine":  8,
+                           "spect":  9,
+                           "final":  7.6,
+                           "world":  8,
+                           "char":  7
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "BBC Two"
+                             ]
+                  }
+}

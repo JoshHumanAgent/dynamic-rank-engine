@@ -1,0 +1,51 @@
+{
+    "slug": "house-of-the-dragon",
+    "title": "House of the Dragon",
+    "year": 2022,
+    "month": "08",
+    "network": "HBO",
+    "status": "ongoing",
+    "streaming": {
+        "us": ["Max"],
+        "uk": ["Sky", "Now TV"]
+    },
+    "genres": ["Fantasy", "Drama", "Action"],
+    "creators": ["Ryan Condal", "George R.R. Martin"],
+    "cast": ["Paddy Considine", "Matt Smith", "Emma D'Arcy", "Olivia Cooke", "Rhys Ifans", "Steve Toussaint"],
+    "external_ratings": {
+        "imdb": {
+            "score": 8.5,
+            "votes": 343000,
+            "url": "https://www.imdb.com/title/tt11198330/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 83,
+            "critics": 94,
+            "url": "https://www.rottentomatoes.com/tv/house_of_the_dragon",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 8.5,
+        "world": 9.0,
+        "cine": 9.0,
+        "spect": 9.5,
+        "conc": 8.5,
+        "drive": 8.8,
+        "resol": 8.0,
+        "final": 8.8
+    },
+    "episodes": 28,
+    "seasons": 2,
+    "poster": "",
+    "tmdb_id": 94997,
+    "consensus_highlights": [
+        "The Dance of the Dragons: civil war as family tragedy",
+        "Targaryen madness and the price of ambition",
+        "Rhaenyra and Alicent: friendship destroyed by patriarchy",
+        "Bigger dragons, bigger drama, bigger budget",
+        "Proof the Game of Thrones universe has more stories to tell"
+    ],
+    "tags": ["fantasy", "dragons", "political", "prequel", "targaryen", "hbo-flagship"]
+}

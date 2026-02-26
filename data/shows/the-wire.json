@@ -1,0 +1,51 @@
+{
+    "slug": "the-wire",
+    "title": "The Wire",
+    "year": 2002,
+    "month": "06",
+    "network": "HBO",
+    "status": "ended",
+    "streaming": {
+        "us": ["Max", "Peacock"],
+        "uk": ["Sky", "Now TV"]
+    },
+    "genres": ["Crime", "Drama", "Political"],
+    "creators": ["David Simon"],
+    "cast": ["Dominic West", "Wendell Pierce", "Lance Reddick", "Michael K. Williams", "Idris Elba"],
+    "external_ratings": {
+        "imdb": {
+            "score": 9.3,
+            "votes": 358000,
+            "url": "https://www.imdb.com/title/tt0306414/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 97,
+            "critics": 94,
+            "url": "https://www.rottentomatoes.com/tv/the_wire",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 9.5,
+        "world": 9.8,
+        "cine": 9.0,
+        "spect": 8.5,
+        "conc": 9.2,
+        "drive": 9.0,
+        "resol": 9.0,
+        "final": 9.4
+    },
+    "episodes": 60,
+    "seasons": 5,
+    "poster": "",
+    "tmdb_id": 1438,
+    "consensus_highlights": [
+        "Universally cited as the greatest television series ever made",
+        "A treatise on systemic failure: institutions vs. individuals",
+        "Baltimore as a living organism: each season a different system",
+        "Omar Little - one of fiction's most compelling anti-heroes",
+        "The show that invented prestige television as literature"
+    ],
+    "tags": ["institutional", "crime", "baltimore", "literary", "prestige-tv", "masterpiece"]
+}

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angels in America (2003) - 7-Dimension TV Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(20,20,40,0.6));
+            border-bottom: 2px solid #d4af37;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 3.2em;
+            color: #d4af37;
+            text-shadow: 0 0 30px rgba(212,175,55,0.3);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #a0a0a0;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 700px;
+            margin: 30px auto 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+        
+        .meta-item {
+            text-align: center;
+        }
+        
+        .meta-label {
+            font-size: 0.85em;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .meta-value {
+            font-size: 1em;
+            color: #fff;
+            margin-top: 5px;
+        }
+        
+        .section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        h2 {
+            color: #d4af37;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(212,175,55,0.3);
+        }
+        
+        h3 {
+            color: #c9a227;
+            font-size: 1.3em;
+            margin: 30px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.05em;
+            color: #d0d0d0;
+        }
+        
+        .feeling-section {
+            background: linear-gradient(135deg, rgba(26,26,46,0.8), rgba(22,33,62,0.6));
+        }
+        
+        .dimension-grid {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .dimension-block {
+            background: linear-gradient(135deg, rgba(30,30,50,0.6), rgba(20,20,35,0.8));
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid #d4af37;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .dimension-block:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 40px rgba(212,175,55,0.1);
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .dimension-title {
+            font-size: 1.4em;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .dimension-score {
+            font-size: 2em;
+            color: #d4af37;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(212,175,55,0.4);
+        }
+        
+        .dimension-content {
+            color: #c0c0c0;
+            line-height: 1.8;
+        }
+        
+        .dimension-content p {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        
+        .final-score-section {
+            background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(26,26,46,0.8));
+            text-align: center;
+            padding: 50px;
+            border: 2px solid rgba(212,175,55,0.5);
+        }
+        
+        .final-score-title {
+            font-size: 1.5em;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        
+        .final-score-value {
+            font-size: 5em;
+            color: #d4af37;
+            font-weight: bold;
+            text-shadow: 0 0 40px rgba(212,175,55,0.5);
+        }
+        
+        .score-breakdown {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .breakdown-item {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .breakdown-label {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
+        .breakdown-score {
+            font-size: 1.3em;
+            color: #fff;
+        }
+        
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .cast-item {
+            background: rgba(212,175,55,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #d4af37;
+        }
+        
+        .tagline {
+            font-style: italic;
+            color: #a0a0a0;
+            text-align: center;
+            font-size: 1.2em;
+            margin: 30px 0;
+            padding: 20px;
+            border-top: 1px solid rgba(212,175,55,0.3);
+            border-bottom: 1px solid rgba(212,175,55,0.3);
+        }
+        
+        .highlight {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        .quote {
+            border-left: 3px solid #d4af37;
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #b0b0b0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .final-score-value {
+                font-size: 3.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Angels in America</h1>
+        <div class="subtitle">A Gay Fantasia on National Themes</div>
+        <div class="subtitle">HBO Miniseries • 2003 • 6 Episodes</div>
+        
+        <div class="meta-info">
+            <div class="meta-item">
+                <div class="meta-label">Created By</div>
+                <div class="meta-value">Tony Kushner</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Directed By</div>
+                <div class="meta-value">Mike Nichols</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Based On</div>
+                <div class="meta-value">Pulitzer Prize Play</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Genre</div>
+                <div class="meta-value">Drama / Magical Realism</div>
+            </div>
+        </div>
+        
+        <div class="cast-list" style="justify-content: center;">
+            <span class="cast-item">Al Pacino</span>
+            <span class="cast-item">Meryl Streep</span>
+            <span class="cast-item">Emma Thompson</span>
+            <span class="cast-item">Justin Kirk</span>
+            <span class="cast-item">Jeffrey Wright</span>
+            <span class="cast-item">Mary-Louise Parker</span>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Section 1: What It Feels Like to Watch -->
+        <section class="section feeling-section">
+            <h2>What It Feels Like to Watch</h2>
+            
+            <div class="tagline">
+                "The world only spins forward."
+            </div>
+            
+            <p>Watching <span class="highlight">Angels in America</span> is an experience unlike any other in television history. It is not merely a miniseries; it is a <span class="highlight">reckoning</span>—a monumental work of art that crashes through the boundaries of the medium and demands to be seen as a singular event of cultural magnitude. Adapted by Tony Kushner from his own Pulitzer Prize-winning "Gay Fantasia on National Themes," and directed with masterful precision by Mike Nichols in what would be his final masterpiece, this six-hour epic transforms the AIDS crisis of 1980s New York into a <span class="highlight">cosmic struggle for identity, redemption, and the very soul of America.</span></p>
+            
+            <p>To sit with this work is to be <span class="highlight">shattered and rebuilt</span>. The series operates on multiple simultaneous registers: it is a searing domestic drama about betrayal and abandonment; a political allegory about Reaganism and the moral bankruptcy of an era; a religious meditation on prophecy and covenant; a fantastical fever-dream where angels crash through ceilings and the dead refuse to stay buried. Kushner's writing is <span class="highlight">operatic in its ambition</span>—each scene layers meaning upon meaning, each character embodies multiple archetypes while remaining devastatingly human.</p>
+            
+            <p>At the emotional center stands <span class="highlight">Prior Walter</span>, played with luminous vulnerability by Justin Kirk in a performance that deserves to be remembered among television's finest. Prior, abandoned by his lover Louis when diagnosed with AIDS, becomes the prophet of the narrative—a gay man dying in a city that wishes him invisible, chosen by an angel to become the voice of a new millennium. His journey from abandoned partner to reluctant prophet to defiant survivor is the spine of the series, and it is through his eyes that we witness the full horror and strange beauty of Kushner's vision.</p>
+            
+            <p>The Angel's arrival—bursting through the ceiling in a cascade of plaster and phosphorescence—marks the series' transition from naturalistic drama into unapologetic theatricality. This is not subtle magical realism; this is <span class="highlight">angels weeping, continents speaking, the fabric of reality tearing open</span>. Emma Thompson plays the Angel with terrifying grandeur, speaking in oracular pronouncements about <span class="highlight">stasis and migration</span>, declaring that humanity's constant motion must cease, that progress itself is the great sin. The cosmology Kushner constructs here—angels as beings imprisoned by their own perfection, Heaven as a ruined city trapped in an endless present—stands among the most original theological visions in modern literature.</p>
+            
+            <p>And then there is <span class="highlight">Roy Cohn</span>, the series' monstrous engine, portrayed by Al Pacino in a performance of such volcanic intensity it threatens to consume the screen. Cohn—McCarthy's henchman, closeted homosexual, architect of his own myth of invincibility—contracts AIDS while denying its existence, clinging to power even as his body betrays him. His final scenes, haunted by the ghost of Ethel Rosenberg (whom he sent to the electric chair), achieve a <span class="highlight">transcendent moral complexity</span>—this is not easy redemption, but rather the terrible weight of a life lived in denial of fundamental truth.</p>
+            
+            <p>What makes the experience so overwhelming is the <span class="highlight">scope</span>. Nichols understands that Kushner's play was already cinematic in its vision, and he honors that scope while grounding every moment in emotional truth. The series moves from hospital rooms to Antarctica, from Mormon temples to the threshold of Heaven itself. Meryl Streep plays multiple roles—Hannah Pitt, the Mormon mother learning to love her gay son; Ethel Rosenberg, returning from death to witness Cohn's end; an elderly Rabbi, dispensing wisdom about migration and divine absence. The doubling is not gimmick but <span class="highlight">thematic architecture</span>—suggesting the interconnectedness of all human struggle, the way history's victims and perpetrators are bound in eternal dialogue.</p>
+            
+            <p>Mike Nichols, directing his final major work, brings a <span class="highlight">lifetime of cinematic wisdom</span> to every frame. The AIDS ward sequences are shot with documentary immediacy; the fantasy sequences with hallucinatory beauty. There is a sense of finality to his direction here—a master summoning everything he knows about human behavior, about performance, about the camera's ability to reveal truth. The ensemble he assembles—Pacino, Streep, Thompson, Kirk, Wright, Parker—represents perhaps the <span class="highlight">greatest collection of acting talent ever assembled for television</span>, and every performer rises to the occasion with career-defining work.</p>
+            
+            <p>But beyond the artistry, beyond the performances and the writing and the scope, what remains is the <span class="highlight">emotional devastation</span>. This is a work about a specific moment in American history—the plague years, when an entire community was abandoned by its government, its medical establishment, its fellow citizens—and yet it speaks with urgent clarity to any moment when the powerful choose to ignore the suffering of the marginalized. Prior's final declaration—"I want more life. I can't help myself. I do. I've lived through such terrible times, and there are people who love me."—is not just survival; it is <span class="highlight">resistance as an act of love</span>.</p>
+            
+            <p>To watch Angels in America is to understand what television can be when it refuses to be small. It is to witness the medium's capacity for <span class="highlight">grandeur, moral seriousness, and spiritual inquiry</span>. Six hours later, you emerge transformed—exhausted, weeping, furious, hopeful. You have looked directly into the abyss and seen, improbably, wings.</p>
+        </section>
+        
+        <!-- Section 2: Why It Ranks -->
+        <section class="section">
+            <h2>Why It Ranks</h2>
+            
+            <div class="dimension-grid">
+                
+                <!-- Characters -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-title">1. Characters</span>
+                        <span class="dimension-score">9.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>The ensemble of Angels in America represents the pinnacle of dramatic character creation. Tony Kushner's script treats each figure as both individual and archetype—specific, idiosyncratic human beings who simultaneously embody larger forces: Roy Cohn as the corrupting hunger for power, Prior as the prophet scorned, Belize as the witness who survives, Harper as the fractured psyche of religious repression.</p>
+                        
+                        <p>What elevates these characters to near-perfection is <span class="highlight">Kushner's refusal of easy moral categorization</span>. Roy Cohn, historically monstrous, receives the play's most devastating humanity in his final moments—not forgiveness, but recognition of complexity. Louis, who abandons his dying lover, is neither villain nor victim but a man of ordinary cowardice thrust into extraordinary circumstances. Even Hannah Pitt, the Mormon mother initially presented as potentially antagonistic, becomes the series' most quietly radical figure—learning, adapting, choosing love over doctrine.</p>
+                        
+                        <p>The performances complete the equation. Pacino's Cohn is volcanic, terrifying, pathetic—an ego devouring itself. Streep creates three distinct women, each with their own accent, physicality, moral compass. Justin Kirk's Prior walks the impossible line between camp humor and genuine profundity. Jeffrey Wright's Belize delivers some of the script's most incisive observations with weary authority. Only the Angel herself feels slightly removed from full humanity—but this is deliberate, a being of pure cosmic pronouncement, and Emma Thompson plays it to the hilt.</p>
+                        
+                        <p>If there is a weakness, it is that some secondary characters (Joe Pitt especially) can feel slightly schematic compared to the protagonists—emblems of repression struggling to break free rather than fully autonomous beings. But this is a minor quibble against an otherwise flawless ensemble.</p>
+                    </div>
+                </div>
+                
+                <!-- World Building -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-title">2. World Building</span>
+                        <span class="dimension-score">8.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>Angels in America constructs a bifurcated world: the <span class="highlight">documented reality of 1980s New York</span>—hospitals filling with dying men, government officials ignoring the crisis, families shattering under the weight of closeted lives—and the <span class="highlight">metaphysical sphere</span> where angels descend and the dead walk, where Antarctica becomes a place of prophecy and Heaven is a ruined metropolis frozen in stasis.</p>
+                        
+                        <p>The AIDS-era New York is rendered with documentary precision: the specific medical terminology, the social geography of the gay community, the political climate of Reaganism's first term. Kushner lived this world, and it shows—the details feel authored by someone who knows exactly how morphine drips work, exactly how the Mormon Church hierarchy operates, exactly what it meant to be gay and dying in a city that had already written you off.</p>
+                        
+                        <p>The cosmological world is equally coherent, if deliberately absurd—angels who speak like bureaucrats, Heaven as a bureaucratic nightmare of eternal present tense, the "Stonewall" of angels refusing to move forward. The two worlds <span class="highlight">interpenetrate seamlessly</span>; Prior's visit to Heaven through a fever dream is filmed with the same visual authority as his hospital scenes. The magical realism never feels like escapist fantasy but rather an extension of the characters' psychological and spiritual reality.</p>
+                        
+                        <p>The world-building score doesn't reach perfection because the scope is deliberately limited—this is not a universe designed for expansion or spin-offs. It is a <span class="highlight">closed theological system</span>, complete and sufficient unto itself. Within those bounds, it is impeccable.</p>
+                    </div>
+                </div>
+                
+                <!-- Cinematography -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-title">3. Cinematography</span>
+                        <span class="dimension-score">8.5</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>Mike Nichols assembled an extraordinary visual team—cinematographer Stephen Goldblatt captured both the gritty reality of hospital rooms and the ethereal beauty of supernatural sequences with equal mastery. The series moves fluidly between <span class="highlight">multiple visual registers</span>: documentary realism for the AIDS ward sequences, theatrical grandeur for the Angel's appearances, intimate chamber drama for the domestic scenes.</p>
+                        
+                        <p>The color palette shifts with emotional temperature: the sickly yellow-green of institutional spaces, the blue-white of Prior's fever dreams, the warm amber of the Pitt household slowly chilling as the marriage fractures. The lighting is particularly expressive—characters are often half-shadowed, suggesting the moral complexity of their positions, or bathed in otherworldly radiance during moments of revelation.</p>
+                        
+                        <p>The Angel's arrival is a masterclass in visual storytelling: the buildup through Prior's visions, the actual crash through the ceiling with plaster and light cascading, the creature herself (part technological, part biological, all divine) suspended in the wreckage. Antarctica as liminal space, the diorama of the world's woes, the final ascent to Heaven—all are rendered with painterly care.</p>
+                        
+                        <p>Where the cinematography occasionally falters is in some of the more theatrical transitions, where the limitations of television budget and 2003 CGI occasionally peek through. The Angel's wings, while beautiful, can strain credulity in wide shots. But these are minor blemishes on an otherwise <span class="highlight">visually stunning achievement</span> that proves television can rival cinema in scope and beauty.</p>
+                    </div>
+                </div>
+                
+                <!-- Visual Spectacle -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-title">4. Visual Spectacle</span>
+                        <span class="dimension-score">9.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>For a television production, Angels in America delivers <span class="highlight">cinematic spectacle on a scale previously unseen</span> on the small screen. The production values are extraordinary—HBO invested in every corner of this world, from the detailed recreation of 1985 New York to the elaborate fantasy sequences that required extensive practical effects, wire work, and early digital compositing.</p>
+                        
+                        <p>The Angel herself stands as the production's visual centerpiece—a creature of eight-foot wingspan, technological apparatus, and Emma Thompson's face delivering cosmic pronouncements. Her appearances bookend the supernatural storyline, and each is staged with <span class="highlight">operatic grandeur</span>: crashing through ceilings, ascending through hospital wards, wrestling with Prior in an erotic-theological encounter that suggests divine possession as physical intimacy.</p>
+                        
+                        <p>The Heaven sequences achieve genuine awe—a ruined city of broken statues and bureaucratic angels, suggesting divinity itself has fallen into entropy. The diorama showing the world's suffering, which Prior navigates to reach the throne room, is rendered with painstaking detail: tiny figures enacting every human cruelty, a visual representation of the play's moral complexity. The final ascent, with Prior refusing the Angel's mandate and choosing instead to return to life, is rendered as a fall through light—a stunning reversal of the expected visual language.</p>
+                        
+                        <p>The series also understands that spectacle need not be supernatural. The final scene—as characters from separate storylines converge in Central Park, the new year dawning, Prior addressing the audience directly—achieves its grandeur through editing, performance, and emotional accumulation. This is spectacle of the soul, rendered in human faces.</p>
+                        
+                        <p>Only some dated effects and occasional budgetary constraints prevent a perfect score. What was groundbreaking in 2003 has aged, but the ambition and execution remain breathtaking.</p>
+                    </div>
+                </div>
+                
+                <!-- Conceptual Density -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-title">5. Conceptual Density</span>
+                        <span class="dimension-score">10.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>Here Angels in America achieves <span class="highlight">absolute perfection</span>. Kushner's script is a towering achievement of theatrical literature, and the adaptation preserves every layer of its conceptual complexity. This is a work that operates simultaneously as: political allegory (Reaganism vs. the dispossessed), theological inquiry (Judaism, Mormonism, agnosticism in dialogue), historical documentation (the AIDS crisis as lived experience), domestic drama (infidelity, abandonment, reconciliation), and metaphysical fantasia (angels, prophecy, the nature of Heaven).</p>
+                        
+                        <p>The central metaphor—the angel as both divine messenger and symptom of AIDS-related dementia, both real presence and psychological projection—exemplifies the work's <span class="highlight">refusal of simple interpretation</span>. Prior is genuinely chosen, genuinely dying, genuinely hallucinating. All three truths coexist. The play's engagement with Jewish history—migration, covenant, the absent God, the chosen people—layers theological complexity onto the specifically gay narrative, suggesting parallels between historical Jewish suffering and the AIDS crisis as moments of communal trauma and transformation.</p>
+                        
+                        <p>The Mormon thread complicates simple secular triumphalism—Joe Pitt's struggle with his faith and sexuality, his mother's eventual acceptance, the critique of Mormonism's historical racism and contemporary homophobia balanced against its genuine community and ethical framework. When Prior meets Hannah in the library, Jew and Mormon finding common ground through textual study, the play achieves a <span class="highlight">vision of interfaith dialogue</span> that is neither naive nor cynical.</p>
+                        
+                        <p>Roy Cohn embodies the darkest American forces: McCarthyism, the closet, the equation of power with virtue, the denial of reality in service of myth. His deathbed scenes, drawing on both Jewish and Christian eschatology while rejecting easy redemption, represent some of the most philosophically sophisticated writing in American theater. That the series gives equal weight to Belize's critique of Cohn and Cohn's own suffering—the refusal to simplify the monster into symbol—is evidence of Kushner's <span class="highlight">moral seriousness</span>.</p>
+                        
+                        <p>Every scene operates on multiple levels simultaneously. The conceptual architecture is so dense that multiple viewings reveal new connections, new ironies, new depths. This is the rare work that rewards scholarly attention as richly as emotional engagement—a true masterpiece of ideas.</p>
+                    </div>
+                </div>
+                
+                <!-- Narrative Drive -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-title">6. Narrative Drive</span>
+                        <span class="dimension-score">9.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>Adapting Kushner's seven-hour stage epic for six hours of television might seem like reduction, but the HBO version achieves a <span class="highlight">tighter, more propulsive narrative</span> without sacrificing the play's philosophical density. The structure—split between the two parts, Millennium Approaches and Perestroika—creates natural dramatic arcs: the first building inexorably toward Prior's angelic visitation, the second resolving the cosmic and personal threads in a series of devastating climaxes.</p>
+                        
+                        <p>The multiple storylines interweave with increasing complexity as the series progresses. Prior's prophetic journey, Cohn's physical decline, Joe and Harper's marriage dissolution, Louis's guilt-ridden affair with Joe, Belize's custodianship of Cohn's death—all these threads build toward convergence in the final hours. Nichols understands that <span class="highlight">tension comes from juxtaposition</span>; the cutting between Roy screaming in his hospital bed and Prior ascending to Heaven creates a rhythmic intensity that carries the viewer through the longest episodes.</p>
+                        
+                        <p>The narrative engine is fueled by a series of devastating revelations and confrontations: Louis learning Prior's diagnosis, Joe coming out to his wife, the ghostly visitations that punctuate the realist action, the final confrontation between Prior and the Angel, the courtroom scene where Cohn's closet cracks open. Each episode ends with enough forward momentum to demand continuation.</p>
+                        
+                        <p>The flashback and fantasy sequences are integrated so seamlessly that they never disrupt narrative flow. Prior's visit to Heaven, presented in extended sequence, functions simultaneously as plot development (he learns his mission, refuses it) and thematic deepening (the angelic critique of progress, the theology of stasis). The narrative never sacrifices its theatrical rhythms—the long speeches that build to crescendo, the moments of silence that punctuate the verbal torrent.</p>
+                        
+                        <p>Only occasionally does the philosophical density slow the momentum—some of the Angel's pronouncements, however beautiful, can feel like temporary pauses in the dramatic action. And the final hour, moving toward multiple resolutions, occasionally risks emotional exhaustion through sheer accumulation of incident. But these are the compromises of ambition. The narrative drive remains <span class="highlight">exceptionally strong</span> throughout.</p>
+                    </div>
+                </div>
+                
+                <!-- Resolution -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-title">7. Resolution</span>
+                        <span class="dimension-score">8.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>The resolution of Angels in America operates on multiple registers, achieving <span class="highlight">profound emotional catharsis</span> while acknowledging the irreversibility of what has been lost. The final episode brings together surviving characters in an epilogue that is simultaneously realistic and stylized: the friends gathered in Central Park, Prior addressing the audience directly, the famous benediction: "The world only spins forward."</p>
+                        
+                        <p>Prior's survival—he does not die, contrary to expectation—is itself a resolution of cosmic and personal significance. Having refused the Angel's mandate for stasis, having chosen motion and suffering and change, he is rewarded with life. But this is not cheap optimism. The epilogue is set years later; Prior has lived with AIDS for years, watched friends die, carried his prophecy as burden. The ending embraces what Kushner calls "<span class="highlight">a kind of hope that grows out of despair</span>."</p>
+                        
+                        <p>The multiple character arcs resolve with varying degrees of completion. Hannah's transformation from doctrinaire Mormon to cosmopolitan grandmother is one of the series' most satisfying developments. Belize, having witnessed Cohn's death with clear eyes, maintains his integrity. Louis and Prior achieve a qualified reconciliation—acknowledging that Louis's abandonment can never be fully forgiven but choosing connection despite it. Harper's escape to San Francisco represents liberation delayed but achieved.</p>
+                        
+                        <p>Joe Pitt is perhaps the most ambiguously resolved—we last see him in guilt and confusion, and his future remains deliberately unclear. This is dramatically appropriate (not all closeted men escape) but slightly unsatisfying for a viewer invested in his arc. Roy Cohn, of course, achieves only death without redemption—the final encounter with Ethel Rosenberg offers witness but not forgiveness, accountability but not absolution.</p>
+                        
+                        <p>The Angel herself remains suspended, her mandate refused, humanity's course unchanged. The final image—Prior looking directly at camera, claiming his place in history, in prophecy, in the ongoing struggle—provides an ending that is <span class="highlight">simultaneously conclusive and open</span>. The story ends, but the world spins on. This is resolution as moral statement, closure that acknowledges continuity.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <!-- Final Score Section -->
+        <section class="section final-score-section">
+            <div class="final-score-title">Overall Rating</div>
+            <div class="final-score-value">7.82</div>
+            
+            <div class="tagline" style="border: none; margin-top: 20px;">
+                "We won't die secret deaths anymore. The world only spins forward."
+            </div>
+            
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Characters</div>
+                    <div class="breakdown-score">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">World Building</div>
+                    <div class="breakdown-score">8.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Cinematography</div>
+                    <div class="breakdown-score">8.5</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Visual Spectacle</div>
+                    <div class="breakdown-score">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Conceptual Density</div>
+                    <div class="breakdown-score">10.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Narrative Drive</div>
+                    <div class="breakdown-score">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Resolution</div>
+                    <div class="breakdown-score">8.0</div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px; text-align: center;">
+                <span class="highlight">Angels in America</span> stands as a landmark achievement in television history—a work that proved the medium could achieve the <span class="highlight">moral seriousness, artistic ambition, and emotional scope</span> of the greatest theatrical and cinematic works. Tony Kushner's epic play, Mike Nichols' masterful direction, and one of the finest ensembles ever assembled created not just television, but <span class="highlight">a monument to an era, a community, and a vision of hope that grows precisely from despair</span>.
+            </p>
+        </section>
+    </div>
+</body>
+</html>

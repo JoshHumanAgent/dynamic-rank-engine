@@ -1,0 +1,63 @@
+﻿{
+    "slug":  "the-americans",
+    "title":  "The Americans",
+    "year":  2013,
+    "month":  1,
+    "status":  "ended",
+    "seasons":  6,
+    "episodes":  75,
+    "runtime":  "43-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "thriller"
+               ],
+    "creator":  [
+                    "Joe Weisberg"
+                ],
+    "network":  "FX",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.4,
+                                          "scale":  10,
+                                          "count":  "122K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt2149175/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  100,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/the_americans"
+                                                 },
+                             "metacritic":  {
+                                                "score":  81,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/the-americans"
+                                            }
+                         },
+    "consensus_highlights":  "The Americans is a Cold War spy drama disguised as a domestic thriller. Keri Russell and Matthew Rhys deliver career-defining performances as KGB illegals Philip and Elizabeth Jennings, living undercover in suburban Washington D.C. with their American-born children. The series examines identity, loyalty, and the cost of deception with psychological depth that rewards patient viewing.",
+    "ranking_system":  {
+                           "conc":  8.5,
+                           "resol":  10,
+                           "drive":  8,
+                           "cine":  7,
+                           "spect":  5,
+                           "final":  8,
+                           "world":  7.5,
+                           "char":  8.5
+                       },
+    "notes":  "One of television\u0027s most underrated masterpieces. The Americans rewards patience with a devastating final season and one of the best series endings ever.",
+    "tmdbId":  48891,
+    "streaming":  {
+                      "us":  [
+                                 "Prime Video",
+                                 "Paramount+"
+                             ],
+                      "uk":  [
+                                 "Channel 4",
+                                 "Prime Video"
+                             ]
+                  }
+}

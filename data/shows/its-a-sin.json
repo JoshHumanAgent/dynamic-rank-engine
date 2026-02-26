@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "its-a-sin",
+    "title":  "It\u0027s a Sin",
+    "year":  2021,
+    "month":  1,
+    "status":  "ended",
+    "seasons":  1,
+    "episodes":  5,
+    "runtime":  "55-60",
+    "country":  "United Kingdom",
+    "genres":  [
+                   "drama"
+               ],
+    "creator":  [
+                    "Russell T Davies"
+                ],
+    "network":  "Channel 4/HBO Max",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.5,
+                                          "scale":  10,
+                                          "count":  "42K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt13313268/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  97,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/its_a_sin"
+                                                 },
+                             "metacritic":  {
+                                                "score":  80,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/its-a-sin"
+                                            }
+                         },
+    "consensus_highlights":  "It\u0027s a Sin is a powerful drama about the AIDS crisis in 1980s Britain. Russell T Davies\u0027 series follows a group of young gay men navigating love, friendship, and the terrifying early years of the AIDS epidemic.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  8.5,
+                           "drive":  8,
+                           "cine":  8,
+                           "spect":  6,
+                           "final":  7.8,
+                           "world":  7.5,
+                           "char":  8
+                       },
+    "notes":  "A vital piece of television that tells the stories that were hidden for too long.",
+    "tmdbId":  115123,
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max"
+                             ],
+                      "uk":  [
+                                 "Channel 4",
+                                 "All 4"
+                             ]
+                  }
+}

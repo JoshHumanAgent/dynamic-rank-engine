@@ -1,0 +1,53 @@
+﻿{
+    "slug":  "the-bureau",
+    "title":  "The Bureau",
+    "year":  2015,
+    "month":  4,
+    "status":  "completed",
+    "seasons":  5,
+    "episodes":  50,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "thriller"
+               ],
+    "creator":  "Ãƒâ€°ric Rochant",
+    "network":  "Canal+",
+    "tmdbId":  64357,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.4,
+                                          "scale":  10,
+                                          "count":  "12000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt4064298/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  100,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/the_bureau"
+                                                 }
+                         },
+    "consensus_highlights":  "A French drama following agents of the DGSE (external intelligence service) working undercover abroad.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  8,
+                           "drive":  8,
+                           "cine":  7,
+                           "spect":  5,
+                           "final":  7.52,
+                           "world":  7.5,
+                           "char":  8
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 " Sundance"
+                             ],
+                      "uk":  [
+                                 "BBC iPlayer"
+                             ]
+                  }
+}

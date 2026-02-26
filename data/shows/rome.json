@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "rome",
+    "title":  "Rome",
+    "year":  2005,
+    "month":  8,
+    "status":  "completed",
+    "seasons":  2,
+    "episodes":  22,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "historical",
+                   "action"
+               ],
+    "creator":  "John Milius, William J. MacDonald, Bruno Heller",
+    "network":  "HBO",
+    "tmdbId":  1840,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.7,
+                                          "scale":  10,
+                                          "count":  "110000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0384766/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  90,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/rome"
+                                                 },
+                             "metacritic":  {
+                                                "score":  82,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/rome"
+                                            }
+                         },
+    "consensus_highlights":  "A dramatic look at the rise and fall of the Roman Republic through the eyes of soldiers and politicians.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  6,
+                           "drive":  8,
+                           "cine":  7,
+                           "spect":  9,
+                           "final":  7.85,
+                           "world":  9,
+                           "char":  8
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "BBC Two"
+                             ]
+                  }
+}

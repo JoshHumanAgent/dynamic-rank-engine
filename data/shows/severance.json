@@ -1,0 +1,51 @@
+{
+    "slug": "severance",
+    "title": "Severance",
+    "year": 2022,
+    "month": "02",
+    "network": "Apple TV+",
+    "status": "ongoing",
+    "streaming": {
+        "us": ["Apple TV+"],
+        "uk": ["Apple TV+"]
+    },
+    "genres": ["Sci-Fi", "Thriller", "Drama"],
+    "creators": ["Dan Erickson"],
+    "cast": ["Adam Scott", "Britt Lower", "John Turturro", "Christopher Walken", "Patricia Arquette", "Zach Cherry"],
+    "external_ratings": {
+        "imdb": {
+            "score": 8.7,
+            "votes": 250000,
+            "url": "https://www.imdb.com/title/tt11280740/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 83,
+            "critics": 97,
+            "url": "https://www.rottentomatoes.com/tv/severance",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 9.2,
+        "world": 9.8,
+        "cine": 9.5,
+        "spect": 8.5,
+        "conc": 9.5,
+        "drive": 9.0,
+        "resol": 8.5,
+        "final": 9.2
+    },
+    "episodes": 17,
+    "seasons": 2,
+    "poster": "",
+    "tmdb_id": 117581,
+    "consensus_highlights": [
+        "Work-life balance taken to its horrifying conclusion",
+        "The innies and outties: one body, two consciousnesses",
+        "Lumon's surreal corporate dystopia - Kafka meets Wes Anderson",
+        "Adam Scott's finest hour: comedy and tragedy entwined",
+        "Apple TV+'s first true masterpiece"
+    ],
+    "tags": ["sci-fi", "workplace", "psychological", "corporate-dystopia", "apple-tv", "mind-bending"]
+}

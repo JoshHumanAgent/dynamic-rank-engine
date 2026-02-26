@@ -1,0 +1,54 @@
+﻿{
+    "slug":  "black-mirror",
+    "title":  "Black Mirror",
+    "year":  2011,
+    "month":  12,
+    "status":  "ongoing",
+    "seasons":  7,
+    "episodes":  32,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "sci-fi",
+                   "drama",
+                   "thriller"
+               ],
+    "creator":  "Charlie Brooker",
+    "network":  "Netflix",
+    "tmdbId":  42949,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.1,
+                                          "scale":  10,
+                                          "count":  "285000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt2085059/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  87,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/black_mirror"
+                                                 }
+                         },
+    "consensus_highlights":  "An anthology series exploring the dark side of technology and modern society.",
+    "ranking_system":  {
+                           "conc":  9.5,
+                           "resol":  8,
+                           "drive":  8,
+                           "cine":  8,
+                           "spect":  7,
+                           "final":  7.78,
+                           "world":  7,
+                           "char":  7
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Netflix"
+                             ],
+                      "uk":  [
+                                 "Netflix"
+                             ]
+                  }
+}

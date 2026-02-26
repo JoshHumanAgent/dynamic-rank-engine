@@ -1,0 +1,27 @@
+{
+  "slug": "yellowstone",
+  "title": "Yellowstone",
+  "year": 2018,
+  "month": 6,
+  "genres": ["drama", "western"],
+  "final": 7.60,
+  "tmdbId": 73586,
+  "char": 8.0,
+  "world": 8.5,
+  "cine": 7.5,
+  "spect": 7.0,
+  "conc": 7.5,
+  "drive": 7.5,
+  "resol": 7.0,
+  "episodes": 53,
+  "poster": "https://image.tmdb.org/t/p/w500/peNC0eyc3TQJa6x4TdKcBPNP4t0.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w780/ynSOcgDLZfdLCZfRSYZGiTgYJVo.jpg",
+  "streaming": {
+    "us": ["Paramount Plus", "Peacock"],
+    "uk": ["Paramount Plus"]
+  },
+  "creators": ["Taylor Sheridan", "John Linson"],
+  "network": "Paramount Network",
+  "status": "ended",
+  "scoring_notes": "Kevin Costner's career-capping performance. Authentic Montana ranching world. Final season affected by behind-the-scenes drama but stuck the landing."
+}

@@ -1,0 +1,51 @@
+{
+    "slug": "the-sopranos",
+    "title": "The Sopranos",
+    "year": 1999,
+    "month": "01",
+    "network": "HBO",
+    "status": "ended",
+    "streaming": {
+        "us": ["Max"],
+        "uk": ["Now TV", "Sky"]
+    },
+    "genres": ["Crime", "Drama", "Psychological"],
+    "creators": ["David Chase"],
+    "cast": ["James Gandolfini", "Edie Falco", "Michael Imperioli", "Lorraine Bracco", "Steve Van Zandt"],
+    "external_ratings": {
+        "imdb": {
+            "score": 9.2,
+            "votes": 435000,
+            "url": "https://www.imdb.com/title/tt0141842/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 97,
+            "critics": 94,
+            "url": "https://www.rottentomatoes.com/tv/the_sopranos",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 9.8,
+        "world": 9.2,
+        "cine": 9.0,
+        "spect": 8.5,
+        "conc": 9.0,
+        "drive": 9.5,
+        "resol": 9.0,
+        "final": 9.5
+    },
+    "episodes": 86,
+    "seasons": 6,
+    "poster": "",
+    "tmdb_id": 1398,
+    "consensus_highlights": [
+        "Tony Soprano - the birth of television's anti-hero era",
+        "The cut to black: television's most debated ending",
+        "Therapy sessions that revolutionized character interiority",
+        "New Jersey mob life as metaphor for American decline",
+        "The show that killed the network sitcom forever"
+    ],
+    "tags": ["anti-hero", "mob", "psychological", "new-jersey", "hbo-original", "groundbreaking"]
+}

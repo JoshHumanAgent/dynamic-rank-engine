@@ -1,0 +1,71 @@
+{
+    "slug": "happy-valley",
+    "title": "Happy Valley",
+    "year": 2016,
+    "month": 4,
+    "status": "ended",
+    "seasons": 3,
+    "episodes": 18,
+    "runtime": "50-60",
+    "country": "United Kingdom",
+    "genres": [
+        "drama",
+        "crime"
+    ],
+    "creator": [
+        "Sally Wainwright"
+    ],
+    "network": "BBC One",
+    "external_ratings": {
+        "imdb": {
+            "score": 8.5,
+            "scale": 10,
+            "count": "55K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tttt4179472/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 93,
+                "scale": 100
+            },
+            "season_2": {
+                "score": 96,
+                "scale": 100
+            },
+            "season_3": {
+                "score": 100,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/happy_valley"
+        },
+        "metacritic": {
+            "score": 82,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/happy-valley"
+        }
+    },
+    "consensus_highlights": "Happy Valley is a British crime drama starring Sarah Lancashire as a determined police sergeant in West Yorkshire. The series explores themes of trauma, duty, and redemption with unflinching honesty. Known for its authentic portrayal of rural England and powerful lead performance.",
+    "ranking_system": {
+        "characters": 8,
+        "world_building": 7,
+        "cinematography": 7,
+        "visual_spectacle": 5,
+        "conceptual_density": 7,
+        "narrative_drive": 8,
+        "resolution": 9,
+        "final_score": 7.22
+    },
+    "tmdbId": 55441,
+    "streaming": {
+        "us": [
+            "AMC+",
+            "Prime Video"
+        ],
+        "uk": [
+            "BBC One"
+        ]
+    }
+}

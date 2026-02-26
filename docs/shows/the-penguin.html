@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Penguin - 7-Dimension Analysis | TV Shows Ranked</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23ffffff10"/></svg>');
+            border-bottom: 3px solid #c9a227;
+            margin-bottom: 40px;
+        }
+
+        .show-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #c9a227;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(201, 162, 39, 0.5);
+        }
+
+        .show-meta {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .score-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #c9a227 0%, #8b6914 100%);
+            color: #000;
+            font-weight: 700;
+            font-size: 2.5rem;
+            padding: 15px 35px;
+            border-radius: 50px;
+            margin-top: 25px;
+            box-shadow: 0 0 40px rgba(201, 162, 39, 0.4);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 35px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #c9a227;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(201, 162, 39, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2 .icon {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            color: #d4af37;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 18px;
+            color: #c0c0c0;
+            font-size: 1.05rem;
+        }
+
+        .feeling-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .feeling-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #c9a227;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .feeling-card h4 {
+            color: #c9a227;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .feeling-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .dimension-block {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.25);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dimension-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #c9a227 0%, #8b6914 100%);
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .dimension-title {
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+
+        .dimension-score {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #c9a227;
+        }
+
+        .score-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #c9a227 0%, #d4af37 100%);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .dimension-analysis {
+            color: #b0b0b0;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .cast-tag {
+            background: rgba(201, 162, 39, 0.2);
+            color: #c9a227;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .final-score-section {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 2px solid #c9a227;
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .final-score-section h2 {
+            justify-content: center;
+            border-bottom: none;
+            font-size: 2rem;
+        }
+
+        .final-score-display {
+            font-size: 5rem;
+            font-weight: 700;
+            color: #c9a227;
+            text-shadow: 0 0 60px rgba(201, 162, 39, 0.6);
+            margin: 30px 0;
+        }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .breakdown-label {
+            color: #a0a0a0;
+        }
+
+        .breakdown-value {
+            color: #c9a227;
+            font-weight: 600;
+        }
+
+        .verdict {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            border-left: 4px solid #c9a227;
+        }
+
+        .verdict-title {
+            color: #c9a227;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .comparison-box {
+            background: rgba(201, 162, 39, 0.08);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-box h4 {
+            color: #c9a227;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #c9a227;
+            font-weight: 600;
+        }
+
+        .episode-count {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(201, 162, 39, 0.2);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .show-title {
+                font-size: 2rem;
+            }
+            
+            .final-score-display {
+                font-size: 3.5rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="show-title">The Penguin</div>
+        <div class="show-meta">HBO | 2023 | Crime Drama | 8 Episodes</div>
+        <div class="tagline">"In Gotham's shadows, power is earned one brutal step at a time."</div>
+        <div class="score-badge">7.23</div>
+    </header>
+
+    <div class="container">
+        <!-- Section 1: What It Feels Like to Watch -->
+        <section class="section">
+            <h2><span class="icon">🎭</span> What It Feels Like to Watch</h2>
+            
+            <p>Watching <em>The Penguin</em> is like stepping into a rain-soaked alleyway in Gotham City and realizing the monster you thought you knew has depths you never imagined. This isn't a superhero show—it's a Shakespearean tragedy wrapped in a crime saga, where the so-called villains become the protagonists and morality dissolves like blood in gutter water.</p>
+
+            <p>The experience immediately immerses you in a Gotham that feels lived-in, decaying, and authentically desperate. Every frame carries the weight of a city that has been broken for decades, and you can practically smell the damp concrete and feel the chill of betrayal that hangs in the air. This is urban noir at its most suffocating.</p>
+
+            <h3>The Transformation</h3>
+            <p>The most striking element is <span class="highlight">Colin Farrell's astonishing transformation</span> into Oswald Cobblepot. Hidden under prosthetics that render him nearly unrecognizable, Farrell disappears completely into the role. What could have been mere physical spectacle becomes something far more profound—a character study of a man who has been mocked his entire life and is finally ready to demand respect through any means necessary.</p>
+
+            <p>Farrell's Penguin is not the cartoonish villain of previous iterations. He's calculating, deeply wounded, surprisingly vulnerable, and terrifyingly ambitious. The physicality of the performance—his lumbering gait, his wheezing breath, the way he holds himself as if expecting a blow—tells a story of abuse and survival that dialogue never could. When he speaks, there's a musicality to his voice, a rhythm that suggests someone who has practiced every word in his head a thousand times before daring to speak it aloud.</p>
+
+            <h3>The Gotham Crime Saga</h3>
+            <p>This is Gotham City stripped of Batman's shadow, and the result is revelatory. Without the Dark Knight looming over every scene, the criminal underworld gets to breathe and develop its own ecosystem of power, violence, and desperate loyalty. The power vacuum left by Carmine Falcone's death creates opportunities for various factions to claw their way to the top, and watching Oswald navigate these treacherous waters is genuinely thrilling.</p>
+
+            <p>The series treats Gotham as a character in its own right—corrupt, dying, but stubbornly alive. The production design creates a world that feels both timeless and immediate, with technology and fashion that could exist in the 1970s or yesterday. This ambiguity serves the story well, suggesting that Gotham's problems are eternal, cyclical, and perhaps unsolvable.</p>
+
+            <div class="comparison-box">
+                <h4>📺 The Sopranos Connection</h4>
+                <p>The comparison to <em>The Sopranos</em> isn't just marketing hyperbole—it's earned. Like that groundbreaking series, <em>The Penguin</em> understands that the most compelling crime stories are family stories first. The relationships here are messy, toxic, and weirdly touching in their dysfunction. Oswald's dynamic with his mother, his complicated mentorship of Victor Aguilar, and his rivalry with Sofia Falcone all carry the emotional weight and psychological complexity that made <em>The Sopranos</em> essential viewing.</p>
+                <p>The show also shares that predecessor's patience. It doesn't rush to spectacle but allows tension to build scene by scene, conversation by conversation. Violence arrives suddenly and brutally, but it's the conversations between characters—full of subtext and barely hidden threats—that truly matter.</p>
+            </div>
+
+            <h3>Batman Adjacent</h3>
+            <p>The genius of <em>The Penguin</em> is how it exists in the shadow of the Bat without ever needing him. This is a world before Batman's full emergence, where the police are corrupt, the politicians are bought, and the monsters operate in plain sight. The absence of a hero makes the moral landscape more complex—without a clear force of justice to root for, viewers must grapple with the uncomfortable reality of finding themselves empathizing with terrible people.</p>
+
+            <p>When the series references Batman, it does so sparingly and effectively. The Dark Knight is a rumor, a phantom, a symbol that hasn't quite coalesced. This absence creates a palpable tension—you know he's coming, you know these crimes won't go unanswered forever, but for now, the criminals own the night.</p>
+
+            <div class="feeling-grid">
+                <div class="feeling-card">
+                    <h4>🌃 Atmosphere</h4>
+                    <p>Like being trapped in a noir painting that smells of rain, gunpowder, and expensive cologne.</p>
+                </div>
+                <div class="feeling-card">
+                    <h4>🎪 Character Immersion</h4>
+                    <p>Forget you're watching Colin Farrell. Believe in Oswald Cobblepot.</p>
+                </div>
+                <div class="feeling-card">
+                    <h4>⚡ Tension</h4>
+                    <p>Every conversation feels like it could end with a bullet or a handshake.</p>
+                </div>
+                <div class="feeling-card">
+                    <h4>🎭 Moral Discomfort</h4>
+                    <p>Cheering for the bad guy has never felt so complicated—or so compelling.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Why It Ranks - The 7 Dimensions -->
+        <section class="section">
+            <h2><span class="icon">📊</span> Why It Ranks: The 7 Dimensions</h2>
+            
+            <div class="cast-list">
+                <span class="cast-tag">Colin Farrell</span>
+                <span class="cast-tag">Cristin Milioti</span>
+                <span class="cast-tag">Michael Kelly</span>
+                <span class="cast-tag">Rhenzy Feliz</span>
+                <span class="cast-tag">Clancy Brown</span>
+            </div>
+
+            <p style="margin-top: 20px; margin-bottom: 30px;">Created by <strong>Lauren LeFranc</strong>, this limited series explores Oswald Cobblepot's rise through Gotham's criminal underworld following Falcone's death. Each dimension below breaks down the elements that make this show a standout entry in the crowded superhero television landscape.</p>
+
+            <!-- Dimension 1: Characters -->
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">👤 Characters</span>
+                    <span class="dimension-score">8.0</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 80%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>The characterization in <em>The Penguin</em> is exceptional, anchored by Colin Farrell's commitment to transforming himself into Oswald Cobblepot. But the supporting cast is equally impressive. Cristin Milioti's Sofia Falcone is a revelation—simultaneously tragic and terrifying, a woman shaped by trauma who refuses to be a victim any longer. Michael Kelly brings weary gravitas to his role, and Rhenzy Feliz's Victor Aguilar provides a sympathetic entry point into this brutal world.</p>
+                    <p>What elevates the characters is the show's refusal to simplify them. Oswald is neither hero nor straightforward villain—he's a survivor whose deformities and mockery have forged him into something dangerous. His relationship with his mother adds surprising emotional depth, while his mentorship of Victor echoes classic gangster cinema while maintaining its own identity.</p>
+                    <p>The complexity extends to the antagonists as well. There are no cartoonish bad guys here—every character operates from recognizable human motivations, even when their actions are monstrous. The result is a ensemble that feels genuinely unpredictable, where any character might surprise you with an act of kindness or cruelty.</p>
+                </div>
+            </div>
+
+            <!-- Dimension 2: World Building -->
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">🌆 World Building</span>
+                    <span class="dimension-score">7.5</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 75%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>Gotham City has been portrayed countless times across film and television, but <em>The Penguin</em> manages to make it feel fresh by focusing on the grime beneath the glamour. This is a Gotham of back alleys and underground clubs, of shabby apartments and criminal safe houses. The world building succeeds by being specific and tactile—you can feel the texture of every location.</p>
+                    <p>The criminal ecosystem is particularly well-developed. We understand the hierarchies, the territories, the unspoken rules that govern underworld conduct. The show doesn't just tell us that Falcone's death created a power vacuum; it shows us how that vacuum affects everyone from street-level dealers to established capos.</p>
+                    <p>The temporal ambiguity helps—this Gotham could exist in the 1970s or in a slightly alternate present. The technology exists in a liminal space between analog and digital, creating a world that feels both grounded and theatrical. However, some viewers might wish for clearer geography or more exploration of Gotham's civilian population beyond the criminal element.</p>
+                </div>
+            </div>
+
+            <!-- Dimension 3: Cinematography -->
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">🎥 Cinematography</span>
+                    <span class="dimension-score">8.0</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 80%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>The visual language of <em>The Penguin</em> is extraordinary. The series borrows heavily from noir and neo-noir traditions—heavy shadows, high contrast, rain-slicked streets reflecting neon signs—but applies them with purpose rather than pastiche. Every frame feels composed, deliberate, and emotionally resonant.</p>
+                    <p>The color palette tells its own story. The show moves between sickly greens, cold blues, and the warm amber of Oswald's personal spaces, creating a visual hierarchy that mirrors the character's journey from outsider to power player. The use of darkness is particularly masterful—characters often emerge from or retreat into shadow, suggesting their moral complexity.</p>
+                    <p>Camera movement is subtle but effective. Long takes build tension, while handheld sequences during violent encounters create visceral immediacy. The camera respects the actors' performances, often holding on faces for uncomfortable durations that force the audience to sit with difficult emotions. This is television filmmaking at its most confident.</p>
+                </div>
+            </div>
+
+            <!-- Dimension 4: Visual Spectacle -->
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">✨ Visual Spectacle</span>
+                    <span class="dimension-score">7.0</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 70%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>While <em>The Penguin</em> doesn't aim for the large-scale action sequences of superhero blockbusters, it delivers visual spectacle through production design and practical effects. The prosthetic work on Colin Farrell is genuinely impressive—Oswald's physical transformation is complete and never distracting in its artifice.</p>
+                    <p>The show's spectacle is more grounded but no less impressive for it. The costumes, particularly Oswald's evolving wardrobe as he gains power, tell visual stories. Set pieces like underground fight clubs and clandestine meetings in opulent penthouses create memorable imagery without relying on CGI overload.</p>
+                    <p>The most spectacular moments come from practical sequences—car chases through Gotham's narrow streets, brutal hand-to-hand combat, the carefully choreographed violence of criminal executions. These feel weighty and real in a way that superheroic feats sometimes don't. The restraint actually enhances the impact when violence does explode across the screen.</p>
+                </div>
+            </div>
+
+            <!-- Dimension 5: Conceptual Density -->
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">🧠 Conceptual Density</span>
+                    <span class="dimension-score">7.0</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 70%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p><em>The Penguin</em> operates on multiple thematic levels simultaneously. At its surface, it's a crime thriller about power and succession. Dig deeper, and it becomes a meditation on identity, transformation, and the price of ambition. The show explores how trauma shapes people into monsters, how mockery can forge either vulnerability or ruthless determination.</p>
+                    <p>The series engages with class in ways that feel relevant and uncomfortable. Oswald's physical deformities mirror his social status—both mark him as an outsider to be mocked. His climb up the criminal ladder is also a climb toward acceptance and respect, complicating our understanding of his motivations.</p>
+                    <p>The mother-son relationship introduces Freudian undertones that the show isn't afraid to explore. Family, loyalty, and betrayal recur as concepts throughout, creating a density of meaning that rewards repeat viewing. However, some may find the themes familiar from other crime stories, and the show occasionally prioritizes character moments over deeper philosophical inquiry.</p>
+                </div>
+            </div>
+
+            <!-- Dimension 6: Narrative Drive -->
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">📖 Narrative Drive</span>
+                    <span class="dimension-score">8.0</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 80%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>The plotting of <em>The Penguin</em> is masterfully controlled across its eight-episode run. The series maintains propulsive momentum while allowing space for character development. Each episode advances Oswald's chess game while deepening our understanding of the players involved.</p>
+                    <p>The narrative structure resembles a classical tragedy—one man's ambition leading inexorably toward a predetermined fate. Yet the show surprises with its plotting, introducing complications and reversals that feel earned rather than contrived. The interconnectedness of Gotham's criminal families creates natural opportunities for conflict and alliance alike.</p>
+                    <p>The pacing deserves particular praise. This is a show that trusts its audience to sit with tension, that understands anticipation can be as thrilling as action. Yet when the story accelerates, it does so with devastating efficiency. The limited series format proves ideal—there's no padding, no filler, just eight hours of precisely calibrated storytelling.</p>
+                </div>
+            </div>
+
+            <!-- Dimension 7: Resolution -->
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">🏁 Resolution</span>
+                    <span class="dimension-score">7.0</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 70%;"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>As a limited series, <em>The Penguin</em> had the advantage of knowing its ending from the beginning, and it uses that knowledge effectively. The resolution delivers on the promises made throughout the season while leaving appropriate doors open for future storytelling—particularly given its connection to the larger Batman universe.</p>
+                    <p>The finale provides emotional catharsis while maintaining the moral ambiguity that defines the series. Oswald's journey reaches a logical endpoint that satisfies without simplifying his complexity. The fates of supporting characters are largely earned by their choices throughout the season.</p>
+                    <p>However, the resolution may frustrate viewers hoping for more definitive closure or more dramatic transformation. The show's commitment to realism sometimes works against heightened drama, and certain character arcs conclude more quietly than one might expect. Additionally, the connection to future Batman narratives necessarily constrains some possibilities, though the show navigates these constraints with reasonable grace.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Final Score Block -->
+        <section class="final-score-section">
+            <h2><span class="icon">🏆</span> Final Verdict</h2>
+            
+            <div class="final-score-display">7.23</div>
+            
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">A standout achievement in superhero-adjacent television that proves the villains are often more interesting than the heroes.</p>
+            
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Characters</span>
+                    <span class="breakdown-value">8.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">World Building</span>
+                    <span class="breakdown-value">7.5</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Cinematography</span>
+                    <span class="breakdown-value">8.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Visual Spectacle</span>
+                    <span class="breakdown-value">7.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Conceptual Density</span>
+                    <span class="breakdown-value">7.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Narrative Drive</span>
+                    <span class="breakdown-value">8.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Resolution</span>
+                    <span class="breakdown-value">7.0</span>
+                </div>
+            </div>
+
+            <div class="verdict">
+                <div class="verdict-title">The Bottom Line</div>
+                <p><em>The Penguin</em> is a triumph of character-focused crime storytelling that just happens to be set in a superhero universe. Colin Farrell's transformative performance deserves every accolade, but the entire production—from the atmospheric direction to the nuanced supporting performances—rises to meet his standard. This is the rare comic book adaptation that works equally well for genre fans and viewers seeking serious drama. While it may not revolutionize the form, it executes its ambitions with such confidence and craft that it easily earns its place among the best television of 2023.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>TV Shows Ranked • 7-Dimension Analysis Framework</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Analysis for <em>The Penguin</em> (2023) by Lauren LeFranc</p>
+        </footer>
+    </div>
+</body>
+</html>

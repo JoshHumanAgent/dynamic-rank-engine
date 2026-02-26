@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's a Sin - TV Shows Ranked</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e8e8e8;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .show-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 50%, transparent 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .show-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e94560' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        .show-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b 0%, #e94560 50%, #ff9f43 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            position: relative;
+            text-shadow: 0 0 40px rgba(233, 69, 96, 0.3);
+        }
+        
+        .show-meta {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .meta-badge {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin: 4px;
+            border: 1px solid rgba(233, 69, 96, 0.4);
+            font-size: 0.9rem;
+        }
+        
+        .final-score-display {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #e94560;
+            display: inline-block;
+            padding: 15px 40px;
+            background: rgba(233, 69, 96, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(233, 69, 96, 0.5);
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-title::before {
+            content: '';
+            width: 8px;
+            height: 35px;
+            background: linear-gradient(180deg, #e94560 0%, #ff6b6b 100%);
+            border-radius: 4px;
+        }
+        
+        .section-content {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #d0d0d0;
+        }
+        
+        .section-content p {
+            margin-bottom: 18px;
+        }
+        
+        .dimension-block {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 4px solid #e94560;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .dimension-block:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 25px rgba(233, 69, 96, 0.2);
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .dimension-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .dimension-score {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #e94560;
+            background: rgba(233, 69, 96, 0.15);
+            padding: 8px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(233, 69, 96, 0.4);
+        }
+        
+        .dimension-desc {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        
+        .dimension-analysis {
+            color: #d5d5d5;
+            line-height: 1.8;
+        }
+        
+        .dimension-analysis p {
+            margin-bottom: 12px;
+        }
+        
+        .score-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e94560 0%, #ff6b6b 100%);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .highlight {
+            color: #ff9f43;
+            font-weight: 600;
+        }
+        
+        .keyword {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.2);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #ff9f43;
+            margin: 2px;
+        }
+        
+        .score-summary {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(255, 107, 107, 0.1) 100%);
+            border-radius: 15px;
+            border: 2px solid rgba(233, 69, 96, 0.4);
+            margin-top: 30px;
+        }
+        
+        .score-summary h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .big-score {
+            font-size: 5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b 0%, #e94560 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin: 20px 0;
+        }
+        
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .score-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .score-item-name {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            margin-bottom: 5px;
+        }
+        
+        .score-item-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e94560;
+        }
+        
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .cast-member {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            color: #d5d5d5;
+        }
+        
+        .quote {
+            border-left: 4px solid #e94560;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #b0b0b0;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .show-title {
+                font-size: 2.2rem;
+            }
+            .final-score-display {
+                font-size: 2.5rem;
+            }
+            .section {
+                padding: 25px;
+            }
+            .dimension-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .big-score {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="show-header">
+            <h1 class="show-title">It's a Sin</h1>
+            <div class="show-meta">
+                <span class="meta-badge">Channel 4</span>
+                <span class="meta-badge">2021</span>
+                <span class="meta-badge">5 Episodes</span>
+                <span class="meta-badge">Limited Series</span>
+            </div>
+            <div style="margin-top: 20px;">
+                <p style="color: #a0a0a0; font-size: 1rem;">Created by Russell T Davies</p>
+                <div class="cast-list">
+                    <span class="cast-member">Olly Alexander</span>
+                    <span class="cast-member">Omari Douglas</span>
+                    <span class="cast-member">Callum Scott Howells</span>
+                    <span class="cast-member">Lydia West</span>
+                    <span class="cast-member">Neil Patrick Harris</span>
+                </div>
+            </div>
+            <div class="final-score-display">7.71</div>
+            <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">Final Score</p>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            <div class="section-content">
+                <p>Watching <span class="highlight">It's a Sin</span> is an experience that simultaneously fills you with irrepressible joy and devastating sorrow. Russell T Davies, who lived through the era he's depicting, has crafted something that feels intensely personal yet universally resonant—a story about the AIDS crisis in 1980s Britain that refuses to be defined solely by tragedy.</p>
+                
+                <p>The series opens with a <span class="keyword">raucous energy</span>, introducing us to a group of young gay men who converge on London in 1981, hungry for freedom, acceptance, and the kind of lives their small-town upbringings denied them. Ritchie, Roscoe, Colin, Ash, and Jill explode onto the screen with the <span class="keyword">unstoppable vitality of youth</span>—they're drinking, dancing, fucking, and dreaming without restraint. The Pink Palace, their shared flat, becomes a sanctuary of joy and rebellion against a society that still criminalizes their existence.</p>
+                
+                <div class="quote">
+                    "La!" The word becomes their battle cry, their greeting, their declaration of presence in a world that wishes them invisible.
+                </div>
+                
+                <p>Davies, whose earlier work on <em>Queer as Folk</em> revolutionized queer representation on television, brings an <span class="keyword">authentic lived experience</span> to every frame. This isn't sanitized history—it's messy, horny, complicated, and real. The 1980s London he recreates pulses with <span class="keyword">Thatcher-era tension</span>, where section 28 looms and the press demonizes gay men as disease carriers. Yet simultaneously, it's a paradise of clubs and connection, of found family and first freedoms.</p>
+                
+                <p>The emotional architecture of the series is deliberately constructed to make you fall in love with these characters before systematically breaking your heart. Davies knows what he's doing—he <span class="keyword">weaponizes joy against tragedy</span>. The more you laugh with Ritchie's theatrical ambitions, Roscoe's defiant flamboyance, Colin's gentle sweetness, the more devastating their eventual fates become. By episode three, the specter of AIDS has shifted from background rumor to consuming reality, and the series transforms from a coming-of-age comedy into an <span class="keyword">uncompromising document of loss</span>.</p>
+                
+                <p>What distinguishes It's a Sin from other AIDS narratives is its <span class="keyword">refusal to traffic solely in victimhood</span>. These characters live defiantly, love fiercely, and resist medical and social systems designed to abandon them. Jill, the straight ally whose loyalty and activism anchor the series, represents the best of human response to crisis—she becomes a nurse, an advocate, a witness. The show asks uncomfortable questions about <span class="keyword">who gets to look away</span> and who must bear witness, about the families that failed their sons and the friends who became family instead.</p>
+                
+                <p>The final episodes deliver emotional devastation with surgical precision, yet never feel manipulative. Davies has earned our tears through five hours of careful character construction. When Ritchie's mother delivers a devastating monologue denying her son's truth even in death, or when Jill stands alone in an empty flat that once overflowed with life, the grief feels <span class="keyword">earned and authentic</span>. This is what it feels like to watch: like attending a vibrant party where you gradually realize half the guests won't survive the night, like dancing while the world ends, like learning that joy and sorrow can coexist in the same breath.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Why It Ranks</h2>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">Characters</span>
+                    <span class="dimension-score">9.0</span>
+                </div>
+                <p class="dimension-desc">The depth, development, and memorability of the show's characters.</p>
+                <div class="dimension-analysis">
+                    <p>The ensemble of It's a Sin represents Russell T Davies at his most emotionally generous. Each character emerges fully formed from their first moments on screen, yet undergoes profound transformation across five episodes.</p>
+                    
+                    <p><span class="highlight">Ritchie Tozer</span> (Olly Alexander) anchors the series as an aspiring actor from the Isle of Wight who crafts elaborate lies about his background to reinvent himself. His journey from entitled golden boy to desperate patient is rendered with remarkable nuance—Alexander captures Ritchie's initial shallowness and growing complexity, his refusal to accept his diagnosis feeling both frustrating and tragically understandable. The character's theatricality masks deep insecurity, his performative confidence crumbling as the physical reality of AIDS advances.</p>
+                    
+                    <p><span class="highlight">Roscoe Babatunde</span> (Omari Douglas) arrives as the most defiantly political character, fleeing his Nigerian family's expectations with spectacular style. Douglas brings fire and wit to every scene, making Roscoe's anger at systemic homophobia feel earned rather than didactic. His arc—from bar boy to activist to survivor—traces the evolution of queer political consciousness during the era.</p>
+                    
+                    <p><span class="highlight">Colin Morris-Jones</span> (Callum Scott Howells) serves as the series' emotional center, his gentle innocence making his fate particularly devastating. Howells' performance captures a specific type of queer experience: the late bloomer, the one who moved cautiously while others embraced liberation. Colin's relationship with his mentor Henry (Neil Patrick Harris) provides some of the series' most tender moments.</p>
+                    
+                    <p><span class="highlight">Asha Patel</span> (Nathaniel Curtis) and <span class="highlight">Jill Baxter</span> (Lydia West) round out the ensemble with distinct voices. Ash's guarded warmth gradually reveals layers of trauma from growing up Black and gay in 1980s Britain. Meanwhile, Jill—based on Davies' real-life friend—embodies allyship without saviorism, her straight female gaze offering the audience entry point while her nursing and advocacy demonstrate authentic solidarity.</p>
+                    
+                    <p>The supporting cast—including Stephen Fry as a closeted Tory MP and Keeley Hawes as Ritchie's conflicted mother—populate the world with specificity. Even characters appearing briefly feel like complete people with histories extending beyond the frame. Davies' gift for dialogue ensures each character speaks with <span class="keyword">distinctive cadence and vocabulary</span>—you could identify speakers with your eyes closed.</p>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 90%;"></div>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">World Building</span>
+                    <span class="dimension-score">8.0</span>
+                </div>
+                <p class="dimension-desc">The coherence and detail of the show's world.</p>
+                <div class="dimension-analysis">
+                    <p>The 1980s London of It's a Sin feels <span class="keyword">lived-in and authentic</span>, achieved through meticulous production design and Davies' personal memory. The Pink Palace, with its mismatched furniture, posters, and constant stream of visitors, becomes a character itself—a sanctuary representing the found families queer people created when biological families rejected them.</p>
+                    
+                    <p>The series excels at capturing <span class="keyword">period-specific textures</span>: the cramped flats, the payphones, the pre-internet gay scene where connections happened in bars and public toilets, personals in Time Out, flyers for clubs. Costume design distinguishes each character through fashion—Ritchie's emerging actor wardrobe, Roscoe's deliberately provocative outfits, Colin's sensible jumpers signaling his Welsh modesty.</p>
+                    
+                    <p>The wider social world receives careful attention too. The series depicts section 28's devastating impact on education, the criminalization of homosexuality that persisted in Scotland until 1980, and the NHS's overwhelmed response to the emerging crisis. <span class="highlight">Medical institutions appear both heroic and inadequate</span>—devoted nurses working with insufficient resources, hospitals creating AIDS wards, the government dragging its feet on public health messaging.</p>
+                    
+                    <p>What keeps this dimension from higher scores is occasional <span class="keyword">historical compression</span>—the timeline condenses somewhat for dramatic effect, and certain political developments move faster than they did historically. Additionally, the upper-class milieu of some characters (the drama school world, certain clubs) may not fully represent the diversity of 1980s queer London. Still, the world built here feels immersive and emotionally true to the era it depicts.</p>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 80%;"></div>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">Cinematography</span>
+                    <span class="dimension-score">7.5</span>
+                </div>
+                <p class="dimension-desc">The visual composition and camera work.</p>
+                <div class="dimension-analysis">
+                    <p>Director Peter Hoar and cinematographer <span class="highlight">David Katznelson</span> craft a visual language that evolves meaningfully across the series. The early episodes burst with <span class="keyword">saturated color and kinetic energy</span>—handheld camera work following characters through packed clubs, warm golden lighting suggesting perpetual magic hour, close-ups capturing the flush of youth and possibility.</p>
+                    
+                    <p>As the AIDS crisis intensifies, the visual approach shifts toward <span class="keyword">starker contrast and clinical whites</span>. Hospital sequences employ cool fluorescent lighting and static compositions that imprison characters in antiseptic spaces. The transition feels organic rather than heavy-handed, matching the narrative's emotional trajectory.</p>
+                    
+                    <p>The series makes effective use of <span class="highlight">period-specific visual references</span>—music video aesthetics, early MTV energy, the grain of VHS footage. Fantasy sequences (Ritchie's imagined acting career) provide visual variety while commenting on dreams deferred by disease. The Pink Palace is shot with genuine affection, making its eventual emptiness feel like a physical wound.</p>
+                    
+                    <p>The score reflects budget constraints typical of British television—while never less than competent, the cinematography lacks the ambitious visual flourishes of premium American cable productions. <span class="keyword">Certain scenes feel more functional than artistic</span>, serving story adequately without exceptional visual invention. The decision prioritizes character over visual pyrotechnics, which suits the material but prevents this dimension from achieving true greatness.</p>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 75%;"></div>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">Visual Spectacle</span>
+                    <span class="dimension-score">6.0</span>
+                </div>
+                <p class="dimension-desc">The scale and impact of visual set pieces.</p>
+                <div class="dimension-analysis">
+                    <p>It's a Sin operates on a deliberately <span class="keyword">intimate scale</span>, and visual spectacle takes a backseat to emotional authenticity. The "spectacle" here manifests not in CGI or elaborate action sequences but in <span class="highlight">human moments rendered with devastating clarity</span>—Colin's final lucid recognition of his friends, Jill's lonely vigil by multiple hospital beds, the packed funeral where an entire community grieves together.</p>
+                    
+                    <p>The series does achieve memorable visual moments: the vibrant club scenes with period-authentic styling and choreography; the stark contrast of hospital wards against domestic warmth; symbolic imagery of empty spaces (bedrooms, stages, churches) that speak to absence. The <span class="keyword">opening credits sequence</span>—set to the Pet Shop Boys' "Opportunities"—creates propulsive energy through archival footage montage.</p>
+                    
+                    <p>However, the show's limited budget and focused scope mean there are no <span class="highlight">show-stopping visual sequences</span> in the traditional sense. No battle scenes, no elaborate practical effects, no breathtaking landscapes. The spectacle is emotional rather than visual—watching talented actors deliver heartbreaking material. For a series about human connection and loss, this prioritization makes sense, but it limits the score in this particular dimension.</p>
+                    
+                    <p>What spectacle exists serves character and theme rather than existing for its own sake. The Pink Palace parties feel immersive because they prioritize authentic period detail over stylization. When the series reaches for larger visual statements (the final episode's empty flat), they land because earned through five hours of intimate investment.</p>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 60%;"></div>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">Conceptual Density</span>
+                    <span class="dimension-score">10.0</span>
+                </div>
+                <p class="dimension-desc">The richness of ideas and themes explored.</p>
+                <div class="dimension-analysis">
+                    <p>Here It's a Sin achieves <span class="keyword">transcendent excellence</span>. Russell T Davies layers so many interconnected themes across five episodes that subsequent viewings reveal new resonances. The series functions simultaneously as: <span class="highlight">historical document, political indictment, coming-of-age story, romance, tragedy, and celebration</span>.</p>
+                    
+                    <p>The central concept—the AIDS crisis as experienced by a specific group of young gay men—supports exploration of <span class="keyword">found family versus biological family</span>, shame versus pride, medical establishment versus patient autonomy, government responsibility versus individual blame. Davies interrogates how disease becomes moral judgment, how "patient zero" narratives scapegoat the marginalized, how silence equals death.</p>
+                    
+                    <p>The series explores <span class="highlight">temporality and memory</span> uniquely—episodes span years, yet moments of crisis feel suspended in time. The opening of episode one, with Ritchie's future self narrating, creates layers of temporal awareness that pay off in devastating ways. Questions of <span class="keyword">who tells stories, who gets remembered, who is written out of history</span> permeate every scene.</p>
+                    
+                    <p>Class dynamics receive sharp examination—Ritchie's middle-class comfort versus Roscoe's precarious existence, the ways privilege protects some while exposing others. Religious hypocrisy (the Catholic parents, the Christian landlords), racial politics within the gay community, and gender dynamics (the role of straight women as caretakers) all receive thoughtful treatment.</p>
+                    
+                    <p>Most impressively, Davies balances <span class="keyword">ideological clarity with human complexity</span>. Characters make politically problematic statements, hold contradictory beliefs, disappoint each other. The series never reduces its ideas to slogans—they emerge organically from character interaction. The conversation about what "causes" AIDS (behavioral versus structural explanations) plays out across multiple scenes without didacticism. Every frame contains multitudes.</p>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">Narrative Drive</span>
+                    <span class="dimension-score">8.0</span>
+                </div>
+                <p class="dimension-desc">The propulsion and pacing of the story.</p>
+                <div class="dimension-analysis">
+                    <p>It's a Sin employs a <span class="keyword">braided narrative structure</span> that juggles multiple timelines and perspectives across five episodes, each representing roughly a year from 1981 to 1991. This temporal compression creates inherent propulsion—we understand from the opening that time is limited, that the carefree party cannot last forever.</p>
+                    
+                    <p>The <span class="highlight">pacing strategy</span> deserves particular praise. Davies frontloads joy, spending two full episodes establishing friendship and freedom before tragedy intrudes. This isn't merely delaying the inevitable—it's establishing emotional stakes so the losses carry appropriate weight. When Colin falls ill, the shift from comedy to medical drama feels organic rather than jarring.</p>
+                    
+                    <p>The series maintains momentum through <span class="keyword">multiple narrative threads</span>: Ritchie's acting career, Roscoe's political awakening, Jill's nursing training, Ash's guarded relationship with his family. Each episode advances these threads while introducing new characters and complications. The mysteries (Who has AIDS? Who will survive?) create suspense even when outcomes feel predetermined by history.</p>
+                    
+                    <p>The <span class="highlight">narrative voice</span>—sometimes directly addressing the audience, sometimes withholding information for dramatic effect—keeps viewers engaged intellectually as well as emotionally. The structural decision to occasionally jump forward in time ("three years later") risks disorientation but more often generates productive tension.</p>
+                    
+                    <p>What prevents a higher score is occasional <span class="keyword">narrative convenience</span>—characters happening to be in the right place at the right time, certain plot developments feeling slightly forced for dramatic effect. Additionally, the compressed timeline means some emotional beats land faster than they might with more breathing room. Still, the storytelling here demonstrates sophisticated command of long-form structure, knowing precisely when to accelerate and when to linger.</p>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 80%;"></div>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">Resolution</span>
+                    <span class="dimension-score">8.5</span>
+                </div>
+                <p class="dimension-desc">The satisfaction and coherence of the ending.</p>
+                <div class="dimension-analysis">
+                    <p>The conclusion of It's a Sin honors <span class="keyword">the complexity of its subject matter</span>—there can be no simple "happy ending" when depicting the AIDS crisis, yet Davies refuses to end on pure nihilism. The fifth episode finds the surviving characters five years on, attending an ACT UP demonstration, suggesting political awakening and continued resistance.</p>
+                    
+                    <p>Jill's final monologue, delivered directly to camera, serves as <span class="highlight">both elegy and call to action</span>. She names the dead—Colin, Ritchie, Henry, others—refusing to let them become statistics. This breaking of the fourth wall feels earned by the series' emotional intensity, transforming grief into witness. The device acknowledges the audience as inheritors of this history, demanding we remember.</p>
+                    
+                    <p>Individual character arcs receive <span class="keyword">satisfying if bittersweet closure</span>. Roscoe's survival and political commitment, Ash's emergence into authentic adulthood, and Jill's continued caregiving all suggest life continuing despite loss. The final image of the Pink Palace—empty but not destroyed—symbolizes both absence and endurance. The space where joy occurred remains, even when the joyful have departed.</p>
+                    
+                    <p>The series <span class="highlight">resolves thematic threads</span> with precision: the theme of found family finds full expression in the funeral sequence where biological families are replaced by chosen community; the theme of shame versus pride concludes with ACT UP's defiant visibility; the theme of memory consolidates in Jill's naming of names.</p>
+                    
+                    <p>The resolution loses slight points for <span class="keyword">some unanswered questions</span>—certain supporting characters disappear without conclusion, and the compression of the final timeline leaves some relationships underdeveloped. Additionally, the political messaging can feel slightly heavy-handed in the final minutes after five hours of subtlety. Still, the conclusion honors the series' achievement: a story about devastating loss that somehow leaves viewers with <span class="keyword">hope rather than despair</span>, the possibility of change rather than resignation to fate.</p>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" style="width: 85%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="score-summary">
+            <h2>Final Score</h2>
+            <span class="big-score">7.71</span>
+            <p style="color: #b0b0b0; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.7;">
+                It's a Sin stands as Russell T Davies' masterpiece—a work of personal and political significance that balances historical documentation with intimate human drama. Its exceptional conceptual density and character work elevate it beyond mere "issue television" into something that demands to be remembered, discussed, and learned from. Though working with limited visual spectacle, the emotional truth it achieves proves more valuable than any effects budget could buy.
+            </p>
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-item-name">Characters</div>
+                    <div class="score-item-value">9.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-name">World Building</div>
+                    <div class="score-item-value">8.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-name">Cinematography</div>
+                    <div class="score-item-value">7.5</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-name">Visual Spectacle</div>
+                    <div class="score-item-value">6.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-name">Conceptual Density</div>
+                    <div class="score-item-value">10.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-name">Narrative Drive</div>
+                    <div class="score-item-value">8.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-name">Resolution</div>
+                    <div class="score-item-value">8.5</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

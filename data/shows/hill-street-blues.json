@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "hill-street-blues",
+    "title":  "Hill Street Blues",
+    "year":  1981,
+    "month":  12,
+    "status":  "completed",
+    "seasons":  7,
+    "episodes":  146,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "crime",
+                   "cop-show"
+               ],
+    "creator":  "Steven Bochco, Michael Kozoll",
+    "network":  "NBC",
+    "tmdbId":  4094,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  7.6,
+                                          "scale":  10,
+                                          "count":  "15000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0081883/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  95,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/hill_street_blues"
+                                                 },
+                             "metacritic":  {
+                                                "score":  78,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/hill-street-blues"
+                                            }
+                         },
+    "consensus_highlights":  "Hill Street Blues premiered January 15, 1981, and won eight Emmy Awards in its debut seasonâ€”a record that stood until The West Wing in 2000. Over seven seasons, it accumulated 26 Emmy wins from 98 nominations, including four consecutive Outstanding Drama Series awards (1981-1984). Creator Steven Bochco\u0027s innovations were foundational: multi-thread storytelling where episodes juggle four to six simultaneous plotlines, handheld documentary camera work that brought cinema veritÃ© to network television, overlapping dialogue that required actors to ride lines through other performers\u0027 words, and moral ambiguity as default state. Captain Frank Furillo (Daniel J. Travanti, Emmy winner 1981-82) established the archetype of the exhausted institutional leader; Michael Conrad\u0027s Sergeant Esterhaus (Emmy winner 1981-82) made \u0027Let\u0027s be careful out there\u0027 into television\u0027s most recognizable roll call benediction before his death in November 1983. The central romance between Furillo and public defender Joyce Davenport (Veronica Hamel) remains among the most honest depictions of working-couple intimacy ever airedâ€”pillow talk about plea bargains, professional respect amid adversarial roles. The 6.95 final score reflects a show whose innovations have been so thoroughly absorbed into television grammar that modern viewers may not register their revolutionary nature. The Wire, NYPD Blue, Homicide: Life on the Street, and virtually every prestige drama of the cable era walk a path that Hill Street cleared. Dated visuals and variable quality across 146 episodesâ€”particularly the decline after Conrad\u0027s death and the original ensemble\u0027s turnoverâ€”prevent higher ranking, but the historical significance is foundational.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  7,
+                           "drive":  7,
+                           "cine":  6,
+                           "spect":  5,
+                           "final":  6.95,
+                           "world":  7,
+                           "char":  7.5
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Hulu",
+                                 "Peacock"
+                             ],
+                      "uk":  [
+                                 "BBC Two"
+                             ]
+                  }
+}

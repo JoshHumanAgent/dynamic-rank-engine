@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrick Melrose (2018) - Comprehensive Analysis | TV Shows Ranked</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --accent-gold: #d4af37;
+            --accent-purple: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6b6b7b;
+            --border-color: #2a2a3a;
+            --score-high: #22c55e;
+            --score-mid: #eab308;
+            --score-low: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Section */
+        .show-header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #1e1e2e 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .show-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-purple), var(--accent-blue));
+        }
+
+        .show-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .meta-badge {
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--accent-purple);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .meta-badge.gold {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--accent-gold);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .creator-line {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .cast-member {
+            background: var(--bg-card);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        /* Final Score Hero */
+        .final-score-hero {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+            border: 2px solid var(--accent-purple);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .final-score-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .final-score-value {
+            font-size: 5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .final-score-tier {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--score-high);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Styling */
+        .section {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Dimension Blocks */
+        .dimension-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .dimension-block {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.8rem;
+            border-left: 4px solid var(--accent-purple);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .dimension-block:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .dimension-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .dimension-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+        }
+
+        .score-high { background: rgba(34, 197, 94, 0.2); color: var(--score-high); }
+        .score-mid { background: rgba(234, 179, 8, 0.2); color: var(--score-mid); }
+        .score-low { background: rgba(239, 68, 68, 0.2); color: var(--score-low); }
+
+        .dimension-content {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .dimension-content p {
+            margin-bottom: 1rem;
+        }
+
+        .dimension-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Experience Section */
+        .experience-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 2;
+        }
+
+        .experience-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        .quote-block {
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 3px solid var(--accent-purple);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--text-primary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Score Summary */
+        .score-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .score-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border-radius: 8px;
+        }
+
+        .score-item-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .score-item-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .analysis-footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .final-score-value { font-size: 3.5rem; }
+            .section { padding: 1.5rem; }
+            .dimension-block { padding: 1.2rem; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="show-header">
+            <div class="show-meta">
+                <span class="meta-badge gold">Limited Series</span>
+                <span class="meta-badge">2018</span>
+                <span class="meta-badge">Showtime</span>
+                <span class="meta-badge">5 Episodes</span>
+            </div>
+            <h1>Patrick Melrose</h1>
+            <p class="subtitle">Based on the Edward St. Aubyn Novels</p>
+            <p class="creator-line">Created by David Nicholls</p>
+            <div class="cast-list">
+                <span class="cast-member">Benedict Cumberbatch</span>
+                <span class="cast-member">Hugo Weaving</span>
+                <span class="cast-member">Jennifer Jason Leigh</span>
+                <span class="cast-member">Allison Williams</span>
+            </div>
+        </header>
+
+        <!-- Final Score Hero -->
+        <div class="final-score-hero">
+            <div class="final-score-label">Seven-Dimension Composite Score</div>
+            <div class="final-score-value">7.47</div>
+            <div class="final-score-tier">★★★★ Highly Recommended</div>
+        </div>
+
+        <!-- What It Feels Like to Watch -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">🎭</span>
+                What It Feels Like to Watch
+            </h2>
+            <div class="experience-text">
+                <p>
+                    Watching <span class="highlight">Patrick Melrose</span> is akin to being submerged in freezing water—initial shock gives way to a peculiar numbness, and then, slowly, you begin to feel everything with terrifying clarity. This is not comfortable television. It is a <span class="highlight">raw, unflinching excavation of trauma</span> that refuses the easy redemption arcs typical of addiction narratives. Instead, it offers something far more honest: the messy, non-linear, often contradictory journey of a man attempting to outrun his own destruction while simultaneously courting it.
+                </p>
+                
+                <p>
+                    <span class="highlight">Benedict Cumberbatch delivers a career-defining performance</span> that operates on frequencies most actors never attempt. As Patrick Melrose, he navigates the poles of dissociation and hyper-awareness, switching between sardonic wit and guttural anguish with such volatility that you forget you're watching a performance at all. In the first episode, set in 1980s New York, we meet Patrick as a spiraling addict, and Cumberbatch embodies this dissolution so completely that the screen itself seems to warp—his physicality loose and jerky, his eyes simultaneously vacant and hunted. It's the kind of performance that demands everything from its actor, and Cumberbatch gives everything.
+                </p>
+
+                <div class="quote-block">
+                    "The show doesn't just depict addiction—it makes you feel the desperate calculus of a mind seeking escape from its own contents."
+                </div>
+
+                <p>
+                    The <span class="highlight">British upper class setting</span> serves not as mere backdrop but as active participant in the damage. The Melrose family's aristocratic privilege is both armor and prison—the wealth that insulates Patrick from consequences also prevents anyone from seeing his pain as real. Director Edward Berger shoots the estate sequences with a cold, distanced beauty that mirrors the emotional architecture of old money: everything appears polished on the surface while rot spreads beneath. The childhood sequences, particularly those involving Hugo Weaving's monstrously complex David Melrose, are filmed with a surreal, nightmarish quality that makes the boundary between memory and hallucination deliberately porous.
+                </p>
+
+                <p>
+                    What elevates this series beyond mere trauma tourism is its <span class="highlight">commitment to recovery as process rather than destination</span>. The final episodes resist the temptation to wrap Patrick's journey in a neat bow. Instead, they show sobriety as a daily negotiation, a series of small victories and inevitable setbacks. The show understands that healing from childhood abuse isn't about "getting over it"—it's about learning to carry the weight differently, about finding moments of genuine connection amidst the wreckage. By the final frame, Patrick hasn't been cured; he's simply still standing, which is, the series suggests, its own kind of triumph.
+                </p>
+            </div>
+        </section>
+
+        <!-- Why It Ranks - Seven Dimensions -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">📊</span>
+                Why It Ranks: The Seven Dimensions
+            </h2>
+            <div class="dimension-grid">
+                
+                <!-- Characters -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-name">01. Characters</span>
+                        <span class="dimension-score score-high">7.8</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>
+                            The characterization in Patrick Melrose operates at an extraordinary level of psychological sophistication. Patrick himself is rendered as a study in contradictions—simultaneously brilliant and self-destructive, magnetic and repellent, deeply empathetic and casually cruel. Cumberbatch's performance captures the specific texture of trauma survivors who have developed elaborate performative personas to mask their damage. The supporting cast proves equally formidable: <span class="highlight">Hugo Weaving's David Melrose</span> is a singular creation in the pantheon of screen monsters—a sadist whose intellectual charm makes his violence all the more disturbing. Weaving refuses the easy route of pure villainy, instead locating the character's humanity just enough to make his atrocities feel real rather than theatrical.
+                        </p>
+                        <p>
+                            Jennifer Jason Leigh as Eleanor brings a raw, trembling vulnerability to the role of the complicit mother, trapped in her own gilded cage of addiction and denial. Her scenes with Cumber crackle with the specific electricity of family members who share toxic secrets. Allison Williams provides crucial counterbalance as the grounded, pragmatic partner who sees through Patrick's performance while remaining genuinely concerned for his welfare. The series invests even minor characters with interior lives—the rehab counselor, the childhood friend, the New York drug dealer—each appearing fully realized despite limited screen time. Where the character work occasionally falters is in its occasional descent into type; some of the upper-class caricatures, while accurate to St. Aubyn's satirical source material, can feel slightly one-note compared to the Melrose family complexity.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- World Building -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-name">02. World Building</span>
+                        <span class="dimension-score score-high">7.5</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>
+                            The world of Patrick Melrose is constructed with surgical attention to the <span class="highlight">specific textures of British aristocracy and 1980s excess</span>. Production designer Tom Burton recreates period environments that feel lived-in rather than museum-piece perfect. The Melrose estate emerges as a character in its own right—a crumbling monument to empire that houses rot beneath its ornate plaster. The series moves dexterously between locations: the feverish, neon-lit nightmare of 1980s New York, the suffocating gentility of London drawing rooms, the sterile corridors of rehabilitation facilities, and the Gothic decay of the family pile.
+                        </p>
+                        <p>
+                            Each environment is filtered through Patrick's subjective experience—New York pulses with menace and temptation, while the estate breathes with ancestral weight. The world building excels particularly in the <span class="highlight">class dynamics that permeate every interaction</span>. The show understands how privilege operates as both lubricant and barrier—Patrick's addiction unfolds differently because he has resources; his trauma is simultaneously more visible (to the audience) and less visible (to the servants, the doctors, the institutions designed to "help"). The series also constructs a credible ecosystem of addiction and recovery, avoiding both romanticization and moralizing. The rehabs feel institutional and flawed, the fellow addicts diverse in their damage, the medical professionals variously competent and complicit. It's a world that feels researched without being clinical, authentic without being documentary.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cinematography -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-name">03. Cinematography</span>
+                        <span class="dimension-score score-high">7.5</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>
+                            Cinematographer <span class="highlight">James Friend</span> crafts a visual language that mirrors Patrick's fractured consciousness. The camera work operates on two distinct modes: the present-tense sequences employ a handheld, almost invasive intimacy that refuses the audience comfortable distance, while the childhood flashbacks adopt a more formal, locked-off aesthetic that suggests the rigidity of imposed trauma. Color grading serves narrative function throughout—New York scenes are pushed toward sickly yellows and aggressive contrast, while the English estate sequences feel drained, as if even the light has been aristocratically suppressed.
+                        </p>
+                        <p>
+                            The show's visual sophistication is most evident in <span class="highlight">transitions between timelines</span>—doors opening into different decades, mirrors reflecting unexpected faces, dissolves that suggest memory's slippery hold on chronology. The drug sequences avoid cliché visual tropes; instead, the cinematography finds the disorienting beauty in dissolution, the way reality unspools when consciousness itself becomes unreliable. Several sequences stand as genuine achievements: the opening tracking shot through the New York apartment establishing Patrick's chaos, the long take of the childhood confrontation that refuses to cut away from horror, the final moments of the series where landscape and psychology finally achieve something like harmony.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual Spectacle -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-name">04. Visual Spectacle</span>
+                        <span class="dimension-score score-low">6.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>
+                            Patrick Melrose deliberately operates outside the spectacular register. This is intimate, character-driven television whose visual pleasures are <span class="highlight">modest and textural rather than impressive</span>. The series contains no action sequences, no grand set pieces, no digital wizardry. What spectacle exists is entirely psychological—the most arresting images are Cumberbatch's face in extremis, the architecture of aristocratic decay, the human body as site of damage. The New York sequences offer some visual variety through location shooting, capturing the specific grime and grandeur of 1980s Manhattan, but these moments remain grounded in realism.
+                        </p>
+                        <p>
+                            The series' visual restraint is entirely appropriate to its subject matter—addiction and trauma resist spectacular treatment—but it does mean the show offers less pure visual pleasure than series operating in different registers. The <span class="highlight">costume and production design provide the primary aesthetic rewards</span>: the careful reconstruction of period clothing, the lived-in authenticity of environments. Those seeking visual grandeur will likely find the show's aesthetic too subdued, but this modesty serves the narrative's commitment to psychological realism. The series invites viewers to look closely rather than to be dazzled, and within this framework, moments of unexpected beauty emerge—the quality of light through a window, the precise arrangement of objects in a frame, the physical comedy nested within tragedy.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Conceptual Density -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-name">05. Conceptual Density</span>
+                        <span class="dimension-score score-high">7.5</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>
+                            The series engages deeply with <span class="highlight">questions of inherited trauma, the pathology of privilege, and the ethics of memory</span>. Adapted from Edward St. Aubyn's semi-autobiographical novels, the show carries substantial literary weight—it grapples with how abuse replicates across generations, how class insulates the powerful from consequences, and how addiction functions as both escape and self-punishment. The conceptual architecture is sophisticated: Patrick's relationship with his father operates as case study in how damage gets transmitted, while his journey toward sobriety explores whether recognition of one's wounds constitutes sufficient grounds for redemption.
+                        </p>
+                        <p>
+                            The show also interrogates <span class="highlight">narrative itself as form of therapy</span>—Patrick's story is fundamentally about learning to tell a different story about himself, to replace the script written by his father with one of his own authorship. The adaptation from St. Aubyn's acclaimed novels introduces questions about the ethics of transforming personal trauma into art, and the series seems aware of this tension. Where the conceptual density occasionally falters is in its treatment of some secondary themes; the exploration of 1980s American excess, while evocative, sometimes feels more atmospheric than analytical. Similarly, the series' engagement with recovery culture, while respectful, occasionally simplifies the complex dynamics of institutional support. These are minor quibbles, however, in a work that sustains genuine intellectual and emotional seriousness across five hours.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Narrative Drive -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-name">06. Narrative Drive</span>
+                        <span class="dimension-score score-high">7.5</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>
+                            The series structures its five episodes as <span class="highlight">distinct movements in a larger composition</span>, each capturing a different facet of Patrick's experience. Episode One, "Bad News," operates as fever dream—72 hours of cascading catastrophe compressed into real-time nightmare. Episode Two, "Never Mind," shifts to the childhood estate and the source of trauma. Episode Three, "Some Hope," introduces the social comedy of aristocratic London. Episode Four, "Mother's Milk," explores inheritance in its literal form. Episode Five, "At Last," attempts closure without sentimentality. This architecture gives the series both episodic integrity and cumulative power; each installment functions independently while contributing to the larger design.
+                        </p>
+                        <p>
+                            David Nicholls' adaptation demonstrates <span class="highlight">sophisticated understanding of television's specific rhythms</span>. The narrative balances plot mechanics with character study, ensuring that Patrick's interior journey remains central even as external events accumulate. Pacing varies deliberately by episode—the first is deliberately overwhelming, the second more measured, the third comedic, the fourth elegiac, the fifth contemplative. This rhythmic variation prevents the grim subject matter from becoming monotonous while preserving emotional authenticity. The series also manages the difficult feat of making recovery, notoriously difficult to dramatize, genuinely compelling through careful attention to Patrick's shifting consciousness. Where narrative drive occasionally flags is in some of the extended social satire sequences, which, while well-executed, can feel like detours from the central emotional through-line.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Resolution -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-name">07. Resolution</span>
+                        <span class="dimension-score score-high">7.5</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>
+                            The series finale, "At Last," faces the <span class="highlight">nearly impossible task of ending a story about ongoing struggle</span>. It succeeds through refusal of easy catharsis. Patrick's journey doesn't conclude with triumphant transformation; instead, he arrives at something more modest and more true—a provisional peace, a capacity for genuine connection, the possibility of different choices. The episode's extended funeral sequence serves as both literal event and metaphorical reckoning, gathering characters from across the narrative to acknowledge what has been lost and what might be gained. The final scenes avoid the temptation to show Patrick "cured"; instead, they suggest he's simply better equipped to face what comes next.
+                        </p>
+                        <p>
+                            The resolution earns its emotional weight through <span class="highlight">earned character development across the preceding episodes</span>. When Patrick makes different choices in the finale, those choices feel like consequences of genuine growth rather than narrative convenience. The series also resolves several thematic threads—the inheritance of damage, the possibility of breaking cycles, the relationship between art and trauma—in ways that feel conclusive without being tidy. The final image lingers in memory: Patrick, alone but not obliterated, having learned to carry his history without being defined entirely by it. Some viewers may find this conclusion too muted, too lacking in dramatic fireworks; but this restraint is precisely the point. Recovery isn't cinematic—it doesn't come with swelling strings and golden light. It comes with the quiet recognition that morning has arrived, and one has survived to meet it.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Score Summary -->
+            <div class="score-summary">
+                <div class="score-item">
+                    <div class="score-item-label">Characters</div>
+                    <div class="score-item-value" style="color: var(--score-high)">7.8</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">World Building</div>
+                    <div class="score-item-value" style="color: var(--score-mid)">7.5</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">Cinematography</div>
+                    <div class="score-item-value" style="color: var(--score-mid)">7.5</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">Visual Spectacle</div>
+                    <div class="score-item-value" style="color: var(--score-low)">6.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">Conceptual Density</div>
+                    <div class="score-item-value" style="color: var(--score-mid)">7.5</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">Narrative Drive</div>
+                    <div class="score-item-value" style="color: var(--score-mid)">7.5</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">Resolution</div>
+                    <div class="score-item-value" style="color: var(--score-mid)">7.5</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Score Section -->
+        <section class="section" style="text-align: center;">
+            <h2 class="section-title" style="justify-content: center;">
+                <span class="section-icon">🏆</span>
+                Final Verdict
+            </h2>
+            <div style="font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                <p style="margin-bottom: 1rem;">
+                    Patrick Melrose achieves a <span class="highlight">composite score of 7.47</span> across our seven evaluation dimensions, placing it in the upper tier of limited series television.
+                </p>
+                <p>
+                    This is prestige television that earns its pretensions through genuine artistic ambition and uncompromising execution. It demands engagement and rewards attention, offering a portrait of damage and tentative redemption that resists simplification. While not flawless—the visual modesty and occasionally overdetermined social satire keep it from absolute greatness—it represents the medium operating at near-peak capacity for character-driven drama.
+                </p>
+            </div>
+            <div class="final-score-value" style="font-size: 4rem;">7.47</div>
+            <p style="color: var(--text-muted); margin-top: 1rem;">Composite Score | Seven-Dimension Analysis</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="analysis-footer">
+            <p>Analysis generated for TV Shows Ranked | Seven-Dimension Evaluation Framework</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Patrick Melrose © Showtime Networks Inc. | Based on novels by Edward St. Aubyn</p>
+        </footer>
+    </div>
+</body>
+</html>

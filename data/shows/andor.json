@@ -1,0 +1,51 @@
+{
+    "slug": "andor",
+    "title": "Andor",
+    "year": 2022,
+    "month": "09",
+    "network": "Disney+",
+    "status": "ongoing",
+    "streaming": {
+        "us": ["Disney+"],
+        "uk": ["Disney+"]
+    },
+    "genres": ["Sci-Fi", "Drama", "Spy Thriller"],
+    "creators": ["Tony Gilroy"],
+    "cast": ["Diego Luna", "Stellan Skarsgård", "Kyle Soller", "Adria Arjona", "Fiona Shaw", "Denise Gough"],
+    "external_ratings": {
+        "imdb": {
+            "score": 8.4,
+            "votes": 205000,
+            "url": "https://www.imdb.com/title/tt9253284/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 82,
+            "critics": 96,
+            "url": "https://www.rottentomatoes.com/tv/andor",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 8.8,
+        "world": 9.0,
+        "cine": 9.0,
+        "spect": 7.5,
+        "conc": 9.2,
+        "drive": 9.0,
+        "resol": 8.5,
+        "final": 8.8
+    },
+    "episodes": 24,
+    "seasons": 2,
+    "poster": "",
+    "tmdb_id": 83861,
+    "consensus_highlights": [
+        "The Star Wars series for people who don't like Star Wars",
+        "Tony Gilroy brings moral complexity to a binary universe",
+        "Rebellion as bureaucracy: slow-building revolution",
+        "Stellan Skarsgård's Luthen: the spy master as tragic hero",
+        "Proof that franchise television can be cinema"
+    ],
+    "tags": ["star-wars", "spy", "political", "mature", "star-wars-for-adults", "rebellion"]
+}

@@ -1,0 +1,52 @@
+﻿{
+    "slug":  "when-they-see-us",
+    "title":  "When They See Us",
+    "year":  2019,
+    "month":  5,
+    "status":  "completed",
+    "seasons":  1,
+    "episodes":  4,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama"
+               ],
+    "creator":  "Ava DuVernay",
+    "network":  "Netflix",
+    "tmdbId":  83868,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.8,
+                                          "scale":  10,
+                                          "count":  "157000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt7137906/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  96,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/when_they_see_us"
+                                                 }
+                         },
+    "consensus_highlights":  "Based on the true story of the Central Park Five, five teens from Harlem are falsely accused of a brutal attack and fight for their exoneration.",
+    "ranking_system":  {
+                           "conc":  9,
+                           "resol":  9,
+                           "drive":  8,
+                           "cine":  8,
+                           "spect":  5,
+                           "final":  7.67,
+                           "world":  6.5,
+                           "char":  7.5
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Netflix"
+                             ],
+                      "uk":  [
+                                 "Netflix"
+                             ]
+                  }
+}

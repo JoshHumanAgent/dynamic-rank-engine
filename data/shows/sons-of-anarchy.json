@@ -1,0 +1,27 @@
+{
+  "slug": "sons-of-anarchy",
+  "title": "Sons of Anarchy",
+  "year": 2008,
+  "month": 9,
+  "genres": ["drama", "crime", "thriller"],
+  "final": 7.85,
+  "tmdbId": 1409,
+  "char": 8.5,
+  "world": 8.5,
+  "cine": 6.5,
+  "spect": 6.5,
+  "conc": 8.0,
+  "drive": 7.5,
+  "resol": 7.5,
+  "episodes": 92,
+  "poster": "https://image.tmdb.org/t/p/w500/kiy8BHtIHAslh81rvFcZ4wbNGdY.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w780/dk2AwvW3VyKHCWAdED0sJzD0NYQ.jpg",
+  "streaming": {
+    "us": ["Hulu"],
+    "uk": ["Disney Plus"]
+  },
+  "creators": ["Kurt Sutter"],
+  "network": "FX",
+  "status": "ended",
+  "scoring_notes": "Strong character work with Katey Sagal's Golden Globe-winning performance. Immersive world-building with real Hell's Angels technical advisors. Shakespearean 'Hamlet on Harleys' structure."
+}

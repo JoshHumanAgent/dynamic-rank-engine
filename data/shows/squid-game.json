@@ -1,0 +1,54 @@
+{
+    "slug": "squid-game",
+    "title": "Squid Game",
+    "year": 2021,
+    "month": 9,
+    "status": "ongoing",
+    "seasons": 2,
+    "episodes": 16,
+    "runtime": "45-60",
+    "country": "United States",
+    "genres": [
+        "thriller",
+        "drama",
+        "sci-fi"
+    ],
+    "creator": "Hwang Dong-hyuk",
+    "network": "Netflix",
+    "tmdbId": 93405,
+    "external_ratings": {
+        "imdb": {
+            "score": 8,
+            "scale": 10,
+            "count": "395000",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt10919420/"
+        },
+        "rotten_tomatoes": {
+            "score": 95,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/squid_game"
+        }
+    },
+    "consensus_highlights": "Hundreds of cash-strapped players accept a strange invitation to compete in children's games with deadly high stakes.",
+    "ranking_system": {
+        "char": 7.5,
+        "world": 7.5,
+        "cine": 8,
+        "spect": 7.5,
+        "conc": 7,
+        "drive": 8,
+        "resol": 7.5,
+        "final": 7.46
+    },
+    "notes": "",
+    "streaming": {
+        "us": [
+            "Netflix"
+        ],
+        "uk": [
+            "Netflix"
+        ]
+    }
+}

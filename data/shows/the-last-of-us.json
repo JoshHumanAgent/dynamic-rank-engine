@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "the-last-of-us",
+    "title":  "The Last of Us",
+    "year":  2023,
+    "month":  1,
+    "status":  "ongoing",
+    "seasons":  2,
+    "episodes":  16,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "action",
+                   "sci-fi"
+               ],
+    "creator":  "Craig Mazin, Neil Druckmann",
+    "network":  "HBO",
+    "tmdbId":  100088,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.7,
+                                          "scale":  10,
+                                          "count":  "350000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt13098888/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  96,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/the_last_of_us"
+                                                 },
+                             "metacritic":  {
+                                                "score":  84,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/the-last-of-us"
+                                            }
+                         },
+    "consensus_highlights":  "A smuggler is tasked with escorting a teenage girl across a post-apocalyptic America in order to give humanity a fighting chance.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  7,
+                           "drive":  8,
+                           "cine":  8,
+                           "spect":  8,
+                           "final":  7.78,
+                           "world":  7.5,
+                           "char":  8
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic",
+                                 "NOW TV"
+                             ]
+                  }
+}

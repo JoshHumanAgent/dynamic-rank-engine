@@ -1,0 +1,71 @@
+{
+    "slug": "foundation",
+    "title": "Foundation",
+    "year": 2021,
+    "month": 9,
+    "status": "continuing",
+    "seasons": 3,
+    "episodes": 30,
+    "runtime": "40-55",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "sci-fi"
+    ],
+    "creator": [
+        "David S. Goyer",
+        "Josh Friedman"
+    ],
+    "network": "Apple TV+",
+    "external_ratings": {
+        "imdb": {
+            "score": 7.5,
+            "scale": 10,
+            "count": "200K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt0804484/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 74,
+                "scale": 100
+            },
+            "season_2": {
+                "score": 86,
+                "scale": 100
+            },
+            "season_3": {
+                "score": 95,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/foundation"
+        },
+        "metacritic": {
+            "score": 68,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/foundation"
+        }
+    },
+    "consensus_highlights": "Foundation is an ambitious adaptation of Isaac Asimov's seminal sci-fi novels. The series follows a band of psychologists who establish a sanctuary of culture and learning as the Galactic Empire collapses. Known for its massive scope, stunning visuals, and exploration of civilization-scale themes.",
+    "ranking_system": {
+        "characters": 6,
+        "world_building": 9,
+        "cinematography": 9,
+        "visual_spectacle": 10,
+        "conceptual_density": 8,
+        "narrative_drive": 6,
+        "resolution": 5,
+        "final_score": 7.03
+    },
+    "tmdbId": 81356,
+    "streaming": {
+        "us": [
+            "Apple TV+"
+        ],
+        "uk": [
+            "Apple TV+"
+        ]
+    }
+}

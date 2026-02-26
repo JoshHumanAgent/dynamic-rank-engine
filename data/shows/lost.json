@@ -1,0 +1,65 @@
+﻿{
+    "slug":  "lost",
+    "title":  "Lost",
+    "year":  2004,
+    "month":  9,
+    "status":  "ended",
+    "seasons":  6,
+    "episodes":  121,
+    "runtime":  "42-50",
+    "country":  "United States",
+    "genres":  [
+                   "sci-fi",
+                   "drama",
+                   "mystery"
+               ],
+    "creator":  [
+                    "J.J. Abrams",
+                    "Damon Lindelof",
+                    "Jeffrey Lieber"
+                ],
+    "network":  "ABC",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.3,
+                                          "scale":  10,
+                                          "count":  "475K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0411008/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  80,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/lost"
+                                                 },
+                             "metacritic":  {
+                                                "score":  72,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/lost"
+                                            }
+                         },
+    "consensus_highlights":  "Lost is a groundbreaking mystery drama about survivors of a plane crash on a mysterious island. The series revolutionized television with its complex mythology, compelling characters, and ambitious storytelling.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  1,
+                           "drive":  9.5,
+                           "cine":  7.5,
+                           "spect":  7.5,
+                           "final":  7.13,
+                           "world":  8,
+                           "char":  9
+                       },
+    "notes":  "Lost created the modern mystery-box television format and defined a generation of viewers.",
+    "tmdbId":  4607,
+    "streaming":  {
+                      "us":  [
+                                 "Hulu",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "Sky One"
+                             ]
+                  }
+}

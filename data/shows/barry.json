@@ -1,0 +1,63 @@
+﻿{
+    "slug":  "barry",
+    "title":  "Barry",
+    "year":  2018,
+    "month":  3,
+    "status":  "ended",
+    "seasons":  4,
+    "episodes":  32,
+    "runtime":  "30-40",
+    "country":  "United States",
+    "genres":  [
+                   "comedy",
+                   "crime",
+                   "drama"
+               ],
+    "creator":  [
+                    "Bill Hader"
+                ],
+    "network":  "HBO",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.4,
+                                          "scale":  10,
+                                          "count":  "110K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt5091078/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  99,
+                                                     "scale":  100,
+                                                     "audience":  87,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/barry"
+                                                 },
+                             "metacritic":  {
+                                                "score":  82,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/barry"
+                                            }
+                         },
+    "consensus_highlights":  "Bill Hader\u0027s dark comedy follows hitman Barry Berkman who discovers a passion for acting in Los Angeles. The show masterfully blends brutal violence with theater-world satire, creating a meditation on identity, redemption, and the impossibility of escape from one\u0027s nature.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  7,
+                           "drive":  8,
+                           "cine":  8,
+                           "spect":  6,
+                           "final":  7.1,
+                           "world":  6,
+                           "char":  7.5
+                       },
+    "notes":  "Hader won Emmys for both acting and directing. The show takes bold creative swings, especially in its later seasons, exploring the cost of violence and the search for authentic self.",
+    "tmdbId":  73116,
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic"
+                             ]
+                  }
+}

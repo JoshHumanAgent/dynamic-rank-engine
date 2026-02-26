@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andor - "One way out" | Dynamic Rank Engine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #0d1a0d 50%, #0a0a0f 100%); min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #4a5d23; }
+        .rank-badge { display: inline-block; background: linear-gradient(135deg, #4a5d23, #2d3a16); color: #c8d4a0; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #a8c060; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
+        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(74,93,35,0.3), rgba(0,0,0,0.9)); border: 3px solid #4a5d23; border-radius: 8px; }
+        .score-value { font-size: 3rem; font-weight: 700; color: #a8c060; }
+        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #4a5d23; }
+        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #a8c060; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .dimension { background: rgba(74,93,35,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
+        .dimension-name { font-weight: 700; color: #a8c060; margin-bottom: 0.3rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; }
+        .dimension-weight { font-size: 0.8rem; color: #666; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+        .info-value { font-size: 1.3rem; color: #a8c060; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="rank-badge">Rank #15</div>
+            <h1>Andor</h1>
+            <p class="subtitle">"One way out"</p>
+            <div class="score-badge">
+                <span class="score-value">8.15</span>
+                <span class="score-label">Final Score</span>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2022-</div></div>
+            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">12</div></div>
+            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Disney+</div></div>
+            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Tony Gilroy</div></div>
+        </div>
+
+        <div class="section">
+            <h2>What It Feels Like to Watch</h2>
+            <p>Andor is Star Wars for adults. No lightsabers, no Jedi, no chosen ones—just people. Cassian Andor (Diego Luna) is a thief, a rebel, eventually a martyr we already know dies stealing the Death Star plans. This is his origin: how a cynical survivor becomes a revolutionary. The show's thesis: rebellion is built on sacrifice, compromise, and ordinary people choosing to fight when surrender would be easier.</p>
+            <p>The show is structured in three-episode arcs, each a different phase of Cassian's radicalization. First: Ferrix, his home, where a confrontation with corporate security makes him a fugitive. Second: Aldhani, a heist on an Imperial garrison that shows the Empire's brutality. Third: The prison on Narkina 5, where innocent men are worked to death building... something. "One way out," the prisoners chant. There is: rebellion or death. "I've been in this fight since I was six years old," Cassian will say in Rogue One. Andor shows us how.</p>
+            <p>The show's genius is scale: we see the Empire as bureaucracy, not just stormtroopers. Supervisor Dedra Meero (Denise Gough) is terrifying not because she's evil, but because she's competent—a true believer climbing the ranks. Luthen Rael (Stellan Skarsgård) is a spy, a manipulator, sacrificing anyone for the cause. "I'm a coward," he admits. "I burn my decency for someone else's future." Mon Mothma (Genevieve O'Reilly) funds the rebellion while maintaining political cover. These are the costs: moral compromise, secrecy, betraying your own humanity to fight an inhuman system.</p>
+            <p>Two seasons planned, twelve episodes aired, one more season coming. Andor is the best Star Wars product since Empire Strikes Back—grounded, political, morally complex. It treats its audience as intelligent, assumes we can follow, doesn't need lightsabers to create wonder. "The Empire is climbing over each other to get to the top," a character observes. "We just have to wait for them to fall." Or push them.</p>
+        </div>
+
+        <div class="section">
+            <h2>Why It Ranks</h2>
+            <div class="dimension-grid">
+                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
+                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
+            </div>
+            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> Star Wars as lived reality. The Empire as bureaucracy. Grounded, immersive, political.</p>
+            <p><strong>Characters & Acting (9):</strong> Diego Luna's Cassian. Stellan Skarsgård's Luthen. Denise Gough's Dedra. Complex, nuanced performances.</p>
+            <p><strong>Conceptual Density (9):</strong> Rebellion as moral compromise. Empire as system. Politics as warfare. Sophisticated.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Episodes</h2>
+            <p><strong>("Kassa" (S1E1)</strong> — The introduction. "Search the house."</p>
+            <p><strong>"Nobody's Listening!" (S1E9)</strong> — The prison. "One way out."</p>
+            <p><strong>("Daughter of Ferrix" (S1E11)</strong> — The funeral. The riot. The uprising begins.</p>
+            <p><strong>("Rix Road" (S1E12)</strong> — Season finale. "Make ten more."</p>
+        </div>
+
+        <div class="section">
+            <h2>Where to Watch</h2>
+            <p><strong>US:</strong> Disney+</p>
+            <p><strong>UK:</strong> Disney+</p>
+        </div>
+    </div>
+</body>
+</html>

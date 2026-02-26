@@ -1,0 +1,51 @@
+{
+    "slug": "battlestar-galactica",
+    "title": "Battlestar Galactica",
+    "year": 2004,
+    "month": "10",
+    "network": "Sci Fi",
+    "status": "ended",
+    "streaming": {
+        "us": ["Amazon Prime Video"],
+        "uk": ["Amazon Prime Video"]
+    },
+    "genres": ["Sci-Fi", "Drama", "Action"],
+    "creators": ["Ronald D. Moore"],
+    "cast": ["Edward James Olmos", "Mary McDonnell", "Katee Sackhoff", "Jamie Bamber", "James Callis", "Tricia Helfer"],
+    "external_ratings": {
+        "imdb": {
+            "score": 8.7,
+            "votes": 179000,
+            "url": "https://www.imdb.com/title/tt0407362/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 94,
+            "critics": 89,
+            "url": "https://www.rottentomatoes.com/tv/battlestar_galactica_2004",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 9.0,
+        "world": 9.5,
+        "cine": 8.5,
+        "spect": 9.0,
+        "conc": 9.2,
+        "drive": 9.5,
+        "resol": 8.5,
+        "final": 9.0
+    },
+    "episodes": 77,
+    "seasons": 4,
+    "poster": "",
+    "tmdb_id": 4604,
+    "consensus_highlights": [
+        "The reboot that proved sci-fi could be serious art",
+        "All of this has happened before: cyclical history as prophecy",
+        "Starbuck, Adama, Roslin: characters as iconic as the original",
+        "9/11 allegory: terrorism, occupation, and moral compromise",
+        "So say we all: one of television's most devoted fanbases"
+    ],
+    "tags": ["sci-fi", "reboot", "political-allegory", "space-opera", "character-driven", "cylons"]
+}

@@ -1,0 +1,53 @@
+﻿{
+    "slug":  "friday-night-lights",
+    "title":  "Friday Night Lights",
+    "year":  2006,
+    "month":  10,
+    "status":  "completed",
+    "seasons":  5,
+    "episodes":  76,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama"
+               ],
+    "creator":  null,
+    "network":  "NBC",
+    "tmdbId":  4294,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.7,
+                                          "scale":  10,
+                                          "count":  "55000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0800039/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  94,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/friday_night_lights"
+                                                 }
+                         },
+    "consensus_highlights":  "The trials and triumphs of life in the small town of Dillon, Texas, where high school football is everything.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  8,
+                           "drive":  7,
+                           "cine":  7,
+                           "spect":  5,
+                           "final":  7.22,
+                           "world":  7.5,
+                           "char":  8
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Peacock",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "BBC iPlayer"
+                             ]
+                  }
+}

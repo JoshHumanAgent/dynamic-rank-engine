@@ -1,0 +1,41 @@
+{
+    "slug": "pose",
+    "title": "Pose",
+    "year": 2018,
+    "month": 6,
+    "status": "ended",
+    "seasons": 3,
+    "episodes": 26,
+    "runtime": "45-60",
+    "country": "United States",
+    "genres": [
+        "drama"
+    ],
+    "creator": [
+        "Ryan Murphy",
+        "Brad Falchuk",
+        "Steven Canals"
+    ],
+    "network": "FX",
+    "tmdbId": 78386,
+    "external_ratings": {},
+    "consensus_highlights": null,
+    "ranking_system": {
+        "narrative_ambition": 0,
+        "character_depth": 0,
+        "thematic_resonance": 0,
+        "cultural_impact": 0,
+        "watchability": 0,
+        "final_score": null
+    },
+    "notes": "",
+    "streaming": {
+        "us": [
+            "Netflix",
+            "FX"
+        ],
+        "uk": [
+            "BBC iPlayer"
+        ]
+    }
+}

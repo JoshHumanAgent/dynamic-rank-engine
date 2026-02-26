@@ -1,0 +1,27 @@
+{
+  "slug": "yellowjackets",
+  "title": "Yellowjackets",
+  "year": 2021,
+  "month": 11,
+  "genres": ["drama", "mystery", "thriller"],
+  "final": 7.42,
+  "tmdbId": 117488,
+  "char": 8.0,
+  "world": 8.0,
+  "cine": 7.5,
+  "spect": 7.0,
+  "conc": 8.0,
+  "drive": 7.5,
+  "resol": 6.5,
+  "episodes": 29,
+  "poster": "https://image.tmdb.org/t/p/w500/xRnGrn7Z7SC0KIBodocoU1QgDZF.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w780/ibFWJDWS8cTO6s2vZVd2uKDm8p.jpg",
+  "streaming": {
+    "us": ["Paramount Plus with Showtime"],
+    "uk": ["Paramount Plus"]
+  },
+  "creators": ["Ashley Lyle", "Bart Nickerson"],
+  "network": "Showtime",
+  "status": "ongoing",
+  "scoring_notes": "Dual timeline survival horror. Strong ensemble led by Melanie Lynskey. Resolution score penalized for ongoing status. Season 3 just concluded."
+}

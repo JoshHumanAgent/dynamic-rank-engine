@@ -1,0 +1,731 @@
+﻿{
+    "Classic (\u003c2010)":  [
+                                 {
+                                     "rank":  2,
+                                     "title":  "Breaking Bad",
+                                     "slug":  "breaking-bad",
+                                     "final":  8.89,
+                                     "year":  2008
+                                 },
+                                 {
+                                     "rank":  3,
+                                     "title":  "The Wire",
+                                     "slug":  "the-wire",
+                                     "final":  8.74,
+                                     "year":  2002
+                                 },
+                                 {
+                                     "rank":  6,
+                                     "title":  "The Sopranos",
+                                     "slug":  "the-sopranos",
+                                     "final":  8.38,
+                                     "year":  1999
+                                 },
+                                 {
+                                     "rank":  8,
+                                     "title":  "The Shield",
+                                     "slug":  "the-shield",
+                                     "final":  8.17,
+                                     "year":  2002
+                                 },
+                                 {
+                                     "rank":  18,
+                                     "title":  "Mad Men",
+                                     "slug":  "mad-men",
+                                     "final":  7.88,
+                                     "year":  2007
+                                 },
+                                 {
+                                     "rank":  20,
+                                     "title":  "Angels in America",
+                                     "slug":  "angels-in-america",
+                                     "final":  7.82,
+                                     "year":  2003
+                                 },
+                                 {
+                                     "rank":  22,
+                                     "title":  "Deadwood",
+                                     "slug":  "deadwood",
+                                     "final":  7.78,
+                                     "year":  2004
+                                 },
+                                 {
+                                     "rank":  25,
+                                     "title":  "Band of Brothers",
+                                     "slug":  "band-of-brothers",
+                                     "final":  7.73,
+                                     "year":  2001
+                                 },
+                                 {
+                                     "rank":  26,
+                                     "title":  "Six Feet Under",
+                                     "slug":  "six-feet-under",
+                                     "final":  7.73,
+                                     "year":  2001
+                                 },
+                                 {
+                                     "rank":  36,
+                                     "title":  "Lost",
+                                     "slug":  "lost",
+                                     "final":  7.61,
+                                     "year":  2004
+                                 },
+                                 {
+                                     "rank":  39,
+                                     "title":  "Friday Night Lights",
+                                     "slug":  "friday-night-lights",
+                                     "final":  7.59,
+                                     "year":  2006
+                                 },
+                                 {
+                                     "rank":  47,
+                                     "title":  "Battlestar Galactica",
+                                     "slug":  "battlestar-galactica",
+                                     "final":  7.51,
+                                     "year":  2004
+                                 },
+                                 {
+                                     "rank":  56,
+                                     "title":  "Generation Kill",
+                                     "slug":  "generation-kill",
+                                     "final":  7.47,
+                                     "year":  2008
+                                 },
+                                 {
+                                     "rank":  58,
+                                     "title":  "24",
+                                     "slug":  "24",
+                                     "final":  7.45,
+                                     "year":  2001
+                                 },
+                                 {
+                                     "rank":  63,
+                                     "title":  "The X-Files",
+                                     "slug":  "the-x-files",
+                                     "final":  7.4,
+                                     "year":  1993
+                                 },
+                                 {
+                                     "rank":  67,
+                                     "title":  "Rome",
+                                     "slug":  "rome",
+                                     "final":  7.39,
+                                     "year":  2005
+                                 },
+                                 {
+                                     "rank":  74,
+                                     "title":  "Hill Street Blues",
+                                     "slug":  "hill-street-blues",
+                                     "final":  7.35,
+                                     "year":  1981
+                                 },
+                                 {
+                                     "rank":  82,
+                                     "title":  "Oz",
+                                     "slug":  "oz",
+                                     "final":  7.26,
+                                     "year":  1997
+                                 },
+                                 {
+                                     "rank":  83,
+                                     "title":  "The Killing (DK)",
+                                     "slug":  "the-killing-dk",
+                                     "final":  7.23,
+                                     "year":  2007
+                                 },
+                                 {
+                                     "rank":  90,
+                                     "title":  "Twin Peaks",
+                                     "slug":  "twin-peaks",
+                                     "final":  7.13,
+                                     "year":  1990
+                                 },
+                                 {
+                                     "rank":  91,
+                                     "title":  "Homicide: Life on the Street",
+                                     "slug":  "homicide-life-on-the-street",
+                                     "final":  7.13,
+                                     "year":  1993
+                                 }
+                             ],
+    "2010s":  [
+                  {
+                      "rank":  1,
+                      "title":  "Game of Thrones (S1-4)",
+                      "slug":  "game-of-thrones-s1-4",
+                      "final":  9.5,
+                      "year":  2011
+                  },
+                  {
+                      "rank":  4,
+                      "title":  "Better Call Saul",
+                      "slug":  "better-call-saul",
+                      "final":  8.74,
+                      "year":  2015
+                  },
+                  {
+                      "rank":  5,
+                      "title":  "Chernobyl",
+                      "slug":  "chernobyl",
+                      "final":  8.54,
+                      "year":  2019
+                  },
+                  {
+                      "rank":  7,
+                      "title":  "The Americans",
+                      "slug":  "the-americans",
+                      "final":  8.33,
+                      "year":  2013
+                  },
+                  {
+                      "rank":  9,
+                      "title":  "The Expanse",
+                      "slug":  "the-expanse",
+                      "final":  8.09,
+                      "year":  2015
+                  },
+                  {
+                      "rank":  10,
+                      "title":  "Succession",
+                      "slug":  "succession",
+                      "final":  8.03,
+                      "year":  2018
+                  },
+                  {
+                      "rank":  11,
+                      "title":  "Babylon Berlin",
+                      "slug":  "babylon-berlin",
+                      "final":  8.03,
+                      "year":  2017
+                  },
+                  {
+                      "rank":  12,
+                      "title":  "Mr. Robot",
+                      "slug":  "mr-robot",
+                      "final":  7.99,
+                      "year":  2015
+                  },
+                  {
+                      "rank":  13,
+                      "title":  "Boardwalk Empire",
+                      "slug":  "boardwalk-empire",
+                      "final":  7.98,
+                      "year":  2010
+                  },
+                  {
+                      "rank":  16,
+                      "title":  "True Detective S1",
+                      "slug":  "true-detective-s1",
+                      "final":  7.9,
+                      "year":  2014
+                  },
+                  {
+                      "rank":  17,
+                      "title":  "For All Mankind",
+                      "slug":  "for-all-mankind",
+                      "final":  7.88,
+                      "year":  2019
+                  },
+                  {
+                      "rank":  19,
+                      "title":  "Halt and Catch Fire",
+                      "slug":  "halt-and-catch-fire",
+                      "final":  7.88,
+                      "year":  2014
+                  },
+                  {
+                      "rank":  21,
+                      "title":  "Dark",
+                      "slug":  "dark",
+                      "final":  7.79,
+                      "year":  2017
+                  },
+                  {
+                      "rank":  23,
+                      "title":  "The Crown",
+                      "slug":  "the-crown",
+                      "final":  7.76,
+                      "year":  2016
+                  },
+                  {
+                      "rank":  24,
+                      "title":  "Justified",
+                      "slug":  "justified",
+                      "final":  7.75,
+                      "year":  2010
+                  },
+                  {
+                      "rank":  27,
+                      "title":  "Fargo",
+                      "slug":  "fargo",
+                      "final":  7.73,
+                      "year":  2014
+                  },
+                  {
+                      "rank":  29,
+                      "title":  "When They See Us",
+                      "slug":  "when-they-see-us",
+                      "final":  7.68,
+                      "year":  2019
+                  },
+                  {
+                      "rank":  30,
+                      "title":  "Girls",
+                      "slug":  "girls",
+                      "final":  7.68,
+                      "year":  2012
+                  },
+                  {
+                      "rank":  31,
+                      "title":  "Watchmen (2019)",
+                      "slug":  "watchmen-2019",
+                      "final":  7.68,
+                      "year":  2019
+                  },
+                  {
+                      "rank":  32,
+                      "title":  "The Bureau",
+                      "slug":  "the-bureau",
+                      "final":  7.68,
+                      "year":  2015
+                  },
+                  {
+                      "rank":  33,
+                      "title":  "Homeland",
+                      "slug":  "homeland",
+                      "final":  7.67,
+                      "year":  2011
+                  },
+                  {
+                      "rank":  35,
+                      "title":  "The Leftovers",
+                      "slug":  "the-leftovers",
+                      "final":  7.64,
+                      "year":  2014
+                  },
+                  {
+                      "rank":  37,
+                      "title":  "The Knick",
+                      "slug":  "the-knick",
+                      "final":  7.6,
+                      "year":  2014
+                  },
+                  {
+                      "rank":  38,
+                      "title":  "The Haunting of Hill House",
+                      "slug":  "the-haunting-of-hill-house",
+                      "final":  7.6,
+                      "year":  2018
+                  },
+                  {
+                      "rank":  40,
+                      "title":  "Wolf Hall",
+                      "slug":  "wolf-hall",
+                      "final":  7.58,
+                      "year":  2015
+                  },
+                  {
+                      "rank":  42,
+                      "title":  "Hannibal",
+                      "slug":  "hannibal",
+                      "final":  7.55,
+                      "year":  2013
+                  },
+                  {
+                      "rank":  45,
+                      "title":  "Black Mirror",
+                      "slug":  "black-mirror",
+                      "final":  7.52,
+                      "year":  2011
+                  },
+                  {
+                      "rank":  48,
+                      "title":  "Rectify",
+                      "slug":  "rectify",
+                      "final":  7.5,
+                      "year":  2013
+                  },
+                  {
+                      "rank":  49,
+                      "title":  "Ozark",
+                      "slug":  "ozark",
+                      "final":  7.5,
+                      "year":  2017
+                  },
+                  {
+                      "rank":  50,
+                      "title":  "Peaky Blinders",
+                      "slug":  "peaky-blinders",
+                      "final":  7.5,
+                      "year":  2013
+                  },
+                  {
+                      "rank":  54,
+                      "title":  "Sharp Objects",
+                      "slug":  "sharp-objects",
+                      "final":  7.47,
+                      "year":  2018
+                  },
+                  {
+                      "rank":  55,
+                      "title":  "Patrick Melrose",
+                      "slug":  "patrick-melrose",
+                      "final":  7.47,
+                      "year":  2018
+                  },
+                  {
+                      "rank":  59,
+                      "title":  "Borgen",
+                      "slug":  "borgen",
+                      "final":  7.45,
+                      "year":  2010
+                  },
+                  {
+                      "rank":  60,
+                      "title":  "Pose",
+                      "slug":  "pose",
+                      "final":  7.45,
+                      "year":  2018
+                  },
+                  {
+                      "rank":  62,
+                      "title":  "Utopia (UK)",
+                      "slug":  "utopia-uk",
+                      "final":  7.44,
+                      "year":  2013
+                  },
+                  {
+                      "rank":  64,
+                      "title":  "Stranger Things",
+                      "slug":  "stranger-things",
+                      "final":  7.4,
+                      "year":  2016
+                  },
+                  {
+                      "rank":  66,
+                      "title":  "Twin Peaks: The Return",
+                      "slug":  "twin-peaks-the-return",
+                      "final":  7.39,
+                      "year":  2017
+                  },
+                  {
+                      "rank":  70,
+                      "title":  "Penny Dreadful",
+                      "slug":  "penny-dreadful",
+                      "final":  7.37,
+                      "year":  2014
+                  },
+                  {
+                      "rank":  71,
+                      "title":  "Godless",
+                      "slug":  "godless",
+                      "final":  7.37,
+                      "year":  2017
+                  },
+                  {
+                      "rank":  72,
+                      "title":  "Gomorrah",
+                      "slug":  "gomorrah",
+                      "final":  7.36,
+                      "year":  2014
+                  },
+                  {
+                      "rank":  73,
+                      "title":  "Downton Abbey",
+                      "slug":  "downton-abbey",
+                      "final":  7.36,
+                      "year":  2010
+                  },
+                  {
+                      "rank":  75,
+                      "title":  "The Boys",
+                      "slug":  "the-boys",
+                      "final":  7.33,
+                      "year":  2019
+                  },
+                  {
+                      "rank":  77,
+                      "title":  "Euphoria",
+                      "slug":  "euphoria",
+                      "final":  7.3,
+                      "year":  2019
+                  },
+                  {
+                      "rank":  78,
+                      "title":  "The Pacific",
+                      "slug":  "the-pacific",
+                      "final":  7.3,
+                      "year":  2010
+                  },
+                  {
+                      "rank":  79,
+                      "title":  "Escape at Dannemora",
+                      "slug":  "escape-at-dannemora",
+                      "final":  7.3,
+                      "year":  2018
+                  },
+                  {
+                      "rank":  80,
+                      "title":  "Line of Duty",
+                      "slug":  "line-of-duty",
+                      "final":  7.3,
+                      "year":  2012
+                  },
+                  {
+                      "rank":  81,
+                      "title":  "Narcos",
+                      "slug":  "narcos",
+                      "final":  7.26,
+                      "year":  2015
+                  },
+                  {
+                      "rank":  87,
+                      "title":  "Happy Valley",
+                      "slug":  "happy-valley",
+                      "final":  7.22,
+                      "year":  2014
+                  },
+                  {
+                      "rank":  88,
+                      "title":  "Broadchurch",
+                      "slug":  "broadchurch",
+                      "final":  7.21,
+                      "year":  2013
+                  },
+                  {
+                      "rank":  89,
+                      "title":  "The Affair",
+                      "slug":  "the-affair",
+                      "final":  7.14,
+                      "year":  2014
+                  },
+                  {
+                      "rank":  93,
+                      "title":  "The Handmaid\u0027s Tale",
+                      "slug":  "the-handmaids-tale",
+                      "final":  7.03,
+                      "year":  2017
+                  },
+                  {
+                      "rank":  95,
+                      "title":  "Big Little Lies",
+                      "slug":  "big-little-lies",
+                      "final":  7.01,
+                      "year":  2017
+                  },
+                  {
+                      "rank":  96,
+                      "title":  "True Detective S3",
+                      "slug":  "true-detective-s3",
+                      "final":  6.97,
+                      "year":  2019
+                  },
+                  {
+                      "rank":  97,
+                      "title":  "The Marvelous Mrs. Maisel",
+                      "slug":  "the-marvelous-mrs-maisel",
+                      "final":  6.96,
+                      "year":  2017
+                  },
+                  {
+                      "rank":  98,
+                      "title":  "Killing Eve",
+                      "slug":  "killing-eve",
+                      "final":  6.9,
+                      "year":  2018
+                  },
+                  {
+                      "rank":  99,
+                      "title":  "Barry",
+                      "slug":  "barry",
+                      "final":  6.88,
+                      "year":  2018
+                  },
+                  {
+                      "rank":  100,
+                      "title":  "Westworld",
+                      "slug":  "westworld",
+                      "final":  6.83,
+                      "year":  2016
+                  }
+              ],
+    "Recent (2020-2022)":  [
+                               {
+                                   "rank":  14,
+                                   "title":  "Andor",
+                                   "slug":  "andor",
+                                   "final":  7.96,
+                                   "year":  2022
+                               },
+                               {
+                                   "rank":  28,
+                                   "title":  "It\u0027s a Sin",
+                                   "slug":  "its-a-sin",
+                                   "final":  7.71,
+                                   "year":  2021
+                               },
+                               {
+                                   "rank":  34,
+                                   "title":  "The Queen\u0027s Gambit",
+                                   "slug":  "the-queens-gambit",
+                                   "final":  7.66,
+                                   "year":  2020
+                               },
+                               {
+                                   "rank":  43,
+                                   "title":  "Station Eleven",
+                                   "slug":  "station-eleven",
+                                   "final":  7.53,
+                                   "year":  2021
+                               },
+                               {
+                                   "rank":  44,
+                                   "title":  "House of the Dragon",
+                                   "slug":  "house-of-the-dragon",
+                                   "final":  7.53,
+                                   "year":  2022
+                               },
+                               {
+                                   "rank":  46,
+                                   "title":  "Midnight Mass",
+                                   "slug":  "midnight-mass",
+                                   "final":  7.52,
+                                   "year":  2021
+                               },
+                               {
+                                   "rank":  52,
+                                   "title":  "Severance",
+                                   "slug":  "severance",
+                                   "final":  7.49,
+                                   "year":  2022
+                               },
+                               {
+                                   "rank":  57,
+                                   "title":  "Squid Game",
+                                   "slug":  "squid-game",
+                                   "final":  7.46,
+                                   "year":  2021
+                               },
+                               {
+                                   "rank":  61,
+                                   "title":  "The White Lotus",
+                                   "slug":  "the-white-lotus",
+                                   "final":  7.45,
+                                   "year":  2021
+                               },
+                               {
+                                   "rank":  69,
+                                   "title":  "The Underground Railroad",
+                                   "slug":  "the-underground-railroad",
+                                   "final":  7.39,
+                                   "year":  2021
+                               },
+                               {
+                                   "rank":  76,
+                                   "title":  "Mare of Easttown",
+                                   "slug":  "mare-of-easttown",
+                                   "final":  7.32,
+                                   "year":  2021
+                               },
+                               {
+                                   "rank":  85,
+                                   "title":  "The Plot Against America",
+                                   "slug":  "the-plot-against-america",
+                                   "final":  7.23,
+                                   "year":  2020
+                               },
+                               {
+                                   "rank":  86,
+                                   "title":  "Dopesick",
+                                   "slug":  "dopesick",
+                                   "final":  7.23,
+                                   "year":  2021
+                               },
+                               {
+                                   "rank":  92,
+                                   "title":  "Foundation",
+                                   "slug":  "foundation",
+                                   "final":  7.03,
+                                   "year":  2021
+                               },
+                               {
+                                   "rank":  94,
+                                   "title":  "The Bear",
+                                   "slug":  "the-bear",
+                                   "final":  7.01,
+                                   "year":  2022
+                               },
+                               {
+                                   "rank":  101,
+                                   "title":  "Slow Horses",
+                                   "slug":  "slow-horses",
+                                   "final":  7.98,
+                                   "year":  2022
+                               },
+                               {
+                                   "rank":  102,
+                                   "title":  "Interview with the Vampire",
+                                   "slug":  "interview-with-the-vampire",
+                                   "final":  7.4,
+                                   "year":  2022
+                               }
+                           ],
+    "New (2023+)":  [
+                        {
+                            "rank":  15,
+                            "title":  "Adolescence",
+                            "slug":  "adolescence",
+                            "final":  7.95,
+                            "year":  2025
+                        },
+                        {
+                            "rank":  41,
+                            "title":  "Pluribus",
+                            "slug":  "pluribus",
+                            "final":  7.58,
+                            "year":  2025
+                        },
+                        {
+                            "rank":  51,
+                            "title":  "Beef",
+                            "slug":  "beef",
+                            "final":  7.49,
+                            "year":  2023
+                        },
+                        {
+                            "rank":  53,
+                            "title":  "Shogun (2024)",
+                            "slug":  "shogun-2024",
+                            "final":  7.48,
+                            "year":  2024
+                        },
+                        {
+                            "rank":  65,
+                            "title":  "The Last of Us",
+                            "slug":  "the-last-of-us",
+                            "final":  7.39,
+                            "year":  2023
+                        },
+                        {
+                            "rank":  68,
+                            "title":  "Silo",
+                            "slug":  "silo",
+                            "final":  7.39,
+                            "year":  2023
+                        },
+                        {
+                            "rank":  84,
+                            "title":  "The Penguin",
+                            "slug":  "the-penguin",
+                            "final":  7.23,
+                            "year":  2024
+                        },
+                        {
+                            "rank":  103,
+                            "title":  "The Day of the Jackal",
+                            "slug":  "the-day-of-the-jackal",
+                            "final":  8.16,
+                            "year":  2024
+                        }
+                    ]
+}

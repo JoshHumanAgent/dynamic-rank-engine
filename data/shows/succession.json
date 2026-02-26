@@ -1,0 +1,75 @@
+﻿{
+    "slug":  "succession",
+    "title":  "Succession",
+    "year":  2018,
+    "month":  6,
+    "status":  "ended",
+    "seasons":  4,
+    "episodes":  39,
+    "runtime":  "50-70",
+    "country":  "United States",
+    "genres":  [
+                   "drama"
+               ],
+    "creator":  [
+                    "Jesse Armstrong"
+                ],
+    "network":  "HBO",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.8,
+                                          "scale":  10,
+                                          "count":  "347K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt7660850/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "season_1":  {
+                                                                      "score":  93,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_2":  {
+                                                                      "score":  98,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_3":  {
+                                                                      "score":  99,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_4":  {
+                                                                      "score":  100,
+                                                                      "scale":  100
+                                                                  },
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/succession"
+                                                 },
+                             "metacritic":  {
+                                                "score":  83,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/succession"
+                                            }
+                         },
+    "consensus_highlights":  "Succession is a savage satire of media dynasties and wealth that manages to be both hilarious and devastating. Brian Cox delivers a towering performance as Logan Roy, the aging media mogul whose four children fight for his approval and his empire. Creator Jesse Armstrong balances dark comedy with genuine emotional weight, creating a show that exposes the hollowness of power while being utterly addictive viewing.",
+    "ranking_system":  {
+                           "conc":  7.5,
+                           "resol":  9,
+                           "drive":  8.5,
+                           "cine":  8,
+                           "spect":  7,
+                           "final":  8.1,
+                           "world":  7,
+                           "char":  9
+                       },
+    "notes":  "Succession proves that stories about the ultra-wealthy can be both entertaining and critical. It\u0027s a masterclass in ensemble writing and dark comedy.",
+    "tmdbId":  76331,
+    "streaming":  {
+                      "us":  [
+                                 "Max"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic",
+                                 "NOW TV"
+                             ]
+                  }
+}

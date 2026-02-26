@@ -1,0 +1,71 @@
+{
+    "slug": "the-white-lotus",
+    "title": "The White Lotus",
+    "year": 2021,
+    "month": 7,
+    "status": "ended",
+    "seasons": 3,
+    "episodes": 22,
+    "runtime": "55-70",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "comedy",
+        "satire"
+    ],
+    "creator": [
+        "Mike White"
+    ],
+    "network": "HBO",
+    "external_ratings": {
+        "imdb": {
+            "score": 8.2,
+            "scale": 10,
+            "count": "230K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt13921944/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 96,
+                "scale": 100
+            },
+            "season_2": {
+                "score": 86,
+                "scale": 100
+            },
+            "season_3": {
+                "score": 92,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/the_white_lotus"
+        },
+        "metacritic": {
+            "score": 81,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/the-white-lotus"
+        }
+    },
+    "consensus_highlights": "The White Lotus is a social satire following wealthy guests at a luxury Hawaiian resort. Each season centers on a different group of guests and staff, exploring class, power, sexuality, and death with darkly comedic precision. Mike White's masterful character studies have earned widespread critical acclaim.",
+    "ranking_system": {
+        "characters": 7.5,
+        "world_building": 7,
+        "cinematography": 9,
+        "visual_spectacle": 8,
+        "conceptual_density": 8,
+        "narrative_drive": 7,
+        "resolution": 8,
+        "final_score": 7.45
+    },
+    "tmdbId": 111803,
+    "streaming": {
+        "us": [
+            "HBO Max"
+        ],
+        "uk": [
+            "Sky Atlantic"
+        ]
+    }
+}

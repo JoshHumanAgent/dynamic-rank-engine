@@ -1,0 +1,75 @@
+﻿{
+    "slug":  "true-detective-s1",
+    "title":  "True Detective S1",
+    "year":  2014,
+    "month":  1,
+    "status":  "ended",
+    "seasons":  3,
+    "episodes":  30,
+    "runtime":  "55-60",
+    "country":  "United States",
+    "genres":  [
+                   "crime",
+                   "mystery",
+                   "thriller",
+                   "cop-show"
+               ],
+    "creator":  [
+                    "Nic Pizzolatto"
+                ],
+    "network":  "HBO",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.9,
+                                          "scale":  10,
+                                          "count":  "520K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt2356777/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "season_1":  {
+                                                                      "score":  87,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_2":  {
+                                                                      "score":  67,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_3":  {
+                                                                      "score":  82,
+                                                                      "scale":  100
+                                                                  },
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/true_detective"
+                                                 },
+                             "metacritic":  {
+                                                "score":  75,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/true-detective"
+                                            }
+                         },
+    "consensus_highlights":  "True Detective Season 1 is a landmark in prestige television anthology. Matthew McConaughey and Woody Harrelson deliver legendary performances as Louisiana detectives investigating a ritualistic murder across 17 years. The series combines philosophical depth, Southern Gothic atmosphere, and masterful storytelling to create one of the most acclaimed TV seasons ever.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  8,
+                           "drive":  9,
+                           "cine":  10,
+                           "spect":  6,
+                           "final":  8,
+                           "world":  7,
+                           "char":  8
+                       },
+    "notes":  "True Detective S1 remains the gold standard for television anthologies. Its opening episode \u0027The Long Bright Dark\u0027 is often cited as one of the best TV episodes ever made.",
+    "tmdbId":  46648,
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic",
+                                 "NOW TV"
+                             ]
+                  }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Face - "I Can Tell When You're Lying" | Dynamic Rank Engine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #b8860b; }
+        .rank-badge { display: inline-block; background: linear-gradient(135deg, #b8860b, #8b6914); color: #fff; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #daa520; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
+        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(184,134,11,0.3), rgba(0,0,0,0.9)); border: 3px solid #b8860b; border-radius: 8px; }
+        .score-value { font-size: 3rem; font-weight: 700; color: #daa520; }
+        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #b8860b; }
+        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #daa520; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .dimension { background: rgba(184,134,11,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
+        .dimension-name { font-weight: 700; color: #daa520; margin-bottom: 0.3rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; }
+        .dimension-weight { font-size: 0.8rem; color: #666; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+        .info-value { font-size: 1.3rem; color: #daa520; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="rank-badge">Rank #60</div>
+            <h1>Poker Face</h1>
+            <p class="subtitle">"I Can Tell When You're Lying"</p>
+            <div class="score-badge">
+                <span class="score-value">7.75</span>
+                <span class="score-label">Final Score</span>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2023-</div></div>
+            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">10+</div></div>
+            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Peacock</div></div>
+            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Rian Johnson</div></div>
+        </div>
+
+        <div class="section">
+            <h2>What It Feels Like to Watch</h2>
+            <p>Poker Face is a throwback to 1970s detective television—Columbo by way of a road movie. Natasha Lyonne plays Charlie Cale, a casino worker with an uncanny ability: she can always tell when someone is lying. Not how she knows, just that she knows. When she runs afoul of a casino boss, she goes on the run, drifting across America and stumbling into murders she can't ignore.</p>
+            <p>Rian Johnson created this as a love letter to how detectives used to work on television. Each episode begins with the murder—we see who did it, how they did it, and why they thought they'd get away with it. Then Charlie arrives, and we watch her figure it out. This is the Columbo formula, and it's just as satisfying here: the pleasure isn't in the mystery but in watching a smart person dismantle a seemingly perfect crime.</p>
+            <p>Natasha Lyonne is perfect as Charlie. Her voice—raspy, nasal, distinctly New York—sounds like someone who's seen everything and is only mildly surprised. She smokes, she drinks, she's messy, but she's also fundamentally decent. When someone lies to her, she flinches. It's physical, involuntary. She can't help solving murders because lies offend her.</p>
+            <p>The show is episodic by design. Charlie drives her Plymouth Barracuda into a new town, meets a new cast of characters, solves a murder, and moves on. Guest stars fill each episode—Adrien Brody, Chloë Sevigny, Joseph Gordon-Levitt, Tim Meadows—playing victims, killers, or bystanders. The rotating cast keeps the format fresh.</p>
+            <p>The structure is old-fashioned, but the execution is modern. Johnson's direction is precise and playful. The murders are clever. The solutions feel earned. And Charlie's wandering lifestyle gives the show a philosophical undercurrent: what do you owe to strangers? What do you owe to the truth?</p>
+        </div>
+
+        <div class="section">
+            <h2>Why It Ranks</h2>
+            <div class="dimension-grid">
+                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
+                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">N/A</div><div class="dimension-weight">20% weight</div></div>
+            </div>
+            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Natasha Lyonne creates an instantly iconic detective. The guest cast is consistently excellent—recognizable actors having fun with meaty roles.</p>
+            <p><strong>Narrative Drive (8):</strong> The episodic structure moves. Each case is satisfying. The larger arc—Charlie on the run—provides momentum without overwhelming the weekly format.</p>
+            <p><strong>Resolution (N/A):</strong> Still ongoing. The format allows for indefinite continuation, which is both a strength and a risk.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Episodes</h2>
+            <p><strong>"Dead Man's Hand" (S1E1)</strong> — The pilot. Charlie's ability established. The first murder. The run begins.</p>
+            <p><strong>"The Night Shift" (S1E4)</strong> — A small town, a BBQ joint, a murder witnessed by no one alive. Classic structure.</p>
+            <p><strong>"The Hook" (S1E10)</strong> — The season finale. Charlie confronts her past. The road continues.</p>
+        </div>
+
+        <div class="section">
+            <h2>Where to Watch</h2>
+            <p><strong>US:</strong> Peacock</p>
+            <p><strong>UK:</strong> Sky Go</p>
+        </div>
+    </div>
+</body>
+</html>

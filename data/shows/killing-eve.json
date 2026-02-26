@@ -1,0 +1,65 @@
+﻿{
+    "slug":  "killing-eve",
+    "title":  "Killing Eve",
+    "year":  2018,
+    "month":  4,
+    "status":  "ended",
+    "seasons":  4,
+    "episodes":  32,
+    "runtime":  "40-45",
+    "country":  "United Kingdom / United States",
+    "genres":  [
+                   "action",
+                   "drama",
+                   "thriller"
+               ],
+    "creator":  [
+                    "Phoebe Waller-Bridge (based on codename Villainella)"
+                ],
+    "network":  "BBC America / AMC",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.3,
+                                          "scale":  10,
+                                          "count":  "105K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt7016936/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  96,
+                                                     "scale":  100,
+                                                     "audience":  89,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/killing_eve"
+                                                 },
+                             "metacritic":  {
+                                                "score":  83,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/killing-eve"
+                                            }
+                         },
+    "consensus_highlights":  "A landmark spy thriller that redefined female-led television through the electric chemistry between Sandra Oh\u0027s Eve Polastri and Jodie Comer\u0027s Villanelle. The series won BAFTA for Best Drama Series, with Oh and Comer earning Emmy and Golden Globe awards for their performances. Phoebe Waller-Bridge\u0027s Season 1 scripts created a unique blend of black comedy, psychological thriller, and fashion-forward European travelogue. While the finale disappointed, the show\u0027s impact on representation and its iconic style elevated television\u0027s view of female obsession and agency. Based on Luke Jennings\u0027 Villanelle novels, created for BBC America, 32 episodes across 4 seasons.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  7,
+                           "drive":  8,
+                           "cine":  7,
+                           "spect":  7,
+                           "final":  7.08,
+                           "world":  6.5,
+                           "char":  7
+                       },
+    "notes":  "Jodie Comer\u0027s Villanelle became an iconic character, blending charm, violence, and vulnerability. The show redefines the spy thriller genre with its psychological depth.",
+    "tmdbId":  72750,
+    "streaming":  {
+                      "us":  [
+                                 "Hulu",
+                                 "BBC America"
+                             ],
+                      "uk":  [
+                                 "BBC One",
+                                 "iPlayer"
+                             ]
+                  }
+}

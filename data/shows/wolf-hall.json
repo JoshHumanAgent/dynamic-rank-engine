@@ -1,0 +1,55 @@
+﻿{
+    "slug":  "wolf-hall",
+    "title":  "Wolf Hall",
+    "year":  2015,
+    "month":  1,
+    "status":  "completed",
+    "seasons":  2,
+    "episodes":  12,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "historical"
+               ],
+    "creator":  null,
+    "network":  "BBC Two",
+    "tmdbId":  60580,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.1,
+                                          "scale":  10,
+                                          "count":  "23000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt3556914/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  100,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/wolf_hall"
+                                                 }
+                         },
+    "consensus_highlights":  "England in the 1520s: Henry VIII wants to annul his marriage and marry Anne Boleyn. Thomas Cromwell helps him break the opposition.",
+    "ranking_system":  {
+                           "conc":  8.5,
+                           "resol":  7,
+                           "drive":  7,
+                           "cine":  9,
+                           "spect":  7,
+                           "final":  7.85,
+                           "world":  8.5,
+                           "char":  8
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "PBS",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "BBC Two",
+                                 "PBS"
+                             ]
+                  }
+}

@@ -1,0 +1,76 @@
+﻿{
+    "slug":  "halt-and-catch-fire",
+    "title":  "Halt and Catch Fire",
+    "year":  2014,
+    "month":  6,
+    "status":  "ended",
+    "seasons":  4,
+    "episodes":  40,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama"
+               ],
+    "creator":  [
+                    "Christopher Cantwell",
+                    "Christopher Rogers"
+                ],
+    "network":  "AMC",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.5,
+                                          "scale":  10,
+                                          "count":  "45K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt2543312/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "season_1":  {
+                                                                      "score":  75,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_2":  {
+                                                                      "score":  94,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_3":  {
+                                                                      "score":  100,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_4":  {
+                                                                      "score":  100,
+                                                                      "scale":  100
+                                                                  },
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/halt_and_catch_fire"
+                                                 },
+                             "metacritic":  {
+                                                "score":  77,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/halt-and-catch-fire"
+                                            }
+                         },
+    "consensus_highlights":  "Halt and Catch Fire is a tech drama following the pioneers of the personal computer revolution in the 1980s-90s. The series explores ambition, creativity, and the cost of innovation through characters who built the modern tech world.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  9,
+                           "drive":  8,
+                           "cine":  7,
+                           "spect":  5,
+                           "final":  7.78,
+                           "world":  7.5,
+                           "char":  8.5
+                       },
+    "notes":  "Halt and Catch Fire started slowly but became one of television\u0027s most beloved underdog stories.",
+    "tmdbId":  59659,
+    "streaming":  {
+                      "us":  [
+                                 "Netflix",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "Amazon Prime Video"
+                             ]
+                  }
+}

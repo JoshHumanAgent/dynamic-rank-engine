@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahsoka - "I am no Jedi" | Dynamic Rank Engine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #1a1510 50%, #0a0a0f 100%); min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #ff8f00; }
+        .rank-badge { display: inline-block; background: linear-gradient(135deg, #ff8f00, #e65100); color: #fff3e0; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ffcc80; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
+        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(255,143,0,0.3), rgba(0,0,0,0.9)); border: 3px solid #ff8f00; border-radius: 8px; }
+        .score-value { font-size: 3rem; font-weight: 700; color: #ffcc80; }
+        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #ff8f00; }
+        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ffcc80; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .dimension { background: rgba(255,143,0,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
+        .dimension-name { font-weight: 700; color: #ffcc80; margin-bottom: 0.3rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; }
+        .dimension-weight { font-size: 0.8rem; color: #666; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+        .info-value { font-size: 1.3rem; color: #ffcc80; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="rank-badge">Rank #88</div>
+            <h1>Ahsoka</h1>
+            <p class="subtitle">"I am no Jedi"</p>
+            <div class="score-badge">
+                <span class="score-value">7.15</span>
+                <span class="score-label">Final Score</span>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2023-</div></div>
+            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">8</div></div>
+            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Disney+</div></div>
+            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Dave Filoni</div></div>
+        </div>
+
+        <div class="section">
+            <h2>What It Feels Like to Watch</h2>
+            <p>Ahsoka is Star Wars for fans who grew up. Rosario Dawson plays Ahsoka Tano, Anakin Skywalker's former padawan, introduced in Clone Wars and now leading her own live-action series. Set after the Empire's fall, she hunts Grand Admiral Thrawn (Lars Mikkelsen)—the Heir to the Empire, a strategic genius who threatens the New Republic. "Map to another galaxy," she seeks. A map that could lead to Thrawn—and to Ezra Bridger (Eman Esfandi), her lost friend.</p>
+            <p>The show's strength is familiarity: characters from Rebels (Hera Syndulla, Sabine Wren, Chopper) appear live-action for the first time. The emotional core: Sabine (Natasha Liu Bordizzo) and Ahsoka's strained relationship. They were master and apprentice once; it didn't work. Now they reunite to find Ezra, to fight Thrawn, to confront their failures. "I am no Jedi," Ahsoka says—as she's said before. She's something else: survivor, warrior, teacher trying again.</p>
+            <p> Dave Filoni writes for fans who know. The references—to Clone Wars, to Rebels, to the broader mythology—are deep. Casual viewers may be lost; devotees will be rewarded. Shin Hati (Ivanna Sakhno) and Baylan Skoll (Ray Stevenson, in his final role) are dark side users, mercenaries with their own agenda. The Nightsisters, interdimensional travel, the World Between Worlds—Filoni pulls from everywhere. The production design is Star Wars at its best: strange worlds, ancient temples, lightsabers in the dark.</p>
+            <p>One season, eight episodes, ongoing. Ahsoka isn't for newcomers—but it doesn't try to be. This is Star Wars expanding: from cartoons to live action, from the known galaxy to an unknown one. "I've seen what happens when the Jedi fall," Ahsoka says. She's trying to prevent it from happening again. "In my life, when you find reason, you follow it." Hers is Ezra. Ours is the journey.</p>
+        </div>
+
+        <div class="section">
+            <h2>Why It Ranks</h2>
+            <div class="dimension-grid">
+                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">7</div><div class="dimension-weight">25% weight</div></div>
+                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">6</div><div class="dimension-weight">20% weight</div></div>
+            </div>
+            <p style="margin-top:1.5rem"><strong>Visual Spectacle (9):</strong> Star Wars production at its peak. Strange worlds, ancient temples, lightsaber duels. Beautiful.</p>
+            <p><strong>World Building (8):</strong> Thrawn, Nightsisters, World Between Worlds. Deep cuts for fans. Expanded universe lore.</p>
+            <p><strong>Resolution (6):</strong> Season one ends on cliffhanger. Thrawn returns, but story continues. Ongoing.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Episodes</h2>
+            <p><strong>("Master and Apprentice" (E1)</strong> — The introduction. The map. "Where is Thrawn?"</p>
+            <p><strong>"Fallen Jedi" (E4)</strong> — Anakin returns. "I am no Jedi."</p>
+            <p><strong>("Shadow Warrior" (E5)</strong> — Sabine's choice. Another galaxy.</p>
+            <p><strong>("The Jedi, the Witch, and the Warlord" (E8)</strong> — Season finale. Thrawn. "Long live the Empire."</p>
+        </div>
+
+        <div class="section">
+            <h2>Where to Watch</h2>
+            <p><strong>US:</strong> Disney+</p>
+            <p><strong>UK:</strong> Disney+</p>
+        </div>
+    </div>
+</body>
+</html>

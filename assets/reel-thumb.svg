@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20">
+  <defs>
+    <linearGradient id="metal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.5)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0.1)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.4)"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="rgba(0,0,0,0.4)"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer film reel edge (uses currentColor from CSS) -->
+  <circle cx="10" cy="10" r="9.5" fill="currentColor"/>
+  <circle cx="10" cy="10" r="9.5" fill="url(#metal)"/>
+  
+  <!-- Film spiral layers (film windings) -->
+  <g fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="0.35">
+    <circle cx="10" cy="10" r="8"/>
+    <circle cx="10" cy="10" r="6.8"/>
+    <circle cx="10" cy="10" r="5.6"/>
+    <circle cx="10" cy="10" r="4.4"/>
+    <circle cx="10" cy="10" r="3.2"/>
+    <circle cx="10" cy="10" r="2.1"/>
+  </g>
+  
+  <!-- Center hub -->
+  <circle cx="10" cy="10" r="3" fill="currentColor"/>
+  <circle cx="10" cy="10" r="3" fill="url(#metal)"/>
+  
+  <!-- Hub center hole -->
+  <circle cx="10" cy="10" r="1" fill="rgba(0,0,0,0.5)"/>
+  
+  <!-- Sprocket holes (4 around hub) -->
+  <g fill="rgba(0,0,0,0.35)" rx="0.5" ry="0.5">
+    <rect x="9.3" y="5.8" width="1.4" height="0.8" rx="0.15"/>
+    <rect x="13.4" y="9.3" width="0.8" height="1.4" rx="0.15"/>
+    <rect x="9.3" y="13.4" width="1.4" height="0.8" rx="0.15"/>
+    <rect x="5.8" y="9.3" width="0.8" height="1.4" rx="0.15"/>
+  </g>
+  
+  <!-- Edge highlight -->
+  <circle cx="10" cy="10" r="9.2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.3"/>
+  <!-- Inner edge shadow -->
+  <circle cx="10" cy="10" r="2.5" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="0.3"/>
+</svg>

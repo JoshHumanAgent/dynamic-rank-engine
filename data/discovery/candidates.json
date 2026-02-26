@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Discovery Candidates - PRIORITY QUEUE",
+  "description": "Cross-referenced from by_category_drama.json - 199 missing shows",
+  "lastUpdated": "2026-02-23",
+  "totalMissing": 199,
+  "candidates": [
+    {
+      "title": "A Knight of the Seven Kingdoms",
+      "year": 2026,
+      "status": "pending",
+      "priority": "CRITICAL",
+      "reason": "GoT spinoff, 8.536 TMDB, just premiered Jan 2025",
+      "tmdbId": 224372,
+      "source": "TMDB scan"
+    },
+    {
+      "title": "The Day of the Jackal",
+      "year": 2024,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "British spy thriller, 8.163 TMDB, Eddie Redmayne",
+      "tmdbId": 222766,
+      "source": "TMDB scan"
+    },
+    {
+      "title": "When Life Gives You Tangerines",
+      "year": 2025,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Korean drama, 8.723 TMDB, Netflix hit",
+      "tmdbId": 219246,
+      "source": "TMDB scan"
+    },
+    {
+      "title": "Three-Body Problem",
+      "year": 2024,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Game of Thrones team, sci-fi epic",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Fallout",
+      "year": 2024,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Gaming franchise, Amazon hit",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "The Diplomat",
+      "year": 2023,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Political thriller, Keri Russell",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Ahsoka",
+      "year": 2023,
+      "status": "pending",
+      "priority": "MEDIUM",
+      "reason": "Star Wars, Rosario Dawson",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "The Sandman",
+      "year": 2022,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Neil Gaiman masterpiece, Netflix",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Severance Season 2 Update",
+      "year": 2025,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Verify score reflects S2 quality (just aired)",
+      "tmdbId": 95396,
+      "source": "manual"
+    },
+    {
+      "title": "The Night Manager",
+      "year": 2016,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Le Carré adaptation, Tom Hiddleston, award-winning",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "The Night Of",
+      "year": 2016,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "HBO limited series, Riz Ahmed, critically acclaimed",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Mindhunter",
+      "year": 2017,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Fincher, true crime masterpiece",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "The Sinner",
+      "year": 2017,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Anthology, Jessica Biel, critically acclaimed",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Counterpart",
+      "year": 2017,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "JK Simmons, spy sci-fi, underrated gem",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "The Witcher",
+      "year": 2019,
+      "status": "pending",
+      "priority": "MEDIUM",
+      "reason": "Netflix flagship, gaming franchise",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Rings of Power",
+      "year": 2022,
+      "status": "pending",
+      "priority": "MEDIUM",
+      "reason": "LOTR, Amazon flagship",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "I May Destroy You",
+      "year": 2020,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Michaela Coel, groundbreaking",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Normal People",
+      "year": 2020,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Sally Rooney adaptation, BBC/Hulu",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "The OA",
+      "year": 2016,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Brit Marling, Netflix mystery, cult following",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Sense8",
+      "year": 2015,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Wachowskis, ambitious sci-fi",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Bates Motel",
+      "year": 2013,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Psycho prequel, Freddie Highmore, Vera Farmiga",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "The Fall",
+      "year": 2013,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Gillian Anderson, Jamie Dornan, British thriller",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Luther",
+      "year": 2010,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Idris Elba, British crime masterpiece",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    },
+    {
+      "title": "Sherlock",
+      "year": 2010,
+      "status": "pending",
+      "priority": "HIGH",
+      "reason": "Cumberbatch, modern classic",
+      "tmdbId": null,
+      "source": "by_category_drama"
+    }
+  ],
+  "bulkQueue": {
+    "description": "199 total missing shows from by_category_drama.json",
+    "count": 199,
+    "note": "Work through priority list first, then bulk add remaining"
+  },
+  "discoveryLog": [
+    {
+      "date": "2026-02-23T01:25",
+      "action": "CROSS-REFERENCE: Compared by_category_drama.json against current index",
+      "results": {
+        "alreadyIndexed": 9,
+        "missing": 199,
+        "addedToQueue": 25
+      }
+    }
+  ]
+}

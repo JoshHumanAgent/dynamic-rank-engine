@@ -1,0 +1,77 @@
+﻿{
+    "slug":  "for-all-mankind",
+    "title":  "For All Mankind",
+    "year":  2019,
+    "month":  11,
+    "status":  "ended",
+    "seasons":  4,
+    "episodes":  50,
+    "runtime":  "50-70",
+    "country":  "United States",
+    "genres":  [
+                   "sci-fi",
+                   "drama"
+               ],
+    "creator":  [
+                    "Ronald D. Moore",
+                    "Matt Wolpert",
+                    "Ben Nedivi"
+                ],
+    "network":  "Apple TV+",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.7,
+                                          "scale":  10,
+                                          "count":  "75K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt7692600/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "season_1":  {
+                                                                      "score":  93,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_2":  {
+                                                                      "score":  96,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_3":  {
+                                                                      "score":  98,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_4":  {
+                                                                      "score":  100,
+                                                                      "scale":  100
+                                                                  },
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/for_all_mankind"
+                                                 },
+                             "metacritic":  {
+                                                "score":  74,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/for-all-mankind"
+                                            }
+                         },
+    "consensus_highlights":  "For All Mankind is an alternate history science fiction series that asks: what if the Soviets had beaten America to the moon? The series follows NASA astronauts and engineers as the space race continues into the 1990s and beyond. It\u0027s a meditation on ambition, sacrifice, and the dream of space exploration.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  7.5,
+                           "drive":  8,
+                           "cine":  8,
+                           "spect":  8,
+                           "final":  7.72,
+                           "world":  8,
+                           "char":  7
+                       },
+    "notes":  "For All Mankind proves Apple TV+ can produce prestige television. It\u0027s emotional, ambitious, and often devastating.",
+    "tmdbId":  87917,
+    "streaming":  {
+                      "us":  [
+                                 "Apple TV+"
+                             ],
+                      "uk":  [
+                                 "Apple TV+"
+                             ]
+                  }
+}

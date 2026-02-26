@@ -1,0 +1,51 @@
+{
+    "slug": "fargo",
+    "title": "Fargo",
+    "year": 2014,
+    "month": "04",
+    "network": "FX",
+    "status": "ongoing",
+    "streaming": {
+        "us": ["Hulu"],
+        "uk": ["Netflix", "Amazon Prime Video"]
+    },
+    "genres": ["Crime", "Drama", "Anthology", "Black Comedy"],
+    "creators": ["Noah Hawley"],
+    "cast": ["Billy Bob Thornton", "Martin Freeman", "Kirsten Dunst", "Patrick Wilson", "Ewan McGregor", "Chris Rock"],
+    "external_ratings": {
+        "imdb": {
+            "score": 8.9,
+            "votes": 396000,
+            "url": "https://www.imdb.com/title/tt2802850/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 82,
+            "critics": 94,
+            "url": "https://www.rottentomatoes.com/tv/fargo",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 9.0,
+        "world": 9.2,
+        "cine": 9.5,
+        "spect": 8.5,
+        "conc": 9.0,
+        "drive": 8.8,
+        "resol": 9.0,
+        "final": 9.1
+    },
+    "episodes": 51,
+    "seasons": 5,
+    "poster": "",
+    "tmdb_id": 60622,
+    "consensus_highlights": [
+        "Coen brothers' sensibility translated to television with uncanny precision",
+        "Each season a self-contained crime masterpiece",
+        "Billy Bob Thornton's Lorne Malvo - pure malevolence as charisma",
+        "Minnesota nice covering dark human impulses",
+        "Cinematography and music that elevate crime to art"
+    ],
+    "tags": ["anthology", "crime", "minnesota", "black-comedy", "coen-inspired", "prestige-tv"]
+}

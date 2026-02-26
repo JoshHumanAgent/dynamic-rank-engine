@@ -1,0 +1,72 @@
+{
+    "slug": "the-killing-dk",
+    "title": "The Killing (DK)",
+    "year": 2007,
+    "month": 1,
+    "status": "ended",
+    "seasons": 4,
+    "episodes": 40,
+    "runtime": "58-60",
+    "country": "Denmark",
+    "genres": [
+        "drama",
+        "crime",
+        "mystery"
+    ],
+    "creator": [
+        "SÃ¸ren Sveistrup"
+    ],
+    "network": "DR1",
+    "external_ratings": {
+        "imdb": {
+            "score": 8.8,
+            "scale": 10,
+            "count": "55K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt0864127/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 96,
+                "scale": 100
+            },
+            "season_2": {
+                "score": 98,
+                "scale": 100
+            },
+            "season_3": {
+                "score": 100,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/the_killing"
+        },
+        "metacritic": {
+            "score": 82,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/forbrydelsen"
+        }
+    },
+    "consensus_highlights": "The Killing is a Danish crime drama that became an international sensation. The series follows Detective Sarah Lund as she investigates a murder over twenty episodes across three seasons. Known for its atmospheric storytelling and complex case, it influenced countless crime dramas worldwide.",
+    "ranking_system": {
+        "characters": 7.5,
+        "world_building": 7,
+        "cinematography": 7,
+        "visual_spectacle": 5,
+        "conceptual_density": 7,
+        "narrative_drive": 8,
+        "resolution": 8,
+        "final_score": 7.23
+    },
+    "tmdbId": 34410,
+    "streaming": {
+        "us": [
+            "Netflix",
+            "AMC+"
+        ],
+        "uk": [
+            "BBC iPlayer"
+        ]
+    }
+}

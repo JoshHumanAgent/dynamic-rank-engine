@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "twin-peaks-the-return",
+    "title":  "Twin Peaks: The Return",
+    "year":  2017,
+    "month":  5,
+    "status":  "completed",
+    "seasons":  1,
+    "episodes":  18,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "mystery",
+                   "drama",
+                   "thriller"
+               ],
+    "creator":  "David Lynch, Mark Frost",
+    "network":  "Showtime",
+    "tmdbId":  70809,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.1,
+                                          "scale":  10,
+                                          "count":  "75000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt4093826/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  83,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/twin_peaks"
+                                                 },
+                             "metacritic":  {
+                                                "score":  74,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/twin-peaks-the-return"
+                                            }
+                         },
+    "consensus_highlights":  "The long-awaited return of Agent Dale Cooper to the mysterious town of Twin Peaks, 25 years after the original series.",
+    "ranking_system":  {
+                           "conc":  9,
+                           "resol":  7,
+                           "drive":  5,
+                           "cine":  9,
+                           "spect":  9,
+                           "final":  7.75,
+                           "world":  8,
+                           "char":  8
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Showtime",
+                                 "Paramount+"
+                             ],
+                      "uk":  [
+                                 "BBC Two"
+                             ]
+                  }
+}

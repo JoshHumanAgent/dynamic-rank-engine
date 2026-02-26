@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectify - TV Shows Ranked</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e8e8e8;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #e94560;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #ff6b6b;
+            transform: translateX(-5px);
+        }
+        
+        .show-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .show-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e94560 0%, #ff9f45 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+        
+        .show-meta {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .show-creator {
+            color: #e94560;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .cast-list {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+        }
+        
+        .cast-label {
+            color: #e94560;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        .cast-names {
+            color: #c0c0c0;
+            font-size: 1rem;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #e94560;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title::before {
+            content: '';
+            width: 8px;
+            height: 35px;
+            background: linear-gradient(180deg, #e94560, #ff9f45);
+            border-radius: 4px;
+        }
+        
+        .feeling-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #d0d0d0;
+        }
+        
+        .feeling-text p {
+            margin-bottom: 20px;
+        }
+        
+        .dimension-block {
+            background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 4px solid #e94560;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .dimension-block:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 40px rgba(233, 69, 96, 0.15);
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .dimension-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .dimension-score {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e94560, #ff9f45);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .dimension-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .dimension-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e94560, #ff9f45);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .dimension-analysis {
+            color: #b0b0b0;
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+        
+        .final-score-block {
+            background: linear-gradient(145deg, #e94560 0%, #c73e54 100%);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-score-block::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .final-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: rgba(255,255,255,0.8);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .final-score {
+            font-size: 6rem;
+            font-weight: 900;
+            color: #fff;
+            margin: 20px 0;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .final-rating {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .score-interpretation {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 1rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .plot-summary {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .plot-label {
+            color: #e94560;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .plot-text {
+            color: #d0d0d0;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 600px) {
+            .show-title { font-size: 2.5rem; }
+            .final-score { font-size: 4rem; }
+            .dimension-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Rankings</a>
+        
+        <header class="show-header">
+            <h1 class="show-title">Rectify</h1>
+            <div class="show-meta">SundanceTV • 2013-2016 • 4 Seasons • 30 Episodes</div>
+            <div class="show-creator">Created by Ray McKinnon</div>
+            
+            <div class="cast-list">
+                <div class="cast-label">Starring</div>
+                <div class="cast-names">Aden Young, Abigail Spencer, J. Smith-Cameron, Clayne Crawford, Luke Kirby</div>
+            </div>
+            
+            <div class="tags">
+                <span class="tag">Drama</span>
+                <span class="tag">Legal Drama</span>
+                <span class="tag">Psychological</span>
+                <span class="tag">Small Town</span>
+                <span class="tag">Redemption</span>
+                <span class="tag">Southern Gothic</span>
+            </div>
+            
+            <div class="plot-summary">
+                <div class="plot-label">The Story</div>
+                <div class="plot-text">After spending 19 years on Death Row for the rape and murder of his teenage girlfriend, Daniel Holden is suddenly released due to new DNA evidence. He returns to his small Georgia hometown, where his family has never stopped believing in his innocence, while the community remains divided between those who want justice for the victim and those willing to give him a second chance.</div>
+            </div>
+        </header>
+        
+        <section>
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            <div class="feeling-text">
+                <p>Watching <em>Rectify</em> is like stepping into a humid, slow-moving Southern afternoon where time itself seems to bend and stretch. This is not a show that rushes toward conclusions or wraps things in neat packages. Instead, it invites you to sit with discomfort, to dwell in the spaces between words, to feel the weight of 19 years of isolation pressing down on a man trying to learn how to exist in a world that has moved on without him.</p>
+                
+                <p>Ray McKinnon's creation operates in a register rarely seen on television—one of profound stillness and contemplation. The wrongful conviction premise might suggest a legal thriller, but this is something far more intimate and human. It is a meditation on what it means to have time stolen from you, to return to a family that has aged while you remained frozen, to walk streets where everyone knows your face and your alleged crime. The show asks uncomfortable questions: Can someone truly be redeemed in the eyes of a community? Can a family heal from two decades of trauma? Is freedom even possible when the past refuses to release its grip?</p>
+                
+                <p>The atmosphere of small-town Georgia permeates every frame—the cicada hum, the church socials, the gossip that spreads like kudzu. This is a place where Christianity and cynicism coexist, where everyone attends the same church but maintains their own private judgments. Daniel's presence becomes a Rorschach test for the town's residents: some see a victim, others see a threat, and most see something complicated that defies easy categorization.</p>
+                
+                <p>What makes the viewing experience so haunting is the show's refusal to provide easy catharsis. There are no dramatic courtroom victories that solve everything, no simple narrative of good triumphing over evil. Instead, we witness the grinding, imperfect work of rebuilding a life—learning to use a smartphone after two decades on death row, navigating relationships with siblings who became adults while you were away, confronting parents who aged without you there to witness it. It is television as empathy machine, forcing us to sit with the uncomfortable humanity of its characters until we cannot look away.</p>
+                
+                <p>Ultimately, <em>Rectify</em> feels like a prayer whispered in the dark—not for the certainty of answers, but for the grace to keep asking questions. It is a show about faith in its broadest sense: faith in people, in second chances, in the possibility that damaged things might still be made whole. By the time the final credits roll, you may not have all the answers you wanted, but you will have experienced something far more valuable—a genuine exploration of what it means to be human.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Why It Ranks</h2>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">🎭 Characters</span>
+                    <span class="dimension-score">7.9</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 79%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    The strength of <em>Rectify</em> lies in its deeply realized, flawed, and achingly human characters. Aden Young delivers a masterclass in internalized performance as Daniel Holden, a man who has learned to exist in the narrowest of spaces suddenly thrust back into the overwhelming chaos of freedom. His physicality speaks volumes—the way he holds himself slightly hunched, as if still confined by invisible cell walls, his careful movements suggesting someone who has learned that any sudden action might be punished. Daniel never becomes a simple symbol of injustice; he remains stubbornly, sometimes frustratingly, individual.</p>
+                    
+                    <p>The supporting cast equally shines. Abigail Spencer brings brittle resilience and desperate hope to Amantha, Daniel's sister who has built her entire identity around his case. J. Smith-Cameron delivers a quietly devastating performance as Janet, the mother who kept the home fires burning while grappling with guilt over what her son might have been capable of. Clayne Crawford's Ted Jr. provides a fascinating counterpoint—simultaneously jealous of his wife's devotion to her brother and genuinely trying to be a good man in impossible circumstances. Even minor characters like the town's District Attorney or Daniel's probation officer are granted interiority and moral complexity.</p>
+                    
+                    <p>What prevents this category from scoring higher is occasional inconsistency in how some supporting characters are developed across the four seasons. A few figures introduced with promise in early episodes fade into the background, and certain relationship dynamics receive less exploration than they deserve. The show's contemplative pace means not every character arc reaches fully satisfying resolution.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">🌍 World Building</span>
+                    <span class="dimension-score">6.5</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 65%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    The fictional town of Paulie, Georgia, emerges as a fully realized entity steeped in the specific texture of the American South. The show captures the suffocating intimacy of small-town life where everyone knows your history, your business, and your family's secrets going back generations. Churches, diners, and front porches serve as the primary social infrastructure, and the geography of the town—from the Holdens' modest home to the courthouse to the local tire shop—becomes meaningful territory in the battle for Daniel's acceptance.</p>
+                    
+                    <p>The Death Row sequences, presented in flashback, are appropriately claustrophobic and terrifying, providing crucial context for Daniel's psyche without becoming exploitative. The contrast between the prison world and Paulie emphasizes the cultural shock of his return.</p>
+                    
+                    <p>However, the world building is intentionally narrow in scope, reflecting the limited horizons of its characters but sometimes feeling constrictive rather than immersive. There is little sense of the broader Georgia or American context that shaped these lives. Some viewers may find the insularity suffocating rather than atmospheric, and the show offers minimal exploration of how broader social issues—beyond the specific circumstances of Daniel's case—impact this community.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">🎨 Cinematography</span>
+                    <span class="dimension-score">7.0</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 70%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <em>Rectify</em> features consistently beautiful, meditative cinematography that serves its thematic concerns. The visual language emphasizes negative space, long takes, and contemplative compositions that mirror Daniel's tentative re-engagement with the world. The Georgia locations are captured with a documentary's eye for authentic detail—the humidity visible in the air, the particular quality of Southern light filtering through Spanish moss, the worn textures of family homes and public buildings alike.</p>
+                    
+                    <p>The color palette deliberately shifts to reflect emotional states: warm golds for family intimacy, cold blues for isolation and threat, the harsh fluorescence of institutional spaces versus the soft natural light of the Holdens' kitchen. The camera often lingers on characters' faces in tight close-up, creating uncomfortable intimacy and refusing to let the audience look away from difficult emotions.</p>
+                    
+                    <p>While the cinematography is sophisticated and emotionally resonant, it is not visually groundbreaking in the way of the most innovative television. The show's aesthetic is appropriately restrained and humble, matching its subject matter, but it never quite reaches the iconic visual heights that would warrant a higher score. The consistent beauty occasionally slips into prettiness that can feel slightly disconnected from the raw humanity of the story.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">✨ Visual Spectacle</span>
+                    <span class="dimension-score">5.5</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 55%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    By design, <em>Rectify</em> offers minimal visual spectacle. This is a show about ordinary lives in an ordinary town dealing with extraordinary circumstances through very human-scale means. There are no sweeping action sequences, no elaborate set pieces, no moments of kinetic visual excitement. The spectacle, such as it is, comes from the beauty of well-observed moments: sun streaming through kitchen windows, fireflies rising at dusk, the careful arrangement of objects that carry memory and meaning.</p>
+                    
+                    <p>The show's restraint is admirable and thematically appropriate—there is something obscene about the idea of spectacle in a story about wrongful conviction and a destroyed life. Yet this dimension must acknowledge that viewers seeking visual excitement will find the series frustratingly static. The occasional dreamlike sequences and flashbacks provide some visual interest, but they are used sparingly and never build to overwhelming aesthetic experiences. This is a strength of the show's integrity but necessarily limits its score in this particular category.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">🧠 Conceptual Density</span>
+                    <span class="dimension-score">7.5</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 75%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <em>Rectify</em> is intellectually and philosophically rich, engaging seriously with questions of justice, redemption, faith, family, and the nature of time and memory. The show operates on multiple levels simultaneously: as a character study, as a meditation on the American justice system, as an exploration of Southern Protestant theology, and as a portrait of how trauma ripples through families and communities across decades.</p>
+                    
+                    <p>Ray McKinnon's scripts are unafraid of ambiguity and uncomfortable truths. The show refuses to let Daniel become simply a blameless victim or his accusers become simple villains. It interrogates the concept of "closure" and whether such a thing is even possible for those who have lost years to incarceration. Theological questions about guilt, judgment, and forgiveness permeate the narrative without becoming preachy or didactic.</p>
+                    
+                    <p>The conceptual sophistication extends to formal choices as well—the non-linear storytelling, the willingness to let scenes run long past plot utility into pure emotional territory, the integration of Daniel's interior state through subtle visual and sound design. Each episode rewards close attention and repeated viewing, revealing layers of meaning and connection.</p>
+                    
+                    <p>The score reflects not that the show lacks ideas—it has an abundance—but that it sometimes holds these ideas at arm's length, prioritizing mood and atmosphere over rigorous exploration. Certain philosophical threads are introduced and then set down rather than fully developed, and the show's contemplative pace can occasionally slip into mere sluggishness rather than productive tension.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">📖 Narrative Drive</span>
+                    <span class="dimension-score">7.1</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 71%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <em>Rectify</em> occupies a fascinating middle ground between procedural and pure character drama. The central mystery—did Daniel commit the crime for which he was imprisoned?—provides narrative scaffolding, but the show is far more interested in the aftermath of his return than in solving the case. This creates a unique tension: viewers hoping for a traditional mystery may be frustrated, while those seeking pure art-house contemplation may find the lingering procedural elements distracting.</p>
+                    
+                    <p>Across four seasons, the show maintains interest through careful escalation of stakes and deepening of character relationships. Season 1 focuses on Daniel's immediate adjustment; subsequent seasons expand the canvas to explore the long-term consequences of his presence on his family, the legal system, and the town itself. The narrative consistently resies easy resolution, forcing characters and viewers alike to sit with discomfort and uncertainty.</p>
+                    
+                    <p>The pacing is deliberately slow, a choice that is thematically appropriate but occasionally tests viewer patience. Individual episodes sometimes feel like they are treading water, and the show's commitment to realism means accepting that life does not always provide dramatic climaxes. The four-season run allows for a complete story, though the abbreviated final season (only 8 episodes versus the 6 of seasons 1-3) rushes toward conclusion somewhat unevenly.</p>
+                    
+                    <p>What keeps the narrative drive from being truly exceptional is occasional aimlessness and a few subplots that meander without clear payoff. The show's determination to avoid conventional storytelling sometimes leads to episodes that feel more like tone poems than compelling drama.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">🏁 Resolution</span>
+                    <span class="dimension-score">7.5</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 75%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    The fourth and final season of <em>Rectify</em> provides a deeply satisfying conclusion that honors the show's spirit and themes while delivering genuine emotional catharsis. Aware that the abbreviated final season would be their last, the creators crafted an ending that feels both complete and appropriately open, refusing to tie everything in a neat bow while still offering viewers a sense of closure and hope.</p>
+                    
+                    <p>The resolution of Daniel's legal status manages to surprise while feeling inevitable in retrospect, avoiding both the easy triumph of a complete exoneration and the nihilism of a tragic verdict. Character arcs reach natural endpoints: Amantha finds purpose beyond her brother's case, Janet confronts hard truths about her marriage, Ted Jr. steps into maturity, and Daniel himself achieves a kind of peace that is more valuable than simple freedom.</p>
+                    
+                    <p>Most importantly, the finale "Blessed Are the Meek" captures the show's essence—a mix of sorrow and grace, the acknowledgment that life continues to be difficult while maintaining faith in the possibility of goodness. The final images provide visual and emotional closure without sacrificing the ambiguity that has been the show's trademark.</p>
+                    
+                    <p>The score acknowledges that some threads deserved more exploration—the fate of certain supporting characters, the longer-term effects on the town, the full story of the original crime—and that the compressed final season forced some abbreviated storytelling. Additionally, some viewers may find the ending too quiet, too small for the epic emotional journey that preceded it. But for those who embraced the show's sensibility, the resolution is pitch-perfect.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="final-score-block">
+            <div class="final-label">TV Shows Ranked Final Score</div>
+            <div class="final-score">7.50</div>
+            <div class="final-rating">★★★★☆ Exceptional Drama</div>
+            <div class="score-interpretation">
+                <p><em>Rectify</em> earns a strong 7.50, positioning it as one of the most distinctive and emotionally powerful dramas of the 2010s. Its strength lies not in grand spectacle or propulsive plotting, but in rare sincerity, moral complexity, and patient observation of human behavior under extreme pressure.</p>
+                
+                <p>This series rewards viewers willing to surrender to its rhythms, to accept discomfort and ambiguity as valid aesthetic choices, and to invest deeply in characters who are never less than fully human. It is television as literature—a work of art that asks serious questions about justice, family, and what it means to be free.</p>
+                
+                <p>The 7.50 score reflects a show that is occasionally uneven in pacing and sometimes too committed to its restraint, but ultimately delivers a coherent vision and profound emotional impact. This is the rare drama that improves with reflection—the more you sit with it, the more you appreciate its craft and compassion. <em>Rectify</em> is essential viewing for anyone who believes television can be a serious art form, and its place in our rankings honors both its ambition and its achievements.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

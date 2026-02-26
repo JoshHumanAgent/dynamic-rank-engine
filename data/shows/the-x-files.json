@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "the-x-files",
+    "title":  "The X-Files",
+    "year":  1993,
+    "month":  9,
+    "status":  "completed",
+    "seasons":  11,
+    "episodes":  218,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "sci-fi",
+                   "mystery",
+                   "thriller"
+               ],
+    "creator":  "Chris Carter",
+    "network":  "Fox",
+    "tmdbId":  4087,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8,
+                                          "scale":  10,
+                                          "count":  "290000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0106179/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  87,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/the_xfiles"
+                                                 },
+                             "metacritic":  {
+                                                "score":  65,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/the-x-files"
+                                            }
+                         },
+    "consensus_highlights":  "FBI agents investigate paranormal cases and government conspiracies involving aliens.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  6,
+                           "drive":  7,
+                           "cine":  7,
+                           "spect":  7,
+                           "final":  7.02,
+                           "world":  7.5,
+                           "char":  7.5
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Netflix",
+                                 "Hulu"
+                             ],
+                      "uk":  [
+                                 "Amazon Prime Video"
+                             ]
+                  }
+}

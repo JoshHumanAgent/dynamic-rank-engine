@@ -1,0 +1,83 @@
+{
+    "slug": "breaking-bad",
+    "title": "Breaking Bad",
+    "year": 2008,
+    "month": 1,
+    "status": "ended",
+    "seasons": 5,
+    "episodes": 62,
+    "runtime": "47-58",
+    "country": "United States",
+    "genres": [
+        "crime",
+        "drama",
+        "thriller"
+    ],
+    "creator": [
+        "Vince Gilligan"
+    ],
+    "network": "AMC",
+    "external_ratings": {
+        "imdb": {
+            "score": 9.5,
+            "scale": 10,
+            "count": "2.4M",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt0903747/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 86,
+                "scale": 100
+            },
+            "season_2": {
+                "score": 97,
+                "scale": 100
+            },
+            "season_3": {
+                "score": 100,
+                "scale": 100
+            },
+            "season_4": {
+                "score": 100,
+                "scale": 100
+            },
+            "season_5": {
+                "score": 97,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/breaking_bad"
+        },
+        "metacritic": {
+            "score": 85,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/breaking-bad"
+        }
+    },
+    "consensus_highlights": "Breaking Bad is a masterclass in television storytelling. Vince Gilligan's creation charts the transformation of Walter White from milquetoast chemistry teacher to ruthless drug empire builder with unflinching precision. Bryan Cranston and Aaron Paul deliver career-defining performances. The series maintains incredible consistency across five seasons, building to one of the most satisfying finales in TV history.",
+    "ranking_system": {
+        "char": 9,
+        "world": 7,
+        "cine": 10,
+        "spect": 6,
+        "conc": 9,
+        "drive": 10,
+        "resol": 10,
+        "final": 8.89
+    },
+    "notes": "Breaking Bad represents peak character study television. The allegory of cancer-as-transformation and the moral descent it portrays is handled with remarkable craft.",
+    "tmdbId": 1396,
+    "streaming": {
+        "us": [
+            "Netflix",
+            "AMC+",
+            "Amazon Prime Video"
+        ],
+        "uk": [
+            "Netflix",
+            "Amazon Prime Video"
+        ]
+    }
+}

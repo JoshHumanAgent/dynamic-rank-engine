@@ -1,0 +1,87 @@
+﻿{
+    "slug":  "better-call-saul",
+    "title":  "Better Call Saul",
+    "year":  2015,
+    "month":  2,
+    "status":  "ended",
+    "seasons":  6,
+    "episodes":  63,
+    "runtime":  "42-60",
+    "country":  "United States",
+    "genres":  [
+                   "crime",
+                   "drama"
+               ],
+    "creator":  [
+                    "Vince Gilligan",
+                    "Peter Gould"
+                ],
+    "network":  "AMC",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  9,
+                                          "scale":  10,
+                                          "count":  "405K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt3032476/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "season_1":  {
+                                                                      "score":  97,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_2":  {
+                                                                      "score":  97,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_3":  {
+                                                                      "score":  98,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_4":  {
+                                                                      "score":  99,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_5":  {
+                                                                      "score":  99,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_6":  {
+                                                                      "score":  99,
+                                                                      "scale":  100
+                                                                  },
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/better_call_saul"
+                                                 },
+                             "metacritic":  {
+                                                "score":  82,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/better-call-saul"
+                                            }
+                         },
+    "consensus_highlights":  "Better Call Saul transcended its origins as a Breaking Bad prequel to become its own masterpiece. The series charts Jimmy McGill\u0027s transformation into Saul Goodman with patience and psychological depth that rivals its predecessor. Bob Odenkirk delivers a career-defining performance, while Jonathan Banks provides emotional weight as Mike Ehrmantraut. The visual storytelling and attention to detail set a new standard for television.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  10,
+                           "drive":  9,
+                           "cine":  9.5,
+                           "spect":  6,
+                           "final":  7.83,
+                           "world":  7,
+                           "char":  8.5
+                       },
+    "notes":  "Better Call Saul proves that prequels can surpass their source material. It\u0027s slower than Breaking Bad but equally profound in its character work.",
+    "tmdbId":  61889,
+    "streaming":  {
+                      "us":  [
+                                 "Netflix",
+                                 "AMC+",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "Netflix",
+                                 "Amazon Prime Video"
+                             ]
+                  }
+}

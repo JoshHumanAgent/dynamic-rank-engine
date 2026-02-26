@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Rejected Shows",
+  "description": "Shows that were considered but rejected from the pool",
+  "lastUpdated": "2026-02-22",
+  "rejected": [],
+  "criteria": {
+    "rejectReasons": [
+      "anime (separate project)",
+      "pure comedy (no dramatic weight)",
+      "reality TV",
+      "documentary series",
+      "news/talk shows",
+      "children's programming",
+      "insufficient dramatic content",
+      "not a TV series (film/film franchise)",
+      "low production quality",
+      "culturally specific without broad appeal"
+    ]
+  },
+  "rejectionLog": []
+}

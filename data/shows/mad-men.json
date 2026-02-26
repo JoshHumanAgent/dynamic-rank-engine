@@ -1,0 +1,88 @@
+﻿{
+    "slug":  "mad-men",
+    "title":  "Mad Men",
+    "year":  2007,
+    "month":  7,
+    "status":  "ended",
+    "seasons":  7,
+    "episodes":  92,
+    "runtime":  "45-50",
+    "country":  "United States",
+    "genres":  [
+                   "drama"
+               ],
+    "creator":  [
+                    "Matthew Weiner"
+                ],
+    "network":  "AMC",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.7,
+                                          "scale":  10,
+                                          "count":  "345K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0804503/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "season_1":  {
+                                                                      "score":  92,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_2":  {
+                                                                      "score":  96,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_3":  {
+                                                                      "score":  100,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_4":  {
+                                                                      "score":  94,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_5":  {
+                                                                      "score":  96,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_6":  {
+                                                                      "score":  93,
+                                                                      "scale":  100
+                                                                  },
+                                                     "season_7":  {
+                                                                      "score":  91,
+                                                                      "scale":  100
+                                                                  },
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/mad_men"
+                                                 },
+                             "metacritic":  {
+                                                "score":  80,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/mad-men"
+                                            }
+                         },
+    "consensus_highlights":  "Mad Men is a period drama set in 1960s New York advertising, exploring the lives of the Sterling Cooper agency. Jon Hamm delivers a iconic performance as Don Draper, a mysterious ad man with a hidden past. The series is celebrated for its writing, visual style, and nuanced portrayal of a transformative era in American history.",
+    "ranking_system":  {
+                           "conc":  9,
+                           "resol":  7.5,
+                           "drive":  7,
+                           "cine":  8,
+                           "spect":  8.5,
+                           "final":  8.07,
+                           "world":  8,
+                           "char":  8.5
+                       },
+    "notes":  "Mad Men revived AMC and created the modern prestige drama era.",
+    "tmdbId":  1404,
+    "streaming":  {
+                      "us":  [
+                                 "AMC+",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "Amazon Prime Video",
+                                 "Netflix"
+                             ]
+                  }
+}

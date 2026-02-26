@@ -1,0 +1,63 @@
+﻿{
+    "slug":  "dark",
+    "title":  "Dark",
+    "year":  2017,
+    "month":  12,
+    "status":  "ended",
+    "seasons":  3,
+    "episodes":  28,
+    "runtime":  "53-60",
+    "country":  "Germany",
+    "genres":  [
+                   "sci-fi",
+                   "mystery",
+                   "thriller"
+               ],
+    "creator":  [
+                    "Baran bo Odar",
+                    "Jantje Friese"
+                ],
+    "network":  "Netflix",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.7,
+                                          "scale":  10,
+                                          "count":  "285K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt5753856/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  92,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/dark"
+                                                 },
+                             "metacritic":  {
+                                                "score":  72,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/dark"
+                                            }
+                         },
+    "consensus_highlights":  "Dark is a German time travel epic that spans generations. The series follows a small German town where children mysteriously disappear. It\u0027s one of the most complex time travel narratives ever attempted on television.",
+    "ranking_system":  {
+                           "conc":  9,
+                           "resol":  9,
+                           "drive":  8.5,
+                           "cine":  8.5,
+                           "spect":  6.5,
+                           "final":  8,
+                           "world":  7.5,
+                           "char":  7
+                       },
+    "notes":  "The first German-language Netflix original to achieve global success.",
+    "tmdbId":  70523,
+    "streaming":  {
+                      "us":  [
+                                 "Netflix"
+                             ],
+                      "uk":  [
+                                 "Netflix"
+                             ]
+                  }
+}

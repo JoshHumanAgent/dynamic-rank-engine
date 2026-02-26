@@ -1,0 +1,62 @@
+{
+    "slug": "the-penguin",
+    "title": "The Penguin",
+    "year": 2023,
+    "month": 10,
+    "status": "ended",
+    "seasons": 1,
+    "episodes": 8,
+    "runtime": "50-60",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "crime"
+    ],
+    "creator": [
+        "Lauren LeFranc"
+    ],
+    "network": "HBO/Max",
+    "external_ratings": {
+        "imdb": {
+            "score": 8.4,
+            "scale": 10,
+            "count": "180K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt15385876/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 96,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/the_penguin"
+        },
+        "metacritic": {
+            "score": 83,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/the-penguin"
+        }
+    },
+    "consensus_highlights": "The Penguin is a crime drama serving as a continuation of The Batman. Colin Farrell delivers a transformative performance as Oswald Cobblepot, who rises through Gotham's criminal underworld after the death of Carmine Falcone. The series is a character study of ambition and corruption.",
+    "ranking_system": {
+        "characters": 8,
+        "world_building": 7.5,
+        "cinematography": 8,
+        "visual_spectacle": 7,
+        "conceptual_density": 7,
+        "narrative_drive": 8,
+        "resolution": 7,
+        "final_score": 7.23
+    },
+    "tmdbId": 194583,
+    "streaming": {
+        "us": [
+            "HBO Max"
+        ],
+        "uk": [
+            "Sky Atlantic"
+        ]
+    }
+}

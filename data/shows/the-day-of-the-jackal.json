@@ -1,0 +1,44 @@
+﻿{
+    "slug":  "the-day-of-the-jackal",
+    "title":  "The Day of the Jackal",
+    "year":  2024,
+    "month":  11,
+    "status":  "ongoing",
+    "seasons":  1,
+    "episodes":  8,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "thriller",
+                   "drama",
+                   "action"
+               ],
+    "creator":  [
+                    "TBD"
+                ],
+    "network":  "Streaming",
+    "tmdbId":  241096,
+    "external_ratings":  {
+
+                         },
+    "consensus_highlights":  "A premium thriller adaptation of Frederick Forsyth\u0027s classic novel starring Eddie Redmayne and Lashana Lynch. With a Â£100 million budget across ten episodes filmed in Budapest, Vienna, and Croatia, the series delivers cinematic scope and genuine suspense. Redmayne\u0027s portrayal of the professional assassin earned a Golden Globe nomination, while the show became Sky\u0027s biggest original launch and Peacock\u0027s most-watched premiere of 2024. Director Brian Kirk leads a team that treats each episode as a feature film. Created by Ronan Bennett, the series updates Cold War material for contemporary audiences while maintaining the original\u0027s examination of professional killers and personal cost. Renewed for Season 2.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  7,
+                           "drive":  8,
+                           "cine":  8,
+                           "spect":  6,
+                           "final":  7.25,
+                           "world":  7,
+                           "char":  7.5
+                       },
+    "notes":  "Added from website sync",
+    "streaming":  {
+                      "us":  [
+                                 "Peacock"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic"
+                             ]
+                  }
+}

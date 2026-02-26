@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEEF (2023) - 7-Dimension Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e8e8e8;
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(20, 20, 35, 0.95);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #e94560;
+        }
+
+        .show-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(233, 69, 96, 0.5);
+        }
+
+        .show-meta {
+            font-size: 1.1rem;
+            color: #a0a0b0;
+            margin-bottom: 8px;
+        }
+
+        .show-meta .year {
+            color: #e94560;
+            font-weight: 600;
+        }
+
+        .creator {
+            color: #ff6b6b;
+            font-weight: 500;
+        }
+
+        .cast {
+            margin-top: 15px;
+            font-size: 1rem;
+            color: #b8b8c8;
+        }
+
+        .cast strong {
+            color: #fff;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #e94560;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 4px solid #e94560;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .feels-like {
+            background: linear-gradient(145deg, rgba(233, 69, 96, 0.1), rgba(233, 69, 96, 0.05));
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .feels-like p {
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+            color: #d0d0e0;
+        }
+
+        .feels-like .highlight {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        .dimension {
+            background: rgba(30, 30, 50, 0.8);
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dimension:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .dimension.characters { border-color: #ff6b6b; }
+        .dimension.world { border-color: #4ecdc4; }
+        .dimension.cinematography { border-color: #ffe66d; }
+        .dimension.visual { border-color: #95e1d3; }
+        .dimension.concept { border-color: #f38181; }
+        .dimension.narrative { border-color: #aa96da; }
+        .dimension.resolution { border-color: #fcbad3; }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .dimension-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dimension-score {
+            font-size: 2rem;
+            font-weight: 800;
+            padding: 8px 20px;
+            border-radius: 25px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .dimension-score.high { color: #4ecdc4; }
+        .dimension-score.medium { color: #ffe66d; }
+        .dimension-score.low { color: #ff6b6b; }
+
+        .dimension-content {
+            font-size: 1.05rem;
+            color: #c0c0d0;
+            line-height: 1.8;
+        }
+
+        .dimension-content p {
+            margin-bottom: 12px;
+        }
+
+        .strengths {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(78, 205, 196, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid #4ecdc4;
+        }
+
+        .weaknesses {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid #ff6b6b;
+        }
+
+        .strengths strong, .weaknesses strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .strengths strong { color: #4ecdc4; }
+        .weaknesses strong { color: #ff6b6b; }
+
+        .strengths ul, .weaknesses ul {
+            margin-left: 20px;
+        }
+
+        .strengths li, .weaknesses li {
+            margin-bottom: 6px;
+            color: #b0b0c0;
+        }
+
+        .final-score-block {
+            background: linear-gradient(145deg, rgba(233, 69, 96, 0.2), rgba(233, 69, 96, 0.1));
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid #e94560;
+            margin-top: 50px;
+        }
+
+        .final-label {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #a0a0b0;
+            margin-bottom: 15px;
+        }
+
+        .final-score {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(233, 69, 96, 0.8);
+        }
+
+        .final-score span {
+            color: #e94560;
+        }
+
+        .score-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            margin-top: 25px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e94560, #ff6b6b, #ff8e8e);
+            border-radius: 6px;
+            transition: width 1.5s ease;
+        }
+
+        .score-fill.beef { width: 74.9%; }
+
+        .verdict {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+        }
+
+        .verdict p {
+            font-size: 1.1rem;
+            color: #d0d0e0;
+            font-style: italic;
+        }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        .breakdown-item .dim-name {
+            color: #a0a0b0;
+            font-size: 0.9rem;
+        }
+
+        .breakdown-item .dim-val {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .plot-summary {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .plot-summary strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .plot-summary p {
+            color: #c0c0d0;
+            font-size: 1.05rem;
+        }
+
+        .episode-count {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #b8b8c8;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 3px solid #e94560;
+            background: rgba(233, 69, 96, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+
+            .show-title {
+                font-size: 2.2rem;
+            }
+
+            .final-score {
+                font-size: 3.5rem;
+            }
+
+            .dimension-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    .rankings-section { margin-bottom: 2rem; }
+.rankings-header { text-align: center; margin-bottom: 2.5rem; }
+.rankings-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; }
+.rankings-subtitle { color: var(--text-dim); font-size: 1.1rem; }
+.dimension-grid { display: grid; gap: 1.5rem; }
+.dimension-block { background: rgba(30,30,30,0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; }
+.dimension-score { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-width: 100px; }
+.score-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; position: relative; }
+.score-circle::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(var(--primary) calc(var(--score) * 10%), var(--dark) 0); z-index: -1; }
+.score-circle::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: rgba(30,30,30,0.8); }
+.score-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+.dimension-content h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="show-title">BEEF</h1>
+            <div class="show-meta">
+                <span class="year">2023</span> Netflix Limited Series 
+                <span class="episode-count">10 Episodes</span>
+            </div>
+            <div class="creator">Created by Lee Sung Jin</div>
+            <div class="cast">
+                <strong>Starring:</strong> Steven Yeun &bull; Ali Wong
+            </div>
+            <div class="plot-summary">
+                <strong>The Setup</strong>
+                <p>A routine road rage incident between two strangers—a struggling contractor and a thriving entrepreneur—escalates into an obsessive, destructive feud that consumes their lives. What begins as a moment of mutual frustration in a parking lot spirals into calculated revenge, psychological warfare, and unexpected intimacy between two people who understand each other's rage better than anyone else.</p>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            <div class="feels-like">
+                <p>From the opening minutes, <span class="highlight">BEEF</span> grips you with an almost physical discomfort. That knot in your stomach when someone cuts you off in traffic? That simmering resentment toward someone who seemingly has it all figured out? This show weaponizes those everyday micro-aggressions and lets them metastasize into something genuinely terrifying.</p>
+                
+                <p>The chemistry between <span class="highlight">Steven Yeun</span> and <span class="highlight">Ali Wong</span> is electric—not in the traditional romantic sense, but in the way two opposing magnets create tension. They're perfect foils: Yeun's Danny Cho, a man drowning in failed expectations and familial obligation, against Wong's Amy Lau, the picture of success masking profound loneliness. They hate each other with the intensity of people who see themselves reflected in their enemy.</p>
+                
+                <p>The <span class="highlight">class tension</span> runs deep beneath every interaction. Danny represents the working-class immigrant dream deferred, while Amy embodies the capitalist nightmare of enough never being enough. Their feud becomes a proxy war for every resentment they've ever harbored about their place in America's hierarchy.</p>
+                
+                <p>But what makes BEEF exceptional is its <span class="highlight">escalation</span>. Each episode ratchets up the stakes in ways that feel both inevitable and shocking. You watch through your fingers as these two damaged people drag everyone in their orbit into their chaos—spouses, children, business partners, family. The <span class="highlight">anxiety</span> is palpable; the show understands that modern life is a pressure cooker, and Danny and Amy are simply the ones who finally snapped.</p>
+                
+                <p>By the finale, you're emotionally exhausted in the best way. This isn't comfortable television—it's a mirror held up to our worst impulses, our ugliest thoughts, the ways we let resentment curdle into something poisonous. And yet, somehow, it finds a strange, beautiful humanity in that darkness.</p>
+            </div>
+        </section>
+
+        <section class="rankings-section">
+    <div class="rankings-header">
+        <h2 class="rankings-title">🏆 Why It Ranks</h2>
+        <p class="rankings-subtitle">A detailed breakdown across seven key dimensions</p>
+    </div>
+    <div class="dimension-grid">
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">CHARACTERS</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Characters</h3>
+                <p>Danny Cho and Amy Lau are two of the most fully realized television protagonists of recent years. Lee Sung Jin and his writers understand that truly compelling characters aren't likable—they're understandable. Danny's desperation seeps from every pore; his failed dreams of supporting his parents, his guilt over his brother Paul's stalled life, his religious failures as a lapsed Christian—all of it informs every choice he makes. He's a man convinced the world owes him something, and his slow realization that the debt may never be paid is devastating.</p>
+                    
+                    <p>Amy, meanwhile, subverts every expectation of the "successful woman" archetype. Ali Wong brings layers of complexity to a character who could have been simple villainy. Her marriage to George (the excellent Joseph Lee) reveals the hollowness of her success—she has everything she thought she wanted and feels nothing. Her relationship with her mother-in-law, her struggles with postpartum anxiety, her compulsive need to win at any cost—all of it makes her frighteningly relatable despite her actions.</p>
+                    
+                    <p>The supporting cast shines as well. Young Mazino brings tragic weight to Paul, Danny's brother who idolizes him despite everything. Patti Yasutake as Danny's mother infuses every scene with generational trauma. Even minor characters like Isaac (David Choe), Danny's unstable cousin, feel lived-in and specific.</p>
+                    
+                    <div class="strengths">
+                        <strong>What Works</strong>
+                        <ul>
+                            <li>Yeun and Wong deliver career-best performances with incredible range</li>
+                            <li>Characters act from consistent psychological truth rather than plot convenience</li>
+                            <li>The supporting cast elevates every scene they're in</li>
+                            <li>Authentic representation of Korean-American and Chinese-American family dynamics</li>
+                            <li>Complex moral shading—no one is purely good or bad</li>
+                        </ul>
+                    </div>
+                    <div class="weaknesses">
+                        <strong>What Falls Short</strong>
+                        <ul>
+                            <li>Some secondary characters (particularly George) feel underdeveloped compared to leads</li>
+                            <li>A few supporting players exist primarily to advance the central conflict</li>
+                            <li>The children's characterization is minimal (intentional but noticeable)</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 6.5;"><span>6.5</span></div>
+                <span class="score-label">WORLD BUILDING</span>
+            </div>
+            <div class="dimension-content">
+                <h3>World Building</h3>
+                <p>BEEF's world is our world—the sprawl of Southern California, the unglamorous stretches of strip malls and residential neighborhoods that most Angelenos actually inhabit. Lee Sung Jin captures the texture of Korean-American church communities, the aspirational Instagram-ready homes of wealthy entrepreneurs, the cramped apartments of those barely getting by. This is a grounded, recognizable America.</p>
+                    
+                    <p>However, the show doesn't aim for immersive universe-building in the traditional sense. We're not exploring new territories or learning complex lore; we're peering into the private lives of two families. The "world" here is intimate and domestic rather than expansive. The settings—Danny's landscaping jobs, Amy's houseplant empire, the various homes and workplaces—feel authentic but largely functional.</p>
+                    
+                    <p>Where the world-building succeeds is in cultural specificity. The Korean barbecue dinners, the multi-generational households, the code-switching between languages, the specific textures of immigrant family life—all of this rings true and adds depth that elevates the familiar settings.</p>
+                    
+                    <div class="strengths">
+                        <strong>What Works</strong>
+                        <ul>
+                            <li>Authentic, lived-in portrayal of SoCal's immigrant communities</li>
+                            <li>Class distinctions rendered through setting and detail</li>
+                            <li>Cultural specificity that feels researched and respectful</li>
+                            <li>Contrast between Danny's cramped reality and Amy's spacious emptiness</li>
+                        </ul>
+                    </div>
+                    <div class="weaknesses">
+                        <strong>What Falls Short</strong>
+                        <ul>
+                            <li>Limited scope—this is a small, intimate story rather than expansive world</li>
+                            <li>Some settings feel underutilized (Amy's business, for instance)</li>
+                            <li>Geography can feel a bit vague at times</li>
+                            <li>No sense of the broader community's reaction to events</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">CINEMATOGRAPHY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Cinematography</h3>
+                <p>Larkin Seiple's cinematography on BEEF is unshowy but precise. The show employs a handheld, vérité style that keeps us uncomfortably close to the characters, often literally—extreme close-ups capture every micro-expression, every flicker of anger or hurt across Yeun and Wong's incredible faces. The camera feels restless, almost anxious, mirroring the characters' psychological states.</p>
+                    
+                    <p>The color grading deserves special mention: a muted, slightly desaturated palette that evokes the hazy California light and the emotional numbness permeating the story. When color does pop—flames, blood, the artificial brightness of retail spaces—it carries impact because of the restraint elsewhere.</p>
+                    
+                    <p>Particularly effective are the driving sequences. The camera work in vehicles, especially during the escalating confrontations, creates genuine tension through spatial relationships and reaction shots. You feel hemmed in, trapped, just like the characters.</p>
+                    
+                    <p>The lighting often mirrors emotional states—harsh fluorescents in institutional spaces, warm but oppressive domestic lighting, the unforgiving brightness of commercial storefronts. It's thoughtful work that supports the narrative without drawing attention to itself.</p>
+                    
+                    <div class="strengths">
+                        <strong>What Works</strong>
+                        <ul>
+                            <li>Intimate, claustrophobic framing that enhances psychological tension</li>
+                            <li>Thoughtful color palette that evolves with the narrative</li>
+                            <li>Effective use of close-ups (those faces demand to be studied)</li>
+                            <li>Vehicle sequences create genuine spatial unease</li>
+                            <li>Naturalistic lighting that serves the realistic tone</li>
+                        </ul>
+                    </div>
+                    <div class="weaknesses">
+                        <strong>What Falls Short</strong>
+                        <ul>
+                            <li>Stylistically functional rather than visually distinctive</li>
+                            <li>Some episodes feel visually repetitive</li>
+                            <li>Limited visual ambition compared to truly groundbreaking television cinematography</li>
+                            <li>Occasional over-reliance on shaky-cam can feel deliberate rather than organic</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 5;"><span>5.0</span></div>
+                <span class="score-label">VISUAL SPECTACLE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Visual Spectacle</h3>
+                <p>Let's be clear: BEEF is not interested in spectacle. This is a deliberately small, contained story about ordinary people in ordinary places. There are no sweeping vistas, no elaborate set pieces, no visual fireworks. The show's aesthetic is mundane by design—strip malls, tract homes, freeway overpasses, office parks.</p>
+                    
+                    <p>When spectacle does emerge, it comes as a rupture in the fabric of the show's visual language: the fire, the gunshots, the moments of violence that shatter the quotidian. These moments work precisely because they're rare and shocking.</p>
+                    
+                    <p>That said, viewers seeking visual grandeur will be disappointed. BEEF's strength lies in emotional intensity, not aesthetic splendor. The show finds its visual interest in performance and behavior, not in composition or production design. Even Amy's supposedly successful lifestyle is rendered with a critical eye—her beautiful home feels sterile, her achievements look exhausting.</p>
+                    
+                    <div class="strengths">
+                        <strong>What Works</strong>
+                        <ul>
+                            <li>Deliberate mundanity serves the themes of dissatisfaction</li>
+                            <li>Moments of visual disruption (violence, fire) carry genuine shock</li>
+                            <li>The "ugliness" of the visual palette is thematically appropriate</li>
+                        </ul>
+                    </div>
+                    <div class="weaknesses">
+                        <strong>What Falls Short</strong>
+                        <ul>
+                            <li>Minimal visual ambition—this is not a show to watch for the imagery</li>
+                            <li>Settings can feel generic or underdressed</li>
+                            <li>Limited visual variety across 10 episodes</li>
+                            <li>No memorable visual set pieces or iconic images</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">CONCEPTUAL DENSITY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Conceptual Density</h3>
+                <p>At its surface, BEEF operates on a deceptively simple premise: road rage escalates. But Lee Sung Jin layers this setup with remarkable thematic complexity. This is a show about <span class="highlight">class warfare</span>, <span class="highlight">the American Dream's failures</span>, <span class="highlight">intergenerational trauma</span>, <span class="highlight">Asian-American identity</span>, <span class="highlight">capitalist alienation</span>, <span class="highlight">marital dissatisfaction</span>, <span class="highlight">the performance of success</span>, and perhaps most profoundly, <span class="highlight">the impossibility of being truly known</span>.</p>
+                    
+                    <p>The central metaphor is devastatingly effective: these two people see each other more clearly than anyone in their actual lives. Their feud becomes a strange kind of intimacy, a connection forged in mutual recognition of each other's damage. Only someone who hates you that much can understand you that well.</p>
+                    
+                    <p>The show interrogates the American success narrative without offering easy answers. Danny's failure and Amy's success are revealed as different faces of the same systemic oppression—both of them exist in a society that promises meritocracy while delivering precarity. Their feud becomes a distraction from the real enemy: the structures that keep them both desperate.</p>
+                    
+                    <p>Religious themes permeate the narrative as well. Danny's struggle with faith, Isaac's toxic prosperity gospel, the church community that provides connection but no real salvation—the show treats spirituality with the same complexity it applies to economics. And throughout, questions of forgiveness, redemption, and whether people can actually change hang heavy.</p>
+                    
+                    <div class="strengths">
+                        <strong>What Works</strong>
+                        <ul>
+                            <li>The road rage metaphor operates on multiple interpretive levels</li>
+                            <li>Interweaves class, race, gender, and faith without didacticism</li>
+                            <li>Uses the central conflict to explore broad social themes</li>
+                            <li>Leaves many questions unanswered—resists easy resolutions</li>
+                            <li>Themes of alienation and connection are deeply explored</li>
+                        </ul>
+                    </div>
+                    <div class="weaknesses">
+                        <strong>What Falls Short</strong>
+                        <ul>
+                            <li>Occasional thematic density can feel overwritten</li>
+                            <li>Some themes (parenting, marriage) receive less attention than others</li>
+                            <li>The finale's thematic landing, while powerful, may not satisfy all viewers</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9;"><span>9.0</span></div>
+                <span class="score-label">NARRATIVE DRIVE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Narrative Drive</h3>
+                <p>BEEF's plotting is compulsively watchable, structured around an escalating series of confrontations and retaliations that keep you clicking "Next Episode" despite your better judgment. Lee Sung Jin understands that narrative momentum comes from character agency—Danny and Amy choose to escalate, choose to retaliate, choose to keep this feud alive. Their complicity in their own destruction makes the hurtling plot feel tragically inevitable rather than contrived.</p>
+                    
+                    <p>The show masterfully balances episodic escalation with long-term character development. Each half-hour installment raises the stakes while deepening our understanding of who these people are and why they can't let go. The narrative operates as a pressure cooker—tension builds, releases slightly, then builds higher.</p>
+                    
+                    <p>The pacing is relentless but never rushed. Even digressions into family dynamics or backstory serve the central conflict, revealing new pressures that drive Danny and Amy toward each other. The show trusts its audience to follow complex emotional threads without hand-holding.</p>
+                    
+                    <p>Some viewers may find the middle episodes slightly repetitive—another confrontation, another escalation—but this repetition serves thematic purpose. The cycle of rage and revenge becomes exhausting because it's meant to be; we're meant to feel the futility alongside the characters.</p>
+                    
+                    <div class="strengths">
+                        <strong>What Works</strong>
+                        <ul>
+                            <li>Relentless escalation that feels character-driven, not forced</li>
+                            <li>Tight structure across 10 episodes—no wasted space</li>
+                            <li>Cliffhangers that emerge organically from character choices</li>
+                            <li>Backstory reveals are timed for maximum impact</li>
+                            <li>The "one terrible decision after another" structure captures self-destructive behavior</li>
+                        </ul>
+                    </div>
+                    <div class="weaknesses">
+                        <strong>What Falls Short</strong>
+                        <ul>
+                            <li>Middle episodes can feel circular (intentional but occasionally exhausting)</li>
+                            <li>Some coincidences and near-misses strain credibility</li>
+                            <li>Several subplots (particularly involving secondary characters) feel underdeveloped</li>
+                            <li>Pacing occasionally sacrifices breathing room for momentum</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9;"><span>9.0</span></div>
+                <span class="score-label">RESOLUTION</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Resolution</h3>
+                <p>BEEF's finale, "Figures of Light," delivers a stunning conclusion that transforms everything preceding it. After nine episodes of escalating hostility, Danny and Amy find themselves in a situation that strips away all pretense, all posturing, all the accumulated armor of their feud. The final episodes pivot from dark comedy to something approaching genuine tragedy—and then, somehow, find a note of grace.</p>
+                    
+                    <p>The title takes on multiple meanings in the final stretch: biblical figures of light, the literal lights of the wilderness, the metaphorical light of understanding. Without spoiling specifics, the resolution refuses the easy catharsis of revenge or reconciliation. Instead, it offers something more complicated and more true: the possibility that two people who have done terrible things to each other might still recognize their shared humanity.</p>
+                    
+                    <p>What elevates the resolution is its refusal to tidy up the mess. Characters don't get happy endings; they get hard-won moments of clarity. Danny and Amy's arc concludes not with forgiveness but with something more interesting—genuine comprehension. They understand each other now, even if they can't excuse what they've done.</p>
+                    
+                    <p>The finale's imagery—particularly the final shots—cements itself in memory. It finds visual poetry after episodes of deliberate plainness, suggesting that beauty and meaning might yet emerge from the wreckage these two created. It's an ending that demands reflection, that improves everything preceding it in retrospect.</p>
+                    
+                    <div class="strengths">
+                        <strong>What Works</strong>
+                        <ul>
+                            <li>Pivot in the final episodes is bold and earned</li>
+                            <li>Refuses neat resolution in favor of emotional truth</li>
+                            <li>The final images are haunting and resonant</li>
+                            <li>Character arcs conclude with satisfying (if not happy) destinations</li>
+                            <li>Recontextualizes the entire series in hindsight</li>
+                        </ul>
+                    </div>
+                    <div class="weaknesses">
+                        <strong>What Falls Short</strong>
+                        <ul>
+                            <li>Some viewers may find the tonal shift jarring</li>
+                            <li>Certain subplot resolutions feel rushed or underdeveloped</li>
+                            <li>The final third requires patience some viewers may not have</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="rankings-section">
+    <div class="rankings-header">
+        <h2 class="rankings-title">🏆 Why It Ranks</h2>
+        <p class="rankings-subtitle">A detailed breakdown across seven key dimensions</p>
+    </div>
+    <div class="dimension-grid">
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">CHARACTERS</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Characters</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 6.5;"><span>6.5</span></div>
+                <span class="score-label">WORLD BUILDING</span>
+            </div>
+            <div class="dimension-content">
+                <h3>World Building</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">CINEMATOGRAPHY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Cinematography</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 5;"><span>5.0</span></div>
+                <span class="score-label">VISUAL SPECTACLE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Visual Spectacle</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">CONCEPTUAL DENSITY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Conceptual Density</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9;"><span>9.0</span></div>
+                <span class="score-label">NARRATIVE DRIVE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Narrative Drive</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9;"><span>9.0</span></div>
+                <span class="score-label">RESOLUTION</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Resolution</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="final-score-block">
+            <div class="final-label">Final Score</div>
+            <div class="final-score"><span>7</span>.49</div>
+            <div class="score-bar">
+                <div class="score-fill beef"></div>
+            </div>
+            
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <span class="dim-name">Characters</span>
+                    <span class="dim-val">7.9</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="dim-name">World Building</span>
+                    <span class="dim-val">6.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="dim-name">Cinematography</span>
+                    <span class="dim-val">7.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="dim-name">Visual Spectacle</span>
+                    <span class="dim-val">5.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="dim-name">Conceptual Density</span>
+                    <span class="dim-val">7.5</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="dim-name">Narrative Drive</span>
+                    <span class="dim-val">7.5</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="dim-name">Resolution</span>
+                    <span class="dim-val">8.0</span>
+                </div>
+            </div>
+            
+            <div class="verdict">
+                <p>BEEF is a masterpiece of controlled chaos—10 episodes of escalating tension that reveal uncomfortable truths about class, rage, and the ways we fail each other. Steven Yeun and Ali Wong's performances rank among the best in television history, finding humor and horror in every moment. What begins as a simple revenge story transforms into something profound about the loneliness of modern existence and the strange intimacy of being truly seen, even by your enemy. It's not always easy to watch, but it's impossible to forget.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+    "slug": "the-crown",
+    "title": "The Crown",
+    "year": 2016,
+    "month": "11",
+    "network": "Netflix",
+    "status": "ended",
+    "streaming": {
+        "us": ["Netflix"],
+        "uk": ["Netflix"]
+    },
+    "genres": ["Drama", "Historical", "Biography"],
+    "creators": ["Peter Morgan"],
+    "cast": ["Claire Foy", "Olivia Colman", "Imelda Staunton", "Matt Smith", "Tobias Menzies", "Jonathan Pryce"],
+    "external_ratings": {
+        "imdb": {
+            "score": 8.6,
+            "votes": 253000,
+            "url": "https://www.imdb.com/title/tt4786824/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 88,
+            "critics": 84,
+            "url": "https://www.rottentomatoes.com/tv/the_crown",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 9.0,
+        "world": 9.5,
+        "cine": 9.5,
+        "spect": 9.0,
+        "conc": 8.5,
+        "drive": 8.8,
+        "resol": 8.5,
+        "final": 9.0
+    },
+    "episodes": 60,
+    "seasons": 6,
+    "poster": "",
+    "tmdb_id": 65494,
+    "consensus_highlights": [
+        "The most expensive television series ever made - every penny visible",
+        "Acting recasting with purpose: different women, same crown burden",
+        "Queen Elizabeth II as both person and institution",
+        "Peter Morgan's Shakespearean scope on modern Britain",
+        "Period drama elevated to cinematic art"
+    ],
+    "tags": ["royalty", "british", "historical", "netflix-flagship", "period-piece", "actress-recasting"]
+}

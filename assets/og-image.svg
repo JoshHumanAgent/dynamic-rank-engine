@@ -1,0 +1,36 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="100%" style="stop-color:#14141c"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="50%" style="stop-color:#d4af37"/>
+      <stop offset="100%" style="stop-color:#e8c97a"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Decorative border -->
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#252532" stroke-width="1"/>
+  <rect x="50" y="50" width="1100" height="530" fill="none" stroke="#d4af37" stroke-width="0.5" opacity="0.3"/>
+  
+  <!-- Title -->
+  <text x="600" y="220" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="url(#goldGrad)">Dynamic Rank Engine</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#8a8a9a" letter-spacing="8">TV SHOWS RANKED</text>
+  
+  <!-- Stats -->
+  <text x="600" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#e8e8ec">442 Shows • 7 Dimensions • Custom Weights</text>
+  
+  <!-- Dimension list -->
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#6a6a70">Characters • World Building • Cinematography • Visual Spectacle</text>
+  <text x="600" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#6a6a70">Conceptual Density • Narrative Drive • Resolution</text>
+  
+  <!-- URL -->
+  <text x="600" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#d4af37">dynamicrankengine.com</text>
+</svg>

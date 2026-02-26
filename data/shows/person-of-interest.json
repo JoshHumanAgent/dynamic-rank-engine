@@ -1,0 +1,27 @@
+{
+  "slug": "person-of-interest",
+  "title": "Person of Interest",
+  "year": 2011,
+  "month": 9,
+  "genres": ["drama", "crime", "sci-fi"],
+  "final": 7.72,
+  "tmdbId": 1411,
+  "char": 8.0,
+  "world": 8.0,
+  "cine": 7.0,
+  "spect": 6.5,
+  "conc": 8.5,
+  "drive": 8.0,
+  "resol": 7.5,
+  "episodes": 103,
+  "poster": "https://image.tmdb.org/t/p/w500/f8aIvYk5h7Z8EP3dinCmVgQFYow.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w780/ksmcQlCQc7XFGpXpIFZzF5twRSr.jpg",
+  "streaming": {
+    "us": ["Max"],
+    "uk": ["Netflix"]
+  },
+  "creators": ["Jonathan Nolan"],
+  "network": "CBS",
+  "status": "ended",
+  "scoring_notes": "Jonathan Nolan pre-Westworld. AI surveillance themes. Strong conceptual density (8.5). Excellent resolution with 9.5 finale. Underrated gem that evolved from procedural to serialized mythology."
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "dexter",
+  "title": "Dexter",
+  "year": 2006,
+  "month": 10,
+  "genres": ["drama", "crime", "mystery"],
+  "final": 7.58,
+  "tmdbId": 1405,
+  "char": 8.5,
+  "world": 7.5,
+  "cine": 7.0,
+  "spect": 6.5,
+  "conc": 7.5,
+  "drive": 8.0,
+  "resol": 6.0,
+  "episodes": 96,
+  "poster": "https://image.tmdb.org/t/p/w500/q8dWfc4JwQuv3HayIZeO84jAXED.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w780/aSGSxGMTP893DPMCvMl9AdnEICE.jpg",
+  "streaming": {
+    "us": ["Paramount Plus"],
+    "uk": ["Paramount Plus"]
+  },
+  "creators": ["James Manos Jr."],
+  "network": "Showtime",
+  "status": "ended",
+  "scoring_notes": "Michael C. Hall iconic performance. Peak seasons 1-4 (Trinity killer arc 8.3). Strong character (8.5) and drive (8.0). Resolution heavily penalized for notorious finale (5.2 TMDB)."
+}

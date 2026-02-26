@@ -1,0 +1,51 @@
+{
+    "slug": "the-expanse",
+    "title": "The Expanse",
+    "year": 2015,
+    "month": "12",
+    "network": "Syfy/Amazon",
+    "status": "ended",
+    "streaming": {
+        "us": ["Amazon Prime Video"],
+        "uk": ["Amazon Prime Video"]
+    },
+    "genres": ["Sci-Fi", "Drama", "Political"],
+    "creators": ["Mark Fergus", "Hawk Ostby"],
+    "cast": ["Steven Strait", "Dominique Tipper", "Wes Chatham", "Shohreh Aghdashloo", "Frankie Adams"],
+    "external_ratings": {
+        "imdb": {
+            "score": 8.5,
+            "votes": 180000,
+            "url": "https://www.imdb.com/title/tt3230854/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 93,
+            "critics": 95,
+            "url": "https://www.rottentomatoes.com/tv/the_expanse",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 8.8,
+        "world": 9.5,
+        "cine": 8.5,
+        "spect": 9.0,
+        "conc": 9.0,
+        "drive": 9.2,
+        "resol": 8.5,
+        "final": 8.9
+    },
+    "episodes": 62,
+    "seasons": 6,
+    "poster": "",
+    "tmdb_id": 63639,
+    "consensus_highlights": [
+        "Hard sci-fi that respects physics and intelligence",
+        "Belters, Earth, Mars: a solar system built with geopolitical depth",
+        "The protomolecule: cosmic horror meets space opera",
+        "Fan campaign that saved it from cancellation",
+        "Sci-fi for smart people - Game of Thrones in space done right"
+    ],
+    "tags": ["hard-sci-fi", "space", "political", "saved-by-fans", "realistic", "geopolitics"]
+}

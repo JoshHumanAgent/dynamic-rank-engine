@@ -1,0 +1,27 @@
+{
+  "slug": "the-vampire-diaries",
+  "title": "The Vampire Diaries",
+  "year": 2009,
+  "month": 9,
+  "genres": ["drama", "fantasy", "supernatural"],
+  "final": 7.18,
+  "tmdbId": 18165,
+  "char": 7.5,
+  "world": 7.0,
+  "cine": 6.5,
+  "spect": 6.5,
+  "conc": 7.0,
+  "drive": 8.0,
+  "resol": 6.5,
+  "episodes": 171,
+  "poster": "https://image.tmdb.org/t/p/w500/b3vl6wV1W8PBezFfntKTrhrehCY.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w780/cJYLon9ejKJV7ua03ab8Tj9u067.jpg",
+  "streaming": {
+    "us": ["Max", "Netflix"],
+    "uk": ["Netflix", "BBC iPlayer"]
+  },
+  "creators": ["Julie Plec", "Kevin Williamson"],
+  "network": "The CW",
+  "status": "ended",
+  "scoring_notes": "Scored based on peak quality (seasons 1-3). Strong narrative drive (8.0) and Damon's character arc. Later seasons suffered from bloat and repetitive doppelgänger plots. Finale recovered somewhat."
+}

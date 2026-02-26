@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sons of Anarchy - Hamlet on Harleys | Dynamic Rank Engine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #1a1a1a; }
+        .rank-badge { display: inline-block; background: linear-gradient(135deg, #1a1a1a, #2d2d2d); color: #c53030; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; border: 2px solid #c53030; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #c53030; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
+        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(26,26,26,0.8), rgba(0,0,0,0.9)); border: 3px solid #c53030; border-radius: 8px; }
+        .score-value { font-size: 3rem; font-weight: 700; color: #f56565; }
+        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #c53030; }
+        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #f56565; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .dimension { background: rgba(197,48,48,0.1); padding: 1rem; border-radius: 8px; text-align: center; }
+        .dimension-name { font-weight: 700; color: #f56565; margin-bottom: 0.3rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; }
+        .dimension-weight { font-size: 0.8rem; color: #666; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+        .info-value { font-size: 1.3rem; color: #f56565; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="rank-badge">Rank #17</div>
+            <h1>Sons of Anarchy</h1>
+            <p class="subtitle">"Ride Free or Die"</p>
+            <div class="score-badge">
+                <span class="score-value">7.85</span>
+                <span class="score-label">Final Score</span>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2008-2014</div></div>
+            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">92</div></div>
+            <div class="info-item"><div class="info-label">Network</div><div class="info-value">FX</div></div>
+            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Kurt Sutter</div></div>
+        </div>
+
+        <div class="section">
+            <h2>What It Feels Like to Watch</h2>
+            <p>Sons of Anarchy is Shakespeare in a leather cut. Kurt Sutter took Hamlet, set it in an MC, and somehow made it work for seven seasons. Jax Teller is the prince; Clay the usurping uncle; Gemma the scheming mother. The motorcycles are incidental to the tragedy.</p>
+            <p>The show's greatest strength is also its weakness: it never stops escalating. Every season must top the last in violence, betrayal, and body count. Characters die brutally, loyalties shift constantly, and by the end you're exhausted. But you can't look away. Charlie Hunnam's Jax transforms from idealist to monster before your eyes, and you understand every step of his descent.</p>
+            <p>The supporting cast is phenomenal. Katey Sagal's Gemma is one of television's great villains—manipulative, terrifying, yet somehow sympathetic. Ron Perlman's Clay is Shakespearean in his ambition and downfall. The club itself becomes a character, with its own codes and contradictions.</p>
+        </div>
+
+        <div class="section">
+            <h2>Why It Ranks</h2>
+            <div class="dimension-grid">
+                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8.5</div><div class="dimension-weight">25% weight</div></div>
+                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">6.5</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">5</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
+            </div>
+            <p style="margin-top:1.5rem"><strong>Characters & Acting (8.5):</strong> Jax, Gemma, Clay, Tig, Juice—these are indelible characters. The club dynamics feel authentic. Katey Sagal deserved every award for her portrayal of a mother whose love is indistinguishable from toxicity.</p>
+            <p><strong>Narrative Drive (9):</strong> This show never slows down. Every episode ends with a cliffhanger, a death, or a betrayal. It's pure adrenaline. The problem is sustainability—by season 6, the escalation feels forced.</p>
+            <p><strong>Resolution (8):</strong> The finale is perfect. Jax goes out on his own terms, in a callback to his father's death, riding into the sunset (and a truck). The circular tragedy completes itself.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Episodes</h2>
+            <p><strong>"J'ai Obtenu Cette" (S2E13)</strong> — The season 2 finale. The Irish, the ATF, the club falling apart—and somehow pulling together. Peak SOA.</p>
+            <p><strong>"Laying Pipe" (S5E3)</strong> — Opie's death in prison. The single most devastating moment in the series. "I got this."</p>
+            <p><strong>"Papa's Goods" (S7E13)</strong> — The series finale. Jax's suicide ride is Shakespearean tragedy at its finest. The final montage is perfect.</p>
+        </div>
+    </div>
+</body>
+</html>

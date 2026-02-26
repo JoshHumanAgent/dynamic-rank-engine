@@ -1,0 +1,55 @@
+﻿{
+    "slug":  "band-of-brothers",
+    "title":  "Band of Brothers",
+    "year":  2001,
+    "month":  9,
+    "status":  "completed",
+    "seasons":  1,
+    "episodes":  10,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "war",
+                   "historical"
+               ],
+    "creator":  null,
+    "network":  "HBO",
+    "tmdbId":  1623,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  9.4,
+                                          "scale":  10,
+                                          "count":  "586700",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0185906/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  94,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/band_of_brothers"
+                                                 }
+                         },
+    "consensus_highlights":  "The story of Easy Company, 506th Regiment of the 101st Airborne Division, from training through the end of World War II.",
+    "ranking_system":  {
+                           "conc":  8.5,
+                           "resol":  9.5,
+                           "drive":  9,
+                           "cine":  8,
+                           "spect":  10,
+                           "final":  8.7,
+                           "world":  9,
+                           "char":  7.5
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Max",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic"
+                             ]
+                  }
+}

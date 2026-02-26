@@ -1,0 +1,61 @@
+{
+    "slug": "dopesick",
+    "title": "Dopesick",
+    "year": 2021,
+    "month": 10,
+    "status": "ended",
+    "seasons": 1,
+    "episodes": 8,
+    "runtime": "50-55",
+    "country": "United States",
+    "genres": [
+        "drama"
+    ],
+    "creator": [
+        "Danny Strong"
+    ],
+    "network": "Hulu",
+    "external_ratings": {
+        "imdb": {
+            "score": 8.6,
+            "scale": 10,
+            "count": "85K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt10161286/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 94,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/dopesick"
+        },
+        "metacritic": {
+            "score": 83,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/dopesick"
+        }
+    },
+    "consensus_highlights": "Dopesick is a powerful drama chronicling the origins and spread of the opioid crisis in America. The series interweaves the stories of doctors, prosecutors, and patients affected by Purdue Pharma's OxyContin. Michael Keaton delivers a stunning performance as a conflicted physician.",
+    "ranking_system": {
+        "characters": 7.5,
+        "world_building": 7,
+        "cinematography": 7,
+        "visual_spectacle": 5,
+        "conceptual_density": 9,
+        "narrative_drive": 8,
+        "resolution": 8,
+        "final_score": 7.23
+    },
+    "tmdbId": 110531,
+    "streaming": {
+        "us": [
+            "Hulu"
+        ],
+        "uk": [
+            "Starz"
+        ]
+    }
+}

@@ -1,0 +1,54 @@
+﻿{
+    "slug":  "sharp-objects",
+    "title":  "Sharp Objects",
+    "year":  2018,
+    "month":  7,
+    "status":  "completed",
+    "seasons":  1,
+    "episodes":  8,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "mystery",
+                   "thriller"
+               ],
+    "creator":  null,
+    "network":  "HBO",
+    "tmdbId":  79042,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.1,
+                                          "scale":  10,
+                                          "count":  "95000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt5238906/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  92,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/sharp_objects"
+                                                 }
+                         },
+    "consensus_highlights":  "A reporter confronts the psychological demons from her past when she returns home to investigate murders of young girls.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  8,
+                           "drive":  7,
+                           "cine":  9,
+                           "spect":  6,
+                           "final":  7.78,
+                           "world":  7.5,
+                           "char":  8.5
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic"
+                             ]
+                  }
+}

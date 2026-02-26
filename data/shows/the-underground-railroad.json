@@ -1,0 +1,63 @@
+{
+    "slug": "the-underground-railroad",
+    "title": "The Underground Railroad",
+    "year": 2021,
+    "month": 5,
+    "status": "ended",
+    "seasons": 1,
+    "episodes": 10,
+    "runtime": "50-70",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "fantasy",
+        "historical"
+    ],
+    "creator": [
+        "Barry Jenkins"
+    ],
+    "network": "Amazon Prime Video",
+    "external_ratings": {
+        "imdb": {
+            "score": 7.9,
+            "scale": 10,
+            "count": "65K",
+            "date_accessed": "2026-02-15",
+            "url": "https://www.imdb.com/title/tt10664836/"
+        },
+        "rotten_tomatoes": {
+            "season_1": {
+                "score": 90,
+                "scale": 100
+            },
+            "date_accessed": "2026-02-15",
+            "url": "https://www.rottentomatoes.com/tv/the_underground_railroad"
+        },
+        "metacritic": {
+            "score": 85,
+            "scale": 100,
+            "date_accessed": "2026-02-15",
+            "url": "https://www.metacritic.com/tv/the-underground-railroad"
+        }
+    },
+    "consensus_highlights": "The Underground Railroad is Barry Jenkins's adaptation of Colson Whitehead's Pulitzer Prize-winning novel. The series follows a young enslaved woman as she escapes a Georgia plantation and journeys toward freedom. The show reimagines the historical railroad as an actual physical network, blending magical realism with historical brutality.",
+    "ranking_system": {
+        "characters": 7.5,
+        "world_building": 8,
+        "cinematography": 10,
+        "visual_spectacle": 8,
+        "conceptual_density": 9,
+        "narrative_drive": 6,
+        "resolution": 7,
+        "final_score": 7.39
+    },
+    "tmdbId": 103099,
+    "streaming": {
+        "us": [
+            "Amazon Prime Video"
+        ],
+        "uk": [
+            "Amazon Prime Video"
+        ]
+    }
+}

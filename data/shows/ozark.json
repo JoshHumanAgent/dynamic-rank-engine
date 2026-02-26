@@ -1,0 +1,51 @@
+{
+    "slug": "ozark",
+    "title": "Ozark",
+    "year": 2017,
+    "month": "07",
+    "network": "Netflix",
+    "status": "ended",
+    "streaming": {
+        "us": ["Netflix"],
+        "uk": ["Netflix"]
+    },
+    "genres": ["Crime", "Drama", "Thriller"],
+    "creators": ["Bill Dubuque", "Mark Williams"],
+    "cast": ["Jason Bateman", "Laura Linney", "Sofia Hublitz", "Skylar Gaertner", "Julia Garner", "Tom Pelphrey"],
+    "external_ratings": {
+        "imdb": {
+            "score": 8.5,
+            "votes": 274000,
+            "url": "https://www.imdb.com/title/tt5071412/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 88,
+            "critics": 81,
+            "url": "https://www.rottentomatoes.com/tv/ozark",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 8.5,
+        "world": 9.0,
+        "cine": 8.8,
+        "spect": 8.5,
+        "conc": 8.8,
+        "drive": 9.2,
+        "resol": 8.5,
+        "final": 8.8
+    },
+    "episodes": 44,
+    "seasons": 4,
+    "poster": "",
+    "tmdb_id": 69740,
+    "consensus_highlights": [
+        "The Byrdes' descent: middle-class corruption as slow-motion tragedy",
+        "Jason Bateman's career renaissance - comedic actor, dramatic revelation",
+        "Julia Garner's Ruth Langmore: a breakout performance of genius",
+        "Blue-tinted noir: Ozark's distinct visual language",
+        "Netflix's prestige answer to Breaking Bad"
+    ],
+    "tags": ["crime", "money-laundering", "family-drama", "netflix-drama", "breakout-performances", "thriller"]
+}

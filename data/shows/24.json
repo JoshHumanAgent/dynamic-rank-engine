@@ -1,0 +1,62 @@
+﻿{
+    "slug":  "24",
+    "title":  "24",
+    "year":  2001,
+    "month":  11,
+    "status":  "completed",
+    "seasons":  9,
+    "episodes":  204,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "action",
+                   "drama",
+                   "thriller",
+                   "cop-show"
+               ],
+    "creator":  "Joel Surnow, Robert Cochran",
+    "network":  "Fox",
+    "tmdbId":  1973,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.4,
+                                          "scale":  10,
+                                          "count":  "205900",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0285331/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  92,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/24"
+                                                 },
+                             "metacritic":  {
+                                                "score":  82,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/24"
+                                            }
+                         },
+    "consensus_highlights":  "Counterterrorism agent Jack Bauer fights the bad guys of the world, a day at a time. With each week\u0027s episode unfolding in real time.",
+    "ranking_system":  {
+                           "conc":  6,
+                           "resol":  7,
+                           "drive":  9.5,
+                           "cine":  6,
+                           "spect":  7,
+                           "final":  6.97,
+                           "world":  6,
+                           "char":  7
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Hulu",
+                                 "Fox"
+                             ],
+                      "uk":  [
+                                 "Amazon Prime Video"
+                             ]
+                  }
+}

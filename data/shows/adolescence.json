@@ -1,0 +1,61 @@
+﻿{
+    "slug":  "adolescence",
+    "title":  "Adolescence",
+    "year":  2025,
+    "month":  3,
+    "status":  "ended",
+    "seasons":  1,
+    "episodes":  4,
+    "runtime":  "55-60",
+    "country":  "United Kingdom",
+    "genres":  [
+                   "drama",
+                   "thriller"
+               ],
+    "creator":  [
+                    "Stephen Graham"
+                ],
+    "network":  "Netflix",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.5,
+                                          "scale":  10,
+                                          "count":  "45K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt28373257/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  99,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/adolescence"
+                                                 },
+                             "metacritic":  {
+                                                "score":  85,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/adolescence"
+                                            }
+                         },
+    "consensus_highlights":  "Adolescence is a groundbreaking British drama that examines the arrest of a 13-year-old boy for murder, told in real-time across four episodes. The series explores online radicalization, toxic masculinity, and the failures of institutions to protect children. Its innovative single-take filming and powerful performances create an unflinching portrait of modern youth.",
+    "ranking_system":  {
+                           "conc":  9,
+                           "resol":  9,
+                           "drive":  9,
+                           "cine":  9.5,
+                           "spect":  5,
+                           "final":  7.85,
+                           "world":  5,
+                           "char":  8
+                       },
+    "notes":  "Adolescence represents a new kind of prestige televisionÃ¢â‚¬â€urgent, socially relevant, and unwilling to look away from difficult truths about modern society.",
+    "tmdbId":  234474,
+    "streaming":  {
+                      "us":  [
+                                 "Netflix"
+                             ],
+                      "uk":  [
+                                 "Netflix"
+                             ]
+                  }
+}

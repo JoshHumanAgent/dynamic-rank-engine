@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Knight of the Seven Kingdoms - "The Hedge Knight" | Dynamic Rank Engine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #1a1510 50%, #0a0a0f 100%); min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #8d6e63; }
+        .rank-badge { display: inline-block; background: linear-gradient(135deg, #8d6e63, #5d4037); color: #d7ccc8; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #bcaaa4; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
+        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(141,110,99,0.3), rgba(0,0,0,0.9)); border: 3px solid #8d6e63; border-radius: 8px; }
+        .score-value { font-size: 3rem; font-weight: 700; color: #bcaaa4; }
+        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #8d6e63; }
+        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #bcaaa4; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .dimension { background: rgba(141,110,99,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
+        .dimension-name { font-weight: 700; color: #bcaaa4; margin-bottom: 0.3rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; }
+        .dimension-weight { font-size: 0.8rem; color: #666; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+        .info-value { font-size: 1.3rem; color: #bcaaa4; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="rank-badge">Rank #62</div>
+            <h1>A Knight of the Seven Kingdoms</h1>
+            <p class="subtitle">"The Hedge Knight"</p>
+            <div class="score-badge">
+                <span class="score-value">7.35</span>
+                <span class="score-label">Final Score</span>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2025-</div></div>
+            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">6</div></div>
+            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
+            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">George R.R. Martin, Ira Parker</div></div>
+        </div>
+
+        <div class="section">
+            <h2>What It Feels Like to Watch</h2>
+            <p>A Knight of the Seven Kingdoms is Game of Thrones stripped to its essence: character, not spectacle. Based on George R.R. Martin's Dunk and Egg novellas, set ninety years before the main series, it follows Ser Duncan the Tall (Peter Claffey), a hedge knight—a knight without lands or lord—and his squire Egg (Dexter Sol Ansell), secretly Prince Aegon Targaryen. It's a road story: knight and boy wandering Westeros, having adventures, righting wrongs. No dragons. No magic. Just a knight trying to be worthy of his title.</p>
+            <p>The tone differs radically from Game of Thrones. Where that show was epic, political, brutal, this is intimate, episodic, warm. Dunk is not clever—he's big, earnest, often confused. "I am a knight," he says, even when the evidence contradicts. His honor is his identity, his only possession. Egg is the clever one—a Targaryen prince learning what life is like for common folk. "My brother is the prince," he says. "I'm just Egg." The dynamic is mentor and student, protector and protected, but also: big brother, little brother. Dunk teaches Egg to be a man; Egg teaches Dunk to be smarter.</p>
+            <p>The six-episode first season adapts "The Hedge Knight," the first novella. A tournament at Ashford Meadow—Dunk enters to honor his dead master, becomes champion for a puppeteer named Tanselle, and finds himself in trial by battle against a Targaryen prince. The stakes are personal: Dunk's honor, Egg's secret, justice for the smallfolk caught in noble games. The production design is medieval authenticity—mud, blood, practical armor. The budget is smaller than House of the Dragon, but the storytelling is more focused.</p>
+            <p>One season, six episodes, ongoing. A Knight of the Seven Kingdoms is Game of Thrones for those who miss the humanity, not the dragons. Dunk and Egg's story, across three novellas, is Martin's most beloved work—a knight errant in a world that doesn't value knights anymore. "A knight remembers," Dunk says. "A knight protects." He does, imperfectly, sincerely. That's enough.</p>
+        </div>
+
+        <div class="section">
+            <h2>Why It Ranks</h2>
+            <div class="dimension-grid">
+                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
+                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
+                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
+            </div>
+            <p style="margin-top:1.5rem"><strong>Characters & Acting (8):</strong> Peter Claffey's Dunk is earnest, lovable. Dexter Sol Ansell's Egg is charming. Great chemistry.</p>
+            <p><strong>World Building (8):</strong> Westeros without dragons. Hedge knight perspective. Smallfolk view of noble games.</p>
+            <p><strong>Resolution (7):</strong> Season concludes the tournament arc. Ongoing story, more seasons planned.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Episodes</h2>
+            <p><strong>("The Hedge Knight" (E1)</strong> — The introduction. Dunk's vigil. "I am a knight."</p>
+            <p><strong>("The Tourney" (E3)</strong> — The tournament begins. Champions chosen. Dunk in over his head.</p>
+            <p><strong>("Trial of Seven" (E6)</strong> — Season finale. Trial by combat. "A knight protects."</p>
+        </div>
+
+        <div class="section">
+            <h2>Where to Watch</h2>
+            <p><strong>US:</strong> HBO Max</p>
+            <p><strong>UK:</strong> Sky Go, NOW</p>
+        </div>
+    </div>
+</body>
+</html>

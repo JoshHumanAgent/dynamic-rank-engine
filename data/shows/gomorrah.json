@@ -1,0 +1,60 @@
+﻿{
+    "slug":  "gomorrah",
+    "title":  "Gomorrah",
+    "year":  2014,
+    "month":  4,
+    "status":  "completed",
+    "seasons":  5,
+    "episodes":  60,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "crime",
+                   "drama"
+               ],
+    "creator":  "Roberto Saviano, Stefano Bises",
+    "network":  "Sky Italia",
+    "tmdbId":  4057,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.4,
+                                          "scale":  10,
+                                          "count":  "22000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt2049110/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  95,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/gomorrah"
+                                                 },
+                             "metacritic":  {
+                                                "score":  76,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/gomorrah"
+                                            }
+                         },
+    "consensus_highlights":  "A Naples-based crime drama following the Camorra organized crime syndicate.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  7,
+                           "drive":  7,
+                           "cine":  8,
+                           "spect":  6,
+                           "final":  7.15,
+                           "world":  8,
+                           "char":  7
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max",
+                                 "Netflix"
+                             ],
+                      "uk":  [
+                                 "BBC iPlayer"
+                             ]
+                  }
+}

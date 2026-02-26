@@ -1,0 +1,57 @@
+﻿{
+    "slug":  "watchmen-2019",
+    "title":  "Watchmen (2019)",
+    "year":  2019,
+    "month":  10,
+    "status":  "completed",
+    "seasons":  1,
+    "episodes":  9,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "sci-fi",
+                   "superhero",
+                   "crime",
+                   "mystery"
+               ],
+    "creator":  "Damon Lindelof",
+    "network":  "HBO",
+    "tmdbId":  79739,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.2,
+                                          "scale":  10,
+                                          "count":  "144800",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt7049682/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  96,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/watchmen"
+                                                 }
+                         },
+    "consensus_highlights":  "A sequel to the graphic novel, set in an alternate history where masked vigilantes are outlaws.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  8,
+                           "drive":  7,
+                           "cine":  7.5,
+                           "spect":  8,
+                           "final":  7.38,
+                           "world":  7.5,
+                           "char":  7
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic",
+                                 "Now TV"
+                             ]
+                  }
+}

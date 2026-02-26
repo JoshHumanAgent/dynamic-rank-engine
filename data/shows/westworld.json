@@ -1,0 +1,64 @@
+﻿{
+    "slug":  "westworld",
+    "title":  "Westworld",
+    "year":  2016,
+    "month":  10,
+    "status":  "ended",
+    "seasons":  4,
+    "episodes":  36,
+    "runtime":  "60-75",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "sci-fi",
+                   "western"
+               ],
+    "creator":  [
+                    "Jonathan Nolan",
+                    "Lisa Joy"
+                ],
+    "network":  "HBO",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.5,
+                                          "scale":  10,
+                                          "count":  "540K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0475784/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  88,
+                                                     "scale":  100,
+                                                     "audience":  82,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/westworld"
+                                                 },
+                             "metacritic":  {
+                                                "score":  78,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/westworld"
+                                            }
+                         },
+    "consensus_highlights":  "Westworld is a philosophical sci-fi epic set in a futuristic theme park where android hosts serve wealthy guests. Jonathan Nolan and Lisa Joy created a mind-bending exploration of consciousness, free will, and the nature of reality, with stunning visuals and complex narrative puzzles.",
+    "ranking_system":  {
+                           "conc":  9.5,
+                           "resol":  5,
+                           "drive":  6.5,
+                           "cine":  8.5,
+                           "spect":  9,
+                           "final":  7.67,
+                           "world":  8.5,
+                           "char":  7.5
+                       },
+    "notes":  "The show sparked massive online speculation and theory-crafting. While later seasons divided critics, the first two seasons are considered masterful examples of prestige science fiction television.",
+    "tmdbId":  63247,
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic"
+                             ]
+                  }
+}

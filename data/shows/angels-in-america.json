@@ -1,0 +1,60 @@
+﻿{
+    "slug":  "angels-in-america",
+    "title":  "Angels in America",
+    "year":  2003,
+    "month":  12,
+    "status":  "ended",
+    "seasons":  1,
+    "episodes":  6,
+    "runtime":  "68-70",
+    "country":  "United States",
+    "genres":  [
+                   "drama"
+               ],
+    "creator":  [
+                    "Tony Kushner"
+                ],
+    "network":  "HBO",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.3,
+                                          "scale":  10,
+                                          "count":  "28K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0348914/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  93,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/angels_in_america"
+                                                 },
+                             "metacritic":  {
+                                                "score":  85,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/angels-in-america"
+                                            }
+                         },
+    "consensus_highlights":  "Angels in America is a landmark HBO miniseries adapted from Tony Kushner\u0027s Pulitzer-winning play. It explores the AIDS crisis in 1980s New York through a fantastical blend of realism and magical realism. Al Pacino, Meryl Streep, and Emma Thompson deliver extraordinary performances in this epic meditation on America, identity, and love.",
+    "ranking_system":  {
+                           "conc":  9,
+                           "resol":  9,
+                           "drive":  7,
+                           "cine":  8,
+                           "spect":  7,
+                           "final":  7.9,
+                           "world":  7,
+                           "char":  8
+                       },
+    "notes":  "Angels in America represents the heights that television can achieve when adapting literary material.",
+    "tmdbId":  1887,
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max"
+                             ],
+                      "uk":  [
+                                 "BBC iPlayer"
+                             ]
+                  }
+}

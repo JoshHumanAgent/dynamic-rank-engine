@@ -1,0 +1,38 @@
+{
+    "slug": "silo",
+    "title": "Silo",
+    "year": 2023,
+    "month": 5,
+    "status": "continuing",
+    "seasons": 2,
+    "episodes": 14,
+    "runtime": "45-60",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "sci-fi",
+        "mystery"
+    ],
+    "creator": "Graham Yost",
+    "network": "Apple TV+",
+    "tmdbId": 135699,
+    "external_ratings": {},
+    "consensus_highlights": null,
+    "ranking_system": {
+        "narrative_ambition": 0,
+        "character_depth": 0,
+        "thematic_resonance": 0,
+        "cultural_impact": 0,
+        "watchability": 0,
+        "final_score": null
+    },
+    "notes": "",
+    "streaming": {
+        "us": [
+            "Apple TV+"
+        ],
+        "uk": [
+            "Apple TV+"
+        ]
+    }
+}

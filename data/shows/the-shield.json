@@ -1,0 +1,63 @@
+﻿{
+    "slug":  "the-shield",
+    "title":  "The Shield",
+    "year":  2002,
+    "month":  3,
+    "status":  "ended",
+    "seasons":  7,
+    "episodes":  88,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "crime",
+                   "drama",
+                   "cop-show"
+               ],
+    "creator":  [
+                    "Shawn Ryan"
+                ],
+    "network":  "FX",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.7,
+                                          "scale":  10,
+                                          "count":  "97K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt0286519/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  96,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/the_shield"
+                                                 },
+                             "metacritic":  {
+                                                "score":  76,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/the-shield"
+                                            }
+                         },
+    "consensus_highlights":  "The Shield is a gritty police drama that broke new ground with its unflinching portrayal of corrupt cops in Los Angeles\u0027 Farmington District. Michael Chiklis delivers a powerhouse performance as Vic Mackey, the charismatic yet morally bankrupt strike team leader. The series pioneered the antihero cop drama and maintained its intensity throughout seven seasons.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  10,
+                           "drive":  9,
+                           "cine":  6,
+                           "spect":  5,
+                           "final":  7.75,
+                           "world":  7,
+                           "char":  8.5
+                       },
+    "notes":  "The Shield proved that cable television could do cop dramas better than network TV by showing the dark side of law enforcement without redemption.",
+    "tmdbId":  1622,
+    "streaming":  {
+                      "us":  [
+                                 "Hulu",
+                                 "Starz"
+                             ],
+                      "uk":  [
+                                 "Amazon Prime Video"
+                             ]
+                  }
+}

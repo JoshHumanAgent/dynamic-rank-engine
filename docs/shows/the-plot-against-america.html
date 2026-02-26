@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Plot Against America - TV Shows Ranked</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --bg-elevated: #222222;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent-gold: #c9a227;
+            --accent-gold-light: #e8d179;
+            --accent-gold-dark: #8b6914;
+            --accent-gold-cream: #f0e6c8;
+            --border-subtle: #333333;
+            --border-light: #2a2a2a;
+            --shadow-depth: 0 4px 20px rgba(0,0,0,0.5);
+            --gradient-dark: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.95) 100%);
+            --gradient-gold: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero {
+            position: relative;
+            height: 75vh;
+            min-height: 550px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1610 0%, #2a2015 50%, #0a0805 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23c9a227" stroke-width="0.2" opacity="0.15"/><circle cx="50" cy="50" r="25" fill="none" stroke="%23c9a227" stroke-width="0.3" opacity="0.1"/><line x1="0" y1="50" x2="100" y2="50" stroke="%23c9a227" stroke-width="0.2" opacity="0.08"/><line x1="50" y1="0" x2="50" y2="100" stroke="%23c9a227" stroke-width="0.2" opacity="0.08"/></svg>');
+            background-size: 300px;
+            opacity: 0.6;
+            animation: subtlePulse 20s ease-in-out infinite;
+        }
+
+        @keyframes subtlePulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.02); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, 
+                rgba(10,10,10,0.3) 0%,
+                rgba(10,10,10,0.5) 40%,
+                rgba(10,10,10,0.85) 70%,
+                var(--bg-primary) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+            width: 100%;
+        }
+
+        .show-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: center;
+        }
+
+        .meta-item {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 500;
+        }
+
+        .meta-divider {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+        }
+
+        .show-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            line-height: 1.1;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .show-creators {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            font-weight: 400;
+        }
+
+        .show-stars {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .show-stars strong {
+            color: var(--text-primary);
+            font-style: normal;
+        }
+
+        .score-badge-large {
+            display: inline-flex;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.2rem 2rem;
+            box-shadow: var(--shadow-depth);
+        }
+
+        .score-value-large {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-right: 1rem;
+        }
+
+        .score-label-large {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* What It Feels Like Section */
+        .feel-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .feel-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+            border-radius: 16px 16px 0 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-gold-light);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .feel-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.3rem;
+        }
+
+        .feel-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-text {
+            color: var(--accent-gold-light);
+            font-weight: 500;
+        }
+
+        /* Dimension Blocks */
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .dimension-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .dimension-card:hover {
+            border-color: var(--accent-gold-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.1);
+        }
+
+        .dimension-header {
+            background: var(--bg-elevated);
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .dimension-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .dimension-score {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .dimension-body {
+            padding: 1.5rem;
+        }
+
+        .dimension-analysis {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        /* Score Summary Block */
+        .score-summary {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .score-summary::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+            border-radius: 0 0 16px 16px;
+        }
+
+        .score-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .score-overall {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .score-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .score-item-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .score-item-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Footer Quote */
+        .verdict {
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent-gold);
+            padding: 2rem 2rem 2rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .verdict p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .verdict strong {
+            color: var(--accent-gold-light);
+            font-style: normal;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 2rem 1.5rem 3rem;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            .feel-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .dimension-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .score-breakdown {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .score-overall {
+                font-size: 3rem;
+            }
+        }
+
+        /* Navigation breadcrumb */
+        .breadcrumbs {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 0;
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb-item {
+            color: var(--text-muted);
+        }
+
+        .breadcrumb-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--accent-gold);
+        }
+
+        .breadcrumb-item.current {
+            color: var(--accent-gold);
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="show-meta">
+                <span class="meta-item">Limited Series</span>
+                <span class="meta-divider">●</span>
+                <span class="meta-item">2020</span>
+                <span class="meta-divider">●</span>
+                <span class="meta-item">6 Episodes</span>
+                <span class="meta-divider">●</span>
+                <span class="meta-item">HBO</span>
+            </div>
+            <h1 class="show-title">The Plot Against America</h1>
+            <p class="show-creators">Created by David Simon & Ed Burns</p>
+            <p class="show-creators" style="font-size: 0.95rem; color: var(--text-muted);">Based on the novel by Philip Roth</p>
+            <p class="show-stars"><strong>Starring:</strong> Zoe Kazan, Morgan Spector, John Turturro, Anthony Boyle, Winona Ryder</p>
+            <div class="score-badge-large">
+                <span class="score-value-large">7.4</span>
+                <span class="score-label-large">Final Score</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs">
+        <ol class="breadcrumb-list">
+            <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+            <li class="breadcrumb-separator">/</li>
+            <li class="breadcrumb-item"><a href="../shows.html">Shows</a></li>
+            <li class="breadcrumb-separator">/</li>
+            <li class="breadcrumb-item current">The Plot Against America</li>
+        </ol>
+    </nav>
+
+    <main class="container">
+        <!-- What It Feels Like to Watch -->
+        <section class="feel-section">
+            <div class="section-header">
+                <div class="section-icon">✦</div>
+                <div>
+                    <h2 class="section-title">What It Feels Like to Watch</h2>
+                    <p class="section-subtitle">The Levin Family Under the Shadow of Fascism</p>
+                </div>
+            </div>
+            <div class="feel-content">
+                <p>
+                    Philip Roth imagined an America that flirted with fascism long before it became fashionable television subject matter. In <span class="highlight-text">The Plot Against America</span>, the celebrated writer's 2004 novel comes to harrowing life through the steady hands of David Simon and Ed Burns, the creative pair behind <em>The Wire</em>. What unfolds is not a thriller in the traditional sense, but a <strong>slow-motion nightmare</strong> — the collapse of democracy witnessed through the eyes of a single Jewish family in Newark, New Jersey, during the 1940s.
+                </p>
+                <p>
+                    The premise is disarmingly simple: What if Charles Lindbergh, the aviation hero and noted fascist sympathizer, had defeated Franklin D. Roosevelt in the 1940 presidential election? What followed, in Roth's alternate history and now on screen, is the gradual normalization of American fascism — not through tanks in the streets or midnight arrests, but through smiles on the campaign trail, through the language of "unity" and "protection," through the careful dismantling of protections for vulnerable communities dressed up as "for their own good."
+                </p>
+                <p>
+                    We experience this through the Levin family, anchored by Herman (Morgan Spector) and Bess (Zoe Kazan), who watch their children's future darken as Lindbergh's administration increasingly targets Jews. Their son Sandy (Caleb Malis) is seduced by the fascist Lindbergh Youth programs. Philip (Azhy Robertson), the younger boy, watches his world fracture. Bess's sister Evelyn (Winona Ryder) becomes entangled with Rabbi Lionel Bengelsdorf (John Turturro), an ambitious Jewish leader who serves as Lindbergh's willing collaborator. The cousin Alvin (Anthony Boyle) goes to fight fascism in Europe, only to return diminished.
+                </p>
+                <p>
+                    This is a story told in <strong>quiet devastations</strong> — the neighbor who stops speaking to you, the job lost for being "too political," the realization that the institutions you trusted have turned against you. What began as a speculative exercise by Roth became, in 2020, <span class="highlight-text">a prescient warning</span>. Simon and Burns made the series while the Trump era was unfolding, and the result chills not because it exaggerates, but because it captures something authentic about how societies slip into darkness.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seven Dimension Analysis -->
+        <section>
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <div class="section-icon" style="border-color: var(--accent-gold);">★</div>
+                <h2 class="section-title">Why It Ranks</h2>
+            </div>
+            
+            <div class="dimension-grid">
+                <!-- Characters -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Characters</span>
+                        <span class="dimension-score">7.5</span>
+                    </div>
+                    <div class="dimension-body">
+                        <p class="dimension-analysis">
+                            The Levin family emerges as a credible, flawed unit under pressure. <strong>Zoe Kazan</strong> delivers a quietly powerful performance as Bess, a mother forced to become the family's emotional anchor as the world tilts. <strong>Morgan Spector</strong> brings simmering righteousness to Herman, whose inability to bite his tongue becomes both heroic and perilous. <strong>Winona Ryder</strong> captures Evelyn's tragic desperation with heartbreaking nuance, while <strong>John Turturro</strong> commits fully to Rabbi Bengelsdorf's self-serving delusion. The children ground the story in genuine childhood confusion mixed with political awakening. Where the character work slightly falters is in Alvin's rushed arc — his post-war trauma condensed into too few scenes — and in the occasionally broader strokes of political figures like Lindbergh himself, who exists more as absence and implication than fully realized character.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- World Building -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">World Building</span>
+                        <span class="dimension-score">7.5</span>
+                    </div>
+                    <div class="dimension-body">
+                        <p class="dimension-analysis">
+                            Simon and Burns recreate 1940s Newark with <strong>documentary-level detail</strong> — the period feels lived-in rather than museum-piece pristine. The production design excels at showing the comfortable Jewish middle class life under threat: the tidy homes, the working-class neighborhoods, the synagogues and community centers that suddenly carry new vulnerability. The series convincingly depicts how an alternate America would have organized its descent into authoritarianism — the Office of American Absorption, the "Just Folks" resettlement programs, the soft persecution dressed as integration. Where world building becomes most unsettling is its restraint; this isn't a dystopian spectacle but a recognizable America with its ugliness merely <strong>unmasked and normalized</strong>. The historical authenticity of the aesthetic sometimes clashes with the speculative premise — one occasionally wishes for more imagination in showing how propaganda infrastructure might have evolved differently.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cinematography -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Cinematography</span>
+                        <span class="dimension-score">7.5</span>
+                    </div>
+                    <div class="dimension-body">
+                        <p class="dimension-analysis">
+                            The visual approach mirrors the material's <strong>understated menace</strong>. Coen and Phedon Papamichael (sharing cinematography duties) favor naturalistic lighting that recalls classic mid-century American cinema without pastiche. Compositions often place characters in domestic spaces that feel increasingly vulnerable — windows become threats, doorways potential escape routes. The color palette leans sepia and muted, evoking period photography while never feeling artificial. Key sequences — the Lindbergh rally, the family huddled around radios, the claustrophobic interiors of fear — are rendered with <strong>quiet visual poetry</strong>. The camera rarely announces itself, preferring observational stillness that lets performances breathe. Some viewers may desire more visual dynamism, and certain episodes feel visually flat in service of realism. The approach is coherent and appropriate but occasionally sacrifices visual distinction for authenticity.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual Spectacle -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Visual Spectacle</span>
+                        <span class="dimension-score">6.0</span>
+                    </div>
+                    <div class="dimension-body">
+                        <p class="dimension-analysis">
+                            As a <strong>deliberately intimate drama</strong>, The Plot Against America offers limited spectacle by design. This is not a series that courts visual bombast — the alternate-history premise unfolds primarily through dialogue, newsreels, and implication rather than spectacular set pieces. The most visually striking moments tend toward the mundane made ominous: empty streets, shuttered businesses, the gradual retreat of public Jewish life. Where spectacle does emerge — the political rallies, European war footage glimpsed through newsreels — it's deployed with purposeful restraint. The Lindbergh campaign materials and propaganda items are crafted convincingly but never dominate. For viewers expecting world-building on the scale of <em>The Man in the High Castle</em>, this will disappoint. The show's rejection of spectacle aligns with its themes but places clear limits on visual excitement. What exists is competent period recreation rather than <strong>transportive visual world-building</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Conceptual Density -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Conceptual Density</span>
+                        <span class="dimension-score">8.0</span>
+                    </div>
+                    <div class="dimension-body">
+                        <p class="dimension-analysis">
+                            This is where the series operates on its <strong>highest plane</strong>. Roth's source material provides a rich conceptual framework, and Simon/Burns honor its intellectual ambition. The series interrogates how democracies die not through violence but through accommodation — the "good Jews" versus "bad Jews" dynamic, the question of whether assimilation offers protection or merely enables oppression, the danger of viewing politics as abstraction rather than lived reality. It explores <strong>complicity, collaboration, and resistance</strong> in shades of gray. The Lindbergh administration's policies — the Office of American Absorption, the "Just Folks" program sending Jewish children to "true American" families in the South — feel uncomfortably plausible, suggesting how progressive language can mask regressive ends. The show resists easy parallels to contemporary politics while remaining unmistakably relevant. Where conceptual density occasionally overwhelms is in the latter episodes, when the series must accelerate toward conclusion, sacrificing thematic exploration for plot mechanics.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Narrative Drive -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Narrative Drive</span>
+                        <span class="dimension-score">7.0</span>
+                    </div>
+                    <div class="dimension-body">
+                        <p class="dimension-analysis">
+                            Across six episodes, the series maintains <strong>deliberate, mounting tension</strong>. The narrative functions less through traditional plot propulsion than through the accumulation of small humiliations and growing threats. Early episodes establish the premise with patient confidence; the middle sections explore character responses to escalating pressure; the final episodes accelerate toward crisis and resolution. The structure honors the source novel's episodic, almost memoir-like quality. Where narrative drive occasionally falters is in the middle episodes' tendency toward <strong>repetition</strong> — multiple scenes make similar points about rising danger, and certain character threads (particularly Alvin's European experience) feel compressed and underdeveloped. The series risks becoming a series of moments rather than building plot momentum. However, the final episodes achieve genuine urgency, and the overall arc — from hope to concern to fear to crisis — carries the weight necessary for the material's emotional impact.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Resolution -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Resolution</span>
+                        <span class="dimension-score">7.5</span>
+                    </div>
+                    <div class="dimension-body">
+                        <p class="dimension-analysis">
+                            The series ending adapts Roth's novel with <strong>thoughtful fidelity</strong> while making necessary adjustments for television. Without spoiling: the resolution honors the novel's ambiguity and structural boldness, refusing to provide comforting closure while offering emotional catharsis. The final episode achieves a balance between <strong>personal and political resolution</strong> — the Levin family reaches a new understanding of their place in America, while the nation faces an uncertain future. The ending works because it trusts viewers to sit with discomfort, offering explanation without excusing trauma. Where resolution slightly disappoints is in the compressed handling of the final plot mechanics — the series' final act requires some rushed exposition that the novel handles more organically. Additionally, some character threads resolve too neatly (Evelyn's arc) or too abruptly (the political resolution). The coda, however, lands with appropriate weight, leaving the viewer with questions rather than answers, as the material demands.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Verdict -->
+        <div class="verdict">
+            <p><strong>The Verdict:</strong> A deliberately uncomfortable and intellectually rigorous alternate history that gains rather than loses power through its restraint. Simon and Burns have created not escapism but medicine — a reminder that democracy's fragility is not theoretical, and that the distance between normalcy and nightmare is shorter than we wish to believe.</p>
+        </div>
+
+        <!-- Final Score Summary -->
+        <section class="score-summary">
+            <div class="score-header">
+                <span class="score-overall">7.4</span>
+                <span class="score-label">Final Score</span>
+            </div>
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-item-value">7.5</div>
+                    <div class="score-item-label">Characters</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-value">7.5</div>
+                    <div class="score-item-label">World Building</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-value">7.5</div>
+                    <div class="score-item-label">Cinematography</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-value">6.0</div>
+                    <div class="score-item-label">Visual Spectacle</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-value">8.0</div>
+                    <div class="score-item-label">Conceptual Density</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-value">7.0</div>
+                    <div class="score-item-label">Narrative Drive</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-value">7.5</div>
+                    <div class="score-item-label">Resolution</div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

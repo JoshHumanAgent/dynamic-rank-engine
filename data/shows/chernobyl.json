@@ -1,0 +1,63 @@
+﻿{
+    "slug":  "chernobyl",
+    "title":  "Chernobyl",
+    "year":  2019,
+    "month":  5,
+    "status":  "ended",
+    "seasons":  1,
+    "episodes":  5,
+    "runtime":  "60-72",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "historical"
+               ],
+    "creator":  [
+                    "Craig Mazin"
+                ],
+    "network":  "HBO",
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  9.4,
+                                          "scale":  10,
+                                          "count":  "625K",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt7366338/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  95,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/chernobyl"
+                                                 },
+                             "metacritic":  {
+                                                "score":  82,
+                                                "scale":  100,
+                                                "date_accessed":  "2026-02-15",
+                                                "url":  "https://www.metacritic.com/tv/chernobyl"
+                                            }
+                         },
+    "consensus_highlights":  "Chernobyl is a harrowing, meticulously crafted miniseries that transformed the Chernobyl nuclear disaster into a meditation on truth, sacrifice, and the price of lies. Jared Harris, Stellan SkarsgÃƒÂ¥rd, and Paul Ritter deliver devastating performances. Creator Craig Mazin\u0027s dialogue crackles with tension, while Johan Renck\u0027s direction makes the invisible radiation terrifyingly visible.",
+    "ranking_system":  {
+                           "conc":  8,
+                           "resol":  9,
+                           "drive":  8.5,
+                           "cine":  9,
+                           "spect":  8,
+                           "final":  8.13,
+                           "world":  8,
+                           "char":  7
+                       },
+    "notes":  "A limited series that proves you don\u0027t need many episodes to tell a complete, devastating story.",
+    "tmdbId":  87108,
+    "streaming":  {
+                      "us":  [
+                                 "Max",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic",
+                                 "NOW TV"
+                             ]
+                  }
+}

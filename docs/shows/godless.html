@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godless (2017) - Seven Dimension Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #1a1510 0%, #2d2418 50%, #1a1510 100%);
+            color: #e8dcc8;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(20, 15, 10, 0.85);
+            border: 2px solid #8b7355;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.9);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #8b7355;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.8em;
+            color: #c9a86c;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #a89070;
+            font-style: italic;
+        }
+        
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(139, 115, 85, 0.15);
+            border-radius: 8px;
+        }
+        
+        .meta-item {
+            text-align: center;
+        }
+        
+        .meta-label {
+            font-size: 0.8em;
+            color: #8b7355;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .meta-value {
+            font-size: 1.1em;
+            color: #c9a86c;
+            font-weight: bold;
+        }
+        
+        .final-score {
+            background: linear-gradient(145deg, #3d3020, #2a2015);
+            border: 3px solid #c9a86c;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(201, 168, 108, 0.2);
+        }
+        
+        .score-display {
+            font-size: 4em;
+            color: #c9a86c;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(201, 168, 108, 0.5);
+        }
+        
+        .score-label {
+            font-size: 1.2em;
+            color: #a89070;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        
+        h2 {
+            color: #c9a86c;
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            border-left: 5px solid #8b7355;
+            padding-left: 15px;
+        }
+        
+        .dimension {
+            background: rgba(45, 36, 24, 0.6);
+            border: 1px solid #5a4a3a;
+            border-radius: 10px;
+            margin: 25px 0;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .dimension:hover {
+            transform: translateX(5px);
+            border-color: #8b7355;
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .dimension-title {
+            font-size: 1.4em;
+            color: #c9a86c;
+            font-weight: bold;
+        }
+        
+        .dimension-score {
+            font-size: 1.8em;
+            color: #e8dcc8;
+            font-weight: bold;
+            background: rgba(201, 168, 108, 0.2);
+            border-radius: 50px;
+            padding: 5px 20px;
+        }
+        
+        .dimension-content {
+            color: #b8a890;
+            text-align: justify;
+            line-height: 1.9;
+        }
+        
+        .highlight {
+            color: #c9a86c;
+            font-weight: bold;
+        }
+        
+        .tagline {
+            font-style: italic;
+            text-align: center;
+            font-size: 1.1em;
+            color: #9a8a70;
+            margin: 20px 0;
+            padding: 15px;
+            border-top: 1px dashed #5a4a3a;
+            border-bottom: 1px dashed #5a4a3a;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #3d3020, #1a1510);
+            border: 2px solid #c9a86c;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .verdict h2 {
+            text-align: center;
+            border-left: none;
+            margin-bottom: 20px;
+        }
+        
+        .verdict-content {
+            text-align: justify;
+            line-height: 2;
+            color: #d8ccc0;
+            font-size: 1.05em;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .pros, .cons {
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .pros {
+            background: rgba(76, 140, 74, 0.15);
+            border: 1px solid #4c8c4a;
+        }
+        
+        .cons {
+            background: rgba(140, 74, 74, 0.15);
+            border: 1px solid #8c4a4a;
+        }
+        
+        .pros h3, .cons h3 {
+            color: #c9a86c;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .pros h3 { color: #7cb87a; }
+        .cons h3 { color: #c98a7a; }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .pros li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #7cb87a;
+            font-weight: bold;
+        }
+        
+        .cons li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #c98a7a;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #8b7355;
+            color: #8b7355;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2em; }
+            .pros-cons { grid-template-columns: 1fr; }
+            .score-display { font-size: 3em; }
+        }
+    .rankings-section { margin-bottom: 2rem; }
+.rankings-header { text-align: center; margin-bottom: 2.5rem; }
+.rankings-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; }
+.rankings-subtitle { color: var(--text-dim); font-size: 1.1rem; }
+.dimension-grid { display: grid; gap: 1.5rem; }
+.dimension-block { background: rgba(30,30,30,0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); display: grid !important; grid-template-columns: auto 1fr !important; gap: 1.5rem; }
+.dimension-score { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-width: 100px; }
+.score-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; position: relative; }
+.score-circle::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(var(--primary) calc(var(--score) * 10%), var(--dark) 0); z-index: -1; }
+.score-circle::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: rgba(30,30,30,0.8); }
+.score-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+.dimension-content h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>GODLESS</h1>
+            <p class="subtitle">A Revisionist Western Miniseries</p>
+            
+            <div class="meta-info">
+                <div class="meta-item">
+                    <div class="meta-label">Year</div>
+                    <div class="meta-value">2017</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Platform</div>
+                    <div class="meta-value">Netflix</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Genre</div>
+                    <div class="meta-value">Western</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Creator</div>
+                    <div class="meta-value">Scott Frank</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Episodes</div>
+                    <div class="meta-value">7</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Lead</div>
+                    <div class="meta-value">Jeff Daniels</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="final-score">
+            <div class="score-label">Seven Dimension Score</div>
+            <div class="score-display">7.37</div>
+            <p style="color: #a89070; margin-top: 10px; font-style: italic;">A visually stunning Western with powerful moments</p>
+        </div>
+        
+        <p class="tagline">
+            "If I don't get the boy, I will kill every man, woman, and child in this valley."<br>
+            — Frank Griffin (Jeff Daniels)
+        </p>
+        
+        <section class="rankings-section">
+    <div class="rankings-header">
+        <h2 class="rankings-title">🏆 Why It Ranks</h2>
+        <p class="rankings-subtitle">A detailed breakdown across seven key dimensions</p>
+    </div>
+    <div class="dimension-grid">
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7.5;"><span>7.5</span></div>
+                <span class="score-label">CHARACTERS</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Characters</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">WORLD BUILDING</span>
+            </div>
+            <div class="dimension-content">
+                <h3>World Building</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9;"><span>9.0</span></div>
+                <span class="score-label">CINEMATOGRAPHY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Cinematography</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">VISUAL SPECTACLE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Visual Spectacle</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7;"><span>7.0</span></div>
+                <span class="score-label">CONCEPTUAL DENSITY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Conceptual Density</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7;"><span>7.0</span></div>
+                <span class="score-label">NARRATIVE DRIVE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Narrative Drive</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">RESOLUTION</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Resolution</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        
+        <div class="verdict">
+            <h2>Final Verdict</h2>
+            <div class="verdict-content">
+                <p><span class="highlight">Godless</span> arrives as a <span class="highlight">Netflix prestige production</span> that largely justifies its cinematic ambitions through sheer visual splendor and committed performances. Scott Frank has crafted a Western that respects the genre's traditions while inverting its gender dynamics—a high-wire act that succeeds more often than it falters. The series works best when focusing on the women of La Belle, their struggles and triumphs providing emotional grounding for the broader narrative.</p>
+                
+                <p><span class="highlight">Jeff Daniels</span> towers over the production as Frank Griffin, creating a villain whose charisma nearly equals his menace. His pursuit of Roy Goode provides the engine that drives the plot, even as the series' true subject becomes the community that stands in his path. The cinematography and production design elevate every scene, making <em>Godless</em> worth watching even when the pacing flags or the writing stumbles.</p>
+                
+                <p>The seven-episode format proves wise—this is a story that knows its length and doesn't overstay its welcome. While some subplots feel underdeveloped and certain themes could be explored more deeply, the overall impact remains substantial. For viewers seeking a Western that looks magnificent, delivers genuine tension, and offers something fresh within a familiar framework, <em>Godless</em> earns its place among the genre's notable recent entries.</p>
+            </div>
+            
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>Strengths</h3>
+                    <ul>
+                        <li>Jeff Daniels' towering villainous performance</li>
+                        <li>Groundbreaking focus on women in Western genre</li>
+                        <li>Exceptional cinematography throughout</li>
+                        <li>Authentic period production design</li>
+                        <li>Satisfyingly brutal action sequences</li>
+                        <li>Strong ensemble female cast</li>
+                        <li>Perfectly paced at seven episodes</li>
+                        <li>Memorable final confrontation</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>Weaknesses</h3>
+                    <ul>
+                        <li>Some supporting characters lack depth</li>
+                        <li>Middle episodes slow the momentum</li>
+                        <li>Roy Goode feels underwritten</li>
+                        <li>Native American subplot underdeveloped</li>
+                        <li>Occasionally heavy-handed theology</li>
+                        <li>Some plot conveniences in final act</li>
+                        <li>Violence sometimes feels excessive</li>
+                        <li>Could explore themes more deeply</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Seven Dimension Analysis Framework</p>
+            <p>Generated for TV Shows Ranked Project</p>
+            <p>© 2024 - All Rights Reserved</p>
+        </div>
+    </div>
+</body>
+</html>

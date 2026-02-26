@@ -1,0 +1,53 @@
+﻿{
+    "slug":  "rectify",
+    "title":  "Rectify",
+    "year":  2013,
+    "month":  4,
+    "status":  "completed",
+    "seasons":  4,
+    "episodes":  30,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama"
+               ],
+    "creator":  "Ray McKinnon",
+    "network":  "SundanceTV",
+    "tmdbId":  41727,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  7.9,
+                                          "scale":  10,
+                                          "count":  "15000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt2183646/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  96,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/rectify"
+                                                 }
+                         },
+    "consensus_highlights":  "After 19 years on Death Row, Daniel Holden is released and must reenter a world he no longer knows.",
+    "ranking_system":  {
+                           "conc":  9,
+                           "resol":  9,
+                           "drive":  6,
+                           "cine":  8.5,
+                           "spect":  5,
+                           "final":  7.8,
+                           "world":  7,
+                           "char":  9
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "Netflix",
+                                 "Amazon Prime Video"
+                             ],
+                      "uk":  [
+                                 "Amazon Prime Video"
+                             ]
+                  }
+}

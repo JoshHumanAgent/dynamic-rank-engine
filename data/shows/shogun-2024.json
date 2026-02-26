@@ -1,0 +1,55 @@
+﻿{
+    "slug":  "shogun-2024",
+    "title":  "ShÃ…Âgun (2024)",
+    "year":  2024,
+    "month":  2,
+    "status":  "ongoing",
+    "seasons":  1,
+    "episodes":  10,
+    "runtime":  "45-60",
+    "country":  "United States",
+    "genres":  [
+                   "drama",
+                   "historical",
+                   "action"
+               ],
+    "creator":  null,
+    "network":  "FX",
+    "tmdbId":  126308,
+    "external_ratings":  {
+                             "imdb":  {
+                                          "score":  8.6,
+                                          "scale":  10,
+                                          "count":  "95000",
+                                          "date_accessed":  "2026-02-15",
+                                          "url":  "https://www.imdb.com/title/tt27884380/"
+                                      },
+                             "rotten_tomatoes":  {
+                                                     "score":  99,
+                                                     "scale":  100,
+                                                     "date_accessed":  "2026-02-15",
+                                                     "url":  "https://www.rottentomatoes.com/tv/shogun_2024_1"
+                                                 }
+                         },
+    "consensus_highlights":  "In Japan in 1600, Lord Yoshii Toranaga fights for his life as enemies unite against him.",
+    "ranking_system":  {
+                           "conc":  7,
+                           "resol":  7,
+                           "drive":  7.5,
+                           "cine":  9,
+                           "spect":  9,
+                           "final":  7.98,
+                           "world":  9,
+                           "char":  8
+                       },
+    "notes":  "",
+    "streaming":  {
+                      "us":  [
+                                 "HBO Max"
+                             ],
+                      "uk":  [
+                                 "Sky Atlantic",
+                                 "NOW TV"
+                             ]
+                  }
+}

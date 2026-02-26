@@ -1,0 +1,39 @@
+{
+    "slug": "oz",
+    "title": "Oz",
+    "year": 1997,
+    "month": 7,
+    "status": "ended",
+    "seasons": 6,
+    "episodes": 56,
+    "runtime": "45-60",
+    "country": "United States",
+    "genres": [
+        "drama",
+        "crime",
+        "thriller"
+    ],
+    "creator": "Tom Fontana",
+    "network": "HBO",
+    "tmdbId": 1624,
+    "external_ratings": {},
+    "consensus_highlights": "Oz premiered July 12, 1997, as HBO's first hour-long drama, and announced what premium cable could do that broadcast television couldn't. The opening scene—a man burned alive on camera—established the show's willingness to depict male rape, full frontal nudity, graphic stabbings, drug injection, and language that would have been censored anywhere else. But Oz wasn't just provocation. Creator Tom Fontana built Oswald State Correctional Facility's experimental 'Emerald City' unit as a laboratory for exploring rehabilitation, racial politics, and the economics of incarceration. J.K. Simmons' Vernon Schillinger, leader of the Aryan Brotherhood, remains one of television's most terrifying antagonists—intelligent, ideologically committed, capable of sustained cruelty toward Lee Tergesen's Tobias Beecher across multiple seasons. Harold Perrineau's Augustus Hill serves as Greek chorus, speaking directly to camera in monologues that give the show intellectual ambition its plotting sometimes couldn't sustain. The 7.02 final score reflects a pioneer whose innovations—'anyone can die' unpredictability, moral ambiguity, content boundaries that defined HBO—became so thoroughly absorbed into prestige television that modern viewers may not recognize them as innovations. The soapy plotting and tonal inconsistency across 56 episodes prevent higher ranking, but Oz walked first so The Sopranos, The Wire, and every prestige drama could run.",
+    "ranking_system": {
+        "narrative_ambition": 0,
+        "character_depth": 0,
+        "thematic_resonance": 0,
+        "cultural_impact": 0,
+        "watchability": 0,
+        "final_score": null
+    },
+    "notes": "",
+    "streaming": {
+        "us": [
+            "HBO Max",
+            "Amazon Prime Video"
+        ],
+        "uk": [
+            "Sky Atlantic"
+        ]
+    }
+}

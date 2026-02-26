@@ -1,0 +1,51 @@
+{
+    "slug": "the-leftovers",
+    "title": "The Leftovers",
+    "year": 2014,
+    "month": "06",
+    "network": "HBO",
+    "status": "ended",
+    "streaming": {
+        "us": ["Max"],
+        "uk": ["Sky", "Now TV"]
+    },
+    "genres": ["Drama", "Mystery", "Supernatural"],
+    "creators": ["Damon Lindelof", "Tom Perrotta"],
+    "cast": ["Justin Theroux", "Carrie Coon", "Christopher Eccleston", "Amy Brenneman", "Ann Dowd"],
+    "external_ratings": {
+        "imdb": {
+            "score": 8.7,
+            "votes": 103000,
+            "url": "https://www.imdb.com/title/tt2699128/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 84,
+            "critics": 91,
+            "url": "https://www.rottentomatoes.com/tv/the_leftovers",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 9.0,
+        "world": 9.2,
+        "cine": 9.0,
+        "spect": 8.5,
+        "conc": 9.5,
+        "drive": 9.2,
+        "resol": 9.0,
+        "final": 9.1
+    },
+    "episodes": 28,
+    "seasons": 3,
+    "poster": "",
+    "tmdb_id": 54452,
+    "consensus_highlights": [
+        "Damon Lindelof's redemption: grief as genre",
+        "The Sudden Departure: 2% of world vanishes, 100% changed",
+        "International Assassin: one of television's greatest episodes",
+        "Carrie Coon and Justin Theroux deliver career-defining work",
+        "Ambition over answers: mystery as existential condition"
+    ],
+    "tags": ["mystery", "grief", "supernatural", "ambitious", "hbo", "prestige-tv"]
+}

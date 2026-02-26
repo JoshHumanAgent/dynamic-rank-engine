@@ -1,0 +1,51 @@
+{
+    "slug": "six-feet-under",
+    "title": "Six Feet Under",
+    "year": 2001,
+    "month": "06",
+    "network": "HBO",
+    "status": "ended",
+    "streaming": {
+        "us": ["Max"],
+        "uk": ["Sky", "Now TV"]
+    },
+    "genres": ["Drama", "Dark Comedy"],
+    "creators": ["Alan Ball"],
+    "cast": ["Peter Krause", "Michael C. Hall", "Frances Conroy", "Lauren Ambrose", "Rachel Griffiths"],
+    "external_ratings": {
+        "imdb": {
+            "score": 8.7,
+            "votes": 138000,
+            "url": "https://www.imdb.com/title/tt0248654/",
+            "date_accessed": "2026-02-15"
+        },
+        "rotten_tomatoes": {
+            "audience": 85,
+            "critics": 91,
+            "url": "https://www.rottentomatoes.com/tv/six_feet_under",
+            "date_accessed": "2026-02-15"
+        }
+    },
+    "ranking_system": {
+        "char": 9.2,
+        "world": 8.8,
+        "cine": 8.5,
+        "spect": 7.5,
+        "conc": 9.0,
+        "drive": 9.0,
+        "resol": 9.5,
+        "final": 9.0
+    },
+    "episodes": 63,
+    "seasons": 5,
+    "poster": "",
+    "tmdb_id": 742,
+    "consensus_highlights": [
+        "The greatest television finale ever filmed",
+        "Death as a family business: the Fishers of Fisher & Sons",
+        "Every episode opens with death, every episode is about life",
+        "Michael C. Hall before Dexter: quiet brilliance",
+        "Alan Ball's meditation on mortality and connection"
+    ],
+    "tags": ["death", "family", "dark-comedy", "hbo-original", "masterpiece-finale", "mortality"]
+}
