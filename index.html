@@ -4108,7 +4108,7 @@
 
         function initScoreSystem() {
             // VERSION CHECK: Clear old storage if version mismatch
-            const STORAGE_VERSION = 'v3-full-fix';
+            const STORAGE_VERSION = 'v4-no-score-floor';
             const storedVersion = localStorage.getItem('tvranked_version');
             if (storedVersion !== STORAGE_VERSION) {
                 console.log('Clearing old localStorage (version mismatch)');
@@ -5934,6 +5934,7 @@
             multiplierEnabled = true;
             currentGenres = ['all'];
             currentEras = [];
+            minScore = 0;
             sortBy = 'rank';
             searchTerm = '';
             pinnedShows = [];
