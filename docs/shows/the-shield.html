@@ -3,88 +3,772 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Shield - "Trust" | Dynamic Rank Engine</title>
+    <title>The Shield (2002-2008) - 7 Dimension Analysis | TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #f9a825; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #f9a825, #f57f17); color: #fffde7; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ffca28; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(249,168,37,0.3), rgba(0,0,0,0.9)); border: 3px solid #f9a825; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ffca28; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #f9a825; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ffca28; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(249,168,37,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ffca28; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ffca28; font-weight: 700; }
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #262626;
+            --accent-gold: #d4af37;
+            --accent-crimson: #8b0000;
+            --accent-police-blue: #1e3a5f;
+            --text-primary: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --border-color: #333333;
+            --score-excellent: #4ade80;
+            --score-good: #60a5fa;
+            --score-average: #fbbf24;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Section */
+        .show-header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-police-blue) 100%);
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .show-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .show-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .show-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .show-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-label {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .meta-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .creator-line {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .creator-name {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Cast Section */
+        .cast-section {
+            background-color: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .cast-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .cast-member {
+            background-color: var(--bg-tertiary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .cast-highlight {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Section Styling */
+        .section {
+            background-color: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+        }
+
+        .section-content {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Feeling Section Special */
+        .feeling-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(139, 0, 0, 0.2) 100%);
+        }
+
+        .feeling-intro {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--accent-gold);
+            border-left: 4px solid var(--accent-crimson);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feeling-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feeling-card {
+            background-color: var(--bg-tertiary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feeling-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-crimson);
+        }
+
+        .feeling-card-title {
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        /* Dimension Blocks */
+        .dimension-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .dimension-block {
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dimension-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-gold), var(--accent-crimson));
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .dimension-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .dimension-score {
+            font-size: 2.5rem;
+            font-weight: 800;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--bg-primary), var(--bg-tertiary));
+            border: 2px solid;
+        }
+
+        .score-excellent {
+            color: var(--score-excellent);
+            border-color: var(--score-excellent);
+        }
+
+        .score-good {
+            color: var(--score-good);
+            border-color: var(--score-good);
+        }
+
+        .score-average {
+            color: var(--score-average);
+            border-color: var(--score-average);
+        }
+
+        .dimension-analysis {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+
+        .dimension-analysis p {
+            margin-bottom: 1rem;
+        }
+
+        .dimension-highlight {
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-gold);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Final Score Section */
+        .final-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 2px solid var(--accent-gold);
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .final-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .final-score {
+            font-size: 6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #fff 50%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 60px rgba(212, 175, 55, 0.3);
+            line-height: 1;
+        }
+
+        .final-verdict {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .score-breakdown {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .breakdown-item {
+            text-align: center;
+        }
+
+        .breakdown-dimension {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .breakdown-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background-color: var(--bg-tertiary);
+            border-left: 4px solid var(--accent-crimson);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+        }
+
+        .quote-attribution {
+            margin-top: 1rem;
+            font-style: normal;
+            color: var(--accent-gold);
+            font-size: 0.95rem;
+        }
+
+        /* Tags */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            background-color: rgba(212, 175, 55, 0.15);
+            color: var(--accent-gold);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .show-title {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .dimension-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .dimension-score {
+                font-size: 2rem;
+            }
+
+            .final-score {
+                font-size: 4rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #36</div>
-            <h1>The Shield</h1>
-            <p class="subtitle">"Trust"</p>
-            <div class="score-badge">
-                <span class="score-value">7.90</span>
-                <span class="score-label">Final Score</span>
+        <!-- Header -->
+        <header class="show-header">
+            <div class="show-header-content">
+                <h1 class="show-title">The Shield</h1>
+                <div class="show-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Network</span>
+                        <span class="meta-value">FX</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Years</span>
+                        <span class="meta-value">2002-2008</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Seasons</span>
+                        <span class="meta-value">7</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Episodes</span>
+                        <span class="meta-value">88</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Genre</span>
+                        <span class="meta-value">Crime Drama / Neo-Noir</span>
+                    </div>
+                </div>
+                <div class="creator-line">
+                    <span class="meta-label">Created by</span>
+                    <span class="creator-name">Shawn Ryan</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Cast -->
+        <div class="cast-section">
+            <div class="cast-title">Starring</div>
+            <div class="cast-list">
+                <span class="cast-member cast-highlight">Michael Chiklis</span>
+                <span class="cast-member cast-highlight">Walton Goggins</span>
+                <span class="cast-member">CCH Pounder</span>
+                <span class="cast-member">Jay Karnes</span>
+                <span class="cast-member">Kenny Johnson</span>
+                <span class="cast-member">Catherine Dent</span>
+                <span class="cast-member">Benito Martinez</span>
+                <span class="cast-member">David Rees Snell</span>
             </div>
         </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2002-2008</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">88</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">FX</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Shawn Ryan</div></div>
-        </div>
+        <!-- What It Feels Like to Watch -->
+        <section class="section feeling-section">
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            
+            <div class="feeling-intro">
+                "The Shield doesn't ask you to root for Vic Mackey. It dares you to understand him—and then confronts you with the cost of that understanding."
+            </div>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Shield is a police procedural that hates police procedures. Vic Mackey (Michael Chiklis) leads the Strike Team, an elite unit in Los Angeles's Farmington district that fights crime by committing it. They steal from drug dealers, plant evidence, beat confessions out of suspects—and they're effective. The show's central question: if the system is broken, is breaking the system justified?</p>
-            <p>Chiklis is terrifying as Mackey, a man who believes his own lies. He's a devoted father, a loyal friend, a charismatic leader—and a murderer, a thief, a man who will destroy anyone who threatens him. The performance earned him an Emmy and made The Shield FX's first prestige drama, launching the network's reputation for edgy, adult television.</p>
-            <p>The show builds tension through consequences. Every crime creates exposure. Every lie requires more lies. The Strike Team's secret—Mackey murdered a fellow officer in the pilot—haunts every season. Enemies accumulate: internal affairs, drug cartels, the Armenians, the Mexicans, the feds. Watch the Strike Team members turn on each other, get killed, or become complicit in deeper crimes.</p>
-            <p>Seven seasons, eighty-eight episodes, complete story. The finale is among television's best: Mackey gets immunity for his crimes in exchange for confession, but the confession destroys everyone around him, and his reward is a desk job in an ice-cold cubicle, no gun, no badge, alone. "You made a deal with the devil," the FBI agent says. "Now you're his." It's the only ending that could contain what the show built.</p>
-        </div>
+            <div class="section-content">
+                <p>From the very first episode, <strong>The Shield</strong> announces itself as something different, something dangerous. The grainy, handheld cinematography. The relentless pace. The moral quicksand that is Vic Mackey. This isn't a police procedural with clear heroes and villains. This is a seven-year descent into the psychology of corruption, where the badge isn't a shield against wrongdoing—it's a license for it.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
+                <p>Watching <em>The Shield</em> feels like being trapped in a pressure cooker. The show operates at a fever pitch from minute one, rarely letting up across its 88 episodes. The fictional Farmington district of Los Angeles—lovingly, terribly called "The Barn"—becomes a character unto itself, a decaying precinct house where the walls seem to sweat desperation. Vic Mackey and his Strike Team don't patrol these streets; they own them, extracting tribute from drug dealers and gangsters while using the same brutality they claim to fight.</p>
+
+                <p>What makes the viewing experience so uniquely harrowing is the show's refusal to flinch. When Vic murders a fellow cop in the pilot episode to protect his secrets, the series establishes its thesis: this man is a monster, but he's our protagonist, and the narrative will follow him with unwavering focus. The camera doesn't judge—it observes, often uncomfortably close, as Vic rationalizes each escalating atrocity. You feel complicit in his crimes simply by continuing to watch, by finding him charismatic, by wanting him to get away with it even as you know he shouldn't.</p>
+
+                <p>The Strike Team itself becomes a study in toxic brotherhood. Shane Vendrell's descent from loyal lieutenant to broken traitor. Ronnie Gardocki's silent complicity. Curtis Lemansky's guilt-wracked conscience. These men aren't simply corrupt cops—they're addicts, hooked on the power and adrenaline of their illegal activities, destroying themselves and everyone around them in spirals of escalating violence. The intimacy of their crimes makes them more disturbing than any serial killer; they know their victims, shake their hands, lie to their faces.</p>
+
+                <p>But <em>The Shield</em> isn't just about Vic's corruption—it's about the entire ecosystem that enables him. Captain David Aceveda's political ambition, Assistant Chief Ben Gilroy's institutional rot, the systemic racism and class warfare that make Farmington a powder keg. The show asks: if the system produces Vics, is the problem one bad apple or the barrel itself? By the series finale, there's no easy answer, only the accumulated weight of bodies, broken families, and a legacy of damage that outlives the Strike Team's dissolution.</p>
+            </div>
+
+            <div class="feeling-grid">
+                <div class="feeling-card">
+                    <div class="feeling-card-title">Groundbreaking Antihero</div>
+                    <p>Three years before Walter White cooked his first batch, Vic Mackey redefined what a television protagonist could be. Unlike Tony Soprano's therapy sessions or Don Draper's tortured elegance, Vic's evil is active, physical, and unapologetic. The show pioneered the "difficult man" era of prestige TV.</p>
+                </div>
+                <div class="feeling-card">
+                    <div class="feeling-card-title">The Barn</div>
+                    <p>The Farmington precinct feels authentically lived-in, with its converted church architecture, crowded bullpen, and sense of barely controlled chaos. It's a pressure cooker where detectives and criminals coexist in uneasy proximity, shot with documentary-style intimacy.</p>
+                </div>
+                <div class="feeling-card">
+                    <div class="feeling-card-title">Strike Team Dynamics</div>
+                    <p>The central quartet's relationships form the show's beating heart—loyalty tested against survival, brotherhood against self-preservation. Their interrogation room confessions and code-switching between police work and criminal enterprise create unbearable tension.</p>
+                </div>
+                <div class="feeling-card">
+                    <div class="feeling-card-title">Unrelenting Pace</div>
+                    <p>Episodes rarely provide breathing room. The show's kinetic editing, overlapping dialogue, and multi-threaded storytelling create a sense of barely controlled chaos that mirrors the Strike Team's operations. There's no time to process the horror before the next arrives.</p>
+                </div>
+            </div>
+
+            <div class="tag-container">
+                <span class="tag">Corruption</span>
+                <span class="tag">Moral Ambiguity</span>
+                <span class="tag">Police Brutality</span>
+                <span class="tag">Systemic Failure</span>
+                <span class="tag">Toxic Masculinity</span>
+                <span class="tag">Los Angeles</span>
+                <span class="tag">Gritty Realism</span>
+                <span class="tag">Prestige TV Pioneer</span>
+            </div>
+        </section>
+
+        <!-- Why It Ranks -->
+        <section class="section">
+            <h2 class="section-title">Why It Ranks: The Seven Dimensions</h2>
+            
             <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">5</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">10</div><div class="dimension-weight">20% weight</div></div>
+                <!-- Characters -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">01. Characters</h3>
+                        <div class="dimension-score score-excellent">9.0</div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>The Shield's character work represents some of the finest ensemble acting in television history. Michael Chiklis's Vic Mackey is a towering achievement—a man simultaneously magnetic and repellent, whose charisma makes you understand why others follow him even as his actions horrify. Chiklis transforms physically for the role, adopting a shaved head and bulked physique that signals menace before he speaks. But the genius is in the small moments: Vic with his autistic son, Vic realizing he's trapped, Vic's flashes of genuine protective instinct that make his criminality more complex than simple villainy.</p>
+
+                        <p>Walton Goggins's Shane Vendrell undergoes the series' most devastating arc, beginning as Vic's enthusiastic protégé and ending as a pariah responsible for tragedy. Goggins brings Shakespearean dimensions to Shane's self-destruction, making his final episodes among the most wrenching committed to film. His "family meeting" confession stands as one of television's most brutal scenes, Goggins's face collapsing under the weight of impossible guilt.</p>
+
+                        <p>CCH Pounder's Claudette Wyms provides the moral counterweight, a detective whose ethics remain uncompromised even when they cost her everything. Jay Karnes's Dutch Wagenbach initially seems like standard-issue television nerd but evolves into a complex portrait of frustrated intelligence and unexpected darkness. Even supporting characters like Anthony Anderson's Antwon Mitchell or Glenn Close's Monica Rawling leave indelible impressions. The show trusts its actors to convey complexity without exposition, letting silences and glances carry enormous narrative weight.</p>
+
+                        <div class="dimension-highlight">
+                            "The Strike Team's interrogation scenes rank among the finest acting showcases ever filmed, four men sitting in rooms communicating layers of guilt, fear, and loyalty through barely raised eyebrows and shifting weight."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- World Building -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">02. World Building</h3>
+                        <div class="dimension-score score-excellent">9.0</div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>Farmington isn't Los Angeles as seen in glossy dramas—it's the forgotten corners, the strip malls and housing projects, the ethnically diverse neighborhoods where police presence feels more like occupation than protection. The Shield creates a fully realized ecosystem with its own rules, hierarchies, and fault lines. Gang territories shift with realpolitik precision. Businesses pay protection to avoid trouble. Informants trade information for survival. It's Machiavelli by way of south-central LA.</p>
+
+                        <p>The Barn itself deserves recognition as one of television's great locations. A converted church, its architecture carries symbolic weight—the precinct has literally taken over sacred space. The cage, the interrogation rooms, the crowded detective bullpen, Captain Aceveda's glass-walled office positioned for surveillance—all feel authentic down to the coffee rings and case files. When characters move through these spaces, they know their geography; the camera never gets lost because the show never does.</p>
+
+                        <p>Beyond the precinct, the series maps an entire city of corruption. City Hall politics, the DA's office, private security firms, Armenian mob operations, Mexican drug cartels—each territory develops its own logic and leadership. The Shield understands that criminal networks mirror legitimate ones, with supply chains, human resources, and territorial disputes. By Season 7, when the Strike Team's past crimes surface across multiple jurisdictions, the interconnectedness of Farmington's underworld feels not just plausible but inevitable.</p>
+
+                        <div class="dimension-highlight">
+                            "The Armenian Money Train storyline demonstrates the show's systemic thinking—how a single heist creates ripple effects through multiple criminal and legal organizations over multiple seasons."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cinematography -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">03. Cinematography</h3>
+                        <div class="dimension-score score-good">8.0</div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>The Shield's visual style established the template for gritty crime drama that influenced everything from Breaking Bad to True Detective. Shot on 16mm film with handheld cameras, the series rejects the polished look of network procedurals for something visceral and immediate. The grainy texture, blown-out highlights, and loose framing create a documentary aesthetic that suggests surveillance footage or ride-along authenticity.</p>
+
+                        <p>The camera work serves narrative function beyond mere style. During Strike Team operations, the frantic cutting and close-ups create disorientation that puts viewers in the moment's adrenaline. During interrogations, static two-shots emphasize power dynamics, letting subtle shifts in positioning communicate psychological warfare. The show saves its most composed shots for moments of revelation—Vic alone in empty rooms, Shane contemplating irrevocable choices—granting these moments visual gravity through contrast.</p>
+
+                        <p>Color grading evolves across seasons, from the sun-bleached harshness of early years to the increasingly noirish shadows of later seasons as the Strike Team's sins accumulate. The nighttime sequences, particularly in the final seasons, use available light and sodium vapor streetlamps to create atmosphere worthy of classic noir. When the series ventures outside Farmington—Vic's suburban home, Armenian mob locations, political functions—the visual contrast underscores how the Strike Team's world differs from mainstream Los Angeles.</p>
+
+                        <p>The raw immediacy comes with tradeoffs. Some action sequences lack clarity in their chaos. Lighting inconsistencies occasionally distract. These limitations are budgetary and technological rather than artistic failures, and the show's commitment to its aesthetic remains admirably consistent across seven years.</p>
+
+                        <div class="dimension-highlight">
+                            "The Strike Team's arrival at crime scenes—jumping from their distinctive big black van, moving with practiced choreography—became iconic through kinetic handheld photography that made viewers feel part of the unit."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Spectacle -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">04. Visual Spectacle</h3>
+                        <div class="dimension-score score-average">7.5</div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>The Shield intentionally rejects visual spectacle. Its power comes from intimacy rather than scale, from recognizable streets rather than constructed sets. When explosions occur—whether literal or emotional—they're modest affairs, grounded in practical reality. The show's biggest "spectacle" might be the Money Train heist, presented not as Ocean's Eleven elegance but as sweaty, desperate improvisation.</p>
+
+                        <p>What spectacle exists serves thematic purpose. The Strike Team's modified van, blacked-out and intimidating, becomes both signature visual and symbol of their separateness from legitimate police work. The Barn's architecture—conversion of sacred space to secular surveillance—carries visual weight even when unremarked upon. Action choreography prioritizes messy realism over heroics; shootouts end quickly, brutally, often with collateral damage.</p>
+
+                        <p>The series finds visual poetry in Los Angeles itself: empty swimming pools, freeway overpasses at dawn, the specific quality of late-afternoon light on stucco. These aren't spectacle in the conventional sense but accumulate into a distinctive visual identity. The show's commitment to location shooting in actual Los Angeles neighborhoods provides texture impossible to replicate on backlots.</p>
+
+                        <p>Budget constraints limit elaborate set pieces, and the series rarely attempts them. What might be considered limitations—the repetitive locations, the small-scale violence, the absence of sweeping vistas—become strengths through consistency. The Shield creates its own visual vocabulary through restraint.</p>
+
+                        <div class="dimension-highlight">
+                            "The final episode's closing moments, with their specific Los Angeles locations and unadorned presentation, achieve profound visual resonance precisely through rejection of spectacle."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conceptual Density -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">05. Conceptual Density</h3>
+                        <div class="dimension-score score-excellent">9.0</div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>The Shield operates on multiple thematic levels simultaneously, offering some of television's most intellectually demanding crime storytelling. At its core lies an exploration of masculine power and its inevitable corruption—the Strike Team's "us against the world" mentality justifying any atrocity in service of group preservation. The series interrogates how institutions designed for protection become predatory, asking whether reform is possible within systems built on violence.</p>
+
+                        <p>Moral philosophy courses through the storytelling. Utilitarian calculus—the greatest good for the greatest number—justifies Vic's worst actions to himself, but the series mercilessly tracks consequences that his math ignores. Kantian ethics struggles in a world where everyone violates duty, where universal law seems impossible. The show presents Nietzschean will to power without celebration, showing Vic's übermensch aspirations crushed by reality's resistance.</p>
+
+                        <p>Race and class analysis permeates without didacticism. The Strike Team's victims are predominantly poor and non-white; their protection money comes from communities already crushed by systemic inequality. Captain Aceveda's political ambitions represent assimilation's costs. Claudette's ethical stance contrasts with Vic's corruption but doesn't prevent it—good individuals cannot redeem broken institutions.</p>
+
+                        <p>Political theory enters through institutional critique: how power structures protect themselves, how scandals get managed rather than solved, how "few bad apples" narratives serve systemic preservation. The Shield understands Foucault's disciplinary power—the panopticon of surveillance and self-regulation that makes subjects complicit in their own subjugation.</p>
+
+                        <div class="dimension-highlight">
+                            "The series finale's immunity deal forces viewers to confront whether justice is possible when power writes the rules—Vic escapes punishment not through innocence but through bargaining chips accumulated through years of crime."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Narrative Drive -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">06. Narrative Drive</h3>
+                        <div class="dimension-score score-excellent">9.0</div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>The Shield's narrative architecture represents peak television serialization—seventy-plus hours of storytelling that maintains relentless momentum while building toward inevitable catastrophe. The series pioneered the model of standalone episodes within season-long arcs within series-spanning narrative, each level reinforcing the others. Weekly cases provide immediate satisfaction while slow-burning plotlines gather weight across months and years.</p>
+
+                        <p>The Strike Team's accumulated crimes create narrative potential energy that the series pays off with devastating efficiency. The Money Train heist's consequences unfold across three seasons. Terry Crowley's murder haunts Vic until the finale. Each deception compounds the next, each cover-up requiring two more, until the narrative physics demand collapse. The writers understand that tension isn't created by adding complications but by letting existing ones gestate.</p>
+
+                        <p>Character arcs develop with ruthless logic. Shane's trajectory from enthusiastic recruit to desperate traitor earns every step through incremental pressure. Claudette's ethical stand costs her career progression but maintains her soul. Even minor characters—politicians, informants, victims of the week—receive narrative consequence, their stories continuing off-screen in ways that occasionally return with devastating effect.</p>
+
+                        <p>The final season demonstrates masterful construction, bringing together threads from seven years for a finale that satisfies without comfort. The writers resist redemption arcs, easy answers, or moral clarity. Instead, they deliver earned conclusions: some characters escape, some suffer, all carry damage. The narrative drive carries viewers not to catharsis but to confrontation with difficult truths about power, corruption, and consequences.</p>
+
+                        <div class="dimension-highlight">
+                            "Season 5's strike force investigation creates unbearable tension through narrative restraint—the threat of exposure looms larger than exposure itself, allowing characters to react to pressure over sustained periods."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resolution -->
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">07. Resolution</h3>
+                        <div class="dimension-score score-excellent">9.0</div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>The Shield's series finale, "Family Meeting," stands among television's greatest conclusions—a 90-minute coda that refuses easy redemptions while delivering devastating poetry. Every major character receives resolution appropriate to their choices: Vic gets immunity but loses everything he values, Shane faces the logical endpoint of his trajectory, Ronnie suffers betrayal, Claudette achieves pyrrhic victory. The writers never flinch from consequences they've spent seven years establishing.</p>
+
+                        <p>Vic's fate—confessed crimes wiped clean by federal immunity while sentenced to an office cubicle—represents perfect ironic punishment. His "family meeting" fantasy, presented in intercut sequences, reveals the life he destroyed through his actions, the domestic happiness impossible because of who he chose to be. The final shot, ambiguous and haunting, suggests escape or imprisonment, freedom or compulsion, depending on interpretation. It's the rare finale that generates debate without feeling unfinished.</p>
+
+                        <p>Shane's storyline achieves Shakespearean dimensions, his final act an inevitable outcome of the character the series built. The contrast between his fate and Vic's—both murderers, one destroyed, one preserved by bargaining power—illustrates the show's understanding of justice's unequal application. Ronnie's fate is perhaps most affecting precisely because he's most innocent, his trust in Vic leaving him exposed when protection became inconvenient.</p>
+
+                        <p>The finale's pacing deserves recognition—alternating between Strike Team dissolution, case closure, and political machinations, building to simultaneous climaxes that interact without collapsing. The editing intercuts present action with imagined alternatives, memory and possibility bleeding into reality. When the credits roll on the final ambiguous image, the series has earned its uncertainty through years of honest storytelling.</p>
+
+                        <div class="dimension-highlight">
+                            "Shane's written confession—read by Claudette as the camera holds on Walton Goggins's devastated face—contains some of dialogue's most wrenching moments, earning every tear through six years of character investment."
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p style="margin-top:1.5rem"><strong>Narrative Drive (10):</strong> Seven seasons of mounting tension. Every season escalates. No let-up.</p>
-            <p><strong>Resolution (10):</strong> The immunity deal. The cubicle. "Now you're his." Perfect punishment for a man who thought he could outsmart everyone.</p>
-            <p><strong>Conceptual Density (9):</strong> The morality of effective evil. Can good come from corruption? The answer is no—and yes—and it destroys everyone.</p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Pilot" (S1E1)</strong> — The murder. "Good cop and bad cop left for the day. I'm a different kind of cop."</p>
-            <p><strong>("Dominoes Falling" (S5E11)</strong> — The internal affairs investigation. Shane's choice. Everything falls apart.</p>
-            <p><strong>"Family Meeting" (S7E13)</strong> — Series finale. The confession. The immunity. The cubicle. "I'm Detective Vic Mackey."</p>
-        </div>
+        <!-- Final Score -->
+        <section class="section final-section">
+            <div class="final-label">Final Composite Score</div>
+            <div class="final-score">8.17</div>
+            <div class="final-verdict">
+                <p>The Shield stands as a monument of television's golden age—a series that rewrote rules about what protagonists could be while delivering seven seasons of sustained excellence. Its influence permeates everything that followed, from Breaking Bad's moral spiral to True Detective's anthology structure.</p>
+                
+                <p>What separates The Shield from mere antihero exploitation is its unflinching examination of consequences. Vic Mackey doesn't get away with his crimes; he merely survives them, transformed into something emptier and more pathetic than the monster he was. The show's vision is ultimately moral without being moralistic, understanding that understanding corruption isn't the same as forgiving it.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Hulu</p>
-            <p><strong>UK:</strong> Disney+</p>
-        </div>
+                <p>Some shows age poorly as cultural moments pass. The Shield feels increasingly relevant—its examination of police corruption, systemic rot, and masculine violence speaking to contemporary conversations with uncomfortable precision. This isn't comfort television. It's essential viewing for anyone who wants to understand what the medium can accomplish when it refuses to look away.</p>
+            </div>
+            
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Characters</div>
+                    <div class="breakdown-value">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">World Building</div>
+                    <div class="breakdown-value">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Cinematography</div>
+                    <div class="breakdown-value">8.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Visual Spectacle</div>
+                    <div class="breakdown-value">7.5</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Conceptual Density</div>
+                    <div class="breakdown-value">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Narrative Drive</div>
+                    <div class="breakdown-value">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Resolution</div>
+                    <div class="breakdown-value">9.0</div>
+                </div>
+            </div>
+
+            <div class="tag-container" style="justify-content: center; margin-top: 2rem;">
+                <span class="tag">Television Landmark</span>
+                <span class="tag">Must Watch</span>
+                <span class="tag">Golden Age Pioneer</span>
+                <span class="tag">Prestige TV Essential</span>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: 2rem;">
+            <p>Analysis generated for TV Shows Ranked Project</p>
+            <p style="margin-top: 0.5rem;">The Shield &copy; 2002-2008 FX Networks. All rights reserved.</p>
+        </footer>
     </div>
 </body>
 </html>

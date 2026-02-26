@@ -3,89 +3,763 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wolf Hall - "Choose Your Prince" | Dynamic Rank Engine</title>
+    <title>Wolf Hall (2015-2024) - TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #8b0000; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #8b0000, #4a0000); color: #d4a373; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #d4a373; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(139,0,0,0.3), rgba(0,0,0,0.9)); border: 3px solid #8b0000; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #d4a373; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #8b0000; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #d4a373; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(139,0,0,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #d4a373; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #d4a373; font-weight: 700; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-tertiary: #1a1a1a;
+            --accent-gold: #d4af37;
+            --accent-amber: #b8860b;
+            --text-primary: #e8e8e8;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --border-color: #2a2a2a;
+            --score-high: #4ade80;
+            --score-medium: #facc15;
+            --score-low: #f87171;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .show-header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 60px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .show-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23d4af37" opacity="0.03" width="100" height="100"/></svg>');
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .show-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .show-year {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .show-type {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .show-rating {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+            color: var(--bg-primary);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .show-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .show-tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .show-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Cast Section */
+        .cast-section {
+            margin-top: 20px;
+        }
+
+        .cast-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cast-member {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .cast-member:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 50px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .section-content p {
+            margin-bottom: 20px;
+        }
+
+        /* Feeling Section Special Styling */
+        .feeling-box {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-left: 4px solid var(--accent-gold);
+            padding: 30px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 40px;
+        }
+
+        .feeling-content {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text-primary);
+        }
+
+        .feeling-content p {
+            margin-bottom: 20px;
+        }
+
+        /* Dimension Blocks */
+        .dimension-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .dimension-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .dimension-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .dimension-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dimension-icon {
+            font-size: 1.4rem;
+        }
+
+        .dimension-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .dimension-score.high {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--score-high);
+        }
+
+        .dimension-score.medium {
+            background: rgba(250, 204, 21, 0.15);
+            color: var(--score-medium);
+        }
+
+        .dimension-score.low {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--score-low);
+        }
+
+        .dimension-body {
+            padding: 25px;
+        }
+
+        .dimension-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .dimension-description p {
+            margin-bottom: 15px;
+        }
+
+        .dimension-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 30px;
+            height: fit-content;
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .score-value {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .score-verdict {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .score-breakdown {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .breakdown-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-name {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .breakdown-score {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .breakdown-score.high {
+            color: var(--score-high);
+        }
+
+        .breakdown-score.medium {
+            color: var(--score-medium);
+        }
+
+        .breakdown-score.low {
+            color: var(--score-low);
+        }
+
+        /* Footer Score Block */
+        .final-score-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-top: 2px solid var(--accent-gold);
+            padding: 60px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .final-score-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .final-score-title {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .final-score-value {
+            font-size: 6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .final-score-label {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .final-score-summary {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            padding: 0 20px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .show-title {
+                font-size: 2rem;
+            }
+
+            .feeling-box {
+                padding: 20px;
+            }
+
+            .dimension-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .final-score-value {
+                font-size: 4rem;
+            }
+        }
+
+        /* Subtle Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-tertiary);
+            border-radius: 5px;
+            border: 2px solid var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #41</div>
-            <h1>Wolf Hall</h1>
-            <p class="subtitle">"Choose Your Prince"</p>
-            <div class="score-badge">
-                <span class="score-value">7.80</span>
-                <span class="score-label">Final Score</span>
+    <!-- Header Section -->
+    <header class="show-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="show-meta">
+                    <span class="show-year">2015-2024</span>
+                    <span class="show-type">Historical Drama</span>
+                    <span class="show-rating">★ BBC Premium</span>
+                </div>
+                <h1 class="show-title">Wolf Hall</h1>
+                <p class="show-tagline">"From blacksmith's son to kingdom's architect. The price of power is measured in whispers."</p>
+                
+                <div class="show-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Seasons</span>
+                        <span class="stat-value">2</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Episodes</span>
+                        <span class="stat-value">12</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Source Material</span>
+                        <span class="stat-value">Hilary Mantel Novels</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Setting</span>
+                        <span class="stat-value">Tudor England</span>
+                    </div>
+                </div>
+
+                <div class="cast-section">
+                    <div class="cast-label">Starring</div>
+                    <div class="cast-list">
+                        <span class="cast-member">Mark Rylance</span>
+                        <span class="cast-member">Damian Lewis</span>
+                        <span class="cast-member">Claire Foy</span>
+                        <span class="cast-member">Thomas Brodie-Sangster</span>
+                    </div>
+                </div>
             </div>
         </div>
+    </header>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2015, 2024</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">12</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">BBC Two</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Peter Straughan</div></div>
-        </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-left">
+                    <!-- What It Feels Like Section -->
+                    <section class="section">
+                        <h2 class="section-title">What It Feels Like to Watch</h2>
+                        <div class="feeling-box">
+                            <div class="feeling-content">
+                                <p>Watching <em>Wolf Hall</em> is like stepping through a time portal into the dimly lit corridors of Tudor England, where the flickering candlelight barely pierces the oppressive darkness and every conversation carries the weight of potential treason. This is not the bombastic Henry VIII of popular imagination—no jolly monarch tearing through wives with theatrical abandon. Here is something far more insidious and haunting.</p>
+                                
+                                <p>The series breathes at a different rhythm than most historical dramas. It moves with the deliberate, unhurried pace of a world lit only by fire, where information travels at the speed of a courier's horse and silence serves as the most potent weapon. Mark Rylance's Thomas Cromwell occupies the frame with preternatural stillness—the camera lingers on his weathered face, those penetrating eyes absorbing everything, revealing nothing. He is a man who has mastered the art of remaining invisible while standing in plain sight.</p>
+                                
+                                <p>Mantel's literary achievement finds its perfect visual counterpart here. The adaptation understands that her novels were never about Henry's marriages but about power's architecture—the invisible scaffolding of whispered conversations, forged alliances, and calculated betrayals that elevated a blacksmith's son to the right hand of a king. The production design evokes this through textures you can almost feel: rough-hewn stone, worn leather, the weight of velvet and brocade, the cold sheen of political survival.</p>
+                                
+                                <p><em>Wolf Hall</em> demands patience and rewards it with something increasingly rare in television: genuine immersion. You don't watch this show so much as inhabit it, breathing its air of suspicion and velvet menace, feeling the constant threat that hangs over every character like the executioner's blade waiting at Tower Hill.</p>
+                            </div>
+                        </div>
+                    </section>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Wolf Hall is the best period drama ever made about politics. Hillary Mantel's novels, adapted for television by Peter Straughan, tell the story of Thomas Cromwell not as a villain but as a survivor—the blacksmith's son who became the most powerful man in England, only to be consumed by the system he mastered.</p>
-            <p>Mark Rylance plays Cromwell as a man of extraordinary restraint. His face rarely moves. His voice stays soft. He watches everything, says little, and manipulates everything. It's a performance of stillness—power expressed through patience. When Cromwell finally moves, the effect is shocking because we've seen how much effort it takes to provoke him.</p>
-            <p>The series covers Henry VIII's divorce from Catherine of Aragon, his marriage to Anne Boleyn, and the beginning of the English Reformation. But these events are backdrop. The foreground is always Cromwell navigating a court where one wrong word means death. Damian Lewis plays Henry as a man whose whims are law, whose anger is lethal, whose favor must be constantly maintained. Claire Foy plays Anne Boleyn as exactly what she was: a woman who understood the game and played it with everything she had.</p>
-            <p>The production design is remarkable for what it doesn't do. There are no sweeping shots of palaces, no elaborate costumes paraded for the viewer. Everything is candlelit and close. The camera stays in rooms, often in corners, watching faces. The effect is intimate and claustrophobic—you feel the pressure of the court, the danger of being seen, the isolation of power.</p>
-            <p>The second season, The Mirror and the Light, arrived in 2024 and completed Cromwell's story. His fall is as methodical as his rise, and the series captures the terrible inevitability of a man who knows the system will turn on him but can't stop running it.</p>
-        </div>
+                    <!-- Why It Ranks Section -->
+                    <section class="section">
+                        <h2 class="section-title">Why It Ranks</h2>
+                        <div class="dimension-grid">
+                            <!-- Characters -->
+                            <div class="dimension-card">
+                                <div class="dimension-header">
+                                    <div class="dimension-name">
+                                        <span class="dimension-icon">👥</span>
+                                        Characters
+                                    </div>
+                                    <div class="dimension-score high">8.0</div>
+                                </div>
+                                <div class="dimension-body">
+                                    <div class="dimension-description">
+                                        <p>The character work in <em>Wolf Hall</em> operates with surgical precision. Mark Rylance delivers a career-defining performance as Thomas Cromwell, creating a man who feels impossibly complex yet completely coherent—a brutal survivor who quotes Scripture, a ruthless manipulator who mourns his dead wife, a commoner who outwits every noble in England while remaining, in some essential way, unknowable.</p>
+                                        <p>Damian Lewis's Henry VIII arrives gradually, built not through proclamation but through accumulation of small moments of doubt and rage. Claire Foy's Anne Boleyn presents a woman trapped by her own ambition, her sharp intelligence becoming her prison. Even supporting figures—Thomas Brodie-Sangster's Rafe Sadler, Anton Lesser's Thomas More—emerge as fully dimensional, their loyalties and fears etched in performances of remarkable economy. These are characters who exist between the lines of historical record, imagined yet utterly convincing.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">9</div><div class="dimension-weight">20% weight</div></div>
+                            <!-- World Building -->
+                            <div class="dimension-card">
+                                <div class="dimension-header">
+                                    <div class="dimension-name">
+                                        <span class="dimension-icon">🏛️</span>
+                                        World Building
+                                    </div>
+                                    <div class="dimension-score high">8.0</div>
+                                </div>
+                                <div class="dimension-body">
+                                    <div class="dimension-description">
+                                        <p>The world of <em>Wolf Hall</em> builds itself not through exposition dumps but through accumulated texture. Production designer James Merifield and his team constructed a Tudor England that feels lived-in, worn, and authentic—these are not museum dioramas but functioning spaces where people eat, sleep, plot, and die. Real locations at Hampton Court, Lacock Abbey, and Great Chalfield Manor ground the fantasy in stone and timber.</p>
+                                        <p>The adaptation understands that Mantel's novels were fundamentally about place—about how architecture shapes power, how proximity to the throne determines survival, how the geography of London itself becomes a chessboard. The world operates with internal logic so consistent that every candle, every servant's gesture, every whispered conversation reinforces the reality. You understand the social strata instinctively, feel the weight of religious tension, sense the precariousness of every character's position within an unforgiving hierarchy.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cinematography -->
+                            <div class="dimension-card">
+                                <div class="dimension-header">
+                                    <div class="dimension-name">
+                                        <span class="dimension-icon">🎥</span>
+                                        Cinematography
+                                    </div>
+                                    <div class="dimension-score high">8.5</div>
+                                </div>
+                                <div class="dimension-body">
+                                    <div class="dimension-description">
+                                        <p>Cinematographer Gavin Finney crafts a visual language that mirrors Cromwell's own approach: precise, patient, and attentive to detail others might miss. The series employs natural light almost exclusively, creating an authenticity that separates it from artificially lit period pieces. Shadows engulf rooms; faces emerge from darkness like secrets half-revealed.</p>
+                                        <p>The camera work favors observation over manipulation—long takes allow scenes to breathe, wide shots establish relationships between characters and spaces, and close-ups on Rylance's face become entire conversations. The visual restraint proves more powerful than cinematic spectacle could ever be. Colors arrive muted, dominated by earth tones and candle-warm ambers, with reds appearing only as symbols of power or blood. This is cinematography in service of atmosphere, every frame considered, every composition purposeful.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Visual Spectacle -->
+                            <div class="dimension-card">
+                                <div class="dimension-header">
+                                    <div class="dimension-name">
+                                        <span class="dimension-icon">✨</span>
+                                        Visual Spectacle
+                                    </div>
+                                    <div class="dimension-score low">6.0</div>
+                                </div>
+                                <div class="dimension-body">
+                                    <div class="dimension-description">
+                                        <p><em>Wolf Hall</em> deliberately rejects visual spectacle as a value. There are no grand battle sequences, no sweeping crane shots of armies, no digitally enhanced crowds. The coronation of Anne Boleyn, in other hands a set-piece of opulence, here becomes a series of intimate moments—Cromwell watching from shadows, Henry's nervous prayer, the weight of the crown rather than its sparkle.</p>
+                                        <p>This intentional restraint serves the narrative's purposes. The series argues that true power operates invisibly, that the most consequential moments occur in whispered conversations rather than throne room proclamations. Yet this choice limits the show's visual impact compared to more extravagant historical dramas. The authenticity, while admirable, means the visual palette remains deliberately muted. Spectacle exists in costumes and locations, but the camera refuses to linger on them for admiration. The show asks us to find beauty in restraint, which not every viewer will grant.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Conceptual Density -->
+                            <div class="dimension-card">
+                                <div class="dimension-header">
+                                    <div class="dimension-name">
+                                        <span class="dimension-icon">🧠</span>
+                                        Conceptual Density
+                                    </div>
+                                    <div class="dimension-score high">7.6</div>
+                                </div>
+                                <div class="dimension-body">
+                                    <div class="dimension-description">
+                                        <p>The intellectual architecture of <em>Wolf Hall</em> operates on multiple simultaneous levels. This is a show about the Reformation as political project, about the birth of the modern bureaucratic state, about class mobility's limits and possibilities, about religious conviction's intersection with earthly power. Cromwell's legal mind becomes the lens through which we understand epochal change.</p>
+                                        <p>The adaptation grapples with Mantel's philosophical preoccupations: mercy and its absence, memory as both comfort and wound, the possibility of ethical action within corrupt systems. Historical figures become case studies in ambition, faith, and survival. The dialogue rewards close attention—every conversation operates on multiple registers, every silence contains meaning. Yet the show's refusal to explain itself, to provide footholds for viewers unfamiliar with Tudor history, creates genuine barriers to entry. The density rewards patience but punishes casual viewing.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Narrative Drive -->
+                            <div class="dimension-card">
+                                <div class="dimension-header">
+                                    <div class="dimension-name">
+                                        <span class="dimension-icon">⚡</span>
+                                        Narrative Drive
+                                    </div>
+                                    <div class="dimension-score medium">7.2</div>
+                                </div>
+                                <div class="dimension-body">
+                                    <div class="dimension-description">
+                                        <p>The narrative engine of <em>Wolf Hall</em> runs on psychological complexity rather than plot mechanics. The central question—will Cromwell succeed in his maneuvers?—carries sufficient weight to propel interest, especially given our knowledge of history's outcomes. The adaptation structures itself around Cromwell's rise, creating implicit tension in every scene where his position seems secure.</p>
+                                        <p>However, the pacing proves deliberately meditative, eschewing cliffhangers and traditional tension-building for something more diffuse. Episodes don't end on dramatic revelations so much as on moments of contemplation. This approach serves the show's thematic interests—life rarely delivers narrative satisfaction—but creates uneven propulsion. The six-episode first season maintains momentum through Cromwell's rapid ascent; the sequel <em>The Mirror and the Light</em> (2024), covering his fall, carries predetermined tragedy that paradoxically weakens urgency even while deepening resonance. The narrative drive exists, but it demands readers rather than viewers.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Resolution -->
+                            <div class="dimension-card">
+                                <div class="dimension-header">
+                                    <div class="dimension-name">
+                                        <span class="dimension-icon">🎯</span>
+                                        Resolution
+                                    </div>
+                                    <div class="dimension-score high">7.6</div>
+                                </div>
+                                <div class="dimension-body">
+                                    <div class="dimension-description">
+                                        <p>The first season achieves a form of resolution through its chosen endpoint—Cromwell's triumph in arranging Henry's marriage to Anne Boleyn, his establishment as indispensable. This isn't closure in any traditional sense, but something more honest about how power functions: victories are temporary, success breeds new vulnerabilities, the game never truly ends.</p>
+                                        <p>The complete adaptation, concluded with <em>The Mirror and the Light</em>, provides the tragic resolution history demands. Cromwell's fall, his execution, the stripping away of everything he built—this arrives with inevitability that the show makes feel earned rather than predetermined. The resolution's power lies not in surprise but in watching a man fully aware of his impending destruction unable to prevent it. History provides the structure; the adaptation provides the emotional truth. It's not satisfying in conventional terms, but it's complete, honest, and deeply affecting.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="score-card">
+                        <div class="score-label">Overall Score</div>
+                        <div class="score-value">7.58</div>
+                        <div class="score-verdict">Exquisite Historical Drama</div>
+                    </div>
+
+                    <div class="score-breakdown">
+                        <div class="breakdown-title">Score Breakdown</div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-name">Characters</span>
+                            <span class="breakdown-score high">8.0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-name">World Building</span>
+                            <span class="breakdown-score high">8.0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-name">Cinematography</span>
+                            <span class="breakdown-score high">8.5</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-name">Visual Spectacle</span>
+                            <span class="breakdown-score low">6.0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-name">Conceptual Density</span>
+                            <span class="breakdown-score high">7.6</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-name">Narrative Drive</span>
+                            <span class="breakdown-score medium">7.2</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-name">Resolution</span>
+                            <span class="breakdown-score high">7.6</span>
+                        </div>
+                    </div>
+                </aside>
             </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Mark Rylance's Cromwell is among television's great performances. The supporting cast—Damian Lewis, Claire Foy, Jonathan Pryce, Anton Lesser—is uniformly excellent.</p>
-            <p><strong>Conceptual Density (9):</strong> The series explores power, religion, class, and survival. How does a nobody become indispensable? How long can you ride a tiger? The questions are dramatized, not discussed.</p>
-            <p><strong>Resolution (9):</strong> The second season provides closure. Cromwell's fall is as masterfully rendered as his rise. The end is both inevitable and heartbreaking.</p>
         </div>
+    </main>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Three Card Trick" (S1E1)</strong> — The introduction. Cromwell's tragedy begins with loss.</p>
-            <p><strong>"Anna Regina" (S1E4)</strong> — Anne becomes queen. Cromwell's position is secured, but at what cost?</p>
-            <p><strong>"Light" (S2E6)</strong> — The end. The scaffold. A life of calculation concludes.</p>
+    <!-- Final Score Section -->
+    <section class="final-score-section">
+        <div class="container">
+            <div class="final-score-container">
+                <div class="final-score-title">Final Verdict</div>
+                <div class="final-score-value">7.58</div>
+                <div class="final-score-label">A Masterpiece of Restrained Power</div>
+                <p class="final-score-summary">
+                    <em>Wolf Hall</em> stands as perhaps the finest adaptation of literary historical fiction ever achieved for television. Mark Rylance's inhabitation of Thomas Cromwell creates an indelible portrait of power's quiet architect—a man who built the modern state with whispered conversations and legal maneuvering, rising from obscurity to dominance only to fall when his usefulness expired. The production's commitment to authenticity, its rejection of melodrama in favor of psychological truth, and its understanding that history's most consequential moments often occur in shadow rather than spectacle, elevates it beyond genre conventions. This is television for readers, demanding attention and rewarding it with art of rare intelligence. The complete adaptation, spanning Cromwell's rise and fall across two meticulously crafted seasons, offers something television rarely achieves: genuine literary adaptation that honors its source while discovering its own visual language. In an era of content glut, <em>Wolf Hall</em> reminds us what the medium can accomplish when it trusts audiences to follow complexity rather than demanding simplification.
+                </p>
+            </div>
         </div>
-
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> PBS, Prime Video</p>
-            <p><strong>UK:</strong> BBC iPlayer</p>
-        </div>
-    </div>
+    </section>
 </body>
 </html>

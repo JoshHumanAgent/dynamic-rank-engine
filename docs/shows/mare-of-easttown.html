@@ -3,89 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mare of Easttown - "All roads lead home" | Dynamic Rank Engine</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #05100a 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #2e7d32; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #2e7d32, #1b5e20); color: #c8e6c9; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #81c784; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(46,125,50,0.3), rgba(0,0,0,0.9)); border: 3px solid #2e7d32; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #81c784; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #2e7d32; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #81c784; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(46,125,50,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #81c784; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #81c784; font-weight: 700; }
-    </style>
+    <title>Mare of Easttown - Seven Dimension Analysis | TV Shows Ranked</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #52</div>
-            <h1>Mare of Easttown</h1>
-            <p class="subtitle">"All roads lead home"</p>
-            <div class="score-badge">
-                <span class="score-value">7.53</span>
-                <span class="score-label">Final Score</span>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">TV Shows Ranked</a>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../rankings.html">Rankings</a>
+                <a href="../about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="show-analysis">
+        <div class="hero-section" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="show-title">Mare of Easttown</h1>
+                <div class="show-meta">
+                    <span class="year">2021</span>
+                    <span class="separator">•</span>
+                    <span class="episodes">7 Episodes</span>
+                    <span class="separator">•</span>
+                    <span class="network">HBO</span>
+                </div>
+                <p class="show-creator">Created by Brad Ingelsby</p>
+                <div class="show-cast">
+                    <span class="cast-label">Starring:</span> Kate Winslet, Evan Peters, Julianne Nicholson, Jean Smart, Angourie Rice
+                </div>
             </div>
         </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2021</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">7</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Brad Ingelsby</div></div>
-        </div>
+        <div class="analysis-container">
+            <section class="feeling-section">
+                <h2 class="section-title">What It Feels Like to Watch</h2>
+                <div class="feeling-content">
+                    <p class="feeling-text">
+                        Watching <em>Mare of Easttown</em> is like stepping into the heavy, gray atmosphere of a small Pennsylvania town where everyone knows everyone, and the weight of unsolved tragedy hangs in the air like humidity before a storm. Kate Winslet disappears so completely into Detective Mare Sheehan that you forget you're watching acting at all—you're simply witnessing a woman crumbling under the weight of responsibilities she never asked for, loss she never processed, and a community that simultaneously needs her and resents her for failing them.
+                    </p>
+                    <p class="feeling-text">
+                        The Delco accent—that distinctive Delaware County Pennsylvania dialect—becomes almost a character itself, grounding every interaction in authenticity. This isn't the polished, performative regionalism of Hollywood; it's lived-in, specific, and honest. You can taste the Wawa coffee, smell the stale cigarettes in the police station, feel the claustrophobic intimacy of a town where your high school basketball glory is both your greatest achievement and your prison cell, still defining you decades later.
+                    </p>
+                    <p class="feeling-text">
+                        The mystery unfolds slowly, almost reluctantly, because this show isn't really about solving a crime—it's about surviving one, surviving many, surviving life in a place where opportunities are scarce and pain is abundant. Mare's investigation of a teenage mother's murder becomes the thread that pulls at the fabric of her own unprocessed grief, her failed marriage, her strained relationship with her daughter, and her complicated bonds with her mother and grandson. Every discovery illuminates not just the case, but the broken woman pursuing it.
+                    </p>
+                    <p class="feeling-text">
+                        There's a raw vulnerability here that few crime dramas achieve. When Mare finally breaks—really breaks—you feel it in your chest. This is television that demands emotional investment and rewards it with profound human truth. It's exhausting in the best way, like a long conversation with someone who's seen too much but keeps going because stopping isn't an option. You emerge from its seven episodes changed, having witnessed something rare: a complete portrait of a woman, flaws and all, learning that asking for help isn't weakness—it's the only way forward.
+                    </p>
+                </div>
+            </section>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Mare of Easttown is small-town murder mystery as grief study. Mare Sheehan (Kate Winslet), a Pennsylvania detective, investigates a young mother's murder while her own life collapses: her son's suicide, her daughter's rebellion, her ex-husband's engagement to someone new, her father's dementia. "All roads lead home," the tagline says. In Easttown, home is where trauma lives. Every family is broken; every secret connects; everyone knows everyone's pain.</p>
-            <p>the mystery unfolds across seven episodes: Erin McMenamin, teenage mother, found dead in the woods. Suspects multiply: the baby's father, the ex-boyfriend, the cousin, the priest. Mare pursues leads while pursued by her own demons—her son Kevin's suicide haunts every frame. "I'm not okay," she finally admits. "I haven't been okay for a long time." The show lets her not be okay: her rage, her denial, her gradual acceptance that she can't save everyone. Sometimes she can't save anyone.</p>
-            <p>Kate Winslet's performance is the center—Emmy-winning, lived-in, devastating. Mare is exhausted, competent, barely holding on. The supporting cast: Jean Smart as her mother (also Emmy-winning), Julianne Nicholson as her best friend, Evan Peters as the county detective assigned to help. Guy Pearce plays the writer who sees her. The Pennsylvania setting—Delaware County accents, Wawa references, the Philadelphia suburbs—is specific, authentic, character in itself.</p>
-            <p>One season, seven episodes, complete miniseries. Mare of Easttown was HBO's pandemic-era hit—murder mystery as comfort food, small-town noir as therapy. The finale resolves the case (not without surprises) and Mare's arc: she finally enters her son's room, finally grieves, finally lets others help. "You don't have to do everything alone," someone tells her. She learns. The ending is earned. The road led home; home was where the work waited.</p>
-        </div>
+            <section class="ranking-section">
+                <h2 class="section-title">Why It Ranks</h2>
+                
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-number">01</span>
+                        <h3 class="dimension-name">Characters</h3>
+                        <span class="dimension-score">7.7</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>The character work in <em>Mare of Easttown</em> represents some of the most nuanced television writing of the decade. Mare Sheehan herself is a masterclass in complexity—a local hero still coasting on her high school basketball glory, a detective who solves everyone else's problems while drowning in her own, a mother who can't connect with her daughter because she's never processed her son's suicide. Winslet imbues her with a physicality that speaks volumes: the permanent exhaustion in her eyes, the defensive posture, the way she smokes cigarettes like they're the only thing keeping her upright.</p>
+                        <p>The supporting ensemble elevates every scene. Jean Smart as Mare's mother Helen provides both comic relief and devastating emotional truth, their relationship capturing the particular warfare of mothers and daughters who are too alike to get along. Julianne Nicholson's Lori is Mare's best friend, navigating her own family's crisis while trying to hold Mare together, a thankless role that Nicholson makes quietly heroic. Evan Peters as Detective Colin Zabel brings charm and vulnerability as the outsider who sees Mare clearly even when she can't see herself. Even minor characters—a teacher, a bartender, a grieving mother—feel fully realized, with inner lives extending beyond their plot function. The show understands that in a town this small, everyone carries history, and no one is simply what they appear to be.</p>
+                    </div>
+                </div>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Kate Winslet is extraordinary. Jean Smart and Julianne Nicholson are Emmy winners. Ensemble perfection.</p>
-            <p><strong>World Building (8):</strong> Pennsylvania specificity. Delco accents. Small-town claustrophobia. Real place, real people.</p>
-            <p><strong>Resolution (8):</strong> Complete miniseries. Mystery solved. Grief addressed. Earned ending.</p>
-        </div>
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-number">02</span>
+                        <h3 class="dimension-name">World Building</h3>
+                        <span class="dimension-score">7.5</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>Easttown isn't just a setting; it's a fully realized ecosystem of interconnected lives, shared histories, and economic decline. The show's depiction of Delaware County, Pennsylvania achieves that rare authenticity where location becomes character. This is a world of modest ranch houses with aluminum siding, corner bars where everybody knows your name (and your business), and family-owned businesses struggling against the tide. The geography matters—the creek where teenagers party, the woods where tragedy strikes, the local institutions that anchor community life.</p>
+                        <p>The world building succeeds through specificity rather than exposition. We understand Easttown's class dynamics not through dialogue but through production design: the contrast between Mare's lived-in family home and the newer constructions, the way the local police station feels underfunded and overwhelmed, the presence of opioids as background radiation affecting nearly every family. The town's rhythms—holiday parades, high school basketball fever, backyard barbecues—create a sense of lived experience. Even the language carries world-building weight: the particular cadence of working-class Pennsylvania speech, the way everyone went to school together, the deep roots that are simultaneously comforting and constraining. This is a place you believe exists, a community with weight and texture.</p>
+                    </div>
+                </div>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Miss Lady Hawk Herself" (E1)</strong> — The introduction. "I'm a detective. I solve crimes."</p>
-            <p><strong>("Fathers" (E4)</strong> — The investigation deepens. Family secrets.</p>
-            <p><strong>("Sacrament" (E6)</strong> — The reveal. "Everything connects."</p>
-            <p><strong>("Must Be White" (E7)</strong> — The finale. "I'm ready to talk about Kevin."</p>
-        </div>
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-number">03</span>
+                        <h3 class="dimension-name">Cinematography</h3>
+                        <span class="dimension-score">7.5</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>Craig Zobel's direction, combined with cinematographer Ben Richardson's work, creates a visual language perfectly suited to the material: muted, naturalistic, and deeply attuned to the emotional undercurrents of every scene. The color palette leans heavily on overcast grays, faded browns, and the particular amber of sodium-vapor streetlights, creating a visual atmosphere that mirrors Mare's psychological state—gloomy, oppressive, yet occasionally pierced by moments of warmth and connection.</p>
+                        <p>The camera work favors intimate, almost invasive close-ups that refuse to let viewers maintain comfortable distance. When Mare is suffering, we're right there with her, unable to look away from the raw humanity of her pain. The framing often isolates characters within their environments—Mare alone in her messy car, figures silhouetted against gray skies, family members occupying separate spaces within shared rooms. Action sequences are handled with jarring realism rather than stylized choreography; violence arrives suddenly and leaves messily. The visual storytelling complements rather than competes with the narrative, using light and shadow, focus and blur, to externalize internal states. It's accomplished work that serves the story without calling attention to itself.</p>
+                    </div>
+                </div>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> HBO Max</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-number">04</span>
+                        <h3 class="dimension-name">Visual Spectacle</h3>
+                        <span class="dimension-score">6.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p><em>Mare of Easttown</em> makes a deliberate choice to reject visual spectacle in favor of grounded realism, and this decision serves the material while limiting its scoring potential in this dimension. There are no sweeping aerial shots of majestic landscapes, no carefully composed moments of visual grandeur, no action set pieces designed to wow viewers. The show's visual philosophy is one of restraint and authenticity, which is appropriate for the story but means there's little here that would satisfy those seeking aesthetic pyrotechnics.</p>
+                        <p>What spectacle exists is emotional rather than visual—the spectacle of Kate Winslet's face processing devastating revelation, the spectacle of human connection in moments of crisis. The production design creates lived-in spaces that feel genuinely inhabited rather than artfully arranged. The series finds occasional beauty in small moments: light filtering through kitchen windows, the glow of a bar at night, the Pennsylvania landscape in different seasons. But these are quiet, observational pleasures rather than showstopping sequences. The visual restraint is a feature, not a bug—it keeps focus on character and performance—but it means viewers looking for striking imagery or memorable visual compositions will find the palette intentionally limited.</p>
+                    </div>
+                </div>
+
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-number">05</span>
+                        <h3 class="dimension-name">Conceptual Density</h3>
+                        <span class="dimension-score">7.3</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>While <em>Mare of Easttown</em> wears the skin of a police procedural, its conceptual concerns run much deeper than simple whodunit mechanics. The show interrogates themes of motherhood in all its forms—biological, adoptive, surrogate, failed, and grieving. It explores how trauma reverberates through generations, how the opioid epidemic hollows out American communities, and how impossible it is to truly know the people closest to us. The mystery structure becomes a vehicle for examining grief's corrosive effects, the inadequacy of institutional justice, and the redemptive potential of human connection.</p>
+                        <p>The show grapples productively with class, particularly the particular challenges facing working-class women who work jobs that pay poorly while carrying emotional burdens that never clock out. It examines small-town dynamics—the suffocating intimacy, the long memories, the way everyone is connected to everyone else through webs of history and obligation. Religious imagery and themes surface organically, particularly regarding redemption and forgiveness, without becoming heavy-handed. The conceptual weight is distributed throughout the narrative rather than concentrated in thematic speeches; ideas emerge from character behavior and plot developments. While not philosophically dense in an abstract sense, the show achieves meaningful conceptual depth through its committed exploration of lived experience in all its messiness.</p>
+                    </div>
+                </div>
+
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-number">06</span>
+                        <h3 class="dimension-name">Narrative Drive</h3>
+                        <span class="dimension-score">7.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>The narrative structure of <em>Mare of Easttown</em> operates on multiple tracks simultaneously: the procedural investigation of Erin McMenamin's murder, the slow revelation of Mare's personal traumas, and the development of various community relationships. The show maintains steady momentum through carefully calibrated episode structures that typically introduce new information while deepening character understanding. The pacing is deliberately methodical—this is not a breakneck thriller but a slow burn that trusts viewers to engage with character alongside plot.</p>
+                        <p>The mystery plotting follows familiar beats while subverting expectations about resolution and redemption. Red herrings and misdirection are deployed effectively, keeping viewers engaged in the puzzle-solving while the real story—Mare's psychological journey—unfolds parallel. The show risks some viewer frustration in its middle episodes, where the investigation can feel stalled while interpersonal drama takes precedence. However, this structural choice serves thematic purposes: real investigations do stall, grief does interrupt functionality, and life continues demanding attention even when solving crimes. The finale provides satisfying resolution to both mystery and character arcs, earning the emotional payoff through careful setup. Individual episodes aren't always propulsive, but the cumulative effect generates genuine investment in outcomes.</p>
+                    </div>
+                </div>
+
+                <div class="dimension-block">
+                    <div class="dimension-header">
+                        <span class="dimension-number">07</span>
+                        <h3 class="dimension-name">Resolution</h3>
+                        <span class="dimension-score">7.3</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>The resolution of <em>Mare of Easttown</em> manages the difficult feat of delivering satisfying answers to its central mystery while maintaining the melancholic realism that defines the series. The reveal of Erin's killer arrives with genuine shock value—logical in retrospect but unforeseeable in the moment—satisfying the audience's desire for narrative closure while refusing easy moral categorization. The show understands that solving the mystery doesn't solve the pain; if anything, the truth often compounds suffering.</p>
+                        <p>More impressive is the emotional resolution for Mare herself. The finale finds her undertaking true psychological work—entering therapy voluntarily, acknowledging her son's suicide and her daughter's needs, beginning to dismantle the fortress of self-reliance she's constructed. This isn't transformation as magical cure but as first step, earned through seven episodes of denial and self-destruction. Supporting character arcs receive appropriate closure: some relationships heal, others remain strained, some losses prove permanent. The show resists the temptation to tie every thread neatly; Easttown's problems—the opioid crisis, economic decline, generational trauma—continue beyond the credits. What does resolve is the immediate crisis that brought viewers in, and the specific emotional blockages preventing Mare from moving forward. It's an ending that honors both the genre requirements and the deeper human truth.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="final-score-section">
+                <h2 class="section-title">Final Assessment</h2>
+                <div class="score-breakdown">
+                    <div class="score-row">
+                        <span class="score-label">Characters</span>
+                        <span class="score-value">7.7</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">World Building</span>
+                        <span class="score-value">7.5</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Cinematography</span>
+                        <span class="score-value">7.5</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Visual Spectacle</span>
+                        <span class="score-value">6.0</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Conceptual Density</span>
+                        <span class="score-value">7.3</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Narrative Drive</span>
+                        <span class="score-value">7.0</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Resolution</span>
+                        <span class="score-value">7.3</span>
+                    </div>
+                    <div class="score-divider"></div>
+                    <div class="score-row final">
+                        <span class="score-label">Final Score</span>
+                        <span class="score-value">7.32</span>
+                    </div>
+                </div>
+                <div class="verdict">
+                    <p><em>Mare of Easttown</em> stands as a testament to what limited series television can achieve when it prioritizes psychological truth over mechanical plotting. Kate Winslet delivers career-defining work, supported by an ensemble that finds humanity in even the most painful moments. The show's deliberate rejection of flash and spectacle in favor of grounded realism won't satisfy viewers seeking escapist entertainment, but for those willing to sit with discomfort and complexity, it offers something more valuable: genuine emotional catharsis. Its 7.32 score reflects exceptional achievement in character, world-building, and thematic coherence, held back only by its conscious limitations in visual scope and occasionally deliberate pacing. This is television as character study, as social observation, and as proof that the mystery genre can still surprise when its practitioners care more about people than puzzles.</p>
+                </div>
+            </section>
         </div>
-    </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 TV Shows Ranked. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

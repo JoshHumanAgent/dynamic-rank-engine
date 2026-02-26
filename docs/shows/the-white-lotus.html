@@ -3,89 +3,665 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The White Lotus - "Paradise Has a Price" | Dynamic Rank Engine</title>
+    <title>The White Lotus | Seven-Dimension Analysis</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #20b2aa; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #20b2aa, #147571); color: #e0ffff; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #48d1cc; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(32,178,170,0.3), rgba(0,0,0,0.9)); border: 3px solid #20b2aa; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #48d1cc; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #20b2aa; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #48d1cc; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(32,178,170,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #48d1cc; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #48d1cc; font-weight: 700; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --ivory: #F8F4E8;
+            --sand: #E8DFD0;
+            --warm-white: #FFFCF8;
+            --gold: #D4AF37;
+            --gold-light: #E8D5A3;
+            --gold-deep: #B8960C;
+            --ocean-blue: #006D77;
+            --ocean-light: #83C5BE;
+            --ocean-pale: #EDF6F9;
+            --teal: #2A6F6F;
+            --turquoise: #4A9B9B;
+            --text-dark: #2C2C2C;
+            --text-medium: #5A5A5A;
+            --text-light: #8B8680;
+            --shadow: rgba(0, 0, 0, 0.06);
+            --shadow-deep: rgba(0, 0, 0, 0.12);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 50%, var(--ocean-pale) 100%);
+            color: var(--text-dark);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(180deg, var(--ocean-blue) 0%, var(--teal) 100%);
+            padding: 60px 0 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M0 50 Q25 40 50 50 T100 50' fill='none' stroke='%23ffffff08' stroke-width='0.5'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .logo {
+            font-size: 14px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            font-weight: 400;
+            color: var(--warm-white);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            position: relative;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            font-style: italic;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--ocean-light);
+            font-style: italic;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .meta-bar {
+            background: var(--ivory);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--sand);
+        }
+
+        .meta-content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .meta-item strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--ocean-blue);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold);
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .intro-section {
+            background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
+            border-bottom: 1px solid var(--sand);
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            line-height: 1.9;
+            columns: 2;
+            column-gap: 40px;
+            column-rule: 1px solid var(--sand);
+        }
+
+        .intro-text p {
+            margin-bottom: 1.5em;
+            break-inside: avoid;
+        }
+
+        .intro-text .highlight {
+            color: var(--ocean-blue);
+            font-weight: 600;
+        }
+
+        /* Dimension Cards */
+        .dimensions-section {
+            background: var(--warm-white);
+        }
+
+        .dimension-block {
+            margin-bottom: 45px;
+            padding: 35px 40px;
+            background: linear-gradient(145deg, var(--warm-white) 0%, var(--ivory) 100%);
+            border: 1px solid var(--sand);
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dimension-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px var(--shadow-deep);
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--sand);
+            padding-bottom: 15px;
+        }
+
+        .dimension-name {
+            font-size: 1.4rem;
+            color: var(--ocean-blue);
+            font-weight: 600;
+        }
+
+        .dimension-score {
+            font-size: 2.2rem;
+            color: var(--gold-deep);
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .dimension-content {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.85;
+        }
+
+        .dimension-content p {
+            margin-bottom: 1.2em;
+        }
+
+        .dimension-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Score Breakdown */
+        .breakdown-section {
+            background: linear-gradient(180deg, var(--ocean-pale) 0%, var(--warm-white) 100%);
+            border-top: 1px solid var(--sand);
+        }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .score-item {
+            text-align: center;
+            padding: 20px 10px;
+            background: var(--warm-white);
+            border: 1px solid var(--sand);
+            transition: all 0.3s ease;
+        }
+
+        .score-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .score-label {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .score-value {
+            font-size: 1.6rem;
+            color: var(--ocean-blue);
+            font-weight: 700;
+        }
+
+        /* Final Score Display */
+        .final-score-container {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--teal) 100%);
+            border-radius: 0;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-score-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: shimmer 8s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .final-label {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .final-score {
+            font-size: 5rem;
+            color: var(--warm-white);
+            font-weight: 300;
+            letter-spacing: -2px;
+            position: relative;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .final-verdict {
+            font-size: 1.3rem;
+            color: var(--ocean-light);
+            margin-top: 25px;
+            font-style: italic;
+            position: relative;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: var(--cream);
+            border-top: 1px solid var(--sand);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: var(--ivory);
+            border-left: 4px solid var(--gold);
+            padding: 25px 30px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .quote-block cite {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: normal;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .intro-text {
+                columns: 1;
+            }
+
+            .score-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .score-item:last-child {
+                grid-column: span 3;
+            }
+
+            .dimension-block {
+                padding: 25px;
+            }
+
+            .final-score {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Season Tags */
+        .season-tags {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .season-tag {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+            color: var(--text-dark);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Cast List */
+        .cast-section {
+            background: var(--warm-white);
+            padding: 40px;
+            margin: 30px 0;
+            border: 1px solid var(--sand);
+        }
+
+        .cast-title {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .cast-member {
+            background: var(--ivory);
+            padding: 12px 20px;
+            border: 1px solid var(--sand);
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            transition: all 0.2s ease;
+        }
+
+        .cast-member:hover {
+            border-color: var(--gold);
+            background: var(--warm-white);
+        }
+
+        /* Location Visual */
+        .location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--ocean-pale);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--ocean-blue);
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #92</div>
+    <header>
+        <div class="container">
+            <div class="logo">Seven-Dimension Critical Analysis</div>
             <h1>The White Lotus</h1>
-            <p class="subtitle">"Paradise Has a Price"</p>
-            <div class="score-badge">
-                <span class="score-value">7.63</span>
-                <span class="score-label">Final Score</span>
+            <div class="subtitle">An HBO Original Satirical Drama Series</div>
+        </div>
+    </header>
+
+    <div class="meta-bar">
+        <div class="container">
+            <div class="meta-content">
+                <div class="meta-item">
+                    <span>Created by</span>
+                    <strong>Mike White</strong>
+                </div>
+                <div class="meta-item">
+                    <span>Network</span>
+                    <strong>HBO</strong>
+                </div>
+                <div class="meta-item">
+                    <span>Seasons</span>
+                    <strong>3</strong>
+                </div>
+                <div class="meta-item">
+                    <span>Episodes</span>
+                    <strong>22</strong>
+                </div>
+                <div class="meta-item">
+                    <span>Genre</span>
+                    <strong>Satire / Drama</strong>
+                </div>
             </div>
-        </div>
-
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2021-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">15+</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Mike White</div></div>
-        </div>
-
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The White Lotus is a satire of wealth, privilege, and the people who serve both. Each season follows guests and staff at a luxury resort, tracking their intersecting stories over a week. We know from the opening that someone dies—who, how, and why is the mystery. But the death is almost incidental. The real story is class, status, and the lies people tell to maintain both.</p>
-            <p>Season one is Hawaii, where the guests include a newlywed couple with power imbalances, a mother traveling with her sullen teenage daughter, a wealthy businessman dying of cancer, and a woman whose mother left her at the altar. The staff includes hotel manager Armond, a recovering addict whose carefully maintained professionalism unravels over the week. Murray Bartlett's Armond is a tragicomic marvel—a man trying to keep it together while everything falls apart, who finally stops trying.</p>
-            <p>Season two moves to Sicily, with a new cast (except Jennifer Coolidge's Tanya, the tragic heiress who links both seasons). Here the themes are sex, power, and masculinity. Three generations of Italian-American men trace their roots, a wealthy couple negotiates an open marriage, and Tanya falls in with a suspicious group of gay men. The season finale is one of television's most darkly hilarious sequences—Tanya's death is simultaneously tragic, absurd, and completely earned.</p>
-            <p>Mike White writes with uncomfortable precision. His characters are awful, but they're awful in specific ways that reveal the systems they inhabit. The tech bro newlywed, the ambitious assistant, the closeted movie star, the privileged teenager—they're types, but they're types explored deeply enough to become individuals. Jennifer Coolidge's Tanya is the show's heart and punchline, a woman whose wealth has made her profoundly lonely and whose loneliness makes her profoundly vulnerable.</p>
-            <p>The resort aesthetic is both aspiration and indictment. Hawaiian beaches, Sicilian palazzos, infinity pools overlooking paradise—all rendered beautifully, all undercut by the ugliness of what happens there. The show makes complicity look gorgeous.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">N/A</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Jennifer Coolidge's Tanya is iconic. The ensemble rotates each season, creating fresh character studies. Everyone commits to White's uncomfortable vision.</p>
-            <p><strong>Visual Spectacle (9):</strong> Hawaii and Sicily rendered in lush, envy-inducing frames. The beauty is part of the satire—paradise as a trap.</p>
-            <p><strong>Conceptual Density (8):</strong> Class, wealth, privilege, sex, power, colonialism—the show layers critique without lecturing. It makes you complicit in the watching.</p>
-        </div>
-
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Arrivals" (S1E1)</strong> — The guests arrive. Tanya scatters her mother's ashes. The death teased.</p>
-            <p><strong>"Mysterious Monkeys" (S1E6)</strong> — Season one finale. The death revealed. Armond's end. Everything unravels.</p>
-            <p><strong>"Arrivederci" (S2E7)</strong> — Season two finale. Tanya's Sicilian adventure ends. The funniest tragedy on television.</p>
-        </div>
-
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Max</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
         </div>
     </div>
+
+    <section class="intro-section">
+        <div class="container">
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            <div class="intro-text">
+                <p>Watching <span class="highlight">The White Lotus</span> feels like receiving a gold-plated invitation to witness the slow-motion collapse of privilege—a voyeuristic experience that's simultaneously beautiful and deeply uncomfortable. Mike White's biting satire unfolds across the pristine grounds of ultra-luxury resorts, where the wealthy arrive seeking paradise and find instead the mirror they've been avoiding. The show's genius lies in its refusal to let anyone off the hook: guests, staff, and viewers alike are implicated in the machinery of inequality that these hotels both represent and perpetuate.</p>
+
+                <p>At the heart of this satirical juggernaut stands Jennifer Coolidge's Tanya McCord-Hunt, a character who transcends mere comic relief to become something far more devastating—a portrait of desperate loneliness wrapped in inherited wealth. Her iconic line, <em>"I want to live, laugh, love with you,"</em> becomes less of a Pinterest platitude and more of a tragic manifesto when delivered through Coolidge's trembling vulnerability. White weaponizes her brilliant casting transformation, taking an actress known for comedic support and unleashing her as the show's emotional core, earning Coolidge an Emmy and our collective heartbreak.</p>
+
+                <p>The resort functions as more than mere setting—it is the show's philosophical engine, a <span class="highlight">microcosm of class warfare</span> where the boundaries between guests and staff blur and harden in equal measure. From the volcanic landscapes of Hawaii in Season 1 to the ancient stones of Sicily in Season 2, and finally to the spiritual contradictions of Thailand in Season 3, each location serves as both paradise and purgatory. These are places where the rich pay to forget their emptiness while the staff work to become invisible, where the architecture of luxury masks the architecture of exploitation.</p>
+
+                <p>White's dialogue operates like a precision instrument of social observation, every seemingly casual conversation loaded with subtext about power, desire, and the American obsession with status. The show asks uncomfortable questions: What does it mean to truly deserve your place in the world? Can money buy happiness, or does it merely purchase the illusion? And most devastatingly—what moral compromises are we willing to make to maintain our comfort? The murder mystery framework that opens each season becomes less about solving a crime and more about recognizing the violence inherent in systems we've normalized.</p>
+
+                <p>What resonates most profoundly is the show's emotional residue—the lingering sense that you've witnessed something true about the human condition under late capitalism. These are not caricatures but fully dimensional people capable of cruelty and kindness, often in the same breath. The White Lotus creates a kind of anxiety that's almost addictive, a dread mixed with recognition, as we watch characters make choices we might make ourselves, given their circumstances. It is satire with teeth, beauty with rot, paradise with a price tag that keeps accruing interest long after the credits roll.</p>
+            </div>
+
+            <div class="cast-section">
+                <div class="cast-title">Principal Cast</div>
+                <div class="cast-list">
+                    <div class="cast-member">Jennifer Coolidge</div>
+                    <div class="cast-member">Murray Bartlett</div>
+                    <div class="cast-member">Connie Britton</div>
+                    <div class="cast-member">Sydney Sweeney</div>
+                    <div class="cast-member">Jake Lacy</div>
+                    <div class="cast-member">Meghann Fahy</div>
+                    <div class="cast-member">Aubrey Plaza</div>
+                    <div class="cast-member">F. Murray Abraham</div>
+                </div>
+            </div>
+
+            <div class="season-tags">
+                <span class="season-tag">Season 1: Hawaii (2021)</span>
+                <span class="season-tag">Season 2: Sicily (2022)</span>
+                <span class="season-tag">Season 3: Thailand (2025)</span>
+            </div>
+
+            <div class="quote-block">
+                "These people shouldn't be here. They should be with their families. But they're rich, and they can do whatever they want, and it's disgusting."
+                <cite>— Belinda Tension, Season 1</cite>
+            </div>
+        </div>
+    </section>
+
+    <section class="dimensions-section">
+        <div class="container">
+            <h2 class="section-title">Why It Ranks</h2>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">Characters</span>
+                    <span class="dimension-score">7.5</span>
+                </div>
+                <div class="dimension-content">
+                    <p>Mike White's ensemble approach to character construction yields a fascinating mosaic of privilege and pathology across three seasons of rotating guests. The show's greatest strength lies in creating archetypes that feel immediately recognizable—the tech bro on honeymoon, the corporate wife hiding her depression, the aging gay man revisiting lost youth—only to subvert those archetypes with psychological complexity and unexpected pathos. Jennifer Coolidge's Tanya remains the towering achievement, a character so singularly bizarre and heartbreaking that she transcends the show's occasional unevenness in developing supporting players.</p>
+
+                    <p>However, character development wavers between masterful and frustratingly thin. Some guests, particularly in Season 1's ensemble, achieve remarkable depth through small gestures and loaded silences (Murray Bartlett's Armond is a study in repressed rage and professional dignity). Others remain ciphers or plot devices, existing primarily to voice the show's themes rather than embody lived realities. The anthology format prevents long-term character evolution, forcing White to compress arcs into single seasons. While this creates urgent, focused storytelling, it also means some characters exit before achieving full dimensionality. The staff characters often feel underexplored despite serving as the show's moral compass—Belinda's arc in Season 1 is tragically abbreviated, and the subsequent seasons struggle to replicate that balance of workplace power dynamics and personal aspiration. The score reflects these highs and valleys: undeniable brilliance when the character work clicks, frustrating opacity when it doesn't.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">World Building</span>
+                    <span class="dimension-score">7.0</span>
+                </div>
+                <div class="dimension-content">
+                    <p>The White Lotus resorts themselves constitute the show's most significant world-building achievement, each location engineered with anthropological precision to reflect and deform the cultural landscapes they inhabit. The Hawaii resort (Four Seasons Resort Maui) grounds Season 1 in native Hawaiian tensions—ancestral lands commodified, local culture packaged for consumption, the visible labor of indigenous workers sustaining invisible leisure. White understands that luxury is never neutral, that every infinity pool overlooks someone's dispossession, and this awareness permeates the show's environmental storytelling.</p>
+
+                    <p>Season 2's Sicilian location (San Domenico Palace, Taormina) achieves even greater integration of place and theme, wrapping its characters in the decay and grandeur of ancient Mediterranean history while staging modern power games in baroque villas. The contrast between tourists seeking authentic Italian experience and the constructed nature of their surroundings becomes a meta-commentary on tourism itself. Season 3's Thai resort promises similar cultural excavation.</p>
+
+                    <p>What prevents a higher score is inconsistency in rules and continuity between seasons. Because each season operates as a standalone anthology, the "world" of The White Lotus franchise never fully coheres—there's no mythology connecting the resorts, no overarching corporate entity with identifiable culture or history. The show prioritizes critique of the resort concept over developing its fictional institutions with the texture that sustained series like <em>Succession</em> or <em>Mad Men</em>. The result is intellectually rigorous world-building that occasionally feels more like elaborate sets than lived-in spaces.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">Cinematography</span>
+                    <span class="dimension-score">9.0</span>
+                </div>
+                <div class="dimension-content">
+                    <p>If The White Lotus were stripped of all dialogue, it would still communicate its entire thematic program through cinematography alone—a testament to the visual intelligence of directors like Mike White himself, along with cinematographers Ben Kutchins and Xavier Grobet. Every frame is composed with careful attention to spatial hierarchies: who occupies center frame versus edges, who commands the wide shots versus disappears into the background, how bodies move through environments that dwarf or elevate them. The camera understands power the way the characters pursue it.</p>
+
+                    <p>The use of natural light is particularly striking—golden hour transforms into thematic punctuation, sunset symbolizing both beauty and entropy. In Hawaii, volcanic terrain looms behind every outdoor scene, a reminder of geological violence beneath the curated paradise. Sicily introduces ancient stone textures, framing characters against ruins that outlast empires and might outlast their own pretensions. The camera lingers on surfaces—the sheen of wealth, the texture of privilege—making even objects breathe with meaning.</p>
+
+                    <p>Movement cinematography deserves special mention: long tracking shots following characters through corridors and suites create the sensation of surveillance, while static compositions frame conversations with architectural precision. The show's visual language borrows from both luxury tourism advertising (the aspirational gloss) and horror films (the creeping dread), creating a unique aesthetic of beautiful unease. Color grading shifts with location—Hawaii's saturated blues and greens, Sicily's warm ochres and terracottas, Thailand's lush tropical palette—each location receiving its own visual signature while maintaining the show's overall commitment to looking expensive and meaningful simultaneously.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">Visual Spectacle</span>
+                    <span class="dimension-score">8.0</span>
+                </div>
+                <div class="dimension-content">
+                    <p>There is something almost pornographic about The White Lotus's relationship to visual luxury—a desire to simultaneously expose and revel in the trappings of extreme wealth. The show is unapologetically gorgeous, each frame a postcard from paradise that viewers can't afford but can judge. This tension between seduction and critique generates much of the show's visual power. We are meant to want these rooms, these views, these lives, even as we recognize the spiritual emptiness they cannot fill.</p>
+
+                    <p>The resorts themselves are the primary spectacle, each a feat of production design that must balance real locations with heightened reality. The Four Seasons Maui provides authentic luxury infrastructure that grounds the show's satire in tangible reality—you can almost smell the sunscreen and expensive linen. Sicily's San Domenico Palace offers historical grandeur that elevates the second season into operatic territory, with cliffside infinity pools and Byzantine churches serving as backdrops for contemporary moral decay.</p>
+
+                    <p>Costume design extends the spectacle with equal attention to psychological detail. Characters wear their anxieties and aspirations—the honeymoon couple's coordinated resort wear, the tech CFO's understated wealth signaling, Tanya's increasingly desperate maximalism as she tries to purchase personality. Every outfit tells a story about who these people want the world to think they are. The show's commitment to material abundance as both subject and aesthetic creates a uniquely immersive experience where viewers feel simultaneously envious and superior, the show's grand trick of making the rich look enviable while proving they're miserable.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">Conceptual Density</span>
+                    <span class="dimension-score">8.0</span>
+                </div>
+                <div class="dimension-content">
+                    <p>The White Lotus operates as a delivery system for ideas about class, privilege, tourism, sexuality, and the American psyche under late capitalism. Few shows of its era pack as much social critique into conversation-heavy hours, with dialogue that rewards close attention and rewatching. Mike White treats his scripts like essays, deploying characters to articulate competing worldviews in ways that rarely feel didactic because they're rooted in recognizable human needs and failures.</p>
+
+                    <p>The core concept—wealthy tourists at colonial outposts of luxury encountering the consequences of their entitlement—proves endlessly renewable across different cultural contexts. Hawaii introduces indigenous displacement and environmental exploitation; Sicily explores European-American cultural collision, queer history, and aging; Thailand promises to examine spiritual tourism and the commodification of mindfulness. Each season layers additional lenses—feminist critique, racial dynamics, generational conflict—without collapsing under thematic weight because White knows to ground philosophy in character.</p>
+
+                    <p>What occasionally undermines the density is repetition and predictability. Once the show's formula becomes visible—privileged people behaving badly, staff caught in impossible situations, violence as metaphor for systemic exploitation—the conceptual framework can feel more mechanical than organic. Some thematic points get hammered repeatedly when subtlety might serve better. The show sometimes mistakes saying something provocative for saying something profound, particularly in moments when characters voice obvious observations about inequality that the visual storytelling already communicates. These are minor complaints against a series that consistently engages intellectually with the world it depicts.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">Narrative Drive</span>
+                    <span class="dimension-score">7.0</span>
+                </div>
+                <div class="dimension-content">
+                    <p>The murder mystery framing device provides immediate hook and structural discipline—opening with a body, then rewinding to show how we arrived there. This creates tension and forward momentum, particularly effective in Season 1 where the identity of victim and killer remain genuinely uncertain until the final episodes. The time-restricted vacation setting naturally compresses storytelling into urgent arcs, preventing the bloat that afflicts many prestige dramas.</p>
+
+                    <p>However, narrative drive fluctuates significantly between seasons and even within episodes. The show often prioritizes observation over propulsion, lingering in conversations and atmospheric moments that build character but slow plot. For viewers seeking mystery resolution, this can frustrate; for those drawn to the show's anthropological observations, it becomes the point. The anthology format sacrifices long-term serialized momentum for self-contained seasonal arcs, meaning there's no cumulative story building across seasons beyond thematic connections.</p>
+
+                    <p>Season 2 notably suffers from mid-season sag as multiple storylines compete for attention without clear hierarchy. The show's refusal to identify protagonists—refusing to privilege any single character's journey—creats democratic narrative distribution that occasionally diffuses tension rather than amplifying it. When The White Lotus finds its rhythm, usually in the final two episodes of each season, the payoff justifies the deliberate pace. But the journey there requires patience that not all viewers may possess, and the narrative machinery sometimes creaks under the weight of its own philosophical ambitions.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-name">Resolution</span>
+                    <span class="dimension-score">8.0</span>
+                </div>
+                <div class="dimension-content">
+                    <p>The White Lotus understands that true resolution in a satire about systemic inequality is impossible—the wealthy will always find new ways to maintain privilege, and the cycle of exploitation will continue regardless of individual tragedies. Yet within this cynical framework, Mike White constructs endings that satisfy on multiple levels: mysteries solve, character arcs complete, and thematic circles close with the precision of a well-designed lock.</p>
+
+                    <p>Season 1's resolution achieves near-perfection, answering procedural questions while delivering devastating emotional conclusions. Armond's fate, Shane's escape, Rachel's capitulation, and Tanya's desperate reaching all land with appropriate weight—none earn happy endings, but all earn <em>true</em> endings that feel earned by their choices. The final image of the surviving characters vacationing while the world burns (literally, with the volcanic backdrop) encapsulates the show's entire worldview in a single frame.</p>
+
+                    <p>Season 2 reaches similarly operatic heights with its Sicilian finale, managing to surprise despite the fatalism that pervades the narrative from opening moments. Multiple threads resolve with tragic irony: the characters who thought they controlled their fates discover they're subjects of larger forces, while those who surrendered to circumstance sometimes find unexpected transcendence. The show's endings rarely redeem—this isn't that kind of series—but they honor the complexity established in preceding hours. The 8.0 reflects the strength of finales that conclude self-contained stories with appropriate weight, even if individual character resolutions vary in satisfaction. Some arcs feel cut short by the anthology format; others achieve a completeness that multi-season narratives struggle to match.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="breakdown-section">
+        <div class="container">
+            <h2 class="section-title">Score Breakdown</h2>
+            <div class="score-grid">
+                <div class="score-item">
+                    <div class="score-label">Characters</div>
+                    <div class="score-value">7.5</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">World Building</div>
+                    <div class="score-value">7.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Cinematography</div>
+                    <div class="score-value">9.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Visual Spectacle</div>
+                    <div class="score-value">8.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Conceptual Density</div>
+                    <div class="score-value">8.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Narrative Drive</div>
+                    <div class="score-value">7.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Resolution</div>
+                    <div class="score-value">8.0</div>
+                </div>
+            </div>
+
+            <div class="final-score-container">
+                <div class="final-label">Composite Score</div>
+                <div class="final-score">7.45</div>
+                <div class="final-verdict">A Satirical Masterpiece of Beautiful Dread</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Seven-Dimension Critical Analysis Framework | TV Shows Ranked Project</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Analysis compiled for The White Lotus (HBO, 2021-Present)</p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -1,91 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr. Robot - "Revolution Is Debugging" | Dynamic Rank Engine</title>
+    <title>Mr. Robot - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #00ff00; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #00ff00, #00aa00); color: #001a00; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #39ff14; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(0,255,0,0.3), rgba(0,0,0,0.9)); border: 3px solid #00ff00; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #39ff14; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #00ff00; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #39ff14; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(0,255,0,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #39ff14; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #39ff14; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #9</div>
-            <h1>Mr. Robot</h1>
-            <p class="subtitle">"Revolution Is Debugging"</p>
-            <div class="score-badge">
-                <span class="score-value">8.33</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2015-2019</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">45</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">USA Network</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Sam Esmail</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Mr. Robot is the most accurate hacking show ever made—and also one of the most accurate depictions of mental illness on television. Elliot Alderson (Rami Malek) is a cybersecurity engineer with social anxiety, clinical depression, and dissociative identity disorder. He hacks everyone he meets, not for money, but to understand them. He can't connect with people normally. Hacking is his way of reaching out.</p>
-            <p>Then Mr. Robot (Christian Slater) recruits him for fsociety—a hacker collective planning to erase all debt by destroying the data of E Corp, the world's largest conglomerate. The scheme is massive. The consequences are massive. And Elliot may or may not be experiencing reality as it actually is.</p>
-            <p>Sam Esmail created the show, directed most of the episodes, and wrote everything with obsessive attention to detail. The hacking is real: no magic keystrokes, no 3D flying through cyberspace. Social engineering, zero-day exploits, Raspberry Pi implants, DDoS attacks—it's all technically accurate. The show hired technical consultants and used real tools. The production design reflects this: cold corporate offices, cramped apartments, the alienation of late capitalism.</p>
-            <p>Rami Malek's performance won him an Emmy and launched his film career. Elliot is inside his head constantly—his narration is the show's engine—and Malek makes us feel every moment of his isolation, his medication haze, his desperate need for connection. When Elliot smiles, finally, genuinely, in the final season, it feels like a victory.</p>
-            <p>Four seasons, complete story. The revolution happens. The debt is erased. And then we see what happens after the revolution—not utopia, but chaos, power vacuums, new tyrannies. The show doesn't romanticize collapse. It interrogates it.</p>
-        </div>
+<p>Mr. Robot premiered on USA Network on June 24, 2015, created by Sam Esmail (who directed every episode of seasons 2-4). The series follows Elliot Alderson (Rami Malek), a cybersecurity engineer with social anxiety disorder, clinical depression, and dissociative identity disorder who is recruited by an anarchist hacker called Mr. Robot (Christian Slater) into a group called fsociety. Their goal: to encrypt and destroy the data of E Corp (which Elliot calls "Evil Corp"), one of the world's largest conglomerates, thereby erasing consumer debt and toppling the global financial system.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">9</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Rami Malek's Elliot is hypnotic. Christian Slater's title character is essential. Every performance serves the story.</p>
-            <p><strong>Cinematography (10):</strong> Sam Esmail's direction is cinematic. Unconventional framing. Long takes. Visual storytelling at its best.</p>
-            <p><strong>Resolution (9):</strong> Four seasons, completed story. The ending is definitive, earned, and perfect. One of TV's best finales.</p>
-        </div>
+<p>The series' achievement is multiple: it's a technically accurate hacker drama (Esmail consulted cybersecurity professionals), a psychological portrait of mental illness, and a critique of late capitalism. The premise sounds like Fight Club meets The Matrix, but the execution is more ambitious—the series evolves from techno-thriller into something stranger, examining its protagonist's fractured psyche while the hack's consequences unfold across a changed world. The series concluded after four seasons (45 episodes) in December 2019, with Esmail having planned the ending from the beginning.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"eps1.0_hellofriend.mov" (S1E1)</strong> — Elliot. The hack. Mr. Robot. The beginning.</p>
-            <p><strong>"eps1.9_zer0-day.avi" (S1E10)</strong> — Season one finale. The reveal. Everything changes.</p>
-            <p><strong>"whoami" (S4E13)</strong> — Series finale. The answer. The smile. The end.</p>
-        </div>
+<p>Rami Malek's performance is the series' gravitational center—Elliot's social anxiety is rendered as physical awkwardness (the stuttering, the eye contact avoidance, the inability to navigate normal conversation), and his dissociation as genuine fragmentation (Mr. Robot, the anarchist leader, is revealed to be an alter based on Elliot's dead father). Malek won the Emmy for Outstanding Lead Actor in a Drama Series (2016) for a performance that made mental illness visible without romanticizing it.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Amazon Prime, Hulu</p>
-            <p><strong>UK:</strong> Amazon Prime</p>
+<p>The series' visual style is immediately distinctive: Esmail frames characters at the edges of shots, creating compositional unease; sequences appear to be shot on film with visible grain; corporate spaces are rendered with institutional sterility. The direction creates a sense of watching from outside—the camera rarely looks at characters directly, as if the viewer is another presence Elliot can't acknowledge. The style earned Esmail a Directors Guild Award and established him as an auteur showrunner.</p>
+
+<p>The supporting cast includes Christian Slater (Mr. Robot/Dad), Carly Chaikin (Darlene, Elliot's sister and fsociety member), Portia Doubleday (Angela Moss, Elliot's childhood friend), Martin Wallström (Tyrell Wellick, E Corp executive), Grace Gummer (Dominique DiPierro, FBI agent), and BD Wong (Whiterose, the series' ultimate antagonist, leader of the Dark Army hacker collective). The ensemble expands across seasons as the conspiracy deepens and the fsociety hack's consequences unfold.</p>
+
+<h2>Why It Ranks #36</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.60</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Elliot Alderson:</strong> Rami Malek created television's definitive hacker protagonist—not a cool cyber-criminal but a profoundly damaged individual whose technical genius coexists with severe mental illness. The performance captures Elliot's social anxiety as physical presence (the hooded sweatshirt, the stuttering, the avoidance of eye contact), his depression as withdrawal, and his dissociation as genuine fragmentation. Malek won the Emmy for Outstanding Lead Actor (2016) for a performance that made mental illness visible without glamour.</p>
+        
+        <p><strong>Mr. Robot:</strong> Christian Slater plays Elliot's alter—an anarchist leader based on Elliot's father, who died when Elliot was young. The performance required Slater to play both the external Mr. Robot (who other characters see and interact with) and the internal version (Elliot's projection). The reveal (Season 1 finale) reframes the entire series; subsequent seasons explore how Elliot's mind created Mr. Robot to protect him from trauma.</p>
+        
+        <p><strong>Darlene Alderson:</strong> Carly Chaikin plays Elliot's sister and fsociety member. The character provides the series' emotional grounding—she's a criminal hacker, but her love for Elliot is genuine, her trauma is visible, her journey from rebellion to responsibility provides human scale to the global plot. Chaikin's performance captures Darlene's bravado and vulnerability.</p>
+        
+        <p><strong>Whiterose:</strong> BD Wong plays the series' ultimate antagonist—leader of the Dark Army, a Chinese hacker collective with global reach. Whiterose is trans (the character is presented as a woman in private, using he/him pronouns publicly as Minister of State Security), a detail the series handles with care. Wong's performance is controlled and precise—a villain whose patience and planning make them genuinely terrifying. The reveal of Whiterose's plan (a nuclear power plant designed for something other than power) provides the series' final scale.</p>
+        
+        <p><strong>Angela, Tyrell, Dom:</strong> Portia Doubleday's Angela (Elliot's childhood friend, whose mother died in the same accident as Elliot's father) represents the system Elliot fights—she works for E Corp, pursues conventional success, and eventually becomes involved in Whiterose's plan. Martin Wallström's Tyrell Wellick is a corporate climber whose ambition (and violence) entangle him with fsociety. Grace Gummer's Dom DiPierro (introduced Season 2) is an FBI agent hunting fsociety while falling for Darlene.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (9) achieved comparable character depth. Mr. Robot matches its psychological focus with more concentrated cast.</p>
+        
+        <p><strong>Why 8:</strong> Malek's Elliot is iconic; the supporting cast provides depth. The central performance conveys mental illness with unusual accuracy. The limitation is that some characters (Angela, Tyrell) have arcs that feel incomplete or confused.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Technical Authenticity:</strong> The series' central achievement is technical accuracy. Esmail consulted cybersecurity professionals; the hack techniques (SQL injection, rootkits, DDoS attacks, social engineering) are rendered correctly. The filesystem layouts are real Linux; the IP addresses are valid private ranges; the tools (Kali Linux, Metasploit) are actual security tools. The accuracy earned respect from the cybersecurity community, who usually see hacks depicted as magical typing.</p>
+        
+        <p><strong>E Corp:</strong> The conglomerate "E Corp" (which Elliot hears as "Evil Corp" due to his synesthesia/pattern) represents late capitalism at its most pervasive—a bank, a technology company, a media conglomerate, a presence in every aspect of life. The world post-5/9 (the fsociety hack) is economically devastated: cash is scarce, E Coin (cryptocurrency) has replaced conventional money, the economy has been reset without erasing the underlying power structures.</p>
+        
+        <p><strong>The Dark Army:</strong> The Chinese hacker collective represents cyber-power beyond nation-states—their reach is global, their loyalty is to Whiterose personally, their capability is demonstrated through attacks that kill characters and reshape the world. The series suggests that the real power in the 21st century is not corporate but distributed: hacker collectives with capabilities that exceed governments.</p>
+        
+        <p><strong>Post-5/9 World:</strong> Season 2 depicts the aftermath of the fsociety hack: the economy has collapsed, E Corp has implemented a recovery plan (E Coin), and the world has changed without becoming better. The series examines what happens after the revolutionary act—the system adapts, the powerful survive, the people the hack was supposed to help suffer. It's a critique of revolutionary fantasy.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Mr. Robot achieved greater technical accuracy than any previous hacker drama. The world-building is specific and convincing. The limitation is the narrow focus—corporate/tech world rather than broader society.</p>
+        
+        <p><strong>Why 7:</strong> Strong technical and corporate world-building with unusual accuracy. The post-5/9 world is economically convincing. The limitation is that the world stays within the corporate/tech frame.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Compositional Unease:</strong> Sam Esmail's direction (every episode of seasons 2-4) established a distinctive visual language: characters framed at the edges of shots, negative space overwhelming composition, camera angles that suggest watching rather than participating. The style creates psychological unease—the viewer is positioned as another presence Elliot can't acknowledge, another person from whom he withdraws.</p>
+        
+        <p><strong>Film Aesthetic:</strong> The series was shot digitally but processed to look like film—visible grain, warm color temperature, an aesthetic that references 1970s paranoia thrillers (The Conversation, All the President's Men). The approach connects the series to a film tradition: conspiracy, surveillance, individuals against systems.</p>
+        
+        <p><strong>Corporate Space:</strong> E Corp offices are rendered with institutional sterility—white walls, fluorescent light, glass surfaces that reflect and expose. The visual approach communicates corporate power as environment: the space itself feels hostile to someone like Elliot. The contrast with fsociety's hideout (an abandoned arcade, warm and cluttered) is visual class politics.</p>
+        
+        <p><strong>The Long Takes:</strong> Esmail uses extended takes for emotional intensity—the Season 4 episode "407 Proxy Authentication Required" features a single-take sequence covering multiple locations, demonstrating technical virtuosity while serving the narrative. The direction prioritizes emotional effect over conventional TV pacing.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (9) established distinctive TV cinematography. Mr. Robot matches its formal achievement—compositional unease that serves psychological narrative.</p>
+        
+        <p><strong>Why 9:</strong> Distinctive visual language through compositional unease and film aesthetic. The style serves the psychological content. Esmail's direction across seasons 2-4 demonstrates formal ambition and consistency.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.60</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Action Over Spectacle:</strong> Mr. Robot includes action—heist sequences, gunfights, explosions—but the approach is practical rather than spectacular. The series doesn't stage elaborate set-pieces; it depicts violence as sudden, ugly, and consequential. The approach serves the series' realism but limits the dimension.</p>
+        
+        <p><strong>The Hacks:</strong> The hacking sequences are rendered as they actually occur—typing, screens, code. The series resists the Hollywood impulse to make hacking visual through flashy interfaces or 3D graphics. The approach is authentic but not spectacular; watching someone type commands is inherently limited visually.</p>
+        
+        <p><strong>The 5/9 Attack:</strong> The fsociety hack (encrypting E Corp's data) could have been rendered as visual spectacle; instead, the series shows it as the work it is: preparation, execution, and then the lights go out. The choice serves realism over spectacle.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The series deliberately rejects spectacle in favor of psychological realism and technical accuracy. The limitation is definitional—spectacle is not the series' register.</p>
+        
+        <p><strong>Why 6:</strong> Deliberate rejection of spectacle in favor of practical action and technical accuracy. The hacking sequences are authentic but visually limited. The dimension is deprioritized by design.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Mental Illness as Narrative:</strong> The series' central concept is mental illness as narrative structure. Elliot's dissociation creates plot—the Mr. Robot alter, the missing time, the unreliable narration. The series uses the structure of dissociative identity disorder not as twist but as premise: we are watching a story told by an unreliable narrator whose alters are characters in his own drama. The concept is ambitious and mostly successful.</p>
+        
+        <p><strong>Capitalism and Control:</strong> The series examines late capitalism through corporate power (E Corp), financial systems (the debt erased by the hack), and surveillance (the data that controls everyone). The critique is more sophisticated than "corporations are bad"—it suggests that the system adapts, that revolution doesn't eliminate power, that the individuals who fight the system are themselves compromised.</p>
+        
+        <p><strong>The Hacker Ethos:</strong> The series depicts hacker culture with unusual accuracy—the ideology (information wants to be free, power should be distributed), the techniques (social engineering, exploitation, persistence), the community (anonymous collaborations, handle-based identities). The fsociety mask (a Guy Fawkes reference via Anonymous) became an actual symbol of hacktivism.</p>
+        
+        <p><strong>Trauma and Fragmentation:</strong> The series connects Elliot's mental illness to childhood trauma (his father's death, the abuse he witnessed, the family secrets). The dissociation is adaptive—the mind creating an alter to protect itself from what it can't process. The concept is psychological rather than political: the personal is the political, but the political doesn't heal the personal.</p>
+        
+        <p><strong>The Real:</strong> The series' final concept is about reality itself. Whiterose's plan involves a nuclear facility designed to create something—not power, not weapons, but a way to access parallel realities. The science-fiction element divides viewers, but it serves the series' thematic concerns: the desire to escape this reality for one where things are better, where the dead are alive, where choices can be unmade. Elliot's journey is about accepting this reality rather than escaping it.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Severance (9) achieved comparable conceptual density through work-life division. Mr. Robot matches its ambition through mental illness as narrative structure.</p>
+        
+        <p><strong>Why 8:</strong> Strong conceptual examination of mental illness, capitalism, and trauma. The series uses psychological framework as narrative device. The limitation is that the science-fiction turn (parallel realities) may feel disconnected from the psychological realism.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.13</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Hack:</strong> The 5/9 attack (fsociety's encryption of E Corp's data) provides the series' initial drive—will they succeed? What happens after? The heist structure is familiar (prepare, execute, escape), but the execution is technically accurate and the aftermath is economically rendered. The hack succeeds at the end of Season 1; subsequent seasons examine the aftermath.</p>
+        
+        <p><strong>The Mystery of Mr. Robot:</strong> Season 1's central mystery—who is Mr. Robot?—culminates in the reveal that he's Elliot's alter, based on his dead father. The twist recontextualizes everything we've seen; viewers revisit episodes with new understanding. The device (unreliable narrator due to dissociation) continues through the series.</p>
+        
+        <p><strong>Season Structure:</strong> The four seasons have distinct shapes. Season 1: the build to the hack. Season 2: the aftermath in a devastated economy, Elliot in prison (though we don't know it's prison), the Dark Army's involvement. Season 3: the attempt to undo the hack, the Iran sequence, the corporate machinations. Season 4: the Whiterose plot, the parallel reality concept, the resolution. The structure provides variety while maintaining the central narrative.</p>
+        
+        <p><strong>Pacing Variations:</strong> The series' pacing varies—Season 2 is notably slower, with long sequences of Elliot's daily routine in what appears to be his mother's house (actually prison). The deliberate pacing serves the psychological content ( Elliot's isolation) but can frustrate viewers seeking momentum.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) maintained narrative momentum across seasons. Mr. Robot is more variable—Season 1 drives, Season 2 slows, Season 3 picks up, Season 4 accelerates to conclusion.</p>
+        
+        <p><strong>Why 7.5:</strong> Strong narrative drive through the hack and its aftermath, with seasonal variation. The mystery structure provides momentum. The limitation is uneven pacing (Season 2 is deliberately slow, which some viewers found frustrating).</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.90</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Planned Ending:</strong> Sam Esmail planned the ending from the beginning—the series was always intended to run four seasons. The conclusion delivers on the premise: Elliot's alters integrate (or rather, the alters reveal their purpose and then integrate), Whiterose's plan is revealed and thwarted, the world continues changed but not revolutionized.</p>
+        
+        <p><strong>The Real Elliot:</strong> The final twist is that the Elliot we've been watching is an alter—the "Mastermind" created to handle the trauma Elliot endured. The "real Elliot" is in the background; the integration at the end involves the Mastermind accepting his nature and the system of alters working together rather than being at war. The twist reframes the series without invalidating it; the Elliot we watched is still the character we cared about.</p>
+        
+        <p><strong>Whiterose's Plan:</strong> The parallel reality concept—Whiterose's nuclear facility designed to access alternate timelines—is the series' most controversial element. The science-fiction turn divides viewers, but it serves the series' themes: the desire to escape this reality, to undo trauma, to find a world where the dead are alive. The plan fails; the reality we have is the only one.</p>
+        
+        <p><strong>The Resolution:</strong> The series ends with the alters accepting their roles, the system working together, and the possibility of a more functional life. The hack's consequences remain—the world has changed—but the personal story concludes. Elliot (the system) can now live with the trauma rather than being destroyed by it.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represents ideal resolution. Mr. Robot achieves planned conclusion with thematic consistency. The parallel-reality element may not work for all viewers.</p>
+        
+        <p><strong>Why 9:</strong> Planned conclusion that delivers on the premise and serves the themes. The integration of alters provides psychological resolution. The limitation is that the science-fiction turn may feel disconnected from the psychological realism for some viewers.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.82</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.60 + World: 1.05 + Cine: 1.35 + Spectacle: 0.60 + <br>
+        Concepts: 1.20 + Drive: 1.13 + Resolution: 0.90 = <strong>7.82</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (45 episodes, 4 seasons) | Status: Completed (2015-2019)<br>
+        Rank: #36 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 24 June 2015 | Network: USA Network | Seasons: 4 (45 episodes)<br>
+    Creator/Director: Sam Esmail<br>
+    Cast: Rami Malek, Christian Slater, Carly Chaikin, Portia Doubleday, Martin Wallström, Grace Gummer, BD Wong<br>
+    Awards: Emmy (Malek, Lead Actor), Golden Globe (Malek, Drama Series), DGA Award (Esmail)<br>
+    Note: Television's most technically accurate hacker drama; mental illness as narrative structure<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

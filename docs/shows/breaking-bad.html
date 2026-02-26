@@ -1,91 +1,268 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breaking Bad - "Chemistry is the study of change" | Dynamic Rank Engine</title>
+    <title>Breaking Bad - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #051505 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #2e7d32; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #2e7d32, #1b5e20); color: #c8e6c9; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #81c784; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(46,125,50,0.3), rgba(0,0,0,0.9)); border: 3px solid #2e7d32; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #81c784; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #2e7d32; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #81c784; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(46,125,50,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #81c784; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #81c784; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
+        .episode-callout { background: #2a2a35; padding: 1rem; border-left: 3px solid #c0a050; margin: 0.5rem 0; font-style: italic; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #1</div>
-            <h1>Breaking Bad</h1>
-            <p class="subtitle">"Chemistry is the study of change"</p>
-            <div class="score-badge">
-                <span class="score-value">8.63</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2008-2013</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">62</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">AMC</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Vince Gilligan</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Breaking Bad is the transformation story: a good man becomes a villain. Walter White (Bryan Cranston) is a high school chemistry teacher in Albuquerque, diagnosed with lung cancer, facing medical bills he can't pay. He turns to cooking methamphetamine—first with former student Jesse Pinkman (Aaron Paul), then with increasingly dangerous partners. The premise is hooky; the execution is Shakespearean. Walter's decline from "Mr. White" to "Heisenberg" is measured in moral compromises: first survival, then pride, then power, then love of the game itself.</p>
-            <p>The show's thesis: "Chemistry is the study of change," Walter tells his students. The series studies his change—with scientific precision. Every decision has consequences; every compromise enables the next. By season five, Walter is a drug kingpin who has killed, poisoned a child, and destroyed everyone who loved him. "I did it for me," he finally admits. "I liked it. I was good at it." The confession is freeing—and devastating. He became the villain, and he enjoyed it.</p>
-            <p>Jesse Pinkman is the heart—initially comic relief, the stoner student, then the tragic figure. Walter manipulates him, uses him, "saves" him in ways that destroy him. Their relationship is the show's emotional core: father and son, teacher and student, abuser and victim, genuine love and betrayal. "You're my free pass," Jesse realizes. Walter sees his salvation in Jesse—proof that someone is worth saving. But he keeps sacrificing Jesse to save himself. Their final moments together—Walter confessing, Jesse driving away—provide both closure and open wound.</p>
-            <p>Sixty-two episodes, complete. Breaking Bad is television perfection: serialized storytelling where every moment matters. The cinematography (wide desert vistas, POV shots from objects, time-lapse sequences). The direction. The acting—Cranston and Paul won Emmys. The writing—Vince Gilligan's vision sustained across five seasons. "I am the one who knocks," Walter declares. He's right. He became the thing in the dark. The show forces us to watch him knock.</p>
-        </div>
+<p>Breaking Bad premiered on AMC on January 20, 2008, created by Vince Gilligan, who conceived the series as "Mr. Chips becomes Scarface"—the transformation of a mild-mannered chemistry teacher into a ruthless drug kingpin. The pilot episode establishes the premise with ruthless efficiency: Walter White (Bryan Cranston), a 50-year-old high school chemistry teacher with a pregnant wife and a son with cerebral palsy, receives a terminal lung cancer diagnosis and decides to cook crystal meth to secure his family's financial future before he dies.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">10</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Bryan Cranston's Walter White is television's greatest performance. Aaron Paul's Jesse breaks hearts. Perfect ensemble.</p>
-            <p><strong>Resolution (10):</strong> perfect ending. Walter's death. Jesse's freedom. "I did it for me." Complete, satisfying, devastating.</p>
-            <p><strong>Narrative Drive (9):</strong> Relentless momentum. Every episode escalates. Perfect serialized storytelling.</p>
-        </div>
+<p>The series would run for five seasons and 62 episodes, concluding on September 29, 2013, with "Felina"—widely considered one of television's greatest finales. AMC's willingness to let Gilligan end the series on his own terms, declining the network's suggestion to extend the show beyond his vision, allowed Breaking Bad to maintain narrative integrity and conclude with the tight plotting that characterized its entire run.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Pilot" (S1E1)</strong> — The beginning. Diagnosis. "I am awake."</p>
-            <p><strong>"One Minute" (S3E7)</strong> — Hank versus the twins. "I will kill you."</p>
-            <p><strong>"Ozymandias" (S5E14)</strong> — The peak. Everything falls. Television's greatest episode.</p>
-            <p><strong>"Felina" (S5E16)</strong> — Series finale. "I did it for me."</p>
-        </div>
+<p>The Albuquerque, New Mexico setting is crucial to the series' identity. Gilligan chose the Southwest for its distinctive light, its vast desert landscapes that could swallow bodies and secrets, and its proximity to the Mexican border that would eventually bring the cartel into Walter's world. The 2008 writers' strike truncated Season 1 to seven episodes, but Gilligan used the hiatus to reconsider the show's direction, ultimately slowing Walter's transformation and allowing the character's moral deterioration to unfold with devastating patience.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Netflix, AMC+</p>
-            <p><strong>UK:</strong> Netflix</p>
+<p>The partnership between Walter and Jesse Pinkman (Aaron Paul), a former student and current meth user, provides the series' emotional core. Their relationship—mentor and student, father and son, abuser and abused—evolves across five seasons in ways that neither character could have anticipated. Walter's claim that everything he does is "for the family" becomes increasingly transparent even as the character seems to believe it himself; Jesse, initially comic relief, becomes the show's moral compass even as he's destroyed by Walter's actions.</p>
+
+<p>The supporting cast creates a full moral universe against which Walter's transformation plays out: Skyler White (Anna Gunn), Walter's wife, whose complicity and resistance trace the damage done to families by criminal enterprise; Hank Schrader (Dean Norris), Walter's DEA agent brother-in-law, whose pursuit of "Heisenberg" becomes tragic when he discovers the truth; Marie Schrader (Betsy Brandt), Skyler's kleptomaniac sister; Walter White Jr. (RJ Mitte), whose cerebral palsy informs Walt's original motivation even as Walt damages the family he claimed to protect.</p>
+
+<p>The criminal ensemble matches the family characters: Gustavo "Gus" Fring (Giancarlo Esposito), the Los Pollos Hermanos chicken restaurant owner who is secretly a major drug distributor, whose meticulous patience and ruthless efficiency make him Walter's greatest adversary; Mike Ehrmantraut (Jonathan Banks), Gus's "cleaner" whose code of honor and professionalism provide counterpoint to Walter's ego; Saul Goodman (Bob Odenkirk), the sleazy lawyer whose comic relief masks genuine competence and eventual moral awakening; and Lydia Rodarte-Quayle (Laura Fraser), the German meth distributor whose fastidiousness and cowardice make her a different kind of monster.</p>
+
+<p>The series' visual language was established by cinematographer Michael Slovis and continued by Marshall Adams—harsh desert sunlight, Saul Goodman's garroted office, the Superlab's sterility, the Whites' suburban home becoming increasingly prison-like. The Albuquerque locations give the series authenticity; the show was shot on location throughout its run, using real businesses and neighborhoods (with permission and compensation) that become familiar visual landmarks.</p>
+
+<p>Breaking Bad operates as a chemistry experiment in narrative form—the equation's reactants (Walter's pride, Jesse's vulnerability, Skyler's complicity, Hank's dedication) combine to produce explosive results. The show's structure is rigorous: Season 1 establishes the premise; Season 2 deepens the moral complications; Season 3 introduces Gus and expands the criminal world; Season 4 depicts Walt's battle with Gus for control; Season 5 tracks Walt's empire and collapse.</p>
+
+<p>The critical reception evolved from slow-burn appreciation to universal acclaim. The first season received modest ratings and mixed reviews; by Season 4, it was widely recognized as one of television's greatest achievements. Bryan Cranston won four consecutive Emmy Awards (2008-2010, 2014), Aaron Paul won three (2010, 2012, 2014), Anna Gunn won two (2013-2014), and the series won Outstanding Drama Series in 2013 and 2014. The show's success allowed Gilligan to create the prequel Better Call Saul (2015-2022), which some critics consider its superior, and the sequel film El Camino (2019), which provided closure for Jesse's story.</p>
+
+<p>The cultural impact is difficult to overstate. "Breaking Bad" became shorthand for prestige television transformation; "I am the one who knocks" became a catchphrase; the blue meth became iconic; the show's structure influenced countless subsequent series. The moral questions it posed—about complicity, about power, about the lies we tell ourselves—resonated beyond television into broader cultural discourse about American masculinity, the healthcare system, and the American Dream's dark side.</p>
+
+<p>The series is not without criticism. Some critics note that its treatment of female characters—particularly Skyler, who received misogynistic online abuse from fans who perceived her as obstructing Walt's criminal glory—reflects broader issues with television's male anti-hero era. The show's racial dynamics, particularly its use of Mexican and Mexican-American characters as cartel villains, have been analyzed as perpetuating stereotypes even while attempting nuance. And the show's moral calculus—asking viewers to root for Walter even as he becomes monstrous—tested the limits of audience identification.</p>
+
+<h3>Emmy Dominance and Industry Transformation</h3>
+
+<p>Breaking Bad's awards record reflects its artistic achievement. Bryan Cranston won four Primetime Emmy Awards for Outstanding Lead Actor in a Drama Series (2008-2010, 2014), making him one of only two performers to win four times in this category (the other being Dennis Franz for NYPD Blue). Aaron Paul won three times for Outstanding Supporting Actor (2010, 2012, 2014), a record for the category. Anna Gunn won twice for Outstanding Supporting Actress (2013, 2014). The series won Outstanding Drama Series twice (2013, 2014), and Vince Gilligan won for writing "Felina." In total, the series won 16 Primetime Emmys from 58 nominations.</p>
+
+<p>The show's success transformed AMC from a movie channel into a prestige television network, paving the way for Mad Men, The Walking Dead, and Better Call Saul. It demonstrated that basic cable could compete with HBO in quality television, expanding the possibilities for drama beyond subscription networks. The show's Netflix availability—episodes dropped on the streaming service shortly after airing, and full seasons became available for binge-watching—helped establish the binge-watch model that would transform television consumption.</p>
+
+<h3>Season-by-Season Architecture</h3>
+
+<p><strong>Season 1 (7 episodes, 2008):</strong> The compressed first season (truncated by the writers' strike) establishes premise with urgency. Walter's first cook with Jesse, the encounter with Krazy-8 (Max Arciniega), the formation of the partnership, and Walter's transformation from terrified teacher to calculating criminal. The season's brevity works to its advantage—no wasted motion, every episode advancing Walter's dissolution.</p>
+
+<p><strong>Season 2 (13 episodes, 2009):</strong> The expanded season deepens Walter's criminality and consequences. The introduction of Saul Goodman (Bob Odenkirk), the expansion to Tuco (Raymond Cruz) and then the devastation of Jane's death, the plane crash that ends the season—"ABQ" remains one of television's most shocking finales. The episode titles (1-4-7-3-5-3-6 in the flash-forward) spell out a fatal plane crash.</p>
+
+<p><strong>Season 3 (13 episodes, 2010):</strong> Gus Fring arrives, and the show expands into epic territory. The Cousins (the Salamanca twins), the Superlab, Gale Boetticher (David Costabile)—the season depicts Walter being pulled into empire. The finale "Full Measure," where Walter manipulates Jesse into killing Gale to save them both from Gus, marks Walter's point of no return.</p>
+
+<p><strong>Season 4 (13 episodes, 2011):</strong> The slow-burn war between Walter and Gus dominates—the season's patient escalation, Walter's apparent defeat and then explosive triumph (literally) in "Face Off." The season earned unanimous critical acclaim and Emmy recognition, establishing Breaking Bad as television's preeminent drama.</p>
+
+<p><strong>Season 5 (16 episodes, 2012-2013):</strong> Split into two parts, the final season depicts Walter's empire ("Say My Name") and then his catastrophic collapse ("Ozymandias"). The final eight episodes are among television's greatest sustained achievement—unbearable tension, devastating character work, and a finale that satisfies while acknowledging tragedy.</p>
+
+<p>But Breaking Bad's accomplishments outweigh these critiques. It is television as tight as a drum—every element calibrated, every episode advancing character and plot, every season building to crescendo. The show proved that commercial television could achieve the artistic sophistication of HBO's The Sopranos while reaching broader audiences. It gave Bryan Cranston the role of a lifetime and made Aaron Paul a star. It launched the Breaking Bad Cinematic Universe (Better Call Saul, El Camino) that some consider the greatest sustained artistic achievement in television history.</p>
+
+<h2>Why It Ranks #2</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">10</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 2.00</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Walter White:</strong> Bryan Cranston's performance is among the greatest in television history—the transformation from Mr. Chips to Scarface played not as switch but as evolution, the monstrousness always present in the mildness, the mildness never entirely disappearing even in the monstrousness. Cranston won four Emmys for the role, but awards barely capture the achievement. Consider the range required: the pilot's desperation, "Crazy Handful of Nothin'" (S1E6) where Walt shaves his head and adopts the Heisenberg persona, "4 Days Out" (S2E9) when he believes he's dying and confesses, "Full Measure" (S3E13) when he manipulates Jesse into murdering Gale, "Crawl Space" (S4E11) when he laughs maniacally having destroyed Gus's empire, "Ozymandias" (S5E14) when he kidnaps his own daughter, and "Felina" when he admits he did it all for himself. Each mode is distinct; together they create a complete human being's dissolution.</p>
+        
+        <p><strong>Jesse Pinkman:</strong> Aaron Paul's performance matches Cranston's—Jesse begins as comic relief ("Yeah Mr. White! Yeah science!") and ends as the show's moral center, destroyed by Walter's manipulation but surviving thanks to his own fundamental goodness. Paul's three Emmys recognize the range: Jesse's grief over Jane's death, his horror at Gale's murder, his breakdown in "Problem Dog" at the group therapy, his rage when he realizes Walter poisoned Brock, his catharsis in the El Camino film. Paul makes Jesse's addiction, his intelligence (despite his failures), his loyalty (to his own destruction), and his eventual awakening completely convincing. The Walter-Jesse relationship is Breaking Bad's central pillar, and both actors give it everything.</p>
+        
+        <p><strong>Skyler White:</strong> Anna Gunn's performance is undervalued by those who saw Skyler as an obstacle to Walt's criminal glory; properly understood, Gunn plays a woman navigating impossible choices, whose complicity and resistance both make sense. Skyler's arc—from oblivious wife to money launderer to terrified victim to active resistance—requires holding the audience's sympathy even when the character opposes the protagonist. Gunn's Emmy wins recognized her skill, but the online misogyny directed at the character reflects more on the fans than the performance. Watch "Fifty-One" (S5E4) when Skyler tries to drown herself, or "Ozymandias" when she realizes Walt has taken Holly—Gunn's devastation is total.</p>
+        
+        <p><strong>Gus Fring:</strong> Giancarlo Esposito joined in Season 2 and became the show's greatest antagonist. Gus's meticulous patience—his "I will kill your infant daughter" speech to Walter in "Crawl Space," his revenge on the cartel in "Salud," his final walk through the superlab in "Face Off"—create a character of almost supernatural discipline. Esposito's ability to project calm while suggesting volcanic capacity for violence makes Gus the perfect adversary for Walter's ego.</p>
+        
+        <p><strong>Mike Ehrmantraut:</strong> Jonathan Banks created a character so compelling he became central to Better Call Saul. Mike's code—professional, honorable within criminal bounds, protective of his granddaughter—provides the show's moral baseline, against which Walter looks increasingly unhinged. Banks' Emmy nominations recognize the gravitas and pathos of a man who does terrible things while clinging to last scraps of humanity.</p>
+        
+        <p><strong>Hank Schrader:</strong> Dean Norris' transformation from comic relief (DEA agent with minerals hobby) to tragic hero gives the show's final seasons devastating weight. Hank's pursuit of Heisenberg, his discovery of Walt's identity in "Gliding Over All," his death in "Ozymandias"—Norris makes each step inevitable and heartbreaking.</p>
+        
+        <p><strong>Saul Goodman:</strong> Bob Odenkirk's comic genius masks genuine pathos; Saul's own show would reveal depths only hinted at here. Marie (Betsy Brandt), Walt Jr. (RJ Mitte), Todd (Jesse Plemons), Lydia (Laura Fraser), Jane (Krysten Ritter), Andrea (Emily Rios), Brock (Ian Posada)—each creates real human presence even in limited screen time.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (10) achieved similar ensemble depth through five seasons. Breaking Bad matches it with fewer episodes, compressing character development into intense arcs. The Sopranos (10) probed psychological depth similarly. Breaking Bad's Walter-Jesse dynamic is television's greatest two-hander.</p>
+        
+        <p><strong>Why 10:</strong> Perfect ensemble casting with career-defining performances. Cranston and Paul create one of television's great tragic duets. The supporting cast matches them. No weak links, no missed opportunities. Television acting at its apex.</p>
+
+        <p><strong>Breaking Bad Cinematic Universe:</strong> The show spawned Better Call Saul (2015-2022), which some critics argue surpassed the original in emotional depth and craftsmanship, and El Camino: A Breaking Bad Movie (2019), which provided Jesse's post-series closure. The three works together constitute one of television's richest artistic achievements—a universe as coherent and compelling as anything in cinema.</p>
+        
+        <p><strong>The Music:</strong> Dave Porter's score—minimalist, atmospheric, combining organic instruments with electronic textures—creates tension without manipulation. The theme music becomes iconic; the use of songs ("Baby Blue" in the finale, "DLZ" by TV on the Radio, "Negro y Azul") provides emotional punctuation. The score knows when to be silent.</p>
+        
+        <p><strong>Gilligan's Direction:</strong> Vince Gilligan directed the pilot and finale, framing the series. His visual style—patient observation, wide shots of landscape, close-ups revealing performance subtleties—establishes template followed by other directors. The show's visual coherence across multiple seasons and directors testifies to Gilligan's creative control and the production's shared vision.</p>
+        
+        <p><strong>The Writers' Room:</strong> Breaking Bad's writers (including Peter Gould, who created Better Call Saul; Moira Walley-Beckett; Thomas Schnauz; Gennifer Hutchison) maintained the show's quality through five seasons. The writers' room approach—collaborative plotting, individual episode assignment—produced consistency while allowing individual voice. The care with plotting—setup paying off seasons later—reflects room-wide commitment to narrative architecture.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Albuquerque:</strong> The series creates complete sense of place through location shooting—Los Pollos Hermanos (a real Albuquerque restaurant, filmed with permission), Jesse's suburban neighborhood, the industrial laundromat hiding the Superlab, the desert where bodies are buried, the White family home that becomes increasingly prison-like. New Mexico's distinctive quality of light, its Southwestern architecture, its proximity to Mexico (and thus the cartel) create setting that informs every story choice.</p>
+        
+        <p><strong>The Meth Business:</strong> The series depicts the drug trade with procedural detail—99.1% pure crystal meth becomes Walter's signature; the distribution network through Pollos Hermanos; the German company Madrigal Electromotive; the Czech market Lydia develops. The criminal world feels researched and complete.</p>
+        
+        <p><strong>The Superlab:</strong> The underground industrial facility beneath the laundromat becomes a character—sterile, fluorescent-lit, where Walter finally creates the empire his ego demands. The set design tells story: Walter's workspace is pristine where Jesse's life is chaos.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9.5) depicted Baltimore's institutions with documentary precision. Breaking Bad matches it for criminal world detail while adding suburban domesticity as setting. No show has made location more integral to identity.</p>
+        
+        <p><strong>Why 8.5:</strong> Exceptional world-building through location and research. The limitation is slightly narrow focus—this is Walter's world, not an ensemble of institutions like The Wire.</p>
+        
+        <p><strong>The Blue Sky:</strong> Walter's meth becomes product and mythology—99.1% pure, distinctive blue color, the signature of Heisenberg's genius. The show treats the blue meth as artwork created under capitalism's duress. The meth's journey from Walter's chemistry expertise to street product creates supply chain narrative that illuminates the drug trade's complexity.</p>
+        
+        <p><strong>Geography as Character:</strong> The show's Albuquerque locations became tourist destinations—the White house, Los Pollos Hermanos (actually named "Twisters"), the car wash. New Mexico offered tax incentives that made the show possible; the show transformed local economy. The desert's vast emptiness provides both beauty and burial ground—geography that swallows secrets and bodies.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.43</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Albuquerque Look:</strong> Michael Slovis (Seasons 1-3) and Marshall Adams (Seasons 4-5) create distinctive visual language—harsh desert sunlight, intense shadows, the blue of the meth tinting frames, the sterility of the Superlab, the oppressive domesticity of the White home. The yellow desert against blue sky creates color palette that became iconic.</p>
+        
+        <p><strong>Visual Storytelling:</strong> The series communicates through images—the time-lapses of the desert (where bodies won't be found), the point-of-view shots (the Roomba, the machine gun in the trunk), the way Walter's silhouette becomes Heisenberg's iconography. Episodes like "Fly" (S3E10) use limited space to create existential dread.</p>
+        
+        <p><strong>The Finale:</strong> "Felina's" cinematography—Walter's final walk through the compound, the machine gun's operation, his caress of the meth lab equipment—provides visual poetry worthy of culmination.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Mad Men (9) achieved period visual sophistication. Breaking Bad matches it while creating contemporary visual signature that became instantly recognizable.</p>
+        
+        <p><strong>Why 9.5:</strong> Exceptional cinematography that serves story while creating visual identity. Among television's most distinctive looks. The limitation is occasional over-reliance on desert imagery.</p>
+        
+        <p><strong>The Color Palette:</strong> The show's color language is carefully calibrated—Walter's wardrobe evolves from beige/khaki (neutrality) to green (envy, money) to black (death, Heisenberg). The blue meth becomes visual motif and plot point. The yellow of desert and Jesse's clothing, the green of money and moral sickness. The show communicates through color before dialogue.</p>
+        
+        <p><strong>The Time-Lapses:</strong> The series uses time-lapse photography—desert skies, the superlab's construction, Walt's money pile growing—to suggest geological time, the insignificance of individual lives against cosmic scale. These sequences create breathing room in the narrative tension while suggesting fate's inevitability.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.75</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Scale:</strong> The series operates on intimate scale—clandestine labs, suburban homes, the RV. When spectacle comes, it's earned: the plane crash in "ABQ" (S2E13), Gus's explosive exit in "Face Off" (S4E13). The show builds to moments of genuine spectacle through character rather than starting there.</p>
+        
+        <p><strong>The Train Heist:>/strong> "Dead Freight" (S5E5) provides the closest thing to blockbuster spectacle—a train robbery executed with precision that ends in the murder of an innocent child, spectacle corrupted by consequence.</p>
+        
+        <p><strong>Why 7.5:</strong> Spectacle is present but secondary to character. The limitation is intentional—this is not a show about visual scale but intimate intensity.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9.5</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.43</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The American Dream:</strong> The series interrogates American mythology—Walter's grievance at being a high school teacher with cancer, his belief that genius deserves empire, his rage at Gray Matter's success. "I did it for me. I liked it. I was good at it. And I was really... I was alive." The confession that undermines five seasons of justification.</p>
+        
+        <p><strong>Healthcare and Capitalism:</strong> Walter's original motivation—leaving money because healthcare won't cover treatment—critiques the American healthcare system. His transformation from victim seeking security to capitalist seeking empire tracks the system's moral distortions.</p>
+        
+        <p><strong>Masculinity:</strong> Walter's grievance is specifically masculine—emasculation by his former partners' success, by teaching high school chemistry, by Jesse's youth. His violence is compensation for felt inadequacy.</p>
+        
+        <p><strong>Complicity:</strong> Every character's complicity—Skyler's laundering, Jesse's participation, Gus's distribution, Hank's inability to see the monster in his family—creates web of responsibility. The show asks: at what point does participation become culpability?</p>
+
+        <p><strong>Freedom and Necessity:</strong> The show interrogates free will through its chemical metaphases—Walt's early claim that "chemistry is the study of change" applies equally to human nature. Did Walt choose evil, or was it catalyzed by circumstance? The Heisenberg name (reference both to the uncertainty principle and the German physicist) suggests both Walt's volatility and the impossibility of measuring his exact nature. The show refuses easy answers about determinism.</p>
+        
+        <p><strong>Family as Prison:</strong> Walt's stated motivation—protecting his family—becomes inverted as the family becomes what his crimes destroy. The White home transforms from sanctuary to prison, surveillance site (Hank watching), eventual loss. "Family" becomes the alibi for monstrousness; monstrousness becomes the family's inheritance.</p>
+        
+        <p><strong>The Chemistry Metaphors:</strong> The show structures its themes through chemistry Walt's discipline—catalysis, titration, reaction chains. Gus's superlab represents industrial efficiency; Walt's early cooks represent artisanal craft; the blue color represents Walter's signature—genius as brand. Chemistry becomes both metaphor for human transformation and literal plot mechanism.</p>
+        
+        <p><strong>Why 9.5:</strong> Exceptional thematic depth examining American capitalism, healthcare, masculinity, and complicity. Layered meanings that reward analysis. Among television's most intellectually rich texts.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">10</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.50</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Tight Plotting:</strong> The series is a masterclass in narrative construction—every episode advances multiple storylines, every season builds to crescendo, character development and plot advancement inseparable. The "Chekhov's gun" principle operates ruthlessly: the ricin introduced in Season 1 that finally deploys in "Felina"; the M60 machine gun in the trunk; the Lily of the Valley.</p>
+        
+        <p><strong>Season Structure:</strong> S1: The premise and first cook; S2: Expansion and Tuco's death; S3: The Superlab and Gale; S4: War with Gus; S5A: Empire building; S5B: Collapse and finale. Each season is distinct while building cumulative narrative.</p>
+        
+        <p><strong>Great Episodes:</strong> "Pilot" (perfect setup), "Crazy Handful of Nothin'" (Heisenberg's birth), "4 Days Out" (the cancer spread), "Phoenix" (Jane's death), "Half Measures" (the speech), "Full Measure" (Gale's murder), "Box Cutter" (violence aftermath), "Face Off" (Gus's demise), "Gliding Over All" (Hank's discovery), "Ozymandias" (the catastrophe), "Granite State" (isolation), "Felina" (the finale). Few shows have maintained this level across entire run.</p>
+
+        <p><strong>"Fly" (S3E10):</strong> The experimental episode—Walt and Jesse spend 47 minutes trying to catch a fly in the Superlab—annoys some viewers but rewards analysis. The fly represents contamination: Walt's soul, Jane's death, his lies to Jesse. The episode's claustrophobia and psychological intensity demonstrate the show's range. It's a bottle episode that transcends its constraints.</p>
+        
+        <p><strong>"4 Days Out" (S2E9):</strong> Walt believes he has days to live and takes Jesse into the desert for a marathon cook. The episode's structure—desperation, hope, disaster (the RV battery dying), salvation (Walt's chemical ingenuity)—encapsulates the series. Walt creates fire to survive; the episode suggests his genius as both gift and curse.</p>
+        
+        <p><strong>"Crawl Space" (S4E11):</strong> Gus threatens to kill Walt's family; Walt rushes home to extract them but finds Skyler has given money to Ted. The episode ends with Walt's maniacal laughter in the crawl space—a sound that begins triumphant and becomes despair. The camera pulls back through the darkness as the sound continues. One of television's most disturbing sequences.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (10) achieved narrative complexity through institutional scope. Breaking Bad matches it through tight focus and escalation. The show's narrative economy—62 episodes of near-perfect construction—is unmatched.</p>
+        
+        <p><strong>Why 10:</strong> Narrative perfection. Every episode earns its place; every season builds; every character arc pays off. Television plotting at its apex.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9.5</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.95</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>"Ozymandias" (S5E14):</strong> Before the finale, the true climax—Hank's death, the family's destruction, Walter's complete moral bankruptcy when he tells Jesse he watched Jane die, his abduction of Holly. One of television's greatest episodes and the moment Walter becomes irredeemable.</p>
+        
+        <p><strong>"Granite State" (S5E15):</strong> The penultimate episode isolates Walter in New Hampshire, forcing him to confront what he's lost and what remains. The phone call to Walt Jr. that fails—he can't even give money to his family anymore. The moment he decides to return.</p>
+        
+        <p><strong>"Felina" (S5E16):</strong> The finale resolves every thread: the Schwartz robbery (using Badger and Skinny Pete!), the Lydia poisoning, the Skyler confession, the Jesse liberation, the Uncle Jack crew massacre, the meth lab farewell. Walter dies where he was always most alive—surrounded by chemistry equipment, having finally said the truth: "I did it for me."</p>
+        
+        <p><strong>Jesse's Ending:</strong> Jesse driving away, screaming with relief and grief, provides perfect release. His freedom is earned through suffering; his survival suggests possibility.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos' ambiguous ending sparked debate for decades; Breaking Bad's definitive resolution is equally powerful in its clarity. The Wire's institutional continuation; Mad Men's "I'd like to buy the world a Coke." Breaking Bad's finale stands with television's best.</p>
+        
+        <p><strong>Why 9.5:</strong> A perfect finale in "Felina" and a near-perfect climax in "Ozymandias." Every character receives appropriate resolution. The limitation is none—this is how you end a series.</p>
+
+        <p><strong>Legacy:</strong> "Felina" and "Ozymandias" are taught in film schools. The series has been analyzed in academic journals, dissertations, and books. It redefined what television could achieve—proof that commercial television on a basic cable network could produce work equal to anything in cinema. The show's legacy is secure: Breaking Bad is art.</p>
+        
+        <p>The show's influence on subsequent television is immeasurable. The anti-hero model (though pioneered by Tony Soprano) reaches its apex here. The visual sophistication of prestige television traces to this template. The genre-blending of neo-noir, Western, crime thriller, and family melodrama establishes precedent. Every subsequent show about criminal transformation, every show about moral dissolution, every show that asks audiences to root for the monster exists in Breaking Bad's shadow.</p>
+        
+        <p>The final image of Walter White—dead among chemistry equipment, having confessed the truth to Skyler and liberated Jesse—provides perfect closure while acknowledging tragedy. The monster has been destroyed; the man he was is already long gone. The survivor (Jesse) drives toward possibility; the wreckage (Skyler, Walt Jr., Marie, the world's damage) remains. Breaking Bad gives us everything television can offer: the full measure of human transformation, rendered in images that burn into memory, chemistry and crime merging into unforgettable artistic achievement.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">8.96</div>
+
+    <div style="color:#888; margin-top:1rem; font-size:0.9rem">
+        The final score of 8.96 reflects Breaking Bad's exceptional performance across all seven dimensions. At #2 in the rankings, it stands as the greatest drama in television history to fully complete its story (The Wire at #1 having slightly lower resolution score due to season 5's rushed production). BB's combination of narrative perfection, acting brilliance, and thematic depth—culminating in "Felina," one of television's greatest achievements—secures its place as the gold standard against which all television is measured.
+    </div>
+</div>
+
 </body>
 </html>

@@ -3,89 +3,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halt and Catch Fire - "The Next Big Thing" | Dynamic Rank Engine</title>
+    <title>Halt and Catch Fire - TV Shows Ranked</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #0277bd; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #0277bd, #01579b); color: #e1f5fe; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #29b6f6; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(2,119,189,0.3), rgba(0,0,0,0.9)); border: 3px solid #0277bd; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #29b6f6; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #0277bd; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #29b6f6; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(2,119,189,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #29b6f6; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #29b6f6; font-weight: 700; }
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --text-muted: #666666;
+            --accent-primary: #00d4aa;
+            --accent-secondary: #ff6b35;
+            --border-color: #2a2a2a;
+            --dimension-excellent: #00d4aa;
+            --dimension-good: #7dd320;
+            --dimension-average: #f5a623;
+            --dimension-poor: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .meta-value {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent-primary);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .feels-like-section {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.05), rgba(255, 107, 53, 0.05));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .feels-intro {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-style: italic;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent-primary);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .dimension-block {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .dimension-block:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-primary);
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .dimension-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .dimension-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .score-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .score-excellent { background: rgba(0, 212, 170, 0.2); color: var(--dimension-excellent); }
+        .score-good { background: rgba(125, 211, 32, 0.2); color: var(--dimension-good); }
+        .score-average { background: rgba(245, 166, 35, 0.2); color: var(--dimension-average); }
+        .score-poor { background: rgba(231, 76, 60, 0.2); color: var(--dimension-poor); }
+
+        .dimension-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .dimension-highlight {
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        .dimension-highlight strong {
+            color: var(--text-primary);
+        }
+
+        .final-score-section {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+            border: 2px solid var(--accent-primary);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .final-score-label {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .final-score-value {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .final-score-text {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .breakdown-item {
+            text-align: center;
+        }
+
+        .breakdown-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .breakdown-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .verdict {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .verdict strong {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .final-score-value {
+                font-size: 3rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #38</div>
+        <header>
             <h1>Halt and Catch Fire</h1>
-            <p class="subtitle">"The Next Big Thing"</p>
-            <div class="score-badge">
-                <span class="score-value">7.88</span>
-                <span class="score-label">Final Score</span>
+            <p class="subtitle">2014-2017 • AMC • 4 Seasons • 40 Episodes</p>
+        </header>
+
+        <div class="meta-info">
+            <div class="meta-item">
+                <div class="meta-label">Creators</div>
+                <div class="meta-value">Christopher Cantwell, Christopher Rogers</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Stars</div>
+                <div class="meta-value">Lee Pace, Scoot McNairy, Mackenzie Davis, Kerry Bishé</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Genre</div>
+                <div class="meta-value">Tech Drama / Period Piece</div>
             </div>
         </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2014-2017</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">40</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">AMC</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Christopher Cantwell, Christopher C. Rogers</div></div>
-        </div>
-
-        <div class="section">
+        <section class="feels-like-section">
             <h2>What It Feels Like to Watch</h2>
-            <p>Halt and Catch Fire is television's most underrated drama, a portrait of the personal computer revolution and the early internet told through three deeply flawed visionaries in Dallas's Silicon Prairie. Over four seasons, it charts the evolution from hardware to software to the web to search, always returning to the people who build things and why they build them—and whether building is enough.</p>
-            <p>Joe MacMillan (Lee Pace) is a former IBM executive obsessed with the future. Gordon Clark (Scoot McNairy) is an engineer whose genius has always come at the cost of his health and family. Cameron Howe (Mackenzie Davis) is a programmer whose code is art and whose anger is fuel. Together they build a portable computer, then a online gaming service, then a web browser, then a search engine. They fight, they reconcile, they fail, they try again.</p>
-            <p>The show's emotional center is Donna Clark (Kerry Bishé), Gordon's wife, a computer engineer who's always been smarter than everyone around her but keeps being overlooked. Her partnership with Cameron drives season two, their web browser company Mutiny becomes the show's heart, and their eventual falling out and later reconciliation gives the series its most satisfying character arc.</p>
-            <p>Four seasons, forty episodes, perfect ending. Cameron leaves the company she built. Joe realizes that the future doesn't need him. Gordon dies, too young, of health problems that were always there. The final scene: Donna gathers the original team one more time, and the show cuts to a title card describing what each person went on to do. "They built something," it seems to say. "It mattered." A beautiful meditation on creativity, ambition, and the people who can't stop chasing the next big thing.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">10</div><div class="dimension-weight">20% weight</div></div>
+            
+            <div class="feels-intro">
+                "Imagine standing in a garage in 1983, the smell of solder and ambition thick in the air, watching history being written in code while the world outside has no idea what's coming."
             </div>
-            <p style="margin-top:1.5rem"><strong>Resolution (10):</strong> Four seasons of building, failing, building again. The final title cards. "They built something." Perfect.</p>
-            <p><strong>Conceptual Density (9):</strong> The tech revolution, but also the psychology of creators. Why do we build? Can we ever be satisfied?</p>
-            <p><strong>World Building (9):</strong> Silicon Prairie, 1980s-1990s. The tech is real, the era is vivid, the stakes are human.</p>
-        </div>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"I/O" (S1E1)</strong> — The pitch. "The thing that gets you to the thing."</p>
-            <p><strong>"Heaven Is a Place" (S2E10)</strong> — Mutiny's peak. Donna and Cameron. The future looks bright.</p>
-            <p><strong>("<" (S3E3)</strong> — Season three's structural experiment. One continuous shot. One character study.</p>
-            <p><strong>("Goodwill" (S4E10)</strong> — Series finale. The gathering. The title cards. "They built something."</p>
-        </div>
+            <p>Watching <em>Halt and Catch Fire</em> is like discovering a forgotten archive of a revolution you lived through but never truly witnessed. It's a show that begins as a curiosity—a competently made period drama about the early days of personal computing—and gradually transforms into something profound: a meditation on creativity, ambition, failure, and the human connections that make innovation meaningful.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> AMC+, Hulu</p>
-            <p><strong>UK:</strong> Amazon Prime Video</p>
-        </div>
+            <p>The first season asks for patience. It presents itself as a Mad Men clone set in the Texas tech corridor of the 1980s, complete with the mysterious, tortured male antihero (Joe MacMillan, played with electric intensity by Lee Pace), his brilliant but unstable engineer (Gordon Clark, Scoot McNairy), and the punk-rock coder prodigy (Cameron Howe, Mackenzie Davis in a career-defining role). There's corporate espionage, reverse-engineering schemes, and enough period-accurate computer hardware to make retro-tech enthusiasts weep with joy.</p>
+
+            <p>But something miraculous happens around season two. The show pivots—not through gimmicks or shock value, but through an organic realization of what it actually wants to be about. It stops being Joe's story and becomes Cameron's and Donna's (Kerry Bishé). It stops being about building computers and becomes about building relationships, companies, and eventually the internet itself. The garage startup energy never leaves, even as the characters move into sleek offices and confront venture capitalists. The show understands that every technological revolution is fundamentally human—and messy.</p>
+
+            <p>By the final season, <em>Halt and Catch Fire</em> has evolved from a good show into one of television's most profound explorations of connection in the digital age. It understands that the people who built the internet were passionate, flawed, desperate for meaning, and often terrible at expressing their love for each other. The show's finale ranks among the best in television history—not because it ties everything up neatly, but because it allows its characters the grace of incomplete resolution, the beauty of roads not taken, and the comfort of knowing that even when technology fails us, human connection persists.</p>
+
+            <p>This is a show about the PC vs. Mac era, yes. About command lines and modem noises and the Wild West of early online communities. But it's also about what it means to create something with someone else, to fight for vision against commerce, to burn out and rebuild, to love people through the static. It takes time to find its voice, but when it does, it sings in a register that few shows ever achieve.</p>
+        </section>
+
+        <section>
+            <h2>Why It Ranks</h2>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <div class="dimension-icon" style="background: rgba(0, 212, 170, 0.2);">👥</div>
+                        Characters
+                    </div>
+                    <div class="score-badge score-excellent">9.0</div>
+                </div>
+                <div class="dimension-content">
+                    <p>The character work in <em>Halt and Catch Fire</em> is exceptional, especially considering how much the protagonists evolve across four seasons. Joe MacMillan begins as a Don Draper archetype—mysterious, manipulative, impossibly charismatic—and gradually reveals himself as something more vulnerable and complex: a man desperate to matter, terrified of his own emptiness, who uses vision as a defense against intimacy.</p>
+                    
+                    <p>But the show's true triumph is Cameron Howe and Donna Clark. Cameron starts as the punk-rock hacker stereotype but grows into one of television's most authentic portraits of creative genius and emotional dysfunction. Her relationship with code—simultaneously her sanctuary and her prison—is explored with remarkable nuance. Donna, initially presented as a supportive wife, emerges as perhaps the show's most complete character: brilliant, ambitious, conflicted about her choices, and ultimately the moral compass that the other characters orbit around.</p>
+
+                    <p>Gordon Clark's journey from washed-up engineer to unlikely patriarch of the group provides the show's emotional throughline, and the supporting cast—including Toby Huss's magnificent John Bosworth—rounds out an ensemble where every character feels like they have interior lives extending beyond the frame. The show allows everyone to fail, to be petty, to misunderstand each other, and to occasionally connect in moments of genuine transcendence.</p>
+
+                    <div class="dimension-highlight">
+                        <strong>Standout:</strong> The evolution of Cameron and Donna's relationship from rivals to reluctant partners to something approaching family represents some of the finest writing about female friendship and professional collaboration in television history.
+                    </div>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <div class="dimension-icon" style="background: rgba(125, 211, 32, 0.2);">🌍</div>
+                        World Building
+                    </div>
+                    <div class="score-badge score-good">7.5</div>
+                </div>
+                <div class="dimension-content">
+                    <p><em>Halt and Catch Fire</em> meticulously reconstructs three distinct eras of computing history: the early 1980s PC revolution, the mid-80s software boom, and finally the early 1990s internet emergence. The production design is impeccable—every computer, every piece of clothing, every office space feels authentically of its time without descending into kitsch or nostalgia porn.</p>
+
+                    <p>The show moves its characters from Texas to Silicon Valley to virtual spaces online, and each location has distinct textures and cultural markers. The Dallas of the early seasons feels appropriately provincial and ambitious; the California sequences capture the emerging tech culture of the late 80s; and the final season's exploration of early web communities feels surprisingly contemporary despite its period setting.</p>
+
+                    <p>Where the world building occasionally falters is in its compression of timelines and some historical liberties taken for dramatic purposes. Real-world tech history is bent to serve character arcs, which is defensible but sometimes strains plausibility. Additionally, certain corporate and financial plot mechanics are simplified in ways that make the business side of the story less convincing than the personal drama.</p>
+
+                    <p>The show is at its best when exploring the culture of early computing—the garage startups, the bedroom coders, the online communities that formed in text-based voids. These spaces feel lived-in and authentic because the show understands that for the people who inhabited them, they were worlds entire.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <div class="dimension-icon" style="background: rgba(125, 211, 32, 0.2);">🎥</div>
+                        Cinematography
+                    </div>
+                    <div class="score-badge score-good">7.5</div>
+                </div>
+                <div class="dimension-content">
+                    <p>The visual language of <em>Halt and Catch Fire</em> evolves alongside its characters, becoming progressively more confident and distinctive as the series progresses. Early episodes employ a warm, slightly hazy aesthetic that evokes the 1980s without feeling like parody. The color grading—rich amber interiors, the blue glow of computer screens against dark rooms—creates a consistent visual identity that carries through all four seasons.</p>
+
+                    <p>The show experiments with aspect ratio shifts in its final season, most notably in the penultimate episode "Search," which uses a narrower frame to evoke the constrained experience of early web browsing while also signaling a constriction of narrative possibility. It's a bold stylistic choice that pays off emotionally.</p>
+
+                    <p>The direction often emphasizes isolation within spaces—characters dwarfed by server rooms, hunched over keyboards in pools of monitor light, or silhouetted against windows. This visual vocabulary reinforces the show's thematic preoccupations: the loneliness of creation, the warmth of connection, the vast spaces between people even when they're physically close.</p>
+
+                    <p>What keeps this score from being higher is that the show never fully establishes a visual identity as distinctive as its narrative voice. The camerawork is competent, occasionally inspired, but rarely breathtaking. It serves the story admirably without ever threatening to overshadow it.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <div class="dimension-icon" style="background: rgba(245, 166, 35, 0.2);">✨</div>
+                        Visual Spectacle
+                    </div>
+                    <div class="score-badge score-average">6.0</div>
+                </div>
+                <div class="dimension-content">
+                    <p>As a period drama about computer programming, <em>Halt and Catch Fire</em> is working against visual spectacle by its very nature. Much of the action involves people typing, staring at screens, having tense conversations in offices and garages. The show understands this limitation and largely avoids trying to manufacture false excitement through contrived action sequences.</p>
+
+                    <p>When spectacle does arrive—period-appropriate computer trade shows, the unveiling of new products, the visual representation of early internet spaces—it tends to be grounded and realistic rather than bombastic. The show finds poetry in the mundane: the glow of a cathode ray tube, the mechanical whir of a disk drive, the rainbow sheen of a silicon wafer.</p>
+
+                    <p>There are memorable visual moments: Joe standing on a table in the pilot, arms outstretched like a tech messiah; Cameron surrounded by her creation Community of the Ether; the final montage that traces the invisible connections between characters across time and space. But these are exceptions rather than the rule.</p>
+
+                    <p>The show's limited budget is sometimes apparent in its staging of larger set pieces, and the occasional need to represent abstract digital concepts visually—search results, chat interfaces, early web pages—can feel dated or awkward by contemporary standards. This isn't a show you watch for eye candy.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <div class="dimension-icon" style="background: rgba(0, 212, 170, 0.2);">🧠</div>
+                        Conceptual Density
+                    </div>
+                    <div class="score-badge score-excellent">9.0</div>
+                </div>
+                <div class="dimension-content">
+                    <p>Perhaps no show in television history has explored the emotional and philosophical implications of the digital revolution with such depth and nuance. <em>Halt and Catch Fire</em> is rich with ideas: the tension between art and commerce in technological innovation; the democratizing potential and isolating dangers of the internet; the nature of genius and collaboration; the personal costs of ambition; the ways technology mediates and transforms human connection.</p>
+
+                    <p>The show engages seriously with the technical and cultural history it depicts. Episodes explore open-source philosophy, the commercialization of online spaces, the gender dynamics of the tech industry, venture capital's relationship with innovation, and the search for authenticity in increasingly virtual worlds. It does this without becoming didactic or losing sight of its characters' emotional journeys.</p>
+
+                    <p>Particularly in its final season, the show grapples with prescient questions about what the internet was becoming in the early 90s and what it has become today. Cameron's journey from punk coder to someone questioning the toxicity of the online communities she helped create feels remarkably contemporary. The show's final episodes meditate on mortality, legacy, connection, and the possibility of forgiveness with philosophical depth rarely seen in television.</p>
+
+                    <p>Even when the plot mechanics strain credibility, the show's ideas remain sharp and consistently thought-provoking. This is television as essay, as philosophical inquiry, as cultural archaeology.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <div class="dimension-icon" style="background: rgba(0, 212, 170, 0.2);">⚡</div>
+                        Narrative Drive
+                    </div>
+                    <div class="score-badge score-excellent">8.5</div>
+                </div>
+                <div class="dimension-content">
+                    <p>After a somewhat uneven first season that struggled to find its center, <em>Halt and Catch Fire</em> develops remarkable narrative momentum. Seasons 2-4 represent some of the most compelling serialized storytelling in recent television, with each episode building organically on what came before while consistently introducing new complications and deepening character relationships.</p>
+
+                    <p>The show demonstrates impressive structural ambition across its four seasons, each functioning as a distinct chapter in the characters' lives while also contributing to an overarching narrative about the evolution of personal computing and the internet. The show pivots between corporate drama, startup story, family saga, and finally something approaching a love story—sometimes all within single episodes—while maintaining tonal coherence.</p>
+
+                    <p>The writing team understands the importance of time jumps, using them strategically to accelerate character development and explore new phases of technological history without getting bogged down in the connective tissue. The final season's compression of timeline—mirroring the acceleration of internet time itself—is particularly effective.</p>
+
+                    <p>What keeps this from a perfect score is the first season's unevenness and occasional episodes where business plot mechanics drag. Some viewers will bounce off the initial episodes before the show finds its voice. But for those who persist, the narrative payoff is extraordinary.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-title">
+                        <div class="dimension-icon" style="background: rgba(0, 212, 170, 0.2);">🏁</div>
+                        Resolution
+                    </div>
+                    <div class="score-badge score-excellent">8.5</div>
+                </div>
+                <div class="dimension-content">
+                    <p>The final season of <em>Halt and Catch Fire</em>, and particularly its last two episodes, rank among the finest conclusions in television history. The show has the rare confidence to let resolution emerge from character rather than plot, allowing its ensemble to reach states of acceptance, forgiveness, and connection without requiring everything to be neatly tied.</p>
+
+                    <p>The series finale "Ten of Swords" understands that real closure isn't about solving every problem or answering every question—it's about characters acknowledging what they mean to each other and finding peace with the imperfect arcs of their lives. Joe, Cameron, Donna, and Gordon each reach endpoints that feel earned by everything we've witnessed over four seasons.</p>
+
+                    <p>Particularly moving is the show's treatment of Cameron and Donna's relationship, which the finale acknowledges as the central emotional strand of the entire series. Their final scenes together achieve a transcendent quality that television rarely attempts, let alone achieves.</p>
+
+                    <p>The handling of time and mortality in the final season is sophisticated and affecting, with the show finding ways to honor its history while pointing toward futures beyond the frame. The final montage—showing the invisible threads of connection between characters across time and space—is visually and emotionally stunning.</p>
+
+                    <div class="dimension-highlight">
+                        <strong>Standout:</strong> Joe's final scene, leaving the audience with his characteristic mix of mystery and revelation, represents the perfect culmination of a character who spent four seasons hiding behind masks and finally found his humanity.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-score-section">
+            <div class="final-score-label">Final Score</div>
+            <div class="final-score-value">7.88</div>
+            <div class="final-score-text">A Transcendent Tech Drama</div>
+            
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Characters</div>
+                    <div class="breakdown-value">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">World</div>
+                    <div class="breakdown-value">7.5</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Cinematography</div>
+                    <div class="breakdown-value">7.5</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Spectacle</div>
+                    <div class="breakdown-value">6.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Concept</div>
+                    <div class="breakdown-value">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Narrative</div>
+                    <div class="breakdown-value">8.5</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-label">Resolution</div>
+                    <div class="breakdown-value">8.5</div>
+                </div>
+            </div>
+
+            <div class="verdict">
+                <strong>The Verdict:</strong> <em>Halt and Catch Fire</em> demands patience—its first season is watchable but not exceptional, setting up dynamics that pay off spectacularly in later years. But for viewers willing to commit, it offers one of television's most profound meditations on creativity, ambition, and human connection in the technological age. The Cameron-Donna relationship and the series' emotional climax places this among the medium's finest achievements. A slow burn that becomes an inferno of feeling.
+            </div>
+        </section>
     </div>
 </body>
 </html>

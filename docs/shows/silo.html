@@ -3,77 +3,414 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silo - TV Shows Ranked</title>
-    <link rel="stylesheet" href="../css/show-page.css">
+    <title>Silo | TV Shows Ranked</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e8e8e8;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .show-header {
+            text-align: center;
+            padding: 50px 30px;
+            background: linear-gradient(180deg, rgba(44,62,80,0.9) 0%, rgba(30,40,50,0.95) 100%);
+            border-radius: 16px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        .show-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 10px rgba(212,175,55,0.3);
+            letter-spacing: -1px;
+        }
+        
+        .show-meta {
+            color: #a0aec0;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .show-meta span {
+            margin: 0 12px;
+        }
+        
+        .creator-info {
+            color: #8892b0;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        
+        .cast-list {
+            font-style: italic;
+            color: #a0aec0;
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .final-score-block {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: #1a1a2e;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(212,175,55,0.3);
+        }
+        
+        .final-score-label {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .final-score-number {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(212,175,55,0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(212,175,55,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        
+        .content-block {
+            background: rgba(255,255,255,0.03);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        
+        .feeling-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #c5c5c5;
+        }
+        
+        .feeling-text p {
+            margin-bottom: 18px;
+        }
+        
+        .dimension-grid {
+            display: grid;
+            gap: 24px;
+        }
+        
+        .dimension-card {
+            background: linear-gradient(145deg, rgba(40,50,65,0.9) 0%, rgba(30,40,50,0.95) 100%);
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid #d4af37;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .dimension-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+        
+        .dimension-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+        
+        .dimension-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4af37;
+        }
+        
+        .score-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        
+        .score-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+        
+        .dimension-analysis {
+            color: #a0aec0;
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+        
+        .dimension-analysis p {
+            margin-bottom: 12px;
+        }
+        
+        .plot-summary {
+            background: rgba(212,175,55,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+        
+        .plot-summary h3 {
+            color: #d4af37;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .plot-summary p {
+            color: #b8b8b8;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            color: #d4af37;
+            font-weight: 500;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #d4af37;
+        }
+        
+        .score-excellent { background: linear-gradient(90deg, #d4af37, #f4e4c1); }
+        .score-good { background: linear-gradient(90deg, #68d391, #9ae6b4); }
+        .score-avg { background: linear-gradient(90deg, #f6e05e, #faf089); }
+        .score-below { background: linear-gradient(90deg, #fc8181, #feb2b2); }
+    </style>
 </head>
 <body>
-    <nav class="breadcrumb">
-        <a href="../../index.html">Home</a> &gt; <span>Silo</span>
-    </nav>
-
-    <article class="show-page">
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Rankings</a>
+        
         <header class="show-header">
-            <img src="https://image.tmdb.org/t/p/w200/placeholder.jpg" alt="Silo Poster" class="show-poster">
-            <div class="show-info">
-                <h1>Silo</h1>
-                <p class="show-meta">2023 • Sci-Fi Mystery | 2 Seasons</p>
-                <div class="score-badge">Score: 8.15</div>
-                <div class="genres">Sci-Fi, Mystery, Dystopian</div>
+            <h1 class="show-title">Silo</h1>
+            <div class="show-meta">
+                <span>Apple TV+</span> • <span>Sci-Fi Mystery</span> • <span>2023–</span> • <span>2 Seasons</span> • <span>14 Episodes</span>
             </div>
+            <div class="creator-info">Created by Graham Yost • Based on novels by Hugh Howey</div>
+            <div class="cast-list">Starring: Rebecca Ferguson, Tim Robbins, Common, Harriet Walter, Chinaza Uche, Avi Nash</div>
         </header>
-
-        <section class="deep-content">
-            <h2>What It Feels Like to Watch</h2>
-            <p class="vibe-text">Silo is a post-apocalyptic mystery about the last ten thousand people on Earth, living in a mile-deep underground silo where the outside world is so toxic that leaving means certain death. Or that's what they're told. Rebecca Ferguson plays Juliette Nichols, an engineer who discovers that the silo's founding documents have been secretly rewritten, and that everything she's been told about their history might be lies.</p>
-
-            <p>The show is adapted from Hugh Howey's self-published trilogy, and its strength is in the world-building: a closed ecosystem where generations have never seen sunlight, where power is concentrated among those who control the cameras and the archives, where the central mystery—what's really outside, what happened to the world, who built the silo—propels narrative. The architecture of the structure becomes character: the stairs between levels that serve as class markers, the gardens that produce oxygen, the mechanical that power the generator.</p>
-
-            <p>What distinguishes Silo from other dystopian fiction is its patience. The mysteries unfold deliberately; the world is established before it's explained. Juliette is damaged in ways that feel earned—she's lost people she loved, and her grief motivates her investigation. The show's second season expands the scope without losing focus, revealing that the silo is one of many, that the outside world is more complex than initially shown, and that the systems of control run deeper than anyone imagined. This is science fiction built on curiosity and conspiracy.</p>
-
-            <h2>Why It Ranks Here</h2>
-            <p>Silo earns its ranking through immersive world-building, Rebecca Ferguson's committed performance, and mystery structure that rewards attention. The score reflects a show that established itself as premium sci-fi in its first two seasons.</p>
-
-            <h2>The 7-Dimension Analysis</h2>
-
-            <div class="dimension">
-                <h3>Characters & Acting (7.5/10)</h3>
-                <p>Rebecca Ferguson creates a Juliette whose curiosity is both strength and vulnerability. The ensemble builds as the show progresses—Tim Robbins, Common, and others adding depth to the silo's inhabitants. Character motivation is consistently clear even when behavior surprises.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>World Building (9/10)</h3>
-                <p>The silo is one of television's most immersive environments—a complete society with its own economy, class system, religion, and history. The details accumulate: the stairs as death sentences for old bodies, the camera surveillance that creates paranoia, the reproductive lottery that controls population. This is science fiction world-building at its best.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>Cinematography (7.5/10)</h3>
-                <p>Claustrophobic environments shot to emphasize confinement while creating beauty from industrial materials. The lighting distinguishes the silo's levels—bright upper levels, shadowy depths. Direction serves mystery without showing off.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>Visual Spectacle (4/10)</h3>
-                <p>Set design rather than effects—the silo's levels, the camera rooms, the generator's machinery. The spectacle is architectural, creating a space that feels both lived-in and confining. Some exterior shots expand the visual possibilities in later seasons.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>Conceptual Depth (7.5/10)</h3>
-                <p>The show explores control through information, class separation through physical architecture, and how belief systems are constructed and maintained. The mystery emerges from these themes—secrecy is structural, systematic, designed.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>Narrative Drive (7.5/10)</h3>
-                <p>The mystery structure creates strong momentum—each episode reveals while withholding. The second season complicates without losing clarity. Two seasons establish premise; continuation will determine whether momentum can be sustained across full source material.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>Narrative Path & Resolution (6/10)</h3>
-                <p>The show is ongoing; mysteries are partially resolved while new ones emerge. The silo's truths are being revealed, but the full story requires completion. Current satisfaction depends on how much unresolved mystery a viewer can tolerate.</p>
+        
+        <div class="plot-summary">
+            <h3>The Premise</h3>
+            <p>In a ruined and toxic future, thousands of people live in a giant underground silo—Silo 18—extending hundreds of stories beneath the earth's surface. The laws they live by are simple: never go outside, or you will die. But some question this truth, and engineer Juliette Nichols finds herself pulled into a dangerous mystery that challenges everything the residents believe about their world, their history, and their purpose.</p>
+        </div>
+        
+        <section id="feel-like">
+            <h2 class="section-title">
+                <span class="section-icon">🎭</span>
+                What It Feels Like to Watch
+            </h2>
+            <div class="content-block">
+                <div class="feeling-text">
+                    <p>Watching <em>Silo</em> is like being lowered into a suffocating dream of concrete and fluorescent light—a dream where every corridor holds secrets and the truth waits like toxic air beyond sealed doors. From the opening moments, you feel <span class="highlight">the claustrophobia</span> of a world where vertical living is a cage, where the sky exists only on flickering screens, and hope itself might be the most dangerous poison.</p>
+                    
+                    <p>Rebecca Ferguson's Juliette Nichols becomes your anchor in this labyrinth—a woman whose journey from skilled mechanic to truth-seeker mirrors your own descent. When she asks forbidden questions, <span class="highlight">you feel the weight of that defiance</span>. The pacing is deliberate, like footsteps down endless stairwells. <span class="highlight">This isn't sprint television</span>—it's an endurance test that rewards patience. Each revelation peels back another layer of the silo's history, exposing the rot beneath its social order.</p>
+                    
+                    <p>What lingers is <span class="highlight">philosophical unease</span>. As Juliette's investigation deepens, you'll question your assumptions about authority and truth. The show offers the slow burn of revelation, and the creeping understanding that sometimes cages are real, but sometimes we build them with our own fear.</p>
+                </div>
             </div>
         </section>
-
-        <footer class="show-footer">
-            <a href="../../index.html">← Back to Rankings</a>
+        
+        <section id="why-it-ranks">
+            <h2 class="section-title">
+                <span class="section-icon">📊</span>
+                Why It Ranks: The Seven Dimensions
+            </h2>
+            <div class="dimension-grid">
+                
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">🎭 Characters</span>
+                        <span class="dimension-score">7.5</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill score-good" style="width: 75%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>Rebecca Ferguson's Juliette is the beating heart of <em>Silo</em>—a character defined by competence, stubbornness, and refusal to accept comforting lies. She avoids the "chosen one" trap through her mechanic origins; she's a worker first, hero second. This grounding makes her journey feel earned. Tim Robbins brings calculating menace as Mayor Bernard, while Common and Harriet Walter add texture to power structures. Some secondary characters feel like devices, and occasionally mystery momentum overshadows development—but the core ensemble carries the weight admirably.</p>
+                    </div>
+                </div>
+                
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">🏗️ World Building</span>
+                        <span class="dimension-score">8.0</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill score-excellent" style="width: 80%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>Hugh Howey's foundation shines through in the show's exceptional construction of vertical civilization. The silo operates with internal logic that's both fascinating and terrifying—agricultural levels, mechanical zones, social stratification that maps cleanly onto vertical space, and a history preserved through forbidden relics. The production designers have created a lived-in environment that feels authentically worn, recycled, and adapted over generations.</p>
+                        <p>What elevates the world building is its attention to how belief systems calcify over time. The mythology of "the outside," the banned knowledge locked in forbidden archives, the ritual of "cleaning"—all feel like organic developments of a closed society under stress. The show understands that dystopias work best when they feel like logical extensions of real human behavior. Every level of the silo tells its own story, from the rusted depths to the privileged heights, creating a complete ecosystem of fear and survival.</p>
+                    </div>
+                </div>
+                
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">🎥 Cinematography</span>
+                        <span class="dimension-score">8.0</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill score-excellent" style="width: 80%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p><em>Silo</em> embraces the visual challenge of its premise and transforms limitation into aesthetic identity. The cinematography uses the vertical geometry to brilliant effect—endless spiraling staircases become motifs, the curve of the silo's walls creates perpetual horizon lines, and lighting evolves from sickly greens and florescent blues to warmer tones when safety or humanity intrudes. The show understands that confinement doesn't have to mean visual monotony.</p>
+                        <p>The composition regularly uses vertical lines and tight framing to emphasize the claustrophobia, while wider shots of the silo's massive interior spaces remind viewers of humanity's insignificance against their own architecture. Color grading shifts effectively between the industrial depths and the cleaner upper levels, creating visual storytelling that reinforces the social hierarchy. The decision to keep the outside world visually distinct—broadcast through grainy screens or hazed through toxic atmosphere—maintains its mystique while making every glimpse feel earned and significant.</p>
+                    </div>
+                </div>
+                
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">✨ Visual Spectacle</span>
+                        <span class="dimension-score">6.5</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill score-avg" style="width: 65%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>This is where <em>Silo</em>'s intentional limitations show, for better and worse. The show isn't interested in explosive action sequences or lavish set pieces—its spectacle is more intimate and atmospheric. When moments of visual grandeur do arrive—the massive screen revealing the outside world, the dizzying heights of the silo's upper levels, the stark reveal of the cleaning process—they land with greater impact for their rarity.</p>
+                        <p>However, television budget constraints occasionally show in the limited scope of crowd scenes and the compressed geography of the silo. The "big" moments work precisely because they're earned by patient buildup, but viewers seeking blockbuster-scale sci-fi spectacle may find the rewards too infrequent. The visual vocabulary prioritizes mood over magnitude, which serves the story but caps the wow-factor. It's a deliberate trade-off that reinforces the show's themes but doesn't always satisfy spectacle-hungry audiences.</p>
+                    </div>
+                </div>
+                
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">🧠 Conceptual Density</span>
+                        <span class="dimension-score">7.5</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill score-good" style="width: 75%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p><em>Silo</em> operates on multiple conceptual levels: as literal survival story, as allegory for authoritarian control, as meditation on truth versus security, and as detective story about civilizational memory. The show rewards attention to detail—background details in the archives, throwaway dialogue about "the before times," visual artifacts that hint at the silo's true nature. It's science fiction that trusts its audience to piece things together.</p>
+                        <p>The central metaphor of the silo itself—as protective shelter and as prison—provides rich interpretive material about how societies limit their own freedom in exchange for safety. Questions about what people deserve to know, who decides what constitutes "dangerous knowledge," and whether survival justifies deception all swirl through the narrative. While occasionally the show's puzzle-box structure prioritizes mystery over thematic exploration, when the conceptual and narrative threads align, the results are genuinely thought-provoking television that lingers in the mind.</p>
+                    </div>
+                </div>
+                
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">⏩ Narrative Drive</span>
+                        <span class="dimension-score">7.5</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill score-good" style="width: 75%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>The storytelling engine of <em>Silo</em> runs on questions—what's really outside, why do people sent to clean always do it, what happened to make the silos necessary, and who benefits from the lies? This investigative structure provides forward momentum that builds effectively across episodes and seasons. Each answer breeds new questions in satisfying fashion, and the show demonstrates admirable restraint in parceling out revelations.</p>
+                        <p>However, the deliberate pace occasionally drifts into sluggishness, particularly in middle episodes where setup feels like padding. Some viewers may struggle with the show's resistance to rapid gratification. The narrative also relies heavily on flashback structures that, while thematically relevant, occasionally disrupt present-timeline urgency. When the drive finds its rhythm—usually in season premieres and finales—it achieves genuine propulsion. In between, patience is required, which limits the show's broader accessibility.</p>
+                    </div>
+                </div>
+                
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">🏁 Resolution</span>
+                        <span class="dimension-score">6.5</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill score-avg" style="width: 65%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>As an ongoing series, <em>Silo</em> necessarily prioritizes unanswered questions over tidy conclusions. The first season finale delivers genuine revelations while opening new mysteries—a difficult balance that mostly succeeds. However, the second season struggles with the weight of its own mythology, and some developments feel like they're delaying rather than advancing understanding. The show walks the tightrope between satisfying payoff and sequel bait with variable success.</p>
+                        <p>The source material provides an endpoint, which offers reassurance, but television adaptations often extend beyond their natural conclusions. Currently, <em>Silo</em> sits at a critical juncture where the rate of revelation needs to accelerate to maintain audience trust. The smaller mysteries resolve effectively—character arcs, interpersonal conflicts, procedural elements—but the grand architecture of the silo and its place in the world remains tantalizingly incomplete. For mystery-box shows, this is dangerous territory that requires careful navigation.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <div class="final-score-block">
+            <div class="final-score-label">Final Score</div>
+            <div class="final-score-number">7.45</div>
+        </div>
+        
+        <section id="verdict">
+            <h2 class="section-title">
+                <span class="section-icon">🎯</span>
+                The Verdict
+            </h2>
+            <div class="content-block">
+                <div class="feeling-text">
+                    <p><em>Silo</em> is <span class="highlight">patient, atmospheric sci-fi</span> that trusts its audience with complex world-building and slow-burn mysteries. It won't satisfy viewers seeking immediate answers or action-driven storytelling, but for those who appreciate dystopian fiction with philosophical weight, it delivers a compelling journey into darkness.</p>
+                    
+                    <p>The show's greatest strength is its complete commitment to its premise—there's no winking at the camera, no half-measures in the world-building. The silo feels real, its dangers feel immediate, and the human costs of its society register with genuine emotional impact. Rebecca Ferguson's grounded performance anchors the spectacle in relatable determination, and the supporting ensemble creates a believable community under pressure.</p>
+                    
+                    <p>Its weaknesses are those of ambition: the pacing tested by mystery-box demands, the budget constraints occasionally visible, and the unresolved nature of its central questions that may never fully satisfy. But these are symptoms of reaching beyond safe television, and <em>Silo</em>'s reach is what makes it memorable in a crowded streaming landscape.</p>
+                    
+                    <p>For fans of <em>Dark</em>, <em>The Leftovers</em>, or <em>Station Eleven</em>—television that asks hard questions about human nature and accepts that answers arrive slowly—<em>Silo</em> earns its place in the conversation. It's a show about the cost of truth in a world built on lies, and that theme resonates through every carefully constructed frame.</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer style="text-align: center; padding: 40px 20px; color: #64748b; font-size: 0.9rem;">
+            <p>© TV Shows Ranked | Analysis Last Updated: February 2026</p>
         </footer>
-    </article>
+    </div>
 </body>
 </html>

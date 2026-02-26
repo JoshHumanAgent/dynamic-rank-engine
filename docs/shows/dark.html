@@ -1,90 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark - "The beginning is the end" | Dynamic Rank Engine</title>
+    <title>Dark - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #4a148c; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #4a148c, #311b92); color: #f3e5f5; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #b39ddb; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(74,20,140,0.3), rgba(0,0,0,0.9)); border: 3px solid #4a148c; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #b39ddb; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #4a148c; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #b39ddb; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(74,20,140,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #b39ddb; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #b39ddb; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #6</div>
-            <h1>Dark</h1>
-            <p class="subtitle">"The beginning is the end"</p>
-            <div class="score-badge">
-                <span class="score-value">8.45</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2017-2020</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">26</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Netflix</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Baran bo Odar, Jantje Friese</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Dark is the most ambitious time-travel story ever filmed. A German-language series set in a small town called Winden, it begins with a child's disappearance and expands into a multigenerational saga spanning 150 years. Four families—the Nielsens, the Kahnswalds, the Dopplers, and the Tiedemanns—are connected across time in ways that take three seasons to fully untangle. "The beginning is the end," the show says repeatedly. It means it.</p>
-            <p>The premise: a wormhole in a cave allows travel between 1953, 1986, 2019, and beyond. Children are disappearing. A man named Noah is manipulating events across decades. A nuclear power plant hides secrets. The show's structure is a puzzle—one that rewards close attention and requires a flowchart (or several) to fully understand. Characters meet themselves as children, as adults, as elderly people. Parents are children; children are parents. The paradoxes are the point.</p>
-            <p>Dark's genius is its emotional core. Time travel isn't just science fiction—it's trauma. The characters are trapped in cycles they can't escape. "We're not free in what we do," Jonas Kahnwald (Louis Hofmann) learns, "because we're not free in what we want." Determinism is the show's philosophy. Everything that happens has already happened. The question is: can you accept it? Jonas becomes Adam, the villain. Martha becomes Eva, his opposite. They create each other across time. The cycle is eternal.</p>
-            <p>Three seasons, twenty-six episodes, complete. Dark is the most satisfying time-travel story ever told because it doesn't cheat. Every paradox has a solution. Every thread connects. "The end is the beginning," Adam says. He's right. The final episode breaks the cycle, but only by accepting that breaking it was always part of it. Dark is mathematics as tragedy—and it's perfect.</p>
-        </div>
+<p>Dark premiered on Netflix on December 1, 2017, created by Baran bo Odar and Jantje Friese. It was the first German-language Netflix original series to achieve global success, and it established a precedent for non-English-language prestige series on the platform. The series spans three seasons and 28 episodes, telling a time-travel story that begins with a child's disappearance in a small German town and expands to encompass four generations, multiple timelines, and the nature of time itself.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">10</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> The most intricate time-travel mythology ever constructed. Four families, 150 years, perfect internal logic.</p>
-            <p><strong>Conceptual Density (10):</strong> Determinism, trauma, cycles across generations. Philosophy as thriller. Dense and rewarding.</p>
-            <p><strong>Resolution (10):</strong> "The Paradise." The cycle breaks. Every thread resolves. Perfect.</p>
-        </div>
+<p>The premise is deceptively simple: in the town of Winden, children begin disappearing. The investigation leads to a cave system where time travel is possible, and it emerges that the disappearances, the town's history, and the interconnected families are all part of a causal loop that spans generations. The series follows characters across four time periods (1921, 1953, 1986, and 2019, with 2053 added in Season 2), revealing that the town's residents are trapped in a knot of cause and effect where the past is not past and the future is already written.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Secrets" (S1E1)</strong> — The introduction. Erik vanishes. The cave calls.</p>
-            <p><strong>("Alpha and Omega" (S1E10)</strong> — Season one finale. Jonas enters the wormhole. 1986.</p>
-            <p><strong>"The White Devil" (S2E8)</strong> — Season two finale. Adam appears. "The beginning is the end."</p>
-            <p><strong>"The Paradise" (S3E8)</strong> — Series finale. The cycle breaks. "We're here."</p>
-        </div>
+<p>The series' achievement is structural: the time-travel narrative is constructed with a level of detail and internal consistency that rewards close viewing. Characters are their own ancestors and descendants; events in one timeline cause events in another; the loop is closed but the story is about trying to break it. The series requires viewers to track actors across multiple time periods (the same character played by different actors at different ages, or different characters played by the same actor in different timelines), decode a mythology that includes a godlike figure named Noah, and accept that the story will not provide easy resolution.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US/UK:</strong> Netflix</p>
+<p>The ensemble includes Louis Hofmann as Jonas Kahnwald (the central character, a teenager whose father's suicide begins the story), Lisa Vicari as Martha Nielsen (Jonas's love interest and, complicating matters, his aunt), Andreas Pietschmann as the adult Jonas, and many others playing characters whose relationships shift as the timelines intersect. The acting is uniformly strong; the challenge of playing a character who exists at multiple ages is met with casting that emphasizes physical resemblance.</p>
+
+<p>Darker than most series, both tonally and visually (the palette is muted greys and browns, the lighting is perpetually dim, the German autumn provides perpetual overcast), the series is explicitly about determinism versus free will. The central question—can the knot be broken, or is everything determined?—is philosophical as much as narrative. The series provides an answer in its final season, but the answer is less interesting than the exploration.</p>
+
+<h2>Why It Ranks #16</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.40</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Jonas Kahnwald:</strong> Louis Hofmann plays the teenage Jonas, and Andreas Pietschmann plays the adult version. The character is the series' center—a boy whose father's suicide leads him into the time-travel mystery, whose love for Martha complicates everything, and whose adult self (known as "Adam") is trying to break—or perhaps preserve—the knot. Hofmann plays Jonas as traumatized, determined, and eventually broken by what he learns. The challenge of playing a character across timelines is met by both actors, though the adult Jonas is recognizably different from the teenager.</p>
+        
+        <p><strong>Martha Nielsen:</strong> Lisa Vicari plays Jonas's love interest and, as the series reveals, his aunt (their parents are siblings in alternate timelines). Martha is Jonas's counterpart—the "Eva" to his "Adam"—and the series' second perspective on the time loop. Vicari plays Martha as equally determined and equally damaged; her journey is the mirror of Jonas's.</p>
+        
+        <p><strong>The Four Families:</strong> The series centers on four interconnected families (Kahnwald, Nielsen, Doppler, Tiedemann) whose generations-spanning relationships are revealed across the timelines. The challenge for viewers is tracking who is related to whom, how the relationships shift across time periods, and which characters are their own ancestors or descendants. The casting is careful: actors resemble each other across ages, and the family resemblances are visible.</p>
+        
+        <p><strong>Noah and Adam:</strong> Mark Waschke plays Noah, a priest-like figure whose relationship to the time loop is revealed gradually. Dietrich Hollinderbäumer plays Adam, the adult Jonas who has traveled the loop many times and is trying to break it. Both characters function as antagonists and guides, and both are revealed to be more complex than initially apparent.</p>
+        
+        <p><strong>Claudia Tiedemann:</strong> Lisa Kreuzpaintner plays the young Claudia and Juliane Köhler plays the adult—the nuclear physicist who becomes the series' most determined loop-breaker. Claudia is perhaps the character who most actively resists determinism, though her resistance is itself part of the loop.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The complex temporal structure creates character challenges—the same character appears at multiple ages, relationships shift across timelines. The acting is strong but the structure makes emotional connection difficult.</p>
+        
+        <p><strong>Why 7:</strong> Strong performances across the ensemble, but the temporal structure makes characters hard to track emotionally. The same character at different ages is played by different actors; relationships shift across timelines. The limitation is structural rather than performative.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.13</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Winden:</strong> The fictional town of Winden is rendered with specificity—the cave system where time travel occurs, the nuclear power plant that generates the radiation enabling the travel, the forest, the houses, the school. The town is both setting and puzzle; its geography serves the plot without being obviously constructed for it.</p>
+        
+        <p><strong>Four Time Periods:</strong> The series depicts Winden in 1921, 1953, 1986, and 2019 (Season 2 adds 2053). Each period is visually distinct (costume, production design, technology) while maintaining the town's essential geography. The same locations appear across periods—the hotel, the church, the power plant, the caves—allowing viewers to track how the town changes.</p>
+        
+        <p><strong>The Loop:</strong> The series constructs a time-travel mechanism with internal logic: the cave system, the radioactive material from the power plant, the chair-like device that enables controlled travel. The mechanism is explained but not labored; the focus is on the characters' experience of time rather than the physics.</p>
+        
+        <p><strong>German Context:</strong> The series is German-language and German-produced; the context is German history (the 1920s, the post-war period, the Cold War). The nuclear power plant was built in the 1950s; the cave system has been there for centuries. German history is visible but not explicit—the series doesn't mention Nazis or the Wall, but the eras are recognizable.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Expanse (10) achieved more comprehensive world-building. Dark matches its detail within the confined setting of a single town across time periods.</p>
+        
+        <p><strong>Why 7.5:</strong> Effective world-building across four time periods with internal logic for time travel. The town is rendered with specificity. The limitation is the confined setting—a single town rather than a broader world.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Visual Consistency:</strong> The series maintains visual consistency across time periods while distinguishing them through palette and production design. The approach is cohesive: the same locations appear in different eras, and the camera treats them similarly while the period is visible in costume and set dressing.</p>
+        
+        <p><strong>Darkness:</strong> The series title is descriptive—the visual approach is dark, muted, grey. The palette is browns and greys; the lighting is dim; the German autumn provides perpetual overcast. The darkness is both literal (Winden is not sunny) and thematic (the series is about determinism and death). The cinematography doesn't call attention to itself; it serves the tone.</p>
+        
+        <p><strong>The Cave:</strong> The cave system (the tunnels where time travel occurs) is rendered with claustrophobic authenticity—narrow passages, dim light, the sense of geological age. The cave is where the series' most disorienting sequences occur; the cinematography creates vertigo without obvious effects.</p>
+        
+        <p><strong>The Chair:</strong> The time-travel device (a chair-like apparatus that uses radioactive material) is rendered with period-appropriate design—the 1920s version looks like 1920s machinery; the 1986 version looks like 1980s technology. The design serves the world-building without calling attention to itself.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8.5) established atmospheric television cinematography. Dark matches its atmospheric approach with German visual restraint.</p>
+        
+        <p><strong>Why 8.5:</strong> Consistent visual approach across time periods with period-appropriate production design. The darkness serves the tone without being oppressive. The cave sequences are claustrophobic and effective.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6.5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.65</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Anti-Spectacle:</strong> Dark deliberately rejects visual spectacle. There are no time-travel effects in the conventional sense—the travel is depicted through editing and production design, not CGI. The series creates its effects through structure rather than visuals; the spectacle is intellectual (understanding the loop) rather than visual.</p>
+        
+        <p><strong>The Apocalypse:</strong> Season 2 depicts a nuclear apocalypse (the "incident" that destroys Winden in 2020) through limited effects—a bright light, characters experiencing the end, and the aftermath. The approach is restraint rather than spectacle; the apocalypse is felt rather than seen.</p>
+        
+        <p><strong>The Origin:</strong> Season 3 reveals the "origin world"—a prime timeline before the loop. The depiction is limited; the series doesn't show an alternate world in detail. The restraint reflects the series' priorities: the puzzle is the point, not the visual display.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Expanse (10) achieved spectacle through physics-authentic space. Dark deliberately rejects spectacle in favor of structural complexity.</p>
+        
+        <p><strong>Why 6.5:</strong> Deliberate rejection of visual spectacle in favor of structural complexity. The time travel is depicted through editing, not effects. The limitation is definitional—spectacle is not the series' register.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Determinism vs. Free Will:</strong> The series' central concept is the conflict between determinism and free will. The time loop has already happened; everything that will happen has already happened; the characters are trapped in a causal knot where their attempts to change the past only cause the past. The philosophical question is explicit: can the knot be broken, or is free will an illusion?</p>
+        
+        <p><strong>The Bootstrap Paradox:</strong> The series explores the bootstrap paradox (causal loops where events cause themselves) with more rigor than most time-travel stories. Characters are their own ancestors; events in the future cause events in the past; trying to change the past only enacts it. The series doesn't handwave the paradoxes; it makes them the point.</p>
+        
+        <p><strong>Interconnected Generations:</strong> The four families (Kahnwald, Nielsen, Doppler, Tiedemann) are so interconnected across generations that family trees become circles. Characters discover they are their own ancestors; marriages reveal incestuous connections across time; the genetic knot mirrors the temporal knot. The concept is disturbing (characters literally cannot escape their families) and rigorous.</p>
+        
+        <p><strong>Breaking the Loop:</strong> The series provides a resolution: the knot can be broken by going to the origin world (the prime timeline before the loop) and preventing the events that created the time travel. The resolution is philosophical (accepting that preventing the loop means erasing yourself) and bittersweet (characters who break the loop cease to exist).</p>
+        
+        <p><strong>Comparative Assessment:</strong> No television series has explored time-travel paradoxes more rigorously. Dark is a philosophical thought experiment dramatized.</p>
+        
+        <p><strong>Why 9:</strong> Exceptional conceptual exploration of determinism, bootstrap paradoxes, and the philosophy of time. The series is rigorous in its exploration; the paradoxes are the point.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Mystery:</strong> The series begins with a child's disappearance—a conventional mystery that draws viewers into the temporal puzzle. The drive is intellectual: what is happening, how does time travel work, who are the characters at different ages? The mystery provides momentum across three seasons.</p>
+        
+        <p><strong>Temporal Structure:</strong> The series intercuts between time periods without always signaling the temporal shift—the viewer must track clothing, technology, and actors to understand when a scene is occurring. The structure creates confusion that resolves into understanding; the drive is toward comprehension.</p>
+        
+        <p><strong>Season Structures:</strong> Season 1 establishes the mystery (the disappearances, the cave, the time travel). Season 2 expands to include the future (2053) and the concept of the loop. Season 3 introduces the origin world and the possibility of breaking the loop. Each season adds complexity while maintaining momentum.</p>
+        
+        <p><strong>The Puzzle:</strong> The series rewards close viewing—every detail is potentially significant, every scene connects to other scenes across time. The drive is puzzle-solving; viewers who enjoy tracking connections will be rewarded. The series requires attention but rewards it.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Severance (9) achieved narrative drive through mystery. Dark matches its complexity with temporal puzzle structure.</p>
+        
+        <p><strong>Why 8.5:</strong> Strong narrative drive through temporal puzzle structure. The mystery provides momentum; the complexity rewards attention. The limitation is that viewers who don't engage with the puzzle may find the structure confusing rather than compelling.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.90</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Origin World:</strong> Season 3 reveals that the time loop exists in a "knot" created by the son of two characters who shouldn't have met. The loop can be broken by traveling to the "origin world" (the prime timeline before the interference) and preventing the interference. The resolution is internally consistent: the loop exists because the characters created it; it can be uncreated by preventing its creation.</p>
+        
+        <p><strong>Breaking the Loop:</strong> Jonas and Martha travel to the origin world and prevent the interference that created the loop. The act erases the loop (and themselves): if the loop never existed, the characters who traveled to prevent it never existed. The resolution is bittersweet: breaking the loop means ceasing to exist.</p>
+        
+        <p><strong>The Aftermath:</strong> The series' final scene shows the characters who never existed in the loop but exist in the origin world—a world without time travel, without the disappearances, without the interconnected families. The resolution is complete: the knot is broken, the loop is prevented, and the sacrifice is implicit.</p>
+        
+        <p><strong>Planned Conclusion:</strong> The creators planned three seasons from the beginning; the series concluded after Season 3 as intended. The resolution is not forced by cancellation or extension; it's the planned ending that the puzzle was building toward.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Leftovers (9) achieved planned ambiguous resolution. Dark achieves planned definite resolution—the loop is broken, the puzzle is solved.</p>
+        
+        <p><strong>Why 9:</strong> Complete and planned resolution that solves the puzzle without compromising the complexity. The origin world concept resolves the paradoxes. The bittersweet ending (characters erasing themselves) is philosophically consistent. The series concludes as intended.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">8.00</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.40 + World: 1.13 + Cine: 1.28 + Spectacle: 0.65 + <br>
+        Concepts: 1.35 + Drive: 1.28 + Resolution: 0.90 = <strong>8.00</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (28 episodes, 3 seasons) | Status: Complete (2017-2020)<br>
+        Rank: #16 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 1 December 2017 | Network: Netflix | Seasons: 3 (28 episodes)<br>
+    Creators: Baran bo Odar, Jantje Friese | Country: Germany (German-language)<br>
+    Cast: Louis Hofmann, Lisa Vicari, Andreas Pietschmann, Mark Waschke<br>
+    Note: First German-language Netflix original to achieve global success<br>
+    Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

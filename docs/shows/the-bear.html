@@ -1,91 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bear - "Let it rip" | Dynamic Rank Engine</title>
+    <title>The Bear - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #d32f2f; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #d32f2f, #b71c1c); color: #ffcdd2; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ef9a9a; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(211,47,47,0.3), rgba(0,0,0,0.9)); border: 3px solid #d32f2f; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ef9a9a; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #d32f2f; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ef9a9a; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(211,47,47,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ef9a9a; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ef9a9a; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #57</div>
-            <h1>The Bear</h1>
-            <p class="subtitle">"Let it rip"</p>
-            <div class="score-badge">
-                <span class="score-value">7.85</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2022-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">29</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Hulu/FX</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Christopher Storer</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Bear is about a chef who inherits a chaotic family restaurant. Carmen "Carmy" Berzatto (Jeremy Allen White) was a fine-dining chef in New York, working at the world's best restaurant, when his brother Mikey died by suicide and left him The Original Beef of Chicagoland. It's a disaster: the kitchen is disorganized, the staff is hostile, the finances are ruinous. Carmy tries to apply fine-dining discipline to a sandwich shop. The staff resists. The chaos increases. The grief accumulates.</p>
-            <p>The show captures restaurant work like nothing else on television: the noise, the stress, the "behind," "corner," "heard" vocabulary, the way a kitchen can become a symphony or a war zone. Sydney (Ayo Edebiri) is aculinary school grad who wants to learn; Richie (Ebon Moss-Bachrach) is Mikey's best friend, a fixture who resists all change; Marcus (Lionel Boyce) is the pastry chef who makes donuts and finds purpose; Tina (Liza Colón-Zayas) is the veteran line cook who eventually trains under Sydney. They're family—dysfunctional, fighting, but bound together by thework.</p>
-            <p>Season one is survival: keeping the restaurant open, paying the debt Mikey hid, discovering his brother's secret. Season two is transformation: opening a new restaurant, The Bear, in the sandwich shop's place. The episode "Fishes" is a masterpiece of family horror—a Christmas dinner flashback showing how the Berzatto family's love and damage are inseparable. Jamie Lee Curtis as their mother, Bob Odenkirk as their uncle, chaos and tenderness and alcohol and screaming.</p>
-            <p>Three seasons, twenty-nine episodes, ongoing. The Bear is about work as obsession, family as wound and cure, and the possibility that doing something well might save you. "Let it rip," Carmy says in therapy. He's learning: you can't control everything. Sometimes you have to trust the people around you. The kitchen is chaos. The food is love. The restaurant might kill you. It might also save you.</p>
-        </div>
+<p>The Bear premiered on FX on Hulu (simultaneously on Hulu and FX) on June 23, 2022, created by Christopher Storer for FX Productions. The series follows Carmen "Carmy" Berzatto (Jeremy Allen White), an award-winning fine-dining chef who returns to his hometown of Chicago to manage his deceased brother's Italian beef sandwich shop. Across four seasons and 38 episodes (with a fifth season announced in July 2025), the series depicts the chaos of professional kitchens, the trauma of family loss, and the impossible standards of culinary excellence.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Jeremy Allen White is transformed. Ayo Edebiri is a star. The ensemble captures restaurant life perfectly.</p>
-            <p><strong>Narrative Drive (9):</strong> Each season builds tension masterfully. The opening ofThe Bear. The review. The family dinner.</p>
-            <p><strong>Cinematography (9):</strong> Kitchen sequences are visceral—handheld, close, frantic. "Fishes" is a masterwork of controlled chaos.</p>
-        </div>
+<p>The series' signature achievement is its depiction of kitchen work—the noise, the heat, the yelled orders, the physical pressure, the barely controlled chaos that somehow produces food. Storer and his collaborators (including co-showrunner Joanna Calo) developed a visual and sonic language for kitchen intensity: rapid cutting, overlapping dialogue, ambient noise at overwhelming levels, camera movements that mirror the chaos. The Season 1 episode "Review" (a single continuous take depicting a chaotic service) became the series' viral showcase—23 minutes of escalating pressure that captured the show's aesthetic.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Pilot" (S1E1)</strong> — The introduction. "Behind." "Heard." Restaurant chaos.</p>
-            <p><strong>("Review" (S1E7)</strong> — The review arrives. Everything goes wrong. One continuous shot.</p>
-            <p><strong>"Fishes" (S2E6)</strong> — Family Christmas. Jamie Lee Curtis. Bob Odenkirk. Masterpiece.</p>
-            <p><strong>"Tomorrow" (S3E1)</strong> — Carmy's past. The dinner. "Every second counts."</p>
-        </div>
+<p>Jeremy Allen White's Carmy is the series' gravitational center—a chef whose perfectionism is both his gift and his pathology. White won the Golden Globe and Emmy (Outstanding Lead Actor in a Comedy Series, 2023, 2024) for a performance that captures culinary obsession: the hands that never stop moving, the face that tightens at imperfection, the voice that rises under pressure. Carmy's background (Noma, Eleven Madison Park, the French Laundry) establishes his credentials; his return to The Original Beef of Chicagoland (his brother Michael's shop) establishes his grief.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Hulu</p>
-            <p><strong>UK:</strong> Disney+</p>
+<p>The ensemble includes Ayo Edebiri as Sydney Adamu, a young chef whose talent matches Carmy's and whose patience occasionally exceeds it; Ebon Moss-Bachrach as Richard "Richie" Jerimovich, Michael's best friend and the shop's de facto manager who evolves from obstacle to ally; Abby Elliott as Natalie "Sugar" Berzatto, Carmy and Michael's sister and the restaurant's reluctant business manager; Lionel Boyce as Marcus Brooks, the bread-baker-turned-pastry-chef; Liza Colón-Zayas as Tina Marrero, the line cook who embraces professional training. Jon Bernthal appears in flashbacks as Michael, the brother whose suicide sets the series in motion.</p>
+
+<p>The series won 21 Primetime Emmy Awards including Outstanding Comedy Series (2023, 2024), Outstanding Lead Actor (White, twice), Outstanding Supporting Actress (Edebiri, 2024), and Outstanding Directing (Storer for "Review," 2023). The awards recognition reflected the series' critical acclaim and cultural impact—the kitchen scenes became shared vocabulary, the "Yes, Chef" became shorthand for professional intensity, the show spawned countless imitations in food-focused media.</p>
+
+<h2>Why It Ranks #84</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.50</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Carmy Berzatto:</strong> Jeremy Allen White created television's definitive chef protagonist—a character whose perfectionism is both admirable and pathological. The performance captures the physical intensity of kitchen work (hands constantly moving, face tightening at mistakes) and the emotional volatility of grief (the flashbacks to Michael, the panic attacks, the inability to connect). White's Emmy wins (2023, 2024) recognized a performance that made culinary obsession visible—Carmy is never not thinking about food, technique, service. The limitation is that the obsessive focus can read as one-note across seasons.</p>
+        
+        <p><strong>Sydney Adamu:</strong> Ayo Edebiri provides the series' most sympathetic presence—a young chef whose ambition matches Carmy's but whose emotional intelligence exceeds it. Sydney sees what Carmy cannot; she mediates between his perfectionism the staff's capabilities. Edebiri's Emmy win (Outstanding Supporting Actress, 2024) recognized a performance that balances professional intensity with personal warmth. Sydney's Season 3 arc (becoming a partner, designing the menu, pushing back against Carmy's control) deepens the character beyond sidekick.</p>
+        
+        <p><strong>Richie Jerimovich:</strong> Ebon Moss-Bachrach's Richie—the best friend who feels displaced by Carmy's professional kitchen—provides the series' most complete arc. Season 1's obstacle becomes Season 2's ally becomes Season 3's professional (the " forks" episode, where Richie stages at a fine-dining restaurant, is the series' character highlight). Moss-Bachrach captures Richie's defensive anger, his insecurity, his evolution into someone who belongs.</p>
+        
+        <p><strong>The Berzatto Family:</strong> Jon Bernthal's Michael appears in flashbacks and dream sequences—the dead brother whose suicide launched the series. Bernthal's performance is charismatic and damaged; Michael's ghost haunts every frame. Abby Elliott's Natalie "Sugar" provides the family grounding—the sister who never left Chicago, who manages the business while Carmy manages the menu, whose emotional labor keeps the family functional.</p>
+        
+        <p><strong>The Kitchen Staff:</strong> Lionel Boyce's Marcus (the pastry chef) and Liza Colón-Zayas's Tina (the line cook who trains professionally) provide the series' craft arc—characters who develop skills on screen, whose competence grows visible. The ensemble casting reflects real kitchens: diverse, working-class, committed to craft.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Succession (9) achieved greater ensemble depth through more seasons and larger cast. The Bear matches its character intensity with more concentrated focus.</p>
+        
+        <p><strong>Why 7.5:</strong> Strong performances across the ensemble with White and Edebiri achieving particular distinction. The character arcs evolve across seasons. The limitation is that some characters (particularly staff beyond Sydney and Richie) receive less development.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 0.98</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Restaurant Kitchen:</strong> The series' primary achievement is its depiction of professional kitchen work—the hierarchy (chef de cuisine, sous chef, line cooks, dishwashers), the language ("heard," "behind," "all day"), the physical pressure (heat, noise, constant movement), the barely controlled chaos. The series consulted with professional chefs; the depiction reads as authentic to industry workers. The kitchen is both workplace and family, both pressure cooker and home.</p>
+        
+        <p><strong>Chicago Rendered:</strong> The series films on location in Chicago—the neighborhoods, the architecture, the river, the winter. The city reads as actual place rather than generic urban setting. The Italian beef sandwich is a Chicago specific; the series treats it with respect without fetishizing it.</p>
+        
+        <p><strong>The Fine-Dining World:</strong> Carmy's background (Noma, Eleven Madison Park, the French Laundry) establishes his credential in haute cuisine. The series depicts the contrast between fine dining (the world Carmy left) and casual dining (the world he inherited). The contrast is both culinary (technique versus tradition) and economic (profit margins, staffing, price points).</p>
+        
+        <p><strong>The Family:</strong> The Berzatto family is rendered in fragments—the dead brother Michael, the sister Natalie, the mother Donna (played by Jamie Lee Curtis in a Season 2 appearance), the uncle Cicero (Oliver Platt). The family is Italian-American, working-class, Chicago-specific. The family trauma (Michael's addiction, his suicide) is the series' emotional foundation.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) achieved comprehensive institutional world-building. The Bear focuses on a single workplace; the world-building is deep but narrow.</p>
+        
+        <p><strong>Why 6.5:</strong> Authentic kitchen depiction with genuine industry detail. The Chicago setting provides specificity. The limitation is that the world is confined to the restaurant and its immediate connections.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Visual Intensity:</strong> The series established a distinctive visual language for kitchen chaos—rapid cutting during service sequences (cuts measured in frames rather than seconds), camera movements that follow the action without stabilizing, close-ups that capture faces under pressure. The approach was not unprecedented (Paul Thomas Anderson's restaurant scenes in Boogie Nights, restaurant sequences in other films) but it was developed into a series-length aesthetic. Christopher Storer and cinematographer Andrew Wehde created the template; subsequent directors maintained it.</p>
+        
+        <p><strong>"Review" (Season 1, Episode 7):</strong> The series' showcase episode—a 23-minute single take depicting a chaotic dinner service—demonstrated the aesthetic's potential. The continuous shot follows multiple characters through the kitchen, capturing the escalating pressure, the miscommunications, the near-disasters, and the recovery. The episode became the series' calling card; the technique became its signature.</p>
+        
+        <p><strong>Silence as Contrast:</strong> The series uses quiet as deliberately as noise—the moment after service, the early morning prep, the walks home. The sonic contrast amplifies both registers; the kitchen chaos is more intense because of the surrounding quiet.</p>
+        
+        <p><strong>The Food:</strong> The series depicts food preparation with unusual specificity—technique, plating, timing. The food looks real because it is real; the series employed actual chefs as consultants. The visual attention to food communicates craft without becoming food porn.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8.5) established distinctive television cinematography for drama. The Bear matches its formal ambition with different material. The kitchen sequences are formally innovative for television.</p>
+        
+        <p><strong>Why 9:</strong> Distinctive visual language for kitchen intensity, including the series-defining "Review" single take. The cinematography communicates physical pressure through form. The approach is innovative for television and appropriate to the material.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.60</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Anti-Spectacle:</strong> The Bear deliberately rejects visual spectacle. The kitchen is cramped, the equipment is industrial, the work is exhausting. There are no food-porn sequences (at least not in the conventional sense), no beautiful plating shots, no scenic dining rooms. The series is about the work of food production, not the presentation of food. This is appropriate to the material; it limits the dimension.</p>
+        
+        <p><strong>The Food:</strong> The series shows food—the Italian beef sandwich, the pastries Marcus develops, the dishes for the new restaurant—but shows it as product of work rather than object of beauty. The food is real; the presentation is not the point.</p>
+        
+        <p><strong>Chicago:</strong> The city provides visual context—the river, the neighborhoods, the winter light—but this is atmosphere rather than spectacle. The series uses location to ground the story, not to impress.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Chef's Table (8) makes visual spectacle central to food television. The Bear chooses the opposite register—work, pressure, exhaustion. The limitation is definitional.</p>
+        
+        <p><strong>Why 6:</strong> Deliberate rejection of spectacle in favor of work depiction. The food is presented as product of labor, not object of beauty. The limitation is that the dimension is not the series' register.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Work as Subject:</strong> The series' central concept is work—not as background to story but as story's substance. The kitchen sequences are not interludes between plot points; they are the plot. The series depicts the physical and mental labor of food production, the hierarchy of professional kitchens, the pressure of service, the craft that transforms raw ingredients into finished dishes. The concept is unusual in television: work as primary subject rather than background.</p>
+        
+        <p><strong>Perfectionism as Pathology:</strong> Carmy's perfectionism is both his gift and his disorder. The same attention to detail that makes him excellent also makes him impossible—unable to delegate, unable to accept "good enough," unable to maintain relationships outside the kitchen. The series examines culinary obsession without romanticizing it; the cost is visible in every frame.</p>
+        
+        <p><strong>Grief and Family:</strong> Michael's suicide is the series' origin event—the brother who died, the restaurant he left, the family he broke. The series examines grief not as discrete event but as ongoing presence. Carmy's perfectionism is shaped by loss; his inability to connect is partially about Michael. The family trauma provides emotional foundation.</p>
+        
+        <p><strong>Class and Craft:</strong> The series depicts working-class craft—the Italian beef sandwich is not haute cuisine, but it requires skill, tradition, and labor. Carmy's fine-dining background creates tension with the shop's working-class identity. The series examines the relationship between craft and class: fine dining is expensive, exclusive, culturally coded; the shop is neighborhood, accessible, ethnic-specific.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Succession (8.5) examined capitalism through family drama. The Bear examines labor through kitchen drama. The conceptual density is present but confined to the workplace.</p>
+        
+        <p><strong>Why 7:</strong> Solid conceptual examination of work, perfectionism, grief, and class. The series makes labor its primary subject. The limitation is that concepts remain within the kitchen/workplace frame.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Season-by-Season Structure:</strong> Each season has a distinct shape. Season 1: Carmy inherits the shop, discovers the financial disaster his brother left, attempts to transform chaos into professional kitchen. Season 2: The shop closes for renovation, the team trains, the new restaurant (The Bear) opens. Season 3: The new restaurant struggles, Carmy's perfectionism intensifies, relationships fracture. Season 4: The family confronts the accumulated pressure. The structure provides both momentum and variation.</p>
+        
+        <p><strong>Service Sequences:</strong> The dinner service sequences provide the series' primary narrative engine—will they get the orders out, will the food be acceptable, will the team hold together under pressure? The kitchen-as-battlefield metaphor is not new, but the series develops it with unusual intensity. Each service sequence is a self-contained drama with setup, escalation, crisis, and resolution.</p>
+        
+        <p><strong>Character Arcs:</strong> Carmy's arc (grief, professionalization, breakdown) provides the series' central drive. Sydney's arc (apprentice to partner to challenger) provides the counter. Richie's arc (obstacle to ally to professional) provides the series' most satisfying evolution. The character arcs accumulate and pay off across seasons.</p>
+        
+        <p><strong>The Michael Mystery:</strong> The dead brother's presence—through flashbacks, dream sequences, the discovery of his debts—provides emotional momentum. Michael's suicide is not a mystery to be solved but a grief to be processed; the fragments of his life accumulate into a portrait that explains his death without justifying it.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represented maximum narrative momentum in serialized drama. The Bear matches its intensity with different register—work as story rather than crime as story.</p>
+        
+        <p><strong>Why 8:</strong> Strong narrative drive through service sequences and character arcs. The season structure provides variation on the kitchen theme. The limitation is that some seasons feel repetitive (another service, another crisis).</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.70</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Ongoing Status:</strong> As of Season 4 (June 2025), the series is ongoing with Season 5 announced. The fourth season provided some resolution—the new restaurant's fate, the family's accumulated pressure—while leaving open threads for continuation. The score reflects ongoing status rather than completed resolution.</p>
+        
+        <p><strong>Season-Level Closure:</strong> Each season provides sufficient closure for satisfaction. Season 1 ends with the shop's transformation beginning. Season 2 ends with the new restaurant's opening. Season 3 ends with the restaurant struggling. Season 4 ends with... (continuing). The approach provides rhythm without trapping the series.</p>
+        
+        <p><strong>Character Trajectories:</strong> The major character arcs are developing rather than resolving. Carmy's perfectionism and its costs remain central. Sydney's partnership with Carmy remains complicated. Richie's professionalization is ongoing. The family's grief is ongoing. The arcs are developing; resolution awaits.</p>
+        
+        <p><strong>The Natural Endpoint:</strong> The series has a natural endpoint—the restaurant either succeeds or fails, Carmy either addresses his pathology or doesn't, the family either heals or remains fractured. The question is whether the series will reach that endpoint or continue indefinitely.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Succession (10) achieved ideal conclusion to family-business drama. The Bear is developing toward resolution; the score reflects ongoing status.</p>
+        
+        <p><strong>Why 7:</strong> Season-level closure with ongoing series status. The character arcs are developing rather than resolved. The score reflects partial completion with clear trajectory.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.38</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.50 + World: 0.98 + Cine: 1.35 + Spectacle: 0.60 + <br>
+        Concepts: 1.05 + Drive: 1.20 + Resolution: 0.70 = <strong>7.38</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (38 episodes through S4, S5 announced) | Status: Ongoing<br>
+        Rank: #84 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 23 June 2022 | Network: FX on Hulu | Seasons: 4 (5 announced)<br>
+    Creator: Christopher Storer | Showrunners: Christopher Storer, Joanna Calo<br>
+    Cast: Jeremy Allen White, Ayo Edebiri, Ebon Moss-Bachrach, Abby Elliott, Lionel Boyce, Liza Colón-Zayas, Jon Bernthal<br>
+    Awards: 21 Emmy Awards incl. Outstanding Comedy Series (2023, 2024), Lead Actor (White), Supporting Actress (Edebiri)<br>
+    Signature Ep: "Review" (S1E7) - 23-minute continuous take<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

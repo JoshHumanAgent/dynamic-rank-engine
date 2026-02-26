@@ -1,91 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hannibal - "Eat the rude" | Dynamic Rank Engine</title>
+    <title>Hannibal - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #880e4f; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #880e4f, #4a148c); color: #f8bbd0; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #f8bbd0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(136,14,79,0.3), rgba(0,0,0,0.9)); border: 3px solid #880e4f; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #f8bbd0; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #880e4f; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #f8bbd0; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(136,14,79,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #f8bbd0; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #f8bbd0; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #20</div>
-            <h1>Hannibal</h1>
-            <p class="subtitle">"Eat the rude"</p>
-            <div class="score-badge">
-                <span class="score-value">8.10</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2013-2015</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">39</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">NBC</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Bryan Fuller</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Hannibal is the most beautiful show about murder ever made. Based on Thomas Harris's novels, it's aprequel to Silence of the Lambs: Hannibal Lecter (Mads Mikkelsen) is a practicing psychiatrist in Baltimore, secretly a cannibalistic serial killer. Will Graham (Hugh Dancy) is an FBI profiler with an empathy disorder—he can assume the mindset of any killer, see the crime through their eyes, but it costs him his sanity. He's referred to Lecter for therapy. Lecter decides to break him.</p>
-            <p>The show's aesthetic is baroque: impossibly elegant food (whichwe know is human flesh), crime scenes arranged like art, dream sequences of stags and antlers, conversations where every word has double meaning. "Eat the rude," Lecter says—his philosophy. He kills and consumes those who offend his sensibilities. He's a monster who considers himself civilized. Will, meanwhile, is losing his grip on reality: hallucinations, seizures, blackouts. Lecter gaslights him, frames him, manipulates everyone around him. He's the devil in plain sight.</p>
-            <p>The third season adapts Red Dragon and Hannibal's Italy arc: Lecter flees to Florence with his therapist Bedelia Du Maurier (Gillian Anderson). Will follows. Their relationship is the show's core—not romance, something stranger. "You and I have begun to blur," Will admits. They're connected: hunter and prey, but which is which? The show's brilliance is making viewers root for the monster—Mikkelsen is that charismatic, that elegant, that terrifying.</p>
-            <p>Three seasons, thirty-nine episodes, cancelled. Hannibal was too artistic for broadcast TV, too expensive, too niche. But it found a devoted audience. The finale—Clarice Starling absent due to rights issues—ends with Will and Hannibal killing the Red Dragon together, then falling off a cliff. "See? This is all I ever wanted for you, Will. For both of us." "It's beautiful." They fall together. It might be death. It might be the only ending that makes sense for two monsters in love with each other's darkness.</p>
-        </div>
+<p>Hannibal premiered on NBC on April 4, 2013, created by Bryan Fuller and based on characters from Thomas Harris's novels. The series represents a radical reimagining: taking Hannibal Lecter, one of cinema's most iconic villains, and transforming him into a television protagonist across three seasons and 39 episodes. Mads Mikkelsen plays Lecter as a refined, cultured predator—the series' antagonist and its most compelling character, around whom the narrative orbits rather than pursues.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Mads Mikkelsen is definitive. Hugh Dancy is devastating. The supporting cast is perfect.</p>
-            <p><strong>Cinematography (10):</strong> Every frame is art. The food, the kills, the dreams. Television's most visually striking show.</p>
-            <p><strong>Conceptual Density (9):</strong> Gaslighting as art. Empathy as curse. Monstrosity as aesthetic. Deep and disturbing.</p>
-        </div>
+<p>Hugh Dancy plays Will Graham, the FBI profiler with an empathic gift that allows him to reconstruct crimes from evidence but costs him his psychological stability. The series' premise (elaborated from Harris's novel Red Dragon) is that Graham's abilities are so valuable that the FBI is willing to sacrifice his mental health to solve cases; Lecter, initially Graham's therapist, becomes his manipulator, eventually revealed as the Chesapeake Ripper. The relationship between the two men—opposite numbers who understand each other more deeply than anyone else—provides the series' central dynamic.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Apéritif" (S1E1)</strong> — The introduction. "This is my design."</p>
-            <p><strong>("Sorbet" (S1E7)</strong> — The dinner party. "Eat the rude."</p>
-            <p><strong>"Mizumono" (S2E13)</strong> — Season two finale. The betrayal. "I forgive you."</p>
-            <p><strong>("The Wrath of the Lamb" (S3E13)</strong> — Series finale. The fall. "It's beautiful."</p>
-        </div>
+<p>Bryan Fuller brought a distinctive visual approach: each episode is composed like a baroque painting, with elaborate food preparation sequences (Lecter preparing human flesh as haute cuisine), murder tableaux rendered as art installations, and a dream-logic approach to psychology. The series is less a crime procedural than a gothic romance between two men whose relationship encompasses therapist/patient, hunter/hunted, and perhaps something like friendship. The homoerotic subtext is text; Fuller has acknowledged the romantic dimensions.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Hulu</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
+<p>The series faced cancellation after each season—its NBC broadcast (versus cable streaming) made renewal precarious—but developed a devoted following that campaigns for its return continue to this day. The series concluded in 2015 after three seasons, each with a distinct structure: Season 1 adapts Red Dragon elements while establishing the Lecter/Graham relationship; Season 2 culminates in a blood-soaked confrontation that leaves major characters dead or wounded; Season 3 travels to Italy and into Graham's psychological reconstruction of his relationship with Lecter.</p>
+
+<p>Critical reception grew across the seasons. The series is now considered one of the most visually innovative series in television history—a "foodie horror" aesthetic that made cooking sequences simultaneously beautiful and horrifying. Mikkelsen's Lecter is frequently compared favorably to Anthony Hopkins's Oscar-winning performance; where Hopkins was theatrical and intense, Mikkelsen is controlled and elegant. The series won Saturn Awards for Best Action/Thriller Television Series and for Mikkelsen's performance.</p>
+
+<h2>Why It Ranks #30</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.60</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Hannibal Lecter:</strong> Mads Mikkelsen created the definitive television Lecter—controlled, elegant, cultured, and genuinely terrifying. Where Anthony Hopkins's performance was theatrical (the famous "fava beans and a nice Chianti"), Mikkelsen's is restrained: Lecter is a man who never raises his voice because he doesn't need to. His violence is choreographed, his meals prepared, his manipulation invisible. Mikkelsen plays Lecter as someone who enjoys his own performance—the elegant host, the cultured psychiatrist, the gourmet chef—while the audience knows what the other characters don't: every meal is human flesh, every therapy session is manipulation.</p>
+        
+        <p><strong>Will Graham:</strong> Hugh Dancy plays the series' protagonist-victim with physical intensity—the character's empathic gift is rendered as psychological deterioration. Dancy captures Graham's instability: the sweating, the trembling, the inability to distinguish his own psyche from the killers he profiles. The performance required Dancy to play both Graham's consciousness and his reconstruction of killers' consciousnesses—literally becoming other people on screen.</p>
+        
+        <p><strong>The Graham/Lecter Dynamic:</strong> The series' central relationship is between two men who see each other as no one else can. Lecter sees Graham's potential for violence; Graham sees Lecter's nature before he consciously knows it. The relationship is therapist/patient, hunter/hunted, and, increasingly, something like friendship or romance. The final image of Season 3—the two men falling together off a cliff—literalized their relationship: they would rather die together than live apart.</p>
+        
+        <p><strong>Supporting Cast:</strong> Caroline Dhavernas plays Dr. Alana Bloom, initially Graham's therapist (gender-swapped from the novels) who becomes involved with Lecter; Laurence Fishburne plays Jack Crawford, the FBI section chief who leads Graham into cases; Gillian Anderson plays Dr. Bedelia Du Maurier, Lecter's own therapist who becomes his accomplice. The supporting performances are strong, though the series is unapologetically centered on Graham and Lecter.</p>
+        
+        <p><strong>The Murderers:</strong> Each episode features a killer whose tableau Graham must reconstruct. The "murder of the week" format (particularly in Season 1) allows the series to explore different forms of violence while maintaining the Lecter/Graham through-line. The killers are rendered as artists of a sort—their work is grotesque but formally beautiful.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (9) achieved comparable psychological depth. Hannibal matches its character work with more stylized approach.</p>
+        
+        <p><strong>Why 8:</strong> Mikkelsen's Lecter is iconic; Dancy's Graham provides effective counterpoint. The central relationship is among television's most complex. The limitation is that supporting characters sometimes feel like instruments for the protagonists.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 0.98</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The FBI Rendered:</strong> The series depicts FBI profiling with unusual specificity—the Behavioral Science Unit, the case review process, the relationship between agents and consultants. The procedural elements are grounded enough to feel authentic, though the series quickly moves beyond police procedural into psychological thriller.</p>
+        
+        <p><strong>Lecter's World:</strong> The series renders Lecter's environment—his office, his kitchen, his dinner parties—as refined spaces of culture and violence. The food preparation sequences (human flesh prepared as haute cuisine) are the series' signature: Lecter cooking while classical music plays, dishes rendered with aesthetic perfection, the viewer aware of what they're watching while the dinner guests (usually) are not. The world is Lecter's aesthetic vision made material.</p>
+        
+        <p><strong>Psychic Space:</strong> The series visualizes Graham's empathic process as psychic space—a dark, watery environment where he reconstructs crimes. The sequences are rendered with dream logic: time moves differently, evidence becomes reenactment, Graham becomes (temporarily) the killer. The psychic space is both visualization of profiling technique and literalization of psychological deterioration.</p>
+        
+        <p><strong>European Expansion:</strong> Season 3 relocates to Italy—Florence, Palermo—expanding the world from Baltimore to European gothic. Lecter adopts the identity of a curator (working at the Capponi Library), and the series explores Renaissance art, Dante readings, and Italian architecture. The expansion provides visual variety while maintaining the aesthetic approach.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8.5) achieved more comprehensive world-building. Hannibal's world is stylized rather than naturalistic—beautiful but narrow.</p>
+        
+        <p><strong>Why 6.5:</strong> Distinctive aesthetic world-building around Lecter's refined violence. The psychic visualization is innovative. The limitation is the narrow scope—a few characters in stylized spaces rather than a broader world.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">10</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.50</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Baroque Visual Style:</strong> Hannibal is among the most visually distinctive series in television history. Each frame is composed like a painting—symmetrical compositions, rich colors, carefully arranged elements. Director David Slade established the visual template (directing the pilot and several subsequent episodes), but the aesthetic was maintained across directors and seasons. The approach is baroque: ornate, detailed, beautiful and disturbing simultaneously.</p>
+        
+        <p><strong>The Murder Tableaux:</strong> Each killer's work is rendered as art installation—bodies displayed in elaborate compositions, death transformed into sculpture. The series' signature murderers (the totem pole of bodies, the human cello, the tree of corpses, the eyeless angel) are grotesque but formally beautiful. The cinematography presents murder as aesthetic object, forcing viewers to confront their own complicity in finding violence beautiful.</p>
+        
+        <p><strong>The Food Sequences:</strong> The series' most famous sequences show Lecter cooking human flesh with the aesthetic of a high-end cooking show—classical music, elegant plating, perfectly prepared ingredients. The food looks delicious; the viewer knows it's human. The dissonance is the point: Lecter's violence is refined, cultured, aesthetically perfect. The cinematography makes us admire his work while knowing what we're watching.</p>
+        
+        <p><strong>Psychic Visualization:</strong> Graham's empathic reconstruction is rendered through distinctive visual language—slow motion, dark water, symbolic imagery. The sequences are dreamlike rather than realistic, conveying psychological truth through visual poetry. The approach influenced subsequent series (Mindhunter notably adopted similar techniques).</p>
+        
+        <p><strong>Color Palette:</strong> The series uses color to distinguish spaces and states—Lecter's environment is warm, refined, golden; Graham's psychic space is dark, blue, underwater; the FBI is institutional grey. The palette is controlled and deliberate, supporting the narrative without announcing itself.</p>
+        
+        <p><strong>Comparative Assessment:</strong> No television series has achieved greater visual distinction. Hannibal's cinematography is formally innovative and thematically integrated—aesthetic beauty serving narrative purpose.</p>
+        
+        <p><strong>Why 10:</strong> Among television's most visually distinctive series. The baroque style, murder tableaux, and food sequences created a new visual vocabulary for television. The cinematography is formally innovative and thematically integrated.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.85</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Aesthetic Spectacle:</strong> Hannibal redefines spectacle—not through action sequences or production scale but through aesthetic intensity. The murder tableaux are spectacular: elaborately composed corpses that transform violence into art. The eyeless angel (a body mounted on antlers as wings), the human cello (strings running through a body), the mushroom garden (bodies growing fungi)—these are spectacle, just not conventional action spectacle.</p>
+        
+        <p><strong>The Food:</strong> Lecter's cooking sequences are the series' most distinctive spectacle—elaborate preparation of human flesh as haute cuisine. The sequences are beautiful and horrifying simultaneously: we admire the technique while knowing the ingredient. The dissonance creates a unique spectatorial experience.</p>
+        
+        <p><strong>Violence as Art:</strong> The series renders violence as aesthetic object—not just visually beautiful but formally composed. The approach is controversial (is aestheticizing violence itself violent?), but it distinguishes the series from every other crime drama. The spectacle is in the composition, not the action.</p>
+        
+        <p><strong>Season 2 Finale:</strong> The Season 2 finale—"Mizumono"—provides the series' most conventional spectacle: a violent confrontation that leaves multiple characters bleeding. But even this is composed—a dance of violence rather than a brawl. The sequence demonstrates that the series can deploy conventional spectacle when needed while maintaining its aesthetic approach.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Game of Thrones (9) achieved spectacle through scale and action. Hannibal achieves spectacle through aesthetic intensity—a different register but equally distinctive.</p>
+        
+        <p><strong>Why 8.5:</strong> Redefines spectacle as aesthetic intensity rather than action scale. The murder tableaux and cooking sequences are visually distinctive. The limitation is that viewers seeking conventional spectacle may find the approach too stylized.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Empathy as Curse:</strong> The series' central concept is Graham's empathic gift—the ability to reconstruct crimes by literally imagining himself as the killer. The gift is portrayed as curse: Graham's psyche deteriorates as he absorbs the consciousness of violent men. The concept literalizes the psychological cost of criminal profiling—the profiler who becomes what he pursues.</p>
+        
+        <p><strong>The Monster and the Man:</strong> The series explores the relationship between Graham and Lecter as mirror images. Graham can imagine himself as killers because he shares their impulses; Lecter is a killer who has integrated his violence into a coherent worldview. The relationship is therapist/patient, but also predator/prey, and ultimately something like recognition—they see each other as no one else can. The series asks: what is the difference between Graham (who imagines violence) and Lecter (who commits it)?</p>
+        
+        <p><strong>Aesthetic Violence:</strong> The series presents violence as aesthetic object—Lecter's cooking, the murder tableaux, the composed frames. The approach forces viewers to confront their own response: we find violence beautiful, we admire the composition, we enjoy the spectacle. The series implicates us in Lecter's worldview: violence can be aesthetic, refinement can mask horror.</p>
+        
+        <p><strong>Civilization and Barbarism:</strong> Lecter represents the refinement that civilization aspires to—culture, cuisine, art, psychiatry—all masking absolute barbarism. The series suggests that civilization's surface may cover similar depths; Lecter is distinguished only by his honesty about what he is. The Roman empire provides imagery (Lecter's Italian season), evoking civilization built on violence.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8.5) achieved comparable philosophical depth. Hannibal matches its conceptual ambition with more stylized execution.</p>
+        
+        <p><strong>Why 8.5:</strong> Strong conceptual examination of empathy, violence, and the relationship between civilization and barbarism. The aesthetic approach forces viewer complicity. The limitation is that concepts remain within the thriller framework rather than expanding to broader social critique.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6.5</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 0.98</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Slow Build:</strong> Hannibal's narrative drive is deliberate, even slow. Season 1 operates partly as procedural (case of the week) while building the Lecter/Graham relationship. The procedural elements can feel like obstacles to the central relationship; viewers seeking momentum may find the pacing frustrating. The series rewards patience—each element pays off—but it demands patience.</p>
+        
+        <p><strong>The Central Mystery:</strong> The question of when Graham will realize Lecter's nature drives the early seasons. The audience knows from the start; the pleasure is in watching Graham approach the truth while Lecter manipulates his understanding. The dramatic irony (we know more than the protagonist) creates tension across episodes.</p>
+        
+        <p><strong>Season Structures:</strong> Each season has a distinct structure. Season 1 builds toward Graham's realization and institutionalization (Lecter frames him for murder). Season 2 builds toward the blood-soaked finale where Graham, Crawford, and others confront Lecter. Season 3 travels to Italy and into psychological territory, culminating in the joint cliff-fall. The structures provide closure within ongoing narrative.</p>
+        
+        <p><strong>Pacing Issues:</strong> The deliberate pacing and aesthetic focus can slow narrative momentum. Season 3 in particular is slower—Lecter's Italian period, Graham's recovery, the extended Dolarhyde arc (adapting Red Dragon). The series prioritizes aesthetic experience over plotting, which will frustrate some viewers.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represents maximum narrative momentum. Hannibal is the opposite register—aesthetic, psychological, patient. The drive is present but subdued.</p>
+        
+        <p><strong>Why 6.5:</strong> Narrative drive is present but subordinate to aesthetic and psychological elements. The pacing is deliberate; the procedural elements slow the central story. The limitation is that viewers seeking momentum may find the approach frustrating.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.80</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Cliff Fall:</strong> The series concludes (Season 3 finale "The Wrath of the Lamb") with Graham and Lecter falling together off a cliff after killing Francis Dolarhyde (the Tooth Fairy from Red Dragon). The image is literal: the two men, who have been circling each other for three seasons, choose to die together. The resolution is romantic in the literary sense—their relationship, which has been the series' central dynamic, culminates in mutual destruction.</p>
+        
+        <p><strong>The Ambiguity:</strong> The cliff fall leaves the characters' fates ambiguous (though in the Thomas Harris universe, Lecter survives similar falls). The series was cancelled, so the ending wasn't fully planned—Fuller has discussed a potential Season 4 that would have featured a different structure. The conclusion serves the series' themes (the two men as mirror images, unable to exist separately) while leaving open the possibility of continuation.</p>
+        
+        <p><strong>The Novel Adaptation:</strong> Season 3 adapts both Hannibal (the Italy sequences) and Red Dragon (the Dolarhyde arc). The adaptation is loose—Fuller used Harris's plots as material rather than prescription. The Dolarhyde resolution provides conventional closure (a killer is stopped) while the Lecter/Graham resolution is thematic rather than definitive.</p>
+        
+        <p><strong>The Ending as Theme:</strong> The cliff fall serves the series' conceptual concerns: Lecter and Graham as mirror images, their relationship as the central truth, violence as consummation. The ending is consistent with the series' aesthetic and psychological approach, even if it leaves plot threads unresolved.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (8) achieved ambiguous but thematic resolution. Hannibal matches this approach—the ending serves the themes more than the plot.</p>
+        
+        <p><strong>Why 8:</strong> Thematic resolution that serves the series' central relationship. The cliff fall is aesthetically and psychologically appropriate. The limitation is that cancellation prevented planned continuation, leaving some ambiguity.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.88</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.60 + World: 0.98 + Cine: 1.50 + Spectacle: 0.85 + <br>
+        Concepts: 1.28 + Drive: 0.98 + Resolution: 0.80 = <strong>7.88</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (39 episodes, 3 seasons) | Status: Completed (2013-2015)<br>
+        Rank: #30 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 4 April 2013 | Network: NBC | Seasons: 3 (39 episodes)<br>
+    Creator: Bryan Fuller | Based on: Characters from Thomas Harris novels<br>
+    Cast: Mads Mikkelsen, Hugh Dancy, Caroline Dhavernas, Laurence Fishburne, Gillian Anderson<br>
+    Awards: Saturn Awards (Best Action/Thriller Series, Mikkelsen)<br>
+    Note: Television's most visually distinctive series—"foodie horror" aesthetic, baroque violence<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

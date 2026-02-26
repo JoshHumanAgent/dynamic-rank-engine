@@ -1,91 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Downton Abbey - "Upstairs and Down" | Dynamic Rank Engine</title>
+    <title>Downton Abbey - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #b8860b; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #b8860b, #7a5a00); color: #fffacd; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #daa520; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(184,134,11,0.3), rgba(0,0,0,0.9)); border: 3px solid #b8860b; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #daa520; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #b8860b; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #daa520; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(184,134,11,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #daa520; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #daa520; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #275</div>
-            <h1>Downton Abbey</h1>
-            <p class="subtitle">"Upstairs and Down"</p>
-            <div class="score-badge">
-                <span class="score-value">7.24</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2010-2015</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">52</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">ITV/PBS</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Julian Fellowes</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Downton Abbey is the most successful British costume drama since Brideshead Revisited—a soap opera dressed in Edwardian splendor, following the Crawley family and their servants from the sinking of the Titanic through the Jazz Age. Robert Crawley, Earl of Grantham (Hugh Bonneville), and his American wife Cora (Elizabeth McGovern) have three daughters but no male heir. The estate and title must pass to a distant cousin. This is the engine that drives six seasons of marriage plots, inheritance crises, scandals, wars, and deaths.</p>
-            <p>Lady Mary (Michelle Dockery) is the eldest daughter—beautiful, sharp, andInitially cold, she becomes the show's central figure. Lady Edith (Laura Carmichael) is the overlooked middle daughter, forever in Mary's shadow, whose journey from disappointment to independence is the show's quiet triumph. Lady Sybil (Jessica Brown Findlay) is the youngest, who marries the Irish chauffeur and dies in childbirth, the first major death that reminds us this world is not immune to tragedy.</p>
-            <p>Below stairs, the servants have their own stories—romances, rivalries, ambitions. Mr. Carson (Jim Carter) the butler and Mrs. Hughes (Phyllis Logan) the housekeeper are the moral anchors of the service world. Thomas (Rob James-Collier) the footman is the villain you sometimes root for. Daisy (Sophie McShera) the kitchen maid rises to assistant cook through sheer determination. Anna (Joanne Froggatt) and Mr. Bates (Brendan Coyle) have one of television's most enduring love stories, tested by prison, violence, and endless obstacles.</p>
-            <p>Maggie Smith as the Dowager Countess delivers every line as a weapon—acerbic, traditionalist, secretly sentimental. "What is a weekend?" she asks, perfectly capturing her character's oblivious aristocracy.</p>
-            <p>The show's pleasure is costume drama as comfort food—beautiful clothes, beautiful houses, beautiful performances, with enough drama to keep watching and enough reassurance that order will be restored.</p>
-        </div>
+<p>Downton Abbey premiered on ITV on September 26, 2010, created by Julian Fellowes (Gosford Park) and produced by Carnival Films. The series chronicles the lives of the aristocratic Crawley family and their servants at the fictional Yorkshire country estate, beginning with news of the Titanic sinking (April 1912) and concluding on New Year's Eve 1925. Across six seasons and 52 episodes, the series became a global phenomenon—the most successful British costume drama since Brideshead Revisited (1981), a consistent ratings winner on both ITV and PBS, and the recipient of numerous awards including Golden Globes, Emmys, and a BAFTA.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">6</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>World Building (9):</strong> Highclere Castle becomes a character. The upstairs-downstairs world is fully realized in all its hierarchy and intimacy.</p>
-            <p><strong>Characters & Acting (8):</strong> Maggie Smith is iconic. The ensemble cast creates characters you care about despite their privilege.</p>
-            <p><strong>Visual Spectacle (8):</strong> Costumes, settings, cars, jewelry—the Edwardian aesthetic is rendered in exhaustive detail.</p>
-        </div>
+<p>The series' premise centers on the "entail"—a legal device that endows title and estate exclusively to male heirs. The Earl of Grantham (Hugh Bonneville) has three daughters but no son; his nearest male heir was a distant cousin who perished on the Titanic. This setup, borrowed from Jane Austen's inheritance plots, generates romantic and dynastic tension across the early seasons: which daughter will marry the new heir, and will the marriage preserve the family's status? The entail plot resolves by Season 3, but the series continues through the First World War, the Spanish flu pandemic, the Irish War of Independence, and into the interwar period.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Episode 1" (S1E1)</strong> — The Titanic sinks. The heir dies. The crisis begins.</p>
-            <p><strong>"Episode 7" (S3E7)</strong> — Christmas special. The aftermath. The new beginning.</p>
-            <p><strong>"The Finale" (S6E9)</strong> — Series finale. Everyone finds their place. The perfect goodbye.</p>
-        </div>
+<p>Downton Abbey operates on two levels simultaneously: upstairs (the Crawley family) and downstairs (the servants). Each sphere has its own hierarchies, romances, and intrigues; the series intercuts between them with genuine skill. Maggie Smith's Violet Crawley, the Dowager Countess, became the series' breakout character—her withering retorts and traditionalist opposition to change providing comic relief and thematic contrast. "What is a weekend?" she asks in the first season, genuinely puzzled by the concept. Smith's performance earned three Emmy Awards and became the series' iconic presence.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Peacock, Amazon Prime</p>
-            <p><strong>UK:</strong> ITVX, Netflix</p>
+<p>The ensemble is large and uniformly strong: Hugh Bonneville as Robert, the Earl; Elizabeth McGovern as Cora, the American-born Countess; Michelle Dockery as Lady Mary, the eldest daughter; Laura Carmichael as Lady Edith, the overlooked middle daughter; Jessica Brown Findlay as Lady Sybil, the rebellious youngest. Below stairs: Jim Carter as Carson, the butler; Phyllis Logan as Mrs. Hughes, the housekeeper; Brendan Coyle as John Bates, the valet; Joanne Froggatt as Anna, the head housemaid; and numerous others whose stories accumulate across the series' run.</p>
+
+<p>The series' cultural impact was extraordinary. It became the most-watched drama in ITV's history; PBS reported record audiences for Masterpiece; international sales made it one of the most successful British television exports ever. Guinness World Records recognized it as the most critically acclaimed English-language series of 2011. The awards were numerous: 27 Primetime Emmy nominations (the most for any international series in Emmy history), multiple Golden Globes, a BAFTA for Best Drama Series. The series spawned a feature film trilogy (2019, 2022, 2025), with the third film, The Grand Finale, released in September 2025.</p>
+
+<h2>Why It Ranks #90</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.40</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>The Dowager Countess:</strong> Maggie Smith's Violet Crawley became television's most quotable character since Frasier Crane. Her withering putdowns ("No doubt you will regard this as unwise, but since you regard everything I do as unwise, I have ceased to care") and traditionalist resistance to progress serve both comedy and theme—she embodies an era ending, knows it, and won't go quietly. Smith's three Emmy Awards for the role reflect the performance's recognition; her decision to decline a cameo in the third film due to age (at 90, she noted that "by the time [the film] comes out, I'll be dead") marked the series' final curtain.</p>
+        
+        <p><strong>Lady Mary & Lady Edith:</strong> Michelle Dockery's Mary and Laura Carmichael's Edith provide the series' central sisterly rivalry—Mary the beauty, Edith the overlooked. Their antagonism spans six seasons, evolving from petty cruelty to grudging respect. Dockery captures Mary's cold exterior and hidden vulnerability; Carmichael makes Edith's journey from doormat to independent woman genuinely affecting. The series' best scenes often involve these two circling each other like predators.</p>
+        
+        <p><strong>Bates & Anna:</strong> Brendan Coyle's John Bates and Joanne Froggatt's Anna provide the servants' romantic core—a valet with a mysterious past and a housemaid who loves him. Their relationship spans seasons, including Bates's imprisonment (Season 2), Anna's assault (Season 4), and numerous obstacles. The performances are emotionally committed; the storyline occasionally tests credulity but maintains viewer investment. Froggatt earned Emmy nominations for the role.</p>
+        
+        <p><strong>The Servant Hierarchy:</strong> Jim Carter's Carson and Phyllis Logan's Mrs. Hughes represent the domestic order—stiff, loyal, increasingly human. Their late-season romance (both characters past sixty) provided unexpected sweetness. Rob James-Collier's Thomas Barrow began as antagonist (scheming, manipulative) and evolved into the series' tragic figure—a closeted gay man in an era without options, his cruelty the product of desperate self-protection. The redemption arc in the final seasons demonstrated the series' capacity for character growth.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Upstairs Downstairs (1971, 8.5) established the dual-sphere format. Downton Abbey matches its ensemble ambition with more lavish production. The limitation is that Fellowes' writing occasionally serves plot mechanics over character consistency; characters behave as required for drama rather than emerging organically.</p>
+        
+        <p><strong>Why 7:</strong> Strong performances across a vast ensemble with Maggie Smith achieving iconic status. The upstairs/downstairs structure creates multiple registers. The limitation is that some characters serve plot convenience over organic development.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Highclere Castle:</strong> The series' primary location—Highclere Castle in Hampshire—became as much a character as any human. The Victorian mansion (designed by Sir Charles Barry, architect of the Houses of Parliament) provides the public rooms, grand staircase, and exteriors; interior servant spaces were filmed at Ealing Studios. The integration is seamless; Downton Abbey feels like a complete space. The real castle became a tourist destination, receiving 1,500 visitors daily during the series' peak.</p>
+        
+        <p><strong>Historical Integration:</strong> The series embeds its fictional family in actual history—the Titanic (1912), World War I (1914-18), the Spanish flu (1918), the Irish War of Independence (1919-21), the Teapot Dome scandal (1922-23), the 1923 election, the Beer Hall Putsch (1923). Historical events drive plot rather than serving as background; Downton Abbey becomes a lens for understanding early 20th-century British history. The research is accurate; the integration is skillful.</p>
+        
+        <p><strong>The Servant World:</strong> Below stairs is rendered with comparable detail—the servants' hall, the kitchens, the attics, the hierarchy of roles (butler, housekeeper, cook, valets, ladies' maids, footmen, housemaids, kitchen maids). The series depicts the domestic servant economy at its end; the interwar period would see service collapse as an occupation. This gives the downstairs stories historical resonance—they're documenting a vanishing world.</p>
+        
+        <p><strong>Class Relations:</strong> The series' most sophisticated world-building element is its depiction of class. The relationship between upstairs and downstairs is neither exploitative (the Crawleys are benign employers) nor egalitarian (the hierarchy is rigid and unquestioned). The series captures a specific historical moment—the late Edwardian/early interwar period—when class relations were stable enough to seem natural and unstable enough to be changing. The depiction is affectionate without being naive.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Brideshead Revisited (8.5) achieved comparable period immersion with literary source material. Downton Abbey's world-building is its strongest dimension; the estate functions as complete, lived environment.</p>
+        
+        <p><strong>Why 8:</strong> Exceptional world-building through location, historical integration, and class depiction. Highclere Castle provides iconic visual identity. The limitation is that the benign employer framing softens actual historical exploitation.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Period Aesthetic:</strong> The series' visual identity is cohesive and sumptuous—the era rendered without the "heritage film" tendency toward flattering nostalgia. Cinematographer Gavin Struthers established a palette of natural light, candlelit interiors, and practical sources; the result feels authentic rather than over-lit. The difference between upstairs (candlelight, chandeliers, firelit drawing rooms) and downstairs (gas lamps, harsher practicals) is registered visually.</p>
+        
+        <p><strong>Production Values:</strong> At approximately £1 million per episode, Downton Abbey achieves feature-film production quality. The costumes, designed by Susannah Buxton (S1-2) and Caroline McCall (S3-6), are museum-quality period recreation; they earned Emmy recognition. The production design—real locations augmented with period dressing—creates consistent visual authenticity. Every frame looks expensive; the expense serves the story rather than announcing itself.</p>
+        
+        <p><strong>Single-Direction Approach:</strong> The series was primarily directed by single directors per season (Brian Kelly, Ben Bolt, Jeremy Webb, David Evans, Minkie Spiro, among others), creating consistent visual tone within seasons. The approach favors classical composition and clear staging over showy camera work; this serves the dialogue-heavy, multi-character material.</p>
+        
+        <p><strong>Comparison to Peers:</strong> The Crown (9) achieves comparable period-production values with larger budget. Downton Abbey matches its visual coherence despite lower per-episode costs. The limitation is lack of formal experimentation—the cinematography serves the material without elevating it.</p>
+        
+        <p><strong>Why 8:</strong> Strong period cinematography with cohesive visual identity. The production values create authentic period immersion. The limitation is that the aesthetic is accomplished rather than distinctive.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.80</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Estate as Spectacle:</strong> Highclere Castle provides visual grandeur—the Saloon (the central hall), the Drawing Room, the Library, the Dining Room, the exterior facades. The series shows the estate in different lights (day, evening, candlelit, firelit, seasonal) and different states (pre-war splendor, wartime hospital, post-war decline). The building is the series' primary spectacle; the drama occurs within its grandeur.</p>
+        
+        <p><strong>Period Events:</strong> The series stages historical spectacles—the 1914 garden party announcing war (characters frozen as news spreads), the wartime hospital operation in the main hall, the 1925 hunt meeting. These set-pieces deploy period production design (horses, automobiles, clothing) for visual impact. The Season 3 wedding (Mary and Matthew) and Season 6 wedding (Mary and Henry) provide romantic spectacle against estate backgrounds.</p>
+        
+        <p><strong>The Grantham Village:</strong> Exterior locations—in the village of Bampton, Oxfordshire—provide the tenant-farmer sphere and community context. Church services, the village green, the local pub expand the world beyond the estate. The integration of multiple locations creates a regional identity rather than a single-building claustrophobia.</p>
+        
+        <p><strong>War Sequences:</strong> Season 2's World War I material includes the front lines (filmed on sets) and the home front's conversion of Downton into a convalescent hospital. The war sequences are restrained—this is not a war drama—but effective. The contrast between estate elegance and shell-shocked officers creates visual and thematic tension.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Bridgerton (8) achieves comparable period spectacle with more elaborate visual design. Downton Abbey favors authenticity over flair. The spectacle serves the period immersion rather than announcing itself.</p>
+        
+        <p><strong>Why 8:</strong> Strong visual spectacle through estate grandeur and period production design. The location provides inherent visual interest. The limitation is that spectacle is atmospheric rather than action-driven.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 0.90</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Class in Transition:</strong> The series' core concept is class—the late Edwardian aristocracy facing modernity. The entail plot, the marriage plots, the servant hierarchies all examine class relations. The series captures a specific historical moment when the British class system was stable enough to seem eternal and fragile enough to be ending. The First World War accelerates change; the interwar period sees the old order contracting. This is genuine conceptual substance.</p>
+        
+        <p><strong>The Benign Exception:</strong> The conceptual limitation is that Downton Abbey depicts the best possible version of aristocracy—the Crawleys are kind, responsible, and protective. They support their servants, maintain their tenant farmers, and resist selling off the estate for development. This is not aristocracy as historical fact (exploitative, indifferent, extractive); it is aristocracy as self-image. The series critiques class while simultaneously romanticizing it.</p>
+        
+        <p><strong>Above Stairs / Below Stairs:</strong> The dual-sphere structure provides the series' conceptual architecture—two worlds in mutual dependence. But the relationship is essentially harmonious; class conflict is largely absent. The servants are loyal; the family is benign; everyone knows their place and accepts it. This is not how class systems actually function; it is how the British aristocracy wished they functioned. The series' conceptual critique is softened by its affection.</p>
+        
+        <p><strong>Female Dependency:</strong> The entail plot foregrounds female dependency on marriage—without a male heir, the estate passes outside the family; the daughters must marry well. The series examines women's limited options in the pre-suffrage era. Lady Sybil's political radicalism (supporting women's suffrage, marrying the Irish chauffeur) provides explicit feminist content. Lady Edith's journey from overlooked spinster to magazine editor traces women's expanding possibilities. The conceptual treatment is present but not deep.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Brideshead Revisited (8.5) achieved greater conceptual density through Waugh's Catholic themes and decline-of-civilization subtext. Downton Abbey examines class more directly but softens its critique. The limitation is the comfort of the viewing experience—concepts are present but not confronting.</p>
+        
+        <p><strong>Why 6:</strong> Present conceptual examination of class, gender, and historical change. The limitation is that the series romanticizes its subject; the critique is softened by the benign depiction. The concepts serve comfort rather than challenge.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Season Structure:</strong> Each season has a primary plot driver—the entail/marriage plot (S1), the war/hospital plot (S2), the financial crisis/wedding plot (S3), the postwar adjustment (S4), the police investigation/hotel plot (S5), the final transitions (S6). Multiple subplots run in parallel—romances downstairs and up, external threats to the estate, personal crises for various characters. The structure creates momentum across episodes and seasons.</p>
+        
+        <p><strong>The Soap Opera Engine:</strong> Fellowes writes in the tradition of the serialized soap—secrets revealed, relationships formed and broken, characters entering and departing, cliffhangers providing episode-end hooks. The approach is effective for audience engagement; the series generates genuine "what happens next" investment. The limitation is that plot sometimes drives character rather than vice versa; implausible developments serve story requirements.</p>
+        
+        <p><strong>The Matthew Crawley Problem:</strong> Dan Stevens chose to leave the series after Season 3; Matthew Crawley was killed in the Christmas special (car accident on the day of his son's birth). The departure of a central character (and romantic lead) forced narrative reconstruction. The series recovered, but the abrupt departure demonstrated the vulnerability of serialized plots to actor decisions. Stevens was not alone—Jessica Brown Findlay (Sybil) also departed (her character died in childbirth), requiring narrative adjustment.</p>
+        
+        <p><strong>Climax and Resolution:</strong> The series builds toward the 1925 conclusion—the estate's future secured, marriages settled, the old order accepting transition. The Season 6 finale provides resolution for virtually every character; the Christmas special serves as epilogue. The drive is consistent; the resolution is complete. The film trilogy (2019, 2022, 2025) extended the narrative, but the television series achieved genuine closure.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represents maximum narrative momentum in serialized drama. Downton Abbey achieves soapy engagement without the propulsive urgency of thriller formats. The drive is effective for its genre.</p>
+        
+        <p><strong>Why 7:</strong> Effective narrative drive through serialized plotting and dual-sphere structure. The momentum is consistent across six seasons. The limitation is that plot mechanics sometimes override character organic development.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.80</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Six Seasons, Complete Arc:</strong> Downton Abbey concluded on December 25, 2015, after six seasons, with a Christmas special serving as series finale. The episode provided resolution for every major character: Mary's second marriage, Edith's engagement, Carson's retirement, the estate's future secured. The finale was designed as conclusion rather than cliffhanger; Fellowes had planned the ending.</p>
+        
+        <p><strong>Character Endings:</strong> Each character receives appropriate closure. Lady Mary marries Henry Talbot after obstacle-laden courtship. Lady Edith, after seasons of disappointment, inherits her publisher lover's magazine and marries the agent who loved her. Lady Rose (Lily James) returns from America. Tom Branson (Allen Leech) finds new purpose at the estate. Even Thomas Barrow finds acceptance. The resolutions are earned; the emotional payoffs are genuine.</p>
+        
+        <p><strong>Historical Closure:</strong> The 1925 setting provides historical bookend—the postwar period establishing its new shape. The series acknowledges that the era is ending (the Dowager's famous line "I'm going to bed before either of you come up with another idea to get us killed, or, worse still, expelled" provides comic closure). The final images—Carson and Mrs. Hughes walking on the beach, the family assembling for one more photograph—suggest continuation beyond the frame.</p>
+        
+        <p><strong>The Film Extension:</strong> The film trilogy (2019, 2022, 2025) extended the narrative without diminishing the series' resolution. The films were additions rather than continuations; the television series achieved complete closure. This is the ideal arrangement—finale resolution preserved, optional extension available.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (10) represents ideal planned conclusion to serialized drama. Downton Abbey achieves comparable closure for its ensemble format. Every major thread was resolved; the ending was designed rather than forced.</p>
+        
+        <p><strong>Why 8:</strong> Strong resolution with complete character arcs and thematic closure. The series achieved planned conclusion without forced continuation. The extension (film trilogy) preserved rather than undermined the series finale.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.35</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.40 + World: 1.20 + Cine: 1.20 + Spectacle: 0.80 + <br>
+        Concepts: 0.90 + Drive: 1.05 + Resolution: 0.80 = <strong>7.35</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (52 episodes, 6 seasons) | Status: Completed (Film trilogy 2019-2025)<br>
+        Rank: #90 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 26 September 2010 | Network: ITV (UK), PBS (US) | Seasons: 6<br>
+    Creator: Julian Fellowes | Location: Highclere Castle, Hampshire<br>
+    Cast: Hugh Bonneville, Maggie Smith, Michelle Dockery, Laura Carmichael, Elizabeth McGovern, Jim Carter, Brendan Coyle, Joanne Froggatt<br>
+    Awards: 27 Emmy nominations, 3 Golden Globes, BAFTA Best Drama | Guinness World Record: Most critically acclaimed 2011<br>
+    Films: Downton Abbey (2019), A New Era (2022), The Grand Finale (2025)<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

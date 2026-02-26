@@ -1,91 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fargo - "There's more to life than a little money" | Dynamic Rank Engine</title>
+    <title>Fargo - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #37474f; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #37474f, #263238); color: #eceff1; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #b0bec5; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(55,71,79,0.3), rgba(0,0,0,0.9)); border: 3px solid #37474f; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #b0bec5; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #37474f; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #b0bec5; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(55,71,79,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #b0bec5; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #b0bec5; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #28</div>
-            <h1>Fargo</h1>
-            <p class="subtitle">"There's more to life than a little money"</p>
-            <div class="score-badge">
-                <span class="score-value">8.00</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2014-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">51</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">FX</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Noah Hawley</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Fargo is an anthology inspired by the Coen Brothers' film—each season a new story, new characters, same Minnesota nice and midwestern horror. The opening claims every season is "a true story." It isn't. But it feels true: ordinary people forced into extraordinary violence, criminals who are surprisingly philosophical, and snow. Always snow.</p>
-            <p>Season one is perfect: Lester Nygaard (Martin Freeman), a bullied insurance salesman, meets Lorne Malvo (Billy Bob Thornton), a hitman who offers to kill his tormentors. Lester says yes—or maybe doesn't, and Malvo does it anyway. Molly Solverson (Allison Tolman) is the sheriff's deputy who investigates. The show captures the film's tone: deadpan, violent, moral. "There's more to life than a little money, you know," a character says. "Don't you know that?" The characters who know this survive. The ones who don't, don't.</p>
-            <p>Season two is a prequel: 1979, a massacre at a diner, a crime family, a state trooper named Lou Solverson (Patrick Wilson). Season three: a probation officer (Carrie Coon) vs. a businessman (Ewan McGregor) with two identities. Season four: 1950s Kansas City, two crime families—Black and Italian—fighting for territory. Each season stands alone, connected by bloodlines and themes: greed, fate, the mythic American Midwest.</p>
-            <p>Five seasons, fifty-one episodes, ongoing. Fargo is exceptional anthology television—not every season matches season one's perfection, but all are ambitious. The show's thesis: people make choices, and choices have consequences. Some are good. Some are evil. Most are confused. The snow covers everything eventually. "And I guess that was the last anyone saw of that fella," a narrator says. The stories end. The cold remains.</p>
-        </div>
+<p>Fargo premiered on FX on April 15, 2014, created by Noah Hawley and based on the 1996 Coen brothers film. The series is an anthology: each season is a self-contained story set in the same universe (the Upper Midwest, the world of the film), with different characters, different crimes, different eras. Across five seasons and 51 episodes, the series has maintained the Coens' sensibility—black comedy, existential dread, violence erupting in snow-covered landscapes—while establishing its own artistic identity.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight":20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Billy Bob Thornton, Martin Freeman, Allison Tolman, Carrie Coon—every season has standout performances.</p>
-            <p><strong>Cinematography (9):</strong> Snow as canvas. The Coen aesthetic translated to TV. Beautiful and brutal.</p>
-            <p><strong>Narrative Drive (9):</strong> Season one is perfect. Each season builds tension masterfully. "True story" framing adds weight.</p>
-        </div>
+<p>The achievement is remarkable: television adaptations of films usually fail, either by copying too closely or by missing what made the original work. Fargo succeeds by treating the film as a foundation (the Minnesota setting, the "true story" device, the mixture of violence and comedy) rather than a template. Each season is original, with new characters facing new crimes, but the tone is consistent: ordinary people caught in extraordinary violence, criminals who are either too smart or too stupid, and a landscape that seems to generate both.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"The Crocodile's Dilemma" (S1E1)</strong> — The introduction. Lester meets Malvo. "Yes or no?"</p>
-            <p><strong>"The Heap" (S1E6)</strong> — The time jump. Lester transforms. "I'm a winner."</p>
-            <p><strong>"Morton's Fork" (S1E10)</strong> — Season one finale. The trap. "And the truth is, I'm satisfied."</p>
-            <p><strong>"Palindrome" (S2E10)</strong> — Season two finale. The UFO. The sacrifice.</p>
-        </div>
+<p>Season 1 (2014) stars Billy Bob Thornton as Lorne Malvo, a mysterious hitman whose arrival in Bemidji, Minnesota triggers a cascade of violence. Martin Freeman plays Lester Nygaard, a timid insurance salesman who, after encountering Malvo, murders his wife and frames his brother-in-law. Allison Tolman plays Molly Solverson, the deputy who investigates; she's the series' moral center, a competent woman in a world of male incompetence. The season won the Emmy for Outstanding Miniseries and established the series' template: ordinary people, extraordinary violence, moral ambiguity.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Hulu</p>
-            <p><strong>UK:</strong> Channel 4, Netflix (seasons vary)</p>
+<p>Season 2 (2015) is a prequel set in 1979, following a young Molly Solverson's father (Lou, played by Patrick Wilson) as he investigates a crime involving a beauty salon owner (Kirsten Dunst), her butcher husband (Jesse Plemons), and a Kansas City crime syndicate. The season expands the canvas: the crime involves Native American politics, UFO sightings (a Coen reference), and the collision between rural Minnesota and organized crime. Many critics consider it the series' best.</p>
+
+<p>Season 3 (2017) stars Ewan McGregor in dual roles as brothers Emmit and Ray Stussy—one a successful businessman, the other a parole officer seeking revenge. Carrie Coon plays Gloria Burgle, the chief investigating a murder connected to the brothers' conflict. The season explores identity, inheritance, and the randomness of fate. Season 4 (2020) moves to 1950 Kansas City, following rival crime families (Black and Italian) and featuring Chris Rock in a dramatic role. Season 5 (2023) returns to contemporary Minnesota with a housewife (Juno Temple) whose past catches up with her.</p>
+
+<h2>Why It Ranks #57</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.60</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Lorne Malvo (Season 1):</strong> Billy Bob Thornton created the series' signature performance—a hitman who is also a trickster, manipulating small-town people into destroying themselves. Malvo is charming, dangerous, and genuinely funny; his scenes oscillate between tension and comedy. Thornton's performance (Emmy-nominated) established the series' tone: violence played as black comedy, comedy that doesn't undermine the stakes.</p>
+        
+        <p><strong>Lester Nygaard (Season 1):</strong> Martin Freeman plays the Coen archetype—the nebbish man who discovers his capacity for violence. Lester is pathetic, then terrifying, then pathetic again; Freeman captures the transformation without making it explicit. The character is a descendant of William H. Macy's Jerry Lundegaard from the film, but Freeman makes him distinct.</p>
+        
+        <p><strong>Molly Solverson (Season 1):</strong> Allison Tolman plays the deputy who investigates the crimes—a competent, observant woman in a world where men underestimate her. The character is Marge Gunderson's descendant (Frances McDormand in the film), but Tolman makes her distinct: younger, less confident, but equally determined. Her performance was Emmy-nominated against movie stars, a recognition of its quality.</p>
+        
+        <p><strong>Peggy and Ed Blumquist (Season 2):</strong> Kirsten Dunst and Jesse Plemons play a married couple whose hit-and-run accident triggers the season's violence. Peggy is a beauty salon owner with dreams of self-improvement; Ed is a butcher who just wants a quiet life. Dunst's Peggy is the more complex character—her ambition and denial drive the season, and her refusal to accept responsibility generates both comedy and horror.</p>
+        
+        <p><strong>The Stussy Brothers (Season 3):</strong> Ewan McGregor plays dual roles—Emmit, the successful "Parking Lot King of Minnesota," and Ray, the parole officer who feels cheated by his brother. The performance is technically impressive (the brothers share scenes through visual effects) but also emotionally grounded: Ray is pathetic and bitter; Emmit is successful and guilty.</p>
+        
+        <p><strong>Anthology Quality:</strong> The anthology format allows the series to cast differently each season—Thornton, Freeman, Dunst, Plemons, McGregor, Rock, Temple—without requiring long-term commitment. Each season provides a complete character arc; actors can give performances without holding back for future seasons.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (9) achieved comparable anthology quality. Fargo matches its casting with more consistent tone across seasons.</p>
+        
+        <p><strong>Why 8:</strong> Strong performances across all seasons, with standout work from Thornton, Tolman, Dunst, and McGregor. The anthology format allows complete character arcs. The limitation is inconsistent character depth across seasons (Season 4's ensemble is less developed).</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 0.98</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Coen Universe:</strong> The series exists in the same universe as the 1996 film—characters reference events from the movie, the tone is consistent, the "true story" device continues. The connection is established through the television series, creating a continuity that expands the original without diluting it. The "true story" framing (the events depicted actually happened, in 2006, in Minnesota) is part of the fiction but creates verisimilitude.</p>
+        
+        <p><strong>The Upper Midwest:</strong> The series renders the region (primarily Minnesota and North Dakota) with detail: the snow-covered landscapes, the "Minnesota nice" social conventions, the Scandinavian heritage, the accents. The setting isn't just backdrop; it's connected to the violence—the isolation, the passivity that masks aggression, the ordinary people who discover extraordinary capacity for harm.</p>
+        
+        <p><strong>Historical Expansion:</strong> Season 2 moves to 1979; Season 4 moves to 1950s Kansas City. The historical settings are rendered with period detail—the clothing, the cars, the music, the politics. The expansion demonstrates that the "Fargo sensibility" works across eras; it's not tied to contemporary Minnesota.</p>
+        
+        <p><strong>The Crime Underworld:</strong> Each season depicts ordinary people intersecting with organized crime—Kansas City syndicates, Native American criminal organizations, local criminal Enterprises. The crime world is connected to the region (rural areas as territory for urban organizations) while maintaining the small-town feel.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8.5) achieved more distinctive regional world-building. Fargo matches its regional specificity through Minnesota detail and historical expansion.</p>
+        
+        <p><strong>Why 6.5:</strong> Strong regional world-building (Minnesota, period settings) with connection to the film. The "true story" device creates verisimilitude. The limitation is that anthology seasons vary in world-building quality.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Landscapes in White:</strong> The series' signature visual is snow—vast white landscapes, frozen lakes, blizzards that obscure vision. The cinematography makes the landscape a character: the snow is beautiful but also isolating, pure but also concealing. Directors of photography across seasons (Dana Gonzales, John Conroy, others) maintain visual consistency while allowing seasonal variation.</p>
+        
+        <p><strong>The Coen Aesthetic:</strong> The series adopts the Coen brothers' visual approach—symmetrical composition, wide shots that emphasize small figures against vast landscapes, violence rendered as both shocking and absurd. The cinematography honors the film's aesthetic without copying it; the television series has its own visual identity.</p>
+        
+        <p><strong>Period Detail:</strong> The historical seasons (Season 2's 1979, Season 4's 1950) are visually distinct through costume, production design, and cinematography. The 1979 setting uses muted colors, film grain, and period frames; the 1950s setting uses higher contrast and different composition. The visual distinction helps viewers orient in each season's world.</p>
+        
+        <p><strong>Violence and Comedy:</strong> The series' black comedy requires visual precision—violence that's shocking but also absurd, deaths that are horrible but also funny. The cinematography walks this line: the camera doesn't flinch from violence, but the composition (and the editing, and the score) creates distance that allows comedy.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8.5) established distinctive television cinematography. Fargo matches its visual achievement while maintaining the Coen sensibility.</p>
+        
+        <p><strong>Why 8.5:</strong> Distinctive visual identity through snow-covered landscapes and Coen-inspired composition. The violence and comedy are visually balanced. The period settings are rendered with detail.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.60</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Violence as Dark Spectacle:</strong> The series includes violence—shootings, stabbings, accidents, massacres—but renders it as black comedy rather than action spectacle. Deaths are sudden and often absurd (a man killed by a falling air conditioner, a shootout in a hotel that kills everyone involved). The approach is Coen: violence is horrifying and also, somehow, funny.</p>
+        
+        <p><strong>The Landscapes:</strong> The snow-covered landscapes provide visual beauty—vast white spaces, frozen lakes, northern lights (in some seasons). The beauty is striking but not spectacle in the conventional sense; it's atmosphere rather than impressiveness.</p>
+        
+        <p><strong>The UFO:</strong> Season 2 includes UFO sightings—a literal spaceship appears during a key sequence. The inclusion is a Coen reference (the unexpected in the mundane) and provides spectacle without changing the crime narrative. The spaceship is not explained; it's simply part of the world.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Game of Thrones (9) achieved spectacle through scale and action. Fargo deliberately rejects spectacle in favor of black comedy and landscape beauty. The limitation is definitional.</p>
+        
+        <p><strong>Why 6:</strong> Deliberate avoidance of conventional spectacle in favor of black-comedy violence and landscape beauty. The UFO in Season 2 provides unexpected visual interest. The dimension is deprioritized by design.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Coen Sensibility:</strong> The series captures the Coen brothers' philosophical concerns: fate versus free will, the randomness of violence, the gap between intention and outcome, the absurdity of existence. Ordinary people make small decisions that spiral into catastrophe; criminals are either brilliant strategists or incompetent fools; violence erupts from nowhere and resolves nothing.</p>
+        
+        <p><strong>Minnesota Nice:</strong> The series examines the Upper Midwest's social conventions—extreme politeness, conflict avoidance, passive aggression—as both virtue and pathology. The "Minnesota nice" surface conceals rage, resentment, and capacity for violence. The accent isn't just comedy; it's character: people say "you betcha" while planning murder.</p>
+        
+        <p><strong>The True Story Device:</strong> Each season begins with the claim that it's a true story, with names changed. The device is familiar from the film; it creates verisimilitude while being fictional. The series plays with the device: if events are "true," then the coincidences and absurdities are also true, suggesting that reality is stranger than fiction.</p>
+        
+        <p><strong>Moral Ambiguity:</strong> The series refuses clear moral categories. The investigators are competent and well-intentioned, but the protagonists are often criminals or accidental killers. Lester Nygaard (Season 1) murders his wife and frames his brother-in-law; Peggy Blumquist (Season 2) covers up a hit-and-run and her husband kills to protect her. The series doesn't condemn or excuse; it presents.</p>
+        
+        <p><strong>Fate and Randomness:</strong> The series emphasizes the role of chance—encounters that shouldn't have happened, decisions made for trivial reasons that cascade into catastrophe. The UFO in Season 2 is the ultimate randomness: a spaceship appears, affects nothing, and leaves. The universe is indifferent; events are not planned.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8.5) achieved comparable philosophical depth. Fargo matches its existential concerns with Coen-inspired black comedy.</p>
+        
+        <p><strong>Why 8.5:</strong> Strong conceptual examination of fate, randomness, moral ambiguity, and the gap between intention and outcome. The "Minnesota nice" convention is examined as pathology. The Coen sensibility is maintained across seasons.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Crime Trigger:</strong> Each season begins with an event that triggers a cascade—Lester's encounter with Malvo (Season 1), the Blumquists' hit-and-run (Season 2), the Stussy inheritance (Season 3), the crime family conflict (Season 4), the housewife's past (Season 5). The trigger is small; the consequences are vast. The structure provides momentum: each decision leads to the next crisis.</p>
+        
+        <p><strong>Anthology Momentum:</strong> The anthology format provides natural momentum—each season is self-contained, with no need to sustain story across years. The limited episode count (10 episodes per season, 8 for Season 4) ensures efficiency; there's no padding, no filler, each episode advances the story.</p>
+        
+        <p><strong>The Investigation:</strong> Each season features investigators (Molly in Season 1, Lou in Season 2, Gloria in Season 3) whose pursuit provides narrative drive. The investigation is competent procedure rather than inspired deduction; the investigators are smart but not superhuman. The cat-and-mouse between investigators and criminals generates tension.</p>
+        
+        <p><strong>Seasonal Variation:</strong> The seasons vary in pace and structure—Season 1 is tight and focused; Season 2 expands to include more characters and historical context; Season 3 explores family dynamics; Season 4 is crime-family drama; Season 5 returns to the housewife-in-trouble structure. The variation keeps the series fresh while maintaining the Fargo sensibility.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represents maximum narrative momentum. Fargo achieves strong drive across seasons with anthology efficiency—each season is a complete thriller.</p>
+        
+        <p><strong>Why 8:</strong> Strong narrative drive through crime-trigger structure and investigation momentum. The anthology format ensures efficiency without padding. Seasonal variation maintains freshness.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.80</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Anthology Closure:</strong> Each season provides complete resolution—the crime is solved, the survivors emerge (or don't), the narrative concludes. There's no need for continuation; each season is a complete story. The anthology format eliminates the cliffhanger problem that ongoing series face.</p>
+        
+        <p><strong>Moral Resolution:</strong> The series tends toward moral resolution—the investigators catch (or kill) the criminals, the innocent survive (mostly), the guilty are punished (sometimes). The approach isn't simple justice (the series allows moral ambiguity), but there's a sense that events have consequences. Lester Nygaard dies in the ice; Lorne Malvo is killed by another criminal; Peggy Blumquist is arrested but alive.</p>
+        
+        <p><strong>The Coen Ambiguity:</strong> Despite moral resolution, the series maintains Coen ambiguity—not every death is deserved, not every survivor is innocent, the randomness of events continues. The investigators solve the crime, but they don't restore order; the universe remains indifferent.</p>
+        
+        <p><strong>Season Quality:</strong> The seasons vary in resolution quality—Season 1 and Season 2 are generally considered strongest; Season 3's ending divided critics; Season 4's crime-family drama ends with conventional resolution; Season 5 returns to the classic structure. The anthology format means that each season's resolution stands or falls on its own.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Leftovers (10) achieved ideal resolution for an ongoing series. Fargo's anthology format provides natural resolution—each season concludes without sequel hooks.</p>
+        
+        <p><strong>Why 8:</strong> Complete resolution in each season through anthology format. Moral resolution without simple justice. Coen ambiguity maintained. Seasonal variation in resolution quality prevents higher score.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.70</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.60 + World: 0.98 + Cine: 1.28 + Spectacle: 0.60 + <br>
+        Concepts: 1.28 + Drive: 1.20 + Resolution: 0.80 = <strong>7.70</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (51 episodes, 5 seasons) | Status: Ongoing (anthology)<br>
+        Rank: #57 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 15 April 2014 | Network: FX | Seasons: 5 (51 episodes, anthology)<br>
+    Creator: Noah Hawley | Based on: Film by Joel & Ethan Coen (1996)<br>
+    Cast (Selected): Billy Bob Thornton, Martin Freeman, Allison Tolman, Kirsten Dunst, Jesse Plemons, Ewan McGregor, Chris Rock, Juno Temple<br>
+    Awards: Emmy Outstanding Miniseries (S1), Golden Globe Best Miniseries (S1)<br>
+    Note: Rare successful TV adaptation of film; maintains Coen sensibility across seasons<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

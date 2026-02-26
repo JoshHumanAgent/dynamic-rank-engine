@@ -3,87 +3,523 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation - "The Empire Will Fall" | Dynamic Rank Engine</title>
+    <title>Foundation (2021-) - TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #ffd700; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #ffd700, #b8860b); color: #1a1a1a; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(0,0,0,0.9)); border: 3px solid #ffd700; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ffd700; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #ffd700; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ffd700; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(255,215,0,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ffd700; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ffd700; font-weight: 700; }
-    </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            color: #e0e0e0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .show-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 4px solid #c9a227;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        .show-title {
+            font-size: 2.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #c9a227 0%, #f0d78c 50%, #c9a227 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+        .show-meta {
+            color: #a0a0a0;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        .show-cast {
+            color: #888;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        .section {
+            background: rgba(30, 30, 45, 0.8);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(100, 100, 120, 0.2);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+        .section-title {
+            font-size: 1.5em;
+            color: #c9a227;
+            margin-bottom: 16px;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(201, 162, 39, 0.3);
+            padding-bottom: 8px;
+        }
+        .section-content {
+            color: #d0d0d0;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        .dimension-grid {
+            display: grid;
+            gap: 20px;
+        }
+        .dimension-block {
+            background: linear-gradient(135deg, rgba(45, 45, 68, 0.8) 0%, rgba(35, 35, 55, 0.9) 100%);
+            border-radius: 10px;
+            padding: 22px;
+            border-left: 4px solid;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .dimension-block:hover {
+            transform: translateX(4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .dimension-block.characters { border-left-color: #e63946; }
+        .dimension-block.world { border-left-color: #2a9d8f; }
+        .dimension-block.cinematography { border-left-color: #e9c46a; }
+        .dimension-block.visual { border-left-color: #f4a261; }
+        .dimension-block.conceptual { border-left-color: #9b5de5; }
+        .dimension-block.narrative { border-left-color: #00b4d8; }
+        .dimension-block.resolution { border-left-color: #90e0ef; }
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .dimension-name {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #f0f0f0;
+        }
+        .dimension-score {
+            font-size: 1.8em;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 8px;
+            min-width: 60px;
+            text-align: center;
+        }
+        .score-high { background: rgba(42, 157, 143, 0.25); color: #2a9d8f; }
+        .score-medium { background: rgba(233, 196, 106, 0.25); color: #e9c46a; }
+        .score-low { background: rgba(230, 57, 70, 0.25); color: #e63946; }
+        .dimension-analysis {
+            color: #b0b0b0;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+        .final-score-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 50%, #1a1a2e 100%);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(201, 162, 39, 0.4);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        .final-score-label {
+            font-size: 1.3em;
+            color: #a0a0a0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        .final-score-value {
+            font-size: 4em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #c9a227 0%, #f0d78c 50%, #c9a227 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 15px 0;
+        }
+        .final-score-summary {
+            color: #b0b0b0;
+            font-size: 1em;
+            max-width: 700px;
+            margin: 20px auto 0;
+            line-height: 1.7;
+        }
+        .score-bar-container {
+            background: rgba(255,255,255,0.08);
+            border-radius: 6px;
+            height: 10px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+        .score-bar {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.6s ease;
+        }
+        .bar-high { background: linear-gradient(90deg, #2a9d8f, #4ecdc4); }
+        .bar-medium { background: linear-gradient(90deg, #e9c46a, #f4d03f); }
+        .bar-low { background: linear-gradient(90deg, #e63946, #f77f7f); }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .tag {
+            background: rgba(201, 162, 39, 0.15);
+            color: #c9a227;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+        }
+        .strengths-weaknesses {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .sw-box {
+            padding: 18px;
+            border-radius: 8px;
+        }
+        .sw-box.strengths {
+            background: rgba(42, 157, 143, 0.1);
+            border-left: 3px solid #2a9d8f;
+        }
+        .sw-box.weaknesses {
+            background: rgba(230, 57, 70, 0.1);
+            border-left: 3px solid #e63946;
+        }
+        .sw-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        .sw-box.strengths .sw-title { color: #2a9d8f; }
+        .sw-box.weaknesses .sw-title { color: #e63946; }
+        .sw-list {
+            list-style: none;
+            color: #b0b0b0;
+            font-size: 0.9em;
+        }
+        .sw-list li {
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+        .sw-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            opacity: 0.7;
+        }
+        @media (max-width: 600px) {
+            .show-title { font-size: 1.8em; }
+            .final-score-value { font-size: 3em; }
+            .strengths-weaknesses { grid-template-columns: 1fr; }
+        }
+    .rankings-section { margin-bottom: 2rem; }
+.rankings-header { text-align: center; margin-bottom: 2.5rem; }
+.rankings-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; }
+.rankings-subtitle { color: var(--text-dim); font-size: 1.1rem; }
+.dimension-grid { display: grid; gap: 1.5rem; }
+.dimension-block { background: rgba(30,30,30,0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); display: grid !important; grid-template-columns: auto 1fr !important; gap: 1.5rem; }
+.dimension-score { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-width: 100px; }
+.score-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; position: relative; }
+.score-circle::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(var(--primary) calc(var(--score) * 10%), var(--dark) 0); z-index: -1; }
+.score-circle::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: rgba(30,30,30,0.8); }
+.score-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+.dimension-content h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+
+</style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #110</div>
-            <h1>Foundation</h1>
-            <p class="subtitle">"The Empire Will Fall"</p>
-            <div class="score-badge">
-                <span class="score-value">7.58</span>
-                <span class="score-label">Final Score</span>
+        <!-- Header -->
+        <div class="show-header">
+            <h1 class="show-title">Foundation</h1>
+            <div class="show-meta">
+                Apple TV+ | Science Fiction | 2021-Present | 3 Seasons, 30 Episodes
+            </div>
+            <div class="show-meta">
+                Created by David S. Goyer & Josh Friedman | Based on Isaac Asimov's novels
+            </div>
+            <div class="show-cast">
+                Starring: Lee Pace, Jared Harris, Lou Llobell, Leah Harvey, Laura Birn
+            </div>
+            <div class="tags">
+                <span class="tag">Space Opera</span>
+                <span class="tag">Sci-Fi Epic</span>
+                <span class="tag">Political Intrigue</span>
+                <span class="tag">Dystopian</span>
+                <span class="tag">Philosophical</span>
             </div>
         </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2021-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">20</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Apple TV+</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">David S. Goyer, Josh Friedman</div></div>
+        <!-- What It Feels Like to Watch -->
+        <div class="section">
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            <div class="section-content">
+                <p>Watching <em>Foundation</em> feels like standing at the edge of cosmic history and watching empires rise and fall in silence. It's a show of staggering ambition—perhaps the most visually spectacular science fiction series ever produced for television, wrapped around Isaac Asimov's philosophical meditation on civilization, entropy, and the mathematics of human behavior.</p>
+                
+                <p>The experience is paradoxical: deeply intellectual yet viscerally gorgeous, sprawling in scope yet occasionally intimate in its focus. When Lee Pace's Cleon clones move through the vast chrome corridors of Trantor, when Jared Harris's Hari Seldon speaks of psychohistory's cold calculus, when Lou Llobell's Gaal Dornick confronts the weight of knowing the future—you're watching something that demands your attention not just to plot beats, but to ideas.</p>
+                
+                <p>Yet there's a coldness to the experience, too. This is a show about humanity's collective behavior, not individual heroism. Characters serve as vessels for concepts, and sometimes the emotional connection wavers as the narrative leaps across centuries and star systems. It's a viewing experience that rewards patience and contemplation—rare qualities for television, even prestige television. The result is something that feels less like entertainment and more like an artifact: a document of what television can achieve when it dares to be truly ambitious.</p>
+            </div>
         </div>
 
+        <!-- Why It Ranks -->
         <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Foundation is Apple's attempt to adapt Isaac Asimov's famously unadaptable science fiction masterpiece. Asimov's books are about ideas—psychohistory, the mathematics of mass behavior, the fall of civilization across millennia. The show adds character, drama, and visual spectacle, creating something that honors the source while expanding it for television.</p>
-            <p>Hari Seldon (Jared Harris) is a mathematician who predicts the fall of the Galactic Empire through psychohistory—the science of mass behavior. The Empire will collapse into 30,000 years of darkness, but Seldon's Foundation can shorten that to 1,000 years. He's exiled to the edge of the galaxy with followers who will preserve knowledge through the dark age. The show follows Seldon's plan across centuries, jumping forward in time as generations inherit the mission.</p>
-            <p>The Empire is ruled by a genetic dynasty—the same three clones (Brother Dawn, Brother Day, and Brother Dusk) cycling through youth, prime, and age in an eternal rule. Lee Pace plays Brother Day, the ruling Prime, with imperial grandeur and subtle cracks in the facade. The cloning system was the show's brilliant invention—immortality through succession, the same three personalities ruling forever, until entropy begins to break them down.</p>
-            <p>Salvor Hardin (Leah Harvey) is the Warden of Terminus, the planet where the Foundation landed. Gaal Dornick (Loulloubell) is Seldon's protégé, whose story intersects with Seldon's in unexpected ways. The show plays with time—jumps of decades and centuries, cryogenic sleep, genetic memory. It's science fiction on the longest scales, where individual lives are brief flickers against the backdrop of civilization.</p>
-            <p>Visually, the show is stunning—Apple's budget shows in every frame. The Empire's throne room, the vault on Terminus, the spaceships and planets—this is the kind of production value that makes other streaming services look cheap.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
+            <h2 class="section-title">Why It Ranks: The Seven Dimensions</h2>
             <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">6</div><div class="dimension-weight">20% weight</div></div>
+                
+                <!-- Characters -->
+                <div class="dimension-block characters">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Characters</span>
+                        <span class="dimension-score score-low">6/10</span>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>The character work in <em>Foundation</em> serves the narrative's themes rather than providing traditional emotional anchors. Jared Harris delivers a masterful performance as Hari Seldon, capturing both the prophet's certainty and the human cost of his calculations. Lee Pace creates three distinct emperors across the Cleon genetic dynasty, each exploring different facets of absolute power and isolation. Lou Llobell brings earnest vulnerability to Gaal Dornick, though she's often reduced to exposition delivery.</p>
+                        
+                        <p>Where characters falter is in emotional resonance. The show's vast scope means attachments are frequently broken by time jumps and narrative fragmentation. Secondary figures like Salvor Hardin (Leah Harvey) suffer from inconsistent development, their arcs sometimes feeling engineered rather than organic. Demerzel (Laura Birn) stands out as a highlight—a robot navigating loyalty, immortality, and humanity—but many other characters exist as functions of plot rather than fully realized individuals. The result is intellectually satisfying characters who rarely pierce the heart.</p>
+                    </div>
+                    <div class="score-bar-container">
+                        <div class="score-bar bar-low" style="width: 60%"></div>
+                    </div>
+                </div>
+
+                <!-- World Building -->
+                <div class="dimension-block world">
+                    <div class="dimension-header">
+                        <span class="dimension-name">World Building</span>
+                        <span class="dimension-score score-high">9/10</span>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p><em>Foundation</em> creates one of television's most immersive sci-fi universes. The Galactic Empire spans thousands of worlds and millennia of history, yet the show makes this scope tangible through distinct cultural identities, architectural diversity, and political complexity. Trantor, the imperial capital, feels genuinely lived-in—a planet-city of layered history and competing powers. The contrast between imperial decadence and frontier desperation creates dynamic tension across settings.</p>
+                        
+                        <p>The show excels at visual scale while maintaining internal logic. Each location—from the gleaming Imperial Palace to the dusty settlement of Terminus—carries its own history, technology level, and social structure. The genetic dynasty of Cleon clones adds fascinating philosophical texture to power and identity. The psychohistory concept grounds the fantastical in mathematical plausibility. Where world building occasionally stumbles is in its density; some viewers may struggle to track the numerous factions, planets, and timelines without close attention.</p>
+                    </div>
+                    <div class="score-bar-container">
+                        <div class="score-bar bar-high" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- Cinematography -->
+                <div class="dimension-block cinematography">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Cinematography</span>
+                        <span class="dimension-score score-high">9/10</span>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>Every frame of <em>Foundation</em> looks meticulously crafted. The cinematography alternates between sweeping cosmic vistas and intimate, shadow-drenched interiors, using color palettes that distinguish timelines and emotional states. The Trantor sequences favor imperial golds and cold blues, while Terminus sequences employ harsher, earthier tones. Light itself becomes a storytelling tool—harsh on the characters, divine when illuminating the empire's grandeur.</p>
+                        
+                        <p>The camera work during space sequences deserves particular praise, creating genuine awe through scale and perspective. Whether showcasing the sheer size of Trantor's dome-covered surface or the silent ballet of starships in formation, the show understands that space opera requires operatic visuals. Even dialogue scenes are shot with intentionality, using architecture and negative space to reinforce themes of isolation and insignificance against cosmic scales. This is cinematography that could play in galleries.</p>
+                    </div>
+                    <div class="score-bar-container">
+                        <div class="score-bar bar-high" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- Visual Spectacle -->
+                <div class="dimension-block visual">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Visual Spectacle</span>
+                        <span class="dimension-score score-high">10/10</span>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>Simply put: <em>Foundation</em> is the most visually ambitious television series ever produced. The VFX quality rivals theatrical blockbusters, with space sequences, planetary destruction, and architectural marvels that redefine what television budgets can achieve. The genetic dynasty's presentation—three identical emperors at different ages—uses seamless digital techniques that never break immersion. The show's opening sequence alone, tracing the empire's reach across the galaxy, establishes a visual vocabulary of scale unmatched in the medium.</p>
+                        
+                        <p>But spectacle here serves story. The destruction of the Star Bridge isn't just destruction porn—it's visual poetry about institutional fragility. The Vault's mysterious appearance on Terminus creates genuine wonder. Even quieter visual elements impress: holographic interfaces, spaceship interiors, alien creatures, and costumes that blend functionality with aesthetic beauty. Apple clearly invested unprecedented resources, and the result justifies every dollar. If you want to demonstrate what television can look like in the streaming era, play <em>Foundation</em>.</p>
+                    </div>
+                    <div class="score-bar-container">
+                        <div class="score-bar bar-high" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <!-- Conceptual Density -->
+                <div class="dimension-block conceptual">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Conceptual Density</span>
+                        <span class="dimension-score score-high">8/10</span>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>Asimov's source material brims with ideas, and the adaptation honors this intellectual heritage. Psychohistory—the notion that mathematics can predict macro-historical trends—animates every narrative decision, raising profound questions about free will versus determinism. The show explores religious manipulation, the manufacturing of prophecy, institutional decay, and the cyclical nature of civilizations. The genetic dynasty concept interrogates power, identity, and nature versus nurture across multiple timelines simultaneously.</p>
+                        
+                        <p>Religious themes run particularly deep: the Foundation's transformation from scientific institution to quasi-religious authority mirrors real historical patterns while questioning humanity's need for belief systems. The show wrestles with artificial intelligence and immortality through Demerzel's centuries of service. However, conceptual density occasionally overwhelms narrative flow. Some ideas receive superficial treatment due to pacing demands, and the philosophical weight can slow momentum. Still, for viewers who enjoy science fiction that respects their intelligence, <em>Foundation</em> offers rare depth.</p>
+                    </div>
+                    <div class="score-bar-container">
+                        <div class="score-bar bar-high" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <!-- Narrative Drive -->
+                <div class="dimension-block narrative">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Narrative Drive</span>
+                        <span class="dimension-score score-low">6/10</span>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>The narrative structure of <em>Foundation</em> mirrors its source material's challenges. Asimov's original stories were episodic, separated by decades, and the adaptation struggles to create continuous momentum across timelines that rarely intersect. The show operates on three primary tracks—the imperial court on Trantor, the Foundation on Terminus, and Hari Seldon's evolving journey—and each moves at different speeds with different stakes. The result is occasional whiplash: one storyline generates breathless tension while another meanders through philosophical exposition.</p>
+                        
+                        <p>Individual episodes often end without traditional cliffhangers, trusting viewers to invest in ideas rather than immediate plot developments. This approach rewards patient viewing but tests audience attention spans accustomed to more propulsive storytelling. Season 2 improves on Season 1's pacing, finding better rhythms between contemplation and action, but the fundamental structural problem remains. The show's narrative drive succeeds when timelines finally converge or when individual episodes focus on discrete dramatic situations, but the macro-structure can feel like reading a history textbook rather than experiencing urgent drama.</p>
+                    </div>
+                    <div class="score-bar-container">
+                        <div class="score-bar bar-low" style="width: 60%"></div>
+                    </div>
+                </div>
+
+                <!-- Resolution -->
+                <div class="dimension-block resolution">
+                    <div class="dimension-header">
+                        <span class="dimension-name">Resolution</span>
+                        <span class="dimension-score score-low">5/10</span>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>With three seasons complete and the story far from concluded, <em>Foundation</em> faces the inherent challenge of adapting a sprawling saga. Season arcs provide partial resolutions—conflicts between empire and Foundation reach temporary equilibria, characters complete individual journeys—yet the larger narrative remains deliberately unresolved. This is storytelling by design: Asimov's Thousand Years Plan spans centuries of in-universe time, and the show honors this scope by refusing premature closure.</p>
+                        
+                        <p>However, this structural reality creates frustration. Individual season finales sometimes feel like elaborate setups rather than satisfying conclusions. Plot threads dangle across seasons, character fates remain ambiguous, and the ultimate fate of Hari Seldon's vision stays tantalizingly distant. The show has been renewed for a fourth season, offering hope for continued storytelling, but viewers seeking traditional catharsis may find the perpetual deferral of resolution unsatisfying. For those who embrace journey over destination, the incomplete nature feels appropriate to the theme of long-term historical processes; for others, it reads as storytelling that never quite lands.</p>
+                    </div>
+                    <div class="score-bar-container">
+                        <div class="score-bar bar-low" style="width: 50%"></div>
+                    </div>
+                </div>
+
             </div>
-            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> The genetic dynasty, psychohistory, the Foundation, the Empire across millennia—one of the most ambitious sci-fi world-builds on television.</p>
-            <p><strong>Visual Spectacle (10):</strong> Apple's budget is visible in every frame. This is feature-film quality television.</p>
-            <p><strong>Conceptual Density (9):</strong> Asimov's ideas are here—psychohistory, mass behavior prediction, civilization-scale thinking—but adapted for character drama.</p>
+
+            <!-- Strengths and Weaknesses -->
+            <div class="strengths-weaknesses">
+                <div class="sw-box strengths">
+                    <div class="sw-title">Greatest Strengths</div>
+                    <ul class="sw-list">
+                        <li>Unprecedented visual spectacle for television</li>
+                        <li>Deep engagement with philosophical concepts</li>
+                        <li>Immersive, detailed world building</li>
+                        <li>Jared Harris's commanding lead performance</li>
+                        <li>Cinematography worthy of theatrical release</li>
+                    </ul>
+                </div>
+                <div class="sw-box weaknesses">
+                    <div class="sw-title">Notable Weaknesses</div>
+                    <ul class="sw-list">
+                        <li>Characters often serve ideas over emotion</li>
+                        <li>Fractured timeline challenges narrative momentum</li>
+                        <li>Resolution perpetually deferred</li>
+                        <li>Requires significant viewer patience</li>
+                        <li>Occasionally sacrifices human drama for scope</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"The Emperor's Peace" (S1E1)</strong> — Seldon's prediction. The Empire's response. The exile begins.</p>
-            <p><strong>"The First Crisis" (S1E10)</strong> — Season one finale. The Foundation faces its first test.</p>
-            <p><strong>"In the Shadow of the Throne" (S2E10)</strong> — Season two. The Empire's cracks. Seldon's plan continues.</p>
+        <section class="rankings-section">
+    <div class="rankings-header">
+        <h2 class="rankings-title">🏆 Why It Ranks</h2>
+        <p class="rankings-subtitle">A detailed breakdown across seven key dimensions</p>
+    </div>
+    <div class="dimension-grid">
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7;"><span>7.0</span></div>
+                <span class="score-label">CHARACTERS</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Characters</h3>
+                <p>Content to be added.</p>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US/UK:</strong> Apple TV+</p>
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8.5;"><span>8.5</span></div>
+                <span class="score-label">WORLD BUILDING</span>
+            </div>
+            <div class="dimension-content">
+                <h3>World Building</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8.5;"><span>8.5</span></div>
+                <span class="score-label">CINEMATOGRAPHY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Cinematography</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9.5;"><span>9.5</span></div>
+                <span class="score-label">VISUAL SPECTACLE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Visual Spectacle</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">CONCEPTUAL DENSITY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Conceptual Density</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7;"><span>7.0</span></div>
+                <span class="score-label">NARRATIVE DRIVE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Narrative Drive</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7;"><span>7.0</span></div>
+                <span class="score-label">RESOLUTION</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Resolution</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final Score -->
+        <div class="final-score-section">
+            <div class="final-score-label">Final Score</div>
+            <div class="final-score-value">7.03</div>
+            <div class="final-score-summary">
+                <p><em>Foundation</em> stands as television's most ambitious science fiction production, a visual masterpiece wrestling with genuinely profound ideas about civilization, power, and humanity's collective future. Its weaknesses—occasional emotional distance, challenging narrative structure, deferred resolution—stem directly from its strengths: the refusal to simplify complexity, the commitment to Asimov's philosophical scope, the prioritization of visual and conceptual grandeur over accessible melodrama.</p>
+                
+                <p>This is not a show for everyone. It demands patience, attention, and intellectual engagement. But for viewers willing to meet it on its terms, <em>Foundation</em> offers something rare: science fiction that respects its audience's intelligence while overwhelming their senses. The final score of 7.03 reflects this duality—a technically imperfect but culturally significant achievement that expands what television science fiction can attempt.</p>
+            </div>
+            <div class="tags" style="justify-content: center; margin-top: 25px;">
+                <span class="tag">Worthy of Your Time</span>
+                <span class="tag">Demands Patience</span>
+                <span class="tag">Visually Essential</span>
+            </div>
         </div>
     </div>
 </body>

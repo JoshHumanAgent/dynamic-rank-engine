@@ -3,89 +3,903 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peaky Blinders - "By order of the Peaky Blinders" | Dynamic Rank Engine</title>
+    <title>Peaky Blinders - 7 Dimension Analysis | TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #212121; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #424242, #212121); color: #e0e0e0; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #bdbdbd; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(66,66,66,0.3), rgba(0,0,0,0.9)); border: 3px solid #424242; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #bdbdbd; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #424242; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #bdbdbd; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(66,66,66,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #bdbdbd; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #bdbdbd; font-weight: 700; }
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #141414;
+            --card-bg: rgba(30, 30, 30, 0.8);
+            --accent: #c9a227;
+            --accent-dim: #8b6914;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            --gradient-overlay: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.9) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f23 50%, #050510 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23111" width="100" height="100"/><text x="50" y="50" font-size="8" fill="%23333" text-anchor="middle" opacity="0.3">PEAKY BLINDERS</text></svg>') repeat;
+            opacity: 0.15;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-overlay);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            width: 100%;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary-bg);
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-meta strong {
+            color: var(--text-primary);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto 0;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* What It Feels Like Section */
+        .feeling-section {
+            background: var(--secondary-bg);
+        }
+
+        .feeling-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+        }
+
+        .feeling-content p {
+            margin-bottom: 25px;
+        }
+
+        .feeling-content p:first-child::first-letter {
+            font-size: 4rem;
+            font-weight: 900;
+            float: left;
+            line-height: 1;
+            margin-right: 15px;
+            margin-top: 5px;
+            color: var(--accent);
+        }
+
+        .quote-block {
+            background: rgba(201, 162, 39, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 30px 35px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .quote-block::before {
+            content: '"';
+            font-size: 6rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: var(--accent);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        .quote-author {
+            display: block;
+            margin-top: 15px;
+            font-style: normal;
+            font-size: 0.95rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Dimension Cards */
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .dimension-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dimension-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dimension-card:hover {
+            border-color: var(--accent-dim);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .dimension-card:hover::before {
+            opacity: 1;
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .dimension-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dimension-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(201, 162, 39, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .dimension-score {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .dimension-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .dimension-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+            border-radius: 3px;
+            transition: width 0.8s ease;
+        }
+
+        .dimension-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .dimension-text p {
+            margin-bottom: 15px;
+        }
+
+        .dimension-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .dimension-highlights {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .highlight-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .highlight-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .highlight-tag {
+            background: rgba(201, 162, 39, 0.1);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+        }
+
+        /* Final Score Section */
+        .final-score-section {
+            background: var(--secondary-bg);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .final-score-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .final-score-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .final-score-value {
+            font-size: clamp(5rem, 12vw, 8rem);
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            text-shadow: 0 0 60px rgba(201, 162, 39, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .final-score-tier {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+            color: var(--primary-bg);
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .final-score-summary {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            padding: 0 20px;
+        }
+
+        /* Cast Section */
+        .cast-section {
+            background: var(--primary-bg);
+        }
+
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .cast-member {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .cast-initials {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-weight: 700;
+            color: var(--primary-bg);
+            font-size: 1.1rem;
+        }
+
+        .cast-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .cast-role {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero-content {
+                padding: 40px 20px;
+            }
+
+            .hero-stats {
+                gap: 25px;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .dimension-card {
+                padding: 25px;
+            }
+
+            .dimension-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .quote-block {
+                padding: 25px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-bg);
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #48</div>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-label">BBC Drama • 2013-2022</span>
             <h1>Peaky Blinders</h1>
-            <p class="subtitle">"By order of the Peaky Blinders"</p>
-            <div class="score-badge">
-                <span class="score-value">7.85</span>
-                <span class="score-label">Final Score</span>
+            <div class="hero-meta">
+                <span>Created by <strong>Steven Knight</strong></span>
+                <span>•</span>
+                <span><strong>6 Seasons</strong></span>
+                <span>•</span>
+                <span><strong>36 Episodes</strong></span>
+                <span>•</span>
+                <span>Crime Drama / Historical</span>
+            </div>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; line-height: 1.7;">
+                A Birmingham gangster family epic set in the aftermath of WWI, led by the ruthless and ambitious Tommy Shelby as he navigates the criminal underworld and the corridors of power.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">7.5</div>
+                    <div class="stat-label">Final Score</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">8.0</div>
+                    <div class="stat-label">Peak Rating</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">9yr</div>
+                    <div class="stat-label">Run</div>
+                </div>
             </div>
         </div>
+    </header>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2013-2022</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">36</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">BBC/Netflix</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Steven Knight</div></div>
-        </div>
+    <main>
+        <!-- What It Feels Like Section -->
+        <section class="feeling-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What It Feels Like to Watch</h2>
+                    <p class="section-subtitle">The atmosphere, the weight, the experience</p>
+                </div>
+                
+                <div class="feeling-content">
+                    <p>
+                        Watching <strong>Peaky Blinders</strong> is like stepping into a smoke-filled backroom in post-war Birmingham, where the air is thick with ambition, whiskey, and the threat of violence. From the moment Nick Cave's "Red Right Hand" begins its haunting overture, you're transported to a world where class warfare meets gang warfare, where every tailored suit conceals both a razor blade and a broken soul.
+                    </p>
+                    
+                    <p>
+                        The series exudes an intoxicating blend of style and substance that is rare in television drama. This is British gangsterism elevated to Shakespearean tragedy. Tommy Shelby, portrayed with magnetic intensity by Cillian Murphy, becomes a modern Macbeth navigating the criminal underworld of 1920s England. His piercing blue eyes, often hidden beneath the signature Peaky Blinders cap, contain multitudes of trauma, strategy, and an insatiable hunger for power.
+                    </p>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Peaky Blinders is a British gangster epic set in Birmingham after World War I. Thomas Shelby (Cillian Murphy) is the leader of the Peaky Blinders—a gang named for the razor blades sewn into their flat caps. He's handsome, brilliant, and dead inside. The war broke him. Now he wants power, money, and something he can't name. "By order of the Peaky Blinders," he says, and men die.</p>
-            <p>The show is style as substance: slow-motion walks, cigarette smoke, tailored suits, horses, jazz, and Nick Cave on the soundtrack. Birmingham is industrial, gray, brutal. The Shelbys—Arthur (Paul Anderson), the violent older brother; Ada (Sophie Rundle), the sister who wants out; Aunt Polly (Helen McCrory), the matriarch who holds them together—rise from bookmakers to legitimate businessmen to international arms dealers. Their enemies: cops (Sam Neill), Italian mobsters, rival gangs, fascists (Sam Claflin), and eventually the mob bosses of Boston.</p>
-            <p>Cillian Murphy is mesmerizing: Thomas Shelby's thousand-yard stare, his whisper-quiet threats, his brutal, efficient violence. He's a war hero who can't feel, a gangster who wants to be legitimate, a man building an empire but eating himself alive. The show's thesis: trauma destroys, and success doesn't heal. Thomas gets richer and emptier. "I'm not a good man," he says. "I'm a businessman." He's both. Neither.</p>
-            <p>Six seasons, thirty-six episodes, complete. Peaky Blinders became a phenomenon—the haircuts, the fashion, the aesthetic. Beneath the style is a story about class, trauma, and the corruption of power. Tommy Shelby wanted to lift his family out of poverty. He succeeded. He also destroyed them. "There's no rest for me in this world," he says. "Perhaps in the next." The show ends with him alive—but alone, staring at a field of horses, finally at peace. Perhaps.</p>
-        </div>
+                    <div class="quote-block">
+                        By order of the Peaky Blinders.
+                        <span class="quote-author">— The declaration that precedes both justice and violence</span>
+                    </div>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
+                    <p>
+                        What makes Peaky Blinders uniquely compelling is its aesthetic confidence. The show doesn't just tell a story about gangsters; it envelops you in their world through stunning cinematography, anachronistic yet perfect musical choices, and dialogue that crackles with poetic menace. The Shelby family becomes your family—you'll celebrate their victories, mourn their losses, and hold your breath during their countless brushes with death.
+                    </p>
+
+                    <p>
+                        Yet there's a melancholy that permeates every frame. These are damaged people in a damaged nation, recovering from the unprecedented slaughter of World War I. Tommy's shell shock, Arthur's demons, Polley's sacrifices—they're all symptoms of a generation trying to build something from the ruins. The show captures that peculiar British stoicism: the ability to appear impenetrable while falling apart inside.
+                    </p>
+
+                    <p>
+                        By the time the final credits roll, you've witnessed an empire built on blood, loyalty tested to breaking point, and the ultimate question of whether redemption is possible for those who have done terrible things. Peaky Blinders doesn't just entertain; it haunts. Long after watching, you'll find yourself humming that theme song, reaching for a whiskey, and wondering what Tommy Shelby would do in your place.
+                    </p>
+                </div>
             </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Cillian Murphy is magnetic. Helen McCrory (RIP) was the heart. Paul Anderson's Arthur is tragically unhinged.</p>
-            <p><strong>Cinematography (9):</strong> Every frame is composed. The smoke, the suits, the slow-mo walks. Aesthetic perfection.</p>
-            <p><strong>Narrative Drive (9):</strong> Each season escalates. Street gang → bookies → legitimate business → international arms. Ambitious.</p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Episode 1.1" (S1E1)</strong> — The introduction. "By order of the Peaky Blinders."</p>
-            <p><strong>"Episode 2.6" (S2E6)</strong> — Season two finale. The Derby Day robbery. Thomas's wedding.</p>
-            <p><strong>"The Company" (S5E6)</strong> — Season five finale. The assassination attempt. Failed.</p>
-            <p><strong>"Lock and Key" (S6E6)</strong> — Series finale. "I'm very lucky." The field. The horses.</p>
-        </div>
+        <!-- Cast Section -->
+        <section class="cast-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">The Ensemble</h2>
+                    <p class="section-subtitle">A cast that defines the era</p>
+                </div>
+                
+                <div class="cast-grid">
+                    <div class="cast-member">
+                        <div class="cast-initials">CM</div>
+                        <div class="cast-name">Cillian Murphy</div>
+                        <div class="cast-role">Tommy Shelby</div>
+                    </div>
+                    <div class="cast-member">
+                        <div class="cast-initials">HM</div>
+                        <div class="cast-name">Helen McCrory</div>
+                        <div class="cast-role">Polly Gray</div>
+                    </div>
+                    <div class="cast-member">
+                        <div class="cast-initials">PA</div>
+                        <div class="cast-name">Paul Anderson</div>
+                        <div class="cast-role">Arthur Shelby</div>
+                    </div>
+                    <div class="cast-member">
+                        <div class="cast-initials">TH</div>
+                        <div class="cast-name">Tom Hardy</div>
+                        <div class="cast-role">Alfie Solomons</div>
+                    </div>
+                    <div class="cast-member">
+                        <div class="cast-initials">SN</div>
+                        <div class="cast-name">Sam Neill</div>
+                        <div class="cast-role">Chester Campbell</div>
+                    </div>
+                    <div class="cast-member">
+                        <div class="cast-initials">AB</div>
+                        <div class="cast-name">Adrien Brody</div>
+                        <div class="cast-role">Luca Changretta</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Netflix</p>
-            <p><strong>UK:</strong> BBC iPlayer, Netflix</p>
-        </div>
-    </div>
+        <!-- Why It Ranks Section -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why It Ranks</h2>
+                    <p class="section-subtitle">Seven dimensions of greatness</p>
+                </div>
+
+                <div class="dimension-grid">
+                    <!-- Characters -->
+                    <article class="dimension-card">
+                        <div class="dimension-header">
+                            <h3 class="dimension-title">
+                                <span class="dimension-icon">👤</span>
+                                Characters
+                            </h3>
+                            <span class="dimension-score">7.9</span>
+                        </div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 79%"></div>
+                        </div>
+                        <div class="dimension-text">
+                            <p>
+                                The strength of Peaky Blinders lies in its richly drawn characters, anchored by Cillian Murphy's iconic portrayal of Tommy Shelby. Tommy is one of television's most compelling protagonists—a calculating criminal mastermind wrestling with PTSD, grief, and an unquenchable ambition that threatens to consume everything he loves. His character arc across six seasons is a masterclass in slow-burn development, transforming from street-level gang leader to political power player while maintaining the core contradictions that make him fascinating.
+                            </p>
+                            <p>
+                                The Shelby family ensemble provides a tapestry of perspectives on survival and loyalty. Arthur Shelby's battle with mental illness and addiction offers the show's most raw emotional beats, while Helen McCrory's Polly Gray (before her tragic passing) served as the emotional anchor and moral compass, her matriarchal presence grounding the family's excesses. Supporting characters like the unpredictable Alfie Solomons (Tom Hardy at his most magnetic) and the principled Ada Shelby add texture and complexity to the narrative.
+                            </p>
+                            <p>
+                                Where the character work occasionally falters is in its treatment of female characters outside the Shelby inner circle and some of the antagonists, who can feel more like functional obstacles than fully realized people. Grace's storyline, in particular, suffers from inconsistent writing that doesn't match the nuance afforded to the male leads. Nevertheless, the core family dynamics and Tommy's singular journey elevate the character dimension to near greatness.
+                            </p>
+                        </div>
+                        <div class="dimension-highlights">
+                            <div class="highlight-label">Standout Elements</div>
+                            <div class="highlight-list">
+                                <span class="highlight-tag">Tommy Shelby Complex</span>
+                                <span class="highlight-tag">Family Dynamics</span>
+                                <span class="highlight-tag">Antagonist Development</span>
+                                <span class="highlight-tag">Character Arcs</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- World Building -->
+                    <article class="dimension-card">
+                        <div class="dimension-header">
+                            <h3 class="dimension-title">
+                                <span class="dimension-icon">🌍</span>
+                                World Building
+                            </h3>
+                            <span class="dimension-score">8.0</span>
+                        </div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 80%"></div>
+                        </div>
+                        <div class="dimension-text">
+                            <p>
+                                Peaky Blinders constructs a meticulously realized version of post-WWI Britain that feels authentic yet heightened, grounded yet mythic. The show's Birmingham is a city of dark corners and golden opportunities, where smokestacks pierce gray skies and the working class fights for crumbs while the aristocracy plays games of power. Series creator Steven Knight, himself from Birmingham, infuses every scene with a sense of place that transcends mere set dressing.
+                            </p>
+                            <p>
+                                The historical integration is seamless and impressive. Real figures like Winston Churchill, Oswald Mosley, and various IRA operatives intersect with the Shelby family's fictional narrative, creating a compelling alternate history that feels plausible. The show explores class tensions, labor movements, colonialism, and the rise of fascism with surprising nuance for a crime drama. The expansion from local Birmingham gang to international players—touching London, New York, and beyond—expands the scope while maintaining the core identity.
+                            </p>
+                            <p>
+                                The attention to period detail extends to the social dynamics: the anti-Romani prejudice faced by the Shelbys, the role of pubs as community centers, the devastating impact of the war on British masculinity, and the nascent women's rights movement embodied in characters like Ada. While some liberties are taken with historical accuracy for dramatic purposes, the world feels lived-in and coherent, a fully realized ecosystem that rewards close attention.
+                            </p>
+                        </div>
+                        <div class="dimension-highlights">
+                            <div class="highlight-label">Standout Elements</div>
+                            <div class="highlight-list">
+                                <span class="highlight-tag">Historical Integration</span>
+                                <span class="highlight-tag">Class Dynamics</span>
+                                <span class="highlight-tag">Post-WWI Trauma</span>
+                                <span class="highlight-tag">Geographic Expansion</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cinematography -->
+                    <article class="dimension-card">
+                        <div class="dimension-header">
+                            <h3 class="dimension-title">
+                                <span class="dimension-icon">🎬</span>
+                                Cinematography
+                            </h3>
+                            <span class="dimension-score">8.0</span>
+                        </div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 80%"></div>
+                        </div>
+                        <div class="dimension-text">
+                            <p>
+                                Peaky Blinders is among the most visually striking television series ever produced, with a distinct aesthetic that has influenced countless subsequent period dramas. The cinematography, led by various directors of photography across the series, employs a desaturated, almost monochromatic color palette punctuated by strategic bursts of color—the red of an enemy's blood, the gold of whiskey, the blue of Tommy's eyes reflecting the television's glow. This visual language creates an instantly recognizable look that matches the show's tone perfectly.
+                            </p>
+                            <p>
+                                The camera work is confident and varied, utilizing slow-motion sequences during moments of violence (particularly the signature walking shots where the Peaky Blinders advance in formation), intimate close-ups that capture the micro-expressions of the cast, and sweeping aerial shots of industrial Birmingham that emphasize the scale of empire. The lighting deserves special mention—much of the series unfolds in shadows and firelight, creating a chiaroscuro effect that evokes classical paintings while suggesting moral ambiguity.
+                            </p>
+                            <p>
+                                The production design and cinematography work in harmony to create spaces that feel both historically grounded and stylized for maximum impact. The Garrison Pub, the Shelby family homes, the betting shops, the racetracks—each location is rendered with obsessive attention to texture and atmosphere. While occasionally the visual polish can feel almost too pristine for the gritty subject matter, this stylistic choice ultimately serves the show's operatic sensibilities rather than detracting from them.
+                            </p>
+                        </div>
+                        <div class="dimension-highlights">
+                            <div class="highlight-label">Standout Elements</div>
+                            <div class="highlight-list">
+                                <span class="highlight-tag">Color Palette</span>
+                                <span class="highlight-tag">Walking Shots</span>
+                                <span class="highlight-tag">Lighting Design</span>
+                                <span class="highlight-tag">Period Detail</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Visual Spectacle -->
+                    <article class="dimension-card">
+                        <div class="dimension-header">
+                            <h3 class="dimension-title">
+                                <span class="dimension-icon">✨</span>
+                                Visual Spectacle
+                            </h3>
+                            <span class="dimension-score">7.5</span>
+                        </div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="dimension-text">
+                            <p>
+                                While Peaky Blinders operates primarily as a character-driven drama rather than an effects-heavy spectacle, its moments of visual grandeur are executed with precision and impact. The series builds to major set pieces—explosions, public assassinations, horse races, elaborate heists, and gang warfare—that punctuate the narrative with visceral excitement. These sequences are filmed with a cinematic ambition that rivals feature films, particularly the later seasons where the production budget clearly expanded.
+                            </p>
+                            <p>
+                                The costume design deserves recognition as a key element of the show's visual identity. The Peaky Blinders' signature look—tweed suits, newsboy caps, heavy overcoats, pocket watches—has transcended the show to influence real-world fashion. The evolution of the characters' wardrobes over the decades mirrors their social climbing, from rough working-class attire to the fine tailoring of the wealthy elite. The attention to period-accurate wardrobe details creates a tactile sense of authenticity.
+                            </p>
+                            <p>
+                                The show's visual spectacle is more about atmosphere than explosive action, though the action sequences—when they arrive—are brilliantly choreographed. The limitation here is budgetary; this is still television, and some of the larger-scale moments strain against those constraints. The occasional reliance on digital backgrounds and compositing can break immersion, though these moments are rare. The spectacle works best when focused on intimate violence and psychological tension rather than grandiose displays.
+                            </p>
+                        </div>
+                        <div class="dimension-highlights">
+                            <div class="highlight-label">Standout Elements</div>
+                            <div class="highlight-list">
+                                <span class="highlight-tag">Costume Design</span>
+                                <span class="highlight-tag">Action Sequences</span>
+                                <span class="highlight-tag">Set Pieces</span>
+                                <span class="highlight-tag">Atmospheric Effects</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Conceptual Density -->
+                    <article class="dimension-card">
+                        <div class="dimension-header">
+                            <h3 class="dimension-title">
+                                <span class="dimension-icon">🧠</span>
+                                Conceptual Density
+                            </h3>
+                            <span class="dimension-score">7.5</span>
+                        </div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="dimension-text">
+                            <p>
+                                Peaky Blinders engages with a surprising array of intellectual and thematic concerns beneath its gangster narrative surface. The show explores capitalism's inherent violence, the relationship between criminal enterprise and legitimate power, the performative nature of masculinity, intergenerational trauma, and the possibility (or impossibility) of redemption. Tommy Shelby's journey is fundamentally a meditation on ambition and its costs—how the pursuit of power corrupts absolutely, even when pursued for nominally noble reasons like family protection.
+                            </p>
+                            <p>
+                                The conceptual framework extends to political history, with later seasons grappling explicitly with the rise of fascism in Britain through Oswald Mosley's character. The show asks uncomfortable questions about complicity, resistance, and whether one can fight monsters without becoming one. The integration of Romani culture and the exploration of outsider identity add layers of social commentary regarding prejudice and belonging. The IRA subplot engages with questions of colonialism and revolutionary violence.
+                            </p>
+                            <p>
+                                Where the conceptual density sometimes falters is in its resolution of these themes—not all ideas are explored to their fullest potential, and the show can occasionally prioritize style over substance in its philosophical musings. Some plotlines feel more like vehicles for cool moments than integrated thematic explorations. However, the sheer ambition of the show's thematic scope, combined with its willingness to let questions linger without easy answers, elevates it well above standard genre fare.
+                            </p>
+                        </div>
+                        <div class="dimension-highlights">
+                            <div class="highlight-label">Standout Elements</div>
+                            <div class="highlight-list">
+                                <span class="highlight-tag">Capitalism Critique</span>
+                                <span class="highlight-tag">Fascism Warning</span>
+                                <span class="highlight-tag">Redemption Arc</span>
+                                <span class="highlight-tag">Class Commentary</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Narrative Drive -->
+                    <article class="dimension-card">
+                        <div class="dimension-header">
+                            <h3 class="dimension-title">
+                                <span class="dimension-icon">📖</span>
+                                Narrative Drive
+                            </h3>
+                            <span class="dimension-score">7.5</span>
+                        </div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="dimension-text">
+                            <p>
+                                Peaky Blinders excels at propulsive storytelling that keeps viewers engaged through a combination of high-stakes drama, shocking twists, and the irresistible forward momentum of Tommy Shelby's ambitions. The pacing, particularly in the show's stellar first four seasons, balances patient character moments with explosive developments, creating a rhythm that mimics the beats of the show's signature soundtrack. Each season builds toward a climactic confrontation that typically reconfigures the power dynamics for the next chapter.
+                            </p>
+                            <p>
+                                The show's structure follows Tommy's expanding criminal empire, with each season introducing new antagonists and complications that test the family's unity and survival instincts. From rival gangs to police inspectors, from IRA operatives to Italian mafiosos, the threats escalate in scale and sophistication. The narrative is particularly effective at creating compelling antagonists worthy of the Shelbys' cunning, with characters like Inspector Campbell and Luca Changretta serving as dark mirrors to Tommy's own ruthlessness.
+                            </p>
+                            <p>
+                                The narrative strength wanes somewhat in the later seasons (particularly the final season), where the plotting becomes more scattered and some storylines feel rushed or underdeveloped. The jump in time between seasons five and six creates dissonance, and certain character arcs receive short shrift in the race toward conclusion. However, the series maintains enough momentum and delivers enough satisfying moments across its run to satisfy even when the plotting isn't perfect.
+                            </p>
+                        </div>
+                        <div class="dimension-highlights">
+                            <div class="highlight-label">Standout Elements</div>
+                            <div class="highlight-list">
+                                <span class="highlight-tag">Pacing Mastery</span>
+                                <span class="highlight-tag">Escalating Stakes</span>
+                                <span class="highlight-tag">Twist Design</span>
+                                <span class="highlight-tag">Character Decisions</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resolution -->
+                    <article class="dimension-card">
+                        <div class="dimension-header">
+                            <h3 class="dimension-title">
+                                <span class="dimension-icon">🏁</span>
+                                Resolution
+                            </h3>
+                            <span class="dimension-score">7.5</span>
+                        </div>
+                        <div class="dimension-bar">
+                            <div class="dimension-bar-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="dimension-text">
+                            <p>
+                                The ending of Peaky Blinders arrives after six seasons of escalating stakes and shifting alliances, tasked with resolving the fates of characters we've followed for nearly a decade. While the final season (and eventual series conclusion) provides closure to Tommy Shelby's journey, it does so with the complexity and moral ambiguity that defined the character from the beginning. The resolution honors the spirit of the show without betraying its core themes for easy sentimentality.
+                            </p>
+                            <p>
+                                The finale grapples with the central question posed throughout the series: can Tommy Shelby ever truly escape the life he's built, or is he doomed by his own ambition and the sins of his past? The answer provided is appropriately nuanced, acknowledging both the possibility of change and the weight of consequences. Major character arcs reach satisfying conclusions, with the surviving Shelbys positioned for futures that feel earned by their struggles. The loss of Helen McCrory (who passed away during production) is handled with grace, integrating Polly's absence into the narrative in a way that honors both actress and character.
+                            </p>
+                            <p>
+                                Some viewers may find the ending too open-ended or wish for more definitive conclusions for certain plot threads. The finale was designed to bridge into a feature film that has yet to materialize, leaving some dangling threads that may never be resolved. Additionally, the compressed nature of the final season (due to COVID-19 production challenges) means some developments feel rushed. However, the emotional beats land, Tommy's final moments are powerful, and the series maintains its commitment to character over plot mechanics. It is a respectable conclusion to an exceptional series.
+                            </p>
+                        </div>
+                        <div class="dimension-highlights">
+                            <div class="highlight-label">Standout Elements</div>
+                            <div class="highlight-list">
+                                <span class="highlight-tag">Character Closure</span>
+                                <span class="highlight-tag">Thematic Completion</span>
+                                <span class="highlight-tag">Emotional Weight</span>
+                                <span class="highlight-tag">Legacy Setup</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Score Section -->
+        <section class="final-score-section">
+            <div class="final-score-container">
+                <div class="final-score-label">Final Score</div>
+                <div class="final-score-value">7.5</div>
+                <div class="final-score-tier">Excellence Tier</div>
+                <p class="final-score-summary">
+                    Peaky Blinders stands as one of the definitive British television dramas of the 21st century, combining impeccable style with substantive storytelling. While some later-season plotting and occasional thematic shortcuts prevent it from reaching the absolute pinnacle of television artistry, the series delivers an unforgettable experience through Cillian Murphy's masterful performance, stunning visual craftsmanship, and a singular aesthetic vision. It is essential viewing that has earned its place in the cultural pantheon.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Analysis generated by TV Shows Ranked • Multi-Dimension Scoring Framework</p>
+    </footer>
 </body>
 </html>

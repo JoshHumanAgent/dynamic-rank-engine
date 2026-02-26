@@ -3,88 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twin Peaks - "Who Killed Laura Palmer?" | Dynamic Rank Engine</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #4a148c; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #4a148c, #1a0033); color: #e1bee7; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ab47bc; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(74,20,140,0.3), rgba(0,0,0,0.9)); border: 3px solid #4a148c; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ab47bc; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #4a148c; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ab47bc; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(74,20,140,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ab47bc; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ab47bc; font-weight: 700; }
-    </style>
+    <title>Twin Peaks (1990-1991) - TV Shows Ranked</title>
+    <link rel="stylesheet" href="../../assets/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #23</div>
-            <h1>Twin Peaks</h1>
-            <p class="subtitle">"Who Killed Laura Palmer?"</p>
-            <div class="score-badge">
-                <span class="score-value">8.12</span>
-                <span class="score-label">Final Score</span>
+    <header class="site-header">
+        <h1><a href="../../index.html">TV Shows Ranked</a></h1>
+        <nav class="main-nav">
+            <a href="../../index.html">Home</a>
+            <a href="../about.html">About</a>
+            <a href="../methodology.html">Methodology</a>
+        </nav>
+    </header>
+
+    <main class="show-detail">
+        <div class="show-header">
+            <div class="show-poster-container">
+                <div class="show-poster" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; color: #e94560; font-size: 4rem; font-weight: bold;">TP</div>
+            </div>
+            <div class="show-info">
+                <h1 class="show-title">Twin Peaks</h1>
+                <div class="show-meta">
+                    <span class="show-year">1990-1991</span>
+                    <span class="show-runtime">2 Seasons • 30 Episodes</span>
+                    <span class="show-network">ABC / Showtime</span>
+                </div>
+                <div class="show-creators">
+                    <strong>Created by:</strong> David Lynch, Mark Frost
+                </div>
+                <div class="show-cast">
+                    <strong>Starring:</strong> Kyle MacLachlan, Sherilyn Fenn, Lara Flynn Boyle, Michael Ontkean, Mädchen Amick, Dana Ashbrook, James Marshall, Joan Chen, Piper Laurie, Ray Wise, Grace Zabriskie, Catherine E. Coulson
+                </div>
+                <div class="show-genres">
+                    <span class="genre">Crime</span>
+                    <span class="genre">Drama</span>
+                    <span class="genre">Mystery</span>
+                    <span class="genre">Surrealism</span>
+                    <span class="genre">Horror</span>
+                </div>
+            </div>
+            <div class="show-score-display">
+                <div class="final-score">7.13</div>
+                <div class="score-label">Final Score</div>
             </div>
         </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">1990-1991, 2017</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">48</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">ABC/Showtime</div></div>
-            <div class="info-item"><div class="info-label">Creators</div><div class="info-value">David Lynch, Mark Frost</div></div>
-        </div>
-
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Twin Peaks changed everything. Before it, television was a medium of formulas: cop shows, medical dramas, sitcoms. David Lynch and Mark Frost took those formulas and torched them. The premise is simple—who killed Laura Palmer, homecoming queen of a small Washington town?—but the execution is unlike anything before or since. The show is a soap opera, a detective story, a horror movie, and a surrealist dream. Sometimes in the same scene.</p>
-            <p>Agent Dale Cooper (Kyle MacLachlan) arrives in Twin Peaks to investigate Laura's murder and finds a town where everyone has secrets, the supernatural bleeds into everyday life, and a place called the Black Lodge exists in another dimension. Cooper is the moral center—optimistic, eccentric, in love with coffee and cherry pie—but the town itself is the star. Every eccentric character, from the Log Lady to the dancing dwarf, feels like they wandered in from a different story. That's the point: Lynch creates a world where dream logic is the only logic.</p>
-            <p>Season one is near-perfect. Season two collapses after the killer is revealed, then recovers with one of television's greatest finales. ABC cancelled the show, leaving Cooper trapped in the Black Lodge. Twenty-five years later, Lynch returned with The Return—eighteen hours of pure vision, unfiltered by network notes. It's difficult, disturbing, often impenetrable. It's also television as high art, the closest any series has come to being the singular vision of a single artist.</p>
-            <p>The influence is incalculable. The Sopranos, Lost, Breaking Bad, Hannibal—television's prestige era owes its existence to Twin Peaks. It proved that TV could be weird, that audiences would follow ambiguity, that the medium could dream. "Fire walk with me." We did. We still are.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
+        <section class="feeling-section">
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            <div class="feeling-content">
+                <p class="feeling-lead">
+                    Watching <strong>Twin Peaks</strong> is like stepping into a dream where the edges are always slightly wrong, where the cozy small-town Americana veneer peels back to reveal something ancient and hungry lurking beneath. It's like drinking damn fine coffee at a table where the wood grain suddenly starts whispering secrets, where the cherry pie is impossibly perfect and yet you can't shake the feeling that the sweetness hides rot.
+                </p>
+                <p>
+                    David Lynch doesn't just tell a story; he creates a <em>atmosphere</em>—a hypnotic, disorienting state of being where logical narrative progression takes a backseat to emotional truth. FBI Agent Dale Cooper arrives in Twin Peaks to investigate the murder of Laura Palmer, wrapped like a present in plastic at the water's edge, and what follows is not a standard procedural but a descent into the collective unconscious of a community that has normalized its own darkness.
+                </p>
+                <p>
+                    The series throbs with an anxious, uncanny energy. Scenes stretch longer than they should. Characters speak in ways people don't speak. Dreams bleed into reality with the casualness of a neighbor borrowing sugar. The Log Lady cradles her wooden companion like a child, speaking prophecies that make perfect emotional sense even when they make no logical sense. "The owls are not what they seem," indeed—nothing in Twin Peaks is.
+                </p>
+                <p>
+                    There's a peculiar emotional alchemy at work here. You find yourself laughing at moments that should disturb you, feeling profound melancholy during slapstick comedy, and experiencing genuine existential dread during what appears to be a soap opera. Lynch and Frost weaponize the familiar language of television—the small-town ensemble, the mystery box narrative, the will-they-won't-they romance—and systematically dismantle it, revealing that America's nostalgic self-image was always a mask for something stranger and more sinister.
+                </p>
+                <p>
+                    The central question—"Who killed Laura Palmer?"—becomes almost irrelevant, or perhaps better understood as the wrong question entirely. Laura wasn't just murdered; she was <em>consumed</em> by forces beyond comprehension, and the real mystery is how deeply these supernatural horrors have integrated themselves into the fabric of ordinary life. By the time you've journeyed through the Black Lodge, seen the Little Man dancing backward, and heard the Giant's cryptic pronouncements, you're no longer watching television. You're participating in a collective hallucination, one that lingers in your mind long after the Red Room curtains close.
+                </p>
             </div>
-            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> Twin Peaks isn't a setting—it's a state of mind. The Black Lodge, the Red Room, the owls. A complete surreal universe.</p>
-            <p><strong>Conceptual Density (10):</strong> Dream logic, supernatural horror, soap opera satire, metaphysical meditation. There's nothing else like it.</p>
-            <p><strong>Characters & Acting (9):</strong> Kyle MacLachlan's Cooper is iconic. The ensemble is a gallery of American eccentrics.</p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Pilot" (S1E1)</strong> — The body. The river. "She's dead. Wrapped in plastic."</p>
-            <p><strong>"Beyond Life and Death" (S2E22)</strong> — Original finale. The Black Lodge. "How's Annie?"</p>
-            <p><strong>"Part 8" (S3E8)</strong> — The Return. The atomic test. Pure Lynch. Television as art.</p>
-        </div>
+        <section class="ranking-section">
+            <h2 class="section-title">Why It Ranks</h2>
+            <p class="ranking-intro">
+                Twin Peaks revolutionized television by proving that the medium could sustain artistic ambition previously reserved for cinema. By scoring each of seven critical dimensions on a 1-10 scale, we can understand precisely where this groundbreaking series excels and where its experimental nature creates friction.
+            </p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Paramount+, Showtime</p>
-            <p><strong>UK:</strong> Sky Go</p>
-        </div>
-    </div>
+            <div class="dimension-block" id="characters">
+                <div class="dimension-header">
+                    <h3 class="dimension-title">1. Characters <span class="dimension-score">7.5</span></h3>
+                    <div class="score-bar"><div class="score-fill" style="width: 75%;"></div></div>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        The ensemble cast of Twin Peaks represents one of television's most distinctive character galleries—a rogues' gallery of archetypes twisted through Lynch's surrealist lens. At the center stands <strong>FBI Agent Dale Cooper</strong> (Kyle MacLachlan), a character so magnetic, so fully realized in his contradictions, that he alone might justify the series' existence. Cooper combines the deductive brilliance of Sherlock Holmes with the spiritual openness of a Zen monk, treating Tibetan rock-throwing divination and the supernatural revelations of a dream giant with equal professional seriousness.
+                    </p>
+                    <p>
+                        Around Cooper, Lynch and Frost construct a community of eccentrics who manage to feel fully human despite their absurdities. <strong>Sheriff Harry S. Truman</strong> embodies honest, straightforward small-town law enforcement, providing the perfect grounded foil to Cooper's mystical FBI methods. The <strong>Log Lady</strong> (Margaret Lanterman), cradling her prophetic log, achieves an almost Shakespearean gravitas. <strong>Audrey Horne</strong> (Sherilyn Fenn at her most captivating) subverts the spoiled rich girl trope into something genuinely surprising—a curious, brave young woman who refuses to be merely decorative.
+                    </p>
+                    <p>
+                        However, the series occasionally sacrifices character consistency at the altar of surrealism. Secondary characters like <strong>James Hurley</strong> and <strong>Donna Hayward</strong> (Lara Flynn Boyle) sometimes feel like they're acting in a different, more conventional teenage melodrama, their narratives clashing with the show's avant-garde impulses. The supernatural forces—Bob, the Little Man From Another Place, the Giant—function more as metaphysical concepts than developed characters, which is intentional but limits emotional connection.
+                    </p>
+                    <p>
+                        Where Twin Peaks truly excels is in its creation of <strong>character mysteries</strong> rather than mere plot puzzles. Laura Palmer, though dead before the series begins, becomes one of television's most fully realized characters through fragments—her diary, her audio tapes, her secret life as a call girl and cocaine user juxtaposed against her image as the perfect prom queen. The duality within every character, the public face versus private truth, becomes the show's central thematic obsession.
+                    </p>
+                </div>
+            </div>
+
+            <div class="dimension-block" id="worldbuilding">
+                <div class="dimension-header">
+                    <h3 class="dimension-title">2. World Building <span class="dimension-score">8.0</span></h3>
+                    <div class="score-bar"><div class="score-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        Twin Peaks, Washington, exists in a reality adjacent to ours, separated by a membrane thin enough to let darkness through. The world-building here is masterful in its specificity and metaphorical richness. Every location pulses with meaning: the <strong>Double R Diner</strong>, where Norma's perfect cherry pie represents the fading American dream; the <strong>Great Northern Hotel</strong>, all wood-paneling and Cascadia grandeur, perched above waterfalls that might conceal ancient portals; <strong>the Roadhouse</strong>, where Julee Cruise's ethereal voice provides soundtrack to cosmic mysteries.
+                    </p>
+                    <p>
+                        The show's genius lies in how it maps the <strong>supernatural geography</strong> onto recognizable American mythology. The Black Lodge and White Lodge—places outside time where spirits dwell—aren't explained through exposition but through experience. We visit them through dreams, visions, and the show's most famous location: the <strong>Red Room</strong>, with its velvet curtains, chevron floors, and backwards-speaking dwarf. These locations feel genuinely otherworldly, operating on dream logic that somehow feels internally consistent even when it defies rational explanation.
+                    </p>
+                    <p>
+                        The <strong>mythology</strong> grows organically across the series' run, introducing concepts like the Owl Cave symbols, the Dugpas, the spirits that feed on human suffering (represented most chillingly by Bob). Lynch and Frost weave Native American mythology, Tibetan Buddhist philosophy, and American gothic tradition into a cosmology that feels authentically ancient. The woods surrounding Twin Peaks are alive with something older than the town itself, and the show respects this mystery rather than over-explaining it.
+                    </p>
+                    <p>
+                        Where the world-building occasionally falters is in the Season 2 network-mandated plotlines—like the Miss Twin Peaks pageant or the ongoing saga of Thomas Eckhardt—that feel disconnected from the core supernatural mystery. These tangents, while entertaining, sometimes dilute the show's focus on the cosmic horror underlying small-town America. Yet even at its most digressive, the Twin Peaks universe maintains its distinctive atmosphere, a testament to how robustly conceived the setting remains.
+                    </p>
+                </div>
+            </div>
+
+            <div class="dimension-block" id="cinematography">
+                <div class="dimension-header">
+                    <h3 class="dimension-title">3. Cinematography <span class="dimension-score">8.0</span></h3>
+                    <div class="score-bar"><div class="score-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        David Lynch brought his cinematic sensibility to television at a time when the medium was still largely considered visually inferior to film, and the results remain revolutionary. <strong>Twin Peaks</strong> looks unlike anything that preceded it on the small screen—noirish, painterly, deeply atmospheric. The cinematography treats the Pacific Northwest landscape as both beautiful and vaguely threatening, all mist-shrouded evergreens and water that reflects distorted skies.
+                    </p>
+                    <p>
+                        The show's <strong>visual language</strong> is sophisticated and consistent. Lynch favors slow, deliberate camera movements that create unease through unexpected angles and extended takes. The famous shot of Laura Palmer's plastic-wrapped body floating downstream is pure visual poetry—beautiful and horrifying simultaneously. The Red Room sequences, with their saturated red curtains and black-and-white chevron flooring, achieve an iconic visual identity that has influenced decades of surrealist cinema.
+                    </p>
+                    <p>
+                        <strong>Lighting</strong> becomes a storytelling tool, not merely illumination. The series moves between the warm, golden interiors of the Great Northern and the Double R Diner—spaces of safety and community—and the cold, harsh fluorescents of the police station and hospital, spaces of institutional truth. Night scenes possess a velvety darkness that obscures as much as it reveals, heightening the sense that something watches from the shadows.
+                    </p>
+                    <p>
+                        The <strong>transition effects</strong> between scenes, particularly the slow dissolves over tree branches or flowing water, create a hypnotic rhythm that distances the viewer from conventional television pacing. These aren't mere scene changes but transitions between states of consciousness, suggesting that reality in Twin Peaks is fluid and permeable. The show also pioneered the use of extreme close-ups in television drama, pushing into characters' faces until we see the fear behind their eyes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="dimension-block" id="visual-spectacle">
+                <div class="dimension-header">
+                    <h3 class="dimension-title">4. Visual Spectacle <span class="dimension-score">7.0</span></h3>
+                    <div class="score-bar"><div class="score-fill" style="width: 70%;"></div></div>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        When <strong>Twin Peaks</strong> decides to show you something impossible, it commits fully. The Red Room sequences represent some of television's most genuinely unsettling imagery—David Lynch achieving effects that rival anything in his feature films. The backwards speech (achieved by recording dialogue played in reverse, then having actors learn the reversed phonetics), the strobe lighting, the Man From Another Place's jerky movements, and the Giant's sudden materializations all create moments of pure cinematic spectacle.
+                    </p>
+                    <p>
+                        The show's <strong>supernatural set pieces</strong> escalate in visual ambition throughout its run. The opening of the series, with the discovery of Laura's body, immediately establishes that this is television operating on filmic terms. Later sequences—Bob climbing over furniture, the appearance of the owls, the Black Lodge's shifting geography—demonstrate production values that pushed 1990s television technology to its limits.
+                    </p>
+                    <p>
+                        However, <strong>budget constraints</strong> sometimes limit the show's visual ambitions. The supernatural effects, especially in Season 2, occasionally look dated or obviously composited. Fire effects—the show's ultimate symbol of spiritual danger—range from genuinely terrifying to obviously artificial. The show's commitment to practical effects over early digital work gives it a tactile quality that ages better than many contemporaneous productions, but limitations remain visible.
+                    </p>
+                    <p>
+                        What <strong>Twin Peaks</strong> understands is that true spectacle doesn't require massive scale—it requires <em>impact</em>. A single shot of Bob lunging at the camera delivers more nightmare fuel than most big-budget horror films. The show's restraint, its willingness to suggest rather than show, often proves more powerful than its more overt supernatural displays. When it does choose to reveal—Laura's mother having visions, the demon Bob himself—the images burn themselves into memory.
+                    </p>
+                </div>
+            </div>
+
+            <div class="dimension-block" id="conceptual-density">
+                <div class="dimension-header">
+                    <h3 class="dimension-title">5. Conceptual Density <span class="dimension-score">9.0</span></h3>
+                    <div class="score-bar"><div class="score-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        If television were judged solely on ideas per minute, <strong>Twin Peaks</strong> would rank among the medium's highest achievements. The show operates on multiple interpretive levels simultaneously: it's a murder mystery, a soap opera parody, a critique of American innocence, a metaphysical exploration of good and evil, a meditation on trauma, and an investigation of how communities hide their darkness behind normalized facades. Each episode contains enough conceptual content for entire seasons of conventional television.
+                    </p>
+                    <p>
+                        The <strong>central metaphor</strong> of Twin Peaks—the beautiful surface hiding corruption beneath—extends to virtually every aspect of the show. Laura Palmer embodies this perfectly: prom queen, secret call girl, drug user, abuse victim. The town itself represents Americana's self-image (diners, high school football, local law enforcement) infected by forces that recognize no boundaries between public and private, innocence and experience. Lynch and Frost aren't content with simple symbolism; they create systems of interconnected meaning that reward obsessive viewing.
+                    </p>
+                    <p>
+                        The show's <strong>philosophical underpinnings</strong> draw from diverse traditions: Tibetan Buddhism (Cooper's rock-throwing method, the concept of the Lodges), Jungian psychology (the shadow self, collective unconscious), Native American spirituality (the cave paintings, the owls as messengers), and Christian mysticism (the battle between good and evil, the concept of possession). These aren't decorative references but integrated elements of the show's mythology. Cooper's spiritual practices aren't quirks but methodologies that actually <em>work</em> in this universe.
+                    </p>
+                    <p>
+                        <strong>Twin Peaks</strong> demands active interpretation. It rewards viewers who pay attention to seemingly throwaway details—the fish in the percolator, the coffee cup reflections, the background paintings—not because these contain hidden plot information necessarily, but because they contribute to the show's dense symbolic vocabulary. The series operates like a dream, where everything <em>means</em> something even when the meaning isn't immediately clear. This density can alienate viewers seeking straightforward narrative gratification, but for those willing to engage with its complexity, it offers inexhaustible riches.
+                    </p>
+                </div>
+            </div>
+
+            <div class="dimension-block" id="narrative-drive">
+                <div class="dimension-header">
+                    <h3 class="dimension-title">6. Narrative Drive <span class="dimension-score">6.0</span></h3>
+                    <div class="score-bar"><div class="score-fill" style="width: 60%;"></div></div>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        Here's where <strong>Twin Peaks</strong> becomes genuinely divisive. The series possesses tremendous narrative momentum in its first season, when the Laura Palmer mystery provides a clear throughline that draws viewers through Lynch's surrealist diversions. Each episode adds new suspects, new evidence, new complications while maintaining focus on the central tragedy. The pacing is hypnotic rather than propulsive, but there's undeniable forward movement.
+                    </p>
+                    <p>
+                        The <strong>reveal of Laura's killer</strong> midway through Season 2—network executives forcing Lynch and Frost's hand—ruptures the show's narrative foundation. Without the central mystery providing structure, the series flounders. Subplots multiply like rabbits: the triangle between James, Donna, and Maddy; the Miss Twin Peaks pageant; James's pointless road trip; the ongoing saga of Evelyn Marsh; the Windom Earle storyline that never quite lands with the same weight as the Palmer mystery.
+                    </p>
+                    <p>
+                        Lynch's <strong>absence from routine production</strong> during much of Season 2 becomes painfully apparent. Without his directorial vision holding the center, the show often feels like it's spinning its wheels, chasing subplots that don't service the central supernatural mythology with any urgency. Episodes approach the supernatural elements with a timidity that betrays the series' core identity. The narrative drive that propelled Season 1 becomes a narrative drift, interesting moments floating in a sea of diminished stakes.
+                    </p>
+                    <p>
+                        That said, when <strong>Twin Peaks</strong> commits to its finale—particularly Lynch's return for the final episodes and the feature film <em>Fire Walk With Me</em>—the narrative drive returns with devastating force. The Black Lodge sequences provide the most intense, propulsive storytelling in the series' run. And the 2017 revival, <em>Twin Peaks: The Return</em>, demonstrates that Lynch had more story to tell, albeit in a form that makes the original series' narrative challenges look positively straightforward. The show's narrative inconsistency reflects its experimental nature—it's as interested in breaking television as perfecting it.
+                    </p>
+                </div>
+            </div>
+
+            <div class="dimension-block" id="resolution">
+                <div class="dimension-header">
+                    <h3 class="dimension-title">7. Resolution <span class="dimension-score">6.0</span></h3>
+                    <div class="score-bar"><div class="score-fill" style="width: 60%;"></div></div>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        The finale of <strong>Twin Peaks</strong> Season 2 remains one of television's most controversial endings—a cliffhanger so devastating that fans waited twenty-five years for any kind of resolution. FBI Agent Dale Cooper, having entered the Black Lodge to rescue Annie Blackburn, emerges apparently victorious, only for the final scene to reveal he has become possessed by Bob, the same demonic force that drove Laura Palmer's father to murder his own daughter. The series ends with Cooper smashing his head into a mirror and asking, "How's Annie?" with Bob's grin splitting his face.
+                    </p>
+                    <p>
+                        This ending is <strong>artistically courageous but narratively frustrating</strong>—Lynch deliberately subverting the expectation of victory, suggesting that evil cannot be defeated through conventional heroism. The image of Cooper, the show's moral center, corrupted beyond recognition, delivers profound thematic weight. It refuses the comfort of closure, insisting that the darkness Twin Peaks revealed cannot be neatly contained. Yet for viewers who invested thirty hours in Cooper's journey, watching him devoured by the evil he fought feels like a betrayal of the contract between storyteller and audience.
+                    </p>
+                    <p>
+                        The <strong>1992 prequel film <em>Fire Walk With Me</em></strong> offers some narrative satisfaction by revealing Laura's final days with horrifying immediacy, but it deliberately refuses to resolve Cooper's fate. The 2017 revival <em>Twin Peaks: The Return</em> provides a kind of closure, though one so surreal and ambiguous that it arguably raises more questions than it answers. Lynch's philosophy seems to be that true resolution is impossible, that mysteries only deepen upon investigation.
+                    </p>
+                    <p>
+                        Many <strong>subplots</strong> from the original series remain dangling threads. What happened to Leo Johnson? What was the full nature of the Black Lodge's influence? The Windom Earle storyline builds to an underwhelming confrontation that feels rushed rather than climactic. These loose ends reflect both the show's cancellation and its creators' indifference to conventional narrative satisfaction. Twin Peaks offers moments of profound resolution—Laura's final acceptance of her fate in <em>Fire Walk With Me</em>—while deliberately denying others. Whether this represents artistic integrity or narrative failure depends on what you believe television owes its audience.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-score-section">
+            <h2 class="section-title">Final Assessment</h2>
+            <div class="final-breakdown">
+                <div class="score-grid">
+                    <div class="score-item">
+                        <span class="score-label">Characters</span>
+                        <span class="score-value">7.5</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">World Building</span>
+                        <span class="score-value">8.0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Cinematography</span>
+                        <span class="score-value">8.0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Visual Spectacle</span>
+                        <span class="score-value">7.0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Conceptual Density</span>
+                        <span class="score-value">9.0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Narrative Drive</span>
+                        <span class="score-value">6.0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Resolution</span>
+                        <span class="score-value">6.0</span>
+                    </div>
+                </div>
+                <div class="final-calculation">
+                    <div class="calculation-line">(7.5 + 8.0 + 8.0 + 7.0 + 9.0 + 6.0 + 6.0) ÷ 7 = <strong>7.64</strong> base score</div>
+                    <div class="weighting-note">Adjusted for historical impact and cultural significance: <strong>7.13</strong></div>
+                </div>
+                <div class="final-score-display-large">
+                    <div class="large-score">7.13</div>
+                    <div class="score-verdict">
+                        <strong>Twin Peaks</strong> earns its place as one of television's most important series not despite its flaws but because its flaws are inseparable from its genius. It changed what television could be, opening doors that shows like <em>The Sopranos</em>, <em>Breaking Bad</em>, and <em>True Detective</em> would walk through decades later. The unevenness of its execution cannot diminish the radiance of its ambition.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-shows">
+            <h2 class="section-title">If You Liked This</h2>
+            <div class="related-grid">
+                <a href="x-files.html" class="related-card">
+                    <div class="related-title">The X-Files</div>
+                    <div class="related-meta">1993-2018</div>
+                </a>
+                <a href="true-detective.html" class="related-card">
+                    <div class="related-title">True Detective</div>
+                    <div class="related-meta">2014-</div>
+                </a>
+                <a href="stranger-things.html" class="related-card">
+                    <div class="related-title">Stranger Things</div>
+                    <div class="related-meta">2016-</div>
+                </a>
+                <a href="lost.html" class="related-card">
+                    <div class="related-title">Lost</div>
+                    <div class="related-meta">2004-2010</div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 TV Shows Ranked. All rights reserved.</p>
+        <p class="footer-note">A comprehensive archive of television's greatest achievements.</p>
+    </footer>
 </body>
 </html>

@@ -3,89 +3,465 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Broadchurch - "The sea won't keep secrets" | Dynamic Rank Engine</title>
+    <title>Broadchurch - TV Shows Ranked Analysis</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #051015 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #0277bd; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #0277bd, #01579b); color: #b3e5fc; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #4fc3f7; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(2,119,189,0.3), rgba(0,0,0,0.9)); border: 3px solid #0277bd; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #4fc3f7; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #0277bd; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #4fc3f7; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(2,119,189,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #4fc3f7; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #4fc3f7; font-weight: 700; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .show-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .show-title {
+            font-size: 3.5em;
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #e0e0e0, #a8d5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 60px rgba(168,213,255,0.3);
+        }
+        .show-meta {
+            font-size: 1.1em;
+            color: #a0aec0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .meta-item {
+            background: rgba(255,255,255,0.08);
+            padding: 8px 18px;
+            border-radius: 20px;
+        }
+        .creator {
+            font-style: italic;
+            color: #8892b0;
+            margin-top: 15px;
+        }
+        .section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .section-title {
+            font-size: 1.9em;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(168,213,255,0.4);
+            color: #a8d5ff;
+        }
+        .feel-section {
+            background: linear-gradient(135deg, rgba(168,213,255,0.1) 0%, rgba(255,255,255,0.03) 100%);
+        }
+        .feel-description {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #c5c5c5;
+            text-align: justify;
+        }
+        .feel-description p {
+            margin-bottom: 20px;
+        }
+        .rankings-section { margin-bottom: 2rem; }
+        .rankings-header { text-align: center; margin-bottom: 2.5rem; }
+        .rankings-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; color: #e0e0e0; }
+        .rankings-subtitle { color: #a0aec0; font-size: 1.1rem; }
+        .dimension-grid { display: grid; gap: 1.5rem; }
+        .dimension-block {
+            background: rgba(30,30,30,0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+        }
+        .dimension-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-width: 100px;
+        }
+        .score-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: #e0e0e0;
+        }
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: conic-gradient(#a8d5ff calc(var(--score) * 1%), rgba(255,255,255,0.1) 0);
+            z-index: -1;
+        }
+        .score-circle::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(30,30,30,0.9);
+        }
+        .score-label {
+            font-size: 0.75rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .dimension-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: #e0e0e0;
+        }
+        @media (max-width: 768px) {
+            .dimension-block { grid-template-columns: 1fr; }
+        }
+
+        .final-score-section {
+            background: linear-gradient(135deg, rgba(168,213,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+            text-align: center;
+            padding: 50px;
+            border-radius: 20px;
+            border: 2px solid rgba(168,213,255,0.3);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+        }
+        .final-score-title {
+            font-size: 1.6em;
+            font-weight: 300;
+            letter-spacing: 6px;
+            margin-bottom: 30px;
+            color: #a8d5ff;
+            text-transform: uppercase;
+        }
+        .final-score-display {
+            font-size: 5em;
+            font-weight: 700;
+            background: linear-gradient(180deg, #ffffff 0%, #a8d5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 80px rgba(168,213,255,0.4);
+            margin: 20px 0;
+        }
+        .final-score-bar {
+            width: 100%;
+            max-width: 500px;
+            height: 12px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+        .final-score-fill {
+            height: 100%;
+            width: 72.1%;
+            background: linear-gradient(90deg, #a8d5ff, #e0e0ff);
+            border-radius: 6px;
+            box-shadow: 0 0 20px rgba(168,213,255,0.5);
+        }
+        .final-score-label {
+            font-size: 1.2em;
+            color: #8892b0;
+            letter-spacing: 3px;
+            margin-top: 20px;
+        }
+        .dimension-breakdown {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .breakdown-item {
+            background: rgba(255,255,255,0.08);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+        .breakdown-label {
+            color: #8892b0;
+            margin-right: 8px;
+        }
+        .breakdown-value {
+            font-weight: 600;
+            color: #a8d5ff;
+        }
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+        }
+        .cast-member {
+            background: rgba(255,255,255,0.08);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            color: #c0c0c0;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        .cast-member:hover {
+            background: rgba(168,213,255,0.15);
+            border-color: rgba(168,213,255,0.3);
+            transform: translateY(-2px);
+        }
+        .plot-summary {
+            background: rgba(0,0,0,0.2);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 3px solid #a8d5ff;
+        }
+        .plot-title {
+            font-size: 1.1em;
+            color: #a8d5ff;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .plot-text {
+            color: #b0b0b0;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        .highlight {
+            color: #a8d5ff;
+            font-weight: 500;
+        }
+        .quote {
+            font-style: italic;
+            color: #8892b0;
+            border-left: 3px solid #4ecdc4;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-size: 1.05em;
+        }
+        @media (max-width: 768px) {
+            .show-title { font-size: 2em; letter-spacing: 4px; }
+            .show-meta { flex-direction: column; align-items: center; }
+            .dimension-header { flex-direction: column; gap: 15px; text-align: center; }
+            .final-score-display { font-size: 3.5em; }
+            .section { padding: 25px; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #34</div>
-            <h1>Broadchurch</h1>
-            <p class="subtitle">"The sea won't keep secrets"</p>
-            <div class="score-badge">
-                <span class="score-value">7.68</span>
-                <span class="score-label">Final Score</span>
+        <header class="show-header">
+            <h1 class="show-title">Broadchurch</h1>
+            <div class="show-meta">
+                <span class="meta-item">ITV Mystery Drama</span>
+                <span class="meta-item">2013 — 2017</span>
+                <span class="meta-item">3 Seasons, 24 Episodes</span>
+                <span class="meta-item">United Kingdom</span>
             </div>
-        </div>
+            <p class="creator">Created by Chris Chibnall</p>
+            <div class="cast-list">
+                <span class="cast-member">David Tennant</span>
+                <span class="cast-member">Olivia Colman</span>
+                <span class="cast-member">Jodie Whittaker</span>
+                <span class="cast-member">Andrew Buchan</span>
+                <span class="cast-member">Arthur Darvill</span>
+            </div>
+            <div class="plot-summary">
+                <div class="plot-title">THE PREMISE</div>
+                <div class="plot-text">A small seaside town is rocked to its foundations when an eleven-year-old boy is found murdered on the beach. As the tight-knit community grapples with grief and suspicion, two detectives—one a local who knows everyone, the other a tortured outsider with his own dark history—must navigate the lies, secrets, and devastating truths that bind the townspeople together.</div>
+            </div>
+        </header>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2013-2017</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">24</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">ITV</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Chris Chibnall</div></div>
-        </div>
+        <section class="section feel-section">
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            <div class="feel-description">
+                <p><span class="highlight">Broadchurch</span> is British mystery television at its most emotionally devastating. From the moment David Tennant's brooding Detective Alec Hardy steps onto the windswept Dorset coast, there's an immediate sense that this is not standard procedural fare. The show grips you by the throat and refuses to let go, not because of elaborate plot mechanics or shocking twists (though it has those), but because it understands something fundamental: murder doesn't happen in a vacuum. It tears through families, friendships, and entire communities like a scythe.</p>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Broadchurch is British crime drama as community portrait. A boy is murdered in a small coastal town; the investigation exposes everyone's secrets. Danny Latimer, age eleven, found dead at the foot of cliffs. Detective Inspector Alec Hardy (David Tennant) is the outsider—grim, haunted, running from a failed case. Detective Sergeant Ellie Miller (Olivia Colman) is the local—her son was Danny's best friend, her husband is the town's beloved fix-it man. Together, they peel back layers of lies. "Everyone's a suspect," Hardy says. He's right.</p>
-            <p>The mystery matters, but the community matters more. Each episode reveals another secret: an affair, a hidden past, financial crimes, sexual secrets. The town itself is a character—the cliffs, the beach, the small businesses, the gossip network. The murder tears wounds open. "We thought we lived in a safe place," someone says. They didn't. No place is safe when people have secrets. The performances are extraordinary: David Tennant's Hardy is damaged, difficult, brilliant. Olivia Colman's Miller is the emotional center—a woman whose trust in her community shatters.</p>
-            <p>Season one solves Danny's murder—the resolution is devastating, personal, earned. Season two deals with the aftermath: the trial, the defense, the doubt sown. Season three pivots to a new case—a sexual assault—while continuing the community's story. The show's thesis: crimes ripple. Everyone carries consequences. Hardy and Miller solve cases, but they can't fix what's broken. "You can't undo it," Miller says. "You just have to live with it."</p>
-            <p>Three seasons, twenty-four episodes, complete. Broadchurch is crime drama as literature—patient, character-driven, willing to let silence work. The British coastline cinematography is stunning: cliffs and sea and sky, beauty and death together. "The sea won't keep secrets," the tagline says. Neither does Broadchurch. It reveals everything, slowly, carefully, and with tremendous emotional impact.</p>
-        </div>
+                <p>The central dynamic between <span class="highlight">Olivia Colman's DS Ellie Miller</span> and <span class="highlight">David Tennant's DI Alec Hardy</span> is the show's beating heart. Colman's Miller is all warmth and local knowledge, a mother and friend to this town who knows its rhythms and its secrets. Tennant's Hardy is her opposite—a haunted man running from a previous case gone wrong, with a heart condition that could fail at any moment. Their partnership evolves from professional friction to deep mutual respect, creating one of television's most compelling detective pairings. Colman earned a BAFTA for her performance, and it's immediately apparent why: her ability to convey devastation, determination, and compassion sometimes in the same breath is extraordinary.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
+                <p>The <span class="highlight">seaside isolation</span> of the fictional Broadchurch town becomes a character itself. Those towering white cliffs, the grey churning sea, the narrow lanes lined with cottages—there's nowhere to hide here, and yet everyone has something to conceal. The cinematography captures the suffocating intimacy of small-town life where everyone knows your business, where secrets fester in plain sight, where suspicion can turn neighbor against neighbor overnight.</p>
+
+                <p>This is <span class="highlight">gut-wrenching television</span> that doesn't traffic in cheap sentimentality. When the bereaved parents (brilliantly portrayed by Andrew Buchan and Jodie Whittaker) scream in agony at the discovery of their son's body, it feels raw, unfiltered, and devastatingly real. The show never lets you forget that behind every clue, every interview, every dramatic revelation is a family's shattered world. It's mystery storytelling that respects the gravity of death, that understands trauma doesn't resolve neatly when the credits roll.</p>
+
+                <div class="quote">"The beauty of Broadchurch lies in its absolute commitment to emotional truth. This is a show that understands grief is not linear, that closure is a myth, and that justice and healing are rarely the same thing."</div>
+
+                <p>Watching Broadchurch is an exercise in sustained tension. Every resident is a suspect, every conversation layered with subtext, every beautiful wide shot of the Jurassic Coast undercut by the knowledge that darkness lurks in this postcard-perfect setting. By the time the killer is revealed, you'll have traveled through every stage of grief alongside these characters—and emerged changed by the journey.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Why It Ranks</h2>
             <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
+                
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle" style="--score: 75;"><span>7.5</span></div>
+                        <span class="score-label">CHARACTERS</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>Characters</h3>
+                        <p>The character work in Broadchurch is exceptionally strong, built upon the foundation of two utterly compelling leads. <span class="highlight">Olivia Colman's Ellie Miller</span> represents the show's soul—a woman whose professional competence is matched only by her emotional investment in the community she's investigating. Her journey from supportive colleague to betrayed friend to determined survivor anchors the entire series. The complexity of her situation—forced to investigate people she's known her entire life while processing her own horror at the crime—creates a character of remarkable depth.</p>
+                        <p><span class="highlight">David Tennant's Alec Hardy</span> is equally nuanced, a man haunted by his failure in the Sandbrook case that drives his obsessive pursuit of the truth in Broadchurch. Tennant sheds his Doctor Who persona entirely, inhabiting a character defined by physical frailty and psychological damage. The supporting cast is uniformly excellent, with <span class="highlight">Jodie Whittaker</span> delivering a heartbreaking performance as Beth Latimer and <span class="highlight">Andrew Buchan</span> capturing a father's devastating descent into grief and suspicion.</p>
+                        <p>Where the show loses points is in the breadth of its characterization. While the leads are fully realized, some supporting characters in the large ensemble occasionally feel more like plot functions than fully dimensional people. Certain town residents remain archetypes—the suspicious loner, the gossipy neighbor, the troubled teen—though the stellar performances generally elevate even these roles beyond mere tropes.</p>
+                    </div>
+                </div>
+
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle" style="--score: 70;"><span>7.0</span></div>
+                        <span class="score-label">WORLD BUILDING</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>World Building</h3>
+                        <p>Broadchurch's world-building succeeds through specificity and atmosphere. The fictional Dorset town is rendered with intimate detail—every shop, every pub, every clifftop path feels authentic and lived-in. The coastal setting isn't merely backdrop; the town's dependence on tourism, its isolation from major cities, and its tight-knit social fabric all inform the narrative. <span class="highlight">The Jurassic Coast</span> locations (primarily Clevedon and West Bay) provide a character unto themselves—beautiful, ancient, indifferent to human suffering.</p>
+                        <p>The show excels at depicting how a small community functions (and fractures) under pressure. The local newspaper, the church, the police station, the school—each institution feels real, with their own histories and politics. Series 2 expands the world meaningfully through courtroom drama and the parallel Sandbrook investigation, while Series 3 tackles sexual assault with similar geographic specificity.</p>
+                        <p>The limitation comes from the intentionally narrow scope. This is one town, one close community, and while that's thematically appropriate, it doesn't offer the sprawling geography or multiple cultures of other prestige dramas. The world of Broadchurch is deep but not wide—a deliberate choice that serves the intimate storytelling but caps the score on pure world-building scale.</p>
+                    </div>
+                </div>
+
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle" style="--score: 80;"><span>8.0</span></div>
+                        <span class="score-label">CINEMATOGRAPHY</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>Cinematography</h3>
+                        <p>The cinematography of Broadchurch is genuinely exceptional, elevating what could have been standard police procedural television into visual art. <span class="highlight">Director of Photography John Conroy</span> and the directorial team (including Euros Lyn and James Strong) create a distinctive visual language that mirrors the show's emotional landscape. The use of wide coastal shots juxtaposed with tight, claustrophobic interiors establishes a visual grammar of exposure versus concealment.</p>
+                        <p>The <span class="highlight">color palette</span> is deliberately muted—steely blues, overcast greys, desaturated earth tones—with occasional bursts of warmth (sunlight through windows, firelight, the yellow police tape) that punctuate the gloom. The golden hour has rarely been used more effectively than in this series, where those brief moments of natural beauty underscore the darkness of the narrative. The camera work is patient, often holding on actors' faces for extended periods that force the audience to witness raw emotion without cuts or escape.</p>
+                        <p>The <span class="highlight">aerial photography</span> of the cliffs and shoreline deserves special mention—those sweeping drone shots that establish the town's isolation and beauty have been widely imitated (including by the show's own remake, Gracepoint). The visual composition consistently reinforces themes: the characters small against the vast landscape, the church spire visible from everywhere (religion as omnipresent comfort and judgment), the beach as both playground and grave. This is cinematography that understands its thematic purpose.</p>
+                    </div>
+                </div>
+
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle" style="--score: 60;"><span>6.0</span></div>
+                        <span class="score-label">VISUAL SPECTACLE</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>Visual Spectacle</h3>
+                        <p>Broadchurch is deliberately not a show of visual spectacle, and that's a conscious, appropriate artistic choice. There are no action sequences, no elaborate set pieces, no special effects of note. The "spectacle" here is entirely natural—the beauty of the Jurassic Coast, the drama of the English weather, the architectural character of the seaside town. In this context, spectacle is redefined as natural beauty rather than constructed showmanship.</p>
+                        <p>What visual moments do exist are entirely organic to the story. The discovery of the body on the beach is devastating in its simplicity. The various vigils and memorials are affecting through human presence rather than production design. Courtroom scenes in Series 2 find drama in performance and tension rather than grand visual construction. The show trusts that <span class="highlight">human faces in emotional extremis</span> provide all the spectacle necessary.</p>
+                        <p>The score reflects this restraint. While the cinematography is beautiful, the show never reaches for visual showiness that would betray its grounded, realistic tone. The limitations here are entirely appropriate—this shouldn't be an 8 or 9 because it would violate the show's fundamental aesthetic philosophy. A 6 acknowledges that Broadchurch offers natural beauty and careful composition but doesn't attempt to compete with the bombastic visual storytelling of genre television.</p>
+                    </div>
+                </div>
+
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle" style="--score: 70;"><span>7.0</span></div>
+                        <span class="score-label">CONCEPTUAL DENSITY</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>Conceptual Density</h3>
+                        <p>Broadchurch engages meaningfully with substantial themes, positioning itself as more than simple entertainment. The show interrogates <span class="highlight">how communities respond to trauma</span>—the way suspicion spreads like infection, how grief isolates even in crowds, how secrets protect and destroy simultaneously. Each season introduces new thematic layers: the first examines the mystery of identity and the lies we tell ourselves; the second introduces questions of justice, media ethics, and the impossibility of closure; the third tackles sexual violence, consent, and institutional failure.</p>
+                        <p>The <span class="highlight">interrogation of masculinity</span> runs throughout the series—from the fragile male ego of the killer to the various fathers struggling with powerlessness to the predatory behavior examined in Series 3. The show asks uncomfortable questions about who we trust and why, about the performance of innocence and guilt, about how quickly community becomes mob. Arthur Darvill's reverend character provides thoughtful engagement with faith in the face of senseless tragedy.</p>
+                        <p>What prevents a higher score is that these themes, while present and thoughtfully explored, are ultimately in service of narrative momentum rather than philosophical depth. Broadchurch raises important questions but doesn't always linger on them—it's a mystery show first and foremost, and its primary obligation is to the plot. The conceptual work is meaningful but not revolutionary; it enriches the viewing experience without fundamentally challenging the viewer's worldview.</p>
+                    </div>
+                </div>
+
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle" style="--score: 80;"><span>8.0</span></div>
+                        <span class="score-label">NARRATIVE DRIVE</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>Narrative Drive</h3>
+                        <p>The narrative drive of Broadchurch is relentless, hooking viewers from the devastating opening moments and maintaining tension across its run. <span class="highlight">Creator Chris Chibnall</span> structures the mystery with remarkable discipline, doling out revelations at precisely the right moments while maintaining a viable suspect pool until the final episodes. The show understands that whodunit satisfaction depends on the clues being present but misinterpreted—and it achieves this masterfully.</p>
+                        <p>Season 1 functions as a nearly perfect mystery narrative, with each episode peeling back layers of the town's secrets while deepening the emotional stakes. The pacing is deliberate but never slow; time is spent on character development that pays off narratively. Season 2 takes a risk by extending the story beyond the killer's identity, using courtroom drama and the Sandbrook cold case to maintain momentum. Season 3 reboots with a new mystery while honoring the established character arcs.</p>
+                        <p>The show earns its 8 through <span class="highlight">structural intelligence</span> and emotional payoff. Red herrings are deployed thoughtfully rather than cheaply. The cross-cutting between investigations, personal lives, and community reactions creates a dynamic rhythm. Perhaps most impressive is how the narrative sustains interest after the central mystery is solved—in Series 2 and 3, the show proves that answering "who" only opens the door to more compelling questions about "why" and "what happens now."</p>
+                    </div>
+                </div>
+
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle" style="--score: 80;"><span>8.0</span></div>
+                        <span class="score-label">RESOLUTION</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>Resolution</h3>
+                        <p>Broadchurch's resolution across its three series demonstrates remarkable commitment to emotional truth over tidy endings. Season 1's revelation of the killer is devastating precisely because of the relationships involved—it's not a random stranger but someone woven into the community. The show resists the temptation to make the murderer a cartoon villain, instead presenting a <span class="highlight">tragic figure whose actions stem from recognizable human failure</span>. The aftermath doesn't offer easy catharsis; characters must learn to live with unbearable knowledge.</p>
+                        <p>Season 2's courtroom resolution demonstrates nuance in how justice actually works—the gap between legal and moral truth, the performance of trials, the way evidence and narrative battle for jury belief. The parallel resolution of the Sandbrook case provides Hardy with redemption earned through persistence rather than sudden brilliance. <span class="highlight">Series 3</span> handles its sexual assault investigation with an 8-episode commitment to victim-centered storytelling, resolving not with a triumphant arrest but with validation of survivors' experiences.</p>
+                        <p>The series finale provides satisfying closures for the central characters—Hardy and Miller's partnership solidified through shared trauma, Miller's family finding a path forward, Broadchurch itself changed but enduring. The show understands that resolution doesn't mean returning to the status quo; it means finding a way to continue. What keeps it from a higher score is the occasional sense that Series 2 and 3, while strong, never quite recapture the narrative perfection of that first season's construction.</p>
+                    </div>
+                </div>
+
             </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> David Tennant and Olivia Colman are extraordinary. Chemistry is the engine. Supporting cast is flawless.</p>
-            <p><strong>Cinematography (9):</strong> British coastline as character. Cliffs and sea. Beauty and dread in perfect balance.</p>
-            <p><strong>Resolution (8):</strong> Each season concludes. Complete story. "You just have to live with it."</p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Episode 1" (S1E1)</strong> — The body found. Hardy arrives. "I think we have a murder."</p>
-            <p><strong>("Episode 8" (S1E8)</strong> — Season one finale. The killer revealed. "It was you."</p>
-            <p><strong>("Episode 8" (S2E8)</strong> — Season two finale. The verdict. Joe Miller exiled.</p>
-            <p><strong>("Episode 8" (S3E8)</strong> — Series finale. Trish's case. Miller's goodbye. "We did what we could."</p>
-        </div>
-
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Netflix, BritBox, PBS Masterpiece</p>
-            <p><strong>UK:</strong> ITVX, BritBox</p>
-        </div>
+        <section class="final-score-section">
+            <div class="final-score-title">Overall Assessment</div>
+            <div class="final-score-display">7.21</div>
+            <div class="final-score-bar">
+                <div class="final-score-fill"></div>
+            </div>
+            <div class="final-score-label">Weighted Average Score</div>
+            
+            <div class="dimension-breakdown">
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Characters:</span>
+                    <span class="breakdown-value">7.5</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">World Building:</span>
+                    <span class="breakdown-value">7.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Cinematography:</span>
+                    <span class="breakdown-value">8.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Visual Spectacle:</span>
+                    <span class="breakdown-value">6.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Conceptual Density:</span>
+                    <span class="breakdown-value">7.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Narrative Drive:</span>
+                    <span class="breakdown-value">8.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Resolution:</span>
+                    <span class="breakdown-value">8.0</span>
+                </div>
+            </div>
+        </section>
     </div>
 </body>
 </html>

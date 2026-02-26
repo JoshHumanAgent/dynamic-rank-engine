@@ -1,91 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Expanse - "The stars are better off without us" | Dynamic Rank Engine</title>
+    <title>The Expanse - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #050510 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #1e88e5; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #1e88e5, #0d47a1); color: #bbdefb; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #64b5f6; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(30,136,229,0.3), rgba(0,0,0,0.9)); border: 3px solid #1e88e5; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #64b5f6; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #1e88e5; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #64b5f6; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(30,136,229,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #64b5f6; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #64b5f6; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #8</div>
-            <h1>The Expanse</h1>
-            <p class="subtitle">"The stars are better off without us"</p>
-            <div class="score-badge">
-                <span class="score-value">8.33</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2015-2022</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">62</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Syfy/Amazon Prime</div></div>
-            <div class="info-item"><div class="info-label">Creators</div><div class="info-value">Mark Fergus, Hawk Ostby</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Expanse is hard science fiction as political thriller—a solar system divided: Earth, Mars, the Belt. Three hundred years from now, humanity has spread but not unified. Earth is overpopulated, governed by the UN, draining resources from the Belt. Mars is militarized, terraforming project spanning generations, independent and proud. The Belt is the frontier—miners, laborers, exploited by both planets, brewing revolution. "The stars are better off without us," a Belter says. The show asks: can humanity survive itself?</p>
-            <p>The story begins with a missing girl and a mysterious attack. Detective Josephus Miller (Thomas Jane), a Belter cop, searches for Julie Mao—a rich girl who joined the revolution. The crew of the Canterbury—an ice hauler—responds to a distress signal and watches their ship destroyed by stealth fighters. James Holden (Steven Strait), the Canterbury's executive officer, becomes a reluctant revolutionary, broadcasting truth across the system. The threads converge: Julie Mao's fate, the Canterbury's destruction, a conspiracy involving protomolecule—a substance that shouldn't exist, created by aliens millions of years ago, now weaponized.</p>
-            <p>The show's thesis: power corrupts, information is weaponized, and the truth barely matters. Holden broadcasts everything—the idealist approach—and his transparency endangers more than it saves. The political players—Chrisjen Avasarala (Shohreh Aghdashloo), UN diplomat, brilliant, profane, calculating; Fred Johnson, former Marine turned Belter leader; Jules-Pierre Mao, industrialist whose daughter died in his experiment—pursue their interests. The protomolecule grows, building something ancient and terrible. "We're not alone," the characters realize. But first contact might be extinction.</p>
-            <p>Six seasons, sixty-two episodes, complete. The Expanse was rescued by Amazon after Syfy cancellation; fans campaigned with planes flying banners. It earned the loyalty: novelistic scope, scientific accuracy, political complexity. The cast expansion—Camina Drummer (Cara Gee), the Belter commander; Bobbie Draper (Frankie Adams), the Martian marine—deepens the world. The protomolecule gates open new worlds. The final season is rushed (six episodes), but the ending earns closure. "The stars are better off without us," someone said. The show refuses cynicism—humanity might deserve the stars.</p>
-        </div>
+<p>The Expanse aired from December 14, 2015 to January 14, 2022, spanning six seasons and 62 episodes across two networks (Syfy for seasons 1-3, Amazon Prime Video for seasons 4-6). Developed by Mark Fergus and Hawk Ostby from James S.A. Corey's novel series, the series is the most ambitious hard science fiction television ever made—a solar system-spanning epic that treats physics with respect while delivering political thriller, noir mystery, and cosmic horror.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> Solar system as political map. Hard science. Belter creole. Zero-G physics. Most immersive sci-fi world on television.</p>
-            <p><strong>Conceptual Density (9):</strong> Politics, economics, first contact, post-humanism. Dense with ideas yet never overwhelming.</p>
-            <p><strong>Visual Spectacle (9):</strong> Space battles, alien structures, Belter stations. Budget used brilliantly.</p>
-        </div>
+<p>The premise: two hundred years in the future, humanity has colonized the solar system. Earth is overpopulated and governed by the UN; Mars is a militarized independent republic; the Belt (the asteroid belt and outer planets) is a colony exploited by both powers. The Belters—born in low gravity, adapted to space, marginalized economically and politically—are beginning to demand independence. Into this political tension, a missing person investigation (Season 1) reveals a conspiracy that threatens all three powers and introduces an alien technology that might destroy humanity or transform it.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Dulcinea" (S1E1)</strong> — The introduction. Miller's case. Canterbury destroyed. "Welcome to the future."</p>
-            <p><strong>("Leviathan Wakes" (S1E10)</strong> — Eros incident. Protomolecule revealed. "It's not over."</p>
-            <p><strong>("Delta-V" (S3E6)</strong> — The Ring. Human expansion. "We're going through."</p>
-            <p><strong>("Babylon's Ashes" (S6E6)</strong> — Series finale. The resolution. "I'd rather be lucky than good."</p>
-        </div>
+<p>James Holden (Steven Strait) is the ice-hauler who becomes the story's reluctant center—he and his crew (the Rocinante) stumble into the conspiracy and spend the series trying to reveal truth, prevent war, and survive. Detective Josephus Miller (Thomas Jane) is the Belter investigator whose missing-person case leads him to Holden and to the alien technology. Chrisjen Avasarala (Shohreh Aghdashloo) is the UN politician whose machinations become central to Earth's response. The ensemble expands across seasons—Mars military officers, Belt revolutionary leaders, religious researchers—without losing coherence.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Amazon Prime</p>
-            <p><strong>UK:</strong> Amazon Prime</p>
+<p>The series' achievement is technical and narrative. The physics is real: spaceships accelerate by burning fuel continuously (no instant travel), gravity comes from thrust or rotation (no artificial gravity fields), combat involves distances of thousands of kilometers (no dogfights at visual range). The creators consulted with NASA engineers and astronomers; the science is accurate within the premise's constraints. The narrative achievement is managing a story that spans planets, factions, and years while maintaining character focus—the Rocinante's crew is the constant through a changing solar system.</p>
+
+<p>The series was cancelled by Syfy after three seasons despite critical acclaim. A fan campaign (including a Change.org petition with over 140,000 signatures, celebrity endorsements, and a literal airplane banner flown over Amazon headquarters) led to Amazon picking up the series for seasons 4-6. The final season (6 episodes, 2022) provided closure to the main story, though the novel series continues beyond the show's endpoint.</p>
+
+<h2>Why It Ranks #11</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.50</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>The Rocinante Crew:</strong> Steven Strait plays James Holden as the moral center—a captain whose insistence on truth-telling (broadcasting everything he discovers) creates as many problems as it solves. The character is deliberately naive; he believes that transparency will lead to justice. Strait plays Holden as earnest, occasionally frustrating, and genuinely heroic. The crew includes Naomi Nagata (Dominique Tipper), a Belter engineer whose past in the OPA (Outer Planets Alliance) complicates her loyalty; Amos Burton (Wes Chatham), a mechanic whose traumatic past has left him with no moral compass except what others tell him; and Alex Kamal (Cas Anvar, seasons 1-5), a Martian pilot who left the navy for the life he found with the crew. The dynamic— Holden's idealism, Naomi's pragmatism, Amos's violence-under-control, Alex's loyalty—provides the series' emotional center.</p>
+        
+        <p><strong>Chrisjen Avasarala:</strong> Shohreh Aghdashloo plays the UN politician (later leader) as a master of soft power—manipulation, threats, and occasional brutality deployed in Earth's interest. Avasarala is the series' most entertaining character: profane, intelligent, and morally flexible. Aghdashloo's performance (Emmy-nominated) is distinctive—her voice, her presence, her ability to shift from charm to menace in a sentence.</p>
+        
+        <p><strong>Josephus Miller:</strong> Thomas Jane plays the Belter detective whose missing-person case (Season 1) leads him into the conspiracy. Miller is a noir archetype—a detective whose dedication to the case becomes obsession, who falls for a woman he's only seen in recordings. Jane plays Miller as exhausted, cynical, and ultimately idealistic; the character's arc (through Season 2) is among the series' most affecting.</p>
+        
+        <p><strong>Bobbie Draper:</strong> Frankie Adams plays the Martian marine whose disillusionment with Mars leads her to Avasarala's service. Bobbie is a soldier—physically imposing, tactically brilliant, struggling to find purpose when the war she was trained for doesn't happen as expected. Adams plays her as competent, frustrated, and gradually political.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Battlestar Galactica (9) achieved comparable ensemble depth in science fiction. The Expanse matches its character work with more concentrated focus on the Rocinante crew.</p>
+        
+        <p><strong>Why 7.5:</strong> Strong ensemble with Aghdashloo's Avasarala achieving particular distinction. The Rocinante crew provides emotional center. The limitation is that the political thriller elements draw focus from character development in later seasons.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">10</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.50</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Solar System:</strong> The Expanse is the most comprehensive solar system ever depicted on television. Earth is overpopulated and governed by the UN from New York. Mars is an independent republic (militarized, technologically advanced, seeking terraforming). The Belt is a colony—the asteroid stations (Ceres, Eros, Tycho) and outer moons (Ganymede, Europa) are home to Belters, whose bodies adapt to low gravity (taller, thinner, weaker bone density). The world is complete: each location has culture, politics, economics, and physical presence.</p>
+        
+        <p><strong>Hard Science:</strong> The physics is real. Spaceships accelerate by burning fuel continuously (flip-and-burn maneuver to reverse direction). Gravity comes from thrust (under acceleration) or rotation (station cylinders). Travel takes weeks or months (no faster-than-light). Combat involves distances of thousands of kilometers; ships are destroyed before they see their attackers. The creators consulted NASA; the science is accurate within the premise's constraints.</p>
+        
+        <p><strong>Belter Culture:</strong> The Belters are a developed culture—language (Belta creole), religion (adapted from Earth faiths), politics (the OPA, a quasi-governmental independence movement), and identity (born in space, adapted to zero-g, marginalized by Earth and Mars). The Belters are not just "the colonists"; they are a distinct civilization with legitimate grievances.</p>
+        
+        <p><strong>The Alien Technology:</strong> The protomolecule (the alien technology discovered in Season 1) introduces science fiction without violating the hard-science premise. The protomolecule is alien—it doesn't obey known physics—but the human response to it is realistic (fear, exploitation, weaponization). The rings (portals to other solar systems, Season 3+) expand the world beyond the solar system.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Game of Thrones (10) achieved comprehensive world-building in fantasy. The Expanse achieves comparable depth in hard science fiction—the solar system is as developed as Westeros.</p>
+        
+        <p><strong>Why 10:</strong> Comprehensive solar system with accurate physics, developed cultures, political complexity, and economic realism. The world is complete and consistent. This is the reference standard for science fiction world-building.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Space Rendering:</strong> The series depicts space with accuracy and beauty—the silence (sound doesn't travel in vacuum, except for the series' musical score), the darkness lit by distant stars and ship lights, the scale (ships are small against the vastness). The visual effects are impressive for television, though not at the level of feature films.</p>
+        
+        <p><strong>Zero-G Effects:</strong> The series depicts zero gravity convincingly—floating objects, liquids as spheres, characters moving through space. The effects are practical where possible (floating harnesses, rotating sets) and CGI where necessary. The zero-g sequences are among the series' distinctive visual moments.</p>
+        
+        <p><strong>Station Environments:</strong> Each station has distinct visual identity—Ceres (the asteroid station, wealthy and corrupt), Eros (the infected station, horror and decay), Tycho (the Belter construction station, hopeful and functional). The production design creates recognizable locations without elaborate sets.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Battlestar Galactica (7.5) established television science fiction cinematography. The Expanse matches its effects quality while respecting physics. The limitation is budget—space sequences are impressive for television but not feature-quality.</p>
+        
+        <p><strong>Why 7:</strong> Respectful physics rendering with convincing zero-g effects and distinct station environments. The visual effects are impressive for television. The limitation is budget compared to feature films.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">10</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 1.00</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Space at Scale:</strong> The series depicts space at its actual scale—ships are tiny against the vastness, distances are enormous, travel takes time. The spectacle is not in size (there are no Death Stars) but in the authentic rendering of a solar system. The ring gates (Season 3+) opening to other solar systems provide genuine cosmic spectacle.</p>
+        
+        <p><strong>Combat:</strong> Space combat is rendered with physics—ships accelerate toward each other, fire weapons across thousands of kilometers, and are destroyed before they see their attackers. The approach is not Star Wars (dogfights at visual range) but realistic (missiles at distance, point defense, nuclear weapons). The combat is spectacular but unfamiliar—it requires viewers to understand the physics.</p>
+        
+        <p><strong>The Protomolecule:</strong> The alien technology provides visual spectacle—the protomolecule infects Eros station, transforms humans into something else, and eventually creates the ring gates. The effects are body horror and cosmic architecture; the protomolecule is beautiful and terrifying.</p>
+        
+        <p><strong>Station Destruction:</strong> The series includes set-pieces—an asteroid crashing into Earth (Season 5), stations being destroyed, fleet actions. The spectacle is earned by the plot; the destruction has consequence.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Game of Thrones (9) achieved spectacle through scale and action. The Expanse achieves spectacle through physics-authentic space rendering and cosmic scope.</p>
+        
+        <p><strong>Why 10:</strong> Physics-authentic space spectacle with ring gates, combat at scale, and protomolecule transformation. The rendering of a solar system at realistic scale is unmatched in television.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Colonialism and Exploitation:</strong> The Belt is a colony—its resources extracted by Earth and Mars, its people marginalized and exploited. The series examines colonialism without allegory: the Belters are not stand-ins for Earth colonized peoples; they have their own culture, grievances, and politics. The OPA (Outer Planets Alliance) is simultaneously a resistance movement, a government, and a terrorist organization depending on perspective.</p>
+        
+        <p><strong>Physics as Consequence:</strong> The hard science premise has conceptual implications. Travel takes time—there are no quick rescues. Distance is real—communication is delayed by light-speed. Gravity affects bodies—Belters can't visit Earth without physical damage. The physics creates consequences that shape politics and society.</p>
+        
+        <p><strong>First Contact:</strong> The protomolecule introduces the alien—not as invasion but as discovery. The humans who find it don't understand it; their attempts to control it lead to catastrophe. The series examines what happens when humanity encounters something genuinely other: exploitation, fear, weaponization, and eventual transformation.</p>
+        
+        <p><strong>Political Realism:</strong> The solar system's politics are realistic—nation-states pursuing self-interest, alliances shifting based on power, leaders making immoral choices for what they see as the greater good. Avasarala tortures people for information; Holden broadcasts truth without considering consequence. The series doesn't idealize anyone.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Battlestar Galactica (9) achieved comparable thematic depth. The Expanse matches its examination of politics and identity with hard-science rigor.</p>
+        
+        <p><strong>Why 8:</strong> Strong conceptual examination of colonialism, first contact, and political realism through hard-science rigor. The physics creates consequences that shape narrative. The limitation is that some concepts (particularly in later seasons) become rushed.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.13</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Mystery (Season 1):</strong> The first season is a noir mystery—Miller's missing-person case leads to Holden's discovery, and both converge on the conspiracy. The drive is detective-story momentum: what happened? Who is responsible? The season introduces the world while telling a compelling mystery.</p>
+        
+        <p><strong>The Expansion (Seasons 2-3):</strong> The conspiracy unfolds into war—Earth, Mars, and the Belt are drawn into conflict while the protomolecule becomes cosmic threat. The drive shifts from mystery to thriller: preventing war, understanding the alien technology, surviving. Season 3 ends with the ring gates opening—solar-system scale becomes galactic.</p>
+        
+        <p><strong>The Settlement (Seasons 4-5):</strong> The rings open new solar systems to colonization; humans flood through the gates seeking resources and escape. The drive shifts from prevention to expansion—the existing powers try to control the new worlds while Belters seek their own place. Season 5's asteroid attack on Earth concentrates the narrative.</p>
+        
+        <p><strong>The Resolution (Season 6):</strong> The final season (6 episodes) resolves the Marco Inaros (Belter revolutionary) storyline and provides closure. The drive is focused—the series has always been building toward this confrontation. The resolution is satisfying but abbreviated; the novel series continues beyond.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represents maximum narrative momentum. The Expanse is more variable—Season 1 is tight, later seasons expand and contract with the politics. The drive is present but not relentless.</p>
+        
+        <p><strong>Why 7.5:</strong> Strong narrative drive through mystery (S1), thriller (S2-3), and political expansion (S4-6). Each season has momentum. The limitation is that the later seasons (particularly the abbreviated S6) feel rushed.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.70</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Partial Resolution:</strong> The series ends with the Marco Inaros storyline resolved—the Belter revolutionary is defeated, the ring gates remain open, the solar system has changed. The main cast's arcs conclude: Holden retires, the crew disperses, Avasarala leads Earth into a new era.</p>
+        
+        <p><strong>The Novel Continuation:</strong> The television series ends before the novels do (nine novels, the show covers roughly books 1-6). The show's creators chose to conclude the Marco Inaros storyline; the books continue with new threats through the ring gates. The resolution is satisfying but incomplete—the story continues beyond the show's endpoint.</p>
+        
+        <p><strong>The Abbrreviated Final Season:</strong> Season 6 is only 6 episodes (previous seasons were 10-13). The compression is visible—character moments are reduced, plot points are accelerated, the resolution feels rushed. The resolution is present but not fully earned.</p>
+        
+        <p><strong>Character Closure:</strong> The Rocinante crew gets closure—Holden retires, Naomi returns to the Belt, Amos finds purpose, Bobbie becomes a leader. The closure is earned through the series' run; the characters have developed. Avasarala's arc is particularly complete—from schemer to leader, her transformation is the series' political center.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Battlestar Galactica (7) achieved resolution with mixed reception. The Expanse matches its partial conclusion—the story ends but the world continues.</p>
+        
+        <p><strong>Why 7:</strong> Resolution of the Marco Inaros storyline with character closure for the main cast. The abbreviated final season (6 episodes) and the novel continuation beyond the show prevent higher score. The resolution is satisfying but incomplete.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">8.07</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.50 + World: 1.50 + Cine: 1.05 + Spectacle: 1.00 + <br>
+        Concepts: 1.20 + Drive: 1.13 + Resolution: 0.70 = <strong>8.07</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (62 episodes, 6 seasons) | Status: Ended (2022)<br>
+        Rank: #11 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 14 December 2015 | Network: Syfy (S1-3), Amazon Prime (S4-6) | Episodes: 62<br>
+    Creators: Mark Fergus, Hawk Ostby | Based on: Novels by James S.A. Corey<br>
+    Cast: Steven Strait, Dominique Tipper, Wes Chatham, Shohreh Aghdashloo, Thomas Jane, Frankie Adams<br>
+    Note: Saved from cancellation by fan campaign; the most ambitious hard science fiction on television<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

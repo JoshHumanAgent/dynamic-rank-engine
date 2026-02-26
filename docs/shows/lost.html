@@ -3,78 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost - TV Shows Ranked</title>
-    <link rel="stylesheet" href="../css/show-page.css">
+    <title>Lost (2004-2010) - 7-Dimension Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --accent-jungle: #2d5a3d;
+            --accent-amber: #d4a853;
+            --accent-red: #8b0000;
+            --text-primary: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --border: #2a2a2a;
+            --glow: rgba(212, 168, 83, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Section */
+        .show-header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .show-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-jungle), var(--accent-amber), var(--accent-red));
+        }
+
+        .show-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-item span {
+            color: var(--text-muted);
+        }
+
+        .show-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .show-creator {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .show-cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cast-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .cast-tag:hover {
+            border-color: var(--accent-amber);
+            color: var(--accent-amber);
+        }
+
+        .show-tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--accent-amber);
+            border-left: 3px solid var(--accent-amber);
+            padding-left: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        /* What It Feels Like Section */
+        .feel-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .feel-section::before {
+            content: '4 8 15 16 23 42';
+            position: absolute;
+            bottom: 1rem;
+            right: 1.5rem;
+            font-family: 'Courier New', monospace;
+            color: var(--accent-amber);
+            opacity: 0.3;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-amber);
+        }
+
+        .feel-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+        }
+
+        .feel-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .feel-highlight {
+            color: var(--accent-amber);
+            font-weight: 600;
+        }
+
+        /* Dimensions Section */
+        .dimensions-section {
+            margin-bottom: 3rem;
+        }
+
+        .dimensions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .dimension-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .dimension-card:hover {
+            border-color: var(--accent-amber);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dimension-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .dimension-score {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-amber);
+            line-height: 1;
+        }
+
+        .dimension-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .dimension-content p {
+            margin-bottom: 1rem;
+        }
+
+        .dimension-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Final Score Block */
+        .final-score-block {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            border: 2px solid var(--accent-amber);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-score-block::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+        }
+
+        .final-score-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-score-label {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .final-score-value {
+            font-size: 6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-amber), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .final-score-breakdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .breakdown-item {
+            text-align: center;
+        }
+
+        .breakdown-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-amber);
+        }
+
+        .breakdown-name {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .show-title {
+                font-size: 2.2rem;
+            }
+            
+            .dimensions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .show-header, .feel-section, .dimension-card, .final-score-block {
+                padding: 1.5rem;
+            }
+            
+            .final-score-value {
+                font-size: 4rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="breadcrumb">
-        <a href="../../index.html">Home</a> &gt; <span>Lost</span>
-    </nav>
-
-    <article class="show-page">
+    <div class="container">
+        <!-- Show Header -->
         <header class="show-header">
-            <img src="https://image.tmdb.org/t/p/w200/9C7bX4X4fX4h3Y4p4W5K6G7L8M.jpg" alt="Lost Poster" class="show-poster">
-            <div class="show-info">
-                <h1>Lost</h1>
-                <p class="show-meta">2004 - 2010 • ABC • 121 Episodes</p>
-                <div class="score-badge">Score: 7.18</div>
-                <div class="genres">Mystery, Drama</div>
+            <div class="show-meta">
+                <div class="meta-item"><span>Network:</span> ABC</div>
+                <div class="meta-item"><span>Run:</span> 2004-2010</div>
+                <div class="meta-item"><span>Seasons:</span> 6</div>
+                <div class="meta-item"><span>Episodes:</span> 121</div>
+                <div class="meta-item"><span>Genre:</span> Mystery / Drama / Supernatural Thriller</div>
             </div>
+            
+            <h1 class="show-title">Lost</h1>
+            <p class="show-creator">Created by J.J. Abrams, Damon Lindelof & Jeffrey Lieber</p>
+            
+            <div class="show-cast">
+                <span class="cast-tag">Matthew Fox</span>
+                <span class="cast-tag">Evangeline Lilly</span>
+                <span class="cast-tag">Josh Holloway</span>
+                <span class="cast-tag">Terry O'Quinn</span>
+                <span class="cast-tag">Michael Emerson</span>
+                <span class="cast-tag">Jorge Garcia</span>
+            </div>
+            
+            <p class="show-tagline">A commercial airliner crashes on a mysterious tropical island, leaving survivors to grapple with their pasts, an unseen monster, and secrets that challenge everything they know about reality itself.</p>
         </header>
 
-        <section class="deep-content">
-            <h2>What It Feels Like</h2>
-            <p class="vibe-text">
-                Oceanic Flight 815 crashes on a mysterious island. Survivors from different backgrounds must work together—and they discover the island has secrets. A smoke monster, a hatch, a group called the Others, and flashbacks that reveal who these people were before the crash. JJ Abrams and Damon Lindelof created a phenomenon: mystery television that drove the internet crazy with speculation. The show that defined watercooler television.
-            </p>
-
-            <h2>The 7-Dimension Analysis</h2>
-
-            <div class="dimension">
-                <h3>Characters & Acting (8/10)</h3>
-                <p>Matthew Fox as Jack, the reluctant leader. Evangeline Lilly as Kate, the fugitive. Terry O'Quinn as Locke, the believer. Josh Holloway as Sawyer, the con man. The ensemble (Naveen Andrews, Jorge Garcia, Yunjin Kim, Daniel Dae Kim, Michael Emerson) created television's most obsessed-over characters. The performances made you care about the mystery.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>World Building (9/10)</h3>
-                <p>The island: the hatch, the Others, the Dharma Initiative, the smoke monster, the Temple, the lighthouse. The mythology expanded across six seasons, sometimes brilliantly, sometimes confusingly. The world was television's first interactive mystery—fans mapped every detail.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>Cinematography (7/10)</h3>
-                <p>Network TV production in Hawaii: the jungle, the beach, the caves. The crash sequence is legendary. The style serves the mystery—everything is photographed to suggest secrets. The flashbacks and flash-forwards create visual structure.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>Visual Spectacle (7/10)</h3>
-                <p>The spectacle is the island: the crash, the smoke monster, the time travel, the nuclear explosion. The effects were network TV budget but deployed creatively. The spectacle served the mystery—the island as wonder and terror.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>Conceptual Density (8/10)</h3>
-                <p>Faith vs. science, destiny vs. free will, redemption, whether we can escape our pasts. The show explored these through character and mythology. The philosophical depth was sometimes obscured by plot confusion, but it was present.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>Narrative Drive (9/10)</h3>
-                <p>The mystery drove everything: what is the island, what's in the hatch, who are the Others, what do the numbers mean? The flashbacks revealed character; the mysteries drove speculation. The most discussed television of its era.</p>
-            </div>
-
-            <div class="dimension">
-                <h3>Narrative Path & Resolution (5/10)</h3>
-                <p>Six seasons with controversial ending. Lindelof and Cuse answered some questions, ignored others, and provided a polarizing conclusion. The finale is still debated—some found it beautiful, others felt betrayed. The ending defines the show.</p>
+        <!-- What It Feels Like to Watch -->
+        <section class="feel-section">
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            <div class="feel-content">
+                <p>Watching <em class="feel-highlight">Lost</em> is like being handed the world's most elaborate puzzle box, one that requires six years to fully dismantle—and even then, you're not entirely sure you found everything inside. From the very first frame, the show throws you into a world that immediately defies logic: a plane breaks apart mid-air, passengers scatter across a beach in chaos, and just as you're processing the horror of the crash, a massive unseen creature begins ripping apart the jungle. Welcome to the island. You'll never leave quite the same.</p>
+                
+                <p>The viewing experience is one of perpetual vertigo and revelation. Each episode operates on multiple frequencies simultaneously. The <em class="feel-highlight">"mystery box"</em> structure pioneered by J.J. Abrams wraps itself around you like vines in the jungle—every answer breeds three new questions, every revelation deepens the mystery rather than resolving it. You'll find yourself pausing episodes to rewind a crucial line, scribbling theories on napkins, arguing with friends about whether the smoke monster represents guilt or judgment or something else entirely.</p>
+                
+                <p>Then there are the structural innovations that redefined television storytelling. The <em class="feel-highlight">flashbacks</em>—seemingly simple at first—gradually become the emotional heartbeat of the series, revealing how the island's survivors are all connected through invisible threads of fate and consequence long before they crashed. When the show pivots to <em class="feel-highlight">flash-forwards</em> in Season 3, your understanding of time itself fractures. The audience isn't just watching events unfold; they're experiencing time as a mobius strip, where past, present, and future collapse into each other. The storytelling demands active participation—this isn't background television, it's an active conspiracy between creator and viewer.</p>
+                
+                <p>And then there's the pure, audacious spectacle. <em class="feel-highlight">Polar bears in the jungle</em>. A mysterious hatch buried in the ground containing a Scotsman pushing a button every 108 minutes to prevent catastrophe. Ancient statues with four toes. A mysterious Frenchwoman who's been stranded for sixteen years and speaks of whispers in the jungle. The island itself becomes a character—lush and beautiful, yet pregnant with danger, its geography shifting, its rules constantly being rewritten. You'll watch the survivors trek from beaches to caves to mysterious facilities buried underground, each location adding new layers to the mythology.</p>
+                
+                <p>The emotional experience is equally complex. <em class="feel-highlight">Lost</em> makes you love characters who are fundamentally broken. Jack Shephard, the doctor who needs to fix everything because he couldn't fix his father. John Locke, the paraplegic who can walk again on the island but loses himself to obsession. Sawyer, the con man running from a childhood tragedy. Hurley, the gentle Lottery winner cursed by numbers. Through the flashback structure, you come to understand their damage intimately, and then you watch them try to heal on an island that may or may not want them to leave.</p>
+                
+                <p>The <em class="feel-highlight">controversial finale</em> divides viewers even today. Did it answer enough? Did it answer the right questions? The final episodes pivot from the mythology-heavy middle seasons to something more philosophical and character-focused. Some found this transcendent—a meditation on community, purpose, and letting go. Others felt cheated, expecting a comprehensive mythology guidebook rather than an emotional conclusion. What remains undeniable is that <em class="feel-highlight">Lost</em> changed what television could be. It proved that audiences would follow complex, serialized narratives. It introduced the water-cooler show to the binge era. It made mysteries into events. Six years after it ended, we're still debating its meanings, still discovering new connections, still lost in its maze—exactly as it intended.</p>
             </div>
         </section>
 
-        <section class="streaming-info">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Hulu, Amazon Prime Video</p>
-            <p><strong>UK:</strong> Disney+, Amazon Prime Video</p>
+        <!-- Why It Ranks - Seven Dimensions -->
+        <section class="dimensions-section">
+            <h2 class="section-title">Why It Ranks</h2>
+            <div class="dimensions-grid">
+                
+                <!-- Characters -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">Characters</h3>
+                        <span class="dimension-score">9.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p><em>Lost</em> assembled one of television's most ambitious ensembles, and then did the unthinkable: it made nearly every single one of them essential. The initial fourteen survivors quickly expand to include others already living on the island, and through the flashback structure, we come to understand not just who they were before, but why they were headed where they were going.</p>
+                        
+                        <p>The brilliance lies in archetype subversion. Jack appears to be the heroic leader, but he's consumed by daddy issues and an inability to let go. Sawyer seems like the villainous con artist, but his cruelty masks unspeakable childhood grief. John Locke—played with transcendent mystery by Terry O'Quinn—evolves from a man of faith into something far more complicated and ultimately tragic. The show never lets anyone remain static; characters regress, evolve, betray, and redeem themselves across the six seasons.</p>
+                        
+                        <p>Even tertiary characters received Shakespearean treatment. Benjamin Linus, introduced as a villain in Season 2, becomes one of television's most fascinating antagonists—brilliant, manipulative, desperate for approval, utterly terrifying yet somehow sympathetic. Michael Emerson's performance elevated the material into something operatic. Similarly, Desmond Hume's time-traveling romance with Penny transcends genre trappings to become genuinely moving television.</p>
+                        
+                        <p>The flash-sideways concept in the final season risks overcomplicating an already complex structure, but it succeeds in giving every major character a meaningful closing note. Whether those notes satisfy every viewer is debatable, but the ambition—to examine what these people needed in order to move on—demonstrates the depth of the character work. <em>Lost</em> understood that mythology serves character, not the other way around, and its ensemble remains one of television's richest explorations of damaged people finding community.</p>
+                    </div>
+                </div>
+
+                <!-- World Building -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">World Building</h3>
+                        <span class="dimension-score">9.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>The island in <em>Lost</em> is one of fiction's most fully realized settings—a location that operates simultaneously as tropical paradise, prison, proving ground, and metaphysical battleground. The world building unfolds organically through discovery rather than exposition. Characters stumble upon the mysterious Hatch in Season 1, and over subsequent seasons, we peel back layers: the DHARMA Initiative research stations, the ancient Temple, the frozen wheel that moves the island itself, the mysterious source of its power.</p>
+                        
+                        <p>What distinguishes <em>Lost</em>'s world building from lesser attempts is internal consistency within its own dream logic. The island operates by rules that remain consistent even as they're revealed: time behaves strangely around certain pockets of energy, the smoke monster acts according to a specific metaphysical framework, the electromagnetic properties create bizarre phenomena. The show trusts viewers to piece together connections over seasons rather than spelling everything out immediately.</p>
+                        
+                        <p>The DHARMA Initiative backstory represents world building at its most compelling—a secret scientific research organization from the 1970s whose experiments explain some island phenomena while raising new questions. The orientation films, research stations with specific functions (The Swan, The Hydra, The Flame), and the culture clash between DHARMA and the island's original inhabitants ("The Others") create a layered history that feels genuinely archaeological. Viewers aren't just watching present events; they're excavating a place with centuries of secrets buried beneath its surface.</p>
+                        
+                        <p>The expansion beyond the island in later seasons—from time travel to parallel timelines—risks diluting the core setting, but the show always returns the island as the anchor. Whether characters are flashing through time or experiencing alternate realities, the island remains the nexus, the place that matters most. This commitment to a singular, mysterious location as the heart of everything gives <em>Lost</em>'s world building a focus that sprawling interplanetary epics often lack.</p>
+                    </div>
+                </div>
+
+                <!-- Cinematography -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">Cinematography</h3>
+                        <span class="dimension-score">8.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>Shot on location in Oahu, Hawaii, <em>Lost</em> possesses a visual texture unique among network television shows of its era. While contemporaries were shooting interiors on soundstages with obvious green screens, <em>Lost</em> put its actors in real jungles, on actual beaches, inside abandoned military installations. This commitment to practical location shooting pays dividends in texture and authenticity. When characters traverse the island, they're really traversing it—the sweat is real, the foliage is real, the isolation is palpable.</p>
+                        
+                        <p>The cinematography evolves significantly across the six seasons. Early episodes employ a handheld, documentary-style approach that reinforces the chaos of the crash and survival situation. As the show becomes more stylized—particularly during the DHARMA Initiative era and beyond—the camera work becomes more deliberate, compositions more painterly. The transition from gritty survival tale to science fiction mystery is mirrored in increasingly sophisticated lighting and camera movement.</p>
+                        
+                        <p>Specific sequences stand out as visual achievements. The Season 1 finale's trek across the island to the Black Rock ship is shot with epic scope rarely attempted on television. The hatch-opening sequence uses suspense and scale masterfully. Later seasons' location work—ancient Egyptian imagery, frozen regions, various time periods—demonstrates ambitious scope that stretches the production to its limits.</p>
+                        
+                        <p>The score, however, occasionally overreaches with CGI landscapes that show their age, particularly in the time-travel sequences and some of the smoke monster appearances. While practical effects generally hold up, certain green-screen work in later seasons appears dated. The reliance on the "wipe" transition between flashbacks and present narrative can feel stagey. These limitations keep the cinematography from achieving masterpiece status, though the ambition to make television look cinematic remains revolutionary for its time and influential on everything that followed.</p>
+                    </div>
+                </div>
+
+                <!-- Visual Spectacle -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">Visual Spectacle</h3>
+                        <span class="dimension-score">8.5</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p><em>Lost</em> delivered spectacle that redefined what television could accomplish visually, particularly for network programming where budgets traditionally favored procedural efficiency over cinematic ambition. The pilot episode alone—featuring the crash of Oceanic Flight 815 with practical effects, explosions, and visceral panic—arrives as a thunderbolt, announcing that this show would not look like its contemporaries.</p>
+                        
+                        <p>The smoke monster remains one of television's genuinely terrifying creations. Rendered through a combination of CGI and practical effects (the mechanical clicking of its movement), appearing as a column of black smoke that scans and judges and destroys, it manages to be both abstract and visceral. The visual design suggests ancient technology rather than supernatural phenomenon, a crucial distinction that feeds the show's mythology. When it attacks, the sequence editing—flashes of crashing trees, screaming victims, the monster's perspective shots—creates genuine panic.</p>
+                        
+                        <p>Seasonal set pieces build in ambition. The hatch implosion at the end of Season 2. Henry Gale's capture and subsequent manipulation of the survivors. The freighter explosion in Season 4. The time-flashing sequences where characters physically experience temporal displacement. Each major season climax operates on feature-film scale. The show's commitment to practical explosions, location shooting, and large-scale action distinguishes it visually from shows that would arrive in its wake relying heavily on digital environments.</p>
+                        
+                        <p>However, the demands of 22-episode seasons sometimes strain the visual effects budget. The polar bear in early episodes (and its return in later seasons) shows limitations. Some of the underwater sequences in the Looking Glass station appear dated. The final season's spiritual imagery occasionally veers toward the generic—heavenly light substituting for more specific visual invention. These compromises prevent a higher score, though they never significantly undermine the show's overall visual impact. <em>Lost</em> proved that television could operate on cinematic scale, and the medium has been catching up ever since.</p>
+                    </div>
+                </div>
+
+                <!-- Conceptual Density -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">Conceptual Density</h3>
+                        <span class="dimension-score">9.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>There has never been a broadcast network show as conceptually ambitious as <em>Lost</em>. The series operates as a dense palimpsest of philosophical inquiry, religious allegory, scientific speculation, and psychological examination. Every episode layers multiple thematic frameworks: fate versus free will, faith versus reason, redemption through suffering, the nature of time itself, the ethics of scientific experimentation, communal responsibility versus individual obsession.</p>
+                        
+                        <p>The show references and incorporates ideas from across human intellectual history. John Locke shares his name with the empiricist philosopher, yet embodies faith-based intuition; his philosophical opposite, Jack Shephard, represents scientific rationalism. The DHARMA Initiative names borrow from Eastern philosophy (Dharma meaning cosmic law and order). The Valenzetti Equation—the mathematical formula predicting human extinction—reflects real-world speculation about existential risk. Egyptian mythology, classical literature (the book club selections in flashbacks), religious texts from multiple traditions, and contemporary philosophy all feed into the narrative stew.</p>
+                        
+                        <p>The time travel mechanics introduced in Season 4 represent the show's conceptual confidence at its peak. Rather than treating time travel as a simple plot device for changing history, <em>Lost</em> embraces the Novikov self-consistency principle—whatever happened, happened. Characters traveling to the past cannot change it; they were always part of it. This creates devastating dramatic ironies (like certain character deaths) while exploring deeper questions about determinism and agency. The show trusts its audience to follow complex causality across multiple timelines.</p>
+                        
+                        <p>The final season's pivot toward the "flash-sideways"—an alternate timeline where the plane never crashed—initially appears to retreat from conceptual complexity into parallel universe simplicity. But the revelation that this timeline represents a metaphysical waiting room, a space the characters created to find each other before moving on, transforms the entire series into a meditation on human connection transcending death itself. Whether one accepts this resolution philosophically, the conceptual ambition—to use genre television to explore what moving on actually means—demonstrates remarkable density. <em>Lost</em> isn't just a mystery; it's an extended philosophical dialogue about what it means to be alive, and what it takes to be at peace with not being alive anymore.</p>
+                    </div>
+                </div>
+
+                <!-- Narrative Drive -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">Narrative Drive</h3>
+                        <span class="dimension-score">9.5</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p><em>Lost</em> mastered the art of narrative propulsion like few shows before or since. From the pilot's catastrophic opening through to the series finale, the storytelling maintains relentless forward momentum while simultaneously layering complexity onto complexity. The mystery box structure perfected by Abrams (and interrogated by Lindelof) creates viewer investment through strategic revelation—always answering enough to satisfy immediate curiosity while posing new questions that demand resolution.</p>
+                        
+                        <p>The structural innovations contribute enormously to narrative drive. The flashback format creates dual timelines that inform each other; understanding a character's past dramatically changes how we interpret their present actions. When the show pivots to flash-forwards in Season 3's "Through the Looking Glass"—revealing that Jack and Kate escaped the island and are miserable back in civilization—the entire narrative engine shifts. We no longer wonder IF they'll be rescued; we wonder HOW this particular future came to pass, and whether it can be changed.</p>
+                        
+                        <p>The cliffhanger became an art form. Season endings—the hatch opening, the Others' attack, the freighter explosion, the time travel incident, the detonation of the hydrogen bomb—operate as genuine events in television history. The writers understood stakes escalation: the conflict evolves from man vs. nature (survival) to man vs. man (The Others) to man vs. system (The DHARMA Initiative) to something more metaphysical (fate itself). Each escalation feels earned because character development accompanies plot complication.</p>
+                        
+                        <p>Season 3 suffered from a midseason slump when the writers weren't certain of their endpoint, creating the Nikki and Paulo debacle and some wheel-spinning on the beach. However, once the end date was established (three more seasons of set length), the narrative regained its ferocity. The final three seasons move with increasing velocity toward conclusion while still making room for standalone episodes of exceptional quality ("The Constant" being the most celebrated, a time travel romance that transcends genre entirely).</p>
+                        
+                        <p>The only reason this doesn't achieve a perfect score is the acknowledged difficulty of landing a mystery of this scope. Some viewers felt the final season's pivot toward character resolution over mythology resolution betrayed the narrative contract. But the drive itself—the six-year commitment to increasingly complex, interconnected storytelling that demanded weekly audience attention—remains unprecedented in network television history. <em>Lost</em> proved audiences would follow complicated narratives, and in doing so, helped birth the golden age of television that followed.</p>
+                    </div>
+                </div>
+
+                <!-- Resolution -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-name">Resolution</h3>
+                        <span class="dimension-score">8.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <p>Any discussion of <em>Lost</em>'s resolution must acknowledge the impossible position in which the writers found themselves. Six years of accumulated mysteries, character arcs, philosophical questions, and fan expectations created a situation where satisfaction for all was likely impossible. The finale "The End"—which drew over 13 million viewers—continues generating debate more than a decade later, which itself speaks to the show's cultural impact and the complexity of what constitutes proper resolution.</p>
+                        
+                        <p>What the finale does resolve, it resolves beautifully. The emotional arcs find mostly satisfying conclusions: Jack's sacrifice, Sawyer's redemption, Desmond and Penny's reunion, Locke's final acceptance. The "flash-sideways" revelation—that these characters created this place to find each other before moving on together—provides a metaphysical framework for the entire series that reframes individual sacrifice and connection as the ultimate purpose. The final sequence, with the characters gathering in a church and moving into light together, operates as earned catharsis for viewers who'd spent years with these people.</p>
+                        
+                        <p>However, the mythology resolution disappoints many. The Island's electromagnetic properties and the Source? Explained through Jack plugging a literal cork back in. The rules governing Jacob and the Man in Black? Explained through a rushed mythology episode ("Across the Sea") that left many questions unanswered. The Numbers? Explained as Jacob picking candidates, but never why those specific numbers had power in the outside world. Walt's special abilities? Largely abandoned. The Egyptian hieroglyphics and ancient civilizations? Never fully contextualized.</p>
+                        
+                        <p>The show's stated philosophy—that questions are more interesting than answers—defends some of these choices. The creators have argued that providing comprehensive mythology guidebooks would be less interesting than leaving room for interpretation and wonder. This is defensible artistically but arguably betrays the narrative contract made with viewers who expected definitive answers to specific mysteries introduced across six seasons.</p>
+                        
+                        <p>Despite these frustrations, <em>Lost</em> does provide resolution on its own terms. It concludes with emotional honesty about what matters to these characters and to the world they've built together. The island—and its mysteries—ultimately serves as backdrop for human connection, grief, and transcendence. Whether one finds that sufficient determines one's feelings about the finale. As resolution goes, it's imperfect but sincere, ambitious but incomplete, frustrating but unforgettable. Much like the show itself.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <footer class="show-footer">
-            <a href="../../index.html">← Back to Rankings</a>
-        </footer>
-    </article>
+        <!-- Final Score Block -->
+        <section class="final-score-block">
+            <div class="final-score-content">
+                <p class="final-score-label">Final Verdict</p>
+                <div class="final-score-value">7.61</div>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">A landmark series that transformed television storytelling through its ambitious mythology, unforgettable characters, and willingness to trust audiences with complexity—even if it couldn't quite stick the landing on every mystery it created.</p>
+                
+                <div class="final-score-breakdown">
+                    <div class="breakdown-item">
+                        <div class="breakdown-score">9.0</div>
+                        <div class="breakdown-name">Characters</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-score">9.0</div>
+                        <div class="breakdown-name">World Building</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-score">8.0</div>
+                        <div class="breakdown-name">Cinematography</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-score">8.5</div>
+                        <div class="breakdown-name">Visual Spectacle</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-score">9.0</div>
+                        <div class="breakdown-name">Conceptual Density</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-score">9.5</div>
+                        <div class="breakdown-name">Narrative Drive</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-score">8.0</div>
+                        <div class="breakdown-name">Resolution</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

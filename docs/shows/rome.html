@@ -3,88 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rome - "All Roads Lead to Rome" | Dynamic Rank Engine</title>
+    <title>Rome (2005-2007) - 7-Dimension Analysis</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #1a1510 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #bf8a30; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #bf8a30, #8b5a00); color: #fff3e0; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #d4a85c; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(191,138,48,0.3), rgba(0,0,0,0.9)); border: 3px solid #bf8a30; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #d4a85c; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #bf8a30; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #d4a85c; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(191,138,48,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #d4a85c; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #d4a85c; font-weight: 700; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2416 50%, #1a1510 100%);
+            color: #e8dcc0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(139, 90, 43, 0.3) 0%, rgba(139, 90, 43, 0) 100%);
+            border-bottom: 3px solid #8b5a2b;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #c9a65c;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .meta-info {
+            font-size: 0.95em;
+            color: #a89170;
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #d4af37;
+            margin: 50px 0 25px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #8b5a2b;
+            letter-spacing: 2px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #c9a65c;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+
+        .dimension-block {
+            background: rgba(139, 90, 43, 0.15);
+            border-left: 4px solid #8b5a2b;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .dimension-title {
+            font-size: 1.5em;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .score-display {
+            background: linear-gradient(135deg, #8b5a2b, #a06a3b);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .score-bar-container {
+            background: rgba(0,0,0,0.4);
+            height: 8px;
+            border-radius: 4px;
+            margin: 15px 0 20px 0;
+            overflow: hidden;
+        }
+
+        .score-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #8b5a2b, #d4af37);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .feels-like {
+            background: linear-gradient(135deg, rgba(139, 90, 43, 0.2), rgba(0,0,0,0.3));
+            padding: 40px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 1px solid rgba(139, 90, 43, 0.5);
+        }
+
+        .feels-like h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .final-score-block {
+            background: linear-gradient(135deg, #8b5a2b, #5c3d1e);
+            padding: 50px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 50px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .final-score-title {
+            font-size: 1.5em;
+            color: #e8dcc0;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .final-score-value {
+            font-size: 5em;
+            color: #d4af37;
+            font-weight: bold;
+            text-shadow: 4px 4px 10px rgba(0,0,0,0.7);
+        }
+
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .cast-member {
+            background: rgba(139, 90, 43, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #8b5a2b;
+        }
+
+        .creators {
+            text-align: center;
+            font-style: italic;
+            color: #a89170;
+            margin: 15px 0;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #c9a65c;
+            border-left: 3px solid #d4af37;
+            padding-left: 20px;
+            margin: 25px 0;
+            font-size: 1.1em;
+        }
+
+        .analysis-section {
+            margin: 40px 0;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .summary-item {
+            background: rgba(139, 90, 43, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(139, 90, 43, 0.4);
+        }
+
+        .summary-label {
+            font-size: 0.85em;
+            color: #a89170;
+            margin-bottom: 5px;
+        }
+
+        .summary-score {
+            font-size: 1.6em;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #a89170;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(139, 90, 43, 0.4);
+            margin-top: 60px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2em; letter-spacing: 4px; }
+            h2 { font-size: 1.6em; }
+            .final-score-value { font-size: 3.5em; }
+            .container { padding: 20px 15px; }
+            .feels-like { padding: 25px; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #26</div>
-            <h1>Rome</h1>
-            <p class="subtitle">"All Roads Lead to Rome"</p>
-            <div class="score-badge">
-                <span class="score-value">8.06</span>
-                <span class="score-label">Final Score</span>
+        <header>
+            <h1>ROME</h1>
+            <div class="subtitle">The HBO Historical Epic That Paved the Way</div>
+            <div class="meta-info">
+                2005—2007 | 2 Seasons | 22 Episodes | Historical Drama
             </div>
-        </div>
+            <div class="creators">
+                Created by John Milius, William J. MacDonald & Bruno Heller
+            </div>
+            <div class="cast-list">
+                <span class="cast-member">Kevin McKidd</span>
+                <span class="cast-member">Ray Stevenson</span>
+                <span class="cast-member">Polly Walker</span>
+                <span class="cast-member">Ciarán Hinds</span>
+                <span class="cast-member">James Purefoy</span>
+            </div>
+        </header>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2005-2007</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">22</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Bruno Heller, William J. MacDonald, John Milius</div></div>
-        </div>
-
-        <div class="section">
+        <div class="feels-like">
             <h2>What It Feels Like to Watch</h2>
-            <p>Rome is HBO's glorious failure—a historical epic so expensive that it helped define the network's prestige aspirations, cancelled after two seasons because it nearly broke the budget. Set during the transformation of the Roman Republic into the Empire, it follows Julius Caesar's conquest, assassination, and the civil war that followed, seen through the eyes of both the great men of history and two ordinary soldiers caught in the turbulence.</p>
-            <p>Lucius Vorenus (Kevin McKidd) and Titus Pullo (Ray Stevenson) are our guides through the chaos. Vorenus is a principled soldier, devoted to tradition, struggling to adapt to a changing world. Pullo is his opposite: violent, impulsive, surprisingly moral in his own way. They're fictionalized versions of real legionaries mentioned briefly in Caesar's commentaries, and their friendship drives the show's emotional core. These are ordinary men whose lives keep intersecting with extraordinary history.</p>
-            <p>But the show's true stars are its vision of Rome itself—not the marble city of legend, but a crowded, dirty, vibrant metropolis where wealth and poverty exist side by side, where politics is violent and personal, where gods are believed in and manipulated. The production design is staggering: five acres of sets built at Cinecittà studios in Rome, costumes detailed enough for museum display, a budget of over $100 million for twenty-two episodes.</p>
-            <p>Two seasons, twenty-two episodes, complete story. The show ends with Octavian's victory over Antony and Cleopatra, the birth of the Empire. It's a perfect conclusion to an imperfect production: ambitious, flawed, unforgettable. Rome proved that television could do history as spectacle, that the small screen could compete with epics. It was cancelled too soon, but what remains is glorious.</p>
+            
+            <p>Watching <em>Rome</em> feels like stepping into a time machine that deposits you roughly two thousand years ago, but strips away the romantic varnish that history so often applies. This is not the sanitized, statuesque Rome of textbooks and epic poetry. This is Rome as it must have been: brutal, fragrant, loud, crowded, and utterly, mesmerizingly alive.</p>
+
+            <p>The series opens with Caesar's legions in Gaul, and immediately you sense this is something different from the usual sword-and-sandals fare. The mud is real. The blood is thick. The politics are vicious. HBO committed the extraordinary and expensive act of building an entire Rome on five acres at Cinecitta Studios—an achievement that remains staggering to behold. You can practically smell the filth of the Subura, hear the cries of street vendors, feel the claustrophobic density of an ancient metropolis teeming with life and death.</p>
+
+            <p>At its heart beats the relationship between Lucius Vorenus and Titus Pullo, two soldiers whose friendship serves as the emotional anchor through two of history's most tumultuous decades. Their dynamic—Vorenus the rigid moral compass, Pullo the hedonistic heart—provides the human scale that makes the imperial machinations of Caesar, Pompey, Antony and Octavian feel genuinely consequential. You care about these men. You watch their triumphs and tragedies unfold with genuine investment.</p>
+
+            <p><em>Rome</em> arrived before <em>Game of Thrones</em> made sprawling, violent historical fiction mainstream television currency. It was HBO's proving ground for the genre—expensive, ambitious, unflinching, and unafraid to depict the messy reality of power. Every frame suggests a production that believed history deserved the same meticulous treatment that would later define Westeros. The costumes are authentic down to the brooch, the architecture researched to the architrave, the social customs rendered with anthropological attention.</p>
+
+            <p>Yet it never feels like homework. The propulsive narrative energy, the sudden violence, the sexual politics played for keeps—all of it creates an atmosphere of barely controlled chaos. You are watching a civilization at maximum stress, its republican institutions straining against the gravitational pull of absolute power. The show understands that "historical drama" need not mean "slow drama." Events accelerate. Consequences accumulate. Characters you believed would anchor the entire series meet sudden, shocking ends.</p>
+
+            <p>Most profoundly, <em>Rome</em> captures what it might have felt like to live through history's tectonic shifts—not from Olympus, but from the streets. Watching it feels like being granted an impossible memory, visiting an ancient world that turns out to be populated by people whose appetites, ambitions, and agonies would be immediately recognizable to any modern viewer. That intimacy with the past, that sense of historical empathy, is the show's most remarkable achievement.</p>
         </div>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
+        <div class="analysis-section">
+            <h2>Why It Ranks: The 7 Dimensions</h2>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">CHARACTERS</span>
+                    <span class="score-display">7.8</span>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 78%;"></div>
+                </div>
+                
+                <p>The character work in <em>Rome</em> operates on two distinct tracks: the historical titans and the invented everymen. Where the series truly excels is in its original creations—particularly the Vorenus-Pullo relationship, which provides the emotional core that makes the grand political machinations meaningful. Kevin McKidd and Ray Stevenson craft one of television's most compelling friendships: Vorenus's rigid, tortured nobility playing against Pullo's earthy, impulsive warmth. Their bond evolves through battlefield trauma, civilian life, political upheaval, and personal tragedy with genuine emotional weight.</p>
+
+                <p>Atia of the Julii, as portrayed by Polly Walker, emerges as one of prestige television's most fascinating creations—a woman whose political ambition manifests through ruthless maternal instinct and sexual manipulation. Lindsay Duncan's Servilia and Max Pirkis's young Octavian also demonstrate the show's knack for finding the human within the historical. Where characters occasionally stumble is in their relationship to recorded history—some historical figures feel constrained by their destinies, their dramatic agency limited by what must happen rather than what could. Mark Antony's descent into caricature in the second season exemplifies this, as does the occasionally rushed development of Octavian's transformation from calculating boy to cold emperor. Yet when <em>Rome</em> finds space to breathe between the history books, its characters achieve a vitality that transcends their marble monuments.</p>
             </div>
-            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> Rome recreated. The streets, the temples, the markets. A living ancient city.</p>
-            <p><strong>Visual Spectacle (10):</strong> $100 million for 22 episodes. Sets at Cinecittà. Television as epic film.</p>
-            <p><strong>Characters & Acting (9):</strong> McKidd and Stevenson are perfect foils. Ciaran Hinds and Polly Walker are unforgettable as Caesar and Atia.</p>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">WORLD BUILDING</span>
+                    <span class="score-display">8.0</span>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 80%;"></div>
+                </div>
+                
+                <p><em>Rome</em> represents one of television's most ambitious world-building achievements—a fully realized reconstruction of the ancient city that rivals any cinematic spectacle. The production team's decision to construct actual sets at Cinecitta Studios rather than relying on digital extensions creates an unprecedented sense of tactility and authenticity. You can feel the weight of the stones, the texture of the streets, the organic layout of neighborhoods from the grand forums to the squalid Subura.</p>
+
+                <p>The world-building extends beyond architecture into social fabric. The show meticulously depicts Roman religious practice, from augury readings to household gods. It explores the complex interplay of patronage and clientage that structured Roman politics, the economic realities of slavery, the sexual politics of a status-obsessed culture, and the brutal entertainments that kept the populace compliant. The distinction between citizen and foreigner, patrician and plebeian, free and slave is woven into every interaction.</p>
+
+                <p>Where the world building occasionally shows strain is in the compression of geography and the occasional anachronism—dialogue that feels too modern, social dynamics that reflect contemporary sensibilities. The shift from Season One's expansive Roman setting to Season Two's more constrained focus following budget reductions is palpable, with some locations feeling underpopulated where the first season teemed with authentic urban density. Nevertheless, the cumulative effect remains immersive: this is Rome as lived space, not merely as backdrop, a world that feels genuinely inhabited by people who understand its rules and rhythms.</p>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">CINEMATOGRAPHY</span>
+                    <span class="score-display">8.0</span>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 80%;"></div>
+                </div>
+                
+                <p>The visual language of <em>Rome</em> establishes a distinctive aesthetic that captures the grime and grandeur of the ancient world with equal commitment. Cinematographers Marco Pontecorvo and Alik Sakharov develop a rich, earthy palette—ochres, browns, deep reds, and burnished golds—that evokes both the Mediterranean sun and the accumulated dust of centuries. The lighting design deserves particular mention: interiors are frequently underlit by flickering oil lamps, creating pools of shadow and illumination that suggest the technological limitations of the era while creating genuine visual drama.</p>
+
+                <p>The camera work favors a mix of muscular handheld sequences for battle and public scenes—creating documentary-like immediacy—with more classical framing for political confrontations and intimate moments. The show understands the cinematic potential of its constructed sets, finding compositions that emphasize the vertiginous scale of Roman architecture alongside the claustrophobic density of urban living. Directors vary their approaches across episodes, with some favoring operatic grandeur while others pursue grittier naturalism.</p>
+
+                <p>Notable visual signatures include the recurring motif of thresholds and doorways—characters constantly moving between public and private spheres, the sacred and the profane. The use of deep focus allows background and foreground to carry equal narrative weight, whether revealing conspirators in the shadows of a senate chamber or slaves attending to masters in the margins. Some second-season episodes show budgetary pressure through less ambitious coverage and more reliance on tight shots, but the overall visual standard maintains cinematic quality throughout, treating the medium with the respect of feature filmmaking.</p>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">VISUAL SPECTACLE</span>
+                    <span class="score-display">8.5</span>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 85%;"></div>
+                </div>
+                
+                <p><em>Rome</em> delivers spectacle that justifies its extraordinary budget with sequences of genuine visual power and historical imagination. The Battle of Alesia, while compressed by television constraints, manages to convey the scale of Roman warfare through disciplined choreography and practical effects. Egyptian Alexandria, when introduced, provides an architectural and aesthetic counterpoint to Rome itself—a sun-drenched Mediterranean alternative to the Republican city's more austere grandeur.</p>
+
+                <p>The triumph scenes demonstrate the show's capacity for pageantry: colorful legion standards, marching formations, captives in chains, exotic plunder displayed through streets lined with cheering citizens. These moments reconstruct Rome's theatrical politics, where power was demonstrated through public display. The arena sequences—gladiatorial combat, beast hunts, executions—balance visceral impact with historical authenticity, never sanitizing the brutal entertainments that defined Roman popular culture.</p>
+
+                <p>What elevates the spectacle is its integration with narrative rather than mere decoration. The assassination of Caesar unfolds with operatic tension: the senate's crowded corridors, the conspirators' synchronized movements, the famous final words emerging not as theatrical cliché but as gasped recognition. Cleopatra's entrance into Rome—an offensive display of Eastern excess—serves narrative purpose beyond visual indulgence, illustrating the cultural anxieties that would accelerate the Republic's collapse. Even intimate spaces provide spectacle through production design: Atia's villa with its elaborate frescoes, the Aventine brothel's carved erotica, the rough-hewn authenticity of army camps.</p>
+
+                <p>The second season's reduced scale occasionally limits visual ambition, with some sequences feeling constrained by fewer resources. Yet the fundamental achievement remains: <em>Rome</em> created a world that you believe exists beyond the frame, a genuinely spectacular environment that makes ancient history feel present and tangible.</p>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">CONCEPTUAL DENSITY</span>
+                    <span class="score-display">7.4</span>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 74%;"></div>
+                </div>
+                
+                <p><em>Rome</em> carries substantial intellectual weight in its exploration of political transition, examining how republican institutions surrender to authoritarian rule not through foreign invasion but through internal decay. The show interrogates the relationship between virtue and power, asking whether good men can survive—and whether survival requires abandoning virtue. Through Vorenus's moral disintegration and gradual reconstruction, the series explores what principled behavior looks like in a system designed to corrupt principles.</p>
+
+                <p>The gender dynamics deserve particular attention: women in <em>Rome</em> operate as political agents despite their legal exclusion from formal power. Atia, Servilia, and Octavia navigate through influence, sexuality, and strategic alliance, suggesting alternative networks of authority that compensated for institutional exclusion. Portia's participation in the conspiracy and Cleopatra's statecraft demonstrate female political competence operating in parallel to male structures.</p>
+
+                <p>Class consciousness runs throughout: the show maintains focus on how Roman social hierarchy depended on slavery, depicting the humanity of enslaved characters without sentimentalizing their oppression. The Vorenus-Pullo friendship across class boundaries provides a vehicle for examining social mobility's limits within Roman society. Religious questions—whether omens represent genuine divine communication or mere political theater—remain productively unresolved.</p>
+
+                <p>The conceptual framework occasionally strains under the weight of historical compression. Complex political developments that unfolded over years must occur within episodes. Philosophical debates that occupied decades of Roman intellectual life appear as dialogue. Some characters serve as mouthpieces for ideas rather than integrated personalities. Yet when the show finds room for its themes to breathe through character drama rather than exposition, its conceptual ambitions achieve genuine dramatic expression.</p>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">NARRATIVE DRIVE</span>
+                    <span class="score-display">7.0</span>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 70%;"></div>
+                </div>
+                
+                <p>The narrative engine of <em>Rome</em> derives from the real historical events that structure its timeline—the Gallic Wars, the crossing of the Rubicon, the civil war between Caesar and Pompey, the Ides of March, the rise of the Second Triumvirate, the battle of Philippi, the final confrontation between Octavian and Antony. This historical anchor provides automatic momentum: viewers familiar with these events anticipate what approaches; those unfamiliar discover dramatic irony in knowing what characters cannot.</p>
+
+                <p>Between the major historical markers, the show maintains pace through multiple interconnected plotlines: military campaigns and political maneuvering, personal relationships and family dramas, criminal enterprises and religious conflicts. The pacing varies considerably by episode—some move with thriller velocity while others allow character moments to breathe. The first season generally achieves better balance, spreading its narrative across a broader social canvas. The second season, constrained by cancellation and compressed from four planned seasons to one, accelerates noticeably through material that deserved fuller development.</p>
+
+                <p>The Vorenus-Pullo through-line provides consistent narrative investment even when historical exposition bogs down. Their personal story—friendship tested by circumstance, loyalty surviving betrayal, redemption following failure—offers emotional stakes that transcend period detail. Individual episodes achieve memorable narrative architecture: the pilot's establishing momentum, the chaos of "Caesarion," the operatic tragedy of "Kalends of February," the elegiac "De Patre Vostro" that closes the series.</p>
+
+                <p>Where narrative drive occasionally stalls is in the density of historical information processing—sequences where characters must explain complex political situations to viewers rather than showing them dramatically. The compression of Season Two's final episodes sacrifices narrative coherence for coverage of remaining history. Some character arcs feel truncated rather than resolved. Yet the fundamental storytelling remains compelling: you want to know what happens next, even when you already know what history records.</p>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">RESOLUTION</span>
+                    <span class="score-display">7.4</span>
+                </div>
+                <div class="score-bar-container">
+                    <div class="score-bar" style="width: 74%;"></div>
+                </div>
+                
+                <p>Given its precipitous cancellation after the second season, <em>Rome</em> achieved a remarkably coherent resolution. The writers, informed of cancellation during production, managed to compress four planned seasons into the final episodes, delivering narrative closure that feels complete despite obvious acceleration. The series finale "De Patre Vostro" provides emotional resolution for its invented characters while arriving at the correct historical destination—Octavian's triumph, Antony's defeat, the effective end of the Republic.</p>
+
+                <p>Vorenus's arc achieves tragic completion: having survived impossible circumstances, lost everything he valued, and compromised every principle, he receives redemption through sacrifice. His reconciliation with Pullo, his final conversation with his children, his acceptance of mortality—these moments provide genuine emotional catharsis. Pullo's survival and apparent domestic stability offer qualified hope: the good soldier who adapted to circumstance where his rigid friend broke.</p>
+
+                <p>The historical conclusion necessarily lacks complete closure—Octavian's transformation into Augustus, the establishment of the Principate, the fate of Egypt under Roman rule, all these developments lie beyond the narrative frame. The show chooses to end with the Republic's death and Octavian's emergence as sole power rather than continuing to the Pax Romana. The final images—Octavian triumphing while Vorenus lies dying in the Egyptian sands—suggest the cost of imperial peace, questioning whether any historical transformation justifies its human toll.</p>
+
+                <p>What the resolution cannot provide, through no fault of its creators, is the sustained development that would have earned these conclusions through fuller dramatic preparation. Some character deaths feel sudden rather than inevitable. Some emotional beats land as summary rather than earned revelation. The time compression between Actium and the final confrontation rushes what should have been devastating. Yet within its constraints, <em>Rome</em> achieves something rare for prematurely cancelled series: an ending that satisfies rather than tantalizes, that provides closure rather than cliffhanger, that honors both its invented characters and the history they illuminate.</p>
+            </div>
+
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-label">Characters</div>
+                    <div class="summary-score">7.8</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">World Building</div>
+                    <div class="summary-score">8.0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Cinematography</div>
+                    <div class="summary-score">8.0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Visual Spectacle</div>
+                    <div class="summary-score">8.5</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Conceptual Density</div>
+                    <div class="summary-score">7.4</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Narrative Drive</div>
+                    <div class="summary-score">7.0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Resolution</div>
+                    <div class="summary-score">7.4</div>
+                </div>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"The Stolen Eagle" (S1E1)</strong> — The conquest begins. Vorenus meets Pullo. Caesar crosses the Rubicon.</p>
-            <p><strong>("Kalends of February" (S1E12)</strong> — Caesar falls. The Ides of March. History pivots.</p>
-            <p><strong>"De Patre Vostro (About Your Father)" (S2E10)</strong> — Series finale. Octavian triumphs. The Empire begins.</p>
+        <div class="final-score-block">
+            <div class="final-score-title">FINAL SCORE</div>
+            <div class="final-score-value">7.39</div>
+            <p style="margin-top: 25px; color: #e8dcc0; font-size: 1.1em; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <em>Rome</em> stands as television's most ambitious historical reconstruction—a series that built an ancient world with cinematic scope and populated it with characters whose humanity transcends their marble monuments. Despite its premature end, it achieved something extraordinary: making the distant past feel immediately present, relevant, and deeply human. This is prestige television that believed audiences deserved spectacle, complexity, and respect—a belief that would prove prophetic in the years that followed.
+            </p>
         </div>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Max</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
-        </div>
+        <footer>
+            <p>7-Dimension Analysis Framework | Historical Television Series Review</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Rome (2005-2007) — HBO Original Series</p>
+        </footer>
     </div>
 </body>
 </html>

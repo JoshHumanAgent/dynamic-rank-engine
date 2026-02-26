@@ -1,91 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Better Call Saul - "It's all good, man" | Dynamic Rank Engine</title>
+    <title>Better Call Saul - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padded: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #0f0f05 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #7b1fa2; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #7b1fa2, #4a148c); color: #e1bee7; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ce93d8; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(123,31,162,0.3), rgba(0,0,0,0.9)); border: 3px solid #7b1fa2; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ce93d8; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #7b1fa2; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ce93d8; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(123,31,162,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ce93d8; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ce93d8; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #4</div>
-            <h1>Better Call Saul</h1>
-            <p class="subtitle">"It's all good, man"</p>
-            <div class="score-badge">
-                <span class="score-value">8.43</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2015-2022</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">63</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">AMC</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Vince Gilligan, Peter Gould</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Better Call Saul is a prequel to Breaking Bad—and somehow, impossibly, it's just as good. Jimmy McGill (Bob Odenkirk) is a small-time con artist turned lawyer, struggling to be taken seriously by the legal establishment. His brother Chuck (Michael McKean) is a respected attorney who believes Jimmy hasn't changed—that he's still "Slippin' Jimmy," the scammer from Cicero. "You're not a real lawyer," Chuck tells him. The cruelty is devastating, deliberate, and formative. Jimmy becomes Saul Goodman because the straight world rejected him.</p>
-            <p>The show's parallel story: Mike Ehrmantraut (Jonathan Banks), the ex-cop turned fixer from Breaking Bad. His arc is quieter—grief over his son's death, moral compromise, descent into the criminal underworld. Mike is what Jimmy could have been: a man who did bad things for a good reason, then lost the reason. The intersection of Jimmy's comedy and Mike's tragedy creates the show's rhythm—light and dark, joke and violence, Saul and Mike. "I know what I was," Mike says. "I know what I became."</p>
-            <p>The addition that elevates Saul beyond mere prequel: Kim Wexler (Rhea Seehorn), Jimmy's partner in love and law. Kim is the show's moral center—and also its greatest tragedy. She loves Jimmy, believes in him, follows him into ethical gray areas. "We're bad for each other," she finally realizes. She leaves. It's the moment Jimmy's soul dies; Saul Goodman is what remains. Rhea Seehorn's performance is revelatory—patient, intelligent, slowly breaking. The show's thesis: people become what the world lets them become. Jimmy was good; Chuck refused to see it. Kim believed; Jimmy destroyed her trust. "It's all good, man"—Saul's catchphrase becomes tragic: it was never good.</p>
-            <p>Six seasons, sixty-three episodes, complete. Better Call Saul ends with Jimmy in prison, finally confessing, finally becoming Jimmy again—if only for Kim. "I said I was sorry," he tells her. "I'm not sorry anymore." The show is a tragedy disguised as a comedy: every joke from Breaking Bad revealed as a cry for help. Jimmy McGill was a good man. The world wouldn't let him stay that way.</p>
-        </div>
+<p>Better Call Saul premiered on AMC on February 8, 2015, created by Vince Gilligan and Peter Gould as a prequel to Breaking Bad. The series follows Jimmy McGill (Bob Odenkirk), a small-time lawyer struggling to escape his past as "Slippin' Jimmy," a con artist from Cicero, Illinois. Across six seasons and 63 episodes, the series charts Jimmy's transformation into Saul Goodman, the corrupt attorney who would eventually become Walter White's lawyer.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">9</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Bob Odenkirk, Rhea Seehorn, Jonathan Banks, Michael McKean—all Emmy-worthy. Best ensemble on television.</p>
-            <p><strong>Resolution (9):</strong> Perfect ending. Jimmy's confession. Kim's goodbye. Prison and peace.</p>
-            <p><strong>World Building (9):</strong> Expands Breaking Bad perfectly. Jimmy's descent is inevitable, tragic, earned.</p>
-        </div>
+<p>The premise sounds like a cash-in on Breaking Bad's success, but the execution proves something rarer: a prequel that rivals its predecessor in artistic ambition. Where Breaking Bad was about a man's descent from decency, Better Call Saul is about a man's inability to escape his nature. Jimmy isn't a good man corrupted—he's a flawed man who keeps trying to be good, failing, and finding that the shortcuts he takes have consequences he can't outrun.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Uno" (S1E1)</strong> — The beginning. "Slippin' Jimmy." The billboards.</p>
-            <p><strong>"Pimento" (S1E9)</strong> — Chuck's betrayal. "You're not a real lawyer."</p>
-            <p><strong>("Winner" (S4E10)</strong> — Jimmy's law license restored. Saul emerges.</p>
-            <p><strong>("Saul Gone" (S6E13)</strong> — Series finale. The confession. "I said I was sorry."</p>
-        </div>
+<p>The Albuquerque of Better Call Saul is the same desert city Walter White would later terrorize, but it's rendered in different colors—sunlit courtrooms, strip-mall offices, the parking lot of a HHM (Hamlin, Hamlin & McGill) law firm where Jimmy's older brother Chuck (Michael McKean) is a partner. The world is smaller than Breaking Bad's, more intimate, more tragic because we know where it leads. Jimmy's friendship with Kim Wexler (Rhea Seehorn), his love and eventual wife, is the series' emotional anchor—a relationship built on mutual respect, shared ambition, and the buried knowledge that they're both capable of ethical shortcuts.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Netflix, AMC+</p>
-            <p><strong>UK:</strong> Netflix</p>
+<p>The series' supporting cast is exceptional: Jonathan Banks returns as Mike Ehrmantraut, the fixer whose quiet competence hides a grief he can't process; Patrick Fabian plays Howard Hamlin, the golden-boy attorney who isn't the villain Jimmy believes him to be; Michael Mando plays Nacho Varga, a cartel lieutenant trying to protect his father from the life he's chosen. Each character is drawn with the precision Breaking Bad was known for, but with more patience—Gilligan and Gould take their time, letting scenes breathe, letting relationships develop across seasons rather than episodes.</p>
+
+<p>The final season's black-and-white flash-forwards show Jimmy as "Gene Takavic," a Cinnabon manager in Omaha, Nebraska, hiding from his past. These sequences, directed with silent-film patience, suggest that even after all the crimes and compromises, Jimmy is still fundamentally himself—a man who can't stop performing, who sees every interaction as an opportunity for the long con. The series finale, "Saul Gone," provides a conclusion that is both earned and devastating, one that honors the character while refusing to let him off the hook.</p>
+
+<p>Critical reception grew across the series' run: while Season 1 was seen as good but not Breaking Bad, by Season 5 the series was being called possibly superior to its predecessor. It received 53 Emmy nominations (winning 7), with particular recognition for Rhea Seehorn's performance as Kim, which many critics considered among television's finest supporting work.</p>
+
+<h2>Why It Ranks #5</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.70</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Jimmy McGill/Saul Goodman:</strong> Bob Odenkirk delivers a career-defining performance that should have won every award available. Jimmy isn't Walter White—he's not a teacher turned kingpin, he's a man who could have been good if the world had let him, who chose shortcuts because hard work kept being denied. Odenkirk plays across the spectrum: Slippin' Jimmy (the con artist), Jimmy McGill (the earnest lawyer), Saul Goodman (the criminal attorney), and Gene Takavic (the hiding man). Each persona has different physicality, different speech patterns, different relationship to eye contact. The performance captures how identity is performance—and how, for some people, there's no true self underneath the performances.</p>
+        
+        <p><strong>Kim Wexler:</strong> Rhea Seehorn created one of television's most complex female characters—a lawyer as talented as Jimmy but with the discipline he lacks, drawn to his schemes in ways she doesn't fully understand. Seehorn's performance tracks Kim's moral evolution across six seasons, from the straight-arrow attorney who won't cut corners to the woman who helps Jimmy destroy a career to the... (no spoilers). The performance is built on small moments—the set of her jaw, the way she holds a pen, the sudden smile that transforms her face. Critics campaigned for Seehorn's Emmy recognition; she finally won in 2022.</p>
+        
+        <p><strong>Mike Ehrmantraut:</strong> Jonathan Banks returns from Breaking Bad to play Mike in his Albuquerque years, showing how a former Philadelphia cop became a cartel fixer. Banks brings the same weary competence, the same moral code (don't hurt civilians, don't kill needlessly), the same grief over his son's death that explained everything in Breaking Bad. The prequel format lets Banks play Mike's moral erosion in real time—we see him take his first criminal job, make his first compromise, become the man who will eventually work for Gus Fring.</p>
+        
+        <p><strong>Chuck McGill:</strong> Michael McKean's first-season performance as Jimmy's successful older brother sets up the series' central tragedy. Chuck believes in the law as Jimmy doesn't; Jimmy believes in people as Chuck doesn't. McKean makes Chuck both villain and victim—his electromagnetic sensitivity is psychosomatic, his resentment of Jimmy is real, his love for his brother is buried under years of being the good son who got less attention. The revelation of Chuck's sabotage of Jimmy's career transforms our understanding of both characters.</p>
+        
+        <p><strong>Nacho Varga:</strong> Michael Mando plays a cartel lieutenant who never wanted the life he has, trying to protect his father from the violence he's surrounded by. Nacho's arc—from reluctant criminal to... (the less said, the better)—is among the series' most tragic. Mando's performance captures the exhaustion of pretending to be harder than you are, the desperation of seeing no way out.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (9) achieved greater protagonist depth through Walter's transformation. Better Call Saul matches its ensemble depth with more nuanced romantic relationship (Jimmy/Kim exceeds Walter/Skyler).</p>
+        
+        <p><strong>Why 8.5:</strong> Exceptional central performances from Odenkirk and Seehorn, both achieving career peaks. Supporting cast (Banks, McKean, Mando, Fabian) provides depth. The limitation is that Breaking Bad set an impossibly high bar; Saul approaches but doesn't quite exceed it.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Albuquerque:</strong> The series shares Breaking Bad's setting but renders it in different colors—courtrooms instead of meth labs, the courthouse instead of the desert. The world of elder law and public defender work is drawn with documentary precision: the clients Jimmy serves in Season 1 (Sandpiper Crossing nursing home residents, various low-level criminals), the offices he works in (the vanity cards and nail salon, the Davis & Main corporate gig, eventually his own strip-mall practice). The legal world feels lived-in, authentic, specific.</p>
+        
+        <p><strong>The Cartel:</strong> The series expands Breaking Bad's cartel backstory, showing how Gus Fring (Giancarlo Esposito) rose to power, how the Salamanca family operates, how the drug trade touches everything. Lalo Salamanca (Tony Dalton), introduced in later seasons, becomes a scene-stealing antagonist—charming, terrifying, brilliant in ways that make him dangerous. The cartel sequences provide tension and violence, but they're not the series' focus; they're the world Jimmy keeps getting pulled into despite his best intentions.</p>
+        
+        <p><strong>Period Detail:</strong> The series is set roughly six years before Breaking Bad (2002 vs. 2008), and the period details—fliphones, the technology of the time—are rendered accurately. More importantly, the legal and criminal worlds are depicted with procedural realism: court filings, document review, the mechanics of conning people, the bureaucracy of the drug trade.</p>
+        
+        <p><strong>The Omaha Sequences:</strong> The black-and-white flash-forwards to Gene Takavic's life in Nebraska provide a haunting coda—Jimmy's punishment isn't prison, it's irrelevance. These sequences, set in a mall Cinnabon, are among the series' most visually distinctive, shot in near-silence to emphasize Jimmy's isolation.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (7) established this world. Better Call Saul inherits and expands it, particularly the legal and cartel dimensions. The limitation is that Albuquerque as a place is already familiar; the series doesn't have to build a new world from scratch.</p>
+        
+        <p><strong>Why 7:</strong> Strong expansion of an existing world with authentic legal and criminal detail. The period and procedural elements are convincing. The limitation is the inheritance—this is Breaking Bad's Albuquerque, not a new world.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.43</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Visual Language:</strong> The cinematography, led by directors like Gilligan (who directed the pilot and several key episodes), Michelle MacLaren, and others, creates a visual style that is patient, composed, and often wordless. The series trusts images over dialogue—sequences of Jimmy walking through the desert, or Mike sitting in his car, or Kim alone in her office communicate emotional states without exposition.</p>
+        
+        <p><strong>Color and Light:</strong> New Mexico provides the backdrop—golden hour light, vast skies, the play of shadow on adobe walls. The cinematography captures Albuquerque's particular quality: the way the desert light bleaches colors, the way shadows fall at certain times of day, the visual contrast between the natural world (beautiful, indifferent) and the strip-mall America Jimmy inhabits.</p>
+        
+        <p><strong>The Black-and-White Sequences:</strong> The Gene Takavic flash-forwards are shot in high-contrast black and white, creating a visual language distinct from the main narrative. These sequences feel like film noir, like Jimmy has stepped into a different genre entirely—appropriate, since he's living in hiding, playing a different character.</p>
+        
+        <p><strong>Composition:</strong> The camera rarely moves without purpose. Character framing emphasizes isolation—Jimmy alone in vast spaces, or crowded into small rooms. The visual storytelling reached its apex in episodes like "Bagman" (season 5), a desert survival story that's essentially a silent film for extended stretches, or "Rock and Hard Place," which builds tension through visual patience.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) achieved perhaps television's greatest cinematography. Better Call Saul matches it in quality, particularly in its later seasons as the visual language matured. Some critics argue it equals or exceeds Breaking Bad in visual ambition.</p>
+        
+        <p><strong>Why 9.5:</strong> Exceptional cinematography that trusts the image, uses color and composition expressively, and creates visual sequences that communicate emotion without dialogue. The black-and-white sequences provide distinctive visual identity. The limitation is minor—the occasional shot that feels too composed, too aware of its own beauty.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.60</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Scope:</strong> Better Call Saul is not a spectacle-driven series. There are moments of visual impact—the desert survival sequences, some cartel violence, a few set pieces—but the series operates on an intimate scale. Its spectacle is in performance, not production design; in the transformation of a man's face as he realizes what he's become.</p>
+        
+        <p><strong>The Desert:</strong> When the series does go big—the Season 5 "Bagman" episode is essentially a two-hander in the desert—it uses the landscape effectively. The vast emptiness of New Mexico becomes a character, a threat, a metaphor for the moral emptiness the characters inhabit.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (6) had similar limited spectacle, perhaps less by design—Walter's empire building provided more scope. Better Call Saul is deliberately intimate. Series like Game of Thrones (9.5) or The Expanse (9) provide actual spectacle; Saul's achievement is making small-scale feel epic through craft.</p>
+        
+        <p><strong>Why 6:</strong> Limited spectacle by design. The series' visual power comes from cinematography and performance, not production scale. What spectacle exists (desert sequences, cartel violence) is well-executed but not the focus. Appropriate for the series' intimate legal-drama scale.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Moral Philosophy:</strong> The series interrogates questions of moral luck, the banality of evil, and the nature of identity. Jimmy McGill is a man who keeps being offered chances to be good and keeps choosing shortcuts. The question the series asks: is Jimmy fundamentally bad, or is he a good man destroyed by a system that rewards bad behavior? The answer, over six seasons, seems to be that there is no answer—that character is action, and Jimmy's actions define him.</p>
+        
+        <p><strong>The Nature of Performance:</strong> Jimmy's constant shape-shifting (Slippin' Jimmy, Jimmy McGill, Saul Goodman, Gene Takavic) suggests that identity is performance, that there is no true self underneath the roles we play. This connects to broader questions about authenticity in late capitalism, about whether anyone in a mediated world is "being themselves."</p>
+        
+        <p><strong>The Legal System:</strong> The series depicts law as both moral framework and con game—a system of rules that can be gamed by those clever enough to find the loopholes. Jimmy's legal genius lies in his ability to see the letter of the law while ignoring its spirit; his tragedy is that this skill is indistinguishable from his con artist instincts.</p>
+        
+        <p><strong>Class and Meritocracy:</strong> Jimmy's resentment of his brother Chuck, and of the establishment law firm HHM, has class dimensions. Jimmy is the working-class kid who didn't go to a prestigious law school; Chuck is the golden boy who succeeded by playing by rules Jimmy was never invited to learn. The series examines American meritocracy and finds it wanting.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (9) achieved greater conceptual density through its examination of ego, empire, and American capitalism. Better Call Saul's themes are more intimate—identity, love, the possibility of redemption. The Sopranos (9.5) achieved greater psychological depth through therapy as device.</p>
+        
+        <p><strong>Why 8:</strong> Strong thematic exploration of identity, moral choice, and class. The examination of Jimmy's character is psychologically rich. The limitation is that Breaking Bad already asked these questions about Walter; Saul revisits similar territory with less cosmic scope.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Prequel Problem:</strong> Better Call Saul faces a narrative challenge unlike almost any series: we know where Jimmy ends up. Breaking Bad established Saul Goodman as Walter's corrupt lawyer; the series must make us care about his origin despite knowing his destination. The solution is to make the journey matter more than the destination—to make Jimmy's slow fall, and his brief rises, compelling in themselves.</p>
+        
+        <p><strong>Pacing:</strong> The series is deliberately slow, especially in early seasons. Gilligan and Gould trust patience: scenes that would be cut from other series (Jimmy waiting, Kim working, Mike thinking) are given time to breathe. This creates a cumulative effect—the emotional weight builds across episodes, across seasons, until the payoffs (when they come) feel earned rather than rushed.</p>
+        
+        <p><strong>Two Plot Lines:</strong> The series balances Jimmy's legal story with Mike's cartel story, with the two narratives converging in later seasons. This structure allows for tonal contrast—Jimmy's cons and courtrooms provide relief from Mike's moral compromises, while Mike's violence provides stakes that elevate Jimmy's story.</p>
+        
+        <p><strong>The Final Season:</strong> Season 6 splits its time between the Saul Goodman era (overlapping with Breaking Bad) and the Gene Takavic aftermath. This structure, while controversial, allows the series to engage with its relationship to Breaking Bad while also providing Jimmy a conclusion independent of Walter White.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) perfected the narrative drive of transformation, with each season building to explosive finales. Better Call Saul is more patient, less propulsive, but equally deliberate in its construction. The Wire (7.5) had similar willingness to build slowly toward cumulative effect.</p>
+        
+        <p><strong>Why 9:</strong> Strong narrative construction that makes the prequel format work despite its constraints. The slow burn pays off in emotional weight. The limitation is occasional lulls in early seasons before the series found its rhythm, and a few Breaking Bad tie-in moments that feel obligatory rather than organic.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">10</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 1.00</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>"Saul Gone":</strong> The series finale is a masterpiece of resolution, managing to wrap up Jimmy's story while honoring Breaking Bad's legacy. The episode moves between time periods (the early Saul era, the Breaking Bad overlap, the Gene present) with a confidence that makes the structure feel inevitable rather than fragmented.</p>
+        
+        <p><strong>The Final Scenes:</strong> Without spoiling, the final moments provide Jimmy with something he didn't earn but is granted anyway—a moment of grace, of honesty, of being known rather than performed. The ending suggests redemption is possible, but it must be chosen, and the choosing requires sacrifice.</p>
+        
+        <p><strong>Kim's Arc:</strong> The resolution of Kim Wexler's story is equally powerful—her journey from ambitious lawyer to... (spoilers) is given weight and dignity. The final scene between Kim and Jimmy provides a closure that is both painful and earned.</p>
+        
+        <p><strong>Breaking Bad Connections:</strong> The series manages to make the inevitable Breaking Bad crossover feel organic rather than pandering. We see Saul during the Walter White years, but from Saul's perspective, making familiar events feel fresh. The final moments of that timeline provide context that retroactively enriches Breaking Bad.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Few series achieve this level of resolution. Breaking Bad (10) is the obvious comparison—their finales are equally well-constructed. The Sopranos' famous cut-to-black (9.5) was deliberately ambiguous; Better Call Saul chooses clarity, earns every moment of its ending.</p>
+        
+        <p><strong>Why 10:</strong> A masterful conclusion that resolves character arcs with honesty rather than sentiment. The finale ranks among television's best, managing to honor both its hero and his victims.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.83</div>
+    <div style="color:#888">1.70+1.05+1.43+0.60+1.20+1.35+1.00 = <strong>8.33</strong></div>
+</div>
+
 </body>
 </html>

@@ -1,91 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sopranos - "I'm in the waste management business" | Dynamic Rank Engine</title>
+    <title>The Sopranos - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #8b0000; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #8b0000, #5d0000); color: #ffcccc; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ff9999; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(139,0,0,0.3), rgba(0,0,0,0.9)); border: 3px solid #8b0000; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ff9999; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #8b0000; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ff9999; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(139,0,0,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ff9999; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ff9999; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #2</div>
-            <h1>The Sopranos</h1>
-            <p class="subtitle">"I'm in the waste management business"</p>
-            <div class="score-badge">
-                <span class="score-value">8.70</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">1999-2007</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">86</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">David Chase</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Sopranos changed television. Tony Soprano (James Gandolfini) is a New Jersey mob boss who starts therapy. "I'm in the waste management business," he says. "Everybody's gotta have a little waste management, right?" He's also depressed—panic attacks, blackouts, a mother who tried to have him killed, a wife who knows too much, a mistress who wants more, and a crime family that threatens him constantly. Dr. Melfi (Lorraine Bracco) is his therapist, and through their sessions, we see a man who can order murders and still be crushed by his mother's disapproval.</p>
-            <p>The show's genius is scale: Tony's family (Carmela, Meadow, Anthony Jr.) and his Family (the DiMeo crime family) overlap messily. He can't separate them. His mother Livia (Nancy Marchand) is one of television's great villains—passive-aggressive, manipulative, genuinely evil. His uncle Junior (Dominic Chianese) is jealous, ambitious, and eventually senile. His nephew Christopher (Michael Imperioli) wants to be a Hollywood player but can't escape his inheritance. The show is Shakespearean: kings, princes, betrayals, tragic flaws. But it's also domestic: dinner tables, school runs, suburban houses with blood in the basement.</p>
-            <p>Eighty-six episodes, six seasons, complete. The finale—Tony in a diner, Journey's "Don't Stop Believin'" playing, the screen cutting to black—is the most discussed ending in television history. Did he die? Did he live? David Chase won't say. The point is violence is always possible, death is always near, and we're all in the diner waiting. "You probably don't even hear it when it happens, right?" a character says earlier. That's the thesis: mob life, family life, all life—is waiting for something you won't hear coming.</p>
-            <p>The Sopranos invented prestige television. Before it, TV was episodic; after it, TV was novelistic. James Gandolfini's Tony is among the greatest performances ever filmed—charming, terrifying, funny, broken. He kills a man in one episode and makes his son breakfast in the next. He's a monster. He's a father. He's human. "He's a good man," Carmela insists. He isn't. That's the tragedy.</p>
-        </div>
+<p>The Sopranos premiered on HBO on January 10, 1999, created by David Chase. The series follows Tony Soprano (James Gandolfini), a New Jersey mob boss who suffers panic attacks and begins seeing a psychiatrist, Dr. Jennifer Melfi (Lorraine Bracco). Across six seasons and 86 episodes, the series became the defining work of television's Golden Age—the show that proved television could be as complex, as artistically ambitious, as cinematically sophisticated as film.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">10</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Gandolfini's Tony is iconic. Edie Falco's Carmela. Michael Imperioli's Christopher. Perfection.</p>
-            <p><strong>Conceptual Density (10):</strong> Therapy, family, identity, evil. The American Dream as nightmare. Dense, literary, brilliant.</p>
-            <p><strong>Resolution (10):</strong> The cut to black is perfect. Ambiguous, inevitable, infuriating, brilliant. TV's best ending.</p>
-        </div>
+<p>The premise is deceptively simple: mafia boss goes to therapy. But the execution is revolutionary. Chase uses the therapeutic framework to access Tony's interiority, to make visible the psychological conflicts that drive his violent behavior. We see Tony as family man (father to Meadow and A.J., husband to Carmela), as boss (ruling his crew: Silvio Dante, Paulie Walnuts, Christopher Moltisanti), as patient (spilling his family history, his dreams, his anxieties to Dr. Melfi), and as criminal (ordering hits, managing rackets, negotiating with New York families). The series asks: can a man be both a monster and a human being? The answer, over 86 episodes, is yes—and the yes is devastating.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Pilot" (S1E1)</strong> — The introduction. "I'm in the waste management business."</p>
-            <p><strong>("College" (S1E5)</strong> — Tony takes Meadow to colleges. And kills a man. The template.</p>
-            <p><strong>("Pine Barrens" (S3E11)</strong> — Paulie and Christopher lost in the woods. Comedy masterpiece.</p>
-            <p><strong>("Made in America" (S6E21)</strong> — The finale. The diner. "Don't stop believing."</p>
-        </div>
+<p>The New Jersey setting is crucial. This isn't the romanticized New York of The Godfather; it's suburban sprawl, strip malls, the decaying industrial landscape of North Jersey. Tony's house in the suburbs (where his neighbors don't know what he does for a living) epitomizes the contradictions: the suburban dream built on criminal proceeds, the family man who kills people, the therapy patient who shows no signs of changing. The Sopranos took the mob genre and made it about American middle-class anxiety, about the gap between our self-image and our actions.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> HBO Max</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
+<p>The supporting cast is among television's deepest: Edie Falco as Carmela, the Catholic wife who knows but pretends not to; Michael Imperioli as Christopher, Tony's nephew and protégé whose drug addiction provides some of the series' most harrowing material; Tony Sirico as Paulie Walnuts, the eccentric enforcer; Steven Van Zandt as Silvio Dante, the consigliere who's also a Bruce Springsteen obsessive; Nancy Marchand as Livia, Tony's manipulative mother (in a performance that, given Marchand's real-life illness and death during production, becomes meta-textually powerful). Each character is complex, contradictory, capable of violence and tenderness.</p>
+
+<p>The series concluded on June 10, 2007, with an ending that remains television's most debated: a cut to black in the middle of a scene, mid-sentence, with Journey's "Don't Stop Believin'" playing on the diner jukebox. Did Tony die? Did the series simply refuse to provide the closure audiences expected? Chase has been cryptic in interviews, and the ambiguity is the point—the series that spent six seasons showing Tony's violence finally denies us the satisfaction of witnessing his comeuppance (or his survival).</p>
+
+<p>Critical acclaim was immediate and sustained. The Sopranos won 21 Emmy Awards, including Outstanding Drama Series twice. It topped multiple "greatest television series" lists and is credited with launching the Golden Age of Television—without The Sopranos, no Breaking Bad, no Mad Men, no The Wire as we know them. It proved that television could be literature, could be art, could be as complex as any novel.</p>
+
+<h2>Why It Ranks #6</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.90</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Tony Soprano:</strong> James Gandolfini created one of television's greatest characters—a man capable of murder who we somehow root for, a monster we find sympathetic. Gandolfini's physical performance (the bulk of him, the way he moves, the sudden shifts from charm to threat) makes Tony real, embodied, terrifying. The complexity Gandolfini brings: Tony's panic attacks (physical vulnerability in a man who projects dominance), his therapy sessions (emotional availability that contrasts with his criminal life), his dream sequences (psychological depth rare in any medium). Gandolfini's performance won three Emmy Awards; his death in 2013 was mourned as the loss of one of acting's greatest practitioners.</p>
+        
+        <p><strong>Carmela Soprano:</strong> Edie Falco plays Tony's wife with a complexity that makes her more than victim—she knows what Tony does, participates in the lifestyle his crimes provide, yet maintains a moral framework that condemns him. Falco's performance captures Carmela's Catholic guilt, her materialism, her love for her children, her occasional ruthlessness. The marriage is one of television's most examined relationships—two people who destroy each other while genuinely loving each other.</p>
+        
+        <p><strong>Dr. Jennifer Melfi:</strong> Lorraine Bracco's psychiatrist is the series' entry point—we see Tony through her eyes initially, and her ethical dilemmas (treating a patient whose crimes she learns about, whose violence affects people she cares about) provide meta-commentary on the audience's relationship to Tony. Melfi's journey across six seasons—from intrigued therapist to cautious participant to final, devastating choice—is one of the series' most carefully developed arcs.</p>
+        
+        <p><strong>Christopher Moltisanti:</strong> Michael Imperioli plays Tony's nephew and heir apparent, whose drug addiction becomes a central storyline. Christopher's arc—from ambitious mobster to heroin addict to (spoiler) provides some of the series' most devastating material. Imperioli makes Christopher both contemptible (his violence, his narcissism) and heartbreaking (his addiction, his failed dreams of Hollywood legitimacy).</p>
+        
+        <p><strong>Paulie Walnuts, Silvio, Junior:</strong> The supporting cast achieves depths that would anchor other series. Tony Sirico's Paulie (the germaphobe eccentric) and Steven Van Zandt's Silvio (the Springsteen-obsessed consigliere) are unforgettable characterizations. Dominic Chianese's Junior Soprano—Tony's uncle, rival, eventual dependent—tracks the character's decline with heartbreaking specificity.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (9) achieved comparable protagonist depth through Bryan Cranston's Walter White. The Sopranos matches it with deeper ensemble—arguably television's greatest ensemble cast. Game of Thrones S1-4 (10) had more characters but less psychological depth per character.</p>
+        
+        <p><strong>Why 9.5:</strong> James Gandolfini's Tony Soprano is a towering achievement, arguably the finest performance in television history. The ensemble is equally exceptional—Falco, Imperioli, Bracco, Sirico, Van Zandt all delivering career peaks. The limitation is minor: a few late-season supporting characters who feel less fully drawn than the original crew.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>New Jersey Mob:</strong> David Chase and his writers built a fully realized criminal world: the DiMeo crime family's hierarchy (boss, underboss, consigliere, captains, soldiers), the rackets they run (waste management, construction, loansharking, the ports), the relationships with New York families (the Lupertazzis), the code of omertà that theoretically governs their behavior. The world feels lived-in, authentic, specific—the details of mob life drawn from research and imagination.</p>
+        
+        <p><strong>Suburban Sopranos:</th></strong> The series' world extends beyond the mob to the suburbs where Tony lives. The house (bought with criminal proceeds but looking like any other McMansion), the neighbors (who don't know what Tony does), the country club (which accepts Tony's money while knowing its source), the restaurants and gathering places—all rendered with documentary specificity. The Sopranos makes suburban New Jersey feel as mythic as the Wild West.</p>
+        
+        <p><strong>Period and Place:</strong> The series spans the late 1990s and early 2000s, and the cultural references (the Clinton impeachment, the post-9/11 world in later seasons) ground it in real time. But the mob world feels simultaneously timeless—this is an institution that's been operating this way for generations, adapting to new circumstances while preserving ancient codes.</p>
+        
+        <p><strong>The Bada Bing:</strong> The strip club that serves as the mob's unofficial headquarters provides a physical location for the series—a place where business is conducted, where the crew congregates, where Tony's power is displayed. The set design, the routines of the club, become familiar enough that they feel like real places.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (7) built a more limited criminal world focused on meth production. The Wire (9.5) achieved more comprehensive institutional world-building across Baltimore's systems. The Sopranos focuses on one family, one organization, with depth rather than breadth.</p>
+        
+        <p><strong>Why 8:</strong> Exceptional world-building within the New Jersey mob and suburban contexts. The details of criminal enterprise and suburban life are rendered with authenticity. The limitation is the relatively contained scope—one family, one organization—compared to series with broader institutional ambition.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 0.98</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Look of the Show:</strong> The Sopranos was shot on film, and the image quality—supervised by cinematographer Alik Sakharov (among others)—established a visual standard for prestige television. The New Jersey locations, the family homes, the strip clubs and restaurants are rendered with a palette of muted colors, natural light, a documentary realism that contrasts with the heightened drama.</p>
+        
+        <p><strong>Visual Storytelling:</strong> Chase directed several episodes (including the pilot and finale) and maintained visual control throughout. The series uses recurring visual motifs—Tony's point-of-view shots from his car, the cuts to black that structure episodes, the dream sequences that provide psychological insight. The visual language is functional rather than flashy—it serves the story without drawing attention to itself.</p>
+        
+        <p><strong>The Opening Credits:</strong> The journey through the Lincoln Tunnel, across the Pulaski Skyway, into the industrial landscape of North Jersey—set to Alabama 3's "Woke Up This Morning (Chosen One Mix)"—is one of television's most iconic credit sequences. It establishes place, tone, and the protagonist's daily reality in 90 seconds.</p>
+        
+        <p><strong>Dream Sequences:</strong> The series regularly enters Tony's dreams, rendering psychological states through surreal imagery. The dream of his mother as a voice in the dark, the dreams of his own death, the dreams that reveal his buried desires—all shot with a different visual grammar than waking reality.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) achieved greater cinematic sophistication, particularly in its later seasons. Mad Men (9.5) created a more visually stylized period piece. The Sopranos was pioneering for television in 1999 but has been surpassed in pure visual ambition by subsequent series.</p>
+        
+        <p><strong>Why 6.5:</strong> Solid, professional cinematography that established standards for the medium. The visual realism serves the story well. The limitation is that subsequent series (Breaking Bad, True Detective, The Crown) have pushed television cinematography further; The Sopranos looks less visually distinctive now than it did in 1999.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.50</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Scope:</strong> The Sopranos operates on an intimate scale. Violence erupts suddenly, without warning—a shooting in a restaurant, a strangulation in a basement, a car explosion. There's no grand spectacle, no set pieces of the kind Breaking Bad would later provide. The series' power comes from character and dialogue, not visual scale.</p>
+        
+        <p><strong>The Intimate and the Brutal:</strong> When violence does occur, it's often shot in close-up, emphasizing its personal nature. The physicality of Gandolfini's performance—his bulk, his sudden movements—provides impact without wide shots or elaborate staging.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Game of Thrones (9.5) or The Expanse (9) provide actual spectacle—battles, spaceships, visual grandeur. The Sopranos deliberately avoids spectacle in favor of intimacy. This is appropriate to its aims but limits its score on this dimension.</p>
+        
+        <p><strong>Why 5:</strong> Minimal spectacle by design. The series' visual impact comes from performance and psychology, not production scale. Appropriate for the intimate domestic-cum-criminal drama the series pursues.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9.5</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.43</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Anti-Hero:</strong> The Sopranos essentially invented television's anti-hero drama—or at least made it mainstream. Tony Soprano is a murderer who we follow, sympathize with, root for. The series makes us complicit in his crimes by making him human, by showing his vulnerabilities, by making his victims (often other criminals) seem like they had it coming. This opened the door for Walter White, Don Draper, and the entire anti-hero era.</p>
+        
+        <p><strong>Therapy as Narrative Device:</strong> The series' genius was using Tony's therapy sessions to access his interiority. Dr. Melfi becomes our surrogate—learning about Tony's past, his psychology, his motivations. The therapy framework allows for extended psychological exploration that would otherwise require voiceover or exposition. The ethical questions (should Melfi treat him? Should she report his crimes?) become meta-commentary on our relationship to Tony.</p>
+        
+        <p><strong>American Decline:</strong> The series is about the American dream and its corruption. Tony wants what everyone wants—family, success, respect—but achieves it through crime. The New Jersey setting (post-industrial, economically struggling) becomes a metaphor for American decline. The mob, like the American middle class, is trying to maintain standards in a world that's changing beneath them.</p>
+        
+        <p><strong>Masculinity and Violence:</strong> The series interrogates masculine codes—what it means to be a man, to be strong, to be respected. The mob's violent masculinity is both attractive (to Tony, to the audience) and destructive—to families, to communities, to the men themselves. The therapy sessions make this explicit: Tony is broken by the masculinity he performs.</p>
+        
+        <p><strong>The Family:</strong> The series constantly plays with the word "family"—the biological family (Tony, Carmela, Meadow, A.J.) and the criminal family (the mob). The parallel suggests that organized crime is a perversion of family, but also that actual families have their own violence, betrayal, and cruelty. Blood is thicker than water, but blood is shed in both families.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (9) explores similar territory—American corruption, masculine ego, the anti-hero. The Sopranos got there first and established the template. The Wire (10) achieved greater thematic density through its institutional critique.</p>
+        
+        <p><strong>Why 9.5:</strong> Exceptional thematic depth exploring American life, masculinity, family, therapy, and violence. The series basically invented a genre and raised the thematic stakes for television. The limitation is minor—occasionally the therapy-device becomes repetitive, and some middle-season episodes feel less thematically rich.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Serialized Storytelling:</strong> The Sopranos operates simultaneously as episodic and serialized. Each episode can stand alone (with Tony facing a particular problem or enemy), but seasons build toward larger arcs (the conflict with Junior, the war with New York, the FBI investigations). This hybrid approach became the template for prestige television.</p>
+        
+        <p><strong>The Therapy Arc:</strong> The narrative engine early in the series is Tony's therapy—his sessions with Dr. Melfi, his resistance to change, his insights that don't translate to action. This provides structure while the mob stories develop. The therapy also allows for flashbacks and dream sequences that enrich our understanding of Tony's past.</p>
+        
+        <p><strong>Pacing Issues:</strong> The series is not perfectly paced. Some middle seasons (particularly parts of Season 4) feel repetitive, with storylines that don't advance the overall narrative. The balance between Tony's family problems and mob business sometimes tips too far toward domestic comedy. These pacing issues are characteristic of the pre-streaming era, when series needed to fill 13-episode orders.</p>
+        
+        <p><strong>The Final Season:</strong> The split final season (Season 6, parts 1 and 2) builds effectively toward the finale, though some subplots feel unnecessary. The final episodes, however, are masterfully constructed, with the series' themes converging in ways that make the ambiguous ending feel earned.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) achieved tighter narrative construction, with each season building inexorably toward catastrophe. The Wire (7.5) was similarly episodic-serialized with occasional lulls. The Sopranos' narrative drive is strong but occasionally interrupted by less essential subplots.</p>
+        
+        <p><strong>Why 8:</strong> Strong narrative construction with effective hybrid episodic-serial structure. The therapy and mob storylines provide variety. The limitation is occasional padding in middle seasons and a few subplots that don't sufficiently advance character or theme.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9.5</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.95</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>"Made in America":</strong> The series finale is the most debated in television history. Tony, Carmela, and A.J. are in a diner; Meadow is approaching the door; Journey's "Don't Stop Believin'" plays; the screen cuts to black. Did Tony die (killed by the man who'd just entered the bathroom)? Did the series simply refuse to end? Is the cut to black a comment on death's suddenness, on the fact that life ends mid-sentence?</p>
+        
+        <p><strong>The Interpretation:</strong> Chase has been deliberately ambiguous in interviews, saying only that "if you look at the final episode really carefully, it's all there." The evidence pointing to Tony's death: the mysterious man at the counter, the pattern of point-of-view shots throughout the episode (Tony sees someone, we see Tony seeing them), the sudden cut to black (the end of Tony's consciousness). The evidence pointing to intentional ambiguity: the lack of definitive confirmation, Chase's refusal to explain, the thematic appropriateness of uncertainty.</p>
+        
+        <p><strong>The Emotional Resolutions:</strong> Regardless of Tony's fate, the finale resolves emotional arcs: A.J.'s existential crisis and eventual military enlistment, Meadow's decision to pursue law ("I'm going to defend civil rights"—her father's opposite), Carmela's acceptance of her life. Even if we're denied certainty about Tony, we see where his family stands.</p>
+        
+        <p><strong>Dr. Melfi's Ending:</strong> The final confrontation between Tony and Melfi—when she terminates their therapy after learning that sociopaths often manipulate therapy to justify their behavior—is devastating. Melfi realizes she's been complicit, that the therapy has enabled rather than cured Tony. Her final rejection of him provides closure to their relationship while denying Tony the absolution he seeks.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) provided definitive, perfect closure. The Sopranos chose ambiguity, which is thematically appropriate (life doesn't provide neat endings) but frustrating. Some viewers consider it the perfect ending; others find it unsatisfying. Either way, it's unforgettable.</p>
+        
+        <p><strong>Why 9.5:</strong> An ending that continues to generate debate and analysis nearly two decades later. The ambiguity is thematically rich—appropriate to a series about a man who avoids consequences. The limitation is that ambiguity, while artistically defensible, denies viewers the satisfaction of definitive resolution; some will consider this a flaw.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">8.3</div>
+    <div style="color:#888">1.90+1.20+0.98+0.50+1.43+1.20+0.95 = <strong>8.16</strong></div>
+</div>
+
 </body>
 </html>

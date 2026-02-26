@@ -1,91 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adolescence - "Growing up is murder" | Dynamic Rank Engine</title>
+    <title>Adolescence - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #100810 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #4a148c; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #4a148c, #311b92); color: #e1bee7; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #b39ddb; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(74,20,140,0.3), rgba(0,0,0,0.9)); border: 3px solid #4a148c; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #b39ddb; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #4a148c; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #b39ddb; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(74,20,140,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #b39ddb; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #b39ddb; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #112</div>
-            <h1>Adolescence</h1>
-            <p class="subtitle">"Growing up is murder"</p>
-            <div class="score-badge">
-                <span class="score-value">7.00</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2024</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">4</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Netflix</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Stephen Graham, Jack Thorne</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Adolescence is a four-part British drama, filmed in single continuous takes, about a thirteen-year-old boy accused of murder. Jamie Miller (Owen Cooper) is arrested at dawn—his family shocked, the police methodical. The accusation: he stabbed a classmate, a girl named Katie. The show's structure: each episode is one continuous shot, following the aftermath from different perspectives. Episode one: the arrest. Episode two: the school. Episode three: the psychologist. Episode four: the family.</p>
-            <p>The technical achievement is staggering: four hour-long episodes, each a single take, requiring precise choreography of actors, camera, lighting, sound. But the technique serves the story. The unbroken takes create claustrophobia, immediacy, the sense that everything is happening in real time. There's no escape—from Jamie's flat, from the police station, from the school where he was bullied, from the truth. Stephen Graham plays Jamie's father, Eddie—a man trying to understand how his son became this. "I thought I knew him," he says. "I didn't."</p>
-            <p>The show's thesis: we don't know our children. The internet shapes them in ways parents can't see—influencers, algorithms, radicalization. Jamie watched content that taught him to hate women, to see himself as a victim, to justify violence. "It's not my fault," he says. "It's theirs." The show doesn't offer easy answers. Jamie is guilty—but so is everyone: the bullies, the school that failed, the parents who didn't know, the algorithms that profit from hate. "Everyone's responsible," a character says. "Everyone's guilty."</p>
-            <p>Four episodes, complete. Adolescence is a single story, told once, perfectly. The continuous-shot technique could be gimmick; here it's essential. We can't look away. We can't edit out the uncomfortable moments. We're trapped with this family, this boy, this tragedy. "Growing up is hard," someone says. "Growing up is murder." For Katie, it was.</p>
-        </div>
+<p>Adolescence premiered on Netflix on March 13, 2025, created by Stephen Graham and Jack Thorne. The series is a British drama that examines the arrest of a 13-year-old boy for murder, told in real-time across four episodes. Each episode is filmed in a single continuous take, following the boy (Jamie Miller, played by Owen Cooper), his family, the police, and the institutions that failed him. The series became a cultural phenomenon upon release, praised for its unflinching examination of toxic masculinity, online radicalization, and the failure of schools and families to recognize warning signs.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Cinematography (10):</strong> Four continuous hour-long takes. Technical achievement unprecedented. The form is the meaning.</p>
-            <p><strong>Characters & Acting (9):</strong> Owen Cooper's debut performance is stunning. Stephen Graham is devastating as the father. Raw, real, unforgettable.</p>
-            <p><strong>Resolution (8):</strong> Complete story. The verdict, the family, the final shot. Nothing unresolved.</p>
-        </div>
+<p>Owen Cooper plays Jamie Miller, a 13-year-old who is arrested in the first episode for the murder of a classmate. Cooper's performance is remarkable—he plays Jamie as child, victim, and manipulator simultaneously; we see his fear, his confusion, his anger, and eventually his guilt. The performance required Cooper (in his first professional role) to sustain a continuous take across an hour, maintaining character while the camera followed him through arrest, processing, and interrogation.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Episode 1"</strong> — The arrest. Dawn raid. "I didn't do anything."</p>
-            <p><strong>"Episode 2"</strong> — The school. The bullying. The context revealed.</p>
-            <p><strong>"Episode 3"</strong> — The psychologist. Jamie alone. "I wanted her to be afraid."</p>
-            <p><strong>"Episode 4"</strong> — The family. The verdict. "I didn't know him."</p>
-        </div>
+<p>Stephen Graham (who co-created and co-wrote the series) plays Jamie's father Eddie, a working-class man who cannot understand what his son has become. Graham's performance is devastating—a father whose love for his son conflicts with his horror at what his son has done, whose inability to see the warning signs is both failure and tragedy. The third episode, set in the family home, is Graham's showcase: Jamie has returned home on bail, and the family attempts normalcy while everything has collapsed.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Netflix</p>
-            <p><strong>UK:</strong> Netflix</p>
+<p>The series' technique—four episodes, each a single continuous take—is not just formal virtuosity. The real-time structure forces the viewer to experience the events as the characters experience them: the confusion of arrest, the slow processing through police bureaucracy, the interrogation that reveals what happened, the family's attempt to process the unprocessable. There are no cuts to compress time; we live through the hours with the characters.</p>
+
+<p>Each episode focuses on a different perspective: Episode 1 follows Jamie through his arrest at school and transport to the police station; Episode 2 follows the police as they process the crime scene and the evidence; Episode 3 follows the family as Jamie returns home on bail; Episode 4 follows a psychologist (played by Erin Doherty) as she assesses Jamie. The perspectives accumulate; we understand the crime from multiple angles without ever being allowed to look away.</p>
+
+<h2>Why It Ranks #31</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.60</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Jamie Miller:</strong> Owen Cooper, in his first professional role, plays the 13-year-old accused of murder with remarkable complexity. Jamie is child, victim, and manipulator; Cooper shifts between fear, defiance, confusion, and guilt within single takes. The performance required sustaining character across an hour without cuts; Cooper never breaks. Jamie is not sympathetic—we learn what he did—but he's human; we understand how a child becomes a killer.</p>
+        
+        <p><strong>Eddie Miller:</strong> Stephen Graham plays Jamie's father as a man whose world has collapsed. Eddie is working-class, loving, and completely unprepared for what his son has become. Graham plays the gradual recognition: first denial (my son couldn't have done this), then confusion (how did I miss this?), then horror (I raised a killer). The third episode, in the family home, is Graham's showcase—a father attempting normalcy while his family disintegrates.</p>
+        
+        <p><strong>Briony Ariston:</strong> Erin Doherty plays the clinical psychologist assigned to assess Jamie's fitness to plead. Briony is professional, patient, and eventually horrified; she sees Jamie clearly as he attempts to manipulate her. Doherty plays the interrogation as a contest of wills—Jamie is intelligent and manipulative, Briony is trained to see through manipulation, and the episode becomes psychological warfare.</p>
+        
+        <p><strong>The Family:</strong> Christine Tremarco plays Jamie's mother Manda, whose denial is more complete than Eddie's; Faye Marsay plays Jamie's sister Lisa, whose recognition is immediate and devastating. The family dynamic in episode 3—attempting a Sunday lunch while everything has collapsed—is painful to watch. The performances are uniformly excellent.</p>
+        
+        <p><strong>The Police:</strong> Ashley Walters plays Detective Inspector Luke Bascombe, who arrests Jamie; Faye Mason plays the detective sergeant who processes him. The police are neither heroes nor villains; they're professionals doing a job. The arrest and processing are depicted as bureaucracy—confusing, slow, impersonal.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective S1 (8) achieved comparable intensive character focus. Adolescence matches its performance quality with more concentrated format (4 episodes, continuous takes).</p>
+        
+        <p><strong>Why 8:</strong> Exceptional performances from Owen Cooper (first professional role) and Stephen Graham. The continuous-take format requires sustained characterization. The family dynamics are painful and real. The limitation is the short format; characters have less development time than longer series.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 0.75</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Institutional Focus:</strong> The series depicts institutions—the school, the police station, the family home, the assessment center—with accuracy. But the world is narrow; we see only what relates to the crime. There's no broader social context, no exploration of community, no depiction of the world beyond the immediate events.</p>
+        
+        <p><strong>The School:</strong> Episode 1 begins in a secondary school; we see Jamie in class before the police arrive. The school is rendered accurately—the noise, the casual cruelty among students, the teachers attempting control. But the school is just setting; we don't explore it beyond its function.</p>
+        
+        <p><strong>The Police Station:</strong> Episodes 1 and 2 depict the police station—the processing, the holding cells, the interview rooms. The bureaucracy is accurate: the waiting, the forms, the impersonal procedures. But again, the station is just setting; we don't see the police as people beyond their function.</p>
+        
+        <p><strong>The Home:</strong> Episode 3 depicts the family home—a working-class house, a Sunday lunch, the attempted normalcy. The home is the most developed setting; we see the family's life in its environment. But the home is also confined; we don't see the neighborhood, the community, the broader context.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) achieved comprehensive institutional world-building. Adolescence is narrowly focused; the world is confined to the immediate setting.</p>
+        
+        <p><strong>Why 5:</strong> Accurate institutional depiction but narrow focus. The world is confined to school, police station, home. No broader social context or community depiction. The limitation is deliberate (the series focuses on the immediate events) but limits the dimension.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.43</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Single Continuous Take:</strong> Each of the four episodes is filmed in a single continuous take. The technique is not just virtuosity; it's essential to the series' effect. The continuous take forces the viewer to experience events in real time, without the compression that editing provides. We live through the hours with the characters; we cannot look away.</p>
+        
+        <p><strong>Episode 1 (The Arrest):</strong> The camera follows Jamie from his classroom through his arrest, his transport in the police van, and his processing at the station. The take is approximately 60 minutes; the camera moves through school corridors, into the van, through station hallways, into the holding cell. The technical challenge is immense; the execution is flawless.</p>
+        
+        <p><strong>Episode 2 (The Police):</strong> The camera follows the police as they process the crime scene, gather evidence, and gradually understand what happened. The continuous take moves through the school (after the crime), the police station, and the interview room. The technique maintains real-time tension.</p>
+        
+        <p><strong>Episode 3 (The Family):</strong> The camera moves through the family home as Jamie returns on bail and the family attempts a Sunday lunch. The continuous take in a domestic space—the kitchen, the living room, the stairs—creates claustrophobia. The family cannot escape each other; the camera cannot escape them.</p>
+        
+        <p><strong>Episode 4 (The Assessment):</strong> The camera follows the psychologist as she assesses Jamie. The take is confined to the assessment center—the waiting room, the interview room. The space is smaller; the tension is psychological rather than physical. The continuous take forces the viewer to experience the interrogation without relief.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Russian Ark (a feature film) achieved single-take cinema. Adolescence achieves single-take television across four hours. The technique is unprecedented in the format.</p>
+        
+        <p><strong>Why 9.5:</strong> Four episodes, each a single continuous take, totaling approximately four hours. The technique is essential to the series' effect. The execution is flawless. This is technically unprecedented in television.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.50</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Anti-Spectacle:</strong> The series deliberately rejects visual spectacle. The continuous-take technique creates immediacy and tension, but it's not spectacular in conventional terms. The camera follows characters through mundane spaces—school corridors, police stations, family homes. The effect is observational, not impressive.</p>
+        
+        <p><strong>The Crime:</strong> We never see the crime itself. The murder is described, not depicted; we learn what happened through dialogue, not through visual flashback. The approach is appropriate to the material (we're examining the aftermath, not the act) but limits visual effect.</p>
+        
+        <p><strong>Continuous-Take as Effect:</strong> The continuous take is the series' visual signature. The effect is tension (we cannot look away) and immersion (we experience events in real time). But the effect is not spectacle; it's restraint. The camera observes without calling attention to itself.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The series prioritizes immediacy over spectacle. The continuous take is technique, not visual impressiveness.</p>
+        
+        <p><strong>Why 5:</strong> Deliberate rejection of spectacle in favor of observational immediacy. The continuous take is technique, not visual effect. The crime is described, not depicted. The dimension is deprioritized by design.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Toxic Masculinity:</strong> The series examines how boys are socialized into violence—through online content, through peer pressure, through expectations of male behavior. Jamie is not a monster; he's a product of forces he doesn't understand. The series examines how "manosphere" content, social media, and peer groups shape boys' attitudes toward women and violence.</p>
+        
+        <p><strong>Online Radicalization:</strong> Jamie consumed online content that normalized violence against women. The series doesn't depict the content directly; it explores the effects on Jamie's attitudes. The radicalization is depicted as a process—not instant conversion but gradual desensitization. The series asks how institutions (schools, families) fail to recognize the warning signs.</p>
+        
+        <p><strong>Institutional Failure:</strong> The school failed to recognize Jamie's radicalization; the family failed to see the warning signs; the systems that should have helped a troubled boy didn't. The series examines how institutions are structured to respond after the fact (processing a suspect) rather than before (recognizing a troubled child). The failure is systemic, not individual.</p>
+        
+        <p><strong>Child Criminal:</strong> Jamie is 13. The series examines what it means when a child commits an adult crime. Is he responsible? Is he a victim of forces he didn't choose? The series doesn't answer; it presents. Jamie is both child (confused, scared, manipulative in childlike ways) and killer (he murdered a classmate). The contradiction is the point.</p>
+        
+        <p><strong>Parental Grief:</strong> The series examines what parents feel when their child commits a horrific crime. Eddie and Manda love Jamie; they also cannot comprehend what he's done. The grief is for the child they raised and the child they didn't know. The scene where Eddie realizes (truly realizes) what Jamie has done is devastating.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Leftovers (9.5) achieved comparable thematic depth. Adolescence matches its examination of grief and failure with more concentrated social focus.</p>
+        
+        <p><strong>Why 9:</strong> Exceptional conceptual examination of toxic masculinity, online radicalization, institutional failure, and parental grief. The series presents a child killer as product as well as perpetrator. The themes are urgent and socially relevant.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Real-Time Structure:</strong> The continuous-take format creates real-time tension. We experience events as the characters experience them—the confusion of arrest, the slow processing through bureaucracy, the interrogation, the family's attempt at normalcy. The drive is inherent to the structure; we cannot look away.</p>
+        
+        <p><strong>The Crime:</strong> The drive is also mystery: what happened? Episode 1 establishes the arrest; Episode 2 provides the crime scene; Episode 3 provides the family context; Episode 4 provides the psychological assessment. We learn the truth gradually, through accumulation, without being allowed to skip forward.</p>
+        
+        <p><strong>Episode Structure:</strong> Each episode has momentum—Episode 1 moves from classroom to arrest to processing; Episode 2 moves through the investigation; Episode 3 builds toward the family's confrontation with the truth; Episode 4 is a psychological duel between Jamie and the psychologist. The continuous take creates tension; the content provides direction.</p>
+        
+        <p><strong>Accumulation:</strong> The four episodes accumulate information: we learn what Jamie did (Episode 1-2), we learn why he did it (Episode 3-4), we learn who he is (throughout). The drive is toward understanding, not toward resolution (there is no resolution for a murdered child).</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective S1 (9) achieved intense narrative drive through mystery. Adolescence matches its intensity through real-time structure.</p>
+        
+        <p><strong>Why 9:</strong> Intense narrative drive through real-time continuous-take structure. Each episode has momentum. The accumulation of information creates understanding. The format forces attention.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.90</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Complete Story:</strong> The series tells a complete story in four episodes. We learn what happened, why it happened, and who Jamie is. The final episode provides psychological assessment that explains (without excusing) Jamie's crime. The story is complete; there's no need for continuation.</p>
+        
+        <p><strong>No Resolution:</strong> The series provides understanding, not resolution. There is no resolution for a murdered child, no resolution for a family whose son is a killer, no resolution for a society that produces child killers. The series presents the situation without offering solutions.</p>
+        
+        <p><strong>The Ending:</strong> Episode 4 ends with Jamie's psychological assessment complete; his guilt is established, his fitness to plead is determined, his future (detention) is implicit. The family returns home; Eddie knows what his son is. The series ends on this knowledge—not on resolution but on recognition.</p>
+        
+        <p><strong>Limited Series:</strong> Adolescence is a limited series—four episodes, complete story. There's no expectation of continuation; the format is appropriate to the material. The limited series ensures that the story is finished rather than extended.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Queen's Gambit (8) achieved complete resolution in limited format. Adolescence matches its completeness with recognition rather than resolution.</p>
+        
+        <p><strong>Why 9:</strong> Complete limited series with understanding (if not resolution). The story is finished in four episodes. The ending is recognition, not solution. The format is appropriate to the material.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.85</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.60 + World: 0.75 + Cine: 1.43 + Spectacle: 0.50 + <br>
+        Concepts: 1.35 + Drive: 1.35 + Resolution: 0.90 = <strong>7.85</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (4 episodes, limited series) | Status: Complete<br>
+        Rank: #31 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 13 March 2025 | Network: Netflix | Episodes: 4 (limited series)<br>
+    Creators: Stephen Graham, Jack Thorne | Director: Philip Barantini<br>
+    Cast: Owen Cooper, Stephen Graham, Erin Doherty, Christine Tremarco, Faye Marsay<br>
+    Technique: Four episodes, each a single continuous take (~60 minutes each)<br>
+    Note: Examination of toxic masculinity, online radicalization, and institutional failure through a 13-year-old's arrest for murder<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

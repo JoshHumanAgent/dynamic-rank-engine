@@ -1,91 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Queen's Gambit - "The strongest person is the one who's most alone" | Dynamic Rank Engine</title>
+    <title>The Queen's Gambit - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #050510 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #5c6bc0; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #5c6bc0, #3949ab); color: #c5cae9; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #9fa8da; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(92,107,192,0.3), rgba(0,0,0,0.9)); border: 3px solid #5c6bc0; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #9fa8da; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #5c6bc0; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #9fa8da; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(92,107,192,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #9fa8da; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #9fa8da; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #9</div>
-            <h1>The Queen's Gambit</h1>
-            <p class="subtitle">"The strongest person is the one who's most alone"</p>
-            <div class="score-badge">
-                <span class="score-value">8.23</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2020</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">6</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Netflix</div></div>
-            <div class="info-item"><div class="info-label">Director</div><div class="info-value">Scott Frank</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Queen's Gambit is sports drama as character study—chess as addiction, genius as curse, orphan girl as world champion. Beth Harmon (Anya Taylor-Joy) discovers chess in an orphanage basement, taught by the janitor Mr. Shaibel. She's a prodigy, seeing moves on the ceiling, visualizing entire games before playing them. She's also damaged: her mother's death, the orphanage's tranquilizers, the foster system's indifference. "The strongest person is the one who's most alone," someone tells her. Beth learns the opposite: strength comes from connection she's denied herself.</p>
-            <p>The structure is tournament arc: Kentucky, Ohio, Las Vegas, Mexico City, Paris, Moscow. Each victory brings higher stakes; each loss brings spiral. Beth's addiction— to chess, to pills, to alcohol—mirrors her mother's decline. "You're not supposed to have those," a nun tells young Beth about the tranquilizers. She takes them anyway. The green pills are comfort, escape, then prison. By mid-series, Beth is winning internationally while losing personally— blackout drunk before matches, hallucinating on the ceiling, alone in hotel rooms with only chess for company.</p>
-            <p>The chess sequences are directorial triumph: Scott Frank films matches as duels, pieces as weapons, clocks as heartbeats. The period production—1960s America, then international tournaments—is meticulous: costumes, cars, hotels. Anya Taylor-Joy is magnetic: Beth's intensity, her vulnerability, her ferocious intelligence. The supporting cast: Harry (Harry Melling), her first rival turned coach; Benny (Thomas Brodie-Sangster), the American champion; Jolene (Moses Ingram), her orphanage friend, the person who saves her.</p>
-            <p>One season, six episodes, complete miniseries. The Queen's Gambit was Netflix's surprise phenomenon—62 million households in first month, chess sets selling out worldwide, a miniseries about board games becoming cultural event. The finale is triumphant: Beth sober, surrounded by friends, beating the Russian world champion, then walking through Moscow streets adored by children. "Let's play," she tells an old man in the park. She's not alone anymore. She's the strongest she's ever been.</p>
-        </div>
+<p>The Queen's Gambit premiered on Netflix on October 23, 2020, a limited series created by Scott Frank and Allan Scott from Walter Tevis's 1983 novel. The series follows Beth Harmon (Anya Taylor-Joy), an orphan in 1950s Kentucky who discovers chess through the orphanage's janitor (Bill Camp) and rises to become a world-class player while struggling with addiction. Across seven episodes and roughly 15 years of story, the series depicts Beth's journey from child prodigy to world-championship contender, her struggle with tranquilizer addiction (originally mandated for orphanage children), and her complicated relationship with her adoptive mother.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">9</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Anya Taylor-Joy is transcendent. Her Beth Harmon is iconic—fragile, fierce, unforgettable.</p>
-            <p><strong>Cinematography (9):</strong> Chess matches as cinema. Period perfection. Visual storytelling at its best.</p>
-            <p><strong>Resolution (9):</strong> Perfect ending. Complete miniseries. Triumph earned through struggle.</p>
-        </div>
+<p>Anya Taylor-Joy's performance is the series' gravitational center—Beth is brilliant, obsessive, emotionally guarded, and self-destructive, and Taylor-Joy captures all of it through body language and facial expression (the series has relatively little dialogue). Beth looks at chess pieces and sees them move on the ceiling; Taylor-Joy portrays this visualization as transcendent experience, genuine addiction, and coping mechanism simultaneously. The performance made Taylor-Joy a star and won her a Golden Globe and Screen Actors Guild Award.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Openings" (E1)</strong> — The orphanage. "Do you know how to play?"</p>
-            <p><strong>("Exchanges" (E2)</strong> — First tournament. "I'm not a prodigy."</p>
-            <p><strong>("End Game" (E6)</strong> — The finale. Moscow. "Let's play."</p>
-            <p><strong>Full miniseries</strong> — Six episodes, complete story, masterpiece.</p>
-        </div>
+<p>The series' achievement is multiple: it's a sports story (underdog rises to challenge the world champion), an addiction narrative (the pills Beth takes first calm her, then control her, then nearly destroy her), and a period piece (1960s America and Soviet Union rendered with meticulous detail). The chess is rendered accurately—the positions on screen are from actual games, the strategies are legitimate, the world-championship matches are believable. The series consulted with grandmaster Garry Kasparov and former world-champion coach Bruce Pandolfini.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Netflix</p>
-            <p><strong>UK:</strong> Netflix</p>
+<p>The series received exceptional critical reception and became a cultural phenomenon: Netflix reported over 62 million households watched in the first 28 days (making it the platform's most-watched limited series at the time), chess sets sold out globally, and online chess platforms reported millions of new players. The "Queen's Gambit effect" was documented: chess.com added millions of users, sales of chess sets increased 125% in the US, and books about chess surged in popularity.</p>
+
+<p>The limited series format (seven episodes, complete story) provided closure that ongoing series lack. The finale depicts Beth defeating world champion Vasily Borgov (modeled on Soviet players) in Moscow, her addiction overcome, her relationships repaired, and her love for the game restored. The ending is earned through the episodes—Beth's losses and victories, her addiction and recovery, her isolation and connection—and provides genuine satisfaction.</p>
+
+<h2>Why It Ranks #52</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.50</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Beth Harmon:</strong> Anya Taylor-Joy created one of television's definitive child-prodigy portraits—Beth is brilliant, obsessive, emotionally damaged, and genuinely gifted. The performance captures Beth's social awkwardness (she doesn't know how to relate to people who don't understand chess), her drug dependency (the tranquilizers that first calm her become her addiction), and her eventual self-awareness. Taylor-Joy plays Beth from age 15 to roughly 22, capturing the transition from prodigy to adult without visible aging effects. The role made Taylor-Joy a star and won her Golden Globe and SAG Awards.</p>
+        
+        <p><strong>Alma Wheatley:</strong> Marielle Heller plays Beth's adoptive mother—a woman trapped in a strained marriage, dependent on alcohol and pills, who finds unexpected purpose in managing Beth's chess career. The relationship is mutually dependent: Beth needs a mother, Alma needs a purpose; they bond over pills and competition. Heller's performance captures Alma's fragility, her genuine affection for Beth, and her inability to be the stable parent Beth needs.</p>
+        
+        <p><strong>Mr. Shaibel:</strong> Bill Camp plays the orphanage janitor who teaches Beth chess—he's the first person to recognize her ability, giving her a purpose and identity. The character is quiet, religious, and initially reluctant to play with a girl; his eventual recognition of her talent is the series' origin story. Camp plays him with minimal dialogue and maximum effect.</p>
+        
+        <p><strong>The Male Characters:</strong> The series populates Beth's world with male chess players: Harry Beltik (Harry Melling), a state champion who becomes her first coach and lover; Benny Watts (Thomas Brodie-Sangster), a rival who becomes friend and mentor; Townes (Jacob Fortune-Lloyd), a journalist whose unrequited attraction to Beth shapes their friendship. The characters serve Beth's development; the limitation is that they're defined primarily through their relationship to her.</p>
+        
+        <p><strong>Jolene:</strong> Moses Ingram plays Beth's childhood friend from the orphanage—a Black girl who age-outs into a difficult world but returns late in the series to help Beth when she needs it most. The character provides a crucial connection to Beth's past and the show's only sustained Black perspective (the orphanage scenes depict segregation). Ingram brings warmth and directness to a character who calls out Beth's privilege.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Queen's Gambit is a star vehicle—Beth is the center, and the other characters orbit her. The approach works for the limited series format but limits ensemble depth.</p>
+        
+        <p><strong>Why 7.5:</strong> Taylor-Joy's performance is exceptional and deservedly award-winning. The supporting cast is strong. The limitation is that characters exist primarily to serve Beth's development rather than as independent presences.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Chess World Rendered:</strong> The series depicts the chess world with unusual accuracy—the tournaments, the rankings, the international circuit, the Soviet dominance. The positions on screen are from actual games; the strategies are legitimate; the speed at which players move is realistic (grandmasters can assess positions quickly). The series consulted with grandmaster Garry Kasparov, lending authenticity to the competitive scenes.</p>
+        
+        <p><strong>The Orphanage:</strong> The 1950s orphanage is rendered with period detail—the mandated tranquilizers for children (based on actual practice), the religious strictness, the gender dynamics. Beth's childhood trauma (her mother's death in a car accident, her father's abandonment) grounds her later dependency and emotional guardedness.</p>
+        
+        <p><strong>Period Detail:</strong> The series spans roughly 1957 to 1968, and each period is rendered with costume, music, and production design accuracy. The 1960s transitions from conservative orphanage to glamorous international competition provide visual contrast. The attention to detail (chess sets, hotel rooms, clothing) is meticulous.</p>
+        
+        <p><strong>The Soviet chess machine:</strong> The final episodes depict Beth's tournament in Moscow—the Soviet chess establishment, the grandmasters who dominate the game, the Cold War context. The series doesn't make chess a Cold War proxy (that's not what it's about), but acknowledges the political dimension.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Mad Men (9) achieved comprehensive period world-building. The Queen's Gambit matches its period accuracy in a narrower scope—the chess world rather than broader society.</p>
+        
+        <p><strong>Why 7:</strong> Strong period detail and chess-world accuracy. The orphanage and competitive circuit are convincingly rendered. The limitation is narrow scope—the world is chess and Beth, not broader society.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Visual Style:</strong> The series' cinematography by Steven Meizler creates a distinctive visual identity: the orphanage scenes are muted and institutional, the competition scenes are glamorous and tense, and Beth's chess visualizations (the pieces moving on the ceiling) are otherworldly. The approach is period-appropriate without being nostalgic—1960s America is attractive but not romanticized.</p>
+        
+        <p><strong>The Chess Visualization:</strong> Beth's ability to visualize chess positions is rendered through CGI—she looks up and sees pieces moving on the ceiling, combinations playing out, strategies emerging. The visualization is beautiful and otherworldly, suggesting the transcendent experience of genuine gift. The effect became one of the series' signature visual moments.</p>
+        
+        <p><strong>Compositional Symmetry:</strong> The series favors symmetrical compositions—Beth centered in frame, chess boards centered, rooms arranged with geometric precision. The symmetry suggests order and control, qualities Beth seeks but struggles to maintain. The visual order contrasts with Beth's internal chaos.</p>
+        
+        <p><strong>Period Aesthetic:</strong> The 1960s are rendered with loving attention to clothing, hair, makeup, and interior design. Beth's fashion evolution (from orphanage practicality to competitive glamour) is itself a story, tracked through costume. The aesthetic is aspirational—Beth becomes the elegant woman she couldn't have imagined as a child.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Mad Men (8.5) established the standard for period television cinematography. The Queen's Gambit matches its visual achievement in a more concentrated format.</p>
+        
+        <p><strong>Why 8.5:</strong> Distinctive visual identity with period accuracy and striking chess visualizations. The symmetrical compositions create visual order that contrasts Beth's internal chaos. The aesthetic serves the story.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.70</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Chess as Spectacle:</strong> The series transforms chess into visual spectacle through Beth's visualization—the moving pieces on the ceiling, the combinations she sees, the transcendent experience of talent. Chess isn't inherently spectacular; the series makes it so through cinematography and CGI.</p>
+        
+        <p><strong>Period Glamour:</strong> The 1960s fashion, the hotel rooms in Paris and Moscow, the international competition circuit—these provide visual pleasure. Beth's transformation from orphanage child to elegant competitor is tracked through costume and setting.</p>
+        
+        <p><strong>Competition Sequences:</strong> The tournament scenes are tense and beautifully shot—clocks ticking, pieces moving, opponents staring. The series makes chess exciting without sacrificing accuracy. The final match in Moscow is the spectacle culmination: Beth vs. the world champion, everything at stake.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Sports films (8) create spectacle through competition. The Queen's Gambit transforms a mental competition into visual drama through cinematography and editing.</p>
+        
+        <p><strong>Why 7:</strong> Transforms chess into visual spectacle through visualization sequences and period glamour. The competition scenes are tense and well-shot. The limitation is that chess is inherently limited as visual spectacle.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Gift and Addiction:</strong> The series' central concept is the relationship between exceptional ability and dependency. Beth's gift (chess at grandmaster level) is inseparable from her pathology (the tranquilizers that first gave her access to her talent). The series doesn't romanticize this—the pills nearly destroy her—but acknowledges that genius and addiction often coexist.</p>
+        
+        <p><strong>Child Prodigy:</strong> The series examines what happens to prodigies—the isolation, the dependency, the difficulty relating to peers who don't understand your gift, the adults who want to use you. Beth's journey from orphanage prodigy to adult champion is also a journey from being used (by orphanage, by adoptive mother, by chess establishment) to self-determination.</p>
+        
+        <p><strong>Gender and Chess:</strong> The series acknowledges chess as male-dominated without making gender its central concern. Beth is the exception—a woman competing at the highest level—and she faces condescension and dismissal, but her victory comes from talent rather than proving a point about gender. The approach isn't feminist statement; it's historical accuracy with implicit critique.</p>
+        
+        <p><strong>Loss and Compensation:</strong> Beth's gift emerges from loss—her mother's death, her father's abandonment, her orphanage confinement. Chess provides order, control, and meaning that her life lacked. The series suggests that prodigious talent often compensates for trauma; the gift is both blessing and wound.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Queen's Gambit explores gift and addiction with more depth than most sports stories, but the concepts remain within the personal rather than expanding to broader social critique.</p>
+        
+        <p><strong>Why 7:</strong> Solid conceptual examination of genius, addiction, and trauma. The prodigy experience is rendered with authenticity. The limitation is that concepts remain personal rather than social.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Underdog Structure:</strong> The series follows classic sports-story structure: prodigy discovered, rises through competition, faces setbacks (losses, addiction, self-destruction), confronts the champion, triumphs. The structure is familiar but effective—each episode builds toward the next competition, each loss sets up the eventual victory.</p>
+        
+        <p><strong>Episode Construction:</strong> The seven episodes span roughly 15 years, with each episode advancing Beth's development and the competitive stakes. The structure is efficient: childhood (orphanage, discovery), adolescence (adoption, first tournament), early adulthood (rising competition, addiction deepens), crisis (rock bottom), recovery (friends rally), triumph (Moscow). The limited-series format ensures momentum without filler.</p>
+        
+        <p><strong>The Addiction Arc:</strong> Beth's pill dependency provides the narrative's internal arc—her initial calm, her growing tolerance, her need increasing as pressure increases, her rock bottom, and her recovery. The addiction narrative doesn't compete with the chess narrative; they're the same story. Her victory over Borgov is also victory over addiction.</p>
+        
+        <p><strong>The Relationships:</strong> Beth's relationships with Harry, Benny, Townes, and Jolene provide both support and complication. Each relationship advances her understanding—Harry teaches her preparation, Benny teaches her speed chess, Townes provides unconditional friendship, Jolene provides the history and honesty she needs. The relationships don't slow the narrative; they're integral to it.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represents maximum narrative momentum. The Queen's Gambit achieves comparable drive in concentrated format—the seven episodes move efficiently toward the climax.</p>
+        
+        <p><strong>Why 9:</strong> Excellent narrative drive through classic underdog structure executed efficiently. The addiction arc provides internal stakes; the chess arc provides external stakes. The limited-series format ensures momentum without padding.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.80</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Complete Story:</strong> The Queen's Gambit is a limited series with a complete story—the narrative begins with child Beth, ends with adult Beth victorious. There's no sequel potential (intentionally), no need for continuation. The resolution is earned through the seven episodes: Beth's victory over Borgov is the climax of the chess narrative, her rejection of pills is recovery in the addiction narrative, her relationship with Jolene is reconciliation with her past.</p>
+        
+        <p><strong>The Moscow Victory:</strong> The final match in Moscow provides the sports-story climax—Beth defeats world champion Vasily Borgov, a player who previously beat her. The victory is earned: Beth has learned from her losses, prepared with her friends, and approaches the match clean (literally—she stops taking pills). The scene is tense, beautiful, and satisfying.</p>
+        
+        <p><strong>The Park Scene:</strong> The series ends with Beth, after her victory, walking through Moscow to a park where old men play chess. She sits down to play with them—a return to the game's pleasure after years of pressure. The scene is character resolution: Beth plays chess not for competition but for joy. The image is perfect.</p>
+        
+        <p><strong>All Threads Resolved:</strong> The limited-series format ensures that all narrative threads conclude: Beth's addiction is overcome, her competitive arc concludes with victory, her relationships are repaired, her sense of self is established. There are no cliffhangers, no sequel hooks, no unresolved mysteries.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Limited series (like Chernobyl) represent ideal resolution—complete stories with planned endings. The Queen's Gambit achieves this: closure without sequel potential.</p>
+        
+        <p><strong>Why 8:</strong> Complete resolution in limited-series format. All narrative threads conclude. The Moscow victory and park scene provide satisfying closure. The ending is earned through the seven episodes.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.70</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.50 + World: 1.05 + Cine: 1.28 + Spectacle: 0.70 + <br>
+        Concepts: 1.05 + Drive: 1.35 + Resolution: 0.80 = <strong>7.70</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (7 episodes, limited series) | Status: Complete<br>
+        Rank: #52 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 23 October 2020 | Network: Netflix | Episodes: 7 (limited series)<br>
+    Creators: Scott Frank, Allan Scott | Based on: Novel by Walter Tevis (1983)<br>
+    Cast: Anya Taylor-Joy, Bill Camp, Marielle Heller, Harry Melling, Thomas Brodie-Sangster, Moses Ingram<br>
+    Awards: 11 Emmys incl. Outstanding Limited Series, Golden Globe (Taylor-Joy), SAG (Taylor-Joy)<br>
+    Impact: 62M households in 28 days; global chess set shortage; "Queen's Gambit effect"<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

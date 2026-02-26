@@ -1,91 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Babylon Berlin - "The past never dies" | Dynamic Rank Engine</title>
+    <title>Babylon Berlin - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #1a1a15 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #8d6e63; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #8d6e63, #5d4037); color: #d7ccc8; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #bcaaa4; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(141,110,99,0.3), rgba(0,0,0,0.9)); border: 3px solid #8d6e63; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #bcaaa4; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #8d6e63; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #bcaaa4; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(141,110,99,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #bcaaa4; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #bcaaa4; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #48</div>
-            <h1>Babylon Berlin</h1>
-            <p class="subtitle">"The past never dies"</p>
-            <div class="score-badge">
-                <span class="score-value">7.50</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2017-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">52</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Netflix, ARD</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Tom Tykwer</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Babylon Berlin is German noir set in the Weimar Republic. 1929: democracy is fragile, the Nazis are rising, and Berlin is the most decadent city on Earth. Inspector Gereon Rath (Volker Bruch) arrives from Cologne, haunted by trauma from WWI, investigating a pornography ring with political connections. Charlotte Ritter (Liv Lisa Fries) is a secretary by day, flapper by night, clawing her way out of poverty. Together they navigate a city where everyone has secrets, everyone is compromised, and the past—specifically the war—refuses to stay buried.</p>
-            <p>The show's scope is astonishing: Russian exiles plotting revolution, industrialists funding fascists, police corruption, cabaret culture, addiction, trauma. Berlin is a character: neon-lit streets, smoky jazz clubs, modernist architecture, and underneath, the scars of defeat. "We lost the war," someone says. "We just haven't admitted it yet." The show's thesis: Germany is already broken; the Nazis are just the ones who finish it. Babylon Berlin captures the moment before everything collapses—when democracy still exists, when hedonism is a response to horror, when the future could still have gone differently. It didn't.</p>
-            <p>Gereon Rath is the noir archetype: damaged, brilliant, compromised. He carries guilt from the war—specifically, what he did to his brother. Charlotte is his equal: ambitious, smart, struggling with a family that needs her income. Their relationship is professional, romantic, complicated—the show resists easy cliches. The mysteries are intricate: pornography, political assassination, gold from Russia. The production design is period-perfect: cars, clothes, music, the Moka Efti club.</p>
-            <p>Four seasons, fifty-two episodes, ongoing. Babylon Berlin is the most expensive German TV production ever, and it shows: scale, detail, ambition. It's also the best portrait of Weimar Germany on screen—capturing both the glamour and the rot underneath. "Berlin is a whore," someone says. "Everyone gets their turn." The show knows what's coming. We know too. That's the tragedy.</p>
-        </div>
+<p>Babylon Berlin premiered on German television (ARD and Sky Deutschland) on October 13, 2017, created by Tom Tykwer (Run Lola Run), Achim von Borries, and Henk Handloegten. The series is set in Berlin in 1929, during the Weimar Republic—the brief democratic period between World War I and the Nazi rise to power. Across four seasons and 42 episodes (with a fifth season filming), the series depicts a city of extremes: artistic experimentation and political violence, sexual liberation and social repression, glamour and poverty, democracy and the forces that would destroy it.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Cinematography (10):</strong> Weimar Berlin in stunning detail. Neon, shadows, modernist architecture. Visual poetry.</p>
-            <p><strong>World Building (9):</strong> 1929 Berlin as character. Politics, culture, everything on the edge. Immersive period piece.</p>
-            <p><strong>Characters & Acting (8):</strong> Volker Bruch's haunted Rath. Liv Lisa Fries' ambitious Charlotte. Strong ensemble.</p>
-        </div>
+<p>The series follows Gereon Rath (Volker Bruch), a police detective transferred from Cologne to Berlin, where he investigates a pornography ring, political conspiracies, and eventually the forces threatening the Republic. Charlotte Ritter (Liv Lisa Fries) is a flapper and part-time police clerk from a poor family, whose ambition and intelligence make her essential to Rath's investigations. The series combines police procedural, political thriller, and historical drama—there are crimes to solve, but the crimes are connected to the larger political forces (Communists, National Socialists, monarchists, industrialists) threatening German democracy.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Episode 1" (S1E1)</strong> — The introduction. Berlin at night. "The past never dies."</p>
-            <p><strong>("Episode 8" (S1E8)</strong> — Season one climax. The political conspiracy revealed.</p>
-            <p><strong>("Episode 16" (S2E8)</strong> — Season two finale. The stock market crash approaches.</p>
-            <p><strong>("Episode 28" (S4E4)</strong> — Season four. Political violence escalates.</p>
-        </div>
+<p>The series' achievement is visual and historical. With a budget of approximately €40 million for the first two seasons, it became the most expensive German television production ever made. The production rebuilt 1920s Berlin on a massive scale—the streets, the clubs, the police headquarters, the apartments. The detail is exhaustive: costume, music, architecture, social mores, political factions. The series depicts Weimar Berlin as it was: a city of cabarets and cocaine, jazz and jazz, artistic experimentation and political murder.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Netflix (seasons 1-3), PBS (season 4)</p>
-            <p><strong>UK:</strong> Netflix, Sky Go</p>
+<p>The ensemble includes Bruno Wolter (Peter Kurth), Rath's mentor who has his own secrets; Wolter's sister Alex (Fries), whose family is caught between Communist and Nazi factions; and a large cast of historical figures (police chiefs, politicians, gangsters, artists) who populate the period. The series uses the historical setting not as backdrop but as subject—the Weimar Republic's politics, its culture, its eventual destruction are not just context but content.</p>
+
+<p>The series achieved international distribution through Netflix (Seasons 1-4) and has been praised for its production values, its historical accuracy, and its visual ambition. It is the most successful German television series in international distribution, establishing a precedent for German-language prestige television.</p>
+
+<h2>Why It Ranks #19</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.50</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Gereon Rath:</strong> Volker Bruch plays the detective as damaged by World War I—his hands shake, he has nightmares, he uses drugs to manage his symptoms. Rath is competent but compromised; he came to Berlin to escape his past and finds himself in the Republic's chaos. Bruch plays Rath as intelligent but not brilliant, principled but not pure, determined but not always wise. The character's trauma is not decoration; it affects his work and his relationships.</p>
+        
+        <p><strong>Charlotte Ritter:</strong> Liv Lisa Fries plays the flapper as ambition in motion—she works as a police clerk to fund her training for a better position, she comes from a poor family that she supports, she is sexually liberated and emotionally intelligent. Charlotte is the series' most compelling character: modern in a time of modernism, ambitious in a time when women's ambition was constrained, intelligent in a system that prefers her compliant. Fries plays Charlotte as energetic, moral, and complicated.</p>
+        
+        <p><strong>Bruno Wolter:</strong> Peter Kurth plays Rath's mentor as a man of the old world—conservative, nationalist, secretly opposed to the Republic. Bruno is both ally and obstacle; he genuinely cares for Rath while pursuing his own agenda. Kurth plays Bruno as sympathetic despite his politics; his betrayal (when it comes) is earned by character, not by plot necessity.</p>
+        
+        <p><strong>The Historical Figures:</strong> The series includes historical figures (police chiefs, politicians) whose presence grounds the fiction in history. The approach is careful: the historical figures exist, but the main characters are fictional. The balance allows period accuracy without forcing the plot into historical record.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Boardwalk Empire (8.5) achieved comparable historical ensemble. Babylon Berlin matches its period detail with more concentrated focus on two protagonists.</p>
+        
+        <p><strong>Why 7.5:</strong> Strong central performances from Bruch and especially Fries. The characters are developed across seasons with genuine evolution. The limitation is the large ensemble, some of whom receive less development.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Weimar Berlin:</strong> The series recreates 1929 Berlin on a massive scale—streets rebuilt, buildings constructed, costumes designed, cars sourced. The production built a standing set for the Berlin streets; the police headquarters, the clubs, the apartments, the train yards are specific and accurate. The detail is exhaustive and expensive; the investment shows.</p>
+        
+        <p><strong>Political Factions:</strong> The series depicts the political chaos of the Weimar Republic—Communists, National Socialists, monarchists, industrialists, each with their own agendas, each willing to use violence. The political complexity is not simplified; viewers must track the factions and their conflicts. The series doesn't reduce to Nazis versus everyone else; it shows a Republic threatened from multiple directions.</p>
+        
+        <p><strong>Social Strata:</strong> The series depicts multiple social strata—the police bureaucracy, the criminal underworld, the entertainment industry, the impoverished families, the wealthy industrialists. Charlotte's family represents poverty; Rath investigates glamour; the series moves between worlds without losing coherence.</p>
+        
+        <p><strong>Cultural Modernism:</strong> The series depicts Weimar culture—jazz, cabaret, sexual liberation, artistic experimentation, cocaine, androgyny. The cultural modernism is not backdrop; it's subject. The series shows what was lost when the Nazis destroyed Weimar culture.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Mad Men (8) achieved comparable period world-building. Babylon Berlin matches its detail for a more turbulent period with more violence.</p>
+        
+        <p><strong>Why 8.5:</strong> Exceptional period recreation with massive production values. The political complexity is maintained rather than simplified. The social strata are depicted in detail.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Tom Tykwer's Direction:</strong> The creator of Run Lola Run brings visual ambition to television. The series is shot with feature-quality cinematography—long takes, elaborate camera movements, expressive lighting, attention to composition. The approach is cinematic in scope; the series looks more expensive than it is.</p>
+        
+        <p><strong>The Moka Efti:</strong> The series' signature location is the Moka Efti, a combined nightclub, coffeehouse, and casino that serves as the series' entertainment center. The Moka Efti is rendered with exhaustive detail—the band (the series features the Moka Efti Orchestra performing period music), the singers (Bettina Burchard's表演 is integrated into episodes), the dancers (the show includes extended dance sequences). The club is both setting and character.</p>
+        
+        <p><strong>The Action Sequences:</strong> The series includes action sequences—heists, chases, shootouts—that are shot with the ambition of feature films. A Season 1 heist sequence involving a train is among television's most elaborate action set-pieces. The sequences are extended, not brief; choreographed, not chaotic.</p>
+        
+        <p><strong>Period Visual Style:</strong> The series uses period lighting (gas lamps, early electric), period composition (the visual language of 1920s film), and period detail (the modernist architecture, the art deco design) without calling attention to technique. The style serves the period without becoming pastiche.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Peak television cinematography (True Detective S1, Breaking Bad) is feature-quality. Babylon Berlin matches feature quality with period ambition.</p>
+        
+        <p><strong>Why 9:</strong> Feature-quality cinematography with director Tom Tykwer's visual ambition. The nightclubs, the action sequences, and the period rendering are exceptional for television. The Moka Efti sequences are visually distinctive.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.90</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Nightclub Sequences:</strong> The Moka Efti sequences are visually spectacular—elaborate choreography, period music, dance numbers, performances integrated into the narrative. The sequences are extended; the show commits to entertainment as subject. The combination of music, dance, and production design creates spectacle that television rarely attempts.</p>
+        
+        <p><strong>The Train Heist:</strong> Season 1 includes a heist sequence involving a moving Soviet train that is among television's most elaborate action set-pieces. The sequence is extended, choreographed, and visually impressive—trains, vehicles, stunts, and scale. The ambition is feature-level.</p>
+        
+        <p><strong>The Production Scale:</strong> The production built 1920s Berlin streets at Babelsberg Studio; the scale is visible. The streets, the buildings, the crowds, the costumes—everything is period-accurate and massive. The production values are unprecedented for German television and exceptional for any television.</p>
+        
+        <p><strong>Historical Set-Pieces:</strong> The series includes historical set-pieces—the 1929 May Day riots, the political rallies, the police operations—that are rendered with scale and ambition. The spectacle serves the history rather than overwhelming it.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Game of Thrones (9) achieved spectacle through fantasy scale. Babylon Berlin matches spectacle through historical scale and production ambition.</p>
+        
+        <p><strong>Why 9:</strong> Exceptional spectacle through nightclub sequences, the train heist, and historical set-pieces. The production scale is visible and impressive. The ambition is feature-level.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Weimar Politics:</strong> The series depicts the Weimar Republic's political complexity—Communists, National Socialists, monarchists, industrialists, each threatening democracy in different ways. The series doesn't simplify to Nazis versus everyone else; it shows a Republic threatened from multiple directions by forces that hated each other as much as they hated democracy.</p>
+        
+        <p><strong>Modernism:</strong> The series depicts Weimar modernism—sexual liberation, artistic experimentation, political radicalism—as both liberation and destabilization. The modernism that makes Weimar culturally significant also made it unstable; the forces that created the culture also threatened the Republic.</p>
+        
+        <p><strong>Democracy's Fragility:</strong> The series examines how democracies fail—not through external conquest but through internal forces that exploit democratic institutions to destroy democracy. The Weimar Republic had elections, courts, and newspapers; it fell anyway. The series shows the process without simplifying the causes.</p>
+        
+        <p><strong>Trauma:</strong> World War I trauma is explicit—Rath shakes, has nightmares, uses drugs. The series depicts what we now call PTSD (then called shell shock) as a defining feature of a generation. The trauma is not decoration; it affects politics, work, and relationships.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The series examines Weimar with historical accuracy and political complexity. The approach is educational without being didactic.</p>
+        
+        <p><strong>Why 8:</strong> Strong conceptual examination of Weimar politics, modernism, and democracy's fragility. The trauma of World War I is explicit and consequential. The limitation is that the political complexity can be difficult for viewers unfamiliar with the period.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.13</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Procedural:</strong> Each season includes a procedural case—pornography ring (Season 1), political conspiracy (Season 2), murder mysteries (Seasons 3-4)—that provides plot momentum. The cases are connected to the political forces threatening the Republic; the procedural is not separate from the historical.</p>
+        
+        <p><strong>The Conspiracy:</strong> The series' through-line is the conspiracy against the Republic—forces (monarchist, industrialist, right-wing) working to undermine democracy. The conspiracy provides narrative drive across seasons, though the complexity can be difficult to track.</p>
+        
+        <p><strong>Character Arcs:</strong> Rath's trauma, Charlotte's ambition, Bruno's political commitments provide character development across seasons. The arcs are present but not relentless; the series privileges period detail and political complexity over character momentum.</p>
+        
+        <p><strong>Pacing:</strong> The series is more leisurely than American prestige television. European pacing allows for extended sequences (the nightclub performances, the train heist) that American television might cut. The approach is feature-like rather than episodic.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (8) achieved sustained tension across seasons. Babylon Berlin is more leisurely—period detail over narrative momentum.</p>
+        
+        <p><strong>Why 7.5:</strong> Procedural cases provide structure; conspiracy provides through-line. Character arcs are present but not relentless. The pacing is leisurely (European) rather than urgent (American). The limitation is that political complexity can slow narrative momentum.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.70</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Ongoing Status:</strong> As of Season 4 (the most recent aired season), the series is ongoing with Season 5 filming. The Weimar Republic's end is historically determined—the Nazis will rise, democracy will fall—but the series hasn't reached that point. The score reflects ongoing status rather than completed resolution.</p>
+        
+        <p><strong>Season-Level Resolution:</strong> Each season provides some resolution—the case is solved, the immediate conspiracy is addressed. But the larger forces (the Nazis, the end of the Republic) remain. The approach is appropriate to the historical setting; we know what's coming even if the characters don't.</p>
+        
+        <p><strong>Historical Determinism:</strong> The series operates with historical determinism—we know that Weimar will fall, that the Nazis will rise, that the characters' world will be destroyed. The determinism creates dramatic irony (we know what the characters can't know) but limits narrative freedom.</p>
+        
+        <p><strong>The End:</strong> The series will eventually reach 1933 and the Nazi seizure of power. How it handles that (as conclusion or as continuation into the Nazi period) will determine the final resolution score. Currently, the resolution is incomplete.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (10) achieved perfect resolved conclusion. Babylon Berlin is ongoing; the resolution is pending.</p>
+        
+        <p><strong>Why 7:</strong> Ongoing series with season-level resolution. The historical setting determines the endpoint (Weimar's fall), but the series hasn't reached it. The score reflects incomplete status.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.95</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.50 + World: 1.28 + Cine: 1.35 + Spectacle: 0.90 + <br>
+        Concepts: 1.20 + Drive: 1.13 + Resolution: 0.70 = <strong>7.95</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (42 episodes, 4 seasons) | Status: Ongoing (S5 filming)<br>
+        Rank: #19 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 13 October 2017 | Network: ARD/Sky Deutschland/Netflix | Seasons: 4 (S5 filming)<br>
+    Creators: Tom Tykwer, Achim von Borries, Henk Handloegten<br>
+    Cast: Volker Bruch, Liv Lisa Fries, Peter Kurth<br>
+    Budget: ~€40M (most expensive German TV production)<br>
+    Note: Weimar Republic depicted at peak production values; train heist is television's most elaborate action sequence<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

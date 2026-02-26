@@ -1,91 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Boys - "You're not the hero" | Dynamic Rank Engine</title>
+    <title>The Boys - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #100a05 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #d32f2f; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #d32f2f, #b71c1c); color: #ffcdd2; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ef5350; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(211,47,47,0.3), rgba(0,0,0,0.9)); border: 3px solid #d32f2f; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ef5350; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #d32f2f; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ef5350; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(211,47,47,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ef5350; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ef5350; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #24</div>
-            <h1>The Boys</h1>
-            <p class="subtitle">"You're not the hero"</p>
-            <div class="score-badge">
-                <span class="score-value">7.83</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2019-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">32</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Amazon Prime</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Eric Kripke</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Boys is superhero satire as horror. What if superheroes were real—and they were awful? Not heroic, not noble, not even morally complex: just awful. Arrogant, cruel, protected by corporate PR, accountable to no one. The Seven, this world's Justice League, are owned by Vought International, a media conglomerate that monetizes heroism. Homelander (Antony Starr) is Superman with a god complex—a narcissist who murders when convenient, who presents a smiling face for cameras, who might destroy the world if properly annoyed.</p>
-            <p>The show follows two groups. The Seven: Homelander, Queen Maeve, A-Train, The Deep, Starlight, Black Noir—each with their own damage, their own secrets. The Boys: Billy Butcher (Karl Urban), a CIA operative whose wife was violated by a superhero; Hughie (Jack Quaid), a regular guy whose girlfriend was killed by A-Train; Mother's Milk, Frenchie, and Kimiko—a team of vigilantes trying to expose Vought's crimes. The conflict: corporate power versus vigilante justice, both corrupt, both violent, both claiming moral high ground they don't possess.</p>
-            <p>The show's thesis: power without accountability is tyranny, and corporate media is happy to sell you tyranny with a cape. Homelander is the logical endpoint of celebrity culture—someone who can do anything because his fans will forgive anything. "I can do whatever I want," he says. He's right. The satire is broad, the violence is extreme (bodies explode, heads pop, blood flows freely), but the criticism is sharp. The boys try to fight back—the boys, and women like Starlight and Maeve who realize they're complicit— but the system is designed to protect itself.</p>
-            <p>Four seasons, thirty-two episodes, ongoing. The Boys is the anti-Marvel: not hopeful, not inspiring, not fun. It's angry, cynical, and often hilarious. Antony Starr's Homelander is television's most terrifying villain—not because he's evil, but because he's a man-child with nuclear capabilities. "I'm the real hero," he insists. He believes it. That's the horror.</p>
-        </div>
+<p>The Boys premiered on Amazon Prime Video on July 26, 2019, as television's most confrontational superhero satire—a gleefully violent, politically pointed adaptation of Garth Ennis and Darick Robertson's comic book series. Developed by Eric Kripke (Supernatural) with executive producers including Seth Rogen and Evan Goldberg, the series posits a world where "Supes" (superpowered individuals) are owned by Vought International, a corporation that markets them as heroes while they behave as celebrities, predators, and corporate assets. The Boys, a CIA-backed vigilante team led by Billy Butcher (Karl Urban), exists to expose and destroy this system from the outside. The collision between these forces drives four seasons of escalating conflict, with a fifth and final season announced for April 2026.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Visual Spectacle (9):</strong> Bodies explode. Heads pop. The violence is creative, shocking, memorable. Not for the squeamish.</p>
-            <p><strong>Characters & Acting (8):</strong> Antony Starr's Homelander is terrifying. Karl Urban's Butcher is charismatic chaos. Great ensemble.</p>
-            <p><strong>World Building (8):</strong> Corporate superhero mythology. Vought, The Seven, Compound V. Fully realized dark mirror of Marvel.</p>
-        </div>
+<p>The experience of watching The Boys is one of deliberate transgression. The series opens with a superhero accidentally killing the protagonist's girlfriend through careless speed and never retreats from that premise: these are not heroes but products, marketed and monetized, with PR teams covering their crimes. Homelander (Antony Starr), the Superman analogue who leads "The Seven," is a narcissistic sociopath whose public persona masks a volatile need for adoration. Antony Starr's performance—inexpressive eyes over a performative smile, explosive temper below corporate composure—became the series' defining element, the face of superhero entitlement made monstrous. The series' central question: what happens when those with power face no accountability?</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("The Name of the Game" (S1E1)</strong> — The introduction. Hughie's girlfriend explodes. "You're not the hero."</p>
-            <p><strong>("You Found Me" (S1E8)</strong> — Season one finale. Homelander reveals himself. "I can do whatever I want."</p>
-            <p><strong>("What I Know" (S3E8)</strong> — Season three finale. Soldier Boy. The showdown.</p>
-            <p><strong>("Gates of Heaven" (S4E6)</strong> — Sister Sage. The plan. "This is how it ends."</p>
-        </div>
+<p>Based on a comic originally intended as a feature film trilogy (with Adam McKay attached in 2008), the project spent years in development hell before Cinemax revived it as a series in 2016. Kripke reworked the material for television; Amazon acquired it from Sony Pictures Television in November 2017. Production began in Toronto in May 2018, with primary locations in Hamilton and Toronto, Ontario. The series' $11.2 million per-episode budget for Season 1 established Amazon's commitment to premium content competing with HBO and Netflix. The production values deliver: the visual effects, makeup, and practical gore are genuinely cinematic.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Amazon Prime</p>
-            <p><strong>UK:</strong> Amazon Prime</p>
+<p>The series has received highly positive reviews since its premiere, with critics praising its cinematography, visuals, soundtrack, cast performances, and action sequences. It has been criticized—sometimes by the same reviewers—for its graphic violence and heavy political themes. The show won four awards from twelve Primetime Emmy Award nominations, including Outstanding Drama Series in 2021, and has won seven Critics' Choice Super Awards and six Astra TV Awards. The cultural impact exceeded industry expectations: Homelander became a meme, a political symbol, and a reference point for discussions of masculinity and power.</p>
+
+<p>The series expanded into a franchise: Seven on 7 (a web series, 2021), The Boys Presents: Diabolical (an adult animated anthology, 2022), Gen V (a live-action spin-off following superhero college students, 2023), and the announced prequel Vought Rising. The shared-universe approach—unusual for streaming content—expanded the satirical world without diluting the central premise. The fifth and final season, confirmed in May 2024, promises resolution to the escalating conflict between Butcher's vigilantes and Homelander's increasingly open fascism.</p>
+
+<h2>Why It Ranks #93</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.40</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Homelander:</strong> Antony Starr's Homelander is the series' defining performance—a Superman deconstructed into narcissism, insecurity, and sociopathy. Starr plays him with a child's emotional development and a god's power, a combination that produces genuine menace. His desire for love conflicts with his inability to feel; his public persona is entirely performance. Across four seasons, Homelander's journey from corporate asset to independent power to open fascist leader tracks America's political anxieties with uncomfortable precision. Starr's performance is extraordinary because he finds the pathetic within the terrifying—Homelander is both monster and man-child, and the combination is uniquely disturbing.</p>
+        
+        <p><strong>Billy Butcher:</strong> Karl Urban's Butcher is a Cockney vengeance machine—obsessed with destroying Supes, indifferent to collateral damage, barely distinguishable in morality from his targets. Urban plays him with charisma and menace in equal measure; we understand his loss (wife killed by Homelander) while recoiling from his methods. Across seasons, Butcher's absolutism becomes a character flaw rather than a heroic trait; his refusal to compromise costs him allies and moral standing. The character asks: when does resistance to evil become evil itself?</p>
+        
+        <p><strong>Hughie Campbell:</strong> Jack Quaid's Hughie provides the audience surrogate—a nice guy whose girlfriend's death launches him into Butcher's world. Quaid captures Hughie's fundamental decency while showing how violence warps it. His relationship with Annie/Starlight (Erin Moriarty) provides the series' romantic core, a connection between someone who hates Supes and someone who is one. Quaid's performance is often underappreciated; he is the moral center of an aggressively amoral show.</p>
+        
+        <p><strong>Starlight:</strong> Erin Moriarty's Annie January/Starlight represents compromised idealism—a young woman who believed in heroes, joined The Seven, and discovered systematic corruption. Moriarty captures Annie's disillusionment without losing her determination; she becomes an inside resistor, using her position to expose Vought while surviving Homelander's predation. The parallel between Annie's journey and the audience's (believing in institutions, discovering their corruption) is explicit.</p>
+        
+        <p><strong>The Seven:</strong> The ensemble of corrupt heroes provides satirical variety: Dominique McElligott's Queen Maeve (a Wonder Woman analogue trapped by Vought), Jessie T. Usher's A-Train (a Flash analogue whose speed can't outrun his guilt), Chace Crawford's The Deep (an Aquaman analogue whose sexual predation makes him pathetic), Nathan Mitchell's Black Noir (a silent Batman analogue whose mask hides something worse). Each represents a different aspect of superhero corruption— Maeve's compromised accommodation, A-Train's drug addiction and moral evasion, The Deep's pathetic consequence, Black Noir's loyal enforcer with secrets.</p>
+        
+        <p><strong>The Supporting Ensemble:</strong> Laz Alonso's Mother's Milk (MM) provides the team's moral conscience, someone who does this work despite wanting a normal life. Tomer Capone's Frenchie and Karen Fukuhara's Kimiko provide unexpected heart—the damaged mercenary and the mute super-soldier finding connection. New additions—Aya Cash's Stormfront (Season 2's literal Nazi), Jensen Ackles's Soldier Boy (Season 3's WWII superhero with toxic masculinity), Claudia Doumit's Victoria Neuman (the politician whose powers serve agenda), Jeffrey Dean Morgan's Season 5 addition—expand the ensemble without diluting it.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Watchmen (8.5) achieved comparable satirical depth with more sophisticated character integration. Invincible (7.5) matched the superhero deconstruction without live-action constraints. The Boys creates memorable characters whose arcs serve the satire, though the emphasis on provocation sometimes sacrifices nuance.</p>
+        
+        <p><strong>Why 7:</strong> Strong performances across the ensemble with Antony Starr's Homelander achieving iconic status. The character arcs track effectively across four seasons. The limitation is didacticism—the characters sometimes serve messages more than organic development.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.13</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Vought Universe:</strong> The series builds a comprehensive corporate superhero world—Vought International as Disney-meets-defense-contractor, "The Seven" as entertainment property and military asset, Compound V as the source of superpowers manufactured and distributed by the corporation. The business of superheroism is rendered in detail: marketing campaigns, PR crisis management, entertainment properties (films, theme parks, merchandise), political lobbying, military contracts. This is what superhero capitalism would actually look like: power monetized, personalities commodified, crimes covered up for shareholder value.</p>
+        
+        <p><strong>The Seven's Infrastructure:</strong> The Seven's Tower serves as headquarters, symbol, and prison—luxury accommodation in exchange for corporate servitude. Each Supe has handlers, PR teams, contractual obligations. The series shows how celebrity culture and corporate control intersect: these are not independent agents but employees, with all the power dynamics that implies. The expansion in Season 4 toward Homelander's political movement—rallies, supporters, militia—tracks the natural endpoint of superhero celebrity converted into political power.</p>
+        
+        <p><strong>The Boys' World:</strong> The vigilante team operates in shadow—CIA backing that's unreliable, resources scraped together, safe houses that don't stay safe. The contrast between Vought's corporate power and The Boys' guerrilla resistance structures every conflict. The series understands asymmetrical warfare: the resistance has neither budget nor legal protection, just commitment and willingness to cross lines.</p>
+        
+        <p><strong>The Shared Universe:</strong> The franchise expansion—Diabolical, Gen V, Vought Rising—builds a coherent world. The spin-offs aren't separate; they're interconnected, with characters crossing over and plot points affecting the main series. Stan Edgar's (Giancarlo Esposito) corporate maneuvering in The Boys shapes the environment of Gen V's Godolkin University. This shared-universe approach is rare for streaming content and suggests Kripke's world-building ambition.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Watchmen (9) achieved more sophisticated world-building through alternate history. The Umbrella Academy (7) built comparable superhero-family dynamics. The Boys creates a world that serves its satire effectively, though the didacticism sometimes flattens the corporate dynamics into caricature.</p>
+        
+        <p><strong>Why 7.5:</strong> Effective world-building that serves the satirical purpose. The corporate-superhero infrastructure is rendered in detail; the expansion into franchise maintains coherence. The limitation is transparency—we see what the world is meant to demonstrate rather than discovering organic complexity.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Production Value:</strong> At $11.2 million per episode, The Boys delivers genuine cinematic quality. The visual effects— Homelander's laser eyes, A-Train's speed, Queen Maeve's strength, various displays of superpower—are rendered at feature-film standard. The practical effects and gore work are exceptional; the series does not rely on CGI for its more transgressive moments, creating visceral impact that digital effects would flatten. cinematographers including Jeff Cutter, Evans Brown, Jeremy Benning, Dylan Macleod, and Mirosław Baszak brought varied sensibilities while maintaining visual consistency.</p>
+        
+        <p><strong>The Superhero Aesthetic:</strong> The series captures superhero visual language—the bright costumes, the dramatic poses, the corporate sleekness of Vought's branding—and then undercuts it with blood and dysfunction. The Seven's public appearances have the glossy look of Marvel premieres; their private moments have the grimy look of noir. The visual contrast serves the theme: the gap between image and reality.</p>
+        
+        <p><strong>Action Direction:</strong> The action sequences are staged with clarity rare in contemporary television—spatial relationships maintained, geography comprehensible, impact visceral. Directors including Dan Trachtenberg (who left the project early), Philip Sgriccia, and others brought television-action expertise. The combination of practical stunts and visual effects creates sequences that feel grounded despite superhuman content.</p>
+        
+        <p><strong>Comparison to Peers:</strong> The Punisher Netflix series (7) achieved comparable action violence. Invincible (7) matched superhero content without live-action constraints. The Boys exceeds most television superhero productions in visual resources, though it doesn't achieve the distinctive visual identity of Watchmen (8) or the artistic ambition of Legion (9).</p>
+        
+        <p><strong>Why 7:</strong> Strong production values with feature-quality visual effects and practical gore work. The cinematography serves the action and satire effectively. The limitation is lack of distinctive visual identity—the series looks premium but not unique.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.80</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Superhero Action:</strong> The series delivers spectacular action sequences that superhero content demands—Homelander's laser devastation, Queen Maeve's combat, A-Train's speed destruction, Soldier Boy's WWII-era power displays. The $11.2 million-per-episode budget enables genuine blockbuster spectacle on television. The set-pieces escalate across seasons: Season 1's confrontations, Season 2's Stormfront battle (a superhero vs. superhero fight with genuine stakes), Season 3's Soldier Boy encounters, Season 4's expanded conflict.</p>
+        
+        <p><strong>The Gore Factor:</strong> The series' transgressive violence is its spectacle signature—exploding heads, severed limbs, graphic mutilation rendered in practical effects. The gore is not incidental; it is the point. The show demonstrates that superhero violence would have actual consequences: people would be liquefied, not thrown backward unmarked. The spectacle is intentionally uncomfortable; the viewer is meant to feel the horror that powers should generate.</p>
+        
+        <p><strong>Set-Piece Highlights:</strong> Specific sequences have achieved notoriety—the Season 1 premiere's girlfriend death (a superhero running through a pedestrian at speed), the Season 2 whale scene (The Deep commanded to beached a whale, which then explodes from impact), the Season 3 herogasm episode (an superhero orgy rendered in explicit detail), Season 4's rally sequences. Each represents the series' commitment to transgressive spectacle.</p>
+        
+        <p><strong>The Celebration:</strong> The annual "Herogasm" episode tradition represents the series' maximum transgression—superhero pornography rendered in practical effects and prosthetics. These episodes are deliberately excessive, testing viewer tolerance while maintaining narrative function. The spectacle serves the satire: this is what superpowered beings would actually do with their abilities, freed from PG-13 constraints.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Game of Thrones (9) set the ceiling for television spectacle, including graphic violence. The Boys operates in comparable territory with a different emphasis—superhero transgression rather than fantasy epic. The spectacle is intentional provocation rather than world-building grandeur.</p>
+        
+        <p><strong>Why 8:</strong> Strong spectacle through superhero action and transgressive gore. The production values enable genuine blockbuster sequences; the practical effects create visceral impact. The spectacle serves the series' confrontational approach.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Power and Accountability:</strong> The series' central concept—what happens when power faces no accountability—is explored through corporate and political frames. The Supes aren't evil because they have powers; they're corrupted because they're immune from consequence. Vought's legal and PR teams ensure that rape, murder, and negligence disappear from public record. The series asks: what is accountability when power can buy silence?</p>
+        
+        <p><strong>Corporate Superheroism:</strong> The series examines superhero as commodity—Vought's branding, marketing, and monetization. These aren't heroes who happen to be famous; they're famous because their powers serve corporate purposes. The superhero-as-entertainment-property satire is pointed: Disney's Marvel Cinematic Universe is explicitly targeted. The Seven are the Avengers if the Avengers were employees with contracts, obligations, and corporate interests rather than independent agents.</p>
+        
+        <p><strong>Political Resonance:</strong> Season 2's Stormfront (a literal Nazi whose social media savvy made her popular) and Season 4's Homelander rallies (explicitly evoking fascist political movements) demonstrate the series' increasing political explicitness. Homelander's fan base—people who love him because he's powerful and cruel—tracks genuine political dynamics. The series became more politically pointed over its run, moving from corporate satire to explicit fascism critique.</p>
+        
+        <p><strong>masculinity in Crisis:</strong> The series explores toxic masculinity through multiple characters—Homelander's need for adoration, Butcher's aggressive vengeance, Soldier Boy's outdated machismo, The Deep's pathetic predation. Each represents a different failure of masculine identity: needing worship, expressing pain through violence, demanding respect, using power for exploitation. The critique is sophisticated enough to implicate viewers who enjoy the violence while condemning the characters.</p>
+        
+        <p><strong>Victimhood and Responsibility:</strong> The series complicates simple victim/perpetrator categories. The Deep is a sexual predator who himself was violated; A-Train's speed addiction killed someone but his guilt is genuine; Queen Maeve survived Homelander's abuse while enabling his predation. The moral landscape is complex even when the satirical targets are clear.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Watchmen (9.5) achieved more sophisticated political analysis through alternate history. The Boys creates pointed satire that serves its cultural moment effectively, though the didacticism sometimes substitutes explicitness for insight.</p>
+        
+        <p><strong>Why 8:</strong> Rich conceptual exploration of power, corporate control, toxic masculinity, and political accountability. The satire is explicit and effective. The limitation is transparency—the concepts are demonstrated rather than discovered.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Central Conflict:</strong> The series builds momentum through the escalating conflict between The Boys and Vought—Season 1's investigation and exposure, Season 2's on-the-run survival and Stormfront confrontation, Season 3's Soldier Boy search and utilization, Season 4's political infiltration and Homelander's rise. Each season raises stakes: from exposing a single crime to confronting a system to facing a political movement. The trajectory from corporate corruption to fascist politics provides narrative momentum across 40 episodes.</p>
+        
+        <p><strong>Season Structure:</strong> Each season has coherent internal shape while advancing the overarching conflict. The 8-episode seasons (with Season 4 at 8 episodes, Seasons 1-4 totaling 32 through 2024, with Season 5 adding 8 more for 40 total) allow for escalation without bloat. The season-ending cliffhangers—the Season 1 revelation of Homelander's son, Season 2's Stormfront defeat and Congresswoman Neuman's revelation, Season 3's Soldier Boy betrayal and Butcher's deterioration, Season 4's political victory for Homelander—create momentum between seasons.</p>
+        
+        <p><strong>Character Momentum:</strong> The character arcs provide secondary propulsion—Homelander's increasing openness about his nature, Butcher's declining morality, Hughie and Annie's complicated relationship, Frenchie and Kimiko's growing bond. The personal and professional tensions interweave effectively.</p>
+        
+        <p><strong>The Promise of Conclusion:</strong> The fifth and final season announcement establishes a clear endpoint—The Boys will conclude with resolution rather than indefinite continuation. This allows the narrative to build toward climax rather than sustain indefinitely. The promise of ending creates investment in how the conflict resolves.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represents maximum narrative momentum in serialized drama. The Boys achieves strong forward motion with the addition of superhero spectacle. The drive is effective without achieving the propulsive urgency of the greatest serials.</p>
+        
+        <p><strong>Why 8:</strong> Strong narrative drive across four seasons with clear escalation and coherent structure. The conflict builds effectively toward a planned conclusion. The momentum serves the satirical purpose without overwhelming character development.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.60</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Ongoing Status:</strong> The Boys has not concluded; Season 5 premieres April 2026 as the final season. The resolution score reflects incomplete status rather than failed resolution. The series has been building toward a climax since Season 1; the question is whether the conclusion will satisfy the escalation.</p>
+        
+        <p><strong>Season-Level Closure:</strong> Each season provides partial resolution—Season 1's exposure of Compound V, Season 2's Stormfront defeat, Season 3's Soldier Boy confrontation, Season 4's Homelander political victory. These are chapter endings rather than story completion. The seasons conclude effectively while leaving the central conflict unresolved.</p>
+        
+        <p><strong>Tracked Trajectories:</strong> The narrative is tracking toward specific endpoint—Homelander's final confrontation with The Boys, Vought's potential collapse, Neuman's political machinations, Butcher's health deterioration. The pieces are positioned for resolution; the question is whether the landing satisfies the build-up.</p>
+        
+        <p><strong>The Franchise Context:</strong> The shared-universe expansion—Gen V, Diabolical, Vought Rising—complicates resolution. Some story threads serve the franchise rather than the main series; some conflicts may resolve in spin-offs rather than the main narrative. This is both feature (expanding world) and potential bug (diluted resolution).</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) and The Americans (10) represent deliberate, planned conclusions to serialized crime/spy drama. The Boys is positioned for comparable resolution—a planned ending to a coherent narrative—but has not yet achieved it. The score reflects ongoing status appropriately.</p>
+        
+        <p><strong>Why 6:</strong> Ongoing series with planned conclusion. Season-level resolution is effective; overall resolution awaits Season 5. The score will improve if the finale satisfies; the current assessment reflects incomplete status.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.38</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.40 + World: 1.13 + Cine: 1.05 + Spectacle: 0.80 + <br>
+        Concepts: 1.20 + Drive: 1.20 + Resolution: 0.60 = <strong>7.38</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (32 episodes through S4, 40 planned) | Status: Ongoing (Final Season April 2026)<br>
+        Rank: #93 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 26 July 2019 | Network: Amazon Prime Video | Seasons: 4 (5 announced final)<br>
+    Creator: Eric Kripke | Based on: Garth Ennis/Darick Robertson comics<br>
+    Cast: Karl Urban, Jack Quaid, Antony Starr, Erin Moriarty, Dominique McElligott, Jessie T. Usher, Chace Crawford, Laz Alonso, Tomer Capone, Karen Fukuhara<br>
+    Budget: $11.2M/episode | Production: Amazon MGM Studios, Sony Pictures Television, Point Grey Pictures<br>
+    Awards: 12 Emmy nominations (4 wins) | 7 Critics' Choice Super Awards | 6 Astra TV Awards<br>
+    Franchise: Gen V, Diabolical, Seven on 7, Vought Rising (announced)<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

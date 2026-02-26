@@ -1,91 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boardwalk Empire - "You can't be half a gangster" | Dynamic Rank Engine</title>
+    <title>Boardwalk Empire - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #0a0505 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #bf360c; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #bf360c, #8e0000); color: #ffccbc; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ffab91; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(191,54,12,0.3), rgba(0,0,0,0.9)); border: 3px solid #bf360c; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ffab91; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #bf360c; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ffab91; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(191,54,12,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ffab91; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ffab91; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #22</div>
-            <h1>Boardwalk Empire</h1>
-            <p class="subtitle">"You can't be half a gangster"</p>
-            <div class="score-badge">
-                <span class="score-value">7.85</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2010-2014</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">56</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Terence Winter</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Boardwalk Empire is Prohibition-era America in all its corrupt, violent, glamorous excess. Nucky Thompson (Steve Buscemi) is the treasurer of Atlantic City—officially. Unofficially, he runs the city: bootlegging, gambling, prostitution, and politics, all woven together. "We make money by making friends," Nucky says. "And we make friends by being generous." The series follows his empire from 1920 through the 1920s, as Prohibition creates a black market, and criminals become kings.</p>
-            <p>The show's thesis: power corrupts, but it also isolates. Nucky has everything—wealth, influence, a beautiful mistress—except genuine connection. His marriage to Margaret (Kelly Macdonald) is transactional. His relationship with his brother Eli (Shea Whigham) is competitive. His protégé Jimmy (Michael Pitt) becomes his enemy. "You can't be half a gangster," Jimmy tells him early. Nucky resists—until he can't. The tragedy is watching a man become what he pretended to be.</p>
-            <p>The supporting cast includes historical figures: Al Capone (Stephen Graham), Lucky Luciano (Vincent Piazza), Arnold Rothstein (Michael Stuhlbarg), Meyer Lansky (Anatol Yusef). The show blends fact and fiction—Nucky is loosely based on Enoch L. Johnson, the real Atlantic City boss. The production design is extraordinary: period costumes, boardwalk recreation, Atlantic City as playground and battlefield. Martin Scorsese directed the pilot; he set the visual language—tracking shots through speakeasies, violence as ballet, moral compromise as entertainment.</p>
-            <p>Five seasons, fifty-six episodes, complete. Boardwalk Empire is HBO's successor to The Sopranos—slower, more historical, equally ruthless. Some found the pace too measured; the show rewards patience. The finale, "Eldorado," is perfect: Nucky alone, assassinated as a boy he tried to save watches. "You can't be half a gangster." He wasn't. He was whole, and it killed him.</p>
-        </div>
+<p>Boardwalk Empire premiered on HBO on September 19, 2010, created by Terence Winter (The Sopranos writer). The series follows Enoch "Nucky" Thompson (Steve Buscemi), the corrupt treasurer of Atlantic County, New Jersey, who controls bootlegging, gambling, and prostitution during Prohibition. Based loosely on real historical figure Enoch L. Johnson, the series spans the 1920s and early 1930s, depicting the rise of organized crime against the backdrop of American political corruption.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">9</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>World Building (9):</strong> Prohibition-era Atlantic City. Historical figures. Period perfection. Immersive 1920s.</p>
-            <p><strong>Cinematography (9):</strong> Martin Scorsese's pilot set the tone. Boardwalk recreation. Violence as art.</p>
-            <p><strong>Resolution (9):</strong> Perfect ending. Nucky's death inevitable and earned. "You can't be half a gangster."</p>
-        </div>
+<p>The series opens with a $50 million budget for its 90-minute pilot—the most expensive television pilot ever made at the time. Martin Scorsese directed the pilot, establishing the visual template: period-perfect recreation of 1920s Atlantic City, from the boardwalk to the speakeasies to the political machine that Nucky controls. HBO committed to the period detail with an intensity that few series have matched—the costumes, the sets, the cars, the music, the language all transport viewers to the 1920s.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Boardwalk Empire" (S1E1)</strong> — The introduction. Prohibition begins. "I'll take that bet."</p>
-            <p><strong>"Paris Green" (S1E11)</strong> — Jimmy's betrayal. Margaret's choice. "You're not half a gangster."</p>
-            <p><strong>("Farewell Daddy Blues" (S4E12)</strong> — Season four finale. Chalky White. The war.</p>
-            <p><strong>("Eldorado" (S5E8)</strong> — Series finale. Nucky's end. "Young Nucky." Perfect closure.</p>
-        </div>
+<p>Nucky Thompson is a complex protagonist—political boss, gangster, brother, lover, killer. He maintains relationships with multiple constituencies: the black community (through his driver and confidant Chalky White), the Irish (through his brother Eli, the sheriff), the Italian mob (through his partnership with Arnold Rothstein and his conflict with the D'Alessio brothers and later Lucky Luciano), and the federal government (through his relationship with Agent Nelson Van Alden, who becomes both pursuer and corrupted). Nucky's rise and eventual fall provide the series' macro-structure.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> HBO Max</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
+<p>The historical figures who populate the series are among its pleasures: Arnold Rothstein (Michael Stuhlbarg), the Jewish gambler and crime boss; Lucky Luciano (Vincent Piazza) and Meyer Lansky (Anatol Yusef), the rising Italian-Jewish alliance that would define organized crime; Al Capone (Stephen Graham), rendered with unexpected depth as a violent man with a disabled son; Margaret Thompson (Kelly Macdonald), the widow Nucky marries; the Darmody family—Jimmy (Michael Pitt) and his mother Gillian (Gretchen Mol)—whose tragic arc spans multiple seasons.</p>
+
+<p>The series concluded after five seasons with a finale that jumps to 1931, depicting Nucky's final days in Havana and his eventual fate in Atlantic City. The ending ties Nucky's past crimes to their consequences, providing thematic closure even as it depicts historical figures (Luciano, Lansky, Capone) moving into positions of power that would define American organized crime for decades.</p>
+
+<p>Critical reception was strong but mixed. The series won 20 Emmy Awards (primarily for its technical achievements—costumes, production design, visual effects) and maintained a devoted audience, but some critics felt the historical scope prevented deep character development. The final season, shortened to eight episodes, was seen as a concession that the series had reached its natural conclusion.</p>
+
+<h2>Why It Ranks #7</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.80</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Nucky Thompson:</strong> Steve Buscemi, against typecasting as gangster (he was famous for playing nervous losers), creates a compelling protagonist—a corrupt politician whose charm masks ruthlessness, whose intelligence coexists with moral emptiness. Buscemi's performance is subtle, physical, communicative in silences. Nucky's arc—from political boss to bootlegging kingpin to hunted man—is tracked across five seasons with patience. Buscemi made a difficult character sympathetic while never letting us forget his crimes.</p>
+        
+        <p><strong>Margaret Thompson:</strong> Kelly Macdonald plays the Irish widow who becomes Nucky's wife, her journey from abused domestic servant to political wife to independent businesswoman providing one of the series' most complete character arcs. Macdonald's performance captures Margaret's intelligence, her pragmatism, her moral compromises, and her eventual self-determination.</p>
+        
+        <p><strong>Arnold Rothstein:</strong> Michael Stuhlbarg creates a memorable portrait of the legendary Jewish gangster—intellectual, calculating, unflappable. Rothstein's presence (his gambling, his manipulation of events, his eventual death in 1928) provides historical texture and dramatic tension. Stuhlbarg's performance is controlled, charismatic, quietly terrifying.</p>
+        
+        <p><strong>Chalky White:</strong> Michael K. Williams (who played Omar Little in The Wire) brings similar gravitas to Chalky, the leader of Atlantic City's black community who maintains an alliance with Nucky. Williams' performance captures pride, intelligence, and the constant threat of violence that defines Chalky's world. His family storyline (particularly the conflict with Dr. Valentin Narcisse in later seasons) is among the series' most powerful.</p>
+        
+        <p><strong>Al Capone and the Chicago Story:</strong> Stephen Graham's Capone is a revelation—he makes the famous gangster human, vulnerable, violent. The Chicago storyline (Capone's rise, his brother Frank's death, his son's deafness) provides emotional grounding for historical mythology. Graham's physical transformation across seasons mirrors Capone's historical progression from thug to boss.</p>
+        
+        <p><strong>Jimmy Darmody:</strong> Michael Pitt's Jimmy in early seasons provides a compelling rival to Nucky—the young war veteran who wants to seize power, whose relationship with Nucky is part mentorship, part Oedipal conflict. Pitt's performance captures Jimmy's damage (the war trauma, the mother issues, the ambition). The character's arc (which concludes in Season 2) is tragic and well-executed.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (9.5) achieved greater protagonist depth through Gandolfini's Tony. Boardwalk Empire's ensemble is strong—particularly Stuhlbarg, Graham, and Williams—but the historical scope means some characters get less development than in smaller-scale series.</p>
+        
+        <p><strong>Why 9:</strong> Strong central performance from Buscemi with exceptional supporting work—Stuhlbarg's Rothstein, Graham's Capone, Williams' Chalky are particularly memorable. The limitation is the large ensemble (necessitated by historical scope) which prevents some characters from achieving Sopranos-level depth.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>1920s America:</strong> Boardwalk Empire's world-building is exceptional—arguably the most detailed historical recreation in television history. The series spans Atlantic City (Nucky's base), New York (Rothstein, Luciano, Lansky), Chicago (Capone), Philadelphia, and other locations, depicting the geography of Prohibition-era organized crime.</p>
+        
+        <p><strong>Period Detail:</strong> The production design is exhaustive: the cars (all period-appropriate), the costumes (the suits, the flapper dresses, the police uniforms), the interiors (Nucky's office, the speakeasies, the brothels), the technology (telephones, radios, the early days of commercial aviation). The Boardwalk itself—recreated on the Brooklyn waterfront—is a marvel of production design, evoking the heyday of Atlantic City tourism.</p>
+        
+        <p><strong>Political and Criminal Systems:</strong> The series depicts the intersection of politics and crime: Nucky as both city treasurer and bootlegging boss, the Republican machine he controls, the federal agents trying to enforce Prohibition. The corruption is systemic—politicians, police, judges, and gangsters are all part of the same ecosystem.</p>
+        
+        <p><strong>Historical Integration:</strong> Real figures populate the series—Rothstein, Luciano, Lansky, Capone, but also people like Warren Harding, Calvin Coolidge, and various real-life Atlantic City political figures. The series takes liberties with history but maintains the broad outlines, making the viewer feel immersed in the actual 1920s.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Few series achieve this level of historical world-building. Mad Men (8.5) provided detailed 1960s recreation but on a smaller scale. The series' world-building is among its greatest achievements.</p>
+        
+        <p><strong>Why 9:</strong> Exceptional historical world-building with exhaustive period detail. The Prohibition-era setting is rendered with authenticity across locations (Atlantic City, Chicago, New York). The limitation is that the focus on historical accuracy occasionally feels like spectacle rather than lived-in environment.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Scorsese Influence:</strong> Scorsese directed the 90-minute pilot, establishing the visual template: period color palette (muted browns and golds for the 1920s), careful composition, anamorphic framing that evokes classical Hollywood. The series maintained this visual style throughout, with various directors (including Tim Van Patten, who directed much of The Sopranos) maintaining visual continuity.</p>
+        
+        <p><strong>Period Photography:</strong> The cinematography captures the 1920s through a slightly contemporary lens—it's not purely documentary but evokes the era through color, light, and composition. The night scenes (speakeasies, backroom deals) are lit with period-appropriate sources (candles, oil lamps, early electric), creating atmosphere that feels authentic without being unwatchable.</p>
+        
+        <p><strong>The Boardwalk:</strong> The signature location—the Atlantic City boardwalk, recreated on a Brooklyn backlot—is shot with an eye for its scale, its artificiality, its promise and danger. The boardwalk scenes communicate tourism, corruption, the facade of respectability that Nucky maintains.</p>
+        
+        <p><strong>Violence:</strong> When violence erupts, it's often sudden and brutal, shot with a matter-of-factness that underscores its cost. The execution of the final seasons' violence (particularly in the fifth season's historical montages) is visually powerful.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) and The Crown (9) achieve greater visual distinction. Boardwalk Empire's cinematography is strong, professional, evocative, but serves the period recreation rather than creating a distinctive visual language.</p>
+        
+        <p><strong>Why 8:</strong> Strong period cinematography that evokes the 1920s effectively. The visual continuity is maintained across five seasons. The limitation is that the cinematography serves the production design rather than creating its own visual signature.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9.5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.95</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Production Scale:</strong> This is where Boardwalk Empire excels. The $50 million pilot set the standard: the Boardwalk itself, the period Atlantic City, the costumes, the cars, the massive sets. HBO's investment in the series' look was unprecedented for television, and the result is visually spectacular.</p>
+        
+        <p><strong>Set Pieces:</strong> The series delivers memorable visual sequences: the 1921 New Year's Eve party at the hospital in the pilot, the St. Valentine's Day Massacre (depicted in Season 5), various gangland executions shot with operatic violence, the final season's historical montages showing the shift of power from Nucky's generation to the Luciano-Lansky-Capone era.</p>
+        
+        <p><strong>Costume and Production Design:</strong> The visual spectacle is primarily in the achievement of period detail—the flapper dresses, the suits, the cars, the interiors. The series won multiple Emmys for these elements, and they deserve recognition. This is television as visual history museum.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Game of Thrones (9.5) provides comparable spectacle through fantasy world-building. Boardwalk Empire matches it through historical recreation. The Crown (9) achieves similar period spectacle. Few series have invested this level of production value in visual world-building.</p>
+        
+        <p><strong>Why 9.5:</strong> Exceptional visual spectacle through production design, costumes, set construction, and period detail. The series is a visual achievement that justified its budget. The limitation is that the spectacle occasionally feels like an end in itself rather than serving character or story—beautiful but not always dramatically necessary.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The American Dream Corrupted:</strong> Boardwalk Empire's central theme is the American dream and its corruption. Nucky Thompson embodies a particular American type: the machine politician who uses public office for private gain, who believes in nothing but power and survival. The series asks: is this corruption inevitable? Is the American system inherently corrupt?</p>
+        
+        <p><strong>Prohibition as Metaphor:</strong> The 18th Amendment (Prohibition) provides the series' historical engine and its thematic core. Prohibition didn't stop alcohol consumption; it created organized crime, corrupted police and politicians, and made criminals of ordinary citizens. The series suggests that vice cannot be legislated away, that attempts to do so create more corruption than the vice itself.</p>
+        
+        <p><strong>Power and Violence:</strong> The series depicts how power is maintained through violence, how the American political and economic systems rely on threats and force even when they appear democratic and free. Nucky's violence (and those of his rivals) is business—necessary, calculated, rarely personal.</p>
+        
+        <p><strong>Immigration and Ethnicity:</strong> The series foregrounds the role of immigrants and ethnic minorities in building America. Nucky is Irish, Rothstein is Jewish, Luciano and Capone are Italian. Their criminal success is a perversion of the American dream, but also an expression of it—immigrants achieving power by any means necessary. The discrimination they face (the anti-Italian prejudice, the anti-Semitism) contextualizes their criminal choices.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (9) and The Sopranos (9.5) explore similar themes with greater psychological depth. Boardwalk Empire's themes are rich but sometimes get lost in historical narrative. The series' conceptual density is strong but not quite at the level of the greatest television.</p>
+        
+        <p><strong>Why 8.5:</strong> Strong thematic exploration of American corruption, Prohibition, power, and immigration. The historical setting provides rich material. The limitation is that the focus on historical events sometimes prevents the deep character psychology that would make the themes hit harder.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6.5</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 0.98</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Historical Arc:</strong> The series' narrative is driven by history: the rise and fall of Nucky Thompson, the consolidation of organized crime under the National Crime Syndicate (Luciano, Lansky), the repeal of Prohibition. This provides structure, but sometimes at the expense of dramatic urgency. We know where history is going; the question is how the characters get there.</p>
+        
+        <p><strong>Pacing Issues:</strong> The series is consistently well-paced in individual episodes but occasionally loses momentum across seasons. The Chicago storyline (Capone's rise) sometimes feels disconnected from the Atlantic City main plot. The FBI storyline (Van Alden, later Agent Knox) provides tension but doesn't always drive the narrative forward.</p>
+        
+        <p><strong>Jimmy Darmody's Arc:</strong> The first two seasons, with Jimmy as Nucky's protégé turned rival, provide the series' strongest narrative drive. When that storyline concludes (end of Season 2), the series takes time to recalibrate, finding new conflicts among the surviving characters.</p>
+        
+        <p><strong>The Final Season:</strong> The fifth season (shortened to eight episodes) compresses time (jumping to 1931) and focuses on Nucky's final days. This structural choice provides urgency but also feels rushed compared to the earlier seasons' more deliberate pacing.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) achieved tighter narrative construction. The Sopranos (8) had similar episodic-serial hybrid structure with occasional lulls. Boardwalk Empire's narrative drive is decent but occasionally interrupted by historical table-setting.</p>
+        
+        <p><strong>Why 6.5:</strong> Adequate narrative construction with historical structure providing shape. Some seasons (particularly 1-2) achieve strong momentum. The limitation is pacing issues across the series, occasional disconnected subplots, and a final season that feels compressed rather than climactic.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.75</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>"Eldorado":</strong> The series finale jumps to 1931, showing Nucky in Havana, his empire collapsed, the new order (Luciano, Lansky) in control. The finale interweaves three timelines—Nucky's final days in 1931, his childhood in 1884 (revealing the trauma that shaped him), and his relationship with Margaret—providing closure through revelation.</p>
+        
+        <p><strong>The Flashback Structure:</strong> The childhood flashbacks reveal young Nucky's relationship with the Commodore (his predecessor as boss) and the crime that launched his career. This structure connects Nucky's past to his present, showing how the boy who delivered messages for the machine became the man who ran it.</p>
+        
+        <p><strong>The Final Confrontation:</strong> Without spoiling, Nucky's final scene in Atlantic City provides him with both absolution and punishment—a moment of connection that's also his doom. The resolution honors the character and his crimes, refusing easy redemption while acknowledging the causes of his corruption.</p>
+        
+        <p><strong>Historical Figures:</strong> The finale positions Luciano, Lansky, and Capone as the new order—the criminals who would dominate organized crime for decades. Nucky's fall is their rise; the series makes explicit the historical transition from the old guard (political bosses) to the new (organized crime syndicates).</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) and Better Call Saul (10) achieved definitive, perfect conclusions. Boardwalk Empire's ending is good but not great—a compressed final season feels rushed, though the finale itself provides appropriate closure.</p>
+        
+        <p><strong>Why 7.5:</strong> Solid resolution that connects Nucky's past to his present and future. The flashback structure is effective. The limitation is the rushed final season (eight episodes vs. twelve) and a sense that the series ended somewhat abruptly rather than building to a definitive climax.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">8.28</div>
+    <div style="color:#888">1.80+1.35+1.20+0.95+1.28+0.98+0.75 = <strong>8.31</strong></div>
+</div>
+
 </body>
 </html>

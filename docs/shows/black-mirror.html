@@ -3,89 +3,607 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Mirror - "Be right back" | Dynamic Rank Engine</title>
+    <title>Black Mirror - 7-Dimension Analysis | TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #050505 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #424242; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #424242, #212121); color: #e0e0e0; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #bdbdbd; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(66,66,66,0.3), rgba(0,0,0,0.9)); border: 3px solid #424242; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #bdbdbd; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #424242; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #bdbdbd; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(66,66,66,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #bdbdbd; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #bdbdbd; font-weight: 700; }
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --text-primary: #e8e8ec;
+            --text-secondary: #a0a0b0;
+            --accent-primary: #6366f1;
+            --accent-secondary: #8b5cf6;
+            --accent-glow: rgba(99, 102, 241, 0.3);
+            --score-high: #22c55e;
+            --score-mid: #eab308;
+            --score-low: #ef4444;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+        }
+
+        .show-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .show-meta {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .show-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .creator-badge {
+            display: inline-block;
+            background: var(--bg-tertiary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent-primary);
+            display: inline-block;
+            color: var(--text-primary);
+        }
+
+        .section-content {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-content p {
+            margin-bottom: 1.2rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .episode-card {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .episode-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-primary);
+        }
+
+        .episode-title {
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .episode-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .dimension-block {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: box-shadow 0.3s;
+        }
+
+        .dimension-block:hover {
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .dimension-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dimension-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .dimension-score {
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            background: var(--bg-tertiary);
+        }
+
+        .score-high { color: var(--score-high); }
+        .score-mid { color: var(--score-mid); }
+        .score-low { color: var(--score-low); }
+
+        .dimension-bar {
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .dimension-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 3px;
+            transition: width 1s ease-out;
+        }
+
+        .dimension-analysis {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .final-score-block {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            border: 2px solid var(--accent-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-score-block::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .final-score-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-score-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .final-score-value {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .final-score-verdict {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .cast-tag {
+            background: var(--bg-tertiary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .theme-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .theme-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .show-title {
+                font-size: 2rem;
+            }
+
+            .final-score-value {
+                font-size: 3rem;
+            }
+
+            .section-content {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #25</div>
-            <h1>Black Mirror</h1>
-            <p class="subtitle">"Be right back"</p>
-            <div class="score-badge">
-                <span class="score-value">7.80</span>
-                <span class="score-label">Final Score</span>
+        <header>
+            <h1 class="show-title">Black Mirror</h1>
+            <div class="show-meta">
+                <span>📺 Netflix Anthology</span>
+                <span>📅 2011 - Present</span>
+                <span>🎬 7 Seasons</span>
+                <span>🎭 32 Episodes</span>
             </div>
-        </div>
+            <div class="creator-badge">Created by Charlie Brooker</div>
+        </header>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2011-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">34</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Channel 4/Netflix</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Charlie Brooker</div></div>
-        </div>
+        <section class="section">
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            <div class="section-content">
+                <p>Watching <strong>Black Mirror</strong> is like staring into a cracked digital reflection of our own world—one where every technological convenience comes with a moral price tag, and the future feels simultaneously tantalizing and terrifying. Created by the satirical genius Charlie Brooker, this anthology series doesn't just predict where technology might take us; it drags us there kicking and screaming, forcing us to confront uncomfortable truths about human nature in the digital age.</p>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Black Mirror is The Twilight Zone for the digital age—an anthology series where each episode explores technology's unintended consequences. The title refers to the black screen you see when your phone or computer is off: a reflection of yourself, staring back. Charlie Brooker's premise: technology amplifies human nature—for better and worse. Social media makes us vain, surveillance makes us paranoid, artificial intelligence makes us question what's real. "Each episode has a different cast, a different setting, even a different reality," Brooker says. "But they're all about how we live now."</p>
-            <p>The episodes vary wildly in tone and quality. "San Junipero" is beautiful—a love story between two women in a virtual afterlife. "USS Callister" is darkly funny—a Star Trek parody about a programmer who tortures digital clones of his coworkers. "Nosedive" is satirical—a world where social ratings determine everything. "White Bear" is brutal—a woman hunted for sport, with a twist that recontextualizes everything. "Be Right Back" is devastating—a woman who orders an AI recreation of her dead boyfriend. The anthology format allows experimentation: each episode is a complete story, no continuity required.</p>
-            <p>The show's thesis: technology doesn't corrupt us; it reveals us. "The National Anthem" (the pilot) asks: would you watch a prime minister have sex with a pig on live television? Millions would. "Fifteen Million Merits" asks: would you sell your soul for fame? People do. "Shut Up and Dance" asks: what would you do to hide your shame? Anything. The best episodes don't demonize technology—they show how it weaponizes existing human flaws. The show's name comes from Brooker's observation: when your screen is black, you see your own reflection. The horror isn't the device. It's you.</p>
-            <p>Seven seasons, thirty-four episodes (and counting). Black Mirror established modern anthology television—and proved that science fiction can be about the present, not the future. The episodes are uneven (Netflix seasons are weaker than the early Channel 4 ones), but the hits are television landmarks. "San Junipero" won Emmys. "USS Callister" won Emmys. "Be Right Back" breaks hearts every time. The black mirror shows us ourselves—not as we wish we were, but as we are.</p>
-        </div>
+                <p>The anthology structure is both a blessing and a curse. Each episode stands alone as a complete narrative universe, which means there's no safety net of familiar characters to cushion the blow when things go dark. One week you're crying tears of joy at the transcendent love story of <strong>"San Junipero"</strong>—a neon-soaked afterlife romance that proves even Black Mirror has a heart—only to find yourself physically shaken by <strong>"White Bear"</strong> the next, with its harrowing exploration of punishment, memory, and mob justice. The tonal whiplash is intentional, keeping viewers perpetually off-balance.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
+                <div class="highlight-box">
+                    <p><strong>The Charlie Brooker Touch:</strong> Brooker's background in sharp British satire shines through every frame. Whether it's social media addiction ("Nosedive"), digital consciousness copies ("USS Callister"), or the gamification of warfare ("Men Against Fire"), his writing combines meticulous world-building with character studies that make the technology feel secondary to the human drama.</p>
+                </div>
+
+                <p>The show's power lies in its uncanny prescience. Episodes written years ago feel ripped from tomorrow's headlines. "The National Anthem" premiered nearly a decade before "pig gate" became actual political scandal. "Metalhead" predicted the anxiety of autonomous weapons. Watching Black Mirror feels less like entertainment and more like mandatory survival research—a warning wrapped in prestige television packaging.</p>
+
+                <p>Yet for all the darkness, there's hope too. Episodes like "Hang the DJ" and the aforementioned "San Junipero" prove that Brooker understands technology isn't inherently evil—it's how we choose to use it that matters. The show asks: Will we build a utopia or a digital hell? The answer, it suggests, depends entirely on how much empathy we're willing to code into our future.</p>
+
+                <div class="cast-list">
+                    <span class="cast-tag">Jesse Plemons</span>
+                    <span class="cast-tag">Bryce Dallas Howard</span>
+                    <span class="cast-tag">Jon Hamm</span>
+                    <span class="cast-tag">Miley Cyrus</span>
+                    <span class="cast-tag">Daniel Kaluuya</span>
+                    <span class="cast-tag">Jessica Brown Findlay</span>
+                    <span class="cast-tag">Letitia Wright</span>
+                    <span class="cast-tag">Anthony Mackie</span>
+                    <span class="cast-tag">Alexandra Roach</span>
+                    <span class="cast-tag">Andrew Scott</span>
+                    <span class="cast-tag">Topher Grace</span>
+                    <span class="cast-tag">Kylie Bunbury</span>
+                </div>
             </div>
-            <p style="margin-top:1.5rem"><strong>World Building (9):</strong> Each episode creates a complete world. Infinite variety. Consistent quality of ideas.</p>
-            <p><strong>Conceptual Density (9):</strong> Technology as horror. Philosophical depth. Every episode is a thought experiment made flesh.</p>
-            <p><strong>Resolution (8):</strong> Anthology format means each episode ends. Some finales are devastating; some are hopeful.</p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"San Junipero" (S3E4)</strong> — The masterpiece. Love in the afterlife. "We have forever."</p>
-            <p><strong>"USS Callister" (S4E1)</strong> — Star Trek parody. Digital slavery. "I am not a simulation."</p>
-            <p><strong>"Be Right Back" (S2E1)</strong> — Grief and AI. "You're not him."</p>
-            <p><strong>"White Bear" (S2E2)</strong> — The reveal. Justice as entertainment. "What did I do?"</p>
-        </div>
+        <section class="section">
+            <h2 class="section-title">Why It Ranks</h2>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-name">
+                        <div class="dimension-icon">👤</div>
+                        Characters
+                    </div>
+                    <div class="dimension-score score-high">7.9</div>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="width: 79%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>Black Mirror excels at creating memorable characters despite the anthology format's inherent limitations. Each episode must establish, develop, and resolve character arcs within 60-90 minutes—a formidable challenge that Brooker and his writers consistently meet. From Lacie's desperate climb for social acceptance in "Nosedive" to Yorkie's tragic backstory in "San Junipero," the protagonists feel fully realized.</p>
+                    <p>The show's highest character achievements come when it gives actors room to breathe—Jesse Plemons' chilling tech CEO in "USS Callister," Letitia Wright's vulnerable hacker in "Black Museum," and Andrew Scott's tormented taxi driver in "Smithereens" demonstrate how quickly Black Mirror can make you care about someone you'll never see again. The rotating cast of exceptional talent (Miley Cyrus, Jon Hamm, Daniel Kaluuya) brings prestige-performance energy to even the most outlandish premises.</p>
+                    <p>However, the compressed format sometimes forces rushed character development. In episodes like "The Waldo Moment" or "Rachel, Jack and Ashley Too," the protagonists can feel more like vehicles for ideas than fully autonomous beings. When the concept overshadows the character, emotional investment suffers—a rare but noticeable weakness in the show's character work.</p>
+                </div>
+            </div>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Netflix</p>
-            <p><strong>UK:</strong> Netflix, Channel 4</p>
-        </div>
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-name">
+                        <div class="dimension-icon">🌍</div>
+                        World Building
+                    </div>
+                    <div class="dimension-score score-mid">7.5</div>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="width: 75%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>Black Mirror's world-building operates on a razor-thin edge between today and tomorrow. The near-future settings feel grounded because they start from recognizable reality and extrapolate logical consequences. The cookies (digital consciousness copies) introduced in "White Christmas" return in multiple episodes, creating a loose shared universe of technology that rewards attentive viewers.</p>
+                    <p>The show's production design deserves special recognition. Each episode crafts distinct visual languages—the pastel dystopia of "Nosedive," the 1980s retro-futurism of "San Junipero," the stripped-down horror of "Metalhead." These aren't just aesthetic choices; they're storytelling tools that communicate societal values without exposition.</p>
+                    <p>Yet the anthology format prevents deep world immersion. Unlike ongoing series that can layer detail across seasons, each Black Mirror episode must establish its rules quickly. Some worlds feel sketched rather than fully realized—particularly when episodes prioritize plot twists over environmental coherence. The result is brilliant but necessarily surface-level world-building.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-name">
+                        <div class="dimension-icon">🎥</div>
+                        Cinematography
+                    </div>
+                    <div class="dimension-score score-mid">7.5</div>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="width: 75%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>Black Mirror's visual approach adapts to each episode's needs while maintaining cinematic quality throughout. Directors like Joe Wright ("Nosedive"), Toby Haynes ("USS Callister"), and Carl Tibbetts ("White Bear") bring distinctive visual signatures that elevate the material beyond standard television. The show embraces aspect ratio shifts, unconventional framing, and lighting schemes that reflect emotional states.</p>
+                    <p>The cinematography shines brightest when creating unease. The clinical whiteness of "White Bear's" facility, the oppressive color-coding of "Nosedive's" social rating system, and the intimate handheld work in "Shut Up and Dance" demonstrate how the camera becomes a storytelling tool. Each frame feels composed to maximize psychological impact.</p>
+                    <p>However, the show occasionally defaults to functional coverage when serving twist-dependent plots, particularly in later seasons. Some episodes prioritize narrative mechanics over visual poetry, resulting in competent but unremarkable cinematography. The inconsistency between episodes—the inevitable result of different directors with different priorities—prevents a higher score.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-name">
+                        <div class="dimension-icon">✨</div>
+                        Visual Spectacle
+                    </div>
+                    <div class="dimension-score score-mid">7.5</div>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="width: 75%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>When Black Mirror decides to deliver spectacle, it does so memorably. "USS Callister" recreates Classic Trek aesthetics with modern production values. "Playtest" constructs haunted house nightmares in augmented reality. "Metalhead" transforms the English countryside into a post-apocalyptic hellscape. Netflix's resources enable effects work that rivals feature films.</p>
+                    <p>The show understands that spectacle serves story rather than replacing it. The visual effects in "San Junipero" aren't about showing off—they're about creating an impossible beauty that makes the premise emotionally resonant. The holographic UI in "Be Right Back" or the AR overlays in "Striking Vipers" feel like natural extensions of the narrative rather than gratuitous showpieces.</p>
+                    <p>Yet many episodes deliberately underplay their visuals. The horror in "Shut Up and Dance" comes from mundanity; the dystopia in "The National Anthem" is entirely human. This restraint is artistically valid but means the show can't compete with genre competitors that consistently prioritize visual impact. Black Mirror uses spectacle precisely, which sometimes means not using it at all.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-name">
+                        <div class="dimension-icon">🧠</div>
+                        Conceptual Density
+                    </div>
+                    <div class="dimension-score score-mid">7.5</div>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="width: 75%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>This is Black Mirror's signature strength. Each episode functions as a thought experiment: What if social media ratings determined your worth? What if you could recreate the dead from digital footprints? What if consciousness could be copied and tortured? Brooker's imagination generates premise after premise that sticks in viewers' minds long after credits roll.</p>
+                    <p>The conceptual layering rewards analysis. "White Christmas" alone explores digital cloning, time distortion, consciousness uploading, and mob justice within a single episode. "Black Museum" functions as a retrospective anthology-within-an-anthology. The show trusts its audience to engage with complex ideas without hand-holding.</p>
+                    <p>However, the focus on concept occasionally crowds other elements. Some episodes feel like illustrated essays rather than stories—impressive intellectually but cold emotionally. When the "what if" overwhelms the "who cares," the density becomes a liability. Black Mirror walks this line consistently but not always successfully.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-name">
+                        <div class="dimension-icon">📖</div>
+                        Narrative Drive
+                    </div>
+                    <div class="dimension-score score-mid">7.5</div>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="width: 75%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>Black Mirror understands pacing intimately. Episodes like "The Entire History of You" build unbearable tension through gradual revelation. "Metalhead" maintains relentless chase-movie momentum. The show modulates between slow-burn psychological horror, breakneck thriller pacing, and contemplative character studies with confidence.</p>
+                    <p>The anthology structure enables narrative experimentation unavailable to ongoing series. Episodes can end unhappily, ambiguously, or transcendently without franchise consequences. This freedom produces some of television's most audacious storytelling—plots that would never survive network notes or season-long arcs.</p>
+                    <p>But the reliance on twist endings sometimes damages narrative integrity. Episodes like "Men Against Fire" or "Arkangel" sacrifice rewatchability for shock value. The narrative machinery becomes visible when the twist feels more important than the journey. Additionally, some stories compress too much into their runtime, rushing through beats that deserved exploration.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <div class="dimension-name">
+                        <div class="dimension-icon">🎯</div>
+                        Resolution
+                    </div>
+                    <div class="dimension-score score-mid">7.5</div>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="width: 75%"></div>
+                </div>
+                <div class="dimension-analysis">
+                    <p>Black Mirror's resolutions range from devastatingly perfect to frustratingly abrupt. At its best, the show lands endings that recontextualize everything preceding them—"White Bear's" gut-punch revelation, "San Junipero's" earned catharsis, "Smithereens'" ambiguous final shot. These resolutions don't just conclude; they resonate, asking questions rather than providing comfort.</p>
+                    <p>The show demonstrates admirable courage in its conclusions. Unlike mainstream television that retreats from darkness, Black Mirror follows its premises to logical—often horrible—ends. The punishment inflicted in "White Christmas," the loneliness of "Be Right Back," the complicity exposed in "Shut Up and Dance" all prove the series values integrity over audience comfort.</p>
+                    <p>However, inconsistency plagues this dimension. Some episodes ("Bandersnatch" among them) sacrifice satisfying resolution for formal experimentation. Others end so abruptly they feel truncated rather than concluded. The pressure to deliver show-stopping finales occasionally produces gimmicks over substance. When Black Mirror misses, it misses spectacularly, but when it hits, the results are unforgettable television.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="final-score-block">
+                <div class="final-score-content">
+                    <div class="final-score-label">Overall Score</div>
+                    <div class="final-score-value">7.52</div>
+                    <div class="final-score-verdict">"A mirror worth staring into—even when you don't like what you see"</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Key Themes & Episodes</h2>
+            <div class="section-content">
+                <div class="episode-grid">
+                    <div class="episode-card">
+                        <div class="episode-title">Social Media & Validation</div>
+                        <div class="episode-desc">"Nosedive" - Social ratings determine your worth in a pastel dystopia</div>
+                    </div>
+                    <div class="episode-card">
+                        <div class="episode-title">Digital Immortality</div>
+                        <div class="episode-desc">"San Junipero" / "Black Museum" - Consciousness beyond death</div>
+                    </div>
+                    <div class="episode-card">
+                        <div class="episode-title">Memory & Surveillance</div>
+                        <div class="episode-desc">"The Entire History of You" - Total recall technology destroys a marriage</div>
+                    </div>
+                    <div class="episode-card">
+                        <div class="episode-title">Gaming & Identity</div>
+                        <div class="episode-desc">"USS Callister" / "Playtest" - When virtual worlds become too real</div>
+                    </div>
+                    <div class="episode-card">
+                        <div class="episode-title">Punishment & Justice</div>
+                        <div class="episode-desc">"White Bear" / "White Christmas" - The ethics of eternal punishment</div>
+                    </div>
+                    <div class="episode-card">
+                        <div class="episode-title">Corporate Control</div>
+                        <div class="episode-desc">"Fifteen Million Merits" / "Rachel, Jack and Ashley Too" - Commercialized rebellion</div>
+                    </div>
+                </div>
+                
+                <ul class="theme-list">
+                    <li>Technology as both liberator and prison</li>
+                    <li>Authenticity vs. curated digital personas</li>
+                    <li>The commodification of human experience</li>
+                    <li>Memory as weapon and burden</li>
+                    <li>Consent in an age of surveillance</li>
+                    <li>The banality of dystopia</li>
+                    <li>Love in artificial environments</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>TV Shows Ranked • 7-Dimensional Analysis Framework</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Analysis based on complete series viewing and comparative television study</p>
+        </footer>
     </div>
 </body>
 </html>

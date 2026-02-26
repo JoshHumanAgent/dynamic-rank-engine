@@ -1,91 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Knick - "Method and Madness" | Dynamic Rank Engine</title>
+    <title>The Knick - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #8b4513; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #8b4513, #5c2d0a); color: #deb887; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #cd853f; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(139,69,19,0.3), rgba(0,0,0,0.9)); border: 3px solid #8b4513; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #cd853f; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #8b4513; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #cd853f; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(139,69,19,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #cd853f; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #cd853f; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #55</div>
-            <h1>The Knick</h1>
-            <p class="subtitle">"Method and Madness"</p>
-            <div class="score-badge">
-                <span class="score-value">7.75</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2014-2015</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">20</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Cinemax</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Jack Amiel, Michael Begler</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Knick is medical horror set in 1900 New York. Steven Soderbergh directed every episode of this Cinemax series, and the result is something television rarely achieves: a fully unified visual and narrative vision across twenty hours. The Knickerbocker Hospital is a place where medicine is still experimental, where patients die as often as they survive, where doctors learn by killing.</p>
-            <p>Clive Owen plays Dr. John Thackery, a surgeon of brilliance and addiction. He's based on William Halsted, the real Johns Hopkins surgeon who pioneered modern surgical techniques while secretly addicted to cocaine. Thackery is charismatic, innovative, and self-destructive. He'll try any procedure, take any risk, push every boundary—because the alternative is confronting his own emptiness.</p>
-            <p>André Holland plays Dr. Algernon Edwards, a Black Harvard-trained surgeon hired by the hospital's board over Thackery's objections. The show explores race in 1900 New York without condescension—Edwards is qualified, brilliant, and still not allowed to operate on white patients. His parallel clinic in the basement, where he treats the Black community the main hospital ignores, becomes his sanctuary and his rebellion.</p>
-            <p>The surgery scenes are not for the squeamish. Soderbergh films them with unflinching proximity—blood spurts, organs are exposed, patients die on the table. This isn't gratuitous; it's honest about what medicine was before antibiotics, before sterile technique was universal, before anesthesia was safe. The show uses period-accurate instruments and procedures. Everything you see really happened.</p>
-            <p>But the show's greatest achievement is its visual language. Soderbergh shot everything himself, using digital cameras that made 1900 look like 1900 but felt like nothing else on television. The color palette is controlled, the camera movements precise, the editing rhythmic. It's cinema quality on a television budget.</p>
-        </div>
+<p>The Knick aired on Cinemax from August 8, 2014 to December 17, 2015, created by Jack Amiel and Michael Begler and directed entirely by Steven Soderbergh. The series is set in New York City in 1900-1901, at the fictional Knickerbocker Hospital ("The Knick"), following the surgeons, nurses, and administrators as they navigate the transition from Victorian medicine to modern practice. Across two seasons and 20 episodes, the series depicts blood-soaked operations, professional rivalries, racial and class tensions, and the birth of modern surgery in an era when mortality rates were high and innovation was dangerous.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">6</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> 1900 New York exists in full. The hospital, the tenements, the mansions, the ambulance races—all rendered withmeticulous authenticity. The medical procedures are historically accurate.</p>
-            <p><strong>Cinematography (10):</strong> Steven Soderbergh's direction is cinema quality. Every frame is composed, every cut motivated, every visual choice intentional. This is television that looks like film.</p>
-            <p><strong>Resolution (6):</strong> Cancelled after two seasons. The story ends with Thackery's fate uncertain. A revival/finale has been discussed but not produced.</p>
-        </div>
+<p>Clive Owen plays Dr. John Thackery, the hospital's chief surgeon—a brilliant cocaine and heroin addict whose addictions fuel his innovation and threaten his life. Thackery is based on historical surgeon William Halsted, who pioneered modern surgical techniques while maintaining a secret addiction. Owen plays Thackery as volatile, brilliant, and self-destructive; the performance is charismatic even when the character is repellent.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Method and Madness" (S1E1)</strong> — Thackery's introduction. The hospital's world. A surgery that sets the tone.</p>
-            <p><strong>"Get the Rope" (S1E4)</strong> — Race riot at the hospital. Edwards confronts what Thackery refuses to see.</p>
-            <p><strong>"This Is All We Are" (S2E10)</strong> — The season two finale. Every storyline collides. A cliffhanger that may never resolve.</p>
-        </div>
+<p>The series' signature is its surgical sequences—long, graphic, unnerving. Soderbergh films operations in single takes with minimal editing, the camera observing as surgeons cut, suture, and improvise. The procedures are historically accurate: C-sections with high mortality, hernia surgeries before antibiotics, emergency operations under chloroform. The blood flows freely; the patients frequently die. The effect is educational and horrifying—this is what medicine was before modern practice.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Max</p>
-            <p><strong>UK:</strong> Sky Go</p>
+<p>The ensemble includes André Holland as Dr. Algernon Edwards, a Black surgeon trained in Europe who faces racism from the hospital's white staff; Eve Hewson as Nurse Lucy Elkins, who becomes involved with Thackery; Juliet Rylance as Cornelia Robertson, the hospital administrator's daughter who works as a nurse; and Jeremy Bobb as Herman Barrow, the hospital's financially desperate administrator. The series tracks multiple characters through the hospital's ecosystem—the wealthy benefactors, the poor patients, the immigrants, the Black community, the corrupt politicians.</p>
+
+<p>The series was cancelled after two seasons despite critical acclaim. Soderbergh's direction (every episode, serving as his own cinematographer and editor) established a visual standard for television that matched feature film quality. The series was later released on HBO Max, introducing it to new audiences. The cancellation remains one of television's premature endings—the story was incomplete, the characters were developing, and the historical setting had more to reveal.</p>
+
+<h2>Why It Ranks #21</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.60</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Dr. John Thackery:</strong> Clive Owen created a television-defining performance—a brilliant surgeon whose addictions drive his innovation and threaten his life. Thackery is charismatic, volatile, and frequently repellent; he performs surgery while high, he fires employees who cross him, he pursues dangerous experiments. Owen plays the contradictions: the addiction makes Thackery both better (he operates with enhanced confidence) and worse (his judgment is impaired). The performance required Owen to depict both surgical competence and addiction's deterioration.</p>
+        
+        <p><strong>Dr. Algernon Edwards:</strong> André Holland plays the Black surgeon trained in Europe who faces racism from the Knick's white staff. Edwards is more qualified than his colleagues but is assigned to the Negro ward and denied operating privileges. Holland plays Edwards as dignified without being passive; his anger fuels his ambition, and his ambition creates conflict. The character's arc (from rejected outsider to essential surgeon) is among the series' most satisfying.</p>
+        
+        <p><strong>Nurse Lucy Elkins:</strong> Eve Hewson plays the nurse who becomes involved with Thackery personally and professionally. Lucy is the series' moral center—not because she's virtuous (she becomes involved with men in power) but because she's clear-eyed about the hospital's dynamics. Hewson plays Lucy as ambitious and intelligent, a woman navigating a profession that hasn't yet defined itself.</p>
+        
+        <p><strong>Herman Barrow:</strong> Jeremy Bobb plays the hospital administrator who is financially desperate and morally flexible. Barrow takes bribes, makes deals with corrupt politicians, and compromises the hospital's integrity while trying to keep it open. Bobb plays Barrow as sympathetic despite his corruption; he's trying to manage an institution that shouldn't survive, in a system that doesn't support it.</p>
+        
+        <p><strong>The Supporting Cast:</strong> Juliet Rylance as Cornelia Robertson (the administrator's daughter who works as a nurse), Mayko Nguyen as Nurse Lincoln, Cara Seymour as Sister Harriet (the nun who runs the orphanage and performs abortions), Michael Angarano as Dr. Bertie Chickering Jr. (the young surgeon learning the trade)—each receives development. The ensemble is deep; even minor characters receive arcs.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Deadwood (9) achieved comparable ensemble depth. The Knick matches its character work with more concentrated focus on medical innovation.</p>
+        
+        <p><strong>Why 8:</strong> Clive Owen's Thackery is iconic; André Holland's Edwards provides essential counterpoint. The ensemble is deep. The limitation is that the cancellation prevented complete character arcs.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Hospital:</strong> The Knickerbocker Hospital is rendered with exhaustive detail—the surgical theaters, the wards, the operating equipment, the nursing stations. The hospital is a character: underfunded, overcrowded, serving poor immigrants who have no other options. The production built the hospital on a soundstage; the detail is visible.</p>
+        
+        <p><strong>The Period:</strong> New York in 1900-1901 is rendered with accuracy—horse-drawn carriages sharing streets with early automobiles, buildings under construction, immigrants crowding into tenements, the wealthy in their mansions. The period is present without calling attention to itself; the technology is transitional.</p>
+        
+        <p><strong>Medical Practice:</strong> The series depicts 1900 medicine with accuracy—surgery before antibiotics (infection is the leading cause of death), anesthesia (chloroform and ether), blood transfusion (direct from donor to patient, with blood type compatibility not yet understood), obstetrics (C-sections with high mortality). The medical detail is both educational and horrifying.</p>
+        
+        <p><strong>Social Dynamics:</strong> The series depicts 1900 social dynamics—racism (Edwards faces discrimination from colleagues and patients), class (the poor patients in the Knick vs. the wealthy patients at other hospitals), gender (female nurses under male doctors, women's limited professional opportunities), immigration (the immigrant communities that the Knick serves). The social context is not background; it shapes the medical practice.</p>
+        
+        <p><strong>Medical Innovation:</strong> The series depicts medical innovation in real time—new surgical techniques, new equipment, new understanding. Thackery and Edwards pioneer procedures that are experimental in 1900 and routine now. The innovation is shown as dangerous; patients die from experimental treatments. The risk is the point.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Deadwood (8.5) achieved comparable period world-building. The Knick matches its detail for medical practice.</p>
+        
+        <p><strong>Why 8.5:</strong> Exceptional period and medical world-building. The hospital is rendered with accuracy. The social dynamics (race, class, gender) are present and consequential. The medical innovation is depicted with both accuracy and horror.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.43</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Steven Soderbergh:</strong> The director shot every episode, serving as his own cinematographer (under the pseudonym Peter Andrews) and editor (under the pseudonym Mary Ann Bernard). The approach is unusual for television—typically, directors rotate—but Soderbergh's complete control created visual consistency across both seasons. The direction is feature-quality; every frame is composed.</p>
+        
+        <p><strong>The Surgical Sequences:</strong> The series' signature is its surgical sequences—long takes with minimal editing, the camera observing as surgeons cut, suture, and improvise. The sequences are graphic (blood flows freely) and educational (we learn what surgery was in 1900). Soderbergh's camera doesn't flinch; he shows what would have been shown to contemporary observers. The effect is clinical without being exploitative.</p>
+        
+        <p><strong>Period Style:</strong> Soderbergh chose a contemporary visual approach despite the 1900 setting. The series uses natural light where possible, handheld camera for immediacy, and modern editing rhythms. The approach is anachronistic but effective; the period feels present rather than distant. The choice to forgo period-style filmmaking (no soft focus, no classical composition) makes the 1900 setting feel immediate.</p>
+        
+        <p><strong>Color and Light:</strong> Soderbergh's palette is controlled—greys, browns, the red of blood, the white of surgical gowns. The color is not nostalgic; it's clinical. The lighting is natural where possible; the hospital scenes feel lit by gas lamps even when electronically lit. The approach creates period atmosphere without period technique.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (10) established feature-quality television cinematography. The Knick matches its quality with a director (Soderbergh) who has greater feature-film experience than most television directors.</p>
+        
+        <p><strong>Why 9.5:</strong> Feature-quality cinematography from director Steven Soderbergh across every episode. The surgical sequences are television's most distinctive visual achievement. The contemporary approach to period setting creates immediacy.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.80</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Surgery:</strong> The surgical sequences are spectacular—operations on organs, amputations, C-sections, experimental procedures. The blood is copious; the procedures are graphic. The spectacle is educational (this is what surgery was) and horrifying (this is what surgery was). The effect is unlike anything else on television.</p>
+        
+        <p><strong>The Period:</strong> New York in 1900 provides visual interest—horse-drawn carriages, early automobiles, buildings under construction, the transition from Victorian to modern. The period is rendered with accuracy and scale; the production built streets, not just sets.</p>
+        
+        <p><strong>The Innovation:</strong> The series depicts medical innovation as it happens—Thackery's experiments, Edwards's techniques, the new equipment that arrives. The innovation is not just plot; it's visual. We see the first use of a new device, the first attempt at a new procedure, the first (often failed) application of a new technique.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The surgical spectacle is unique to The Knick—no other television series depicts 1900 surgery with this accuracy and ambition.</p>
+        
+        <p><strong>Why 8:</strong> Unique surgical spectacle with graphic accuracy. The period provides visual interest. The medical innovation is depicted in real time. The limitation is that the spectacle is clinical rather than conventionally impressive.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Medical Progress:</strong> The series' central concept is medical progress—the transition from Victorian medicine (infection, bleeding, limited techniques) to modern practice. The progress is depicted as dangerous: patients die from experimental treatments; innovation is not safe. The series asks what we owe to medical pioneers (and their patients) who risked everything for progress.</p>
+        
+        <p><strong>Addiction:</strong> Thackery's addiction is the series' central character concept. He operates while high; his addiction fuels his innovation and threatens his life. The series depicts addiction as both disease and performance-enhancement; it's complicated rather than condemned. The addiction is based on historical surgeon William Halsted, who maintained a secret addiction while pioneering modern surgery.</p>
+        
+        <p><strong>Race and Medicine:</strong> Dr. Algernon Edwards is a Black surgeon in 1900 New York—a professional in a field that excludes him. The series depicts the racism he faces from colleagues, patients, and the medical establishment. The racism is not incidental; it shapes every aspect of his career. The series asks what talent means when the system excludes you.</p>
+        
+        <p><strong>Class and Medicine:</strong> The Knick serves poor immigrants who have no other options. The wealthy patients go to other hospitals; the Knick gets those who can't pay. The series depicts the class dimension of medical care—poor patients as teaching subjects, experimental treatments tried on those who can't refuse, the hospital's financial dependence on wealthy benefactors.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Deadwood (9) achieved comparable conceptual depth. The Knick matches its examination of institutional dynamics with medical focus.</p>
+        
+        <p><strong>Why 8:</strong> Strong conceptual examination of medical progress, addiction, race, and class. The series depicts the costs of innovation. The limitation is that the cancellation prevented full development.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Patients:</strong> Each episode includes patients—emergency cases, scheduled surgeries, the poor seeking treatment. The patients provide narrative structure: a case arrives, the surgeons operate, the patient lives or dies. The structure is appropriate to medical drama; the operations are the plot.</p>
+        
+        <p><strong>Thackery's Addiction:</strong> Thackery's cocaine and heroin addiction provides a through-line—he performs surgery while high, his judgment is impaired, his behavior becomes erratic, his colleagues intervene. The addiction arc provides momentum: will he recover? Will he kill a patient? Will he lose his position?</p>
+        
+        <p><strong>Edwards's Struggle:</strong> Edwards's struggle for recognition—acceptance from colleagues, operating privileges, the right to practice his skills—provides social drive. Each victory (performing surgery, gaining respect) is hard-won; each setback (discrimination, exclusion) is visible.</p>
+        
+        <p><strong>The Hospital:</strong> The Knick's financial struggles—Barrow's deals, the corrupt politicians, the wealthy benefactors—provide institutional drive. The hospital is always on the edge of bankruptcy; the administrators are always making deals to keep it open. The institutional drama is medical drama.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The series maintains drive through patient cases and character arcs. The cancellation prevented complete momentum.</p>
+        
+        <p><strong>Why 8:</strong> Narrative drive through patient cases, addiction arc, and institutional drama. The structure is appropriate to medical drama. The limitation is that the cancellation prevented complete development.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.60</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Cancellation:</strong> The Knick was cancelled after two seasons despite critical acclaim. The story is incomplete; the characters were developing, the historical setting had more to reveal. The cancellation is one of television's premature endings.</p>
+        
+        <p><strong>Season 2 Ending:</strong> Season 2 ends with Thackery undergoing experimental surgery for his addiction—surgery that, in the final shot, appears to have killed him. The ending is ambiguous: is Thackery dead? Will Edwards take over? The series doesn't provide resolution; it stops.</p>
+        
+        <p><strong>Character Arcs:</strong> The major characters' arcs are incomplete—Thackery's addiction recovery, Edwards's professional advancement, the hospital's survival. The cancellation prevented the arcs from developing to their conclusions.</p>
+        
+        <p><strong>Historical Determinism:</strong> The series operates within historical determinism—we know that 1900 medicine developed into modern practice, that hospitals like the Knick evolved. But the characters' fates are not historically determined, and the series didn't reach them.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Deadwood (7.5) achieved closure through a belated film. The Knick has no such closure; the cancellation was premature.</p>
+        
+        <p><strong>Why 6:</strong> Premature cancellation left the story incomplete. Season 2 ends ambiguously. The major character arcs are unresolved. The score reflects the incomplete status.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.92</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.60 + World: 1.28 + Cine: 1.43 + Spectacle: 0.80 + <br>
+        Concepts: 1.20 + Drive: 1.20 + Resolution: 0.60 = <strong>7.92</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (20 episodes, 2 seasons) | Status: Cancelled (2015)<br>
+        Rank: #21 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 8 August 2014 | Network: Cinemax | Seasons: 2 (20 episodes)<br>
+    Creators: Jack Amiel, Michael Begler | Director: Steven Soderbergh (every episode)<br>
+    Cast: Clive Owen, André Holland, Eve Hewson, Juliet Rylance, Jeremy Bobb<br>
+    Awards: Emmy nominations (Owen), Critics' Choice Award (Owen)<br>
+    Note: Soderbergh's feature-quality direction across every episode; surgical sequences are television's most graphic<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

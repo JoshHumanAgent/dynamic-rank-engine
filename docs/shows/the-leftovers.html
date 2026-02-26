@@ -1,91 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Leftovers - "Don't waste your miracle" | Dynamic Rank Engine</title>
+    <title>The Leftovers - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #00695c; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #00695c, #004d40); color: #e0f2f1; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #80cbc4; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(0,105,92,0.3), rgba(0,0,0,0.9)); border: 3px solid #00695c; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #80cbc4; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #00695c; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #80cbc4; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(0,105,92,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #80cbc4; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #80cbc4; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #14</div>
-            <h1>The Leftovers</h1>
-            <p class="subtitle">"Don't waste your miracle"</p>
-            <div class="score-badge">
-                <span class="score-value">8.15</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2014-2017</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">28</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Damon Lindelof, Tom Perrotta</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Leftovers is about the aftermath of an unexplained event: 2% of the world's population disappeared instantly. No warning, no reason, no bodies. Just gone. The show begins three years later, in a small town called Mapleton, where police chief Kevin Garvey (Justin Theroux) is trying to hold his family—and his sanity—together. His wife Laurie (Amy Brenneman) joined a silent cult called the Guilty Remnant. His daughter Jill (Margaret Qualley) is acting out. His son Tom (Chris Zylka) is following a messiah figure. Kevin is seeing visions, hearing voices, maybe losing his mind.</p>
-            <p>The show is about grief—not processing the disappearance, but living with the absence. The Guilty Remnant smoke cigarettes, dress in white, take vows of silence, and follow people to remind them they can't forget. "Stop wasting your breath" is their message. Matt Jamison (Christopher Eccleston) is a preacher who lost his church, his congregation, and almost his faith trying to prove the Departure wasn't the Rapture. Nora Durst (Carrie Coon) lost her entire family and works interviewing others who lost people. She's functional. She's broken. She's looking for answers that don't exist.</p>
-            <p>Season one is despair. Season two moves to Miracle, Texas—a town with no Departures—and becomes magical realism. Season three goes to Australia and becomes something like a religious text. The show transforms each season, always about faith, grief, and whether it's possible to believe in anything after the world breaks.</p>
-            <p>Three seasons, twenty-eight episodes, complete. The finale is perfect: Kevin and Nora, old, in Australia, after she found (maybe) the place where the departed went. She came back. He found her. "I'm here," she says. The miracle isn't the explanation—it's the belief. The show asks: can you accept a miracle you can't prove? Nora can. The audience may never know if she's telling the truth. That's the point. "Don't waste your miracle."</p>
-        </div>
+<p>The Leftovers aired on HBO from June 29, 2014 to June 4, 2017, created by Damon Lindelof and Tom Perrotta (from Perrotta's 2011 novel). The series' premise is devastatingly simple: on October 14, 2011, 2% of the world's population disappeared instantaneously—140 million people, with no warning, no explanation, no pattern. The series is not about where they went; it's about how the remaining 98% live with the absence. Across three seasons and 28 episodes, The Leftovers depicts grief, faith, and the human need for meaning in a world where meaning has been withdrawn.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">10</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Justin Theroux and Carrie Coon are extraordinary. Christopher Eccleston's Matt is devastating. The ensemble is perfect.</p>
-            <p><strong>Conceptual Density (9):</strong> Grief as religion. Faith without proof. The search for meaning after meaninglessness. Profound.</p>
-            <p><strong>Resolution (10):</strong> "The Book of Nora." The wedding. The story. "I'm here." Perfect ambiguity. Perfect peace.</p>
-        </div>
+<p>Kevin Garvey (Justin Theroux) is the police chief of Mapleton, New York, a small town where the Sudden Departure (as the event is called) took 100 people. His wife Laurie (Amy Brenneman) left him to join the Guilty Remnant, a cult that wears white, smokes cigarettes, and takes vows of silence to remind the world of what it's trying to forget. His son Tom (Chris Zylka) has joined a different cult following a healer named Holy Wayne. His daughter Jill (Margaret Qualley) is acting out in high school. Kevin is trying to hold his family and his town together while he may be losing his mind.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Pilot" (S1E1)</strong> — The introduction. The Guilty Remnant. "We want you to remember."</p>
-            <p><strong>"Guest" (S1E6)</strong> — Nora's episode. The conference. The hug. "I lost them."</p>
-            <p><strong>("International Assassin" (S2E8)</strong> — Kevin's Purgatory. The assassination. The resurrection. "You're dying."</p>
-            <p><strong>("The Book of Nora" (S3E8)</strong> — Series finale. The story. "I'm here." The greatest ending.</p>
-        </div>
+<p>The series' first season is set in Mapleton, depicting the third anniversary of the Sudden Departure and its aftermath. The second season moves to Jarden, Texas (renamed "Miracle" after it emerged that no one departed from the town), where Kevin and his family attempt to rebuild. The third and final season travels to Australia for a conclusion that some viewers interpreted literally and others metaphorically. Each season has a distinct structure and focus; each finds new ways to examine grief and meaning.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> HBO Max</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
+<p>Carrie Coon plays Nora Durst, a woman who lost her husband and two children in the Sudden Departure—her entire family disappeared while she was in the bathroom. Nora's grief is the series' purest expression: she has lost everything that gave her life meaning. Coon's performance (Emmy-nominated) is devastating—Nora is functional but hollow, searching for anything that might fill the absence. Her journey across three seasons is toward either acceptance or self-destruction.</p>
+
+<p>Christopher Eccleston plays Matt Jamison, a priest whose faith is tested by the Sudden Departure—he lost his wife (she didn't depart, she was in a car accident caused by the departures) and his church. Matt is the series' religious element: a man trying to maintain faith in a world where God's existence is neither proven nor disproven by the event. Eccleston plays Matt as desperate, angry, and ultimately faithful despite everything.</p>
+
+<p>The series concluded with a finale ("The Book of Nora") that some viewers found transcendent and others found baffling. The ending is ambiguous: Nora claims to have crossed to a world where the departed went, found her family, and returned, but the series doesn't confirm whether her experience was real or delusion. The ambiguity is deliberate; the series refuses to answer the question it poses because the question is the point.</p>
+
+<h2>Why It Ranks #15</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.40</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Kevin Garvey:</strong> Justin Theroux plays the police chief as a man who may be losing his mind—Kevin sees visions, hears voices, and experiences events that might be supernatural or might be psychotic. Theroux plays Kevin as desperate to appear normal while feeling anything but; the performance is physical (Kevin's violence, his sexual encounters, his breakdowns) and internal (the distance between Kevin's surface and his depths). Kevin is the series' protagonist but not its moral center—he's unstable, sometimes cruel, and often wrong.</p>
+        
+        <p><strong>Nora Durst:</strong> Carrie Coon plays the series' emotional center—a woman who lost her entire family and must decide whether to continue. Nora's grief is the series' purest expression; her journey is toward either acceptance or annihilation. Coon's performance is subtle and devastating—Nora is functional but hollow, her grief transformed into something like purpose. Coon received an Emmy nomination for the role.</p>
+        
+        <p><strong>Matt Jamison:</strong> Christopher Eccleston plays the Episcopalian priest whose faith is tested by the Sudden Departure. Matt is desperate to prove that God exists and that the Departure has meaning; he publishes a newsletter exposing the sins of those who departed (they weren't all good people), trying to demonstrate that the event wasn't the Rapture. Eccleston plays Matt as angry, desperate, and ultimately faithful despite the absence of proof.</p>
+        
+        <p><strong>The Guilty Remnant:</strong> The cult that wears white, smokes cigarettes, and takes vows of silence is the series' most striking creation. The Remnant exists to remind the world of what it's trying to forget; they follow people, hold signs, and refuse to speak. The cult's internal dynamics (depicted through Laurie Garvey and later Meg) reveal that the Remnant is not monolithic—the members have different motivations, some are broken, some are manipulative, some are genuinely seeking.</p>
+        
+        <p><strong>Laurie Garvey:</strong> Amy Brenneman plays Kevin's wife, who left her family to join the Guilty Remnant. Laurie's journey is from denial (she's a therapist who can't process her own grief) through the Remnant (she's both member and eventually leader) to something like acceptance. Brenneman plays Laurie as intelligent, damaged, and searching.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Leftovers' characters are not designed to be sympathetic; they're designed to express grief and search for meaning. The performances are excellent but the characters' obsessions can make them difficult to watch.</p>
+        
+        <p><strong>Why 7:</strong> Excellent performances (particularly Coon and Theroux) but characters are designed to be difficult rather than sympathetic. The focus on grief and obsession makes the ensemble less accessible than prestige dramas with more conventional protagonists.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Sudden Departure:</strong> The premise is established in episode one: 2% of the world's population disappeared instantaneously, with no explanation. The series doesn't explain the event; it depicts the aftermath. The world-building is in the response: the cults, the government agencies (the Department of Sudden Departures), the industries (books and movies about the departed), the social dynamics (families torn apart, communities that lost more or less than others).</p>
+        
+        <p><strong>Mapleton:</strong> Season 1 is set in a small New York town that lost 100 people. The setting is suburban America after catastrophe—families with empty chairs at dinner, schools with empty desks, a church that still holds services. The world is recognizable but permanently altered; the Departure is three years past, but the grief remains.</p>
+        
+        <p><strong>Miracle/Jarden:</strong> Season 2 moves to a Texas town where no one departed—the only such place in America. The town has been renamed "Miracle" and has become a pilgrimage site; a national park surrounds it; people move there hoping that the miracle will protect them. The world-building expands: we see how the event affected different places differently, how hope and exploitation coexist.</p>
+        
+        <p><strong>Australia:</strong> Season 3 travels to Australia, where the series concludes. The expansion adds the international dimension—the Departure affected the whole world, and different cultures responded differently. Australia is both specific (Indigenous Australian mysticism, outback isolation) and universal (the same grief, expressed differently).</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Leftovers builds a world of absence rather than presence—the departure is the defining fact, and everything builds from it. The world is convincing but narrow; we see how grief expresses itself, not how societies would actually reorganize.</p>
+        
+        <p><strong>Why 8:</strong> Effective world-building around the central absence—the Departure shapes everything. The responses (cults, government, industry) are convincing. The limitation is narrow focus on grief rather than broader social reconstruction.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Atmosphere:</strong> The series' visual approach creates atmosphere of grief and unease—the palette is muted, the lighting is often dim, the compositions emphasize empty space (the absence the departed left behind). The cinematography doesn't call attention to itself; it serves the emotional content.</p>
+        
+        <p><strong>Seasonal Distinction:</strong> Each season has visual distinction: Season 1's suburban gloom, Season 2's Texas heat and isolation, Season 3's Australian outback. The season openings are especially distinctive—the Season 2 opener (a cavewoman in prehistoric times, the Departure happening to an entire tribe) is the series' most visually ambitious sequence.</p>
+        
+        <p><strong>"International Assassin":</strong> Season 2, Episode 8 is the series' most formally ambitious hour—a surreal journey through an afterlife hotel where Kevin is an assassin tasked with killing a senator. The episode breaks from the series' naturalism into dreamlogic; the cinematography matches the shift, becoming more expressionist and strange.</p>
+        
+        <p><strong>The Finale:</strong> The final episode is set partly in an Australian outback boarding house; the cinematography is warm and still, suggesting something like peace or acceptance. The visual style serves the conclusion's ambiguity—is this real or is this Nora's fantasy?</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (10) established a visual standard. The Leftovers matches its atmospheric approach with different material—grief rather than horror.</p>
+        
+        <p><strong>Why 8:</strong> Atmospheric cinematography that serves the emotional content. Seasonal distinction provides visual variety. "International Assassin" demonstrates formal ambition. The limitation is that the approach is restrained rather than distinctive.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.70</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Anti-Spectacle:</strong> The Leftovers deliberately rejects visual spectacle. The Departure (the central event) is depicted in flashback only briefly; the series is about aftermath, not event. There are no action sequences, no special effects set-pieces, no visual impressiveness. The approach is appropriate to the material (grief is internal) but limits the dimension.</p>
+        
+        <p><strong>"International Assassin":</strong> The Season 2 episode provides the series' most visually distinctive content—the afterlife hotel, the surreal journey, the assassination. The episode is visually memorable, but it's one hour out of 28.</p>
+        
+        <p><strong>The Departure:</strong> Brief flashbacks depict the Departure (the disappearances) and its aftermath (people standing in place, cars crashed, families torn apart). The images are effective but not spectacular; they communicate loss rather than impress.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The series deliberately rejects spectacle in favor of internal experience. The dimension is deprioritized by design.</p>
+        
+        <p><strong>Why 7:</strong> Deliberate rejection of spectacle in favor of grief and internal experience. "International Assassin" provides visual distinction. The limitation is definitional—spectacle is not the series' register.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Grief as Subject:</strong> The series' central concept is grief—not the dramatic grief of tragedy but the ongoing grief of absence. The departed are not dead; they simply left. No one knows where they went, whether they're alive, whether they'll return. The grief has no closure because there's no body to bury, no explanation to accept. The series examines how humans live with unexplained loss, how they search for meaning when meaning has been withdrawn.</p>
+        
+        <p><strong>Faith and Its Absence:</strong> The series examines both religious faith (Matt Jamison, the priest who searches for proof of God) and faith's absence (the Guilty Remnant, who believe nothing is coming, that nothing matters). The Departure could be the Rapture (as some Christians believe) or it could be meaningless (as the Remnant believes) or it could be something else entirely. The series doesn't resolve the question because the question is the point.</p>
+        
+        <p><strong>The Need for Meaning:</strong> Humans need meaning; the series examines the lengths to which people go to find it. Cults arise (the Guilty Remnant, Holy Wayne's followers) offering different answers. Industries arise (books and movies about the departed) exploiting the need. The search for meaning becomes destructive: people hurt themselves and others trying to understand what happened.</p>
+        
+        <p><strong>The Ambiguity:</strong> The series maintains ambiguity throughout—Kevin's visions might be supernatural or might be psychosis; the events of the finale might be real or might be Nora's fantasy. The ambiguity is deliberate; the series refuses to answer because the answers would reduce the question. Whether Kevin is a prophet or mentally ill is less important than what his experience means to him.</p>
+        
+        <p><strong>Comparative Assessment:</strong> No television series has examined grief more thoroughly. The Leftovers treats its concepts with full seriousness; there's no simplification for audience comfort.</p>
+        
+        <p><strong>Why 9:</strong> Exceptional conceptual examination of grief, faith, and the need for meaning. The series maintains ambiguity throughout and refuses easy answers. This is as serious as television gets.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Mystery:</strong> The series poses a question: what happened? Where did the departed go? Will they return? The drive is not toward answering the question (the series never answers definitively) but toward the characters' responses to living without answers. The drive is emotional rather than plot-based.</p>
+        
+        <p><strong>Season Structures:</strong> Each season has a distinct structure: Season 1 is set in Mapleton, depicting the third anniversary and its aftermath; Season 2 moves to Miracle, Texas, where Kevin's family attempts to rebuild; Season 3 travels to Australia for conclusion. Each season has its own drive—the first toward the Guilty Remnant's action, the second toward Kevin's death and resurrection, the third toward Nora's journey and the final confrontation.</p>
+        
+        <p><strong>Episode "International Assassin":</strong> Season 2, Episode 8 is the series' most narrative-driven hour—a surreal journey through an afterlife hotel where Kevin must assassinate a senator. The episode is self-contained, formally ambitious, and intensely plotted; it demonstrates what the series can do when it chooses narrative drive.</p>
+        
+        <p><strong>The Finale:</strong> The final season builds toward Nora's possible journey to another world, Kevin's possible death (again), and the conclusion in Australia. The drive is toward resolution—not of the mystery but of the characters' journeys. The finale provides closure for the characters without answering the central question.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (9) achieved intense narrative drive through mystery. The Leftovers has drive but of a different kind—emotional rather than plot-based.</p>
+        
+        <p><strong>Why 8:</strong> Emotional drive rather than plot drive. Each season has structure and momentum. "International Assassin" demonstrates narrative ambition. The limitation is that some viewers find the pace slow.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.90</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Finale:</strong> "The Book of Nora" (June 4, 2017) is among television's most-discussed finales. Nora tells Kevin (and the audience) that she crossed to another world where the departed went, found her family, and returned. The series doesn't confirm whether her story is true—it could be real, or it could be a fantasy Nora constructed to live with her grief. Kevin says he believes her; the question of whether she's telling the truth remains open.</p>
+        
+        <p><strong>Character Endings:</strong> The major characters receive endings: Kevin and Nora reunite (after years apart), Matt dies (of cancer, at peace with his faith), Laurie survives (after a suicide attempt), the Guilty Remnant disperses. The endings are earned through three seasons of character development.</p>
+        
+        <p><strong>The Ambiguity:</strong> The central mystery remains unresolved—did Nora really travel to another world? Was the Departure supernatural or unexplained natural phenomenon? Is Kevin a prophet or mentally ill? The series refuses to answer because the answers would reduce the questions to plot. The ambiguity is the resolution; living without answers is the point.</p>
+        
+        <p><strong>Planned Conclusion:</strong> Damon Lindelof (who had been criticized for the unresolved mysteries of Lost) planned the ending—three seasons, 28 episodes, a conclusion that answers character questions while leaving the central mystery open. The conclusion is deliberate, not forced by cancellation.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (8) achieved ambiguous but planned conclusion. The Leftovers matches this approach—the ambiguity is deliberate, and the character endings are earned.</p>
+        
+        <p><strong>Why 9:</strong> Planned conclusion with character endings and deliberately ambiguous central mystery. The ambiguity is thematic, not evasive. The finale is among television's most-discussed.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">8.00</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.40 + World: 1.20 + Cine: 1.20 + Spectacle: 0.70 + <br>
+        Concepts: 1.35 + Drive: 1.20 + Resolution: 0.90 = <strong>8.00</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (28 episodes, 3 seasons) | Status: Complete (2014-2017)<br>
+        Rank: #15 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 29 June 2014 | Network: HBO | Seasons: 3 (28 episodes)<br>
+    Creators: Damon Lindelof, Tom Perrotta | Based on: Novel by Tom Perrotta (2011)<br>
+    Cast: Justin Theroux, Carrie Coon, Christopher Eccleston, Amy Brenneman, Margaret Qualley<br>
+    Awards: Emmy nom (Coon), Peabody Award, WGA Award<br>
+    Note: "International Assassin" (S2E8) is among television's most acclaimed episodes<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

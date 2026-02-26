@@ -1,91 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Succession - "Who is the number one boy?" | Dynamic Rank Engine</title>
+    <title>Succession - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #4a148c; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #4a148c, #311b92); color: #e1bee7; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ce93d8; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(74,20,140,0.3), rgba(0,0,0,0.9)); border: 3px solid #4a148c; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ce93d8; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #4a148c; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ce93d8; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(74,20,140,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ce93d8; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ce93d8; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #10</div>
-            <h1>Succession</h1>
-            <p class="subtitle">"Who is the number one boy?"</p>
-            <div class="score-badge">
-                <span class="score-value">8.30</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2018-2023</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">39</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Jesse Armstrong</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Succession is King Lear with private jets. Logan Roy (Brian Cox) is the founder and CEO of Waystar Royco, a media conglomerate worth billions. He's eighty, having health problems, and his four children are circling. Kendall (Jeremy Strong) wants to succeed his father—and has been publicly denied. Shiv (Sarah Snook) is a political consultant who thinks she deserves the throne. Roman (Kieran Culkin) is the vulgarian, a chaos agent who might be smarter than he pretends. Connor (Alan Ruck) is the eldest, the ignored, the fool running for president.</p>
-            <p>The show's genius is making billionaires sympathetic—or at least understandable. These are horrible people: Logan destroys anyone who crosses him; Kendall enables a waiter's death and covers it up; Shiv betrays her husband for corporate power; Roman makes jokes about children. But they're also family: Logan, dying, asks his children to come. Kendall, destroyed by his father, still wants his approval. "He's a monster," Shiv says about her father. "He's our monster." They can't escape. They don't want to. They just want to win.</p>
-            <p>The dialogue is Shakespearean profanity—insults as art, cruelty as love language. "You're not serious people," Logan tells his children. He's right. They're not. They're grown adults with billion-dollar trust funds, fighting for a father who will never love them enough. The show's thesis: wealth doesn't make people evil; it reveals what they already were. These people were broken before the money. The money just bought them jets to crash in.</p>
-            <p>Four seasons, thirty-nine episodes, complete. The finale is devastating: Kendall doesn't get the company. Shiv votes against him. Tom (Matthew Macfadyen), the husband she never loved, becomes CEO. Roman walks away broken. Logan dies mid-season, and his children scatter. "Who is the number one boy?" Logan once asked Kendall. In the end, no one is. Logan's chair is empty. His children stare at the water.</p>
-        </div>
+<p>Succession premiered on HBO on June 3, 2018, created by Jesse Armstrong (Peep Show, The Thick of It), who developed the concept with Adam McKay. The series follows the Roy family, owners of Waystar RoyCo, a global media conglomerate modeled on NewsCorp/Fox Corporation. Logan Roy (Brian Cox), the patriarch, is aging, and his four children—Kendall (Jeremy Strong), Siobhan "Shiv" (Sarah Snook), Roman (Kieran Culkin), and Connor (Alan Ruck)—vie for position in the succession. The series is a savage satire of wealth and power that manages to be both hilarious and devastating.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">10</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Brian Cox is Shakespearean. Jeremy Strong's Kendall is devastating. Kieran Culkin is hilarious. Perfect ensemble.</p>
-            <p><strong>Resolution (10):</strong> No one wins. Tom becomes CEO. Shiv betrays Kendall. "Okay." Perfect, crushing, inevitable.</p>
-            <p><strong>Conceptual Density (9):</strong> Capitalism as family trauma. Love as leverage. Power as poison. Brilliant.</p>
-        </div>
+<p>The language of Succession is distinctive—profane, rapid-fire, corporate-speak mixed with Shakespearean sibling cruelty. The Roys speak in business jargon ("optics," "leverage," "moving the needle") when they mean family; they use family language when they manipulate business. The dialogue crackles with the wit of writers who understand that the wealthy don't just want money—they want power, and the power they most want is over each other.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Celebration" (S1E1)</strong> — The introduction. "You're not a serious person."</p>
-            <p><strong>"Nobody Is Ever Missing" (S1E10)</strong> — Finale. Kendall's eyes at the press conference.</p>
-            <p><strong>("All the Bells Say" (S3E9)</strong> — Logan sells. "Congratulations to you both."</p>
-            <p><strong>"With Open Eyes" (S4E10)</strong> — Series finale. "I think you might be, Logan."</p>
-        </div>
+<p>The series operates simultaneously as black comedy (the Roys are often ridiculous, their dysfunction comic) and tragedy (their relationships are damaged beyond repair, their capacity for genuine connection atrophied by wealth). We laugh at their failures, their narcissism, their inability to operate normal human transactions; we wince at their pain when that failure becomes visible to them.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> HBO Max</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
+<p>Each season builds toward a corporate crisis—a takeover attempt, a public offering, a scandal, Logan's death—and the siblings' shifting alliances. Kendall attempts coup after coup against his father, failing each time. Shiv moves from political operative (working for a Sanders-like candidate) to corporate contender. Roman transforms from sarcastic failure to genuine executive talent, then sabotages himself. Connor runs for president on a vanity campaign funded by his own delusions.</p>
+
+<p>The series concluded in May 2023 after four seasons (39 episodes), with Logan's death and the subsequent battle for control of Waystar. The finale, "With Open Eyes," provided a conclusion that was both shocking and inevitable, devastating and darkly funny. It won the Emmy for Outstanding Drama Series in its final season, and Brian Cox, Jeremy Strong, Sarah Snook, and Matthew Macfadyen (who plays Tom Wambsgans, Shiv's husband) all won Emmys for their performances.</p>
+
+<p>Critical reception grew with each season; what began as "a good HBO show" became "the defining series of its era." Succession managed to combine the corporate drama of Billions, the family dysfunction of The Sopranos, and the sharp edge of Veep into something unique—a show about late capitalism that understands its subject so well it becomes universal.</p>
+
+<h2>Why It Ranks #9</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.80</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Logan Roy:</strong> Brian Cox's performance as the patriarch is a towering achievement—Logan is bully, genius, vulnerable old man, and monster, often in the same scene. Cox captures Logan's physicality (the growl, the bulk, the sudden movements), his intelligence (he sees through everyone's schemes), and his limitations (he's aging, his body is failing). The performance makes Logan both terrifying and pathetic—we fear him, we pity him, we understand why his children are broken.</p>
+        
+        <p><strong>Kendall Roy:</strong> Jeremy Strong's performance is the series' gravitational center—Kendall's desire for his father's approval, his repeated failures to seize power, his desperate attempts at rebellion, his eventual tragedy. Strong plays Kendall's ambition and self-loathing in equal measure. The character's arc is one of the most carefully constructed in television: each attempted coup, each humiliation, each moment of false hope builds toward an ending that feels both surprising and inevitable. Strong's commitment to the role (his Method approach, his off-camera immersion) produces moments of devastating vulnerability—L to the OG, the rap at his father's birthday party, is both ridiculous and heartbreaking.</p>
+        
+        <p><strong>Shiv Roy:</strong> Sarah Snook transforms across the series from the "uninterested" daughter to serious contender, her journey tracking the damage done by attempting to play a man's game with feminine weapons. Snook captures Shiv's intelligence, her ambition, her self-deception—the belief she can succeed without becoming her father, the gradual realization that she's becoming worse. The final season's scenes between Shiv and Tom (Matthew Macfadyen) achieve depths of marital cruelty that rival Who's Afraid of Virginia Woolf?</p>
+        
+        <p><strong>Roman Roy:</strong> Kieran Culkin's Roman is the series' comic relief and its most tragic figure—his sarcasm masks desperate need, his sexual dysfunction suggests damage that can't be healed. Culkin makes Roman's one-liners hilarious and his moments of vulnerability devastating. His relationship with Logan—"The only thing I learned from Dad is how to be mean," he says, then breaks down when his father dies—is one of the series' most complex.</p>
+        
+        <p><strong>Connor Roy, Tom Wambsgans, Greg Hirsch:</strong> The supporting cast is equally exceptional. Alan Ruck's Connor, the eldest son who wants nothing to do with the business until he runs for president, is hilarious in his delusion. Matthew Macfadyen's Tom is a revelation, his arc from eager corporate climber to potential betrayer to—(spoiler)—providing some of the series' most unexpected moments. Nicholas Braun's Cousin Greg begins as comic relief and ends as something more calculated, his naivety gradually revealed as strategy.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (9.5) and Breaking Bad (9) achieved comparable ensemble depth. Succession's ensemble is extraordinary, with four lead performances (Cox, Strong, Snook, Culkin) at the highest level and exceptional support. Breaking Bad had Cranston; Succession has four comparable performances.</p>
+        
+        <p><strong>Why 9:</strong> Exceptional ensemble acting—Cox, Strong, Snook, Culkin, and Macfadyen all delivering career-defining work. The limitation is subtle: the characters are somewhat static (they don't transform like Walter White) and their dysfunction is repetitive—the repetition is the point, but it prevents 9.5-level perfection.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Waystar RoyCo:</strong> The series depicts a global media conglomerate with precision: the C-suite dynamics, the boardroom politics, the shareholder pressures, the crises (cruises scandal, acquisition battles). The company is modeled on NewsCorp/Fox, and the parallels are clear without being heavy-handed—the conservative media empire, the political influence, the Murdoch-like patriarch.</p>
+        
+        <p><strong>Wealth and Its Environments:</strong> The series renders the world of the ultra-rich with documentary specificity: the private jets, the estates (the English castle, the New York apartments, the Mediterranean yacht), the restaurants and hotels, the corporate headquarters. There's a running joke that the wealthy are always in transit—limos, helicopters, planes—because they have nowhere real to be.</p>
+        
+        <p><strong>Corporate and Political Systems:</strong> The series depicts business negotiations (the Pierce acquisition, the GoJo merger), shareholder battles, and political maneuvering with authenticity. Armstrong's background in British political satire (The Thick of It) informs the corporate world-building—the same dynamics of power, humiliation, and survival apply.</p>
+        
+        <p><strong>The Family Ecosystem:</strong> Beyond the corporation, the series builds the family world—the siblings' tangled history, Logan's multiple marriages, the cousins and hangers-on, the staff (Karl, Frank, Gerri) who become family by proximity. The series understands that wealth creates a ecosystem of dependents, enablers, and competitors.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (7) and The Sopranos (8) built more limited criminal worlds with greater depth. Succession's corporate world is convincing but narrower—it's a show about one family and one company, not an institutional exploration like The Wire.</p>
+        
+        <p><strong>Why 7:</strong> Strong corporate world-building with authentic media-business detail. The wealthy environments are rendered with specificity. The limitation is scope—the series focuses on one family and one company, with limited exploration of the broader world beyond.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Look of Wealth:</strong> The cinematography, led by various directors of photography across seasons, captures wealth through isolation and space. Characters are often framed alone in vast rooms, emphasizing their loneliness despite (because of?) their resources. The camera style is observational, documentary-like—a fly on the wall of rooms where billionaires plot.</p>
+        
+        <p><strong>Color and Light:</strong> The series uses a palette of corporate grays, warm wood, and cold glass—colors that suggest the artificial nature of the Roys' environments. Natural light is rare; most scenes are lit by expensive fixtures that nonetheless feel institutional. The look suggests that wealth doesn't provide comfort, just more expensive discomfort.</p>
+        
+        <p><strong>Movement and Framing:</strong> The camera moves restlessly, following characters as they pace, argue, scheme. The framing often isolates characters even in group scenes—two-shot conversations that exclude third parties, solo shots that emphasize loneliness. The visual language reinforces the series' themes: these people are together but alone, family in name only.</p>
+        
+        <p><strong>The Final Season:</strong> Directed largely by Mark Mylod (who also directed key episodes of Game of Thrones), the final season achieves visual confidence that matches the writing. Scenes like Logan's birthday party or the final confrontation are shot with the precision of a thriller, the stakes emotional rather than physical but shot with equivalent tension.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10), True Detective (9), and The Crown (9) achieve greater visual distinction. Succession's cinematography is professional and appropriate but not distinctive—it serves the story without calling attention to itself, appropriate for a comedy-drama but not reaching the heights of truly cinematic television.</p>
+        
+        <p><strong>Why 8:</strong> Solid cinematography that captures wealth's emptiness. The framing isolates characters effectively. The limitation is that the visual style, while appropriate, doesn't create a distinctive visual signature comparable to the series' verbal distinctiveness.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.70</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Scope:</strong> Succession operates on an intimate scale—conversations, arguments, boardroom scenes. The spectacle is in the locations (the yacht, the castle, the private jets), not the production. The series' visual impact comes from performance and writing, not visual scale.</p>
+        
+        <p><strong>The Season 4 Premiere:</strong> The opening of Season 4—Logan's birthday party in LA, the siblings' rival celebration—achieves visual comedy through setting. The scale is there (the mansion, the event), but it's always in service of character.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Game of Thrones (9.5), The Expanse (9), or even Boardwalk Empire (9.5) provide genuine spectacle. Succession is deliberately intimate, its power coming from dialogue and performance rather than production scale. This is appropriate to its aims but limits its spectacle score.</p>
+        
+        <p><strong>Why 7:</strong> Limited spectacle by design. The wealthy settings provide visual interest (yachts, jets, estates), but the series' power comes from writing and performance. Appropriate for the intimate family-corporate drama it pursues.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.13</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Wealth as Damage:</strong> The series' central insight is that extreme wealth is damaging—not just to society (though it depicts that) but to the individuals who possess it. The Roys are damaged people because they're rich; their money has prevented them from developing normal relationships, normal resilience, normal selves. The series asks: what does it do to children to know their value is conditional on their father's approval?</p>
+        
+        <p><strong>Late Capitalism:</strong> Succession is about the end of empires—Logan built something real (newspapers, TV stations), but his children are trading assets they don't understand. The series suggests that late capitalism has separated wealth from value; the Roys fight over ownership of things that produce nothing, influence without purpose. The GoJo acquisition in the final season makes this explicit: a tech company without assets buys an empire of content, and the value is in the transaction, not the product.</p>
+        
+        <p><strong>Family and Inheritance:</strong> The series interrogates family as both natural and constructed—the Roys are bound by blood but destroyed by wealth. The Oedipal struggle between Logan and Kendall (and, to lesser extents, Shiv and Roman) is the series' engine. The theme is ancient (kings and succession, fathers and sons) applied to contemporary corporations.</p>
+        
+        <p><strong>Language as Power:</strong> The series' distinctive dialogue—the corporate jargon, the sibling cruelty, the profanity used as punctuation—is itself a theme. The wealthy can't speak plainly; they must translate everything through business metaphor. Their language reveals their distance from authentic experience.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (9) and The Sopranos (9.5) explore similar themes with greater depth. Succession's themes are rich but delivered more through comedy than through profound examination. The series is a satire first, a tragedy second; the themes serve laughs.</p>
+        
+        <p><strong>Why 7.5:</strong> Strong thematic exploration of wealth, family, and late capitalism, delivered with wit. The insight that money damages is powerful and well-executed. The limitation is that the satirical tone sometimes prevents the depth that a more serious treatment might achieve.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Succession Question:</strong> The series' narrative engine is simple: who will succeed Logan? This provides structure for four seasons of plotting, alliances, betrayals, and reversals. Each season builds toward a crisis (the vote of no confidence, the shareholder meeting, the acquisition battle) that tests the siblings' loyalties to each other and to their father.</p>
+        
+        <p><strong>Kendall's Arc:</strong> The most sustained narrative is Kendall's repeated attempts to seize power—each rising action (corporate presentation, board meeting, public announcement) followed by crushing failure (Logan's counter-move, the siblings' betrayal, his own inadequacy). This repetition is both frustrating and necessary—it's who Kendall is, that he keeps trying and keeps failing, that his tragedy is being smart enough to see his own failure coming.</p>
+        
+        <p><strong>Pacing:</strong> The series moves deliberately, with episodes structured around events (the family therapy session, the Pierce dinner, the election night party, the funeral). The pacing allows for both comedy and drama—moments of pure humor (Cousin Greg's career advice, Tom's prison fears) alongside devastating character beats (Kendall's confession, Shiv and Tom's marriage).</p>
+        
+        <p><strong>The Final Season:</strong> After Logan's death in Season 4's third episode, the narrative shifts to the siblings' struggle against the GoJo acquisition and each other. This provides urgency but removes the series' gravitational center; the final episodes build toward a resolution that is both surprising and inevitable.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) achieved tighter narrative construction with greater momentum. The Sopranos (8) had similar episodic-serial structure with occasional lulls. Succession's narrative drive is strong but occasionally repetitive—the succession question can feel like a loop rather than a progression.</p>
+        
+        <p><strong>Why 8.5:</strong> Strong narrative construction with the succession question providing clear structure. The corporate and family drama propel each other. The limitation is occasional repetition in Kendall's arc and the final season's struggle to maintain momentum after Logan's death.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.90</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>"With Open Eyes":</strong> The series finale provides a conclusion that is both devastating and darkly appropriate. Logan's death has left the siblings to fight for control of Waystar; the battle culminates in a boardroom vote and a final reckoning with what they are to each other. The ending is shocking—spoiler-free, let's say it upends viewer expectations while confirming the series' essential insight about these characters.</p>
+        
+        <p><strong>The Siblings' Fates:</strong> Each Roy child receives an ending that is true to their character arc—Kendall's final scene with Shiv and Roman, Shiv's choice, Roman's... (spoilers). The resolution honors four seasons of development while refusing easy redemption. They are who they are; the ending doesn't transform them.</p>
+        
+        <p><strong>Tom's Ascension:</strong> The final revelation about Tom's position—hinted at across the final season, confirmed in the finale—recontextualizes his relationship with Shiv and his entire character arc. Macfadyen's performance in the final scenes is devastating, his final exchange with Shiv echoing their entire marriage.</p>
+        
+        <p><strong>The Final Image:</strong> The series ends on an image that is both ambiguous and definitive—Kendall alone, as he has always been, facing a future that is both his own making and beyond his control. It's an ending that honors the character while refusing to punish or redeem him.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) and Better Call Saul (10) achieved perfect resolutions. Succession's ending is excellent—surprising, devastating, appropriate—but slightly less exquisitely constructed than those masterpieces. Some viewers found the final twists rushed; others considered them perfect.</p>
+        
+        <p><strong>Why 9:</strong> A powerful conclusion that honors the characters and the series' themes. The final revelations recontextualize earlier seasons. The limitation is that the final episode moves quickly through major decisions, and some viewers may find the pacing of the final twists slightly abrupt.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">8.1</div>
+    <div style="color:#888">1.80+1.05+1.20+0.70+1.13+1.28+0.90 = <strong>8.06</strong></div>
+</div>
+
 </body>
 </html>

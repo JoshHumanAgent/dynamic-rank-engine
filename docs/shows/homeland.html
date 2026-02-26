@@ -1,91 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homeland - "The only thing I'm guilty of is being good at my job" | Dynamic Rank Engine</title>
+    <title>Homeland - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #5d4037; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #5d4037, #3e2723); color: #d7ccc8; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #bcaaa4; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(93,64,55,0.3), rgba(0,0,0,0.9)); border: 3px solid #5d4037; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #bcaaa4; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #5d4037; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #bcaaa4; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(93,64,55,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #bcaaa4; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #bcaaa4; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #44</div>
-            <h1>Homeland</h1>
-            <p class="subtitle">"The only thing I'm guilty of is being good at my job"</p>
-            <div class="score-badge">
-                <span class="score-value">7.90</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2011-2020</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">96</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Showtime</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Alex Gansa, Howard Gordon</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Homeland is about a CIA officer who might be right or might be insane. Carrie Mathison (Claire Danes) is bipolar—and brilliant. She believes Nicholas Brody (Damian Lewis), a Marine rescued after eight years as an Al Qaeda prisoner, has been turned. He's returning toAmerica a hero. Carrie thinks he's a terrorist. Her bosses disagree. She might be crazy. She might be the only one who sees clearly.</p>
-            <p>The first season is masterful: is Brody a terrorist or isn't he? The tension builds through car chases, surveillances, political intrigue, and Carrie's deteriorating mental state. She sleeps with Brody—compromising everything—for information that might not exist. "The only thing I'm guilty of is being good at my job," she insists. But is she good at her job, or is she unstable? The show forces viewers to confront how we judge women, how we treat mental illness, how we define sanity in an insane world.</p>
-            <p>The show evolves across eight seasons: the Middle East, the White House, Russia, Afghanistan. Carrie and Saul Berenson (Mandy Patinkin), her mentor, have a relationship that defines the series—mentor and protege, father figure and difficult daughter, two people who understand each other when no one else does. The final season, set in Afghanistan, is unexpectedly powerful: Carrie goes native, works with the Taliban, betrays Saul for the greater good. Their final conversation, across political divides, is devastating.</p>
-            <p>Eight seasons, ninety-six episodes, complete. Homeland's quality varied—seasons after Brody's death struggled—but it remained relevant. It captured the post-9/11 anxiety: who can we trust? What is security worth? When does protecting America betray America? Carrie Mathison is one of television's most complex characters: brilliant, broken, impossible, essential. "I was right about Brody," she says. She was. It cost her everything.</p>
-        </div>
+<p>Homeland premiered on Showtime on October 2, 2011, developed by Howard Gordon and Alex Gansa from the Israeli series Prisoners of War (Hatufim) by Gideon Raff. The series starred Claire Danes as Carrie Mathison, a CIA officer with bipolar disorder, and Damian Lewis as Nicholas Brody, a Marine who returns from eight years of al-Qaeda captivity—but Carrie believes he has been "turned." Across eight seasons and 96 episodes (2011-2020), the series became one of the defining post-9/11 spy dramas, winning Emmy Awards for Outstanding Drama Series (2012), Outstanding Lead Actress (Danes, twice), and Outstanding Lead Actor (Lewis, once).</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Claire Danes is extraordinary—cries ugly, screams loud, shows bipolar mania with terrifying precision. Mandy Patinkin grounds her.</p>
-            <p><strong>Conceptual Density (8):</strong> Post-9/11 politics, mental illness as superpower/weakness, loyalty vs. patriotism. Deep themes.</p>
-            <p><strong>Resolution (8):</strong> Final season redeems late-career wobble. Carrie and Saul's final conversation is perfect.</p>
-        </div>
+<p>The first season premise—Is Brody a terrorist?—created immediate tension. Carrie's disorder (she hides her bipolar condition from the CIA) makes her both brilliant and unreliable; her conviction that Brody was turned is based on intelligence she obtained illegally. The viewers' uncertainty mirrors the intelligence services' uncertainty. The first season's climax (Brody's suicide vest fails to detonate) resolved the immediate question while opening larger ones: What does Brody want? What does Carrie want? What does the CIA want?</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Pilot" (S1E1)</strong> — The introduction. "An American prisoner has been turned."</p>
-            <p><strong>"Marine One" (S1E12)</strong> — Season one finale. The bomb vest. The malfunction.</p>
-            <p><strong>"Q&A" (S2E5)</strong> — The interrogation. Carrie breaks Brody. "You're just a puppet."</p>
-            <p><strong>"Prisoners of War" (S8E12)</strong> — Series finale. Carrie andSaul. "The only way out is together."</p>
-        </div>
+<p>Claire Danes' performance became the series' defining element—her portrayal of Carrie's manic episodes (rapid speech, obsessive focus, poor judgment followed by clarity) was acclaimed as accurate by mental health professionals. The physical acting (her character's crying jags, her determined stillness) conveyed what dialogue couldn't. Danes won the Emmy for Outstanding Lead Actress in a Drama Series in 2012 and 2013; the acceptance speeches became cultural moments.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Showtime, Hulu</p>
-            <p><strong>UK:</strong> Channel 4, Netflix (seasons vary)</p>
+<p>The series' reception followed a pattern: near-universal acclaim for Seasons 1-2, divided responses to Season 3 (the Brody exit), and consistent praise for Seasons 4-8's reinvention. After Lewis departed (Brody's execution in Iran, Season 3), the series became an anthology-style spy drama—each season a different location (Pakistan, Berlin, New York, Virginia, Afghanistan) with Carrie embedded differently. This reinvention saved the series from the premise's exhaustion; it became about Carrie's career rather than Carrie's relationship with Brody.</p>
+
+<p>Mandy Patinkin's Saul Berenson—Carrie's mentor, sometimes adversary, consistently moral center—provided continuity across seasons. The supporting cast expanded and contracted: Morena Baccarin as Brody's wife, Rupert Friend as Quinn (the black-ops specialist whose relationship with Carrie became central), F. Murray Abraham as Dar Adal (the CIA fixer), various season-specific characters. The ensemble supported Danes without diminishing her centrality.</p>
+
+<p>The series tackled post-9/11 intelligence questions—torture, drone strikes, surveillance, the relationship between intelligence and policy, the costs of secrecy on personal lives. Carrie's bipolar disorder is both character detail and metaphor: the intelligence services require people who can see patterns others can't, but those same people are unreliable. The tension between Carrie's brilliance and her instability structures every season.</p>
+
+<h2>Why It Ranks #87</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.60</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Carrie Mathison:</strong> Claire Danes created one of television's most complex protagonists—a CIA officer whose bipolar disorder is both professional asset (manic episodes produce obsessive focus and pattern recognition) and liability (impulsivity, poor judgment, inability to maintain personal stability). Danes plays the disorder without romanticizing it; Carrie's manic phases are exhilarating and dangerous, her depressive phases are genuinely incapacitating. The performance's accuracy earned praise from mental health professionals; Danes consulted with psychiatrists and people diagnosed with bipolar disorder. The character's willingness to sacrifice personal relationships (her daughter, her lovers) for work is both admirable and disturbing.</p>
+        
+        <p><strong>Nicholas Brody:</strong> Damian Lewis's three-season arc as the returned POW who may or may not be a terrorist provided the series' first-phase tension. Brody's character was genuinely ambiguous—a devout Muslim (authentically converted or strategically?), a loving father who had been broken by captivity, a man whose trauma had divided him from himself. Lewis won the Emmy for Outstanding Lead Actor in 2012; the performance balanced sympathy and menace without resolving either.</p>
+        
+        <p><strong>Saul Berenson:</strong> Mandy Patinkin's Saul is the series' moral center—Carrie's mentor, the CIA's conscience, a character whose principles survive institutional pressure. Patinkin brings warmth and gravitas to a role that could be mere exposition; his relationship with his wife (the Orthodox Jewish home life) provides dimension rare in spy fiction. Saul's willingness to be unpopular (his dissent from drone policy, his discomfort with torture) establishes him as ethical without being naive.</p>
+        
+        <p><strong>Peter Quinn:</strong> Rupert Friend's black-ops specialist began as a supporting character (Season 2) and evolved into central cast (Seasons 3-6). Quinn's relationship with Carrie—professional respect, personal affection, mutual damage—provided emotional grounding. His Season 6 arc (brain injury, cognitive decline, death) was controversial; the character's departure demonstrated the series' willingness to kill significant players.</p>
+        
+        <p><strong>Supporting Ensemble:</strong> Each season introduced location-specific supporting casts (Pakistani intelligence officers, German hackers, Russian diplomats, Afghan warlords) while maintaining CIA regulars. The approach allowed the series to refresh while maintaining continuity.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (8.5) achieved comparable character depth with more consistent focus. Homeland's character work is strong but distributed across many seasons and settings.</p>
+        
+        <p><strong>Why 8:</strong> Danes' performance is among television's finest; the bipolar depiction is groundbreaking. Patinkin provides moral center. The limitation is that the Brody-Carrie relationship dominated Seasons 1-3, creating imbalance when Lewis departed.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The CIA Rendered:</strong> Homeland depicts the Central Intelligence Agency with unusual specificity—the Counterterrorism Center, the drone program, the station hierarchy, the relationship with Congress, the Director's pressures. The series consulted with former intelligence officers; the tradecraft (surveillance, asset handling, dead drops) reads as authentic. The CIA headquarters in Langley is rendered convincingly; the bureaucratic politics feel accurate.</p>
+        
+        <p><strong>Location Shifts:</strong> The series changed location each post-Brody season: Islamabad (Season 4), Berlin (Season 5), New York (Season 6), Virginia/Russia (Season 7), Afghanistan (Season 8). Each shift required building new worlds—the Pakistani intelligence service (ISI), the German privacy activists, the Russian embassy in Washington, the Afghan negotiations. The geographic scope was ambitious; the execution varied. Some locations (Berlin) felt fully developed; others (Islamabad) drew criticism for inaccuracy.</p>
+        
+        <p><strong>Geopolitical Context:</strong> The series engaged with actual events—the bin Laden raid (referenced), the Snowden revelations (Season 5's hacking plot), drone policy debates, the Iran nuclear deal. The engagement was both strength (timeliness, relevance) and limitation (dates the series, sometimes simplifies). The Season 4 Islamabad season drew criticism from Pakistani officials for how it depicted the country.</p>
+        
+        <p><strong>The Intelligence Machine:</strong> The series examines intelligence as system—how information flows, how analysts interpret, how operations are authorized, how failures cascade. The institutional depiction is sophisticated; we see both why intelligence work matters and why it produces catastrophes.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (8) achieved greater world-building consistency by focusing on a specific period and set of relationships. Homeland's geographic ambition scattered its world-building effort.</p>
+        
+        <p><strong>Why 7:</strong> Strong CIA depiction with procedural authenticity. The location shifts create variety but sacrifice depth. The limitation is that some geopolitical renderings are simplified or dated.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Thriller Aesthetic:</strong> Homeland employs the visual language of post-9/11 spy thriller—surveillance footage intercut with live action, split screens showing simultaneous perspectives, drone-eye views of targets. The approach is competent without being distinctive; the series looks like premium cable drama without establishing unique visual identity.</p>
+        
+        <p><strong>Location Work:</strong> The series filmed on location (Charlotte, North Carolina for Virginia; Morocco for Pakistan and Afghanistan; Berlin for Berlin; South Africa for Islamabad). The location work provides production value; the settings read as authentic even when not exactly where they claim to be.</p>
+        
+        <p><strong>Performance Focus:</strong> The cinematography serves Danes' performance—close-ups that capture her character's instability, reaction shots that convey thinking, physical sequences that show Carrie's determination. The camera work is functional; it doesn't draw attention to itself.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8.5) established distinctive visual identity. Homeland's cinematography is professional without being distinctive. It serves the thriller material without elevating it.</p>
+        
+        <p><strong>Why 7:</strong> Competent cinematography that serves the thriller genre. The location work provides production value. The limitation is lack of distinctive visual identity—the series looks professional but not unique.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.60</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Thriller Action:</strong> Homeland includes action sequences—chases, firefights, explosions—but spectacle is not its register. The series is about surveillance, intelligence analysis, and political maneuvering; the action serves plot requirements rather than visual ambition. The Season 1 finale (Brody's suicide vest) and Season 3 climax (Brody's public execution in Iran) provide the series' most spectacular moments.</p>
+        
+        <p><strong>Drone Sequences:</strong> The drone program provides the series' distinctive visual—the overhead view, the thermal imaging, the sudden explosion. The imagery is both spectacular and disturbing; it aestheticizes modern warfare while critiquing it. The drone-eye view became the series' visual signature.</p>
+        
+        <p><strong>Production Values:</strong> Premium cable budget enables location work, action sequences, and production design appropriate to the settings. The series looks expensive without being lavish.</p>
+        
+        <p><strong>Comparative Assessment:</strong> 24 (7) made spectacle central to the spy thriller. Homeland prioritizes psychological tension over action set-pieces. The dimension is present but not emphasized.</p>
+        
+        <p><strong>Why 6:</strong> Action sequences exist but are not the series' priority. The drone imagery provides distinctive visual but not sustained spectacle. The limitation is that the series chooses psychological tension over visual impressiveness.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Bipolar as Metaphor:</strong> Carrie's bipolar disorder is character detail and conceptual architecture. In intelligence work, pattern recognition is essential; seeing what others miss is valuable. But the same cognitive traits that enable insight also produce error. The series examines the value and cost of exceptional minds in institutional settings—what Carrie provides is needed; what she costs is accepted because the need is desperate.</p>
+        
+        <p><strong>Post-9/11 Intelligence:</strong> The series examines the intelligence world's post-9/11 transformations—torture (referenced in Carrie's past), drone warfare (central to multiple seasons), surveillance (Season 5's hacking plot), the relationship between intelligence and policy. The examination is not didactic; the series shows multiple perspectives (Saul's discomfort with drones, Carrie's willingness to use them, the political pressures that produce policy).</p>
+        
+        <p><strong>Trauma and Terrorism:</strong> Brody's captivity trauma produces both sympathy and suspicion; the series refuses to separate the political (he became a Muslim, he may be a terrorist) from the psychological (he was tortured, he's damaged). The approach refuses easy categories—victim/perpetrator, hero/villain—without becoming relativistic.</p>
+        
+        <p><strong>Institutional Cost:</strong> The series examines what intelligence work costs its practitioners—failed relationships, moral compromise, psychological damage. Carrie's inability to maintain personal stability is partly her disorder and partly her profession; the two reinforce each other. The series presents the work as necessary but corrosive.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (8.5) achieved greater conceptual integration through consistent focus on the marriage/spycraft parallel. Homeland's conceptual density is present but scattered across seasons and settings.</p>
+        
+        <p><strong>Why 7:</strong> Solid conceptual examination of bipolar cognition, post-9/11 intelligence, and institutional cost. The series uses Carrie's disorder as both character detail and metaphor. The limitation is that the reinvention each season diffuses conceptual continuity.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Brody Arc (Seasons 1-3):</strong> The first three seasons maintained extraordinary tension around a single question: Is Brody a terrorist? The uncertainty structured each episode; every scene could be read multiple ways. The Season 1 climax (the suicide vest) resolved nothing (Brody doesn't detonate, but his motives remain ambiguous). The Season 2 climax (the CIA bombing) reframed everything. The Season 3 resolution (Brody's execution in Iran) provided closure while opening the series' next phase. The drive was intense; the audience's investment was total.</p>
+        
+        <p><strong>Reinvention (Seasons 4-8):</strong> Brody's departure forced the series to reinvent itself. Each subsequent season became a self-contained thriller: Carrie in Islamabad (Season 4), Berlin (Season 5), New York during transition (Season 6), Russia (Season 7), Afghanistan (Season 8). The reinvention maintained momentum while preventing stagnation; the series became an anthology centered on Carrie rather than a story about Carrie and Brody.</p>
+        
+        <p><strong>Season Structure:</strong> Each season has a clear shape—establishment, complication, escalation, climax. The plotting is dense (sometimes implausibly so); the twists are frequent. The series was criticized for excessive twists in later seasons, but the momentum never flagged.</p>
+        
+        <p><strong>Carrie's Trajectory:</strong> Across eight seasons, Carrie moves from case officer to station chief to private contractor to National Security Advisor. The career progression provides external structure; her disorder provides internal structure. The series tracks her stability and instability across decades.</p>
+        
+        <p><strong>Comparative Assessment:</strong> 24 (8.5) represented maximum narrative momentum in spy thriller. Homeland matches its urgency with greater psychological depth. The limitation is that some seasons' plotting became convoluted.</p>
+        
+        <p><strong>Why 8:</strong> Strong narrative drive across eight seasons with successful reinvention after Brody departure. The tension is sustained through plotting density. The limitation is that twist frequency sometimes exceeded plausibility.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.70</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Brody's End:</strong> Nicholas Brody's execution in Iran (Season 3, 2013) was the series' most controversial decision. The character who had defined the series' central question was removed; the premise that launched the show was closed. Some viewers abandoned the series; others appreciated the boldness. The resolution was complete—Brody dies on screen, his death is confirmed, there is no return.</p>
+        
+        <p><strong>Quinn's Death:</strong> Peter Quinn's death in Season 6 removed another central character. Quinn had been central to Seasons 3-6; his brain injury and cognitive decline were depicted with unusual honesty. The death was less controversial than Brody's but demonstrated the series' willingness to kill significant players.</p>
+        
+        <p><strong>Series Finale:</strong> The eighth-season finale (April 26, 2020) provided closure—Carrie's choice to stay with Saul in Russia (essentially exiling herself), the Iran deal preserved, the cost of intelligence work rendered explicit. The ending was divided: some found it appropriate (Carrie sacrifices personal happiness for the mission), others found it bleak. The series achieved resolution without falsifying its premise.</p>
+        
+        <p><strong>The Complete Arc:</strong> Across eight seasons, the series tracked Carrie's career and disorder from pre-Brody (the Iraq flashback that opens the series) through the Afghanistan withdrawal (the final season). The arc is complete; the resolution is earned.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (10) represents ideal conclusion to spy drama. Homeland achieved resolution but with less emotional impact. The ending is appropriate without being transcendent.</p>
+        
+        <p><strong>Why 7:</strong> Complete resolution across eight seasons with character arcs concluded. The Brody departure was bold but divisive. The series finale is appropriate without achieving the emotional impact of the greatest conclusions.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.25</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.60 + World: 1.05 + Cine: 1.05 + Spectacle: 0.60 + <br>
+        Concepts: 1.05 + Drive: 1.20 + Resolution: 0.70 = <strong>7.25</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (96 episodes, 8 seasons) | Status: Completed<br>
+        Rank: #87 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 2 October 2011 | Network: Showtime | Seasons: 8<br>
+    Developed by: Howard Gordon, Alex Gansa | Based on: Prisoners of War (Gideon Raff, Israel)<br>
+    Cast: Claire Danes, Damian Lewis (S1-3), Mandy Patinkin, Morena Baccarin, Rupert Friend (S2-6)<br>
+    Awards: Emmy Outstanding Drama Series (2012), Lead Actress (Danes 2012-13), Lead Actor (Lewis 2012) | Golden Globe Best Series (2011-12)<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

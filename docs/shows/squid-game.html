@@ -3,88 +3,681 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squid Game - "Red light, green light" | Dynamic Rank Engine</title>
+    <title>Squid Game (2021-) - TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #e91e63; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #e91e63, #880e4f); color: #fce4ec; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #f8bbd0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(233,30,99,0.3), rgba(0,0,0,0.9)); border: 3px solid #e91e63; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #f8bbd0; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #e91e63; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #f8bbd0; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(233,30,99,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #f8bbd0; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #f8bbd0; font-weight: 700; }
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2d2d2d;
+            --text-primary: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --accent-primary: #ff6b9d;
+            --accent-secondary: #c92a2a;
+            --accent-green: #40c057;
+            --border-color: #333;
+            --shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Section */
+        .show-header {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .show-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b9d, #ff8fab, #ffc2d1);
+        }
+
+        .platform-badge {
+            display: inline-block;
+            background: #e50914;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .show-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 50%, #ffc2d1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .show-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-item span {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .creator-section {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .creator-section strong {
+            color: var(--text-primary);
+        }
+
+        .cast-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .cast-member {
+            background: var(--bg-tertiary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .cast-member:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border-color: var(--accent-primary);
+        }
+
+        /* Plot Section */
+        .plot-section {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .plot-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+
+        /* Feelings Section */
+        .feelings-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #1f1f2e 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .feelings-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .feelings-content {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 2;
+        }
+
+        .feelings-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: rgba(255, 107, 157, 0.1);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        /* Phenomenon Grid */
+        .phenomenon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .phenomenon-card {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .phenomenon-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-primary);
+        }
+
+        .phenomenon-card h4 {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .phenomenon-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Rankings Section */
+        .rankings-section {
+            margin-bottom: 2rem;
+        }
+
+        .rankings-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .rankings-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .rankings-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Dimension Blocks */
+        .dimension-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .dimension-block {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .dimension-block:hover {
+            border-color: var(--accent-primary);
+        }
+
+        .dimension-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-width: 100px;
+        }
+
+        .score-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent-primary) calc(var(--score) * 10%), var(--bg-tertiary) 0);
+            z-index: -1;
+        }
+
+        .score-circle::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+        }
+
+        .score-circle span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dimension-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .dimension-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Visual Spectacle Highlight */
+        .dimension-block.visual-spectacle .score-circle::before {
+            background: conic-gradient(#ffd43b calc(9 * 10%), var(--bg-tertiary) 0);
+        }
+
+        /* Final Score Block */
+        .final-score-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #1f1f2e 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            border: 2px solid var(--accent-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-score-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,157,0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .final-score-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-score-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .final-score-value {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, #ff8fab 50%, #ffc2d1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .final-score-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .verdict-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .show-title {
+                font-size: 2.2rem;
+            }
+
+            .show-header {
+                padding: 1.5rem;
+            }
+
+            .dimension-block {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .dimension-score {
+                margin: 0 auto;
+            }
+
+            .final-score-value {
+                font-size: 3.5rem;
+            }
+
+            .phenomenon-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .dimension-block {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .dimension-block:nth-child(1) { animation-delay: 0.1s; }
+        .dimension-block:nth-child(2) { animation-delay: 0.2s; }
+        .dimension-block:nth-child(3) { animation-delay: 0.3s; }
+        .dimension-block:nth-child(4) { animation-delay: 0.4s; }
+        .dimension-block:nth-child(5) { animation-delay: 0.5s; }
+        .dimension-block:nth-child(6) { animation-delay: 0.6s; }
+        .dimension-block:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Score colors */
+        .score-high { color: var(--accent-green); }
+        .score-medium { color: #fab005; }
+        .score-low { color: var(--accent-secondary); }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #21</div>
-            <h1>Squid Game</h1>
-            <p class="subtitle">"Red light, green light"</p>
-            <div class="score-badge">
-                <span class="score-value">8.10</span>
-                <span class="score-label">Final Score</span>
+        <!-- Header Section -->
+        <header class="show-header">
+            <span class="platform-badge">Netflix</span>
+            <h1 class="show-title">Squid Game</h1>
+            <div class="show-meta">
+                <div class="meta-item">
+                    <span>2021-</span> 
+                </div>
+                <div class="meta-item">
+                    <span>2 Seasons</span> 
+                </div>
+                <div class="meta-item">
+                    <span>13 Episodes</span> 
+                </div>
+                <div class="meta-item">
+                    <span>Korean</span> 
+                </div>
+                <div class="meta-item">
+                    <span>Thriller / Drama</span> 
+                </div>
             </div>
-        </div>
+            <div class="creator-section">
+                <strong>Created by:</strong> Hwang Dong-hyuk
+            </div>
+            <div class="cast-grid">
+                <span class="cast-member">Lee Jung-jae</span>
+                <span class="cast-member">Park Hae-soo</span>
+                <span class="cast-member">Jung Ho-yeon</span>
+                <span class="cast-member">Wi Ha-jun</span>
+                <span class="cast-member">Oh Yeong-su</span>
+                <span class="cast-member">Lee Byung-hun</span>
+            </div>
+        </header>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2021-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">9</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Netflix</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Hwang Dong-hyuk</div></div>
-        </div>
+        <!-- Plot Section -->
+        <section class="plot-section">
+            <h2 class="section-title">📖 The Premise</h2>
+            <p class="plot-text">
+                Hundreds of desperate, debt-ridden players receive mysterious invitations to compete in a series of children's games for a life-changing cash prize. The catch? Every game carries deadly consequences for elimination. Seong Gi-hun, a divorced gambling addict, finds himself among the contestants, forced to confront his past failures and moral boundaries as he navigates a brutal survival competition where the only way out is through—or not at all.
+            </p>
+        </section>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Squid Game is about desperation disguised as childhood. 456 people, deeply in debt, are invited to play children's games for money. "Red light, green light" is the first: move on green, freeze on red, die if you move. The winner takes ₩45.6 billion. Everyone else dies. The show's premise is Battle Royale meets Parasite—a critique of capitalism so sharp it drew global attention. It became Netflix's most-watched series ever.</p>
-            <p>Seong Gi-hun (Lee Jung-jae) is a gambling addict who lives with his mother, barely sees his daughter, and is broke beyond hope. He joins the game for money. Cho Sang-woo (Park Hae-soo) is his childhood friend, a former investment banker disgraced by embezzlement. Kang Sae-byeok (Jung Ho-yeon) is a North Korean defector trying to get her mother out and her brother to safety. Oh Il-nam (O Yeong-su) is an old man with a brain tumor who wants to play before he dies. They become allies, then rivals, then victims.</p>
-            <p>The games are simple: tug of war, marbles, the titular squid game. The horror is watching people kill each other for money—watching friendships form and break, watching humanity stripped away game by game. The twist: the old man (Il-nam) created the games. He's a billionaire who was bored. He wanted to play. He faked his death in the first round. The show's thesis: the rich treat the poor as entertainment. Capitalism is a game rigged for those who already won.</p>
-            <p>One season, nine episodes, season two coming. Squid Game is a phenomenon—not just for its violence, but for its clarity. It says what many feel: the system is broken, the poor are desperate, the rich are cruel. "You're all the same," Gi-hun tells the organizers. They are. He wins. He loses everyone he cared about. He doesn't spend the money. He can't. He's broken. Season two is promised. But the first season said everything it needed to say.</p>
-        </div>
+        <!-- Feelings Section -->
+        <section class="feelings-section">
+            <h2 class="feelings-title">🎭 What It Feels Like to Watch</h2>
+            <div class="feelings-content">
+                <p>
+                    Watching <em>Squid Game</em> is like being plunged into a fever dream of candy-colored nightmares. The visual language is deliberately, almost aggressively cheerful—pastel playgrounds, giant dollhouses, neon staircases spiraling into infinity—yet every frame drips with impending doom. The juxtaposition is jarring, intoxicating, and deeply unsettling. You find yourself marveling at the production design while recoiling from the violence it frames.
+                </p>
+                
+                <div class="highlight-box">
+                    <p>
+                        <strong>The central discomfort:</strong> You're not just watching a death game—you're forced to ask yourself what you'd do for 45.6 billion won. The show doesn't let you pretend you're above it.
+                    </p>
+                </div>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
+                <p>
+                    The emotional experience oscillates between adrenaline-fueled suspense and genuine heartbreak. Between games, the show lingers on character backstories that transform contestants from faceless competitors into people you know—the immigrant worker supporting his mother, the North Korean defector trying to rescue her family, the genius who destroyed his own future. Each elimination hits harder because you've been made to care, to understand exactly what survival means to each player.
+                </p>
+
+                <p>
+                    As a piece of social commentary, it lands like a sledgehammer. The capitalism critique isn't subtle, and it doesn't need to be. The VIPs—wealthy foreigners who bet on human lives for entertainment—are barely caricatures of real-world oligarchs. The show forces viewers to confront how economic desperation devalues human life, how the promise of financial salvation can make morality negotiable. It's uncomfortable because it's recognizable.
+                </p>
+
+                <div class="phenomenon-grid">
+                    <div class="phenomenon-card">
+                        <h4>🇰🇷 The Korean Phenomenon</h4>
+                        <p>In South Korea, the show sparked intense cultural conversation about household debt, which exceeds 100% of GDP. The "squid game" itself—a real children's game—became suddenly, darkly significant to a generation.</p>
+                    </div>
+                    <div class="phenomenon-card">
+                        <h4>🌐 The Netflix Phenomenon</h4>
+                        <p>With 1.65 billion hours viewed in its first 28 days, it became Netflix's most-watched series ever. It shattered the "one-inch barrier" of subtitles, proving global audiences would embrace non-English content.</p>
+                    </div>
+                    <div class="phenomenon-card">
+                        <h4>🎨 The Aesthetic Revolution</h4>
+                        <p>The show's visual language—pink guards, green tracksuits, geometric playgrounds—instantly permeated global pop culture. Halloween costumes, TikTok filters, Roblox games: the imagery became inescapable.</p>
+                    </div>
+                    <div class="phenomenon-card">
+                        <h4>💰 The Capitalism Mirror</h4>
+                        <p>Viewers worldwide recognized their own economic anxieties refracted through Korean specificity. Debt, desperation, and the illusion of meritocracy resonated across borders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rankings Section -->
+        <section class="rankings-section">
+            <div class="rankings-header">
+                <h2 class="rankings-title">🏆 Why It Ranks</h2>
+                <p class="rankings-subtitle">A seven-dimension analysis of what makes this show exceptional</p>
+            </div>
+
             <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">8</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
+                <!-- Characters -->
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle score-medium" style="--score: 7.5;"><span>7.5</span></div>
+                        <span class="score-label">CHARACTERS</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>The Desperate and the Damned</h3>
+                        <p>
+                            The character work in <em>Squid Game</em> operates on two levels: the archetypal and the specific. Gi-hun begins as a familiar trope—the lovable loser who needs redemption—but Lee Jung-jae's performance infuses him with a desperate humanity that elevates the material. The supporting cast shines in their limited screen time. Jung Ho-yeon's Kang Sae-byeok captures feral survival instinct barely contained in stillness, while Oh Yeong-su's Oh Il-nam delivers one of the most devastating turns in television history. Where the show occasionally falters is in its villains—the Front Man's motivation remains frustratingly opaque until late revelations, and some VIPs verge on cartoonish. The character arcs are compelling but occasionally simplified for narrative momentum. The relationships—particularly the tentative alliance between Gi-hun and Sang-woo—carry genuine emotional weight, exploring how desperation strips away social pretense to reveal raw human nature. It's character work that serves theme first, but serves it well.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- World Building -->
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle score-medium" style="--score: 7.5;"><span>7.5</span></div>
+                        <span class="score-label">WORLD BUILDING</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>The Architecture of Death</h3>
+                        <p>
+                            The game compound exists in a liminal space between dream and nightmare, between childhood innocence and adult brutality. Production designer Chae Kyoung-sun created a world that feels simultaneously vast and claustrophobic, with staircases leading nowhere and dormitories that dwarf their human contents. The mythology of the games—implied to span decades, involve international networks of recruiters, and maintain impossible secrecy—invites suspension of disbelief that the show mostly earns through sheer commitment to its aesthetic. The rules of the game world operate with brutal logic: fairness in procedure, cruelty in consequence. What holds this dimension back from perfection is the occasional convenience of its secrecy mechanisms and the limited exploration of how such an operation sustains itself logistically. The outside world, glimpsed through detective Jun-ho's investigation, feels less fully realized than the pink-and-green labyrinth of the compound. Still, the world building succeeds magnificently at its primary task: making the impossible feel inevitable.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cinematography -->
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle score-high" style="--score: 8;"><span>8.0</span></div>
+                        <span class="score-label">CINEMATOGRAPHY</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>Framing the Abyss</h3>
+                        <p>
+                            Cinematographer Lee Hyung-deok approaches the material with remarkable restraint, letting the production design and performances carry the weight while the camera observes with a steady, unblinking eye. The visual language shifts deliberately between the game stages—geometric precision in the dalgona challenge, vertiginous angles in the glass bridge game, intimate claustrophobia in the dormitory. Lee understands that horror often lives in the negative space, in what's not shown, and frequently frames characters against overwhelming backdrops that emphasize their smallness. The night scenes are particularly effective, bathing the compound in artificial light that feels both clinical and theatrical. Special mention must go to the Red Light, Green Light sequence, which establishes the entire visual vocabulary of the series in a single, devastating long take. The camera work becomes more kinetic during action sequences without sacrificing coherence. It's technically accomplished work that never calls attention to itself, serving the story while maintaining a distinctive visual identity that immediately became iconic.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual Spectacle -->
+                <div class="dimension-block visual-spectacle">
+                    <div class="dimension-score">
+                        <div class="score-circle" style="--score: 9;"><span class="score-high">9.0</span></div>
+                        <span class="score-label">VISUAL SPECTACLE</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>A Carnival of Contradictions</h3>
+                        <p>
+                            This is where <em>Squid Game</em> achieves true greatness. The visual design creates a language so distinctive it instantly entered global iconography: pink-suited guards with geometric masks, green polyester tracksuits numbered in white, the towering doll with her head on a swivel, the impossible Escher-like staircases. Every game environment is a masterclass in production design—childhood nostalgia weaponized into lethal architecture. The tug-of-war platform suspended in darkness, the honeycomb dalliance of the dalgona challenge, the transparent terror of the glass bridge—these images burn themselves into memory not just through shock value but through genuine aesthetic achievement. The color palette operates with surgical precision: the warmth of wood tones and autumnal set dressing against the cold institutional greens and pinks. The scale of the compound suggests impossible resources and infinite space. The visual effects, used sparingly, extend this practical world convincingly. This is blockbuster production design on a streaming budget, creating immersive spaces that feel tactile and immediate. The spectacle serves the themes rather than distracting from them, making the horror more effective by wrapping it in beauty.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Conceptual Density -->
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle score-high" style="--score: 8;"><span>8.0</span></div>
+                        <span class="score-label">CONCEPTUAL DENSITY</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>Childhood Lost, Capitalism Found</h3>
+                        <p>
+                            The conceptual architecture of <em>Squid Game</em> operates on multiple simultaneous registers. At the surface: survival horror, debt desperation, moral compromise. Beneath: a sustained interrogation of capitalism's commodification of human life, with the games literalizing the competition for limited resources that defines economic existence. The childhood games framework carries rich metaphorical weight—education as preparation for economic warfare, play transformed into deadly seriousness, the loss of innocence that accompanies financial desperation. Each game encodes meaning: Red Light, Green Light as surveillance culture, dalgona as class stratification (the wealthy choose simple shapes), tug-of-war as zero-sum competition, marbles as forced betrayal of intimate relationships. The show interrogates meritocracy's lie, the illusion of equal opportunity when starting positions are fundamentally unequal. The VIPs literalize the spectator economy, the wealthy watching the poor destroy each other for entertainment. Some concepts are explored more thoroughly than others—debt bondage and immigrant exploitation receive detailed attention while the mechanics of recruitment remain mysterious. The conceptual boldness occasionally outstrips the depth of exploration, suggesting more than it fully develops. Still, the density of ideas rewards analysis and rewatching, with layers of meaning emerging from the intersection of Korean specificity and global economic anxiety.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Narrative Drive -->
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle score-high" style="--score: 8.5;"><span>8.5</span></div>
+                        <span class="score-label">NARRATIVE DRIVE</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>The Irresistible Spiral</h3>
+                        <p>
+                            Hwang Dong-hyuk's writing demonstrates absolute command of narrative tension. The structure is elegant: recruitment, arrival, six games with dormitory interludes, climax, denouement. Each episode operates as a discrete unit while building toward the whole, with cliffhangers that feel earned rather than manufactured. The pacing alternates between game sequences (kinetic, lethal) and character moments (quiet, devastating) with a rhythm that never allows comfort. The revelation of the Front Man's identity lands with genuine shock despite fair foreshadowing. The Jun-ho subplot provides necessary outside perspective while building its own tension through the compound's secret spaces. Where the narrative reaches transcendence is in its willingness to kill characters the audience loves, following the logic of its premise to its brutal conclusion. The marbles episode represents narrative perfection—the game mechanics force emotional devastation in ways that feel both surprising and inevitable. Some late-series mechanics strain credibility, and the final game relies heavily on character psychology that hasn't been fully established. The resolution deliberately refuses easy catharsis, understanding that surviving trauma doesn't mean healing from it. The narrative engine runs with precision until the very end, delivering a complete story that stands alone while leaving room for continuation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Resolution -->
+                <div class="dimension-block">
+                    <div class="dimension-score">
+                        <div class="score-circle score-medium" style="--score: 7.5;"><span>7.5</span></div>
+                        <span class="score-label">RESOLUTION</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h3>The Weight of Blood Money</h3>
+                        <p>
+                            The final episodes face the impossible task of paying off nine hours of accumulated tension and thematic weight. The squid game itself—returned to as the finale—works beautifully as both physical contest and psychological battle, though its actual mechanics are less visually striking than previous games. The confrontations between Gi-hun and Sang-woo, and ultimately with the game master, land with emotional force earned through careful character development. Where resolution falters slightly is in its handling of the game's broader mythology—the "why" behind decades of murderous entertainment remains somewhat abstract, dependent on Oh Il-nam's nihilistic philosophy that feels more stated than demonstrated. The final scene, with Gi-hun confronting the recruiter again after a year of traumatized withdrawal, provides a perfect thematic button while clearly teeing up continuation. The show resists the temptation toward redemption or healing for its protagonist, understanding that winning changes nothing fundamental about a system designed to produce losers. Some threads—notably Jun-ho's fate and the detective infrastructure—remain deliberately unresolved. The closing image of Gi-hun's transformation from victim to potential avenger carries weight, though it shifts the show's register toward something more conventionally heroic. The resolution honors the darkness of what preceded it while acknowledging that survival stories don't end when the game stops—they just enter new rounds.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <p style="margin-top:1.5rem"><strong>Narrative Drive (10):</strong> Perfect pacing. Nine episodes of relentless tension. Each game raises stakes. Stunning debut.</p>
-            <p><strong>Visual Spectacle (9):</strong> Candy-colored sets, stark geometry, shocking violence. The aesthetic is unforgettable.</p>
-            <p><strong>Conceptual Density (9):</strong> Capitalism as death game. Rich as voyeurs. Poor as entertainment. Brutal, clear, profound.</p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Red Light, Green Light" (S1E1)</strong> — The introduction. The game begins. The massacre.</p>
-            <p><strong>"Hell" (S1E2)</strong> — The choice. "I want to go home." They vote. They return.</p>
-            <p><strong>"Gganbu" (S1E6)</strong> — Marbles. Betrayal. "We're notgganbu."</p>
-            <p><strong>("One Lucky Day" (S1E9)</strong> — Season one finale. Il-nam's secret. "I'm not a horse."</p>
-        </div>
-
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US/UK:</strong> Netflix</p>
-        </div>
+        <!-- Final Score Section -->
+        <section class="final-score-section">
+            <div class="final-score-content">
+                <p class="final-score-label">Overall Score</p>
+                <div class="final-score-value">7.69</div>
+                <p class="final-score-desc">
+                    <em>Squid Game</em> transcends its genre trappings to become something genuinely significant—a global phenomenon that proved television could be simultaneously mass entertainment and serious social commentary. Its visual achievement is undeniable, its conceptual boldness refreshing, its narrative momentum irresistible. While not every element reaches the heights of its best sequences, the sheer ambition and execution of its central premise creates an experience that lingers long after the credits roll. It's a show about desperation that became, paradoxically, a testament to the hunger for stories that take desperate risks.
+                </p>
+                <div class="verdict-badge">Essential Viewing</div>
+            </div>
+        </section>
     </div>
 </body>
 </html>

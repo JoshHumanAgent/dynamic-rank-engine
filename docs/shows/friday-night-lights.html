@@ -1,91 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friday Night Lights - "Texas Forever" | Dynamic Rank Engine</title>
+    <title>Friday Night Lights - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #ff8c00; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #ff8c00, #cc7000); color: #1a1a1a; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ffa500; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(255,140,0,0.3), rgba(0,0,0,0.9)); border: 3px solid #ff8c00; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ffa500; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #ff8c00; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ffa500; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(255,140,0,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ffa500; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ffa500; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #174</div>
-            <h1>Friday Night Lights</h1>
-            <p class="subtitle">"Texas Forever"</p>
-            <div class="score-badge">
-                <span class="score-value">7.43</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2006-2011</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">76</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">NBC</div></div>
-            <div class="info-item"><div class="info-label">Developer</div><div class="info-value">Peter Berg</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Friday Night Lights is high school football as religion in Dillon, Texas. Based on the book and film, the series expands into a five-season exploration of small-town America, where the Panthers' Friday night games are the only thing that matters. Coach Eric Taylor (Kyle Chandler) and his wife Tami (Connie Britton) anchor a show that could have been just another sports drama but became something deeper.</p>
-            <p>The show's innovation was handheld cameras and naturalistic performances—the drama feels documentary-real, not TV-staged. The actors often improvised within storylines, creating moments of genuine spontaneity. Kyle Chandler's Coach Taylor is the dad every quarterback wanted—stern, principled, loving. Connie Britton's Tami is the show's moral center, a guidance counselor who sees students the town overlooks.</p>
-            <p>The players rotate through: quarterback Jason Street (Scott Porter) paralyzed in the pilot, forced to find meaning beyond football; running back Smash Williams (Gaius Charles) whose talent carries the weight of his family's hopes; quarterback Matt Saracen (Zach Gilford), the backup thrust into starting, caring for his grandmother while his father serves in Iraq; bad boy Tim Riggins (Taylor Kitsch), the fullback whose heart is bigger than his judgement.</p>
-            <p>The football games are exciting, but the show's genius is understanding that the games are just the structure for stories about fathers and sons, dreams and disappointments, a town's identity and the kids who carry it. Coach Taylor's mantra—"Clear eyes, full hearts, can't lose"—became iconic because it's about more than football. It's about facing life with honesty.</p>
-            <p>Season four reinvented the show, moving focus to a new school and new players. The final season is perfect—concluding stories while understanding that in Dillon, football never really ends.</p>
-        </div>
+<p>Friday Night Lights premiered on NBC on October 3, 2006, developed by Peter Berg from H.G. Bissinger's 1990 nonfiction book and Berg's own 2004 film adaptation. The series follows the Dillon Panthers, a high school football team in the fictional West Texas town of Dillon, and specifically the Taylor family: Coach Eric Taylor (Kyle Chandler), his wife Tami (Connie Britton), and their daughters Julie (Aimee Teegarden) and Gracie Belle. Across five seasons and 76 episodes, the series became one of television's most critically acclaimed dramas—a sports show that wasn't really about sports, a high school drama that treated its characters with unusual respect, a portrait of Middle America that resisted condescension.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">6</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">9</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Kyle Chandler and Connie Britton created one of TV's best marriages. The ensemble across five seasons is consistently excellent.</p>
-            <p><strong>World Building (9):</strong> Dillon, Texas feels real—the economics, the religion, the football, the desperation.</p>
-            <p><strong>Resolution (9):</strong> The final season gives every character closure without sentimentality. It ends exactly right.</p>
-        </div>
+<p>The series' signature visual approach—handheld cameras, available light, improvisational feel—distinguished it immediately. Berg, who directed the pilot and established the aesthetic, wanted football sequences that felt documentary-authentic and dramatic scenes that captured the messiness of real conversation. Actors were encouraged to overlap dialogue, break eyeline, and find moments rather than hit marks. The approach was rare for network television in 2006; it created intimacy unusual in the medium. A.O. Scott, in The New York Times, called it "one of the finest achievements in the history of the medium."</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Pilot" (S1E1)</strong> — The first game. The injury. Coach Taylor's first test.</p>
-            <p><strong>"The Son" (S4E5)</strong> — Matt Saracen's grief. The funeral. The best episode of the series.</p>
-            <p><strong>"Always" (S5E13)</strong> — The finale. Texas forever. Clear eyes, full hearts.</p>
-        </div>
+<p>The series almost didn't survive. Ratings were modest; NBC canceled it after two seasons. A deal with DirecTV—each subsequent season premiered on the satellite provider's 101 Network, with NBC broadcasting months later—allowed three more seasons. This unconventional arrangement (DirecTV contributed to production costs in exchange for exclusive first-run rights) became a model for later rescued series. The series ended on its own terms on February 9, 2011, with a finale that provided closure for its characters and won universal praise.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Hulu, Peacock</p>
-            <p><strong>UK:</strong> Amazon Prime</p>
+<p>Kyle Chandler's Coach Taylor became television's definitive portrait of adult masculinity—stoic, principled, reluctant to verbalize emotion but deeply loving. "Clear eyes, full hearts, can't lose" became the series' mantra and, eventually, a cultural catchphrase. Connie Britton's Tami Taylor was equally central—the team's counselor and later principal, Eric's partner in every sense, a working mother whose aspirations complicated the family dynamic. The Taylor marriage—passionate, argumentative, resilient—was the series' emotional core. Both Chandler and Britton received Emmy nominations; Chandler won in 2011, and showrunner Jason Katims won for writing the finale.</p>
+
+<p>The young ensemble launched numerous careers: Taylor Kitsch as Tim Riggins, the fullback with a heart of gold buried under self-destruction; Jesse Plemons as Landry Clarke, the comic-relief sidekick who became a genuine romantic lead; Michael B. Jordan as Vince Howard, the quarterback in Seasons 4-5; Adrianne Palicki as Tyra Collette, the town's "bad girl" who sought escape through education. The series used Texas high school football to examine race, class, religion, disability, abortion, economic decline, and American masculinity—all without the preachiness that afflicts issue-centric drama.</p>
+
+<h2>Why It Ranks #89</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.60</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Coach and Tami Taylor:</strong> Kyle Chandler and Connie Britton created one of television's great marriages. Eric Taylor is stoic—not emotionally unavailable, but articulate through action rather than declaration. His "clear eyes, full hearts" speech to his team expresses what he cannot say directly; his relationship with Tami shows it in practice. Britton's Tami is equally strong—challenging Eric when he's wrong, pursuing her own career (counselor, then principal), maintaining her identity within the marriage. Their fights are real (Season 2's abortion argument, Season 4's move conflict); their reconciliation is earned. Both actors received Emmy nominations; Chandler won.</p>
+        
+        <p><strong>The Players:</strong> Taylor Kitsch's Tim Riggins—the alcoholic fullback with unexpected sweetness—became the series' unlikely moral center. Kitsch plays him as a man who doesn't know his own value, self-medicating with beer and bad decisions, occasionally revealing genuine nobility. Jesse Plemons's Landry Clarke began as comic relief (the awkward mathlete who wants to be cool) and evolved into genuine romantic lead (his relationship with Tyra Collette provides the series' sweetest plot). Zach Gilford's Matt Saracen—the backup quarterback thrust into starting—delivers the series' most affecting storyline: a boy raising himself while his father serves in Iraq, caring for his grandmother with dementia.</p>
+        
+        <p><strong>The Women of Dillon:</strong> Connie Britton's Tami anchors the adult sphere. Adrianne Palicki's Tyra Collette—the town's "bad girl" who transforms into college-bound student—provides a genuine redemption arc. Minka Kelly's Lyla Garrity evolves from head cheerleader to Christian youth leader to radio host. Aimee Teegarden's Julie Taylor captures adolescent defiance without becoming villain. Jurnee Smollett's Jess Merriweather (Seasons 4-5) brings new energy. The female characters aren't love interests; they're characters in their own right.</p>
+        
+        <p><strong>The Later Cast:</strong> Seasons 4-5 relocated Coach Taylor to East Dillon High (the poorer, predominantly Black school across town) and introduced new players: Michael B. Jordan's Vince Howard, the quarterback with a father in prison; Matt Lauria's Luke Cafferty, the white fullback displaced by school boundaries; Madison Burge's Becky Sproles, the freshman who develops feelings for Riggins. The transition could have failed; instead, it reinvigorated the series and allowed examination of race and class previously unavailable.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) achieved greater ensemble depth. Friday Night Lights matches its character respect without the systemic ambition. The limitation is that football plots sometimes require character shortcuts.</p>
+        
+        <p><strong>Why 8:</strong> Exceptional character work across the ensemble with Chandler and Britton achieving iconic status. The marriage is television's most realistic. The limitation is that the sports format occasionally constrains character development.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.13</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>West Texas Rendering:</strong> The series was filmed in and around Austin, Texas (with additional filming in Pflugerville), and the location specificity matters. The flat landscape, the Friday night stadium lights, the restaurant parking lots, the modest homes, the oil rigs on the horizon—this is a region rarely depicted on television without condescension. Dillon feels like an actual place rather than a generic small-town set.</p>
+        
+        <p><strong>Football Culture:</strong> The series captures Texas high school football culture—the booster club politics, the local media coverage, the way a high school stadium becomes the town's cathedral. Bissinger's book (about Odessa's Permian Panthers) documented this culture as anthropology; the series dramatizes it with comparable detail. Football dictates social status, determines economic priorities (the new stadium for the white school, the neglected facilities for the Black school), organizes town identity.</p>
+        
+        <p><strong>Class Geography:</strong> The Season 4 relocation to East Dillon High introduces class explicitly. West Dillon (the original school) has new facilities, wealthy boosters, white players. East Dillon (the "zoned" school) has leaking pipes, outdated equipment, predominantly Black and Latino students. The series uses football to examine inequality—the Taylor family's move from the nice house near West Dillon to a modest apartment near East Dillon registers the displacement. This isn't background; it's thematic architecture.</p>
+        
+        <p><strong>The Taylor Home:</strong> The Taylor family house provides the series' domestic center—modest, lived-in, decorated in Texas middle-class style. The scenes around the kitchen island, the breakfast table, the bedroom create intimacy. The home accumulates history across seasons; we feel the family's presence in the space.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) built Baltimore as comprehensive system. Friday Night Lights builds West Texas with comparable specificity but narrower scope. The limitation is that the world serves the football-and-family focus rather than extending beyond it.</p>
+        
+        <p><strong>Why 7.5:</strong> Strong regional world-building with authentic Texas specificity. The class geography deepens in later seasons. The limitation is scope—the world is Dillon rather than America.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Documentary Aesthetic:</strong> The series' visual signature—handheld cameras, available light, naturalistic color palette—was established by Peter Berg in the pilot and maintained by cinematographers Todd McMullen and David Boyd (seasons 4-5). The football sequences have the urgent energy of sports broadcasting; the dramatic scenes have the intimacy of documentary observation. This was unusual for network television in 2006; it created visual distinction rare in the medium.</p>
+        
+        <p><strong>The Football Sequences:</strong> The on-field action was shot with multiple cameras and edited for clarity; the plays are comprehensible (rare in sports filmmaking) and energetic. Real athletic activity creates authenticity; the actors trained and many plays are genuine movement rather than choreography. The visual approach to football is not stylized (unlike, say, Any Given Sunday); it's observational.</p>
+        
+        <p><strong>Natural Light:</strong> The series avoids the overlit look typical of television drama. Interior scenes are lit by practical sources; night games are dark rather than floodlit. The approach serves the documentary aesthetic; it creates visual cohesion. The limitation is that the style can read as merely unpolished rather than intentional.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (8.5) achieved distinctive cinematography through formal ambition. Friday Night Lights' documentary style was more restrained. The visual identity is coherent without being showy.</p>
+        
+        <p><strong>Why 7:</strong> Distinctive documentary aesthetic appropriate to the material. The football sequences are clear and energetic. The limitation is that the visual approach doesn't develop across seasons; it maintains rather than evolves.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.50</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Anti-Spectacle:</strong> Friday Night Lights deliberately rejects visual spectacle. The football sequences are exciting within their parameters but not cinematic in the film-sports sense—no slow-motion, no operatic scoring, no montage pyrotechnics. The series is about football culture, not football as spectacle. This is appropriate but limits the dimension.</p>
+        
+        <p><strong>Game Sequences:</strong> The football games provide the series' primary action—a running back breaking free, a quarterback escaping pressure, a kicker lining up a field goal. These are mounted with clarity and energy. But they're not set-pieces; they're narrative beats. The games serve story rather than spectacle.</p>
+        
+        <p><strong>The Texas Landscape:</strong> The West Texas setting provides natural visual interest—stadium lights against night sky, flat horizons, small-town streets. But this is atmospheric rather than spectacular; the series isn't using the landscape for visual impact.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Any Given Sunday (7) made football spectacular through stylism. Friday Night Lights approaches football documentary-style; the spectacle would undermine the authenticity. The limitation is definitional—spectacle is not the series' register.</p>
+        
+        <p><strong>Why 5:</strong> Deliberate rejection of spectacle in favor of documentary authenticity. The football sequences are exciting without being cinematic. The limitation is that the dimension is essentially absent by design.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Football as Culture:</strong> The series' core concept is that football is not just sport but culture—a lens for understanding American life. The sport organizes community, determines status, shapes masculinity, provides escape from economic decline. Bissinger's book established this analysis; the series dramatizes it through character and story. The concept is present in every episode; it's the series' intellectual foundation.</p>
+        
+        <p><strong>Masculinity in Practice:</strong> The series offers multiple models of masculinity: Coach Taylor (stoic, responsible), Tim Riggins (wild, self-destructive), Matt Saracen (sensitive, caregiving), Smash Williams (ambitious, performance-driven), Vince Howard (improvised, seeking structure). The variety is implicitly analytical—not all men are the same, and the culture shapes options. The series examines masculinity without announcing it.</p>
+        
+        <p><strong>Economic Decline:</strong> The series is set in a region where oil boom gave way to bust, where the high school stadium is the nicest building in town, where college football offers the only path to prosperity for many. This is American decline in microcosm—the town depends on a sport that most players won't play after high school. The economic context shapes character; the players aren't just playing a game, they're auditioning for escape.</p>
+        
+        <p><strong>Race and Class:</strong> The Season 4 relocation to East Dillon introduces race and class as explicit topics. West Dillon (white, wealthy, new facilities) vs. East Dillon (Black and brown, poor, neglected) replicates American inequality in the school system. Coach Taylor's job is to build a program from nothing; the challenge is both football and social. The series uses sports to examine systemic inequality without becoming didactic.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) achieved greater conceptual density through comprehensive institutional analysis. Friday Night Lights has one governing concept (football as culture) and explores it thoroughly without expanding beyond.</p>
+        
+        <p><strong>Why 7:</strong> Solid conceptual examination of football as culture, masculinity in practice, and economic decline. The series uses sports to illuminate American life. The limitation is that concepts remain within the football/sports frame.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Season Structure:</strong> Each season follows a football season—preseason anticipation, early struggles, mid-season crisis, playoff push, end-of-season resolution. The structure provides natural arc; the series uses it without being constrained by it. The parallel between sports seasons and life passage creates resonance.</p>
+        
+        <p><strong>Character-Driven Momentum:</strong> The narrative drive is generated primarily through character development—will Matt Saracen survive without his grandmother? Will Tim Riggins escape his self-destruction? Will Tyra Collete get into college? Will Coach Taylor keep his job? The questions create investment; the answers provide satisfaction. This is soapy in structure but distinguished by the quality of character work.</p>
+        
+        <p><strong>The Relocation:</strong> Season 4's shift from West Dillon to East Dillon could have broken the series' momentum. Instead, it reinvigorated it—the new players, new challenges, new racial dynamics created fresh narrative possibilities. The series that had seemed to lose direction in Season 2 (partly due to the writers' strike shortening to 15 episodes) found renewed energy.</p>
+        
+        <p><strong>Episodic vs. Serialized:</strong> The series balances episodic stories (game of the week, player of the week) with serialized development (Coach Taylor's career, the Taylor marriage, player graduation). The balance creates both immediate satisfaction and long-term investment. The approach allows casual viewing while rewarding committed watching.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represents maximum narrative momentum in serialized drama. Friday Night Lights achieves gentler, character-driven momentum. The drive is effective for the material without generating urgency.</p>
+        
+        <p><strong>Why 7:</strong> Effective narrative drive through character development and seasonal structure. The East Dillon relocation reinvigorated momentum. The limitation is that the sports format creates predictability (the team will play games, some will be won, some lost).</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.80</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Series Finale:</strong> "Always" (February 9, 2011) provided complete resolution. Coach Taylor accepts a college coaching position in Philadelphia; Tami goes with him (her own career advancement). The East Dillon Lions lose the state championship but earn respect. Tim Riggins has his land and his truck. Billy Riggins and Mindy have their babies. Tyra Collette gets into college. Julie Taylor is engaged. Matt Saracen proposes to Julie. Every major character receives closure. The final image—Coach and Tami on the Philadelphia stadium field, looking at each other—captures the series' romantic core: "Clear eyes, full hearts."</p>
+        
+        <p><strong>Character Arcs:</strong> Across five seasons, the central characters complete genuine transformations. Coach Taylor moves from high school coach (Dillon Panthers) to high school builder (East Dillon Lions) to college position (Philadelphia). Tami moves from counselor to principal to college advisor. Tim Riggins moves from drunk to landowner. Tyra Collette moves from "bad girl" to college student. Matt Saracen moves from backup quarterback to artist, from abandoned boy to engaged man. The arcs are earned rather than forced.</p>
+        
+        <p><strong>The Taylor Marriage:</strong> The series' emotional core concludes with the Taylors leaving Dillon together—two careers, one partnership, new challenges ahead. The final scene (Philadelphia stadium, Tami watching Eric, Eric looking back at her) captures the relationship's essence without verbalizing it. The resolution honors what came before without freezing it.</p>
+        
+        <p><strong>Athlete Transitions:</strong> The series acknowledges that football ends. Smash Williams (Gaius Charles) has a brief college career; injuries force retirement. Matt Saracen becomes an artist, not a player. The players who do continue (Vince Howard) face uncertain futures. The series doesn't romanticize football as permanent; it's a phase, important but not defining.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (10) represents ideal planned conclusion to serialized drama. Friday Night Lights achieved comparable closure—every character resolved, thematic coherence maintained, emotional impact earned.</p>
+        
+        <p><strong>Why 8:</strong> Excellent resolution with complete character arcs and earned emotional payoffs. The series ended on its own terms with "Always" becoming a definitive finale. The limitation is minor: some resolutions (Tim Riggins's land) were slightly implausible but emotionally satisfying.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.18</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.60 + World: 1.13 + Cine: 1.05 + Spectacle: 0.50 + <br>
+        Concepts: 1.05 + Drive: 1.05 + Resolution: 0.80 = <strong>7.18</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (76 episodes, 5 seasons) | Status: Completed<br>
+        Rank: #89 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 3 October 2006 | Network: NBC / DirecTV 101 Network | Seasons: 5<br>
+    Developed by: Peter Berg | Based on: H.G. Bissinger book (1990), Berg film (2004)<br>
+    Cast: Kyle Chandler, Connie Britton, Taylor Kitsch, Jesse Plemons, Zach Gilford, Adrianne Palicki, Minka Kelly, Michael B. Jordan<br>
+    Awards: Peabody Award, Humanitas Prize, Emmy (Chandler 2011, Katims 2011) | AFI Top 10 (2006-2011)<br>
+    Mantra: "Clear eyes, full hearts, can't lose"<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

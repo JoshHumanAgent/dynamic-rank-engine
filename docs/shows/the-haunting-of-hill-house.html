@@ -1,90 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Haunting of Hill House - "Silence Lay Steadily" | Dynamic Rank Engine</title>
+    <title>The Haunting of Hill House - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #4a235a; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #4a235a, #2a1340); color: #d7bde2; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #bb8fce; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(74,35,90,0.3), rgba(0,0,0,0.9)); border: 3px solid #4a235a; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #bb8fce; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #4a235a; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #bb8fce; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(74,35,90,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #bb8fce; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #bb8fce; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #36</div>
-            <h1>The Haunting of Hill House</h1>
-            <p class="subtitle">"Silence Lay Steadily"</p>
-            <div class="score-badge">
-                <span class="score-value">7.83</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Year</div><div class="info-value">2018</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">10</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Netflix</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Mike Flanagan</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Haunting of Hill House is a ghost story where the ghosts aren't the point. Mike Flanagan takes Shirley Jackson's novel and transforms it into a meditation on family, trauma, and the houses we can never leave. The Crain family moves into Hill House in 1992 to renovate and flip it. Five children, two parents, a mansion that wants them to stay forever. We know from the start that the mother doesn't survive. What we don't know is everyone who does, and what surviving costs them.</p>
-            <p>The series moves between two timelines: the children's summer in Hill House, and their adult lives twenty-six years later, scattered and broken. Steven became a writer who exploits his family's trauma. Shirley runs a funeral home and can't forgive her mother's death. Theo uses her gift for sensing as a child psychologist but numbs herself with gloves and detachment. Luke spirals into addiction. Nell carries a sleep disorder that's always been with her. And Hugh, the father, holds a secret about what really happened that final night.</p>
-            <p>Flanagan's horror is patient. Ghosts appear in the background, often unnoticed until you look again. The famous "bent-neck lady" sequence is as good as television horror gets—a revelation that recontextualizes everything you thought you knew. The sixth episode, "Two Storms," is a technical marvel: long takes that move through time and space, actors playing the same characters across decades in single shots.</p>
-            <p>But what elevates Hill House beyond horror is its emotional core. These aren't just scare delivery systems—they're people carrying wounds that won't heal. The house feeds on grief. The ghosts are manifestations of what they can't let go. The final episodes offer a choice: stay with the ghosts forever, or leave them behind and choose the living. It's a choice about trauma itself. Do we remain haunted, or do we forgive ourselves for surviving?</p>
-        </div>
+<p>The Haunting of Hill House premiered on Netflix on October 12, 2018, created by Mike Flanagan from Shirley Jackson's 1959 novel. The ten-episode series reimagines Jackson's story as a family drama about trauma, grief, and the ghosts—literal and metaphorical—that haunt the Crain family. The series alternates between two timelines: 1992, when Hugh and Olivia Crain (Henry Thomas and Carla Gugino) renovate Hill House with their five children; and 2018, when the adult children—Steven (Michiel Huisman), Shirley (Elizabeth Reaser), Theodora (Kate Siegel), and twins Luke and Nell (Oliver Jackson-Cohen and Victoria Pedretti)—reunite after tragedy forces them back to confront their past.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">9</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Cinematography (10):</strong> Episode six, "Two Storms," is one of television's technical achievements. Long takes spanning decades, actors switching between young and old versions, all in camera. The entire series is visual storytelling at its finest.</p>
-            <p><strong>Characters & Acting (9):</strong> The ensemble is uniformly excellent. Elizabeth Reaser, Oliver Jackson-Cohen, Kate Siegel, Victoria Pedretti—the adult children are each given full arcs. Henry Thomas and Timothy Hutton play the young and old Hugh with matching haunted intensity.</p>
-            <p><strong>Resolution (9):</strong> The finale provides genuine closure. Choices are made. Ghosts are confronted. The Red Room's true nature is revealed. It's a satisfying ending that doesn't undo what came before.</p>
-        </div>
+<p>The series distinguishes itself from typical horror through its emotional depth—this is not a haunted house story but a story about a haunted family. The ghosts in Hill House are manifestations of grief, trauma, and mental illness. Olivia's descent into madness, her suicide, and her continued presence in the house as a ghost who believes she's protecting her children creates the series' central tragedy. The show asks: what haunts us more—the supernatural or our own unresolved pain?</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"The Bent-Neck Lady" (S1E5)</strong> — Nell's story. A revelation that devastates. One of horror television's crowning achievements.</p>
-            <p><strong>"Two Storms" (S1E6)</strong> — Technical virtuosity. Long takes across decades. The past and present collapse into one stormy night.</p>
-            <p><strong>"Silence Lay Steadily" (S1E10)</strong> — The finale. The Red Room opens. Choices are made. A family confronts what haunts them.</p>
-        </div>
+<p>The structure—alternating timelines that gradually converge—allows the series to build mystery while developing character. We see the children experience the house's horrors in 1992, then see how those experiences damaged them as adults in 2018. Steven became a horror novelist exploiting his family's trauma; Shirley runs a funeral home, surrounded by death; Theodora is a psychic therapist who touches people to read their emotions; Luke is a heroin addict trying to stay clean; Nell suffered from sleep paralysis and "the Bent-Neck Lady" visions that the series reveals as her own future ghost.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Netflix</p>
-            <p><strong>UK:</strong> Netflix</p>
+<p>The Bent-Neck Lady reveal in Episode 5 is among the series' most devastating moments—Nell's childhood visions of a ghost with a broken neck are revealed to be her own ghost, after she hangs herself in the house. The time-bending horror—Nell haunting her own childhood—creates unbearable tragedy. Victoria Pedretti's performance, both as the living Nell and the ghost Nell, anchors the series' emotional core.</p>
+
+<p>The house itself is a character—Hill House, with its red room (which appears differently to each character), its hidden passages, its mold and decay, its architecture that seems to shift. The production design by Patricio M. Farrell creates a house that feels alive, malevolent, and sad. The red room, which appears as a treehouse to young Luke, a game room to young Nell, a reading room to Olivia, and a bathroom to adult Luke, represents the house's ability to appear as what each person desires.</p>
+
+<p>The finale, "Silence Lay Steadily," brings the surviving Crains back to Hill House to confront their ghosts—literal and metaphorical. The revelation that the house isn't evil but rather a place where the dead remain, unable to move on, reframes the horror as tragedy. Olivia's ghost believes she's protecting her children by keeping them in the house; Hugh's sacrifice—staying with her ghost so their children can escape—provides the series' emotional climax. The final image of the Red Door, with the ghosts of the house gathered, suggests both horror and community—the dead together, the living moving on.</p>
+
+<p>Critical reception was exceptional—the series holds 93% on Rotten Tomatoes, with critics praising its emotional depth, performances, and Flanagan's direction. It became Netflix's most-watched horror series and established Flanagan as a major genre voice (leading to The Haunting of Bly Manor, Midnight Mass, and The Fall of the House of Usher). The series proved that horror could achieve emotional depth equal to any drama—that ghosts could represent grief as effectively as any literary metaphor.</p>
+
+<h3>Mike Flanagan's Horror Aesthetic</h3>
+
+<p>Flanagan established his signature style with Hill House—emotional horror that prioritizes character over jump scares. His approach uses long takes, practical effects, and performances that ground supernatural elements in human pain. The "Bent-Neck Lady" reveal exemplifies his method—horror that devastates emotionally rather than merely startling.</p>
+
+<p>Flanagan continued this approach in subsequent Netflix series: The Haunting of Bly Manor (2020), which adapted Henry James's The Turn of the Screw with similar emotional focus; Midnight Mass (2021), his original series about faith and vampirism on an isolated island; and The Fall of the House of Usher (2023), adapting Edgar Allan Poe's stories into a corporate horror saga. Each maintains Hill House's commitment to character-driven horror.</p>
+
+<h3>Key Episodes and Sequences</h3>
+
+<p><strong>Episode 1 "Steven Sees a Ghost":</strong> The series opens with the family fleeing Hill House in 1992, then establishes the adult siblings in 2018. Steven's skepticism, his exploitation of family trauma in his novels, and his first encounter with the supernatural set up the series' central conflicts. The episode introduces the dual-timeline structure and the mystery of what happened to Olivia.</p>
+
+<p><strong>Episode 5 "The Bent-Neck Lady":</strong> The series' most devastating episode. Nell's entire timeline—childhood visions, adult isolation, her marriage to Arthur (who dies), her depression, her return to Hill House, her suicide by hanging, and the revelation that she has been haunting herself her entire life. The time-bending structure creates unbearable tragedy. Victoria Pedretti's performance is heartbreaking.</p>
+
+<p><strong>Episode 6 "Two Storms":</strong> A technical tour de force. The episode intercuts between a 1992 storm that traps the family in the house and a 2018 storm that brings them together at Steven's apartment. The editing creates parallels between timelines, showing how the past haunts the present. The episode features long takes and complex choreography.</p>
+
+<p><strong>Episode 9 "Screaming Meemies":</strong> Focuses on Olivia's descent into madness. The episode reveals how the house manipulated her, how she came to believe that killing her children would "wake" them from the nightmare of life, and her suicide. Carla Gugino's performance as both living Olivia and ghost Olivia is extraordinary—the ghost's gentleness makes her more terrifying.</p>
+
+<p><strong>Episode 10 "Silence Lay Steadily":</strong> The finale brings the surviving Crains back to Hill House. The revelations about the house's nature, Olivia's ghost, Hugh's sacrifice, and the final image of the Red Door provide emotional catharsis. The episode balances horror resolution with family reconciliation.</p>
+
+<h2>Why It Ranks #35</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.70</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>The Crain Family:</strong> The ensemble delivers exceptional work across both timelines. Carla Gugino as Olivia Crain—the mother descending into madness, her ghost's tragic belief that she's protecting her children—provides the series' emotional anchor. Her performance in both timelines, particularly her ghost's gentle malevolence, is unforgettable.</p>
+        
+        <p><strong>Victoria Pedretti:</strong> As Nell Crain, Pedretti delivers the series' most devastating performance—her childhood terror, her adult isolation, her suicide, and her revelation as the Bent-Neck Lady. The time-bending horror of Nell haunting herself requires Pedretti to play both victim and ghost, both timelines, both innocence and tragedy. Her work is heartbreaking.</p>
+        
+        <p><strong>Oliver Jackson-Cohen:</strong> As Luke Crain, Jackson-Cohen portrays addiction and recovery with painful authenticity. His childhood relationship with the house's ghosts (the "tall man"), his adult heroin addiction, his final confrontation with his mother—Jackson-Cohen makes Luke's damage and survival equally convincing.</p>
+        
+        <p><strong>Michiel Huisman:</strong> As Steven Crain, Huisman plays the novelist who exploits his family's trauma for bestsellers. His guilt, his denial, his eventual acceptance of the supernatural—Huisman makes Steven's journey from skeptic to believer compelling.</p>
+        
+        <p><strong>Elizabeth Reaser:</strong> As Shirley Crain, Reaser portrays the funeral home director surrounded by death. Her anger at Steven's exploitation, her own guilt, her final acceptance—Reaser makes Shirley's prickly defensiveness sympathetic.</p>
+        
+        <p><strong>Kate Siegel:</strong> As Theodora Crain, Siegel (Flanagan's frequent collaborator and wife) plays the psychic who touches people to read their emotions. Her isolation, her gift as burden, her connection with the house's ghosts—Siegel makes Theodora's supernatural sensitivity grounded and human.</p>
+        
+        <p><strong>Henry Thomas:</strong> As Hugh Crain, Thomas portrays the father who loses his wife and must save his children. His sacrifice in the finale—staying with Olivia's ghost so the children can escape—provides the series' emotional climax. Thomas makes Hugh's guilt and love equally palpable.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The ensemble matches The Haunting of Bly Manor (Flanagan's follow-up) and exceeds most horror ensembles. The limitation is the child actors—while competent, they don't match the adult cast's depth.</p>
+        
+        <p><strong>Why 8.5:</strong> Exceptional ensemble with career-making performances from Pedretti, Gugino, and Jackson-Cohen. The limitation is occasional unevenness in child performances and some supporting roles.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Hill House:</strong> The house itself is a character—designed by production designer Patricio M. Farrell as a sprawling Gothic mansion with hidden passages, the Red Room (which appears differently to each character), and a sense of malevolent sentience. The house's architecture suggests Escher-like impossibilities—staircases that lead nowhere, doors that open to unexpected places. The production built the house on soundstages in Toronto, allowing for camera movements and effects impossible in a real location.</p>
+        
+        <p><strong>The Red Room:</strong> The series' central mystery—the room that appears as different spaces to different characters—represents the house's power to manifest desire and fear. To young Luke it's a treehouse; to young Nell a game room; to Olivia a reading room; to adult Luke a bathroom. The room's true form (revealed in the finale) is a red velvet parlor where the house's ghosts gather. This device allows the show to literalize psychological states as physical spaces.</p>
+        
+        <p><strong>The Supernatural Rules:</strong> The series establishes consistent supernatural logic—ghosts are bound to the house, can appear to those who lived there, manifest differently based on the observer's psychology. The Bent-Neck Lady (Nell's future ghost) operates on time-bending logic that the series reveals gradually. The house "feeds" on the energy of its inhabitants, particularly those experiencing trauma or mental illness. These rules create internal consistency that makes the horror feel grounded despite its supernatural elements.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The house compares to the Overlook Hotel in The Shining—a sentient building that corrupts its inhabitants. But Hill House is more tragic than malevolent; it doesn't want to harm so much as to keep, to preserve its inhabitants as ghosts who believe they're still alive. The world-building is more intimate than epic, focused on one location's psychological geography.</p>
+        
+        <p><strong>Why 8:</strong> Strong supernatural world-building with consistent internal logic. The limitation is narrow focus—the house is the world, and the world outside is barely depicted.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Look of Horror:</strong> Cinematographer Michael Fimognari creates a distinctive visual language—low-key lighting, deep shadows, the house's Gothic architecture shot to emphasize its oppressiveness. The color palette shifts between timelines: the 1992 timeline has warmer tones suggesting childhood memory; the 2018 timeline is cooler, more clinical. The ghost manifestations use practical effects where possible, with digital enhancement that maintains physical presence.</p>
+        
+        <p><strong>The Long Takes:</strong> The series employs extended tracking shots that follow characters through the house's corridors, creating spatial continuity while building dread. Episode 6 contains a particularly effective long take following young Luke through the house as he encounters multiple ghosts. These shots require precise choreography and create immersive unease.</p>
+        
+        <p><strong>The Red Room:</strong> The visual treatment of the mysterious room—appearing as different spaces to different characters—requires subtle production design and cinematographic sleight of hand. The room's true form, revealed in the finale, is shot with crimson lighting that suggests both womb and tomb.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The cinematography matches The Haunting of Bly Manor (Flanagan's follow-up) and exceeds most horror television. The limitation is occasional over-reliance on shadow and darkness that obscures action.</p>
+        
+        <p><strong>Why 8.5:</strong> Strong visual storytelling with distinctive Gothic aesthetic. The limitation is occasional darkness that makes viewing difficult.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.75</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The House:</strong> The production built Hill House on soundstages in Toronto, creating a location that could accommodate camera movements and practical effects. The house's Gothic architecture—towering ceilings, elaborate moldings, the red door—provides visual impact appropriate to the genre.</p>
+        
+        <p><strong>The Ghosts:</strong> The supernatural manifestations combine practical makeup effects with digital enhancement. The Bent-Neck Lady, the various house ghosts, the mold that spreads through the house—all create visual horror that serves the emotional story.</p>
+        
+        <p><strong>Why 7.5:</strong> Appropriate spectacle for intimate horror. The limitation is budget constraints—this is television, not feature film scale.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Trauma and Memory:</strong> The series' central theme—how childhood trauma shapes adult lives. Each Crain child carries Hill House's damage: Steven's denial, Shirley's control, Theodora's isolation, Luke's addiction, Nell's depression. The show argues that we become our wounds unless we confront them.</p>
+        
+        <p><strong>Grief:</strong> The series is fundamentally about grief—Olivia's death, Nell's suicide, the family's inability to process loss. The ghosts represent the dead's continued presence in the lives of the living. The show suggests that grief, unprocessed, becomes haunting.</p>
+        
+        <p><strong>Mental Illness:</strong> The series treats mental illness with unusual seriousness—Olivia's depression and psychosis, Nell's depression, Luke's addiction. The show suggests that the house preys on mental illness, that the supernatural and the psychological intertwine.</p>
+        
+        <p><strong>Why 8.5:</strong> Strong thematic exploration of trauma, grief, and mental illness. The limitation is occasional heavy-handedness—theme sometimes stated rather than shown.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Dual Timeline Structure:</strong> The series alternates between 1992 (childhood) and 2018 (adulthood), gradually revealing how the past shaped the present. The structure creates mystery—what happened to Olivia? What did the children experience?—while developing character. The convergence in the final episodes provides satisfying revelation.</p>
+        
+        <p><strong>The Bent-Neck Lady:</strong> The series' central mystery—Nell's visions of a ghost with a broken neck—pays off in Episode 5 with the revelation that the ghost is Nell herself, from the future, after her suicide. The time-bending structure creates devastating irony.</p>
+        
+        <p><strong>Why 8:</strong> Strong dual-timeline structure with effective mystery. The limitation is occasional confusion—the timeline jumps require attention, and some revelations feel rushed.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.85</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>"Silence Lay Steadily" (Episode 10):</strong> The finale brings the surviving Crains back to Hill House to confront their ghosts. The revelation that the house preserves the dead, that Olivia's ghost genuinely believes she's protecting her children, and Hugh's sacrifice—staying with her so the children can escape—provides emotional catharsis. The final image of the Red Door, with the house's ghosts gathered, suggests both horror and community.</p>
+        
+        <p><strong>The Sacrifice:</strong> Hugh's choice—taking poison to join Olivia in death, ensuring their children's escape—resolves his arc from the father who couldn't save his wife to the father who saves his children through his own death. The tragedy is complete but earned.</p>
+        
+        <p><strong>Why 8.5:</strong> A satisfying conclusion that honors the themes of grief and sacrifice. The limitation is slight sentimentality—the finale leans toward hope that some may find unearned.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.83</div>
+
+    <div style="color:#888; margin-top:1rem; font-size:0.9rem">
+        The final score of 7.83 reflects The Haunting of Hill House's strong performance across all seven dimensions. Its combination of emotional depth, horror craft, and thematic exploration of trauma and grief—anchored by exceptional performances from Victoria Pedretti, Carla Gugino, and the ensemble—secures its place as one of the decade's finest horror series. Mike Flanagan's direction proves that horror can achieve the emotional resonance of any prestige drama.
+    </div>
+</div>
+
 </body>
 </html>

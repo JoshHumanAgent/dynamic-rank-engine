@@ -3,89 +3,777 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dopesick - "The Crime of the Century" | Dynamic Rank Engine</title>
+    <title>Dopesick (2021) - TV Series Analysis</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #6b4423; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #6b4423, #3d2814); color: #deb887; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #cd853f; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(107,68,35,0.3), rgba(0,0,0,0.9)); border: 3px solid #6b4423; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #cd853f; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #6b4423; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #cd853f; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(107,68,35,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #cd853f; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #cd853f; font-weight: 700; }
+        :root {
+            --clinical-blue: #0d47a1;
+            --medical-cyan: #00acc1;
+            --pill-white: #f8f9fa;
+            --sterile-gray: #eceff1;
+            --warning-red: #c62828;
+            --prescription-green: #2e7d32;
+            --navy-deep: #1a237e;
+            --latex-glove: #b0bec5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0d47a1 0%, #1a237e 50%, #004d40 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Section */
+        .show-header {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,250,0.98) 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .show-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--medical-cyan), var(--clinical-blue), var(--prescription-green));
+        }
+        
+        .title-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .show-poster {
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(145deg, #1565c0 0%, #0d47a1 100%);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(13,71,161,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .title-content h1 {
+            font-size: 3.2rem;
+            color: var(--clinical-blue);
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        .title-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--medical-cyan);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .meta-tag {
+            background: var(--sterile-gray);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--clinical-blue);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .meta-tag:hover {
+            border-color: var(--medical-cyan);
+            background: white;
+        }
+        
+        .final-score-display {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: linear-gradient(145deg, var(--clinical-blue), var(--navy-deep));
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(13,71,161,0.4);
+        }
+        
+        .final-score-display .score-number {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .final-score-display .score-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* Section Styling */
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--clinical-blue);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--medical-cyan);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title .icon {
+            font-size: 1.5rem;
+        }
+        
+        /* What It Feels Like Section */
+        .feeling-content {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.9;
+        }
+        
+        .feeling-content p {
+            margin-bottom: 20px;
+        }
+        
+        .character-highlight {
+            background: linear-gradient(90deg, rgba(0,172,193,0.1) 0%, transparent 100%);
+            border-left: 4px solid var(--medical-cyan);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .character-highlight h4 {
+            color: var(--clinical-blue);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .corporate-evil {
+            background: linear-gradient(90deg, rgba(198,40,40,0.05) 0%, transparent 100%);
+            border-left: 4px solid var(--warning-red);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .corporate-evil h4 {
+            color: var(--warning-red);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Dimension Blocks */
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .dimension-card {
+            background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid var(--sterile-gray);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dimension-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--medical-cyan), var(--clinical-blue));
+        }
+        
+        .dimension-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,172,193,0.2);
+            border-color: var(--medical-cyan);
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .dimension-name {
+            font-size: 1.3rem;
+            color: var(--clinical-blue);
+            font-weight: 600;
+        }
+        
+        .dimension-score {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--medical-cyan);
+        }
+        
+        .dimension-score.high {
+            color: var(--prescription-green);
+        }
+        
+        .dimension-score.low {
+            color: var(--warning-red);
+        }
+        
+        .score-bar {
+            height: 8px;
+            background: var(--sterile-gray);
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--medical-cyan), var(--clinical-blue));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .score-fill.high {
+            background: linear-gradient(90deg, var(--prescription-green), #43a047);
+        }
+        
+        .score-fill.low {
+            background: linear-gradient(90deg, var(--warning-red), #e53935);
+        }
+        
+        .dimension-analysis {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* Special highlight for Conceptual Density */
+        .dimension-card.featured {
+            background: linear-gradient(145deg, #e3f2fd 0%, #f8f9fa 100%);
+            border: 2px solid var(--clinical-blue);
+        }
+        
+        .dimension-card.featured::after {
+            content: 'Featured Analysis';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--clinical-blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Cast Section */
+        .cast-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .cast-member {
+            background: linear-gradient(135deg, var(--clinical-blue) 0%, var(--navy-deep) 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .cast-member:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(13,71,161,0.4);
+        }
+        
+        /* Final Score Block */
+        .final-score-section {
+            background: linear-gradient(135deg, var(--clinical-blue) 0%, var(--navy-deep) 50%, #004d40 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-score-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.03) 10px,
+                rgba(255,255,255,0.03) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .final-score-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .final-score-big {
+            font-size: 6rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .final-score-label {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        
+        .score-breakdown {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .breakdown-item {
+            background: rgba(255,255,255,0.15);
+            padding: 20px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .breakdown-item .dimension {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .breakdown-item .score {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        /* Verdict Section */
+        .verdict-section {
+            background: linear-gradient(145deg, #fafafa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 2px solid var(--sterile-gray);
+        }
+        
+        .verdict-title {
+            font-size: 1.5rem;
+            color: var(--clinical-blue);
+            margin-bottom: 15px;
+        }
+        
+        .verdict-text {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.9;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .final-score-display {
+                position: static;
+                margin-top: 20px;
+                width: 100%;
+            }
+            
+            .title-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .dimension-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .final-score-big {
+                font-size: 4rem;
+            }
+        }
+        
+        /* Medical cross decoration */
+        .medical-deco {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Quote styling */
+        .quote-box {
+            background: linear-gradient(90deg, rgba(0,172,193,0.1) 0%, transparent 100%);
+            border-left: 4px solid var(--medical-cyan);
+            padding: 20px 25px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #555;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .quote-box cite {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            color: var(--clinical-blue);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #81</div>
-            <h1>Dopesick</h1>
-            <p class="subtitle">"The Crime of the Century"</p>
-            <div class="score-badge">
-                <span class="score-value">7.68</span>
-                <span class="score-label">Final Score</span>
+        <!-- Header Section -->
+        <header class="show-header">
+            <div class="title-section">
+                <div class="show-poster">💊</div>
+                <div class="title-content">
+                    <h1>DOPESICK</h1>
+                    <div class="subtitle">A Hulu Original Miniseries • Based on the book by Beth Macy</div>
+                    <div class="meta-info">
+                        <span class="meta-tag">📺 8 Episodes</span>
+                        <span class="meta-tag">📅 2021</span>
+                        <span class="meta-tag">🎬 Created by Danny Strong</span>
+                        <span class="meta-tag">⏱️ Limited Series</span>
+                    </div>
+                </div>
+            </div>
+            <div class="final-score-display">
+                <div class="score-number">7.23</div>
+                <div class="score-label">Final Score</div>
+            </div>
+        </header>
+
+        <!-- Cast Section -->
+        <div class="section">
+            <h2 class="section-title"><span class="icon">🎭</span> Starring</h2>
+            <div class="cast-grid">
+                <div class="cast-member">Michael Keaton</div>
+                <div class="cast-member">Peter Sarsgaard</div>
+                <div class="cast-member">Michael Stuhlbarg</div>
+                <div class="cast-member">Will Poulter</div>
+                <div class="cast-member">Rosario Dawson</div>
+                <div class="cast-member">Kaitlyn Dever</div>
             </div>
         </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Year</div><div class="info-value">2021</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">8</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Hulu</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Danny Strong</div></div>
-        </div>
+        <!-- What It Feels Like Section -->
+        <section class="section feeling-section">
+            <h2 class="section-title"><span class="icon">💉</span> What It Feels Like to Watch</h2>
+            
+            <div class="feeling-content">
+                <p>
+                    Watching <strong>Dopesick</strong> is an experience that seeps into your bones like a slow-acting poison—appropriate, given its subject matter. The series doesn't merely depict the opioid crisis; it drags you through the machinery of corporate greed that manufactured one of America's most devastating public health disasters. From the opening scenes, you feel the weight of impending catastrophe bearing down on the small mining town of Finch Creek, Virginia.
+                </p>
+                
+                <div class="character-highlight">
+                    <h4>🩺 Dr. Samuel Finnix (Michael Keaton)</h4>
+                    <p>
+                        At the center of this tragedy stands Michael Keaton's Dr. Samuel Finnix, a country doctor so dedicated to his Appalachian community that he makes house calls and knows every patient by name. Keaton brings a gentle, weary humanity to the role that makes his eventual arc absolutely devastating to witness. You watch as Purdue Pharma's sales representatives—smooth, well-dressed, armed with manipulated studies—slowly seduce this good man. The moment Finnix writes his first OxyContin prescription, believing the lie that it's "less than 1% addictive," you feel your stomach drop. You're watching a tragedy unfold in slow motion, knowing that this well-intentioned physician is about to lose everything.
+                    </p>
+                </div>
+                
+                <p>
+                    The series employs a fractured timeline that jumps between the 1990s—when Purdue Pharma first unleashed OxyContin—and the late 2000s, when the devastating consequences became undeniable. This structure creates a sense of narrative vertigo that mirrors the disorientation of addiction itself. You're constantly piecing together how the pieces fit: the marketing campaign, the regulatory capture, the devastated families, the corporate boardrooms where addiction rates were discussed as "expansion metrics."
+                </p>
+                
+                <div class="corporate-evil">
+                    <h4>🏢 The Purdue Pharma Machine</h4>
+                    <p>
+                        On the other side of this tragedy stands the Sackler family and their pharmaceutical empire. Michael Stuhlbarg's portrayal of Richard Sackler is skin-crawling in its clinical detachment—a man who views addiction deaths not as human tragedies but as PR problems to be managed. The boardroom scenes feel like watching a horror film from the monster's perspective. These executives knew. They knew OxyContin was far more addictive than advertised. They knew their "misbranding" was killing people. And they kept pushing, kept expanding, kept prioritizing profit over human life. The series doesn't just document corporate malfeasance; it exposes a system where regulatory bodies, medical professionals, and government officials were all captured by the same profit motive.
+                    </p>
+                </div>
+                
+                <div class="quote-box">
+                    "The Sacklers aren't evil people. They're just people who did evil things because it was profitable."
+                    <cite>— The series' unspoken thesis</cite>
+                </div>
+                
+                <p>
+                    Perhaps most haunting are the sequences following individual addicts—particularly Kaitlyn Dever's Betsy Mallum, a young mine worker whose injury leads to dependence, desperation, and ultimately tragedy. These aren't statistics; they're people with families, dreams, and futures stolen by a system that treated their lives as acceptable collateral damage. The cinematography lingers on hollowed eyes and trembling hands, forcing you to witness the physical reality of withdrawal and the spiritual erosion of addiction.
+                </p>
+                
+                <p>
+                    By the time the DEA investigations begin and Rosario Dawson's agent starts connecting the dots, you're emotionally exhausted—and that's the point. The series demands that you sit with the full scope of this catastrophe. It refuses to offer easy catharsis or tidy redemption arcs. Instead, it leaves you with the uncomfortable knowledge that while Purdue Pharma eventually faced consequences (of a sort), the hundreds of thousands of lives destroyed can never be restored. Walking away from <strong>Dopesick</strong>, you carry the weight of knowing that corporate greed didn't just cause a crisis—it engineered one, with spreadsheets and marketing budgets and a profound indifference to human suffering.
+                </p>
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Dopesick is a limited series about the opioid crisis—how Purdue Pharma created OxyContin, how they marketed it with false claims about addiction, and how hundreds of thousands of Americans died. It's a story about corporate crime, regulatory failure, and the patients and prosecutors who tried to stop it.</p>
-            <p>Michael Keaton plays Dr. Samuel Finnix, a small-town Virginia doctor who trusted Purdue's claims and prescribed OxyContin to his patients. He watched them become addicted. He became addicted himself. Keaton's performance is the show's emotional center—a good man whose trust was weaponized against his community.</p>
-            <p>The series follows multiple timelines and perspectives: the DEA investigators trying to track the pills, the US attorneys building a case against Purdue, the Purdue sales reps being trained to lie, and the Sackler family counting their money while denying responsibility. Rosario Dawson, Peter Sarsgaard, and Will Poulter play the prosecutors and investigators. Michael Stuhlbarg plays Richard Sackler, the family member who pushed OxyContin into existence.</p>
-            <p>This is anger-making television in the best sense. The show shows you exactly how the crisis happened: Purdue marketed OxyContin as non-addictive. They targeted rural doctors. They created coupons for first prescriptions. They tracked prescriptions and rewarded high prescribers. When the FDA tried to investigate, Purdue used political connections to slow them down. When prosecutors built cases, Purdue settled without admitting guilt.</p>
-            <p>The structure jumps between the 1990s, when OxyContin launched, and the 2000s, when the consequences became undeniable. It's complex but never confusing. Danny Strong adapted Beth Macy's nonfiction book into a screenplay that makes complicated legal and medical history feel immediate and personal.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
+        <!-- Why It Ranks Section -->
+        <section class="section">
+            <h2 class="section-title"><span class="icon">📊</span> Why It Ranks: The 7 Dimensions</h2>
+            
             <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">5</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
+                <!-- Characters -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">👥 Characters</span>
+                        <span class="dimension-score">7.5</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 75%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            The character work in <strong>Dopesick</strong> excels particularly in its portrayal of Dr. Samuel Finnix, whose transformation from compassionate physician to cautionary tale is rendered with heartbreaking nuance by Michael Keaton. The miniseries gives him room to breathe across eight episodes, allowing us to understand not just what happens to him, but who he was before OxyContin entered his life.
+                        </p>
+                        <p style="margin-top: 15px;">
+                            Kaitlyn Dever delivers a devastating performance as Betsy Mallum, capturing the arc from confident young miner to desperate addict with remarkable authenticity. However, some of the pharmaceutical executives—while well-acted—sometimes feel like archetypes of corporate evil rather than fully dimensional people. Peter Sarsgaard's prosecutor and Rosario Dawson's DEA agent serve the narrative well but occasionally feel more like plot devices than fully realized characters. The series wisely spends more time with its victims than its villains, though this choice sometimes leaves the antagonists feeling slightly underdeveloped.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- World Building -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">🌍 World Building</span>
+                        <span class="dimension-score">7.0</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 70%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            The world of <strong>Dopesick</strong> is bifurcated by design: the struggling Appalachian mining towns where addiction takes root, and the gleaming corporate offices where decisions that destroy lives are made over catered lunches. The series succeeds brilliantly in establishing the texture of Finch Creek—a community already hollowed out by economic decline, where physical pain from mining injuries is endemic and hope is in short supply.
+                        </p>
+                        <p style="margin-top: 15px;">
+                            The period detail spanning two decades (1990s-2000s) is handled with subtlety rather than heavy-handed nostalgia. However, the corporate world sometimes feels less richly imagined, occasionally defaulting to standard boardroom aesthetics rather than developing a more distinctive visual language for Purdue's insular culture. The series shines brightest when contrasting these two Americas: the boardroom calculating profit margins while the clinic calculates how many patients have OD'd. This duality creates a world that feels authentic in its tragedy, even if some settings feel more lived-in than others.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cinematography -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">🎥 Cinematography</span>
+                        <span class="dimension-score">7.0</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 70%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            The visual language of <strong>Dopesick</strong> employs a muted, desaturated palette that mirrors the grayness of Appalachian winters and the dimming of hope. Cinematographer Checco Varese wisely avoids the glossy sheen typical of prestige television, instead embracing a documentary-like realism that grounds even the most dramatic moments in authenticity.
+                        </p>
+                        <p style="margin-top: 15px;">
+                            The series makes effective use of visual contrast: the harsh fluorescent lighting of the Purdue offices versus the golden hour glow of Virginia landscapes; the clean lines of pharmaceutical packaging versus the chaotic clutter of homes devastated by addiction. However, the cinematography rarely rises to the level of being truly distinctive or memorable. It serves the story competently but doesn't linger in the mind. The fractured timeline is handled through text overlays and color grading rather than more creative visual transitions, which sometimes feels like a missed opportunity for more innovative storytelling through image.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual Spectacle -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">✨ Visual Spectacle</span>
+                        <span class="dimension-score dimension-score low">5.0</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill low" style="width: 50%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            <strong>Dopesick</strong> deliberately eschews visual spectacle in favor of grounded realism, and this is arguably the correct choice for the material. The series understands that addiction and corporate malfeasance shouldn't be aestheticized or made beautiful. There are no sweeping drone shots of nature intended to awe, no stylized sequences meant to impress with technical virtuosity.
+                        </p>
+                        <p style="margin-top: 15px;">
+                            The few moments that approach visual grandeur—such as the opening of a new Purdue manufacturing facility or the sterile beauty of executive offices—are ironically charged, designed to unsettle rather than impress. The most visually striking sequences are often the most disturbing: close-ups of addicts in withdrawal, the clinical precision of addiction treatment facilities, the emptiness of towns hollowed out by the epidemic. This is a series that earns its low spectacle score as a conscious artistic choice, prioritizing authenticity over aesthetics in a way that serves its devastating subject matter.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Conceptual Density -->
+                <div class="dimension-card featured">
+                    <div class="dimension-header">
+                        <span class="dimension-name">🧠 Conceptual Density</span>
+                        <span class="dimension-score dimension-score high">9.0</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill high" style="width: 90%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            This is where <strong>Dopesick</strong> truly distinguishes itself and earns its highest marks. The series operates on multiple conceptual layers simultaneously, weaving together narratives of individual tragedy, corporate malfeasance, regulatory capture, medical ethics, and systemic capitalism. It explores the opioid crisis not as a single event but as a complex ecosystem of incentives, failures, and human costs.
+                        </p>
+                        <p style="margin-top: 15px;">
+                            The show interrogates the very concept of addiction—how pharmaceutical companies rebranded it as "pseudo-addiction" to deflect blame. It examines the corruption of medical science through manipulated studies and paid consultants. It depicts the hollowing out of regulatory agencies like the FDA and DEA, captured by the industries they were meant to oversee. It questions the morality of the Sackler family, billionaires who profited from suffering while funding art museums and universities to sanitize their legacy.
+                        </p>
+                        <p style="margin-top: 15px;">
+                            Most impressively, <strong>Dopesick</strong> connects individual choices to systemic forces without letting anyone off the hook. Dr. Finnix made choices. The sales reps made choices. The executives made choices. But they made them within a system designed to reward profit over people. The series understands that evil is rarely cartoonish villainy—more often, it's banal, spreadsheet-driven, and wearing an expensive suit. This conceptual sophistication, maintained across eight hours of television without losing narrative momentum, represents remarkable achievement in socially engaged storytelling.
+                        </p>
+                        <p style="margin-top: 15px;">
+                            Furthermore, the series engages with concepts of class, addiction stigma, and rural economic decline. It shows how Purdue Pharma specifically targeted economically struggling communities where physical labor caused chronic pain and limited healthcare options made patients vulnerable. The conceptual density extends to interrogating the idea of "responsible use" versus the reality of highly addictive substances, the role of the FDA in drug approval, and the bankruptcy system's ability to shield billionaires from consequences. Every episode layers new dimensions onto the crisis, making the final picture devastatingly complete.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Narrative Drive -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">📖 Narrative Drive</span>
+                        <span class="dimension-score">8.0</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill high" style="width: 80%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            Despite its non-linear structure and ensemble cast, <strong>Dopesick</strong> maintains a propulsive narrative momentum that keeps viewers locked in. The fractured timeline—jumping between the origin of OxyContin in the 1990s and the investigations of the late 2000s—creates an almost thriller-like quality as we piece together how the tragedy unfolded and whether anyone would face consequences.
+                        </p>
+                        <p style="margin-top: 15px;">
+                           The series uses the legal investigation as a throughline that provides structure and forward momentum. Every episode answers some questions while raising new ones, creating a rhythm of revelation and escalation. The pacing is deliberate, allowing scenes of quiet devastation to land with full impact without ever feeling slow. However, the narrative occasionally struggles to balance its many threads—some episodes feel crowded as they service multiple timelines and character arcs. Still, the urgency of the subject matter and the careful calibration of revelations keep the story moving with considerable force across its eight-episode run.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Resolution -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <span class="dimension-name">🎯 Resolution</span>
+                        <span class="dimension-score">8.0</span>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill high" style="width: 80%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                    <p>
+                            <strong>Dopesick</strong> faces an almost impossible challenge in its conclusion: how to provide resolution to a story that, in reality, has no clean ending. The opioid crisis continues to devastate communities today; the Sacklers largely escaped meaningful consequences; Purdue Pharma dissolved and reformed, its architecture of profit protected by bankruptcy law. The series navigates this by offering emotional resolution rather than narrative closure.
+                    </p>
+                    <p style="margin-top: 15px;">
+                            The final episodes provide catharsis through the legal victories—however inadequate—and through the personal arcs of characters finding some measure of peace or purpose. Dr. Finnix's testimony before Congress offers a moment of powerful confrontation between victim and system. The series refuses to offer false hope or pretend that justice was fully served, instead ending on a note that acknowledges both the small victories and the massive ongoing tragedy. This approach is narratively satisfying without being dishonest about the reality of the crisis. The resolution earns its score by being true to the story it told, even when that truth is uncomfortable.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Michael Keaton is devastating. The ensemble—Rosario Dawson, Peter Sarsgaard, Kaitlyn Dever—matches his intensity. Michael Stuhlbarg makes Richard Sackler quietly terrifying.</p>
-            <p><strong>Conceptual Density (9):</strong> Corporate crime, regulatory capture, medical ethics, addiction science—the show explains complex systems clearly without dumbing down.</p>
-            <p><strong>Resolution (7):</strong> The real crisis isn't over. The series ends with a settlement that feels incomplete—because the real settlement felt incomplete.</p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"First Bottle" (S1E1)</strong> — The launch. Dr. Finnix's trust. The beginning of a crisis.</p>
-            <p><strong>"Black Box Warning" (S1E6)</strong> — The regulators vs. Purdue. Political pressure. Justice delayed.</p>
-            <p><strong>"The People vs. Purdue Pharma" (S1E8)</strong> — The finale. Settlement. Accountability partial at best.</p>
-        </div>
+        <!-- Final Score Section -->
+        <section class="final-score-section">
+            <div class="final-score-content">
+                <div class="final-score-big">7.23</div>
+                <div class="final-score-label">Overall Score</div>
+                
+                <div class="verdict-text" style="max-width: 800px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; opacity: 0.95;">
+                    <strong>Dopesick</strong> earns its solid 7.23 rating through sheer conceptual weight and emotional authenticity. While it may not dazzle with visual spectacle or innovative cinematography, it succeeds magnificently where it matters most: telling an essential, devastating story with the gravity and complexity it deserves. The series serves as both compelling entertainment and vital journalism, illuminating one of America's most shameful corporate crimes with unflinching clarity. It is difficult, necessary television that will leave viewers angrier and more informed—a rare and valuable combination.
+                </div>
+                
+                <div class="score-breakdown">
+                    <div class="breakdown-item">
+                        <div class="dimension">Characters</div>
+                        <div class="score">7.5</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="dimension">World Building</div>
+                        <div class="score">7.0</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="dimension">Cinematography</div>
+                        <div class="score">7.0</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="dimension">Visual Spectacle</div>
+                        <div class="score">5.0</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="dimension">Conceptual Density</div>
+                        <div class="score">9.0</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="dimension">Narrative Drive</div>
+                        <div class="score">8.0</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="dimension">Resolution</div>
+                        <div class="score">8.0</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Hulu</p>
-            <p><strong>UK:</strong> Disney+</p>
+        <!-- Verdict -->
+        <div class="verdict-section">
+            <h3 class="verdict-title">📋 Final Verdict</h3>
+            <p class="verdict-text">
+                <strong>Dopesick</strong> is essential viewing for anyone seeking to understand how the opioid crisis wasn't a tragedy that happened to America, but one that was systematically engineered within it. Danny Strong's adaptation of Beth Macy's reporting transforms investigative journalism into human drama without sacrificing factual rigor. With Michael Keaton delivering one of his career's finest performances and a supporting cast that brings authenticity to every role, this is television that matters. It demands your attention not through spectacle, but through the weight of truth—a truth that remains urgently relevant as the opioid crisis continues to claim lives today. Despite some narrative crowding and occasionally straightforward visuals, <strong>Dopesick</strong> stands as a landmark achievement in socially conscious storytelling, earning its place as one of the most important miniseries of the 2020s.
+            </p>
         </div>
     </div>
+    
+    <div class="medical-deco">⚕️</div>
 </body>
 </html>

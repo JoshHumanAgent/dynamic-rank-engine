@@ -1,90 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deadwood - "God Is a Bastard" | Dynamic Rank Engine</title>
+    <title>Deadwood - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #8d6e63; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #8d6e63, #5d4037); color: #efebe9; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #bcaaa4; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(141,110,99,0.3), rgba(0,0,0,0.9)); border: 3px solid #8d6e63; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #bcaaa4; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #8d6e63; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #bcaaa4; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(141,110,99,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #bcaaa4; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #bcaaa4; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #19</div>
-            <h1>Deadwood</h1>
-            <p class="subtitle">"God Is a Bastard"</p>
-            <div class="score-badge">
-                <span class="score-value">8.16</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2004-2006</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">36</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">David Milch</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Deadwood is Shakespeare in the mud. David Milch's revisionist Western is set in a South Dakota mining camp in 1876, legally outside the United States and operating by its own rules. There's no law except what people enforce themselves. Gold has been discovered, and everyone—miners, prostitutes, businessmen, criminals—is trying to get rich without getting killed. It's a laboratory of human behavior: civilization emerging from chaos, order imposed on wilderness.</p>
-            <p>The language is legendary. Milch created a poetic vernacular that blends Elizabethan rhythms with frontier profanity—characters speak in elaborate, compound sentences punctuated with "cocksucker" and "motherfucker." It shouldn't work. It does. The dialogue becomes a kind of music, character revealed through syntax. Al Swearengen (Ian McShane), the camp's criminal kingpin, is a tyrant, a murderer, a pimp—and also the closest thing Deadwood has to a protector. His monologues, delivered to the severed head of a Sioux chief he keeps in a box, are among television's most extraordinary writing.</p>
-            <p>The ensemble is massive—over twenty regular characters—and every one feels essential. Timothy Olyphant's Seth Bullock is the lawman who resists his own violence. Molly Parker's Alma Garret is the widow who finds strength in addiction and enterprise. Robin Weigert's Calamity Jane is a drunk who can't stop caring. Brad Dourif's Doc Cochran is a healer haunted by the bodies he's seen. Everyone carries damage. Everyone is trying to survive.</p>
-            <p>Three seasons, thirty-six episodes, canceled too soon. The 2019 movie wrapped the story, thirteen years later, but nothing could recapture the original's density and rhythm. Deadwood is about the founding of America—the greed, the violence, the desperate attempts to create community in a world without rules. It's ugly, beautiful, and unlike anything else in television history.</p>
-        </div>
+<p>Deadwood aired on HBO from March 21, 2004 to August 27, 2006, created by David Milch (NYPD Blue). The series is set in Deadwood, South Dakota, in the 1870s—a gold mining camp in the Dakota Territory that existed outside US law, where fortunes were made and lost daily, and where civilization gradually imposed itself on chaos. Across three seasons and 36 episodes, the series depicts the town's evolution from lawless camp to organized community, centering on historical figures (Al Swearengen, Seth Bullock, Wild Bill Hickok) alongside fictional characters caught in the historical moment.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Ian McShane's Swearengen is one of TV's greatest characters. The ensemble is staggering.</p>
-            <p><strong>World Building (10):</strong> Deadwood, South Dakota, 1876. A complete universe of mud, gold, and ambition.</p>
-            <p><strong>Conceptual Density (10):</strong> The language alone is literary art. Every scene contains volumes of meaning.</p>
-        </div>
+<p>The series' signature is its dialogue—Milch invented a profane, Shakespearean register that blends Elizabethan syntax with frontier vulgarity. The characters speak in complex sentences, elevated diction, and constant obscenity: "I'd as soon cut your throat as not, but my eye's on the bigger picture." The approach was controversial (the profanity is constant) but distinctive; nothing on television has sounded like Deadwood before or since. Milch has described the language as an attempt to capture how people speak when there is no external authority to police speech—a creative invention rather than historical realism.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Deadwood" (S1E1)</strong> — The pilot. Swearengen, Bullock, the camp. A world established in an hour.</p>
-            <p><strong>"Sold Under Sin" (S1E12)</strong> — Season one finale. The plague. The prayer. Swearengen at his best.</p>
-            <p><strong>"Tell Him Something Pretty" (S3E12)</strong> — Season three finale. The election. The ending that wasn't supposed to be.</p>
-        </div>
+<p>Timothy Olyphant plays Seth Bullock, a former marshal who becomes hardware merchant and eventually sheriff. Bullock is the series' moral center—not because he's virtuous (he has a temper, he commits violence, he carries on an affair) but because he represents the possibility of order. Ian McShane plays Al Swearengen, the Gem Saloon owner and town power broker—a pimp, murderer, and pragmatist who, over three seasons, becomes sympathetic without becoming virtuous. McShane's performance is among television's most acclaimed: Swearengen is vile, funny, dangerous, and gradually revealed as the man who holds Deadwood together.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Max</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
+<p>The series was cancelled after three seasons despite critical acclaim (8 Emmys from 28 nominations). Milch had planned four seasons; the story was incomplete. A 2019 HBO film (Deadwood: The Movie) provided closure, set ten years after the series, depicting the town's incorporation into the United States and the final confrontation between Swearengen and George Hearst. The film allowed the series to conclude, but the cancellation remains one of television's great premature endings.</p>
+
+<p>The ensemble includes John Hawkes (Sol Star, Bullock's partner), Molly Parker (Alma Garret, the widow who becomes Bullock's lover), Brad Dourif (Doc Cochran, the town physician), Paula Malcomson (Trixie, Swearengen's prostitute who becomes his confidant), William Sanderson (E.B. Farnum, the hotel owner and town sycophant), and Keith Carradine (Wild Bill Hickok, whose murder in episode 4 establishes the series' stakes). The characters are drawn from history without being bound by it; the Deadwood depicted is historical fiction, not historical record.</p>
+
+<h2>Why It Ranks #10</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.80</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Al Swearengen:</strong> Ian McShane created one of television's great characters—a pimp, murderer, and pragmatist who becomes the town's unlikely anchor. Swearengen is vile in episode one (he beats prostitutes, orders murders, manipulates everyone) but gradually reveals complexity: he protects the town that makes him rich, he develops genuine feeling for Trixie, he faces down George Hearst with courage. McShane plays Swearengen as Shakespearean villain—intelligent, eloquent, dangerous, and somehow sympathetic without becoming good. The performance required McShane to deliver Milch's difficult dialogue (complex sentences laced with profanity) while maintaining character coherence.</p>
+        
+        <p><strong>Seth Bullock:</strong> Timothy Olyphant plays the lawman-turned-merchant as a man whose moral certainty coexists with violent temper. Bullock is not a hero in the clean sense—he beats men senseless, carries on an affair with a married woman, and struggles to control his anger. But he represents order's possibility: the law that doesn't yet exist, the civilization that might emerge. Olyphant plays Bullock as a pressure cooker whose lid keeps rattling.</p>
+        
+        <p><strong>The Ensemble:</strong> Deadwood's ensemble is among television's deepest. John Hawkes' Sol Star (Bullock's partner, the voice of reason), Molly Parker's Alma Garret (the widow whose gold claim makes her powerful and vulnerable), Brad Dourif's Doc Cochran (the surgeon whose religious doubt and medical skill make him essential), Paula Malcomson's Trixie (the prostitute who becomes Swearengen's confidant)—each character has depth, arc, and voice. The series tracks dozens of characters without losing any.</p>
+        
+        <p><strong>Wild Bill Hickok:</strong> Keith Carradine plays the legendary gunfighter in the final weeks of his life. Hickok arrives in Deadwood with his reputation preceding him; his murder (in episode 4, by Jack McCall) establishes the series' stakes. Carradine plays Hickok as a man whose past is legend and whose future is limited—he's aging, going blind, and doesn't fit in the new world. The four episodes he appears in are among the series' best.</p>
+        
+        <p><strong>Historical Characters:</strong> The series includes historical figures (Hickok, Calamity Jane, Charlie Utter, George Hearst, Wyatt Earp) without being bound to historical record. Milch used history as material, not constraint. The effect is a recognizable past that serves the present story.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (9.5) achieved comparable ensemble depth. Deadwood matches its character work with distinctive dialogue register.</p>
+        
+        <p><strong>Why 9:</strong> Exceptional ensemble with Ian McShane's Swearengen among television's great performances. The dialogue creates distinctive voice for each character. The limitation is that the cancellation (and 13-year gap before the film) prevented complete character arcs.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Camp:</strong> Deadwood is rendered in exhaustive detail—the Gem Saloon, the hardware store, the doctor's office, the hotel, the Chinese section, the gold claims. The camp is a character: it evolves from tent city to organized town across three seasons, with the physical environment tracking historical development. The production built the entire camp on a Santa Clarita ranch; the authenticity is visible.</p>
+        
+        <p><strong>Lawlessness to Law:</strong> The series depicts the transition from extra-legal community to incorporated town. In Season 1, there is no law—Swearengen maintains order through violence and self-interest. By Season 3, the town has elections, a sheriff, and formal government. The transition is not simple progress; it involves corruption, manipulation, and the arrival of corporate power (George Hearst) that threatens everything the community built.</p>
+        
+        <p><strong>The Language:</strong> Milch's dialogue is a world-building element—characters speak in a register that doesn't exist anywhere else. The profanity (constant fucks and cunts) coexists with elevated syntax: "Certain parties, who shall remain nameless, have seen fit to bestow upon me the title of camp boss." The language establishes a distinct world where speech operates by different rules.</p>
+        
+        <p><strong>Historical Depth:</strong> The series incorporates historical context—the gold rush, the displacement of Native Americans (referenced but not depicted), the arrival of the telegraph, the expansion of railroads, the power of capital (Hearst). The historical context is background rather than foreground, but it gives the story weight.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) achieved comprehensive institutional world-building. Deadwood matches its detail for a single community in transition.</p>
+        
+        <p><strong>Why 8.5:</strong> Exceptional recreation of an 1870s mining camp with historical context and physical authenticity. The language creates a distinctive world. The transition from lawlessness to law is tracked in detail.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Period Detail:</strong> The production design and cinematography create a convincing 1870s gold camp—mud, wood, candles, horses, and the constant presence of nature. The camp is shot with attention to period authenticity; the lighting suggests oil lamps and candles; the costumes are historically accurate.</p>
+        
+        <p><strong>Interior Spaces:</strong> The series favors interiors—the Gem Saloon, the hardware store, the doctor's office. The cinematography serves the dialogue-heavy scenes without calling attention to itself. This is functional rather than expressive; the camera records the performances without imposing style.</p>
+        
+        <p><strong>Dialogue Intimacy:</strong> Milch's dialogue requires close attention; the cinematography serves this by keeping the camera on the characters. The approach is theatrical—the scenes play as they would on stage, with the camera primarily recording rather than interpreting.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8.5) established distinctive television cinematography. Deadwood's cinematography is functional and period-appropriate without being distinctive.</p>
+        
+        <p><strong>Why 7:</strong> Competent period cinematography that serves the dialogue without distinctive visual style. The production design is exceptional; the cinematography is functional. The limitation is that the series prioritizes language over image.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.80</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Camp as Spectacle:</strong> The production built an entire 1870s gold camp on a Santa Clarita ranch—buildings, streets, props, horses, wagons. The physical production is impressive; the camp looks lived-in and real. The spectacle is in the authenticity rather than action.</p>
+        
+        <p><strong>Violence:</strong> The series includes violence—shootings, beatings, a throat-cutting in a gem saloon—but doesn't stage elaborate action set-pieces. The violence is sudden and brutal, more shocking than spectacular. The approach is appropriate to the material (frontier violence was sudden and brutal).</p>
+        
+        <p><strong>Nature:</strong> The setting (the Black Hills, the forest, the sky) provides scope. The cinematography captures landscape without foregrounding it; the natural world is presence rather than spectacle.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Deadwood achieves spectacle through physical production and period authenticity rather than action. The approach is appropriate but not exceptional.</p>
+        
+        <p><strong>Why 8:</strong> Physical production creates impressive period spectacle. The camp is convincing and detailed. The limitation is that the series doesn't stage elaborate action or seek visual impressiveness.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Civilization from Chaos:</strong> The series' central concept is the emergence of civilization from lawlessness. Deadwood begins as a mining camp outside US jurisdiction—no law, no government, only self-interest. Across three seasons, the camp develops institutions: a sheriff, elections, property rights, collective defense. The process is neither romantic (the institutions are corrupted, the powerful manipulate, the weak suffer) nor cynical (the institutions do provide order, the community does cohere). Milch examines civilization as process, not achievement.</p>
+        
+        <p><strong>The Profit Motive:</strong> Swearengen's self-interest becomes community interest—he protects Deadwood because it makes him rich. The series doesn't romanticize this; Swearengen is a pimp and murderer. But it recognizes that order can emerge from profit rather than virtue. The capitalist creates community; the community constrains the capitalist.</p>
+        
+        <p><strong>Language as Power:</strong> Milch's dialogue is conceptual—the elevated diction and constant profanity create a world where speech operates by different rules. The language is an invention for a world without external authority; when no one polices speech, speech becomes free in every sense. The profanity is not gratuitous; it's conceptual.</p>
+        
+        <p><strong>Historical Fiction:</strong> The series uses historical figures without being bound to history. The approach recognizes that the past is material for the present; Milch creates a Deadwood that serves his themes rather than obeys the record. The result is historical fiction as serious art, not as costume drama.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9.5) achieved comparable institutional analysis. Deadwood matches its conceptual depth with more concentrated focus (a single community).</p>
+        
+        <p><strong>Why 9:</strong> Exceptional conceptual examination of civilization emerging from chaos, self-interest producing community, and language as power. The dialogue is itself conceptual—an invention for a lawless world.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Slow Build:</strong> Deadwood's narrative pace is deliberate. The series favors long scenes, complex dialogue, and gradual character development over plot momentum. Episodes can pass without major events; seasons build toward climaxes that arrive slowly. The pacing is appropriate to the material (Milch has described it as "the present moment") but frustrates viewers seeking action.</p>
+        
+        <p><strong>Season Structures:</strong> Season 1 establishes the camp and its power dynamics, culminating in Bullock's arrival as lawman and Swearengen's consolidation of power. Season 2 brings external threats (the government, Hearst's agents) and internal developments (Alma's pregnancy, the smallpox outbreak). Season 3 is the confrontation with Hearst—the corporate power that Swearengen cannot defeat. Each season has structure, but the structure is modular rather than escalating.</p>
+        
+        <p><strong>Dialogue Over Plot:</strong> The series prioritizes dialogue scenes over plot advancement. A typical episode includes several extended conversations in the Gem Saloon, the hardware store, or the doctor's office; the plot advances minimally. The approach is literary (comparable to a 19th-century novel) rather than cinematic.</p>
+        
+        <p><strong>The Incompletion:</strong> The cancellation after three seasons left the story incomplete—the confrontation with Hearst resolves unsatisfyingly, Bullock's story doesn't conclude, Swearengen's arc is interrupted. The 2019 film provided closure but couldn't fully resolve what was meant to be a fourth season.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (8.5) achieved moderate narrative drive through character focus. Deadwood is even more deliberate—dialogue over plot, the present moment over momentum.</p>
+        
+        <p><strong>Why 7:</strong> Deliberate pacing that prioritizes dialogue and character over plot momentum. Each season has structure but advances slowly. The cancellation prevented complete narrative resolution.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.75</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Cancellation:</strong> Deadwood was cancelled after three seasons despite critical acclaim. David Milch had planned four seasons; the third season ends with the confrontation with Hearst unresolved—Swearengen capitulates, Bullock is outmaneuvered, the camp's future is uncertain. The cancellation is one of television's most criticized; the story was incomplete.</p>
+        
+        <p><strong>The Film (2019):</strong> HBO produced Deadwood: The Movie in 2019, ten years after the series ended. The film is set in 1889 (the town's incorporation into South Dakota) and provides closure: Bullock is sheriff, Swearengen is dying, Hearst returns and is confronted. The film is well-made but can't replace the planned fourth season; it provides ending without completing the story Milch intended.</p>
+        
+        <p><strong>Season-Level Closure:</strong> Each season provides some closure—Swearengen's power is established (Season 1), the camp unifies against external threat (Season 2), the confrontation with Hearst occurs (Season 3). But the series was building toward something that didn't happen; the resolution is present but incomplete.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) achieved ideal resolution. Deadwood's cancellation (and belated film) provides closure but not completion.</p>
+        
+        <p><strong>Why 7.5:</strong> The film provides closure after the cancellation, but the planned fourth season didn't happen. Season endings provide some resolution, but the overall arc is incomplete. The score reflects resolution achieved through the film but diminished by the cancellation.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">8.10</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.80 + World: 1.28 + Cine: 1.05 + Spectacle: 0.80 + <br>
+        Concepts: 1.35 + Drive: 1.05 + Resolution: 0.75 = <strong>8.10</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (36 episodes + 2019 film) | Status: Ended (cancelled S3, film 2019)<br>
+        Rank: #10 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 21 March 2004 | Network: HBO | Seasons: 3 (36 episodes) + Film (2019)<br>
+    Creator: David Milch | Based on: Historical Deadwood, South Dakota<br>
+    Cast: Ian McShane, Timothy Olyphant, Molly Parker, Brad Dourif, John Hawkes, Paula Malcomson, Keith Carradine<br>
+    Awards: 8 Emmys from 28 nominations | 1 Golden Globe (McShane)<br>
+    Note: Cancelled early but preserved as television's great Shakespearean western<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

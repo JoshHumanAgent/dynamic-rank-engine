@@ -1,91 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Line of Duty - "Anti-Corruption" | Dynamic Rank Engine</title>
+    <title>Line of Duty - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #b8860b; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #b8860b, #7a5a00); color: #fffacd; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(184,134,11,0.3), rgba(0,0,0,0.9)); border: 3px solid #b8860b; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ffd700; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #b8860b; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ffd700; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(184,134,11,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ffd700; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ffd700; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #215</div>
-            <h1>Line of Duty</h1>
-            <p class="subtitle">"Anti-Corruption"</p>
-            <div class="score-badge">
-                <span class="score-value">7.33</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2012-2021</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">37</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">BBC</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Jed Mercurio</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Line of Duty is the best British police procedural you probably haven't seen. AC-12 is the Anti-Corruption unit—an internal affairs department tasked with investigating bent coppers. Superintendent Ted Hastings (Adrian Dunbar) leads the unit with moral absolutes and Northern Irish phrasing that became iconic. "Mother of God" and "Now we're getting to the truth" are his weapons.</p>
-            <p>Each season focuses on a different target. Season one: DCI Tony Gates (Lennie James), whose affair with a woman tied to organized crime compromises his career. Season two: DI Lindsay Denton (Keeley Hawes), the sole survivor of an ambush that killed police escorting a protected witness. Season three: Sergeant Danny Waldron (Daniel Mays), an armed response officer whose team covers up a shooting. Seasons four and five continue escalating, with Thandiwe Newton and Stephen Graham as targets.</p>
-            <p>The interrogation scenes are legendary—tense, detailed, cat-and-mouse dialogues where professional behavior comes under microscopic scrutiny. Hastings demands precision: "When I say I want exact answers, I don't want to hear you thought you saw something. I want to hear what you saw." AC-12 probes police work for lies, inconsistencies, and cover-ups.</p>
-            <p>The "H" conspiracy—an organized crime group embedded within the police—runs through the series, building to reveals that surprised everyone. Jed Mercurio isn't afraid to kill major characters, subvert expectations, or make the audience doubt everyone.</p>
-            <p>This is British television at its best: tightly plotted, morally complex, performed with restraint and rage. The finale divided viewers, but the journey was sensational.</p>
-        </div>
+<p>Line of Duty premiered on BBC Two on June 26, 2012, created by Jed Mercurio (Bodyguard) and produced by World Productions. The series follows Anti-Corruption Unit 12 (AC-12), a fictional police internal affairs team tasked with "policing the police." Across six seasons and 36 episodes, the series built a reputation as Britain's most gripping police procedural—less for its action sequences than for its interrogation scenes, which became the series' signature: two officers in a sterile room, documents on the table, the accused's story systematically dismantled through contradiction and evidence.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Narrative Drive (9):</strong> Every season builds to interrogations that are more exciting than any car chase. The momentum never flags.</p>
-            <p><strong>Characters & Acting (9):</strong> Adrian Dunbar, Martin Compston, and Vicky McClure form a perfect team. Guest stars consistently deliver career-best work.</p>
-            <p><strong>Resolution (7):</strong> The H reveal was divisive. Whether satisfying or not, it was bold.</p>
-        </div>
+<p>The series stars Martin Compston as DS Steve Arnott, a counter-terrorism officer transferred to AC-12 after refusing to cover up an unlawful shooting; Vicky McClure as DC Kate Fleming, an undercover specialist; and Adrian Dunbar as Superintendent Ted Hastings, the unit's Northern Irish boss whose catchphrases ("Mother of God!", "Fella") became memes. The core trio provides the series' continuity—their relationships evolve across seasons while each season introduces a new "subject" for investigation: Lennie James's DCI Tony Gates (Season 1), Keeley Hawes's DI Lindsay Denton (Season 2), Daniel Mays's Sergeant Danny Waldron (Season 3), Thandie Newton's DCI Roseanne Huntley (Season 4), Stephen Graham's DS John Corbett (Season 5), and Kelly Macdonald's DCI Joanne Davidson (Season 6).</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"The Ambush" (S2E1)</strong> — The convoy attack. The lone survivor. The investigation begins.</p>
-            <p><strong>"The Caddy" (S3E6)</strong> — Season three finale. The revelation. Dot's confession.</p>
-            <p><strong>"The Bloody Cards" (S6E7)</strong> — Series finale. H revealed. The final interrogation.</p>
-        </div>
+<p>Mercurio originally pitched the series to BBC One in 2011 but was rejected and redirected to BBC Two. After the first three seasons performed strongly, the series was promoted to BBC One for Season 4 (2017). This commercial ascent reflected the show's growing cultural footprint—by Season 5 (2019), Line of Duty had become appointment television in the UK. Season 6 (2021) set viewership records, becoming the most-watched drama in the UK since 2002, with over 12 million viewers for the finale.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Hulu, Amazon Prime</p>
-            <p><strong>UK:</strong> BBC iPlayer</p>
+<p>The series' central hook is the mystery of "H"—a corrupt senior officer or officers orchestrating organized crime from within the police. This arc spans all six seasons, with each investigation revealing another layer of corruption while the H mystery deepens. The finale's resolution—revealing that "H" was not one person but four, the final member being Ian Buckells, a seemingly incompetent officer—proved controversial among fans who had invested in more elaborate theories. The anti-climax divided audience opinion: some found it appropriate (corruption hiding in plain sight), others found it unsatisfying.</p>
+
+<p>Critically, Line of Duty received consistent praise for its procedural authenticity, the performances (particularly Hawes's Season 2 turn), and Mercurio's dense plotting. The series earned multiple BAFTA nominations and won several Royal Television Society awards. Its international distribution was complicated by rights issues, but it developed a cult following abroad through streaming. In November 2025, the BBC announced a seventh season would be produced, extending the series beyond its apparent conclusion.</p>
+
+<h2>Why It Ranks #91</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.50</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>The AC-12 Trio:</strong> Martin Compston's Steve Arnott provides the series' entry point—a principled officer whose refusal to cover up a bad shooting gets him exiled to AC-12. Compston plays Arnott with growing confidence across seasons, the character evolving from uncomfortable outsider to seasoned investigator. Vicky McClure's Kate Fleming serves as the team's undercover specialist, her ability to embed with target units creating narrative opportunities. McClure brings emotional intelligence to a role that could be purely functional; Fleming's conflicted loyalties (to AC-12 vs. the officers she works alongside) provide genuine moral tension. Adrian Dunbar's Ted Hastings is the series' moral anchor—firm in principle but compromised by circumstances, his catchphrases masking a man whose personal financial troubles make him vulnerable.</p>
+        
+        <p><strong>The Subjects:</strong> Each season's guest antagonist provides meaty acting opportunities. Keeley Hawes's Lindsay Denton (Season 2) became the series' standout performance—a corrupt officer who may be corrupt for complex reasons, whose guilt is established while her motives remain ambiguous. Hawes's turn earned BAFTA and Emmy attention. Thandie Newton's Roseanne Huntley (Season 4) brought star power; Stephen Graham's John Corbett (Season 5) provided the most physically dangerous antagonist; Kelly Macdonald's Joanne Davidson (Season 6) continued the tradition of complex female subjects.</p>
+        
+        <p><strong>The Ensemble:</strong> The series builds a roster of returning characters—Craig Parkinson's Matthew "Dot" Cottan, the corrupt officer revealed in Season 3; Polly Walker's Gill Biggeloe, the legal counsel with secrets; Anna Maxwell Martin's Patricia Carmichael, the rival AC-3 commander. The callbacks create continuity across seasons; characters return with changed allegiances and revealed agendas.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) achieved greater character depth across a larger ensemble. Line of Duty creates memorable antagonists within its interrogation-focused format; the limitation is that subjects must be guilty (or appear guilty), limiting moral complexity.</p>
+        
+        <p><strong>Why 7.5:</strong> Strong performances across the core ensemble with standout guest turns (particularly Keeley Hawes). The interrogation format creates intense character moments. The limitation is that structural constraints (subjects must be investigated, guilt must be established) limit character development flexibility.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Procedural Authenticity:</strong> Mercurio, a former doctor who created medical dramas (Bodies, Critical) before Line of Duty, brings procedural rigor to police work. The AC-12 methodology—investigation, interview, evidence gathering—is rendered in convincing detail. The series employs actual police terminology and procedure, creating authenticity rare in television procedurals. Mercurio consulted with serving officers; the result is a police drama that feels like police work rather than police-as-action-movie.</p>
+        
+        <p><strong>Central Police:</strong> The fictional force (Central Police) and associated infrastructure provide the series' institutional setting. The police stations, interview rooms, and administrative offices are rendered without glamor—fluorescent lighting, institutional furniture, bureaucracy in action. This creates a distinctive visual identity: Line of Duty looks like work, which is precisely the point.</p>
+        
+        <p><strong>The Organized Crime Connection:</strong> The series builds an underworld structure connected to police corruption—the KGF gang in Seasons 4-5, the OCG (Organized Crime Group) that operates as a shadow institution. The criminal sphere is less developed than the police sphere; it serves to corrupt officers rather than existing independently. This is a limitation rather than a flaw—the series is about police, not criminals.</p>
+        
+        <p><strong>The H Conspiracy:</strong> The long-running mystery of "H" provides world-building intrigue—who is the senior corrupt officer? The answer (four officers, the fourth being Buckells) proved controversial, but the mystery itself created investment in the institutional architecture. The question "Who is H?" became a cultural catchphrase in the UK.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) built Baltimore as a comprehensive system. Line of Duty builds Central Police effectively within its narrower scope. The limitation is that the criminal underworld exists to corrupt cops rather than for its own sake.</p>
+        
+        <p><strong>Why 7:</strong> Effective procedural world-building with authentic police methodology. The AC-12 structure provides consistent institutional grounding. The limitation is that the criminal sphere is underdeveloped compared to the police institution.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Interview Room:</strong> The series' visual signature is the interrogation scene—two officers across a table, document files between them, the accused's composure slowly cracking. Mercurio writes these scenes as strategic contests; the directors shoot them with procedural clarity. The lighting is institutional (fluorescent), the framing symmetrical, the pacing deliberate. These scenes can run 15-20 minutes; they are the series' aesthetic and intellectual core.</p>
+        
+        <p><strong>Action Sequences:</strong> The series includes shootouts, chases, and standoffs—usually in season premieres and finales. These are competently staged without being distinctive. The action serves plot requirements rather than visual ambition. The series' priorities are clear: the interview room matters more than the car chase.</p>
+        
+        <p><strong>Belfast for Birmingham:</strong> The series filmed in Birmingham for Season 1, then moved to Belfast for Seasons 2-6 (Northern Ireland tax incentives). The Belfast locations double for an anonymous British city; the urban architecture provides background without establishing specific place. This creates visual consistency but limited regional identity.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8) achieved distinctive cinematography through atmospheric shooting. Line of Duty's cinematography is functional and clear without being formally ambitious. It serves the material without elevating it.</p>
+        
+        <p><strong>Why 7:</strong> Competent cinematography that serves the procedural material. The interview scenes are distinctive in their patience and clarity. The limitation is that the visual identity is institutional rather than artistic.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.50</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Anti-Spectacle:</strong> Like The Killing before it, Line of Duty rejects visual spectacle as a principle. The series is about paperwork, interviews, and institutional procedure. The occasional shootouts and chases are requirements of the thriller genre rather than the series' core appeal. This is not a limitation but a choice—the spectacle is intellectual (the dismantling of a cover story) rather than visual.</p>
+        
+        <p><strong>The Convoy Attack:</strong> Season 2's opening convoy attack—a police transport ambushed, resulting in deaths—represents the series' most spectacular sequence. But even this is restrained; the emphasis is on the aftermath and investigation rather than the action itself. The sequence establishes stakes without becoming set-piece filmmaking.</p>
+        
+        <p><strong>Production Values:</strong> The series operates within BBC drama budgets—adequate but not lavish. The production design is institutional; the effects are invisible. This is television as craft rather than spectacle, and it serves Mercurio's procedural ambitions.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (6) achieved comparable anti-spectacle positioning. Line of Duty's spectacle is entirely in the interrogation scenes' psychological drama. The dimension score reflects deliberate restraint.</p>
+        
+        <p><strong>Why 5:</strong> Deliberate rejection of visual spectacle. The series achieves its goals through procedural and psychological intensity rather than action. The limitation is definitional—spectacle is not the series' priority.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>"Policing the Police":</strong> The series' central concept—internal affairs as dramatic subject—transforms a typically bureaucratic function into compelling television. AC-12 is both respected and resented; their work is essential but creates enemies. The series examines the price of institutional accountability: the investigators become targets, their methods become controversial, their successes create backlash.</p>
+        
+        <p><strong>Corruption's Ecology:</strong> Each season reveals different forms of police corruption—covering up mistakes (Season 1), conspiracy with criminals (Season 2), revenge and personal failure (Season 3), institutional rot (Seasons 4-6). The varieties suggest that corruption is not a character flaw but a systemic feature; when pressure meets opportunity, people cross lines. This is the series' intellectual core: not who is corrupt but what conditions produce corruption.</p>
+        
+        <p><strong>The Gray Zone:</strong> The series' most sophisticated moments involve moral ambiguity. Lindsay Denton (Season 2) is guilty of conspiracy but perhaps motivated by being the only honest officer in her unit. Steve Arnott's methods blur ethical lines in pursuit of ethical goals. The "ends justify means" calculus applies to the investigators themselves. This complicates the black-and-white moral structure typical of police procedurals.</p>
+        
+        <p><strong>The H Arc:</strong> The long-running conspiracy provides conceptual continuity—who is the senior corrupt officer pulling strings? The eventual answer (multiple "H"s, the final one being the seemingly incompetent Buckells) suggests that corruption doesn't require evil genius; it requires opportunity and cover. The anti-climax is itself a conceptual point: the banality of corruption.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) achieved greater conceptual density through comprehensive institutional analysis. Line of Duty examines a specific question (police corruption) with depth rather than breadth. The limitation is that the series doesn't expand beyond its institutional frame.</p>
+        
+        <p><strong>Why 7:</strong> Solid conceptual examination of internal accountability and corruption's varieties. The series uses its procedural format for genuine intellectual inquiry. The limitation is scope—concepts remain within the police institution rather than expanding to social context.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Investigation Structure:</strong> Each season follows a consistent structure: a case emerges, AC-12 investigates, resistance builds, a twist reframes the situation, the investigation deepens, resolution occurs. This template seems formulaic but proves flexible within seasons—different subjects require different approaches, and the twists genuinely reframe rather than merely surprise. Mercurio writes dense plots where every detail potentially matters; the viewer's investment in tracking evidence is rewarded.</p>
+        
+        <p><strong>Season-by-Season Momentum:</strong> The series builds momentum across seasons through the H arc. Each investigation reveals another layer of conspiracy; characters return with changed situations; the institutional stakes escalate. The Season 6 finale (the highest-rated episode) created enormous anticipation; the resolution disappointed some viewers but completed the arc.</p>
+        
+        <p><strong>The Cliffhanger:</strong> Mercurio deploys end-of-episode cliffhangers effectively—arrests, shootings, revelations. These are calibrated for maximum impact without feeling manipulative. The series' binge-friendly structure (each season released on iPlayer in full after broadcast) suits its serialized plotting.</p>
+        
+        <p><strong>The Finale Problem:</strong> Season 6's finale demonstrated both the series' strengths and limitations. The Buckells reveal was thematically appropriate (corruption in plain sight) but narratively unsatisfying after seasons of elaborate speculation. The series' procedural strengths (methodical investigation) don't generate explosive climaxes; the finale felt like an investigation's end rather than a thriller's.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represents maximum narrative momentum in serialized crime drama. Line of Duty achieves strong procedural drive within its interrogation-focused format. The momentum is intellectual rather than visceral.</p>
+        
+        <p><strong>Why 8:</strong> Strong narrative drive through methodical investigation structure. The H arc provides continuity across seasons. The limitation is that the finale resolution divided opinion—appropriate thematically but unspectacular narratively.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.70</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Season-Level Resolution:</strong> Each season resolves its case—Gates's death (Season 1), Denton's arc (Season 2), Cottan's exposure (Season 3), Huntley's conviction (Season 4), Corbett's death (Season 5), Davidson's testimony (Season 6). The resolutions are complete enough for closure while leaving institutional threads open. The formula works: case resolved, systemic corruption continues, AC-12 persists.</p>
+        
+        <p><strong>The H Resolution:</strong> The central mystery resolved in Season 6 with "H" revealed as not one person but four: the late Derek Hilton, the late Derek Cottan, the late Gill Biggeloe's handler, and Ian Buckells. The Buckells reveal proved controversial—he was the series' "buffoon" character, seemingly incompetent, suddenly revealed as the mastermind (or, more accurately, the willing conduit for organized crime). Critics divided: some found it appropriate (corruption often hides in plain sight), others found it anti-climactic after years of speculation.</p>
+        
+        <p><strong>Character Arcs:</strong> Steve Arnott's arc across six seasons (from principled outsider to veteran investigator with a painkiller addiction) concludes with him seeking help. Kate Fleming's arc (the most consistent performer) ends with her considering a promotion. Ted Hastings faces consequences for his extramarital affair and financial irregularities but is ultimately exonerated. The character resolutions provide closure without softening the institutional critique.</p>
+        
+        <p><strong>The Series Status:</strong> Season 6 was presented as potentially final but proved successful enough that a seventh season was announced (November 2025). The series achieved a form of closure while remaining open to continuation. This is both strength (no forced cliffhanger) and limitation (the finale wasn't designed as definitive end).</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Wire (9) achieved more definitive thematic resolution across its five seasons. Line of Duty provides case closure while its institutional critique remains open-ended—corruption will continue, AC-12 will investigate, the cycle persists.</p>
+        
+        <p><strong>Why 7:</strong> Strong case-by-case resolution across seasons. The central H arc concludes thematically but divided audience opinion. The series status (continuing with Season 7) means the current resolution is provisional rather than definitive.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.05</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.50 + World: 1.05 + Cine: 1.05 + Spectacle: 0.50 + <br>
+        Concepts: 1.05 + Drive: 1.20 + Resolution: 0.70 = <strong>7.05</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (37 episodes, 6 seasons) | Status: Continued (S7 announced Nov 2025)<br>
+        Rank: #91 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 26 June 2012 | Network: BBC Two (S1-3), BBC One (S4-6) | Seasons: 6 (7 announced)<br>
+    Creator: Jed Mercurio | Cast: Martin Compston, Vicky McClure, Adrian Dunbar<br>
+    Guest Stars: Lennie James, Keeley Hawes, Thandie Newton, Stephen Graham, Kelly Macdonald<br>
+    Awards: Multiple BAFTA nominations, RTS Awards | 12M+ viewers (S6 finale, UK record since 2002)<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

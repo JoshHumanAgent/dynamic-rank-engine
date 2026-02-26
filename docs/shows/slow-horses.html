@@ -1,90 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slow Horses - "MI5's Rejects" | Dynamic Rank Engine</title>
+    <title>Slow Horses - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #556b2f; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #556b2f, #2f3f1f); color: #9acd32; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #9acd32; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(85,107,47,0.3), rgba(0,0,0,0.9)); border: 3px solid #556b2f; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #9acd32; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #556b2f; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #9acd32; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(85,107,47,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #9acd32; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #9acd32; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #207</div>
-            <h1>Slow Horses</h1>
-            <p class="subtitle">"MI5's Rejects"</p>
-            <div class="score-badge">
-                <span class="score-value">7.35</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2022-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">24+</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Apple TV+</div></div>
-            <div class="info-item"><div class="info-label">Developer</div><div class="info-value">Will Smith</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Slow Horses is British spy fiction with a hangover. Slough House is where MI5 sends agents who've failed—spectacularly, embarrassingly, or just inconveniently. They're the "slow horses," maintained on the payroll but kept far from real intelligence work. They file reports, do busywork, and hope for a chance to prove themselves. They're led by Jackson Lamb (Gary Oldman), a brilliant operative who's let himself become a grotesque—fat, flatulent, alcoholic, deliberately repulsive.</p>
-            <p>River Cartwright (Jack Lowden) is the hotshot who made a training error that nearly killed civilians. Sid Baker (Olivia Cooke) might be an undercover agentMonitoring the house. Catherine Standish (Saskia Reeves) is the administrator with a drinking problem she's managed. Every slow horse has a story, and half the drama is discovering why each one ended up in purgatory.</p>
-            <p>Then there's a real case. A kidnapping, a threat, a conspiracy. Regent's Park—MI5's headquarters, led by Diana Taverner (Kristin Scott Thomas)—wants to handle it cleanly. The slow horses stumble into it, or are used as assets, and suddenly Jackson Lamb is being Jackson Lamb: brilliant, vicious, loyal to his rejects and absolutely lethal to anyone who threatens them.</p>
-            <p>Gary Oldman is extraordinary—a performance of controlled chaos, hiding intellect behind slovenly manners. The supporting cast matches him. The tone balances bleak British humor with genuine thriller tension. This isn't Bond; it's the office park where Bond's messes get cleaned up, by the people who made their own messes.</p>
-            <p>Based on Mick Herron's novels, each season adapts one book. They're standalone stories with continuing character arcs—perfect for the limited-series model Apple TV+ favors.</p>
-        </div>
+<p>Slow Horses premiered on Apple TV+ on April 1, 2022, created by Will Smith (the comedian, not the actor) from Mick Herron's Slough House novel series. The series follows MI5's rejects—agents who have failed catastrophically but can't be fired for political or bureaucratic reasons—exiled to Slough House, a decrepit building where they perform tedious tasks under the supervision of Jackson Lamb (Gary Oldman), a brilliant but repulsive spymaster. The "slow horses" (a play on Slough House) stumble into actual espionage despite their banished status, proving that institutional discard doesn't eliminate capability.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Gary Oldman's Jackson Lamb is an instant classic character—repulsive and magnetic in equal measure.</p>
-            <p><strong>Narrative Drive (8):</strong> Each season is a tight thriller. Stakes feel real despite the darkly comic tone.</p>
-            <p><strong>World Building (8):</strong> Slough House is perfectly realized—the dank offices, the defeated agents, the eternal hope of escape.</p>
-        </div>
+<p>The series represents the most acclaimed adaptation of contemporary spy fiction since le Carré—a distinctly British approach that mixes genuine tradecraft with workplace comedy, political satire, and unexpected violence. Gary Oldman's Jackson Lamb is the series' gravitational center: obese, flatulent, alcoholic, perpetually unwashed, and intellectually formidable. He abuses his agents verbally while protecting them professionally; his external repulsiveness masks internal loyalty. Oldman's performance—a departure from his usual intensity—anchors the series' tone: comic, cynical, and unexpectedly moving.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Fail Failingly" (S1E1)</strong> — River's mistake. Slough House. The kidnapping begins.</p>
-            <p><strong>"Fiasco" (S1E6)</strong> — Season one finale. Lamb unleashed. The horses prove their worth.</p>
-            <p><strong>"Old Scores" (S2E6)</strong> — Russians. Revenge. Lamb's past catches up.</p>
-        </div>
+<p>The ensemble features Jack Lowden as River Cartwright, a promising agent whose career was destroyed by a training accident; Kristin Scott Thomas as Diana Taverner, the MI5 deputy director who uses Slough House for off-books operations; Jonathan Pryce as David Cartwright, River's grandfather and former spymaster; Saskia Reeves as Catherine Standish, the unit's administrator and recovering alcoholic; and various "slow horses" whose failures (leaving classified material on a train, sending inappropriate emails, botching surveillance) landed them in professional purgatory.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US/UK:</strong> Apple TV+</p>
+<p>Each season adapts one of Herron's novels: Slow Horses (Season 1), Dead Lions (Season 2), Real Tigers (Season 3), Spook Street (Season 4), London Rules (Season 5). The series was renewed for a sixth season (Joe Country) and seventh season (Bad Actors) before the fifth season premiered. The fifth season concluded in October 2025, with the series approaching its natural endpoint as Herron's novels conclude. The adaptation has been praised for its fidelity to the source material and its expansion—Herron's terse prose becomes visual comedy; his plot twists become tenser.</p>
+
+<p>The series received critical acclaim for its performances (particularly Oldman), its witty dialogue, and its balance of thriller tension with workplace comedy. The tone is distinctly British—understated until it isn't, ironic until it becomes earnest. The action sequences are brutal and brief; the character work is patient and cumulative. The series is both satirical (the security services are depicted as bureaucratic, self-protective, and politically manipulated) and sincere (the slow horses are genuinely competent except when they're not).</p>
+
+<h2>Why It Ranks #86</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.60</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Jackson Lamb:</strong> Gary Oldman created one of television's most memorable characters—a spymaster whose external repulsiveness (obesity, flatulence, alcoholism, unwashed clothes, constant verbal abuse) masks formidable intelligence and unexpected loyalty. Lamb's abuse of his agents is genuinely cruel; his protection of them is genuine. Oldman plays the comedy without winking, the drama without mugging. The performance required Oldman to be repulsive on screen for extended periods—a risk that paid off. Lamb became the series' signature, and Oldman's work (Emmy-nominated) anchors every episode.</p>
+        
+        <p><strong>River Cartwright:</strong> Jack Lowden provides the series' perspective character—a potentially excellent agent whose grandfather's legacy (David Cartwright, spycraft legend) puts pressure on him, and whose training-exercise blunder destroyed his career. Lowden plays River's frustration at being exiled, his genuine talent, and his gradual acceptance that Slough House might be where he belongs. The character provides the audience entry point to the series' world.</p>
+        
+        <p><strong>Diana Taverner:</strong> Kristin Scott Thomas plays MI5's deputy director (Second Desk) as ambitious, competent, and morally flexible—she uses Slough House for deniable operations, sacrifices agents when necessary, and maintains institutional power through manipulation. The performance is cool and precise; Scott Thomas conveys calculation without villainy. Taverner is not evil; she is what institutional power looks like in an agency where failures have consequences.</p>
+        
+        <p><strong>The Slow Horses:</strong> The ensemble of professional rejects provides both comedy and pathos. Saskia Reeves' Catherine Standish (administrator, recovering alcoholic) is perhaps the most sympathetic—a woman whose past failure (involvement with a traitor) permanently damaged her career but not her competence. Rosalind Eleazar's Louisa Guy (surveillance failure) provides action competence. Christopher Chung's Roddy Ho (hacktivist, insufferable) provides comic relief. Each "slow horse" has a backstory that explains both their failure and their continued value.</p>
+        
+        <p><strong>Jonathan Pryce:</strong> As David Cartwright, River's grandfather, Pryce plays a retired spycraft legend whose cognitive decline (Season 4's Spook Street arc) provides the series' most emotional storyline. The character represents what River might become—gifted, legended, ultimately diminished.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (8.5) achieved comparable ensemble depth with more sustained focus. Slow Horses matches its character quality with tonal range (comedy and thriller simultaneously).</p>
+        
+        <p><strong>Why 8:</strong> Exceptional performances across the ensemble with Oldman's Lamb achieving iconic status. The character work balances comedy and drama. The limitation is that some slow horses receive less development than others.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>MI5 Rendered:</strong> The series depicts the British security service with specificity—the hierarchy (First Desk, Second Desk, the various Desks), the bureaucracy (Regent's Park headquarters vs. Slough House), the politics (ministerial pressure, public perception, institutional self-protection). The world is accurate without being documentary; the spy jargon reads as authentic, the tradecraft feels correct.</p>
+        
+        <p><strong>Slough House:</strong> The decrepit building that houses the rejects is both setting and metaphor—unheated, under-resourced, forgotten by the main service, its agents assigned to tedious tasks (newspaper clippings, document review) that communicate their status. The physical environment reinforces the professional exile. The contrast with Regent's Park (the gleaming headquarters) is visual and thematic.</p>
+        
+        <p><strong>Beyond MI5:</strong> The series extends to the broader intelligence world—MI6 (the Secret Intelligence Service), the CIA (Hugo Weaving's Frank Harkness in Season 4), Russian operations, private contractors. Herron's novels build a comprehensive fictional spy world; the adaptation maintains the architecture. The political context (ministers, Parliament, media) provides real-world grounding.</p>
+        
+        <p><strong>Contemporary Britain:</strong> The series is set in contemporary Britain—Brexit is referenced, contemporary politics shape the plots. The grounding in actual events (the 2018 Novichok poisonings echo through Season 2) provides relevance without didacticism. The Britain depicted is multicultural, stratified, professionally competitive—the spy world reflects the broader society.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Tinker Tailor Soldier Spy (8.5) achieved comparable institutional specificity with greater period detail. Slow Horses matches its accuracy with contemporary relevance.</p>
+        
+        <p><strong>Why 7:</strong> Strong institutional world-building with authentic spy tradecraft. The Slough House/Regent's Park contrast provides visual and thematic architecture. The limitation is that the contemporary setting dates quickly.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>London Rendered:</strong> The series films on location in London—the city is both setting and atmosphere. The grey skies, the brutalist architecture, the underground stations, the narrow streets. Director James Hawes (who directed the first two episodes) established a visual tone: cold, institutional, occasionally beautiful. The cinematography serves the material without being showy.</p>
+        
+        <p><strong>Practical Action:</strong> The action sequences are brutal and brief—the series doesn't stage elaborate set-pieces but depicts violence as sudden and ugly. The approach is appropriate to the material; espionage violence is closer to criminal violence than action cinema.</p>
+        
+        <p><strong>Character Focus:</strong> The camera work serves the performances—close-ups on Oldman's unwashed face, reaction shots that capture the slow horses' resignation and hope. The visual approach is functional; it doesn't draw attention to itself.</p>
+        
+        <p><strong>The Title Sequence:</strong> The opening credits—set to Mick Jagger and Daniel Pemberton's theme song—establish the tone: London imagery, surveillance footage, an ironic sensibility. The title sequence is perhaps the series' most distinctive visual element.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Little Drummer Girl (8) achieved more distinctive visual identity through Park Chan-wook's direction. Slow Horses' cinematography is professional without being distinctive.</p>
+        
+        <p><strong>Why 7:</strong> Competent cinematography that serves the thriller material. The London locations provide atmosphere. The limitation is that the visual identity is functional rather than distinctive.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.60</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Action Over Spectacle:</strong> Slow Horses includes violence, but it's not spectacular—it's sudden, brutal, and consequential. The approach is appropriate to the material; espionage violence is ugly rather than cinematic. The series doesn't stage elaborate set-pieces; it depicts action as it actually occurs—brief, surprising, physically damaging.</p>
+        
+        <p><strong>The London Setting:</strong> The city provides visual pleasure—landmarks, neighborhoods, the river—but this is atmosphere rather than spectacle. The series uses London as spy fiction traditionally uses London: as a network of locations where things happen, not as visual destination.</p>
+        
+        <p><strong>Production Values:</strong> Apple TV+ budget enables location work, action sequences, and production design appropriate to the settings. The series looks professional without being lavish.</p>
+        
+        <p><strong>The Contrast Approach:</strong> The visual approach emphasizes contrast—Slough House's shabbiness vs. Regent's Park's sleekness, the slow horses' exhaustion vs. the main service's polish. The visual storytelling serves the thematic point without being spectacular.</p>
+        
+        <p><strong>Comparative Assessment:</strong> James Bond films (8) make spectacle central to spy fiction. Slow Horses deliberately chooses the opposite register. The limitation is that the dimension is deprioritized.</p>
+        
+        <p><strong>Why 6:</strong> Deliberate rejection of spectacle in favor of brutal, brief violence. The London setting provides atmosphere. The limitation is that the series chooses grit over visual impressiveness.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Institutional Failure:</strong> The series' central concept is institutional discard—what happens to people who fail in organizations that can't fire them? The slow horses are competent individuals whose careers ended because of specific failures; they're not useless, they're merely exiled. The series examines how institutions protect themselves by creating internal exile—Slough House is where careers go to die quietly, without embarrassing termination proceedings.</p>
+        
+        <p><strong>Competence in Disguise:</strong> The slow horses are more competent than their assignment suggests. Their failures were specific (mistakes, bad judgment, unlucky circumstances) rather than comprehensive (lack of talent). When actual crises emerge, the slow horses prove unexpectedly effective—they were never incompetent, merely failed. The series suggests that institutional exile doesn't eliminate capability.</p>
+        
+        <p><strong>Lamb's Leadership:</strong> Jackson Lamb embodies the series' conceptual architecture—outwardly repulsive, unexpectedly loyal, genuinely talented, deliberately offensive. He protects his "joes" (his term for his agents) while abusing them verbally. He represents a model of leadership that's effective without being admirable: he gets results because he doesn't care about appearances.</p>
+        
+        <p><strong>Modern Espionage:</strong> The series depicts contemporary espionage—not Cold War spy-craft but the current environment: terrorism, cyber threats, Russian aggression, political manipulation. The Novichok poisonings (referenced in Season 2), the 2017 Manchester Arena bombing (backdrop for Season 1), the contemporary political context—these ground the fiction in actual events without being exploitative.</p>
+        
+        <p><strong>Comparative Assessment:</strong> le Carré's adaptations (8.5) achieved greater conceptual depth through the Cold War's existential stakes. Slow Horses matches its institutional critique with contemporary relevance.</p>
+        
+        <p><strong>Why 7:</strong> Solid conceptual examination of institutional failure, competence in exile, and modern espionage. The series uses the spy format to examine organizational behavior. The limitation is that concepts remain within the spy thriller frame.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Season-by-Season Structure:</strong> Each season adapts one of Herron's novels—self-contained plots with continuing characters. The structure provides both closure (each season resolves its crisis) and continuity (the slow horses return, their situations evolve). The approach suits streaming release: each season is a complete story, viewers can enter at any point.</p>
+        
+        <p><strong>Plot Mechanics:</strong> Herron's plotting is dense and twisty—the seasons feature double agents, false flags, unexpected villains, reversals of fortune. The adaptation maintains the plot mechanics while adding visual and performance dimensions. The drive is consistent; each episode ends with sufficient momentum.</p>
+        
+        <p><strong>The Slow Horses' Arc:</strong> Across seasons, the slow horses' situations evolve—River discovers his true parentage (Season 4), Catherine confronts her past, Louisa processes grief. The character arcs accumulate; the series rewards long-term viewing while functioning season-by-season.</p>
+        
+        <p><strong>Lamb's Mystery:</strong> Jackson Lamb's past remains partially concealed—his history with MI6, his relationship with the Cartwright family, his role in previous operations. The mystery provides long-term intrigue without being the series' central drive. Lamb is fully present in every scene; his backstory is bonus rather than requirement.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (10) represented maximum narrative momentum in spy fiction. Slow Horses achieves strong drive with tonal range (comedy and thriller simultaneously).</p>
+        
+        <p><strong>Why 8:</strong> Strong narrative drive through season-by-season plotting and character accumulation. The plot mechanics provide consistent momentum. The limitation is that the novel-adaptation structure creates formulaic rhythm.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.70</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Season Closure:</strong> Each season provides resolution—Season 1's right-wing extremist plot, Season 2's Soviet sleeper agent, Season 3's MI5 internal conspiracy, Season 4's Frank Harkness/Parkhead plot. The seasons end with closure sufficient for satisfaction while leaving character threads for continuation.</p>
+        
+        <p><strong>Ongoing Status:</strong> As of Season 5 (October 2025), the series approaches its natural endpoint—Herron's novel series concludes with Slough House (the novel, not the location). Seasons 6 and 7 have been announced; the series is moving toward conclusion rather than indefinite continuation. This is appropriate for spy fiction; open-ended continuation would undermine the plotted novels.</p>
+        
+        <p><strong>Character Arcs:</strong> The major character arcs approach resolution—River's parentage is revealed (Season 4), David Cartwright's cognitive decline provides closure for the Cartwright legacy, the slow horses' status remains stable (they're still in Slough House). The series tracks its characters without trapping them.</p>
+        
+        <p><strong>Lamb's End:</strong> The series' central question—what will happen to Jackson Lamb?—remains unanswered. Lamb is both immortal (he seems to have survived everything) and mortal (he drinks and eats himself toward death). The eventual resolution of this character will determine the series' ultimate emotional impact.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans (10) achieved ideal conclusion to spy fiction. Slow Horses is approaching resolution with announced final seasons. The score reflects ongoing status with planned conclusion.</p>
+        
+        <p><strong>Why 7:</strong> Season-by-season resolution with ongoing series status. The series is approaching planned conclusion (Seasons 6-7 announced). The score reflects partial completion with clear endpoint.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.25</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.60 + World: 1.05 + Cine: 1.05 + Spectacle: 0.60 + <br>
+        Concepts: 1.05 + Drive: 1.20 + Resolution: 0.70 = <strong>7.25</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (30 episodes through S5, 7 seasons planned) | Status: Ongoing (S5 aired Oct 2025)<br>
+        Rank: #86 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 1 April 2022 | Network: Apple TV+ | Seasons: 5 (7 planned)<br>
+    Creator: Will Smith | Based on: Slough House novels by Mick Herron<br>
+    Cast: Gary Oldman, Jack Lowden, Kristin Scott Thomas, Jonathan Pryce, Saskia Reeves, Rosalind Eleazar<br>
+    Theme: Mick Jagger & Daniel Pemberton | Awards: Emmy nomination (Oldman), BAFTA noms<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

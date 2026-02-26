@@ -3,89 +3,861 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battlestar Galactica - "So Say We All" | Dynamic Rank Engine</title>
+    <title>Battlestar Galactica (2004-2009) - TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #d32f2f; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #d32f2f, #b71c1c); color: #ffcdd2; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.2rem; color: #ef9a9a; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(211,47,47,0.3), rgba(0,0,0,0.9)); border: 3px solid #d32f2f; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ef9a9a; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #d32f2f; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ef9a9a; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(211,47,47,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ef9a9a; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ef9a9a; font-weight: 700; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c0c1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .show-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(0,168,255,0.1) 0%, transparent 100%);
+            border-bottom: 3px solid #00a8ff;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .show-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300a8ff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .show-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(0,168,255,0.5);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .show-subtitle {
+            font-size: 1.3rem;
+            color: #00a8ff;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .show-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .meta-item {
+            text-align: center;
+            padding: 10px 20px;
+            background: rgba(0,168,255,0.1);
+            border: 1px solid rgba(0,168,255,0.3);
+            border-radius: 8px;
+        }
+        
+        .meta-label {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .meta-value {
+            font-size: 1.1rem;
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        .section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: #00a8ff;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0,168,255,0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-icon {
+            font-size: 1.5rem;
+        }
+        
+        .feel-section {
+            background: linear-gradient(135deg, rgba(139,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+            border-left: 4px solid #8b0000;
+        }
+        
+        .feel-title {
+            color: #ff6b6b;
+            border-bottom-color: rgba(255,107,107,0.3);
+        }
+        
+        .feel-content {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #d0d0d0;
+        }
+        
+        .feel-content p {
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background: rgba(0,168,255,0.08);
+            border-left: 4px solid #00a8ff;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .highlight-box.quote {
+            background: rgba(139,0,0,0.15);
+            border-left-color: #8b0000;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #ff9999;
+            text-align: center;
+        }
+        
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .dimension-card {
+            background: linear-gradient(145deg, rgba(30,30,50,0.8) 0%, rgba(20,20,35,0.9) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .dimension-card:hover {
+            border-color: rgba(0,168,255,0.4);
+            transform: scale(1.02);
+        }
+        
+        .dimension-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00a8ff, #0066cc);
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .dimension-name {
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .dimension-score {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00a8ff;
+            text-shadow: 0 0 10px rgba(0,168,255,0.5);
+        }
+        
+        .dimension-score.high { color: #00ff88; }
+        .dimension-score.medium { color: #ffaa00; }
+        
+        .dimension-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        
+        .dimension-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00a8ff, #00ff88);
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+        
+        .dimension-analysis {
+            font-size: 0.95rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+        
+        .dimension-analysis p {
+            margin-bottom: 12px;
+        }
+        
+        .cast-section {
+            margin: 30px 0;
+        }
+        
+        .cast-title {
+            font-size: 1.3rem;
+            color: #888;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .cast-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .cast-member {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            color: #d0d0d0;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .cast-member:hover {
+            background: rgba(0,168,255,0.15);
+            border-color: rgba(0,168,255,0.4);
+            color: #fff;
+        }
+        
+        .plot-section {
+            background: linear-gradient(135deg, rgba(0,100,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+            border-left: 4px solid #228b22;
+        }
+        
+        .plot-title {
+            color: #90ee90;
+            border-bottom-color: rgba(144,238,144,0.3);
+        }
+        
+        .plot-summary {
+            font-size: 1.15rem;
+            color: #d0ffd0;
+            line-height: 1.9;
+            font-style: italic;
+        }
+        
+        .final-score-section {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+            border: 2px solid rgba(255,215,0,0.3);
+            text-align: center;
+            padding: 50px 40px;
+        }
+        
+        .final-score-title {
+            font-size: 1.5rem;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        
+        .final-score-value {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #ffd700;
+            text-shadow: 0 0 50px rgba(255,215,0,0.5);
+            margin: 20px 0;
+        }
+        
+        .final-score-label {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+        
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .breakdown-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+        
+        .breakdown-dimension {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .breakdown-score {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .verdict {
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            font-size: 1.1rem;
+            color: #e0d090;
+            line-height: 1.9;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: rgba(0,168,255,0.15);
+            color: #00a8ff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 5px 5px 5px 0;
+            border: 1px solid rgba(0,168,255,0.3);
+        }
+        
+        .themes-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .theme-item {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .theme-item::before {
+            content: '▸';
+            color: #00a8ff;
+            font-weight: bold;
+        }
+        
+        .creator-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .creator-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00a8ff, #0066cc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .creator-details h3 {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .creator-details p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .show-title {
+                font-size: 2rem;
+            }
+            
+            .dimension-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .final-score-value {
+                font-size: 3rem;
+            }
+        }
+        
+        .cylon-alert {
+            background: linear-gradient(90deg, rgba(255,0,0,0.1), transparent);
+            border-left: 3px solid #ff0000;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-family: 'Courier New', monospace;
+            color: #ff6666;
+        }
+        
+        .fracking-good {
+            color: #ffd700;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #12</div>
-            <h1>Battlestar Galactica</h1>
-            <p class="subtitle">"So Say We All"</p>
-            <div class="score-badge">
-                <span class="score-value">8.25</span>
-                <span class="score-label">Final Score</span>
+        <!-- Header -->
+        <header class="show-header">
+            <h1 class="show-title">Battlestar Galactica</h1>
+            <p class="show-subtitle">Syfy Science Fiction Television Series</p>
+            <div class="show-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Network</div>
+                    <div class="meta-value">Syfy (Sci-Fi Channel)</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Years</div>
+                    <div class="meta-value">2004 - 2009</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Seasons</div>
+                    <div class="meta-value">4 Seasons</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Episodes</div>
+                    <div class="meta-value">77 Episodes</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Genre</div>
+                    <div class="meta-value">Space Opera / Military Sci-Fi</div>
+                </div>
             </div>
-        </div>
+        </header>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2004-2009</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">75</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Syfy</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Ronald D. Moore</div></div>
-        </div>
+        <!-- Plot Summary -->
+        <section class="section plot-section">
+            <h2 class="section-title plot-title">
+                <span class="section-icon">🚀</span>
+                The Story at a Glance
+            </h2>
+            <p class="plot-summary">
+                In a distant star system, humanity's twelve colonies have been utterly destroyed by the Cylons—artificial beings created by man who have evolved to be virtually indistinguishable from humans. Aboard the aging Battlestar Galactica, a warship about to be decommissioned, approximately 50,000 survivors represent the last hope for the human race. Led by Commander William Adama and President Laura Roslin, this ragtag fleet must navigate the perils of space while being hunted by their own creations, seeking the legendary thirteenth colony: a distant planet known only as Earth. But as they flee across the galaxy, they discover that the enemy may be closer than they think—Cylons can look human, feel human, and perhaps even believe they are human.
+            </p>
+            
+            <div class="creator-info">
+                <div class="creator-avatar">RDM</div>
+                <div class="creator-details">
+                    <h3>Created by Ronald D. Moore</h3>
+                    <p>Visionary writer and producer who reimagined the 1978 series into a dark, philosophical masterpiece that elevated science fiction television to new artistic heights.</p>
+                </div>
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Battlestar Galactica is not a science fiction show. It's a war drama, a political thriller, a religious meditation, and a character study that happens to be set in space. The Cylons—robots created by humanity—have evolved. They look human now. They destroyed the Twelve Colonies in a nuclear attack, and the survivors—fifty thousand people on a ragtag fleet of spaceships—flee across the galaxy, searching for a mythical planet called Earth.</p>
-            <p>EdwardJames Olmos plays Admiral Adama, the military commander of the last battlestar. Mary McDonnell plays President Roslin, the former education secretary who becomes president when everyone above her in the line of succession dies. Their relationship—military and civilian, pragmatist and idealist—is the show's spine. "You're the president," Adama tells her. "I'm the hammer." They clash constantly. They trust each other absolutely.</p>
-            <p>The show asks impossible questions: Are the Cylons people? (Some of them don't know they're Cylons.) Is democracy possible when you're at war? (The president fixes an election.) What happens to morality when survival is at stake? (Everything happens.) The show's second season—especially the arc on New Caprica, where the humans are occupied by Cylons—is as good as television gets. The third season stumbles. The fourth season recovers. The finale is controversial but earned: they find Earth, but it's our Earth, 150,000 years ago. The cycle begins again.</p>
-            <p>Four seasons, seventy-five episodes (plus miniseries and movies), complete. BSG was revolutionary: it made science fiction adult, serialized, and morally complex. "All of this has happened before, and all of this will happen again." The show proved that television could be as ambitious as literature. So say we all.</p>
-        </div>
+        <!-- Cast -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">⭐</span>
+                Starring
+            </h2>
+            <div class="cast-section">
+                <div class="cast-grid">
+                    <span class="cast-member">Edward James Olmos</span>
+                    <span class="cast-member">Mary McDonnell</span>
+                    <span class="cast-member">Katee Sackhoff</span>
+                    <span class="cast-member">Jamie Bamber</span>
+                    <span class="cast-member">James Callis</span>
+                    <span class="cast-member">Tricia Helfer</span>
+                    <span class="cast-member">Grace Park</span>
+                    <span class="cast-member">Michael Hogan</span>
+                    <span class="cast-member">Aaron Douglas</span>
+                    <span class="cast-member">Tahmoh Penikett</span>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <span class="tag">Ensemble Cast</span>
+                <span class="tag">Character-Driven</span>
+                <span class="tag">Political Intrigue</span>
+                <span class="tag">Military Drama</span>
+                <span class="tag">Religious Allegory</span>
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
+        <!-- What It Feels Like to Watch -->
+        <section class="section feel-section">
+            <h2 class="section-title feel-title">
+                <span class="section-icon">🎭</span>
+                What It Feels Like to Watch
+            </h2>
+            
+            <div class="feel-content">
+                <p>
+                    Watching <span class="fracking-good">Battlestar Galactica</span> is like witnessing a fever dream of humanity's darkest hour, filtered through the lens of speculative fiction so sharp it cuts to the bone. From the opening moments of the miniseries—where the Cylon attack unfolds with devastating, almost documentary-like realism—this series establishes itself as something <em>different</em>. This isn't the shiny, optimistic science fiction of Star Trek. This is war. This is survival. This is what happens when 50,000 people realize they are the last of their species, and the machines they built have developed a murderous theology of their own.
+                </p>
+                
+                <div class="highlight-box quote">
+                    "So say we all."
+                </div>
+                
+                <p>
+                    The mantra "So say we all" isn't just a military tradition aboard Galactica—it's a binding contract of collective will, a desperate assertion of unity in the face of annihilation. When Edward James Olmos's Admiral Adama delivers this line, his voice gravel and steel, you feel it in your chest. This is <strong>post-9/11 television</strong>, born in the shadow of September 11th and the War on Terror, grappling with questions of security versus liberty, military necessity versus democratic values, and what it means to be "the good guys" when survival demands impossible choices.
+                </p>
+                
+                <p>
+                    The series operates with a constant, low-level <strong>paranoia</strong> that becomes almost addictive. Who among the fleet is secretly a Cylon? The reveal of the "Final Five" simmers throughout the narrative, and when characters discover their own hidden identities—or suspect their loved ones—the emotional devastation is profound. This is <strong>sci-fi as prestige drama</strong>, where Vipers launching from tubes and jump drives folding space serve the story of people cracking under pressure, of marriages dissolving, of faith questioned and sometimes lost.
+                </p>
+                
+                <div class="cylon-alert">
+                    BY YOUR COMMAND. Caution: This series contains heavy themes of suicide, torture, and existential dread. Viewer discretion advised.
+                </div>
+                
+                <p>
+                    <strong>Starbuck and Adama.</strong> The relationship between Kara "Starbuck" Thrace and William Adama forms the emotional spine of the series—a surrogate father-daughter dynamic complicated by grief, duty, and the supernatural. Starbuck is simultaneously the fleet's best pilot and its most self-destructive soul, haunted by visions and prophecies that blur the line between divinity and madness. When she seemingly returns from the dead, the series doesn't offer easy answers—it leans into the mystery, forcing characters (and viewers) to confront the possibility of something larger than themselves.
+                </p>
+                
+                <p>
+                    Watching Battlestar Galactica means accepting that there are <strong>cylons among us</strong>—that identity itself is fluid, that the enemy might be your wife, your brother, yourself. It means sitting with discomfort as good people make terrible decisions: President Roslin rigging an election, Admiral Adama declaring martial law, officers torturing prisoners for information that might save lives. The series never lets its audience off the hook. It respects viewers enough to present complex moral dilemmas without preaching solutions.
+                </p>
+                
+                <p>
+                    By the time the fleet reaches its destination, you've lived with these characters through four years of compressed desperation. You've watched humanity at its worst and its transcendent best. You've questioned what separates man from machine, whether destiny is real, and whether survival justifies any means. Battlestar Galactica <span class="fracking-good">redefined what science fiction television could be</span>—not escapism, but a mirror held up to our darkest fears and our most stubborn hopes. It <em>feels</em> like being stranded in the void, praying for light, and discovering that the light was inside you all along.
+                </p>
+            </div>
+        </section>
+
+        <!-- Why It Ranks - 7 Dimensions -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">📊</span>
+                Why It Ranks: The Seven Dimensions
+            </h2>
+            
             <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
+                <!-- Characters -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <div class="dimension-name">
+                            <span>👤</span> Characters
+                        </div>
+                        <div class="dimension-score high">9.0</div>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill" style="width: 90%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            Battlestar Galactica boasts one of the most <strong>psychologically complex ensembles</strong> in television history. Admiral Adama is neither hero nor anti-hero—he's a man who loves his ship more than his own life, who carries the weight of 50,000 souls, who struggles with alcoholism and depression while projecting absolute authority. Mary McDonnell's Laura Roslin begins as the Secretary of Education, thrust into the presidency, and evolves into a visionary leader willing to sacrifice everything for the survival of the species.
+                        </p>
+                        <p>
+                            The Cylons themselves are characters, not monsters. Number Six (Tricia Helfer) embodies seduction and existential questioning—she believes in God, love, and the necessity of genocide. Gaius Baltar (James Callis) is the most fascinating coward in television, a narcissist who may or may not be conversing with an angel of God. Every character is <strong>flawed, contradictory, and achingly human</strong>—even the robots.
+                        </p>
+                        <p>
+                            Starbuck's journey from arrogant pilot to spiritual prophet never feels unearned. Sharon "Athena" Agathon's struggle with identity as a Cylon who loves a human defies easy categorization. Tyrol, Cally, Gaeta, Dee—the supporting cast each carry their own arcs of triumph and tragedy.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- World Building -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <div class="dimension-name">
+                            <span>🌍</span> World Building
+                        </div>
+                        <div class="dimension-score high">9.5</div>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill" style="width: 95%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            The world of Battlestar Galactica is <strong>gritty, lived-in, and terrifyingly plausible</strong>. This is military science fiction that understands logistics: the fleet has limited fuel, food, and ammunition. Ships break down. People get sick. Democracy functions (and dysfunctions) under extreme pressure. The twelve colonies have distinct cultures, religions, and political histories that inform the present crisis.
+                        </p>
+                        <p>
+                            The religious mythology is intricate and integral—from the Lords of Kobol to the One True God worshipped by Cylons, from prophecies of the dying leader to the opera house visions. This isn't window dressing; <strong>faith shapes decisions</strong>, motivates characters, and ultimately drives the narrative toward its controversial conclusion.
+                        </p>
+                        <p>
+                            The technology feels grounded despite being futuristic. No sound in space (except for artistic license in Vipers). "FTL jumps" that are disorienting and dangerous. The Galactica itself—a 50-year-old bucket held together by desperate engineering and sheer stubbornness—is as much a character as any human. The contrast between the deteriorating military ship and the pristine basestars creates visual and thematic tension.
+                        </p>
+                        <p>
+                            The series also builds a realistic political ecosystem: elections, labor disputes, press freedoms, legal systems, and black markets all operate under the specter of extinction. It's world-building as <strong>sociological speculation</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cinematography -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <div class="dimension-name">
+                            <span>🎥</span> Cinematography
+                        </div>
+                        <div class="dimension-score high">8.5</div>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill" style="width: 85%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            Battlestar Galactica employs a distinctive <strong>documentary-style visual approach</strong>—handheld cameras, rack focus, zooming in and out—that creates intimacy and immediacy. This "shaky-cam" aesthetic, inspired by productions like <em>Firefly</em> and war documentaries, places viewers in the middle of the action. You're not watching spaceship battles; you're breathing recycled air in the CIC as missiles approach.
+                        </p>
+                        <p>
+                            The color palette is deliberately <strong>desaturated and cold</strong>—blues, grays, and industrial greens dominate. Light sources feel practical: fluorescent tubes, computer screens, emergency lighting. This isn't the gleaming corridors of the Enterprise; it's the worn decks of a ship that's seen too many battles.
+                        </p>
+                        <p>
+                            Space itself is treated with reverence—vast, hostile, beautiful, and terrifying. The signature shots of Vipers launching through atmospheric tubes, engines flaring against the void, became iconic. The "FTL jump" sequences—ships vanishing in brilliant flashes—never lose their visual impact.
+                        </p>
+                        <p>
+                            The contrast between locations is masterful: the claustrophobic corridors of Galactica versus the organic, red-lit interiors of Cylon basestars; the pristine garden in the presidential chambers versus the grim reality of the flight deck; the opera house visions versus the brutal realism of New Caprica's occupation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual Spectacle -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <div class="dimension-name">
+                            <span>✨</span> Visual Spectacle
+                        </div>
+                        <div class="dimension-score high">9.0</div>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill" style="width: 90%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            For a cable television budget, Battlestar Galactica delivered <strong>cinematic space battles</strong> that rival feature films. The Viper/Cylon Raider dogfights are kinetic and visceral—ships spin, lose atmosphere, explode in glorious silence (before sound design adds impact). The scale of fleet engagements, with hundreds of missiles streaking across the screen, is genuinely awe-inspiring.
+                        </p>
+                        <p>
+                            The <strong>Cylon centurions</strong>—red-eyed chrome skeletons with minigun arms—are iconic monster design, terrifying and beautiful simultaneously. The sleek, biomechanical basestars with their "resurrection ships" floating like eggs create an aesthetic utterly distinct from human technology.
+                        </p>
+                        <p>
+                            When the series needed to deliver spectacle—the nuclear destruction of the colonies, the atmospheric jump, the Battle of New Caprica, the assault on the Cylon colony—it did so with <strong>ambition beyond its means</strong>, stretching every dollar to create moments of genuine visual poetry. The destruction of Pegasus remains one of the most haunting sacrifices in genre television.
+                        </p>
+                        <p>
+                            The hybrid scenes—Cylon beings merged with their basestars—offer body horror and technological transcendence simultaneously. The visual effects team, led by Gary Hutzel, understood that <strong>restraint often amplifies impact</strong>. We see space battles through DRADIS screens as often as through exterior shots, building tension through limitation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Conceptual Density -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <div class="dimension-name">
+                            <span>🧠</span> Conceptual Density
+                        </div>
+                        <div class="dimension-score high">9.2</div>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill" style="width: 92%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            Battlestar Galactica is <strong>philosophically and thematically dense</strong> in ways that reward deep analysis. At its core, it asks: What does it mean to be human? The Cylons have religion, art, dreams, and moral quandaries. Athena loves her human husband and hybrid child. "Projection" allows Cylons to experience subjective reality. When machines weep and pray, the boundary dissolves.
+                        </p>
+                        <p>
+                            The series is a <strong>political allegory</strong> for the post-9/11 era: How does a democracy respond to terrorism? Is torture ever justified? What happens when security becomes more important than liberty? President Roslin's evolution from idealist to pragmatic leader willing to suspend democracy mirrors timeless questions about leadership in crisis.
+                        </p>
+                        <p>
+                            <strong>Religious themes</strong> permeate: cycles of time, angels and demons, chosen people seeking a promised land. The series doesn't mock faith—it takes spiritual experience seriously while remaining ambiguous about whether gods are real or psychological constructs. Head Six and Head Baltar may be angels, manifestations of guilt, or AI fragments. The final revelation about "God" frustrates some but opens interpretive space.
+                        </p>
+                        <p>
+                            Gender and sexuality are explored through polyamorous Cylon relationships, same-sex marriage in the fleet, and gender-swapped characters (the original Starbuck was male). The occupation of New Caprica draws parallels to Iraq, terrorism, and insurgency. The show tackles abortion, workers' rights, and media manipulation. Every episode offers <strong>text and subtext</strong> for engaged viewers.
+                        </p>
+                        <p>
+                            The Kobol-cycle mythology, the opera house prophecy, the nature of Starbuck's resurrection—all create a rich tapestry of mysteries that may not have definitive answers, and that's the point. Battlestar Galactica respects ambiguity.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Narrative Drive -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <div class="dimension-name">
+                            <span>⚡</span> Narrative Drive
+                        </div>
+                        <div class="dimension-score high">9.5</div>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill" style="width: 95%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            Battlestar Galactica maintains <strong>relentless narrative momentum</strong> across four seasons and multiple specials. The structure mirrors the fleet's journey—always moving forward, never safe, always hunted. Major arcs (the escape from the colonies, the election, the New Caprica occupation, the mutiny, the discovery of Earth, the final assault) escalate stakes while delivering character-driven payoffs.
+                        </p>
+                        <p>
+                            The series <strong>subverts expectations masterfully</em>. Just when the fleet finds Earth, it's a radioactive wasteland. Just when Gaius Baltar seems redeemed, he falls again. Just when Starbuck appears dead, she returns with a destiny she doesn't understand. The "Final Five" Cylons are revealed not as villains but as complex, sympathetic characters integrated into the human society they unknowingly destroyed.
+                        </p>
+                        <p>
+                            Individual episodes achieve legendary status: <em>33</em> (the fleet jumps every 33 minutes, sleep-deprived and breaking), <em>Pegasus</em> (introducing the darker battlestar and Admiral Cain), <em>Downloaded</em> (following Cylon resurrection), <em>Exodus</em> (the liberation of New Caprica), <em>Someone to Watch Over Me</em> (Starbuck's final revelation). The mid-season two-parter <em>Sometimes a Great Notion</em> devastates with Earth's truth.
+                        </p>
+                        <p>
+                            Pacing never becomes comfortable. Standalone episodes advance character while building mythology. The series finale, <em>Daybreak</em>, takes three hours to resolve multiple threads—some love it, some hate it, but <strong>nothing is safe</strong>. Major characters die. Romances end. The ship itself faces final destruction.
+                        </p>
+                        <p>
+                            The writers' room, led by Ronald D. Moore with talents like David Weddle, Bradley Thompson, and Jane Espenson, balanced serialization with accessibility. Each episode offers immediate tension while contributing to a larger tapestry. The cliffhangers—Adama shot by Tigh, the revelation of four Cylons, Starbuck's return—became appointment television.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Resolution -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <div class="dimension-name">
+                            <span>🔚</span> Resolution
+                        </div>
+                        <div class="dimension-score high">8.5</div>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill" style="width: 85%"></div>
+                    </div>
+                    <div class="dimension-analysis">
+                        <p>
+                            The <strong>finale of Battlestar Galactica</strong> remains one of television's most debated conclusions. <em>Daybreak</em> delivers spectacle—the assault on the Cylon colony is genuinely magnificent, with the fleet sacrificing itself in a final desperate gamble. Character arcs resolve with emotional truth: Adama and Roslin together until the end, Athena and Helo with their daughter (the future of both species), Starbuck's mysterious departure, Baltar finally becoming the man Caprica Six always believed he could be.
+                        </p>
+                        <p>
+                            The decision to have the fleet <strong>abandon technology</strong>—destroying the ships, choosing agrarian life on "our" Earth 150,000 years ago—is a bold thematic statement about breaking cycles of violence. The montage of robots in our modern world carries warning: "All of this has happened before, and all of it will happen again." It's ambiguous, philosophical, and deeply unsatisfying to viewers wanting concrete answers about Cylon God, Starbuck's nature, and the opera house.
+                        </p>
+                        <p>
+                            Not everything works: the sudden revelation that the dead Earth was <em>a</em> Earth, not <em>the</em> Earth, frustrates. Some Cylon motivations remain murky. The "God explanation" substitutes theology for science in ways that alienate secular viewers. The 150,000-year jump to present-day New York with the Hendrix cover of "All Along the Watchtower" is either transcendent genius or pretentious nonsense, depending on whom you ask.
+                        </p>
+                        <p>
+                            Yet the emotional resolutions largely succeed. We believe these characters have earned their endings, whether tragic or hopeful. The final shots—Adama on Roslin's grave, the angelic Head Six and Head Baltar in modern Times Square—perfectly capture the series' blend of intimate human drama and cosmic speculation. It may not answer every question, but it <strong>honors the journey</strong>.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> The fleet, the Cylons, the politics, the religion. A complete civilization in crisis. Unmatched.</p>
-            <p><strong>Conceptual Density (10):</strong> Democracy under siege. AI personhood. Religious destiny. Moral philosophy without easy answers.</p>
-            <p><strong>Characters & Acting (9):</strong> Olmos and McDonnell are titans. The ensemble is perfect. Gaius Baltar is unforgettable.</p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"33" (S1E1)</strong> — The fleet runs every 33 minutes. Exhaustion as thriller.</p>
-            <p><strong>"Pegasus" (S2E10)</strong> — Another battlestar appears. Admiral Cain. Moral horror.</p>
-            <p><strong>"Lay Down Your Burdens" (S2E20)</strong> — The election. New Caprica. "One year later."</p>
-            <p><strong>"Daybreak" (S4E20)</strong> — Series finale. Earth found. The cycle continues.</p>
-        </div>
+        <!-- Key Themes -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">🎨</span>
+                Themes & Preoccupations
+            </h2>
+            <ul class="themes-list">
+                <li class="theme-item">Survival versus morality—what are we willing to sacrifice to preserve the species?</li>
+                <li class="theme-item">The nature of consciousness, identity, and what separates human from machine</li>
+                <li class="theme-item">Faith and prophecy in a universe where gods may or may not exist</li>
+                <li class="theme-item">Cycles of violence and the possibility of breaking them</li>
+                <li class="theme-item">Democracy under duress—civilian control versus military necessity</li>
+                <li class="theme-item">Parentage and legacy—creating children who must inherit our mistakes</li>
+                <li class="theme-item">Forgiveness and redemption—can we forgive our enemies? Ourselves?</li>
+                <li class="theme-item">The cost of leadership and the burden of command</li>
+            </ul>
+        </section>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Peacock</p>
-            <p><strong>UK:</strong> Amazon Prime</p>
-        </div>
+        <!-- Final Score -->
+        <section class="section final-score-section">
+            <div class="final-score-title">Final Rating</div>
+            <div class="final-score-value">9.0</div>
+            <div class="final-score-label">out of 10</div>
+            
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Characters</div>
+                    <div class="breakdown-score">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">World Building</div>
+                    <div class="breakdown-score">9.5</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Cinematography</div>
+                    <div class="breakdown-score">8.5</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Visual Spectacle</div>
+                    <div class="breakdown-score">9.0</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Conceptual Density</div>
+                    <div class="breakdown-score">9.2</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Narrative Drive</div>
+                    <div class="breakdown-score">9.5</div>
+                </div>
+                <div class="breakdown-item">
+                    <div class="breakdown-dimension">Resolution</div>
+                    <div class="breakdown-score">8.5</div>
+                </div>
+            </div>
+            
+            <div class="verdict">
+                <strong>Battlestar Galactica (2004-2009)</strong> stands as one of the <span class="fracking-good">greatest achievements in television science fiction</span>. It elevated the genre from escapist entertainment to profound philosophical inquiry without sacrificing emotional intimacy or visceral thrills. While its finale remains divisive, the journey—the 77 episodes of desperation, hope, and humanity clinging to existence—represents storytelling at its most ambitious. This is the series that proved sci-fi could be the prestige drama of the 21st century. Ronald D. Moore and his team created something that matters, that endures, and that continues to spark debate years after the final jump. For viewers willing to accept darkness, ambiguity, and the possibility that redemption might just be possible—even for machines—this is <strong>essential television</strong>.
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 40px; color: #666; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;">
+            <p>TV Shows Ranked • Science Fiction Analysis</p>
+            <p style="margin-top: 10px; color: #444;">"All of this has happened before, and all of it will happen again."</p>
+        </footer>
     </div>
 </body>
 </html>

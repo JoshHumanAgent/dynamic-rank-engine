@@ -1160,13 +1160,17 @@
         }
 
         /* TOP ACTION BAR - Sticky container for all buttons */
-        .top-action-bar {
+        .sticky-controls {
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             background: rgba(20, 20, 28, 0.98);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border);
+        }
+
+        .top-action-bar {
+            /* no longer sticky itself — parent .sticky-controls handles it */
         }
 
         /* LOGIN BUTTON - stacked with action bar buttons */
@@ -1697,10 +1701,6 @@
 
         /* Mobile Responsive */
         @media (max-width: 640px) {
-            .top-action-bar {
-                position: static;
-            }
-
             .filters-content {
                 padding: 1rem;
             }
@@ -3187,10 +3187,6 @@
         }
 
         @media (max-width: 900px) {
-            .top-action-bar {
-                position: static !important;
-            }
-
             .show-module {
                 gap: 0 !important;
                 margin-bottom: 0.75rem !important;
@@ -3820,7 +3816,8 @@
         </div>
     </div>
 
-    <!-- Top Action Bar - Sticky Container -->
+    <!-- Sticky Controls Wrapper — action bar + expandable filters always stay at top -->
+    <div class="sticky-controls" id="sticky-controls">
     <div class="top-action-bar" id="top-action-bar">
         <!-- Methodology Button -->
         <div class="methodology-bar">
@@ -3847,7 +3844,7 @@
         </div>
     </div>
 
-    <!-- Filters Content - Separate from sticky -->
+    <!-- Filters Content — inside sticky wrapper so it stays at top when open -->
     <div class="filters-content" id="filters-content">
             <div class="active-filters" id="active-filters"></div>
 
@@ -3929,6 +3926,7 @@
             </div>
         </div>
     </div>
+    </div><!-- /sticky-controls -->
 
     <main>
         <div class="results-header">

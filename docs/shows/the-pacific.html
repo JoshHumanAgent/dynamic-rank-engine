@@ -3,89 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Pacific - "Hell Was an Ocean Away" | Dynamic Rank Engine</title>
+    <title>The Pacific (2010) - 7-Dimension Analysis | TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #556b2f; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #556b2f, #2f3f1f); color: #9acd32; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #9acd32; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(85,107,47,0.3), rgba(0,0,0,0.9)); border: 3px solid #556b2f; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #9acd32; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #556b2f; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #9acd32; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(85,107,47,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #9acd32; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #9acd32; font-weight: 700; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #eaeaea;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 3px solid #e94560;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            color: #e94560;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            font-style: italic;
+        }
+        
+        .meta-info {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #e94560;
+        }
+        
+        .meta-info h3 {
+            color: #e94560;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .meta-item {
+            padding: 0.5rem;
+        }
+        
+        .meta-label {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .meta-value {
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        .section {
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .section h2 {
+            color: #e94560;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233,69,96,0.3);
+        }
+        
+        .feeling-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0d0;
+        }
+        
+        .feeling-content p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .dimension-block {
+            background: rgba(30,30,30,0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+        }
+        
+        .dimension-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-width: 100px;
+        }
+        
+        .score-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: #eaeaea;
+        }
+        
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary, #d4af37) calc(var(--score) * 1%), rgba(255,255,255,0.1) 0);
+            z-index: -1;
+        }
+        
+        .score-circle::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(30,30,30,0.9);
+        }
+        
+        .score-label {
+            font-size: 0.75rem;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .dimension-content {
+            color: #c0c0c0;
+            line-height: 1.7;
+        }
+        
+        .dimension-content h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+        
+        .dimension-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .final-score-block {
+            background: linear-gradient(135deg, rgba(233,69,96,0.2) 0%, rgba(233,69,96,0.05) 100%);
+            border: 3px solid #e94560;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .final-score-label {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        
+        .final-score-value {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #e94560;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+        
+        .score-breakdown {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .breakdown-item {
+            background: rgba(0,0,0,0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .breakdown-label {
+            color: #888;
+        }
+        
+        .breakdown-value {
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .quote-block {
+            border-left: 3px solid #e94560;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #b0b0b0;
+        }
+        
+        .episode-count {
+            display: inline-block;
+            background: #e94560;
+            color: #fff;
+            padding: 0.2rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 1rem;
+        }
+        
+        .highlight {
+            color: #e94560;
+            font-weight: 600;
+        }
+        
+        .war-comparison {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .war-comparison h4 {
+            color: #e94560;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .final-score-value {
+                font-size: 3rem;
+            }
+            
+            .dimension-block {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #121</div>
-            <h1>The Pacific</h1>
-            <p class="subtitle">"Hell Was an Ocean Away"</p>
-            <div class="score-badge">
-                <span class="score-value">7.57</span>
-                <span class="score-label">Final Score</span>
+        <header class="header">
+            <h1>THE PACIFIC</h1>
+            <p class="subtitle">HBO War Miniseries | 2010 <span class="episode-count">10 EPISODES</span></p>
+        </header>
+        
+        <div class="meta-info">
+            <h3>📺 Series Information</h3>
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <div class="meta-label">Created By</div>
+                    <div class="meta-value">Bruce C. McKenna, Graham Yost, Steven Spielberg, Tom Hanks</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Based On</div>
+                    <div class="meta-value">With the Old Breed (E.B. Sledge), Helmet for My Pillow (Robert Leckie)</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Starring</div>
+                    <div class="meta-value">James Badge Dale, Jon Seda, Joseph Mazzello, Ashton Holmes, Rami Malek</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Genre</div>
+                    <div class="meta-value">War Drama / Historical Fiction</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Setting</div>
+                    <div class="meta-value">Pacific Theater, WWII (1942-1945)</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Production</div>
+                    <div class="meta-value">Playtone / DreamWorks Television</div>
+                </div>
             </div>
         </div>
-
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Year</div><div class="info-value">2010</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">10</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Producers</div><div class="info-value">Spielberg, Hanks, Goetzman</div></div>
-        </div>
-
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Pacific is the companion piece to Band of Brothers, covering the Pacific Theater of World War II through the experiences of three Marines: Robert Leckie (James Badge Dale), Eugene Sledge (Joe Mazzello), and John Basilone (Jon Seda). Where Band of Brothers followed a single company through Europe, The Pacific disperses its perspective, showing a war that was fought differently and remembered differently.</p>
-            <p>The war in the Pacific was a war of islands—Guadalcanal, Cape Gloucester, Peleliu, Iwo Jima, Okinawa. Each was a brutal campaign against both the Japanese military and the environment itself. The heat, the jungle, the coral, the rain, the insects—all of it added to the horror of combat. The show doesn't romanticize this. It shows men driven to madness by conditions that would break anyone.</p>
-            <p>Eugene Sledge's story is the heart of the series. "Sledgehammer" was a thoughtful young man from Mobile, Alabama who enlisted against his parents' wishes and kept a secret journal that became the memoir "With the Old Breed." He went into the war innocent and emerged transformed—still moral, still human, but carrying knowledge of what people can do to each other. Joe Mazzello plays him with gentleness that makes his descent into violence devastating.</p>
-            <p>John Basilone is the hero—a Medal of Honor recipient at Guadalcanal who was pulled from combat to sell war bonds, then requested to return to the front. Jon Seda plays him as a man uncomfortable with celebrity, driven by obligation to his fellow Marines. His story is about what heroism costs and what duty means.</p>
-            <p>The series is harder than Band of Brothers—not grimmer, but more willing to show the psychological damage. Some men came home; others came home differently. The Pacific doesn't flinch from that distinction.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">9</div><div class="dimension-weight">20% weight</div></div>
+        
+        <section class="section">
+            <h2>🌊 What It Feels Like to Watch</h2>
+            <div class="feeling-content">
+                <p>Watching <span class="highlight">The Pacific</span> is an altogether different experience than its celebrated predecessor, Band of Brothers. Where the European theater offered a sense of cohesive unit bonds and clearer moral lines, the Pacific theater of World War II presents something far more <span class="highlight">primal, chaotic, and psychologically devastating</span>. This isn't just war—this is jungle warfare, where the environment itself becomes as deadly as any enemy combatant.</p>
+                
+                <p>From the opening moments on Guadalcanal, the series immerses viewers in a world of <span class="highlight">unrelenting rain, fetid humidity, and the constant threat of death from unseen snipers</span>. The Pacific Islands aren't just settings; they're characters in their own right—hostile, alien landscapes that strip away civilization and expose the raw nerves of the men fighting across them. The heat, the malaria, the mud, the maggots crawling through rations and wounds alike—these aren't set dressings but fundamental truths of the Pacific campaign.</p>
+                
+                <p>What distinguishes The Pacific most profoundly is its unflinching examination of <span class="highlight">psychological trauma and the cost of survival</span>. The series follows three real Marines through their entire war experience: Robert Leckie, the intellectual turned machine gunner; John Basilone, the Medal of Honor recipient who becomes a reluctant propaganda tool; and Eugene Sledge, whose transformation from sheltered Mobile, Alabama boy to hardened veteran forms the emotional core of the series. Through their eyes, we witness not just the battles but the slow erosion of innocence, the numbing effect of constant violence, and the struggle to retain humanity in circumstances designed to destroy it.</p>
+                
+                <div class="quote-block">"You don't really understand the war until you've smelled the dead." — This sentiment echoes throughout the series, grounding heroism in visceral experience rather than mythology.</div>
+                
+                <p>The narrative structure, following different Marines at different times, creates a sense of the <span class="highlight">sprawling, disconnected nature of the Pacific campaign itself</span>. From Guadalcanal to Cape Gloucester, from Peleliu to Okinawa, the battles blur together not through poor storytelling but through the accurate portrayal of overwhelming fatigue and repetition. These men fight not for grand strategic objectives they can see, but for the man beside them, for survival, for the desperate hope that each island might be the last.</p>
+                
+                <div class="war-comparison">
+                    <h4>Darker Than Band of Brothers</h4>
+                    <p>Where Band of Brothers carries an elegiac, almost romantic quality about the bonds of Easy Company, The Pacific is notably darker in tone. The enemy refuses surrender, night attacks are constant, and the brutality of the fighting—flamethrowers against cave positions, desperate hand-to-hand combat, the killing of wounded enemies—challenges any notion of clean warfare. The series doesn't flinch from showing American soldiers committing acts that blur the line between survival and atrocity.</p>
+                </div>
+                
+                <p>Eugene "Sledgehammer" Sledge's story arc provides perhaps the most affecting journey. His memoir, <em>With the Old Breed</em>, serves as the backbone for the series' most devastating episodes. Watching this gentle, bird-loving young man become someone capable of stripping gold teeth from dead Japanese soldiers while screaming with rage is to understand how war doesn't just take lives—it transforms those who survive. Sledge's relationship with his friend Sidney Phillips and his mentorship by the enigmatic Shelton "Snafu" Schnafeld creates moments of profound tenderness amidst the carnage.</p>
+                
+                <p>The series' depiction of return to civilian life carries its own devastating weight. Leckie's struggle with what would today be recognized as PTSD, Basilone's desperate need to return to combat rather than remain a bond salesman, and Sledge's difficulty reconnecting with his father and a society that cannot comprehend his experiences—these final episodes drive home that the Pacific War didn't end when the surrender was signed. <span class="highlight">The ghosts of those islands, of the men left there and the versions of themselves lost there, haunt these characters forever</span>.</p>
+                
+                <p>The Pacific demands emotional endurance from its viewers. It offers no easy catharsis, no simple heroes and villains, no triumphant closure. What it offers is truth—the truth of a campaign that killed hundreds of thousands, that scarred an entire generation, and that reshaped the men who fought it into something they never planned to be. When the final credits roll over photographs of the real Marines and the fates they met, the weight of genuine history settles upon the viewer. This wasn't entertainment. This was witness.</p>
             </div>
-            <p style="margin-top:1.5rem"><strong>Visual Spectacle (10):</strong> The battle sequences are visceral, terrifying, and technically masterful. This is war with all its horror rendered visible.</p>
-            <p><strong>Cinematography (10):</strong> The Pacific's visual language—heat, jungle, coral, ocean—creates an environment that's both beautiful and hostile.</p>
-            <p><strong>Characters & Acting (9):</strong> Joe Mazzello's Sledge is one of the great war performances—showing a good man's transformation without losing his humanity.</p>
+        </section>
+        
+        <section class="section">
+            <h2>🎖️ Why It Ranks - The 7 Dimensions</h2>
+            
+            <div class="dimension-block">
+                <div class="dimension-score">
+                    <div class="score-circle" style="--score: 75;"><span>7.5</span></div>
+                    <span class="score-label">CHARACTERS</span>
+                </div>
+                <div class="dimension-content">
+                    <h3>Characters</h3>
+                    <p>The Pacific takes a notably different approach to characterization than Band of Brothers. Rather than following a cohesive unit throughout the war, the series follows three separate protagonists whose paths only occasionally intersect. This structural choice reflects the reality of the Pacific Theater—units were fragmented, replacements constantly arrived, and the sprawling island campaign lacked the continuity of the European advance.</p>
+                    
+                    <p><strong>Robert Leckie</strong> (James Badge Dale) emerges as perhaps the most fully realized character. A brilliant writer turned machine gunner, Leckie's intellectual nature makes him an observer of his own suffering. His relationships—with the devout Catholic runner, with the stern Father McCauley, with the Australian women he loves and loses—reveal a man desperately trying to maintain his humanity through words and connection. Dale's performance captures the thousand-yard stare of a man who's seen too much while keeping alive the quick intelligence that makes Leckie worth following.</p>
+                    
+                    <p><strong>John Basilone</strong> (Jon Seda) provides the series' most conventional hero arc, yet it's handled with nuance. His Medal of Honor for defending Henderson Field makes him a propaganda commodity, and his marriage to Marine drill instructor Lena Ridgeway offers tender moments. Basilone's determination to return to combat despite safety and happiness speaks to survivor's guilt and the difficulty of carrying heroic expectations. His death on Iwo Jima—shown in devastating detail—avoids glorification while honoring genuine sacrifice.</p>
+                    
+                    <p><strong>Eugene Sledge</strong> (Joseph Mazzello) anchors the series' final third. Mazzello's transformation from nervous recruit to hollow-eyed veteran is subtle and heartbreaking. His relationship with Shelton "Snafu" Schnafeld (Rami Malek, in a star-making performance) creates the show's most complex bond—two broken men clinging to each other across Peleliu's hellscape. Snafu, with his strange mannerisms and unexpected tenderness beneath the cynicism, represents the series at its character-driven best.</p>
+                    
+                    <p>The score reflects both strengths and limitations. The three-protagonist structure means some stories feel abbreviated, and the lack of ensemble continuity creates distance rather than the deep bonds Band of Brothers achieved. However, the psychological depth achieved, particularly with Sledge and Leckie, demonstrates committed storytelling. The characters feel like real men—flawed, complicated, sometimes unlikable, always human.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-score">
+                    <div class="score-circle" style="--score: 80;"><span>8.0</span></div>
+                    <span class="score-label">WORLD BUILDING</span>
+                </div>
+                <div class="dimension-content">
+                    <h3>World Building</h3>
+                    <p>The Pacific reconstructs the World War II Pacific Theater with remarkable authenticity and scope. From the steamy hell of Guadalcanal's jungles to the blasted coral of Peleliu, from Melbourne's respite to the apocalyptic nightmare of Okinawa, the series presents a world both historically grounded and viscerally immediate. The production spent $200 million across filming locations in Australia that convincingly doubled for the South Pacific, and every dollar shows.</p>
+                    
+                    <p>The <strong>environmental storytelling</strong> deserves particular praise. The Pacific Theater's unique horrors—monsoon seasons that never end, coral reefs that shred flesh, caves that hide impossible numbers of defenders—are rendered with such detail that they become almost characters themselves. The contrast between the tropical beauty of these islands and the devastation wrought upon them creates powerful visual paradox. Palm trees silhouetted against explosions, beaches littered with military hardware alongside pristine jungle, the incomprehensible foreignness of Japanese tunnel networks—these details build a world that feels both real and mythic.</p>
+                    
+                    <p>The series excels at depicting the <strong>macro and micro simultaneously</strong>. We understand the strategic sweep of island-hopping, the logistical miracles required to support forces thousands of miles from home, and the industrial scale of American military power. Yet we also feel the intimate details: the way a canteen tastes when it's all you have, the particular sound of Japanese artillery ("Screaming Mimi"), the smell of cordite and death that clings to everything. This dual vision—vast campaign and individual experience—creates immersive world-building that earns its high score.</p>
+                    
+                    <p>The <strong>depiction of Japanese forces</strong> and Pacific island civilians adds necessary complexity. Rather than simple enemy stereotypes, we see the desperation of Japanese defenders, the horror of civilian suffering, and the cultural gulf that made the Pacific War uniquely brutal. The Okinawa episodes particularly shine in this regard, showing the terror of non-combatants caught between armies.</p>
+                    
+                    <p>However, the score isn't perfect because the fractured narrative structure sometimes undermines cohesive world-building. As we jump between Marines and years, the sense of a lived-in, continuous world occasionally fragments. Some locations feel more like sets for discrete stories than parts of an interconnected campaign. Additionally, the Melbourne episodes, while providing necessary tonal relief, sometimes feel tonally distinct from the combat sequences, creating minor dissonance in the world-building.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-score">
+                    <div class="score-circle" style="--score: 85;"><span>8.5</span></div>
+                    <span class="score-label">CINEMATOGRAPHY</span>
+                </div>
+                <div class="dimension-content">
+                    <h3>Cinematography</h3>
+                    <p>The Pacific represents television cinematography operating at cinema-quality levels. The series enlisted multiple acclaimed directors—including Carl Franklin, David Nutter, Jeremy Podeswa, and Graham Yost himself—and the visual variety this brings serves the material well. Different islands have distinct visual palettes: Guadalcanal's verdant greens and mud browns, Cape Gloucester's ghostly grays, Peleliu's blasted whites and ochres, Okinawa's hellish oranges.</p>
+                    
+                    <p>The <strong>combat photography</strong> rivals Saving Private Ryan for visceral impact. The camera doesn't flinch from showing what bullets and shrapnel do to human bodies, yet avoids the exploitation of gore for its own sake. The use of handheld cameras during battle sequences creates documentary-style immediacy—we feel we're witnessing rather than watching. Particular sequences stand out: the creeping advance through Peleliu's airfield, illuminated by burning fuel; the night defense of Henderson Field where muzzle flashes provide the only light; the slow-motion horror of Basilone's final moments.</p>
+                    
+                    <p><strong>Natural lighting</strong> is used masterfully throughout. Dawn attacks actually feel like dawn—the uncertain light, the confusion of silhouettes against sky. Night sequences maintain visibility while preserving darkness's terror. Overcast days on Cape Gloucester convey the despair of endless monsoon. The cinematography serves story rather than showing off, yet remains visually striking in virtually every frame.</p>
+                    
+                    <p>The <strong>framing of individual characters</strong> deserves mention. Close-ups on faces during moments of decision, or exhaustion, or horror, are held longer than comfortable, forcing viewers to process these emotions. The contrast between the massive scale of naval bombardments and the intimate focus on individual Marines creates effective visual rhetoric about individual experience within historical events.</p>
+                    
+                    <p>Minor deductions come from occasional inconsistency between episodes helmed by different directors. Some sequences lean more heavily on shaky-cam than others, and the balance between clarity and chaos isn't always maintained. Additionally, certain dialogue-heavy scenes, particularly in Melbourne, occasionally suffer from conventional television coverage that feels flat compared to the war sequences. These are minor complaints against a generally exceptional visual achievement.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-score">
+                    <div class="score-circle" style="--score: 85;"><span>8.5</span></div>
+                    <span class="score-label">VISUAL SPECTACLE</span>
+                </div>
+                <div class="dimension-content">
+                    <h3>Visual Spectacle</h3>
+                    <p>With a budget of approximately $20 million per episode, The Pacific delivers visual spectacle that rivals theatrical war films. The production's commitment to practical effects, period-accurate equipment, and massive set pieces creates an immersive experience that rewards attention to detail and rewards repeated viewing.</p>
+                    
+                    <p>The <strong>practical effects work</strong> stands as a high-water mark for television. Explosions use real charges rather than CGI, creating authentic physics of debris and shock. Flamethrower sequences illuminate the screen with genuine fire, the orange glow reflecting horror onto faces. The amphibious landings—particularly the Okinawa sequence—feature hundreds of extras, authentic landing craft, and naval bombardment effects that convey the industrial scale of Pacific War operations.</p>
+                    
+                    <p><strong>Battle choreography</strong> balances spectacle with authenticity. Unlike action-film warfare, The Pacific's combat is often confusing, with enemy positions unclear and objectives muddled. This creates a different kind of spectacle—not the satisfaction of clear heroes triumphing, but the awe of witnessing human endurance under impossible conditions. The Peleliu episodes particularly excel here, showing a battle that history has largely forgotten but which cost thousands of lives for an airfield of questionable strategic value.</p>
+                    
+                    <p>The <strong>production design</strong> supporting this spectacle deserves recognition. From the intricate Japanese tunnel networks to the correct placement of every button and insignia on Marine uniforms, the visual texture convinces. Even when CGI augments practical elements—adding ships to naval scenes, extending battlefields—the integration is seamless. The series understands that spectacle serves story; we see the horror of war more clearly when it's rendered with this level of detail.</p>
+                    
+                    <p>The <strong>recurring visual motifs</strong> create memorable imagery beyond individual sequences. The American flag raised over Mount Suribachi—we know the photo, but the series shows us the cost preceding that moment. Sledge's binoculars framing distant horror. The endless ocean that both separates these Marines from home and brings reinforcements and supplies. These images accumulate into a visual language of Pacific War experience.</p>
+                    
+                    <p>The score matches its companion dimension because spectacle serves serious purposes here. This isn't entertainment for entertainment's sake—it's documentation through dramatic reenactment, and the visual power drives home stakes that might otherwise feel abstract. The series earns its spectacle through purpose.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-score">
+                    <div class="score-circle" style="--score: 75;"><span>7.5</span></div>
+                    <span class="score-label">CONCEPTUAL DENSITY</span>
+                </div>
+                <div class="dimension-content">
+                    <h3>Conceptual Density</h3>
+                    <p>The Pacific grapples with substantial thematic material, perhaps more ambitiously than its execution consistently achieves. At its core, the series asks: what does prolonged exposure to extreme violence do to human beings? How do men maintain morality in circumstances designed to destroy it? What obligations do societies have to those they send to war, and what obligations do survivors have to the memory of those who didn't survive?</p>
+                    
+                    <p>The <strong>psychological exploration</strong> provides the richest conceptual material. Eugene Sledge's memoir serves as the series' philosophical spine, and his observations about the "thin veneer of civilization" run throughout. The series doesn't just depict trauma; it interrogates how different men process it differently. Leckie writes, Basilone gives speeches, Sledge dissociates and observes. The contrast between these coping mechanisms raises questions about the psychology of survival that linger after viewing.</p>
+                    
+                    <p>The <strong>moral complexity</strong> of the Pacific War receives unflinching attention. The series shows American soldiers committing acts that would be war crimes in other contexts—killing the wounded, taking war trophies, using flamethrowers against dug-in positions. Yet it contextualizes these acts within the terrifying reality of Pacific combat, where Japanese forces often wouldn't surrender and suicide attacks were common. This isn't moral relativism but moral complexity, acknowledging that war creates impossible choices.</p>
+                    
+                    <p>The <strong>generational and social commentary</strong> emerges particularly in Sledge's storyline. His father's stern disapproval of his enlistment, his mother's worry, his difficulty reconnecting with civilian life—these elements engage with how wartime masculinity was constructed and damaged. The final episodes' engagement with PTSD (though not named as such) and the difficulty of homecoming connect to broader American conversations about veteran care that remain relevant.</p>
+                    
+                    <p>However, the score reflects limitations. The fractured narrative structure means concepts are sometimes introduced but not fully developed before we move to another storyline. The Basilone narrative, while based on his real experience, sometimes feels more conventional and less conceptually rich than the Leckie and Sledge material. Additionally, the series occasionally sacrifices thematic exploration for visceral depiction—we see trauma more than we examine it, particularly in the middle episodes. The ambition is there, and the best moments achieve genuine insight, but consistency across ten hours of television proves challenging.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-score">
+                    <div class="score-circle" style="--score: 80;"><span>8.0</span></div>
+                    <span class="score-label">NARRATIVE DRIVE</span>
+                </div>
+                <div class="dimension-content">
+                    <h3>Narrative Drive</h3>
+                    <p>The Pacific's narrative structure represents perhaps its most debated element. Rather than following a single unit's linear journey, the series fractures its story across three protagonists, multiple time periods, and distinct island campaigns. This choice accurately reflects Pacific War reality—units were constantly reassigned, replacements arrived, and coherence was often impossible. Yet it creates narrative challenges that the series navigates with varying success.</p>
+                    
+                    <p>The <strong>book structure</strong> provides unexpected narrative power. The series is essentially three memoirs braided together—Leckie's <em>Helmut for My Pillow</em>, Basilone's documented experience, and Sledge's <em>With the Old Breed</em>. This literary foundation means individual episodes often feel like chapters in a larger narrative rather than discrete television hours. The voiceover narration, particularly from Sledge, connects viewers to historical reality while providing narrative continuity across time jumps.</p>
+                    
+                    <p>When the series <strong>allows stories to breathe</strong>, narrative drive is exceptional. The Peleliu sequence, spanning multiple episodes focused primarily on Sledge and Snafu, achieves the sustained tension and character development that episodic fragments sometimes lack. The Okinawa episodes similarly benefit from extended focus. These sections demonstrate what The Pacific might have been with a more unified approach—an intimate, devastating portrait of one man's war rather than three men's wars.</p>
+                    
+                    <p>The <strong>pacing rhythm</strong> intentionally mirrors war experience itself—long periods of boredom and discomfort punctuated by moments of extreme intensity. This isn't always comfortable viewing, but it's purposeful. The Melbourne episodes provide necessary tonal and narrative relief, even when they feel disconnected from the combat sequences. The series trusts viewers to accept narrative unevenness as price of authenticity.</p>
+                    
+                    <p><strong>Structural sacrifices</strong> do cost narrative momentum. The constant jumping between protagonists means each storyline feels somewhat abbreviated. Emotional investment in Leckie's Australian romance, or Basilone's marriage, competes with the urgency of Sledge's experience. Some transitions feel arbitrary rather than organic, particularly in early episodes as the series establishes its multiple timelines. Yet these structural choices also create unique narrative qualities—the sense of war's chaos, the randomness of survival, the impossibility of comprehensive understanding.</p>
+                    
+                    <p>The score reflects that The Pacific's narrative drive is different from but not lesser than Band of Brothers' linear momentum. It demands more from viewers in terms of attention and patience, but rewards that investment with cumulative power. By the final episodes, the fragmented structure feels like a choice rather than a limitation, appropriate to material that resists easy narrative resolution.</p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-score">
+                    <div class="score-circle" style="--score: 75;"><span>7.5</span></div>
+                    <span class="score-label">RESOLUTION</span>
+                </div>
+                <div class="dimension-content">
+                    <h3>Resolution</h3>
+                    <p>The Pacific concludes with episodes that attempt to honor the complexity of war's aftermath. Rather than simple victory celebration, the series focuses on the difficulty of return, the impossibility of "getting over it," and the permanent transformation that combat inflicts. Sledge's final episode, "Home," provides the series' most affecting conclusion as he struggles to reconnect with a father who cannot understand and a society that wants to move on.</p>
+                    
+                    <p>The <strong>resolution of individual character arcs</strong> achieves varying success. Sledge's story concludes with subtle, heartbreaking power. His father's misreading of his trauma as ingratitude, his difficulty attending church, his eventual decision to study science to "find order in the chaos"—these moments suggest continuation rather than conclusion, which feels true to experience. Leckie's resolution, drawing from his actual memoir's conclusion, provides literary and emotional satisfaction. Basilone's fate, known from history, receives dignified handling that honors his sacrifice without glorifying death.</p>
+                    
+                    <p>The <strong>historical epilogue</strong>, showing photographs of the real Marines and their postwar lives, provides crucial resolution for viewers. Learning that Sledge became a professor, that Leckie became a successful writer, that Snafu lived a full if haunted life—these facts don't erase the trauma depicted but contextualize it within longer lives. The series understands that war is a chapter, even a defining one, but not the whole story.</p>
+                    
+                    <p>Yet <strong>structural fragmentation</strong> does impact resolution quality. Because we've followed three separate stories, the conclusion feels somewhat dispersed rather than unified. The Basilone narrative ends mid-series, creating a sense that "ending" happens multiple times. This mirrors war experience—units demobilized at different times, individuals returned when their points accumulated—but may leave viewers wanting more cohesive closure.</p>
+                    
+                    <p>The <strong>thematic resolution</strong> regarding Pacific War legacy feels somewhat underdeveloped. The series raises questions about American conduct, Japanese fanaticism, and the morality of total war, but doesn't fully engage with these questions as it concludes. Instead, it focuses on individual healing, which is valid and moving but somewhat narrows the scope of potential reflection. A final episode that more fully grappled with the Pacific War's historical significance—its role in America's rise to superpower status, its impact on Japanese-American relations, its place in a history of warfare—might have provided richer resolution.</p>
+                    
+                    <p>The score acknowledges genuine emotional power in the character resolutions while recognizing that structural choices and thematic incompleteness prevent fully satisfying conclusion. What remains, however, is deeply human and respectful of viewer intelligence—a refusal to offer easy answers about experiences that resist easy answers.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="final-score-block">
+            <div class="final-score-label">Overall Score</div>
+            <div class="final-score-value">7.55</div>
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Characters</span>
+                    <span class="breakdown-value">7.5</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">World Building</span>
+                    <span class="breakdown-value">8.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Cinematography</span>
+                    <span class="breakdown-value">8.5</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Visual Spectacle</span>
+                    <span class="breakdown-value">8.5</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Conceptual Density</span>
+                    <span class="breakdown-value">7.5</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Narrative Drive</span>
+                    <span class="breakdown-value">8.0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Resolution</span>
+                    <span class="breakdown-value">7.5</span>
+                </div>
+            </div>
         </div>
-
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Part One" (E1)</strong> — Guadalcanal. The first battle. The horror begins.</p>
-            <p><strong>"Part Five" (E5)</strong> — Peleliu. The landing. The airfield. Hell on earth.</p>
-            <p><strong>"Part Ten" (E10)</strong> — Home. The war ends. What they carry.</p>
-        </div>
-
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Max, Amazon Prime</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
-        </div>
+        
+        <footer style="text-align: center; padding: 2rem 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 2rem;">
+            <p>TV Shows Ranked - Comprehensive 7-Dimension Analysis</p>
+            <p style="margin-top: 0.5rem;">The Pacific (2010) | HBO</p>
+        </footer>
     </div>
 </body>
 </html>

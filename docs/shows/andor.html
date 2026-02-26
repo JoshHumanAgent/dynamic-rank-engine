@@ -3,89 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andor - "One way out" | Dynamic Rank Engine</title>
+    <title>Andor (2022-Present) - TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+        :root {
+            --primary: #d4af37;
+            --secondary: #c41e3a;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --text: #e8e8e8;
+            --text-dim: #999;
+            --gradient: linear-gradient(135deg, #1a1a2e, #16213e);
+            --card-bg: rgba(20, 20, 25, 0.95);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #0d1a0d 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #4a5d23; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #4a5d23, #2d3a16); color: #c8d4a0; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #a8c060; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(74,93,35,0.3), rgba(0,0,0,0.9)); border: 3px solid #4a5d23; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #a8c060; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #4a5d23; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #a8c060; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(74,93,35,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #a8c060; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #a8c060; font-weight: 700; }
-    </style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--darker);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .hero {
+            position: relative;
+            min-height: 500px;
+            background: var(--gradient);
+            display: flex;
+            align-items: flex-end;
+            padding: 60px 40px;
+            border-bottom: 3px solid var(--primary);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2316213e" width="1200" height="600"/><g fill="%23d4af37" opacity="0.1"><circle cx="100" cy="100" r="1"/><circle cx="300" cy="150" r="1.5"/><circle cx="500" cy="80" r="1"/><circle cx="700" cy="200" r="1.2"/><circle cx="900" cy="120" r="1"/><circle cx="1100" cy="180" r="1.5"/><circle cx="200" cy="300" r="1"/><circle cx="600" cy="350" r="1.3"/><circle cx="1000" cy="280" r="1"/><circle cx="400" cy="400" r="1.2"/><circle cx="800" cy="450" r="1"/><circle cx="150" cy="500" r="1.5"/><circle cx="550" cy="520" r="1"/><circle cx="950" cy="480" r="1.2"/></g></svg>') center/cover;
+            opacity: 0.3;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary), #f0e68c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        .meta { display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 20px; }
+        .meta-item { color: var(--text-dim); font-size: 0.95rem; }
+        .meta-item strong { color: var(--primary); display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 2px solid var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .rating-badge .score { font-size: 1.5rem; }
+        .content-grid { display: grid; grid-template-columns: 1fr 350px; gap: 40px; margin-top: 40px; }
+        .main-content { }
+        .sidebar { position: sticky; top: 20px; height: fit-content; }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        p { margin-bottom: 18px; color: var(--text-dim); }
+        .highlight { color: var(--text); font-weight: 500; }
+        .quote {
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .score-item {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .score-item.final {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(196,30,58,0.1));
+            border: 2px solid var(--primary);
+        }
+        .score-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 5px; }
+        .score-value { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
+        .score-item.final .score-value { font-size: 2.5rem; }
+        .character-grid, .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .character-card, .episode-card {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary);
+        }
+        .character-name, .episode-title { color: var(--primary); font-weight: 700; margin-bottom: 8px; }
+        .actor-name { color: var(--secondary); font-size: 0.9rem; }
+        .episode-meta { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 10px; }
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--text);
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+        .theme-badge {
+            display: inline-block;
+            background: rgba(196, 30, 58, 0.2);
+            border: 1px solid var(--secondary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 5px 5px 5px 0;
+            color: var(--secondary);
+        }
+        .analysis-box {
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.8), rgba(10, 10, 10, 0.9));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .comparison-table th {
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        .comparison-table tr:hover { background: rgba(255,255,255,0.02); }
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .pros-cons > div {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .pros { border-left: 3px solid #4caf50; }
+        .cons { border-left: 3px solid var(--secondary); }
+        ul { list-style: none; }
+        ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .pros ul li::before { content: '✓'; position: absolute; left: 0; color: #4caf50; }
+        .cons ul li::before { content: '×'; position: absolute; left: 0; color: var(--secondary); }
+        .visual-section {
+            background: linear-gradient(180deg, rgba(10,10,10,0.95), rgba(22,33,62,0.3));
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 1px solid rgba(212,175,55,0.1);
+        }
+        @media (max-width: 900px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    .rankings-section { margin-bottom: 2rem; }
+.rankings-header { text-align: center; margin-bottom: 2.5rem; }
+.rankings-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; }
+.rankings-subtitle { color: var(--text-dim); font-size: 1.1rem; }
+.dimension-grid { display: grid; gap: 1.5rem; }
+.dimension-block { background: rgba(30,30,30,0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; }
+.dimension-score { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-width: 100px; }
+.score-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; position: relative; }
+.score-circle::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(var(--primary) calc(var(--score) * 10%), var(--dark) 0); z-index: -1; }
+.score-circle::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: rgba(30,30,30,0.8); }
+.score-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+.dimension-content h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #15</div>
-            <h1>Andor</h1>
-            <p class="subtitle">"One way out"</p>
-            <div class="score-badge">
-                <span class="score-value">8.15</span>
-                <span class="score-label">Final Score</span>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>ANDOR</h1>
+            <div class="meta">
+                <div class="meta-item"><strong>Created By</strong>Tony Gilroy</div>
+                <div class="meta-item"><strong>Starring</strong>Diego Luna • Stellan Skarsgård</div>
+                <div class="meta-item"><strong>Streaming</strong>Disney+</div>
+                <div class="meta-item"><strong>Genre</strong>Sci-Fi / Political Thriller</div>
+                <div class="meta-item"><strong>Seasons</strong>2 (24 Episodes)</div>
             </div>
-        </div>
-
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2022-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">12</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Disney+</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Tony Gilroy</div></div>
-        </div>
-
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Andor is Star Wars for adults. No lightsabers, no Jedi, no chosen ones—just people. Cassian Andor (Diego Luna) is a thief, a rebel, eventually a martyr we already know dies stealing the Death Star plans. This is his origin: how a cynical survivor becomes a revolutionary. The show's thesis: rebellion is built on sacrifice, compromise, and ordinary people choosing to fight when surrender would be easier.</p>
-            <p>The show is structured in three-episode arcs, each a different phase of Cassian's radicalization. First: Ferrix, his home, where a confrontation with corporate security makes him a fugitive. Second: Aldhani, a heist on an Imperial garrison that shows the Empire's brutality. Third: The prison on Narkina 5, where innocent men are worked to death building... something. "One way out," the prisoners chant. There is: rebellion or death. "I've been in this fight since I was six years old," Cassian will say in Rogue One. Andor shows us how.</p>
-            <p>The show's genius is scale: we see the Empire as bureaucracy, not just stormtroopers. Supervisor Dedra Meero (Denise Gough) is terrifying not because she's evil, but because she's competent—a true believer climbing the ranks. Luthen Rael (Stellan Skarsgård) is a spy, a manipulator, sacrificing anyone for the cause. "I'm a coward," he admits. "I burn my decency for someone else's future." Mon Mothma (Genevieve O'Reilly) funds the rebellion while maintaining political cover. These are the costs: moral compromise, secrecy, betraying your own humanity to fight an inhuman system.</p>
-            <p>Two seasons planned, twelve episodes aired, one more season coming. Andor is the best Star Wars product since Empire Strikes Back—grounded, political, morally complex. It treats its audience as intelligent, assumes we can follow, doesn't need lightsabers to create wonder. "The Empire is climbing over each other to get to the top," a character observes. "We just have to wait for them to fall." Or push them.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
+            <div class="rating-badge">
+                <span>Final Rating</span>
+                <span class="score">8.8/10</span>
             </div>
-            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> Star Wars as lived reality. The Empire as bureaucracy. Grounded, immersive, political.</p>
-            <p><strong>Characters & Acting (9):</strong> Diego Luna's Cassian. Stellan Skarsgård's Luthen. Denise Gough's Dedra. Complex, nuanced performances.</p>
-            <p><strong>Conceptual Density (9):</strong> Rebellion as moral compromise. Empire as system. Politics as warfare. Sophisticated.</p>
-        </div>
-
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Kassa" (S1E1)</strong> — The introduction. "Search the house."</p>
-            <p><strong>"Nobody's Listening!" (S1E9)</strong> — The prison. "One way out."</p>
-            <p><strong>("Daughter of Ferrix" (S1E11)</strong> — The funeral. The riot. The uprising begins.</p>
-            <p><strong>("Rix Road" (S1E12)</strong> — Season finale. "Make ten more."</p>
-        </div>
-
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Disney+</p>
-            <p><strong>UK:</strong> Disney+</p>
         </div>
     </div>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="card">
+                    <h2 class="card-title">Series Overview</h2>
+                    <p><span class="highlight">Andor</span> represents a seismic shift in the Star Wars television landscape. Created by Tony Gilroy, this prequel to Rogue One (2016) eschews the franchise's typical reliance on Jedi, lightsabers, and mystical Force mythology in favor of grounded, mature storytelling about the birth of rebellion. The series follows Cassian Andor (Diego Luna) five years before his heroic sacrifice in Rogue One, chronicling his transformation from a cynical petty thief into a committed revolutionary soldier.</p>
+                    
+                    <p>What sets Andor apart is its unflinching examination of how fascist regimes consolidate power and how ordinary people—tradespeople, bureaucrats, prisoners, and politicians—find themselves drawn into resistance. The show operates more in the tradition of prestige television like The Wire or The Americans than traditional Star Wars, offering a slow-burn narrative that prioritizes character psychology and political realism over spectacle.</p>
+
+                    <div class="quote">
+                        "I burn my life to make a sunrise that I know I'll never see."
+                        <span style="display: block; margin-top: 10px; font-size: 0.9rem; color: var(--text-dim);">— Luthen Rael</span>
+                    </div>
+
+                    <p>The series is structured across two seasons that ultimately span the four years leading directly to Rogue One. Season One focuses on Cassian's initial radicalization following a Imperial security operation that accidentally kills his adoptive father figure. This trauma catalyzes his involvement with the nascent Rebellion, particularly through his relationship with the mysterious spymaster Luthen Rael (Stellan Skarsgård) and the morally compromised Senator Mon Mothma (Genevieve O'Reilly).</p>
+
+                    <div class="theme-section">
+                        <span class="theme-badge">Rebellion</span>
+                        <span class="theme-badge">Political Intrigue</span>
+                        <span class="theme-badge">Moral Complexity</span>
+                        <span class="theme-badge">Found Family</span>
+                        <span class="theme-badge">Surveillance State</span>
+                        <span class="theme-badge">Prison Labor</span>
+                    </div>
+                </div>
+
+                <section class="rankings-section">
+    <div class="rankings-header">
+        <h2 class="rankings-title">🏆 Why It Ranks</h2>
+        <p class="rankings-subtitle">A detailed breakdown across seven key dimensions</p>
+    </div>
+    <div class="dimension-grid">
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7.5;" data-score="7.5"><span>7.5</span></div>
+                <span class="score-label">CHARACTERS</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Characters</h3>
+                <p>The character work in Andor represents some of the most sophisticated writing in the entire Star Wars franchise. Diego Luna reprises his role as Cassian Andor with remarkable depth, transforming what was essentially a plot device in Rogue One into one of television's most compelling anti-heroes. His portrayal captures a man haunted by his past actions during the Clone Wars, carrying the weight of moral compromise while still harboring enough humanity to be moved toward sacrifice.</p>
+                    
+                    <p>However, the true revelation is Stellan Skarsgård as Luthen Rael. Operating a covert antiquities gallery on Coruscant as his cover, Luthen represents the moral engine of the Rebellion—a man who has sacrificed his own soul for the cause. Skarsgård delivers a performance of controlled intensity, particularly in the <span class="highlight">"One Way Out"</span> speech that serves as the series' philosophical centerpiece. His monologue about burning his life "to make a sunrise that I know I'll never see" encapsulates the show's themes of anonymous sacrifice.</p>
+
+                    <div class="character-grid">
+                        <div class="character-card">
+                            <div class="character-name">Cassian Andor / Clem Andor</div>
+                            <div class="actor-name">Diego Luna</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">A cynical thief dragged into rebellion. His arc from self-preservation to revolutionary commitment forms the narrative spine of the series.</p>
+                        </div>
+                        <div class="character-card">
+                            <div class="character-name">Luthen Rael</div>
+                            <div class="actor-name">Stellan Skarsgård</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">A spy master operating behind an antiquities dealer facade. The moral architect of the Rebel Alliance willing to sacrifice everything.</p>
+                        </div>
+                        <div class="character-card">
+                            <div class="character-name">Senator Mon Mothma</div>
+                            <div class="actor-name">Genevieve O'Reilly</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">A closeted revolutionary navigating Imperial bureaucracy while funding the Rebellion through increasingly desperate means.</p>
+                        </div>
+                        <div class="character-card">
+                            <character-name>Skeen</div>
+                            <div class="actor-name">Gershon</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">A Aldhani heist crew member whose death profoundly impacts Cassian's understanding of sacrifice.</p>
+                        </div>
+                        <div class="character-card">
+                            <div class="character-name">Syril Karn</div>
+                            <div class="actor-name">Kyle Soller</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">An Imperial corporate security officer whose ambition and insecurity make him a terrifying antagonist.</p>
+                        </div>
+                        <div class="character-card">
+                            <div class="character-name">Kino Loy</div>
+                            <div class="actor-name">Andy Serkis</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">A prison floor manager who becomes an unlikely revolutionary leader during the Narkina 5 arc.</p>
+                        </div>
+                    </div>
+
+                    <div class="analysis-box">
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Character Complexity Analysis</h3>
+                        <p>Unlike traditional Star Wars heroes who operate with moral clarity, Andor's characters exist in perpetual gray zones. Cassian has murdered in cold blood. Mon Mothma contemplates selling her own daughter into an arranged marriage to fund the Rebellion. Even ISB Supervisor Dedra Meero (Denise Gough) is portrayed with unsettling humanity—she genuinely believes in Imperial order and efficiency. This refusal to provide easy moral categorization elevates the series above typical genre fare.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9.0;" data-score="9.0"><span>9.0</span></div>
+                <span class="score-label">WORLD BUILDING</span>
+            </div>
+            <div class="dimension-content">
+                <h3>World Building</h3>
+                <p>The world-building in Andor operates on a granular, almost anthropological level. Production designer Luke Hull and his team have created a lived-in galaxy that feels simultaneously futuristic and grounded in material reality. Rather than focusing on the Senate chambers of Coruscant or Jedi temples, the show explores industrial settlements, corporate security precincts, and prison complexes that feel uncomfortably contemporary.</p>
+
+                    <div class="quote">
+                        "The Empire is a disease that thrives in darkness. It is never more alive than when we sleep."
+                    </div>
+
+                    <p>The series introduces several key locations that expand our understanding of Imperial governance:</p>
+
+                    <p><strong>Ferrix:</strong> Cassian's adopted homeworld, a gritty industrial salvage planet where community bonds are strong but vulnerable to corporate exploitation. The Ferrix funeral procession, with its traditional Rixx bell-ringing, represents indigenous culture resisting homogenization.</p>
+
+                    <p><strong>Narkina 5:</strong> The prison facility where Cassian serves time represents the show's architectural masterpiece. The stark white corridors, the terrifying floor mechanics, and the industrial efficiency of imprisonment all evoke real-world carceral systems. The prison escape arc provides some of the most tense television in recent memory.</p>
+
+                    <p><strong>Aldhani:</strong> The Imperial garrison world hosting the season's central heist provides a glimpse into Imperial military occupation. The indigenous Dhani people and their sacred Eye of Aldhani meteor shower add cultural texture.</p>
+
+                    <p><strong>Coruscant:</strong> For the first time in Star Wars television, we see the capital world's underbelly. Mon Mothma's luxurious apartment contrasts sharply with the working-class districts where rebellion is seeded.</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Narrative Function</th>
+                                <th>Thematic Significance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ferrix</td>
+                                <td>Origin story / moral anchor</td>
+                                <td>Community vs. corporate exploitation</td>
+                            </tr>
+                            <tr>
+                                <td>Narkina 5</td>
+                                <td>Radicalization catalyst</td>
+                                <td>Prison-industrial complex critique</td>
+                            </tr>
+                            <tr>
+                                <td>Coruscant</td>
+                                <td>Political maneuvering</td>
+                                <td>Liberal complicity in fascism</td>
+                            </tr>
+                            <tr>
+                                <td>Aldhani</td>
+                                <td>Heist setting</td>
+                                <td>Colonial occupation and resistance</td>
+                            </tr>
+                            <tr>
+                                <td>Scarif</td>
+                                <td>Destiny intersection</td>
+                                <td>Inevitability of sacrifice</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8.0;" data-score="8.0"><span>8.0</span></div>
+                <span class="score-label">CINEMATOGRAPHY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Cinematography</h3>
+                <p>Directors Benjamin Caron, Toby Haynes, and Susanna White bring cinematic scope to television formatting. The show employs practical locations, natural lighting, and deliberate pacing that distinguishes it from the artificial sheen of other Disney+ Star Wars productions. Shot on location in Scotland and the UK, Andor's vistas of industrial landscapes and coastal settlements ground the science fiction in physical reality.</p>
+
+                    <p>The visual approach deliberately evokes 1970s paranoid thrillers—particularly films like The Conversation and All the President's Men. Surveillance is a visual motif throughout, with recurring shots of security cameras, one-way mirrors, and observation decks. The color palette shifts between the cold blues and whites of Imperial facilities and the warm amber tones of Rebel safe houses.</p>
+
+                    <div class="analysis-box">
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Visual Highlights</h3>
+                        <ul style="list-style: disc inside; color: var(--text-dim);">
+                            <li>The Eye of Aldhani meteor shower—a practical effects sequence of stunning beauty</li>
+                            <li>Narkina 5's sterile white hallways creating spatial disorientation</li>
+                            <li>Ferrix's rust-colored industrial aesthetic establishing visual texture</li>
+                            <li>Coruscant's vertical architecture emphasizing class stratification</li>
+                            <li>The funeral procession's kinetic editing and sound design</li>
+                        </ul>
+                    </div>
+
+                    <p>Nicholas Britell's score deserves special mention—a departure from Star Wars' traditional orchestral bombast. Britell (known for Succession and Moonlight) creates a soundscape that blends electronic textures with restrained orchestral elements. The unsettling synth pulses that accompany ISB scenes create tonal dread, while the mournful strings of Luthen's theme convey sacrifice.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9.0;" data-score="9.0"><span>9.0</span></div>
+                <span class="score-label">VISUAL SPECTACLE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Visual Spectacle</h3>
+                <p>The character work in Andor represents some of the most sophisticated writing in the entire Star Wars franchise. Diego Luna reprises his role as Cassian Andor with remarkable depth, transforming what was essentially a plot device in Rogue One into one of television's most compelling anti-heroes. His portrayal captures a man haunted by his past actions during the Clone Wars, carrying the weight of moral compromise while still harboring enough humanity to be moved toward sacrifice.</p>
+                    
+                    <p>However, the true revelation is Stellan Skarsgård as Luthen Rael. Operating a covert antiquities gallery on Coruscant as his cover, Luthen represents the moral engine of the Rebellion—a man who has sacrificed his own soul for the cause. Skarsgård delivers a performance of controlled intensity, particularly in the <span class="highlight">"One Way Out"</span> speech that serves as the series' philosophical centerpiece. His monologue about burning his life "to make a sunrise that I know I'll never see" encapsulates the show's themes of anonymous sacrifice.</p>
+
+                    <div class="character-grid">
+                        <div class="character-card">
+                            <div class="character-name">Cassian Andor / Clem Andor</div>
+                            <div class="actor-name">Diego Luna</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">A cynical thief dragged into rebellion. His arc from self-preservation to revolutionary commitment forms the narrative spine of the series.</p>
+                        </div>
+                        <div class="character-card">
+                            <div class="character-name">Luthen Rael</div>
+                            <div class="actor-name">Stellan Skarsgård</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">A spy master operating behind an antiquities dealer facade. The moral architect of the Rebel Alliance willing to sacrifice everything.</p>
+                        </div>
+                        <div class="character-card">
+                            <div class="character-name">Senator Mon Mothma</div>
+                            <div class="actor-name">Genevieve O'Reilly</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">A closeted revolutionary navigating Imperial bureaucracy while funding the Rebellion through increasingly desperate means.</p>
+                        </div>
+                        <div class="character-card">
+                            <character-name>Skeen</div>
+                            <div class="actor-name">Gershon</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">A Aldhani heist crew member whose death profoundly impacts Cassian's understanding of sacrifice.</p>
+                        </div>
+                        <div class="character-card">
+                            <div class="character-name">Syril Karn</div>
+                            <div class="actor-name">Kyle Soller</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">An Imperial corporate security officer whose ambition and insecurity make him a terrifying antagonist.</p>
+                        </div>
+                        <div class="character-card">
+                            <div class="character-name">Kino Loy</div>
+                            <div class="actor-name">Andy Serkis</div>
+                            <p style="font-size: 0.9rem; margin: 10px 0 0;">A prison floor manager who becomes an unlikely revolutionary leader during the Narkina 5 arc.</p>
+                        </div>
+                    </div>
+
+                    <div class="analysis-box">
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Character Complexity Analysis</h3>
+                        <p>Unlike traditional Star Wars heroes who operate with moral clarity, Andor's characters exist in perpetual gray zones. Cassian has murdered in cold blood. Mon Mothma contemplates selling her own daughter into an arranged marriage to fund the Rebellion. Even ISB Supervisor Dedra Meero (Denise Gough) is portrayed with unsettling humanity—she genuinely believes in Imperial order and efficiency. This refusal to provide easy moral categorization elevates the series above typical genre fare.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8.0;" data-score="8.0"><span>8.0</span></div>
+                <span class="score-label">CONCEPTUAL DENSITY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Conceptual Density</h3>
+                <p>Andor's conceptual framework is where the series achieves genuine artistic distinction. Tony Gilroy uses the Star Wars galaxy to interrogate real-world authoritarianism, surveillance capitalism, and revolutionary ethics. The show asks uncomfortable questions about how liberation movements justify violence, the cost of collective action, and whether meaningful resistance is even possible within totalitarian systems.</p>
+
+                    <div class="quote">
+                        "Freedom is a purely human need. No other creature requires it."
+                    </div>
+
+                    <p><strong>The Surveillance State:</strong> The ISB (Imperial Security Bureau) sequences dramatize how authoritarian regimes weaponize data. Supervisor Dedra Meero's analysis of "pattern behaviors" anticipates contemporary debates about algorithmic policing and predictive surveillance.</p>
+
+                    <p><strong>Corporate Fascism:</strong> The show explores how private security forces (like Pre-Mor Authority on Ferrix) enable state violence. The blurring lines between corporate and government power feels strikingly contemporary.</p>
+
+                    <p><strong>Revolutionary Ethics:</strong> Luthen's willingness to sacrifice anyone—including Cassian—in service of the greater cause raises thorny questions about revolutionary morality. Mon Mothma's arc explores whether legal political participation can coexist with armed resistance.</p>
+
+                    <p><strong>Carceral Capitalism:</b> The Narkina 5 prison arc functions as explicit critique of prison labor exploitation. The revelation that prisoners are building parts for the Death Star they will never see completed—a weapon that will destroy them—constitutes the show's most devastating irony.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7.5;" data-score="7.5"><span>7.5</span></div>
+                <span class="score-label">NARRATIVE DRIVE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Narrative Drive</h3>
+                <p>Andor employs a deliberately slow-burn narrative structure that trusts its audience to pay attention. The series utilizes multiple storylines—Cassian's journey, Mon Mothma's political maneuvering, the ISB investigation, and later the prison break—that gradually intersect. This mosaic approach requires patience but rewards careful viewing with thematic resonance.</p>
+
+                    <p>The Aldhani heist episode ("The Eye") represents the season's structural centerpiece, providing a three-episode arc of sustained tension. The heist structure allows Gilroy to demonstrate how meticulous preparation and human variables create dramatic stakes. When things inevitably go wrong, the consequences feel earned because the audience understands the operational parameters.</p>
+
+                    <div class="episode-grid">
+                        <div class="episode-card">
+                            <div class="episode-title">Episode 3: "Reckoning"</div>
+                            <div class="episode-meta">Season 1, Episode 3</div>
+                            <p>Establishes the show's scope and emotional stakes with the corporate raid that catalyzes Cassian's flight.</p>
+                        </div>
+                        <div class="episode-card">
+                            <div class="episode-title">Episode 6: "The Eye"</div>
+                            <div class="episode-meta">Season 1, Episode 6</div>
+                            <p>The Aldhani heist centerpiece—meticulous planning pays off in spectacular but morally complex fashion.</p>
+                        </div>
+                        <div class="episode-card">
+                            <div class="episode-title">Episode 8: "Narkina 5"</div>
+                            <div class="episode-meta">Season 1, Episode 8</div>
+                            <p>Introduction to the prison arc and Andy Serkis's revelatory performance as Kino Loy.</p>
+                        </div>
+                        <div class="episode-card">
+                            <div class="episode-title">Episode 10: "One Way Out"</div>
+                            <div class="episode-meta">Season 1, Episode 10</div>
+                            <p>The prison break and Luthen's haunting monologue. Considered by many the series' best hour.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8.0;" data-score="8.0"><span>8.0</span></div>
+                <span class="score-label">RESOLUTION</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Resolution</h3>
+                <p>The first season concludes with Ferrix's funeral and Cassian's commitment to the Rebellion, providing emotional closure while setting up the four-year time jump of Season Two. The finale weaves together all narrative threads—the corporate takeover, the ISB crackdown, and Cassian's personal reckoning—into a coherent statement about sacrifice and community.</p>
+
+                    <p>The second and final season (2025) accelerates the timeline, compressing four years into twelve episodes through seasonal time jumps. While some character development feels rushed in this format, the season delivers devastating payoffs, particularly in its depiction of the Ghorman Massacre and Cassian's final transformation into the man who will steal the Death Star plans.</p>
+
+                    <div class="analysis-box">
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">The Inevitability of Rogue One</h3>
+                        <p>Perhaps Andor's greatest narrative achievement is making Cassian's fate in Rogue One feel inevitable rather than predetermined. By the series' end, we understand exactly why this man is willing to sacrifice everything. The tragedy of knowing how Cassian's story ends only amplifies the emotional weight of his choices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<h2 class="section-title">Final Verdict: 8.8/10</h2>
+                <div class="card">
+                    <p>Andor represents the maturation of Star Wars as a narrative medium capable of sustaining serious dramatic television. Tony Gilroy and his collaborators have crafted something genuinely unique—a spy thriller, a prison drama, a political procedural, and a character study woven into a cohesive exploration of revolutionary sacrifice.</p>
+
+                    <p>The series' willingness to alienate casual fans through its slow pacing and moral complexity is ultimately its greatest strength. This is Star Wars for adults—cynical, methodical, and unflinchingly political. That Disney+ commissioned and largely maintained this vision despite lower ratings than other Star Wars properties suggests the franchise's creative stewards understand the long-term value of prestige content.</p>
+
+                    <p>Diego Luna delivers the performance of his career, but the ensemble—particularly Skarsgård, O'Reilly, and Serkis—elevates every scene. The production design, score, and cinematography establish a visual language distinct from other Star Wars productions while maintaining enough connective tissue for franchise familiarity.</p>
+
+                    <p>If the series has flaws, they lie in its occasional narrative opacity and the compressed timeline of Season Two, which sacrifices some character development for plot acceleration. The lack of Jedi and Force elements may disappoint viewers seeking traditional Star Wars spectacle, though this absence is precisely what enables the show's grounded power.</p>
+
+                    <p>Ultimately, Andor earns its 8.8 rating through sheer ambition and execution. It suggests the future of Star Wars lies not in recycling familiar iconography but in expanding the galaxy's narrative possibilities. By focusing on the people who make revolutions possible rather than the Chosen Ones who win them, Andor offers something truly revolutionary—a blockbuster franchise product with something meaningful to say about our own political moment.</p>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="card">
+                    <h3 class="card-title">Rating Breakdown</h3>
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <div class="score-label">Characters</div>
+                            <div class="score-value">8.8</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">World-Building</div>
+                            <div class="score-value">9.0</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Cinematography</div>
+                            <div class="score-value">9.0</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Spectacle</div>
+                            <div class="score-value">7.5</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Concept</div>
+                            <div class="score-value">9.2</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Drive</div>
+                            <div class="score-value">9.0</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Resolution</div>
+                            <div class="score-value">8.5</div>
+                        </div>
+                        <div class="score-item final">
+                            <div class="score-label">Final Score</div>
+                            <div class="score-value">8.8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Key Creatives</h3>
+                    <p><strong style="color: var(--primary);">Created By</strong><br>Tony Gilroy</p>
+                    <p><strong style="color: var(--primary);">Showrunner</strong><br>Tony Gilroy</p>
+                    <p><strong style="color: var(--primary);">Head Writers</strong><br>Tony Gilroy, Beau Willimon</p>
+                    <p><strong style="color: var(--primary);">Composer</strong><br>Nicholas Britell</p>
+                    <p><strong style="color: var(--primary);">Production Design</strong><br>Luke Hull</p>
+                    <p><strong style="color: var(--primary);">Cinematographers</strong><br>Jonathan Freeman, Adriano Goldman</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Episode Guide</h3>
+                    <p><strong style="color: var(--primary);">Season 1</strong> (2022)<br>12 Episodes<br>September 21 – November 23, 2022</p>
+                    <p style="margin-top: 15px;"><strong style="color: var(--primary);">Season 2</strong> (2025)<br>12 Episodes<br>April 22 – May 13, 2025</p>
+                    <div class="quote" style="font-size: 0.9rem; margin-top: 15px;">
+                        The complete 24-episode run tells the four-year story leading directly to Rogue One.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Where to Watch</h3>
+                    <p>Streaming exclusively on <strong style="color: #113ccf;">Disney+</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-dim);">Available in 4K HDR with Dolby Vision and Dolby Atmos audio on supported devices.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Awards & Recognition</h3>
+                    <ul style="list-style: none; color: var(--text-dim);">
+                        <li style="padding: 5px 0;">🏆 Peabody Award (2023)</li>
+                        <li style="padding: 5px 0;">⭐ Emmy: Outstanding Drama Series (Nominated)</li>
+                        <li style="padding: 5px 0;">⭐ Emmy: Writing for a Drama Series (Nominated)</li>
+                        <li style="padding: 5px 0;">⭐ Critics' Choice: Best Drama Series</li>
+                        <li style="padding: 5px 0;">⭐ TCA Awards: Program of the Year</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Related Content</h3>
+                    <p style="font-size: 0.9rem;"><strong style="color: var(--primary);">Rogue One: A Star Wars Story</strong> (2016)<br>The film in which Cassian Andor sacrifices himself to steal the Death Star plans, leading directly into A New Hope.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="background: var(--darker); border-top: 1px solid rgba(212,175,55,0.2); padding: 40px; text-align: center; color: var(--text-dim); margin-top: 60px;">
+        <p>TV Shows Ranked - Andor (2022-2025) Review</p>
+        <p style="font-size: 0.85rem; margin-top: 10px;">A critical analysis of television excellence</p>
+    </footer>
 </body>
 </html>

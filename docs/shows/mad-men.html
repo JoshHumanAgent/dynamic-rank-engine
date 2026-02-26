@@ -1,91 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mad Men - "That's what the money is for!" | Dynamic Rank Engine</title>
+    <title>Mad Men - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #d4af37; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #d4af37, #b8860b); color: #1a1a1a; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #f5deb3; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(212,175,55,0.3), rgba(0,0,0,0.9)); border: 3px solid #d4af37; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #f5deb3; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #d4af37; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #f5deb3; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(212,175,55,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #f5deb3; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #f5deb3; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #4</div>
-            <h1>Mad Men</h1>
-            <p class="subtitle">"That's what the money is for!"</p>
-            <div class="score-badge">
-                <span class="score-value">8.55</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2007-2015</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">92</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">AMC</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Matthew Weiner</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Mad Men is about advertising—and the lies we tell ourselves. Don Draper (Jon Hamm) is a creative director at Sterling Cooper, a Manhattan ad agency in 1960. He's handsome, brilliant, and completely hollow. "You're born alone and you die alone," he says. He would know. Don Draper doesn't exist—he stole a dead man's identity in Korea. Dick Whitman is his real name. He's spent his whole life running from who he is, building someone new. Advertising is his métier: selling people what they want to believe.</p>
-            <p>The show spans a decade: 1960 to 1970. The culture shifts—Kennedy's assassination, Vietnam, civil rights, the pill, the sexual revolution. The agency shifts—mergers, acquisitions, new partners. The characters shift, or don't. Peggy Olson (Elisabeth Moss) starts as Don's secretary and becomes a copywriter, fighting every step. Joan Holloway (Christina Hendricks) runs the office and learns the cost of being a woman in a man's world. Pete Campbell (Vincent Kartheiser) wants everything and earns nothing. Roger Sterling (JohnSlattery) drinks, womanizes, and accidentally becomes the moral center.</p>
-            <p>Mad Men is the most literary television ever made. Every frame is composed, every line meaningful, every cigarette smoke an aria to mortality. The show's thesis: we're all advertising something. We tell stories about who we are, who we want to be, what we deserve. Don Draper is the master of reinvention. He's also the most lonely character on television. "People tell you who they are," he tells Peggy. "Why don't you believe them?" He can't take his own advice.</p>
-            <p>Seven seasons, ninety-two episodes, complete. The finale is perfect: Don meditates at a retreat, finds peace, and imagines the Coke commercial that became iconic. He didn't find enlightenment; he found an ad. That's the show. Healing and capitalism, spirituality and sales, the same impulse. "The most important idea in advertising is new," Don says. "It creates an itch." Mad Men spent seven seasons scratching.</p>
-        </div>
+<p>Mad Men aired on AMC from July 19, 2007 to May 17, 2015, created by Matthew Weiner (previously a writer on The Sopranos). The series is set in 1960s New York, following the advertising executives of Sterling Cooper (later Sterling Cooper Draper Pryce, still later Sterling Cooper & Partners) and specifically Don Draper (Jon Hamm), a creative director with a mysterious past. Across seven seasons and 92 episodes, the series depicts the transformation of American society through the lens of advertising—the industry that sells the American dream while its practitioners struggle to achieve it.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">10</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Jon Hamm is iconic. Elisabeth Moss, Christina Hendricks, John Slattery. Flawless ensemble.</p>
-            <p><strong>Conceptual Density (10):</strong> Advertising as metaphor for identity. The American Dream as con. Deep, thematic, perfect.</p>
-            <p><strong>Resolution (10):</strong> The finale is legendary. The Coke ad. Perfect closure for a show about selling.</p>
-        </div>
+<p>Don Draper is the series' gravitational center—a man whose identity is fabricated. Born Richard "Dick" Whitman, he assumed the identity of a deceased officer during the Korean War, reinventing himself as Don Draper. The series gradually reveals his backstory (rural poverty, prostitute mother, abusive stepfamily) while depicting his present (creative genius, serial infidelity, alcoholism, existential emptiness). Hamm plays Draper as a man who looks like everything the era valued (handsome, successful, creative) and feels nothing; the performance required seven seasons of gradual revelation.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Smoke Gets in Your Eyes" (S1E1)</strong> — The introduction. "What you call love was invented by guys like me."</p>
-            <p><strong>"The Wheel" (S1E13)</strong> — The carousel. "Nostalgia—it's delicate, but potent." Perfection.</p>
-            <p><strong>"The Suitcase" (S4E7)</strong> — Don and Peggy. All night. "You're not good with relationships." Devastating.</p>
-            <p><strong>"Person to Person" (S7E14)</strong> — The finale. The meditation. "I'd like to buy the world a Coke."</p>
-        </div>
+<p>The series' achievement is multiple: it's a character study (Don's gradual disintegration and possible redemption), a workplace drama (the advertising business), and a period piece (the 1960s in exhaustive detail). The period is rendered through costume, production design, and social mores—everyone smokes constantly, everyone drinks at work, sexual harassment is routine, racism and antisemitism are open. The approach is not nostalgia; the series depicts the period's ugliness along with its style.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> AMC+, Netflix (seasons vary)</p>
-            <p><strong>UK:</strong> Netflix, Sky Go</p>
+<p>The ensemble includes Elisabeth Moss as Peggy Olson, a secretary who becomes a copywriter and eventually a creative director (the series tracks the emergence of women in the workplace); January Jones as Betty Draper, Don's first wife who discovers his infidelity and eventually divorces him; Vincent Kartheiser as Pete Campbell, the ambitious account executive whose schemes drive much of the plot; Christina Hendricks as Joan Holloway (later Harris), the office manager whose sexuality becomes professional asset and liability; John Slattery as Roger Sterling, the agency's senior partner whose wit and wealth mask emptiness; and Jessica Paré as Megan Calvet, Don's second wife whose desire for acting career conflicts with his expectations.</p>
+
+<p>The series won 16 Emmy Awards including 4 for Outstanding Drama Series (the first cable series to win that category). It established AMC as a destination for prestige television and demonstrated that period drama could achieve both critical acclaim and cultural impact. The final episode (May 2015) depicted Don's possible epiphany, leading to the famous 1971 Coca-Cola "Hilltop" commercial—ambiguous, beautiful, and debated ever since.</p>
+
+<h2>Why It Ranks #12</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.70</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Don Draper:</strong> Jon Hamm created one of television's iconic protagonists—a man whose surface (handsome, successful, creative) conceals profound emptiness. Don is a creative genius who can sell anything because he understands what people want; he can't, however, figure out what he wants. Hamm plays Don as charming, distant, occasionally cruel, and ultimately sympathetic despite everything. The performance required seven seasons of gradual revelation—Don's backstory emerges in fragments, his disintegration is slow, his possible redemption is ambiguous.</p>
+        
+        <p><strong>Peggy Olson:</strong> Elisabeth Moss plays the secretary who becomes a copywriter and eventually a creative director—the series tracks the emergence of women in the workplace through her journey. Peggy is competent, ambitious, and morally flexible; she learns from Don (creative skill) while developing her own approach (emotional insight). Moss plays Peggy as awkward, determined, and ultimately successful; the character's arc from Season 1 secretary to Season 7 equal is the series' clearest progress narrative.</p>
+        
+        <p><strong>Pete Campbell:</strong> Vincent Kartheiser plays the ambitious account executive whose schemes drive much of the plot. Pete is simultaneously sympathetic (he genuinely loves his family, he recognizes talent) and despicable (he sexually assaults a woman in Season 1, he betrays Don repeatedly). Kartheiser plays Pete as desperate—desperate for Don's approval, desperate for success, desperate to be taken seriously. The performance makes a reprehensible character complex.</p>
+        
+        <p><strong>Joan Holloway/Harris:</strong> Christina Hendricks plays the office manager whose sexuality is professional asset and liability. Joan knows how the office works; she teaches Peggy the rules, controls access to executives, and eventually becomes a partner (through a transaction the series doesn't romanticize). Hendricks plays Joan as intelligent, strategic, and trapped; her body is currency she doesn't fully control.</p>
+        
+        <p><strong>Roger Sterling:</strong> John Slattery plays the senior partner whose wealth (inherited from his father) and wit mask emptiness. Roger is Don's foil—he has everything Don lacks (family, money, belonging) and nothing Don values (creative talent, mystery, purpose). Slattery plays Roger as charming, nihilistic, and occasionally profound; his LSD trip in Season 5 is among the series' best sequences.</p>
+        
+        <p><strong>Betty Draper:</strong> January Jones plays Don's first wife—a woman whose life of suburban privilege conceals profound unhappiness. Betty is trapped by her era (she's expected to be satisfied with home, children, and appearances) and by her marriage (Don lies to her constantly). Jones plays Betty as brittle, occasionally cruel, and ultimately sympathetic; her late-series development (pursuing a degree in psychology, facing mortality) gives the character depth.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (9.5) achieved comparable ensemble depth. Mad Men matches its character work with more consistent ensemble across seasons.</p>
+        
+        <p><strong>Why 8.5:</strong> Exceptional ensemble with Jon Hamm's Don Draper achieving iconic status. The female characters (Peggy, Joan, Betty) develop across the series in ways unusual for period drama. The limitation is that some secondary characters don't develop significantly.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Period:</strong> The 1960s are rendered with exhaustive detail—costume, production design, music, advertising copy, historical events. The series uses the period as character rather than backdrop: the Cuban Missile Crisis, the Kennedy assassination, the civil rights movement, the moon landing all appear and affect the characters. The attention to detail is obsessive; viewers have catalogued period errors and found remarkably few.</p>
+        
+        <p><strong>Advertising:</strong> The advertising business is depicted with specificity—the creative process (Don pitches, the team brainstorms), the client relationships (Lucky Strike, Hilton, Jaguar, Coca-Cola), the industry evolution (from Madison Avenue insularity to corporate consolidation). The series shows advertising as both art (Don's creative genius) and commerce (the clients demand what sells). The slogans are real or plausible; the campaigns are period-appropriate.</p>
+        
+        <p><strong>Social Change:</strong> The series tracks social change through character—Peggy's rise tracks women's entry into professional workplaces; the agency's first Black employee (Dawn, played by Teyonah Parris) tracks the beginning of workplace integration; the depiction of smoking, drinking, and sexual harassment tracks the era's norms. The approach is not didactic; the characters live in their time without comment.</p>
+        
+        <p><strong>Madison Avenue:</strong> The physical world—the offices, the apartments, the restaurants, the bars—is rendered with period accuracy. The Sterling Cooper offices change as the agency changes; the Draper home changes as Betty's taste evolves. The world is complete: characters live in apartments, commute to offices, eat in restaurants, drink in bars that all exist in period-accurate detail.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Deadwood (8.5) achieved comparable period immersion for the 1870s. Mad Men matches its detail for the 1960s with broader social context.</p>
+        
+        <p><strong>Why 8:</strong> Comprehensive period recreation with advertising-industry specificity. The social change is tracked through character rather than lecture. The world is complete and consistent.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Period Visual Style:</strong> The cinematography serves the period without calling attention to itself—lighting suggests 1960s film, composition references advertising photography, color palette suggests the era's design. The approach is restrained; the camera records rather than interprets.</p>
+        
+        <p><strong>Composition:</strong> The series uses composition deliberately—characters framed in windows, reflected in mirrors, isolated in wide shots. The framing often isolates Don, suggesting his emotional distance. The visual style is controlled and purposeful without being showy.</p>
+        
+        <p><strong>The Ad Shoot:</strong> Several sequences depict photographing advertising—the models, the sets, the art direction. The series shows advertising as visual creation; the camera that records the show also records the campaigns within the show. The meta-level is deliberate: we're watching photography of photography.</p>
+        
+        <p><strong>The Final Shot:</strong> The final episode's closing image—Don in meditation, the Coca-Cola commercial that follows—summarizes the visual approach: beautiful, ambiguous, commercial. The series ends with an advertisement; the question is whether Don created it or found enlightenment. The ambiguity is visual.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (9) established distinctive television cinematography. Mad Men's is more restrained—period-appropriate without calling attention to style.</p>
+        
+        <p><strong>Why 8:</strong> Controlled period cinematography that serves the material without distinctive style. The composition is deliberate and meaningful. The limitation is that the approach is restrained rather than innovative.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.85</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Period Beauty:</strong> The 1960s are visually beautiful—costumes, interiors, cars, typography. The advertising business is a visual business; the characters create and consume images. The series depicts a world of style without endorsing the style as virtuous.</p>
+        
+        <p><strong>The Advertising:</strong> The advertising campaigns within the series provide visual interest—the photo shoots, the storyboards, the pitches. The Lucky Strike "It's toasted" campaign, the Jaguar presentation, the final Coca-Cola commercial—each is a set-piece of commercial art.</p>
+        
+        <p><strong>The Parties:</strong> The series includes parties, dinners, and social events—Manhattan offices, suburban homes, California pools. The social settings are visually detailed and period-appropriate.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Queen's Gambit (7) achieved period spectacle through competition. Mad Men achieves period spectacle through advertising and social settings.</p>
+        
+        <p><strong>Why 8.5:</strong> Period beauty through costume, production design, and advertising imagery. The campaigns within the series provide visual set-pieces. The style is comprehensive and sustained.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Identity and Reinvention:</strong> The series' central concept is identity—Don Draper is a fabricated identity, created by a poor farm boy who saw opportunity in a dead man's dog tags. The series examines American identity as performance: you can become anyone you want, but who are you when you've become someone else? Don's identity crisis is the series' engine.</p>
+        
+        <p><strong>Advertising as Meaning:</strong> The advertising business is not just setting but concept—the series depicts people who sell meaning for money. Don's creative genius is that he understands what people want and sells it to them; his tragedy is that he can't find what he wants. The advertising is both what the characters do and what they're searching for.</p>
+        
+        <p><strong>The Personal Is Historical:</strong> The series tracks the 1960s through character—Peggy's professional rise tracks women's liberation; the agency's treatment of Black employees tracks civil rights; the smoking, drinking, and casual infidelity track pre-liberation norms. The approach is not didactic; the characters live in their time without commentary. The audience sees what the characters don't: the society they're part of is changing.</p>
+        
+        <p><strong>Happiness and Its Discontents:</strong> The series depicts privileged people who are profoundly unhappy—Don has everything the era valued and feels nothing. The examination is not that prosperity is hollow (a cliché) but that meaning doesn't come from what you sell, even if you're good at selling. The characters search for satisfaction in work, sex, family, and substances; none provides what they're seeking.</p>
+        
+        <p><strong>The American Dream:</strong> The series examines the American dream from inside the industry that sells it. Don is the dream's embodiment (self-invented, successful, handsome) and its emptiness (the dream has no content). The advertising sells the dream; the characters live the dream's inadequacy.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (9.5) achieved comparable conceptual depth. Mad Men matches its examination of American identity through advertising rather than crime.</p>
+        
+        <p><strong>Why 9:</strong> Strong conceptual examination of identity, advertising, and the American dream. The period is tracked through character without didacticism. The characters embody the era's contradictions.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Slow Accretion:</strong> Mad Men's narrative pace is deliberate—episodes accumulate without obvious momentum, seasons build without clear climaxes. The series prioritizes character moment over plot advancement; a typical episode includes dinners, conversations, and office work rather than events. The pace frustrated some viewers who expected The Sopranos' momentum; Mad Men is slower, more literary.</p>
+        
+        <p><strong>Don's Disintegration:</strong> The series' clearest arc is Don's gradual disintegration—over seven seasons, his lies accumulate, his marriages fail, his work suffers, his drinking increases. The disintegration is not linear (there are recoveries and relapses) but the trajectory is downward until the final episodes suggest possible redemption. The arc provides momentum for viewers attuned to character.</p>
+        
+        <p><strong>The Agency:</strong> The business provides structure—Sterling Cooper becomes Sterling Cooper Draper Pryce, then Sterling Cooper & Partners, then is acquired by McCann Erickson. The agency's evolution is plot, but the plot advances slowly; the business is context rather than engine.</p>
+        
+        <p><strong>Peggy's Rise:</strong> Peggy's arc from secretary to creative director is the series' clearest progress narrative. Each season shows advancement; the trajectory is visible across episodes. The arc provides conventional momentum for viewers who need it.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (8.5) had moderate narrative drive through character focus. Mad Men is even slower—character moment over plot, the slow accretion of change.</p>
+        
+        <p><strong>Why 7:</strong> Deliberate pacing that prioritizes character over plot. Don's disintegration and Peggy's rise provide arcs. The limitation is that the series can feel static for viewers expecting momentum.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.75</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Final Episode:</strong> "Person to Person" (May 17, 2015) provides resolution—Don retreats to a meditation retreat, experiences some form of epiphany, and (the final shots suggest) creates the 1971 Coca-Cola "Hilltop" commercial. The resolution is ambiguous: has Don found enlightenment or has he found a new way to sell? Has he reformed or has he returned to what he does best?</p>
+        
+        <p><strong>Character Endings:</strong> The major characters receive endings: Peggy finds professional and romantic success; Joan chooses independence over partnership; Roger finds late love; Betty faces mortality with dignity; Pete chooses family over ambition. The endings are distributed across the final episodes; each character gets closure.</p>
+        
+        <p><strong>The Coke Commercial:</strong> The final image—the 1971 Coca-Cola "Hilltop" commercial that Don apparently creates—summarizes the series' ambiguity. Is the commercial Don's creative expression of his experience? Is it exploitation of his retreat? Is it redemption or more of the same? The series doesn't answer; it ends on the image.</p>
+        
+        <p><strong>Planned Conclusion:</strong> Matthew Weiner planned the conclusion—the series was not cancelled, and the ending was intended. The ambiguity is deliberate, not forced by circumstance. The series concludes rather than stops.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (8) achieved ambiguous but planned conclusion. Mad Men matches this approach—the ending is deliberate and debated.</p>
+        
+        <p><strong>Why 7.5:</strong> Planned conclusion with character endings and deliberately ambiguous final image. The Coke commercial generates debate about meaning. The resolution is present but not definitive.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">8.07</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.70 + World: 1.20 + Cine: 1.20 + Spectacle: 0.85 + <br>
+        Concepts: 1.35 + Drive: 1.05 + Resolution: 0.75 = <strong>8.07</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (92 episodes, 7 seasons) | Status: Complete (2007-2015)<br>
+        Rank: #12 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 19 July 2007 | Network: AMC | Seasons: 7 (92 episodes)<br>
+    Creator: Matthew Weiner | Notable Writer: Previously on The Sopranos<br>
+    Cast: Jon Hamm, Elisabeth Moss, Vincent Kartheiser, January Jones, Christina Hendricks, John Slattery<br>
+    Awards: 16 Emmys incl. 4× Outstanding Drama Series (first cable series to win)<br>
+    Note: The period drama that established AMC and defined modern prestige television<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

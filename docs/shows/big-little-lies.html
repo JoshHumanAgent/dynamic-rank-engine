@@ -3,88 +3,581 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Big Little Lies - "The perfect lie" | Dynamic Rank Engine</title>
+    <title>Big Little Lies Analysis - TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #051015 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #00796b; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #00796b, #004d40); color: #b2dfdb; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #80cbc4; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(0,121,107,0.3), rgba(0,0,0,0.9)); border: 3px solid #00796b; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #80cbc4; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #00796b; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #80cbc4; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(0,121,107,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #80cbc4; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #80cbc4; font-weight: 700; }
-    </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b0;
+            --accent-gold: #d4af37;
+            --accent-purple: #9b59b6;
+            --accent-blue: #3498db;
+            --accent-rose: #e74c3c;
+            --border-color: #2a2a3a;
+            --rating-high: #27ae60;
+            --rating-mid: #f39c12;
+            --rating-low: #e74c3c;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .show-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.15) 0%, rgba(52, 152, 219, 0.1) 100%);
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 50px;
+        }
+
+        .show-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .show-meta {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .show-meta span {
+            margin: 0 15px;
+        }
+
+        .show-meta span:not(:last-child)::after {
+            content: "•";
+            margin-left: 30px;
+            color: var(--border-color);
+        }
+
+        .final-score-display {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--bg-tertiary);
+            padding: 20px 40px;
+            border-radius: 50px;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .final-score-label {
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .final-score-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 60px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            padding: 30px 35px;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-content {
+            padding: 35px;
+        }
+
+        /* Feel Section */
+        .feeling-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feeling-card {
+            background: var(--bg-tertiary);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-purple);
+        }
+
+        .feeling-card h4 {
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .feeling-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Dimension Blocks */
+        .dimension-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .dimension-block {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 30px;
+            border-left: 5px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dimension-block:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .dimension-block.high { border-left-color: var(--rating-high); }
+        .dimension-block.mid { border-left-color: var(--rating-mid); }
+        .dimension-block.low { border-left-color: var(--rating-low); }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .dimension-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .dimension-score {
+            font-size: 2rem;
+            font-weight: 700;
+            padding: 8px 20px;
+            border-radius: 25px;
+            background: var(--bg-secondary);
+        }
+
+        .dimension-score.high { color: var(--rating-high); }
+        .dimension-score.mid { color: var(--rating-mid); }
+        .dimension-score.low { color: var(--rating-low); }
+
+        .dimension-content {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        .dimension-content p {
+            margin-bottom: 15px;
+        }
+
+        .dimension-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Cast List */
+        .cast-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .cast-member {
+            background: var(--bg-tertiary);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .cast-member.lead {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        /* Final Score Section */
+        .final-score-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 15px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .final-score-title {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .final-score-value {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .final-score-verdict {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .dimension-breakdown {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .breakdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 20px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            min-width: 100px;
+        }
+
+        .breakdown-score {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .breakdown-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Typography */
+        p {
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: var(--accent-blue);
+            margin: 30px 0 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .show-title {
+                font-size: 2.5rem;
+            }
+
+            .show-meta span {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .show-meta span:not(:last-child)::after {
+                display: none;
+            }
+
+            .final-score-value {
+                font-size: 3.5rem;
+            }
+
+            .dimension-score {
+                font-size: 1.5rem;
+            }
+
+            .cast-grid {
+                justify-content: center;
+            }
+        }
+    .rankings-section { margin-bottom: 2rem; }
+.rankings-header { text-align: center; margin-bottom: 2.5rem; }
+.rankings-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; }
+.rankings-subtitle { color: var(--text-dim); font-size: 1.1rem; }
+.dimension-grid { display: grid; gap: 1.5rem; }
+.dimension-block { background: rgba(30,30,30,0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); display: grid !important; grid-template-columns: auto 1fr !important; gap: 1.5rem; }
+.dimension-score { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-width: 100px; }
+.score-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; position: relative; }
+.score-circle::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(var(--primary) calc(var(--score) * 10%), var(--dark) 0); z-index: -1; }
+.score-circle::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: rgba(30,30,30,0.8); }
+.score-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+.dimension-content h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+
+</style>
 </head>
 <body>
+    <div class="show-header">
+        <h1 class="show-title">Big Little Lies</h1>
+        <div class="show-meta">
+            <span>HBO</span>
+            <span>Mystery Drama</span>
+            <span>2017-2019</span>
+            <span>2 Seasons, 14 Episodes</span>
+        </div>
+        <div class="show-meta" style="margin-top: 10px; font-style: italic;">
+            Created by David E. Kelley (based on the novel by Liane Moriarty)
+        </div>
+        <div class="final-score-display" style="margin-top: 40px;">
+            <span class="final-score-label">Final Score</span>
+            <span class="final-score-number">7.01</span>
+        </div>
+    </div>
+
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #18</div>
-            <h1>Big Little Lies</h1>
-            <p class="subtitle">"The perfect lie"</p>
-            <div class="score-badge">
-                <span class="score-value">7.93</span>
-                <span class="score-label">Final Score</span>
+        <!-- Cast Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Main Cast</h2>
+            </div>
+            <div class="section-content">
+                <div class="cast-grid">
+                    <span class="cast-member lead">Reese Witherspoon</span>
+                    <span class="cast-member lead">Nicole Kidman</span>
+                    <span class="cast-member lead">Laura Dern</span>
+                    <span class="cast-member lead">Shailene Woodley</span>
+                    <span class="cast-member">Adam Scott</span>
+                    <span class="cast-member lead">Zoë Kravitz</span>
+                    <span class="cast-member lead">Meryl Streep (S2)</span>
+                </div>
             </div>
         </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2017-2019</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">14</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">David E. Kelley</div></div>
-        </div>
-
+        <!-- What It Feels Like Section -->
         <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Big Little Lies is Monterey, California as pressure cooker—wealthy mothers, competitive children, hidden violence, and one murder. The show opens with a death at a school fundraiser, then rewinds to show the months leading up to it. Who died? Who killed them? The structure is mystery, but the substance is character: five women navigating marriage, motherhood, trauma, and the lies they tell to survive.</p>
-            <p>Madeline (Reese Witherspoon) is the instigator—funny, controlling, still wounded by her ex-husband's new wife. Celeste (Nicole Kidman) is the golden one—beautiful, wealthy, mother of twins, and married to a man who beats her. Jane (Shailene Woodley) is the outsider—young, single mother, haunted by a sexual assault that produced her son. Renata (Laura Dern) is the career woman—powerful, furious, determined to protect her daughter from bullying. Bonnie (Zoë Kravitz) is the enigma—yoga instructor, second wife, hiding her own damage.</p>
-            <p>The show's thesis: women protect each other when institutions fail them. Celeste's abuse is invisible until other women see it. Jane's trauma is invisible until she tells Madeline. The murder, when revealed, is protective: a woman killing not out of malice but out of necessity. "We have to protect our children," Madeline says. "Whatever that takes." The police investigation, the courtroom drama, the interrogations—all of it circles around the central lie: the women close ranks, and some truths remain hidden.</p>
-            <p>Two seasons, fourteen episodes, complete (though a third has been discussed). Season one adapts Liane Moriarty's novel perfectly; season two expands with Meryl Streep as Celeste's mother-in-law, hunting for answers about her son. Jean-Marc Vallée's direction is intimate—close-ups, natural light, bodies in space. Nicole Kidman's performance is the standout: a woman coming to understand that her perfect marriage is a prison. "I'm fine," she keeps saying. She isn't. None of them are.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
+            <div class="section-header">
+                <h2 class="section-title">What It Feels Like to Watch</h2>
             </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Witherspoon, Kidman, Dern, Woodley, Kravitz—and Meryl Streep. Emmy magnet. Nicole Kidman's abuse arc is devastating.</p>
-            <p><strong>Cinematography (9):</strong> Jean-Marc Vallée's direction. Natural light, intimate close-ups. Monterey as paradise and prison.</p>
-            <p><strong>Resolution (8):</strong> Season one concludes perfectly. Season two expands with purpose. Complete, but door open for more.</p>
+            <div class="section-content">
+                <p>Watching <em>Big Little Lies</em> is akin to slowly peeling back the layers of a perfect, sun-bleached photograph to reveal the rot at its edges. The show presents itself as a glossy portrait of affluent Monterey life, with its oceanfront mansions, pristine public schools, and yoga-toned mothers navigating the treacherous social hierarchy of pickup lines and fundraising committees. But this surface sheen acts as a deceptively beautiful mask hiding the deep fissures of domestic abuse, sexual violence, class prejudice, and the suffocating expectations placed upon women in privileged enclaves.</p>
+
+                <p>The emotional experience is one of mounting dread intertwined with deep empathy. The show doesn't merely observe its characters—it crawls inside their skin, forcing viewers to inhabit the paralyzing anxiety of Celeste's abuse, the simmering resentment of Madeline, the alienation of Jane, the brittle perfectionism of Renata, and the quiet grief of Bonnie. It is television designed to make you uncomfortable in the most necessary ways, to confront the realities that polite society prefers to ignore behind drawn curtains and locked doors.</p>
+
+                <div class="feeling-grid">
+                    <div class="feeling-card">
+                        <h4>Monterey Parents</h4>
+                        <p>The suffocating social politics of wealthy coastal parenting where every glance carries judgment and every favor accrues debt.</p>
+                    </div>
+                    <div class="feeling-card">
+                        <h4>Domestic Abuse</h4>
+                        <p>The psychological imprisonment of coercive control, portrayed with unflinching authenticity and heartbreaking intimacy.</p>
+                    </div>
+                    <div class="feeling-card">
+                        <h4>Female Friendship</h4>
+                        <p>The fierce, complicated bonds that form between women when they finally stop competing and start protecting one another.</p>
+                    </div>
+                    <div class="feeling-card">
+                        <h4>Murder Mystery</h4>
+                        <p>The slow-burn tension of not knowing who dies, who killed them, or why, woven through with Greek tragedy undertones.</p>
+                    </div>
+                </div>
+
+                <h3>The Monterey Atmosphere</h3>
+                <p>The show immerses viewers in a very specific type of California coastal privilege—the kind where landscape itself becomes a character. The crashing waves of the Pacific serve as both backdrop and metaphor for the emotional turbulence beneath the lives these women present to the world. Director Jean-Marc Vallée's (Season 1) approach of using diegetic music, natural lighting, and fragmented editing creates a dreamy, almost hallucinogenic quality that mirrors the characters' dissociation from their own realities.</p>
+
+                <h3>The Duality of Experience</h3>
+                <p>What makes the watching experience distinctive is its tonal tightrope walk. Scenes of genuine humor and relatability—the petty grievances of school politics, the bonding moments over wine—collide with genuinely harrowing depictions of violence and trauma. The show trusts its audience to hold both truths simultaneously: that these women's lives contain real pain alongside their first-world problems, that their privilege doesn't immunize them from suffering even as it shapes the particular forms that suffering takes.</p>
+
+                <div class="highlight-box">
+                    <h4>The Lie at the Heart</h4>
+                    <p>Every major character in Big Little Lies is, in some way, performing. They're performing motherhood, marriage, success, stability, forgiveness. The show's genius is in making us complicit in these performances—we want to believe the lie of Celeste's perfect marriage even as we witness its bruises, we want to accept the redemption arcs because they're narratively satisfying. The emotional manipulation is intentional and devastating.</p>
+                </div>
+
+                <p>By its conclusion, the series leaves viewers not with tidy answers but with the profound weight of its central questions: How much do we ever really know about our friends? What are we complicit in when we choose not to see? And what happens to a lie when everyone agrees to believe it?</p>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("Somebody's Dead" (S1E1)</strong> — The introduction. "I think maybe someone killed someone."</p>
-            <p><strong>"Serious Mothering" (S1E2)</strong> — The children. The bullying accusation. Lines drawn.</p>
-            <p><strong>("You Get What You Need" (S1E7)</strong> — Season one finale. The murder revealed. "We have to stick together."</p>
-            <p><strong>("I Want to Know" (S2E7)</strong> — Season two finale. The truth. The courtroom. "I loved him. He hurt me."</p>
+        <section class="rankings-section">
+    <div class="rankings-header">
+        <h2 class="rankings-title">🏆 Why It Ranks</h2>
+        <p class="rankings-subtitle">A detailed breakdown across seven key dimensions</p>
+    </div>
+    <div class="dimension-grid">
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7.5;"><span>7.5</span></div>
+                <span class="score-label">CHARACTERS</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Characters</h3>
+                <p>Content to be added.</p>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> HBO Max</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7;"><span>7.0</span></div>
+                <span class="score-label">WORLD BUILDING</span>
+            </div>
+            <div class="dimension-content">
+                <h3>World Building</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">CINEMATOGRAPHY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Cinematography</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7;"><span>7.0</span></div>
+                <span class="score-label">VISUAL SPECTACLE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Visual Spectacle</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7;"><span>7.0</span></div>
+                <span class="score-label">CONCEPTUAL DENSITY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Conceptual Density</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7;"><span>7.0</span></div>
+                <span class="score-label">NARRATIVE DRIVE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Narrative Drive</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">RESOLUTION</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Resolution</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final Score Section -->
+        <div class="final-score-section">
+            <div class="final-score-title">Final Composite Score</div>
+            <div class="final-score-value">7.01</div>
+            <div class="final-score-verdict">
+                <em>Big Little Lies</em> emerges as a landmark achievement in prestige television, marrying Hollywood's star power with television's narrative expansiveness. Its depiction of domestic abuse, its visual splendor, and its ensemble cast represent the medium at its most ambitious. While the second season cannot match the first's crystalline perfection, the complete work stands as essential viewing—a glossy, gorgeous howl against the silence surrounding women's pain.
+            </div>
+            
+            <div class="dimension-breakdown">
+                <div class="breakdown-item">
+                    <span class="breakdown-score">7.5</span>
+                    <span class="breakdown-label">Characters</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-score">7.0</span>
+                    <span class="breakdown-label">World Building</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-score">8.0</span>
+                    <span class="breakdown-label">Cinematography</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-score">7.0</span>
+                    <span class="breakdown-label">Visual Spectacle</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-score">7.0</span>
+                    <span class="breakdown-label">Conceptual Density</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-score">7.0</span>
+                    <span class="breakdown-label">Narrative Drive</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-score">8.0</span>
+                    <span class="breakdown-label">Resolution</span>
+                </div>
+            </div>
         </div>
     </div>
 </body>

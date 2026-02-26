@@ -3,89 +3,547 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twin Peaks: The Return - "It Is Happening Again" | Dynamic Rank Engine</title>
+    <title>Twin Peaks: The Return (2017) - 7-Dimension Analysis</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #8b0000; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #8b0000, #4a0000); color: #ffd700; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ff6b6b; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(139,0,0,0.3), rgba(0,0,0,0.9)); border: 3px solid #8b0000; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ff6b6b; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #8b0000; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ff6b6b; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(139,0,0,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ff6b6b; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ff6b6b; font-weight: 700; }
-    </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 30px;
+            background: linear-gradient(180deg, rgba(94, 23, 235, 0.3) 0%, rgba(0,0,0,0) 100%);
+            border-bottom: 2px solid #5e17eb;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(94, 23, 235, 0.8);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .meta {
+            color: #a0a0a0;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        .meta span {
+            margin: 0 15px;
+            display: inline-block;
+        }
+
+        .show-info {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #5e17eb;
+        }
+
+        .show-info h3 {
+            color: #5e17eb;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .show-info p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .show-info strong {
+            color: #fff;
+        }
+
+        .section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            padding: 35px;
+            margin: 35px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section-title {
+            color: #5e17eb;
+            font-size: 1.9em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(94, 23, 235, 0.5);
+        }
+
+        .section-content {
+            color: #d0d0d0;
+            font-size: 1.05em;
+        }
+
+        .section-content p {
+            margin-bottom: 18px;
+        }
+
+        .dimension-block {
+            background: linear-gradient(145deg, rgba(30,30,60,0.8) 0%, rgba(20,20,40,0.9) 100%);
+            border-radius: 12px;
+            padding: 28px;
+            margin: 25px 0;
+            border-left: 5px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dimension-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .dimension-block.characters { border-color: #ff6b6b; }
+        .dimension-block.world { border-color: #4ecdc4; }
+        .dimension-block.cinematography { border-color: #ffd93d; }
+        .dimension-block.visual { border-color: #6bcb77; }
+        .dimension-block.conceptual { border-color: #a855f7; }
+        .dimension-block.narrative { border-color: #3b82f6; }
+        .dimension-block.resolution { border-color: #f472b6; }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .dimension-title {
+            font-size: 1.4em;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .dimension-score {
+            font-size: 1.8em;
+            font-weight: bold;
+            padding: 8px 20px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .dimension-block.characters .dimension-score { color: #ff6b6b; }
+        .dimension-block.world .dimension-score { color: #4ecdc4; }
+        .dimension-block.cinematography .dimension-score { color: #ffd93d; }
+        .dimension-block.visual .dimension-score { color: #6bcb77; }
+        .dimension-block.conceptual .dimension-score { color: #a855f7; }
+        .dimension-block.narrative .dimension-score { color: #3b82f6; }
+        .dimension-block.resolution .dimension-score { color: #f472b6; }
+
+        .score-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease-out;
+        }
+
+        .characters .score-fill { background: #ff6b6b; width: 78%; }
+        .world .score-fill { background: #4ecdc4; width: 75%; }
+        .cinematography .score-fill { background: #ffd93d; width: 90%; }
+        .visual .score-fill { background: #6bcb77; width: 75%; }
+        .conceptual .score-fill { background: #a855f7; width: 80%; }
+        .narrative .score-fill { background: #3b82f6; width: 65%; }
+        .resolution .score-fill { background: #f472b6; width: 65%; }
+
+        .final-score-section {
+            background: linear-gradient(145deg, #5e17eb 0%, #3a0ca3 100%);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .final-score-section h2 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .final-score {
+            font-size: 4em;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            margin: 20px 0;
+        }
+
+        .score-label {
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .highlight {
+            color: #5e17eb;
+            font-weight: 600;
+        }
+
+        .moment-callout {
+            background: rgba(94, 23, 235, 0.2);
+            border: 1px solid rgba(94, 23, 235, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .moment-callout h4 {
+            color: #ffd93d;
+            margin-bottom: 10px;
+        }
+
+        ul.analysis-list {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        ul.analysis-list li {
+            margin-bottom: 12px;
+            color: #c0c0c0;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .pros, .cons {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .pros h4 {
+            color: #6bcb77;
+            margin-bottom: 12px;
+        }
+
+        .cons h4 {
+            color: #ff6b6b;
+            margin-bottom: 12px;
+        }
+
+        .pros ul, .cons ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pros li::before {
+            content: "✓ ";
+            color: #6bcb77;
+        }
+
+        .cons li::before {
+            content: "✗ ";
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .pros-cons { grid-template-columns: 1fr; }
+            .dimension-header { flex-direction: column; gap: 10px; }
+        }
+    .rankings-section { margin-bottom: 2rem; }
+.rankings-header { text-align: center; margin-bottom: 2.5rem; }
+.rankings-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; }
+.rankings-subtitle { color: var(--text-dim); font-size: 1.1rem; }
+.dimension-grid { display: grid; gap: 1.5rem; }
+.dimension-block { background: rgba(30,30,30,0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); display: grid !important; grid-template-columns: auto 1fr !important; gap: 1.5rem; }
+.dimension-score { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-width: 100px; }
+.score-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; position: relative; }
+.score-circle::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(var(--primary) calc(var(--score) * 10%), var(--dark) 0); z-index: -1; }
+.score-circle::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: rgba(30,30,30,0.8); }
+.score-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+.dimension-content h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+
+</style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #101</div>
-            <h1>Twin Peaks: The Return</h1>
-            <p class="subtitle">"It Is Happening Again"</p>
-            <div class="score-badge">
-                <span class="score-value">7.60</span>
-                <span class="score-label">Final Score</span>
+        <header>
+            <h1>🎬 Twin Peaks: The Return</h1>
+            <div class="meta">
+                <span>Showtime • 2017</span>
+                <span>18 Episodes</span>
+                <span>Limited Series</span>
+            </div>
+        </header>
+
+        <div class="show-info">
+            <h3>📺 Show Information</h3>
+            <p><strong>Created by:</strong> David Lynch & Mark Frost</p>
+            <p><strong>Starring:</strong> Kyle MacLachlan, Laura Dern, Naomi Watts, Michael Cera, Tim Roth, Harry Dean Stanton</p>
+            <p><strong>Premise:</strong> Agent Dale Cooper returns to Twin Peaks 25 years after the events of the original series, navigating a surreal landscape of alternate dimensions, doppelgangers, and existential dread in what many consider David Lynch's magnum opus.</p>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">🌙 What It Feels Like to Watch</h2>
+            <div class="section-content">
+                <p>Watching <em>Twin Peaks: The Return</em> is like stepping into a fever dream that refuses to end—or like being gently submerged into dark water where time no longer moves in straight lines. David Lynch delivers his most uncompromising vision here, a <strong>18-hour cinematic odyssey</strong> that defies every convention of television storytelling.</p>
+                
+                <p>There's a hypnotic quality to the experience. Scenes stretch impossibly long—conversations that feel like they could go on forever, shots that linger on faces until they become landscapes, and soundscapes that crawl into your subconscious. You're simultaneously <span class="highlight">bored, terrified, and transfixed</span>.</p>
+
+                <div class="moment-callout">
+                    <h4>🎭 The Dougie Jones Era</h4>
+                    <p>For seven episodes, our hero Agent Cooper is trapped in the body of Dougie Jones—a barely-functional shell who can only repeat words he hears and stare blankly while the world moves around him. It's maddening. It's brilliant. It's Lynch forcing us to sit with discomfort, to question what we expect from our protagonists. The patience required is almost a dare.</p>
+                </div>
+
+                <div class="moment-callout">
+                    <h4>💥 Part 8: The Unspeakable Achievement</h4>
+                    <p>Episode 8 detonates any notion that this is "just TV." A 50-minute art film depicting the birth of evil, the atomic bomb as cosmic doorway, and creatures crawling through the static of existence itself. It contains virtually no dialogue, just pure audio-visual poetry—the Electric Lady Room, the Fireman's golden orb, the Woodsmen chanting "This is the water and this is the well." It's uncomfortable, unforgettable, and <em>completely unnecessary</em> to the plot in any conventional sense. Lynch doesn't care. Neither should you.</p>
+                </div>
+
+                <p>By the final episode, when that devastating line <strong>"What year is this?"</strong> drops, you realize you've been on a journey without a destination. The journey <em>is</em> the destination. The Return doesn't end—it dissolves into pure existential grief. Laura Palmer's scream echoes through dimensions, and so do you, forever changed and possibly damaged, wondering if any of it meant anything at all.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🏆 Why It Ranks: The Seven Dimensions</h2>
+            
+            <div class="dimension-block characters">
+                <div class="dimension-header">
+                    <span class="dimension-title">👥 Characters</span>
+                    <span class="dimension-score">7.8</span>
+                </div>
+                <div class="score-bar"><div class="score-fill"></div></div>
+                <div class="section-content">
+                    <p>Kyle MacLachlan delivers arguably his career-defining performance(s), playing not just Dougie but also the terrifying Mr. C and fragments of the original Cooper. The new faces—especially the melancholic presence of Harry Dean Stanton, the quiet desperation of Laura Dern's Diane, and the quirky menace of the hitman duo—add texture to Lynch's tapestry.</p>
+                    <p>However, the sheer sprawl means some characters exist only as impressions, and the fragmented structure deliberately keeps us at arm's length from emotional investment. Lynch wants us to feel <em>disconnected</em>, to recognize that we can never truly know anyone—not even Cooper.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block world">
+                <div class="dimension-header">
+                    <span class="dimension-title">🌍 World Building</span>
+                    <span class="dimension-score">7.5</span>
+                </div>
+                <div class="score-bar"><div class="score-fill"></div></div>
+                <div class="section-content">
+                    <p>25 years later, Twin Peaks has changed—and so has the world around it. The series expands into Las Vegas, South Dakota, and beyond, creating a fractured America where small-town nostalgia collides with modern alienation. The Black Lodge mythology deepens significantly.</p>
+                    <p>The Red Room becomes more navigable yet more cryptic. We see the Dutchman's, the Fireman's fortress, and the terrifying convenience store where the Woodsmen dwell. Yet the world-building is intentionally incomplete—Lynch gives us puzzle pieces that may not form a picture, suggesting reality itself is too vast and strange to fully map.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block cinematography">
+                <div class="dimension-header">
+                    <span class="dimension-title">🎥 Cinematography</span>
+                    <span class="dimension-score">9.0</span>
+                </div>
+                <div class="score-bar"><div class="score-fill"></div></div>
+                <div class="section-content">
+                    <p>This is <strong>cinema</strong>, shot on digital with an almost meditative patience that no other television series has attempted. Every frame is composed with painterly precision—from the desolate highways of the American West to the hyper-saturated colors of the Black Lodge.</p>
+                    <p>Part 8 alone represents a high watermark in visual storytelling, a tone poem rendered in images that burn themselves into your retinas. The camera doesn't just record; it observes, it waits, it witnesses. Long takes force us to sit with discomfort, with beauty, with nothingness. This is pure visual art operating at the peak of the medium.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block visual">
+                <div class="dimension-header">
+                    <span class="dimension-title">✨ Visual Spectacle</span>
+                    <span class="dimension-score">7.5</span>
+                </div>
+                <div class="score-bar"><div class="score-fill"></div></div>
+                <div class="section-content">
+                    <p>When spectacle arrives, it detonates. The atomic test sequence, the Woodsmen's resurrection, Sarah Palmer's face removed, the Experiment in the glass box—these are images of genuine horror and beauty. The visual effects serve the surreal tone perfectly, never feeling out of place in Lynch's dream logic.</p>
+                    <p>Yet The Return withholds spectacle as often as it delivers it. Hours pass with small-scale character moments, deliberately grounding the viewer before the next descent into nightmare. It's a calculated choice, but one that occasionally tests patience beyond endurance.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block conceptual">
+                <div class="dimension-header">
+                    <span class="dimension-title">🧠 Conceptual Density</span>
+                    <span class="dimension-score">8.0</span>
+                </div>
+                <div class="score-bar"><div class="score-fill"></div></div>
+                <div class="section-content">
+                    <p>Every scene is freighted with meaning—perhaps too much meaning. The Return grapples with <span class="highlight">time, identity, trauma, the nature of evil, the persistence of love</span>, and the inadequacy of words to capture experience. The atomic age birth of BOB, the Judy mythology, the alternate timeline where Laura never died—each concept is introduced and left to gestate.</p>
+                    <p>This is television as philosophical puzzle, demanding repeat viewings and endless analysis. Yet Lynch famously refuses to explain, leaving the density as something to swim through rather than solve. The concepts are rich, but their opacity keeps us from fully grasping them—a deliberate frustration that Lynch clearly enjoys inflicting.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block narrative">
+                <div class="dimension-header">
+                    <span class="dimension-title">📖 Narrative Drive</span>
+                    <span class="dimension-score">6.5</span>
+                </div>
+                <div class="score-bar"><div class="score-fill"></div></div>
+                <div class="section-content">
+                    <p>This is where The Return becomes divisive. The narrative moves in fits and starts, with some episodes containing only fragmented scenes that barely connect. Dougie's coma-like existence stalls the momentum for hours. The Las Vegas mob storyline feels like another show entirely.</p>
+                    <p>Plot threads dangle, forgotten. Characters appear and vanish. When the narrative does coalesce—particularly in the final few episodes—the tension is genuinely unbearable. But getting there requires surrendering expectations. Lynch isn't interested in story in the conventional sense; he's interested in <em>mood</em>, in <em>atmosphere</em>, in <em>texture</em>. The narrative is a ghost that occasionally manifests.</p>
+                </div>
+            </div>
+
+            <div class="dimension-block resolution">
+                <div class="dimension-header">
+                    <span class="dimension-title">🔚 Resolution</span>
+                    <span class="dimension-score">6.5</span>
+                </div>
+                <div class="score-bar"><div class="score-fill"></div></div>
+                <div class="section-content">
+                    <p>The finale attempts to resolve and simultaneously destroys any hope of closure. Cooper moves through time to save Laura, only to find himself in an alternate reality where nothing makes sense. The famous final scene—"What year is this?" followed by Laura's scream—rejects resolution entirely.</p>
+                    <p>For some, this is profound: the trauma of Laura Palmer cannot be undone, evil persists across timelines, and our hero is lost in infinite regression. For others, it's maddening—a refusal to commit, a smirk at the audience's desire for meaning. Lynch has said there won't be more. This is the end. And it's not an ending at all.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">⚖️ Strengths & Weaknesses</h2>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li>Uncompromising artistic vision from a master</li>
+                        <li>Episode 8: a genuine experimental film</li>
+                        <li>Kyle MacLachlan's multi-role performance</li>
+                        <li>Haunting sound design and visual poetry</li>
+                        <li>Genuine moments of transcendent horror and beauty</li>
+                        <li>Rewards deep analysis and repeat viewing</li>
+                        <li>Challenges what television can be</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>Weaknesses</h4>
+                    <ul>
+                        <li>Deliberate narrative frustration</li>
+                        <li>Dougie's storyline lasts far too long</li>
+                        <li>Many plot threads abandoned</li>
+                        <li>Demands patience many viewers won't have</li>
+                        <li>Final episode feels like abrupt truncation</li>
+                        <li>Self-indulgence masquerading as depth</li>
+                        <li>Emotional detachment by design</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="rankings-section">
+    <div class="rankings-header">
+        <h2 class="rankings-title">🏆 Why It Ranks</h2>
+        <p class="rankings-subtitle">A detailed breakdown across seven key dimensions</p>
+    </div>
+    <div class="dimension-grid">
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">CHARACTERS</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Characters</h3>
+                <p>Content to be added.</p>
             </div>
         </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Year</div><div class="info-value">2017</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">18</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Showtime</div></div>
-            <div class="info-item"><div class="info-label">Creators</div><div class="info-value">David Lynch, Mark Frost</div></div>
-        </div>
-
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Twin Peaks: The Return came back twenty-five years after the original series ended, and it wasn't a reunion special. It was an eighteen-hour art film about trauma, evil, the nuclear age, and the impossibility of going home. David Lynch and Mark Frost created something that bears almost no resemblance to the quirky ABC soap opera of 1990—this is darker, stranger, and more ambitious than anything on television.</p>
-            <p>Agent Dale Cooper (Kyle MacLachlan) has been trapped in the Black Lodge for twenty-five years, while his evil doppelgänger has been walking the earth. The series follows multiple threads: Cooper's escape attempt, his doppelgänger's criminal empire, the original characters still in Twin Peaks, and new characters who may or may not be connected to the supernatural forces that have always haunted this town.</p>
-            <p>Part 8 is the show's most famous hour—a nuclear test in 1945, the birth of evil, a creature crawling across a desert. It's experimental filmmaking on television, a largely wordless sequence that recontextualizes everything the show is doing. Lynch isn't telling a story; he's conjuring images, sounds, feelings. The show has episodes that are pure horror, episodes that are absurdist comedy, and episodes that defy categorization.</p>
-            <p>The return to Twin Peaks is not comforting. The familiar characters have aged, suffered, and died. Big Ed is still waiting for Norma. Sheriff Truman is sick. The Log Lady dies. Audrey Horne is trapped in an unhappy marriage—maybe. Laura Palmer's face appears and disappears. The town that was quirky and charming now feels haunted, contaminated by the evil that has been here all along.</p>
-            <p>The ending is controversial, brilliant, and devastating. Cooper goes back in time to save Laura Palmer, and the show fractures. The final scene—Cooper outside Laura's house, asking "What year is this?"—leaves you with profound unease. This isn't a resolution. It's an accusation. The past cannot be changed. The horror continues.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">10</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">6</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 8;"><span>8.0</span></div>
+                <span class="score-label">WORLD BUILDING</span>
             </div>
-            <p style="margin-top:1.5rem"><strong>World Building (10):</strong> The Black Lodge, the White Lodge, the atomic birth of evil—Lynch and Frost expanded their mythology into something terrifying and profound.</p>
-            <p><strong>Visual Spectacle (10):</strong> Part 8 is cinema. Every frame is composed with painterly precision. This is television as art installation.</p>
-            <p><strong>Conceptual Density (10):</strong> Nuclear age trauma, generational evil, the impossibility of resolution—dense themes treated with complete seriousness.</p>
+            <div class="dimension-content">
+                <h3>World Building</h3>
+                <p>Content to be added.</p>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Part 1"</strong> — Cooper's doppelgänger. The Black Lodge awaits. The return begins.</p>
-            <p><strong>"Part 8"</strong> — The nuclear test. The birth of BOB. Television's most experimental hour.</p>
-            <p><strong>"Part 17-18"</strong> — The finale. Time travel. What year is this? Horror without end.</p>
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9;"><span>9.0</span></div>
+                <span class="score-label">CINEMATOGRAPHY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Cinematography</h3>
+                <p>Content to be added.</p>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Paramount+, Showtime</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9;"><span>9.0</span></div>
+                <span class="score-label">VISUAL SPECTACLE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Visual Spectacle</h3>
+                <p>Content to be added.</p>
+            </div>
         </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 9;"><span>9.0</span></div>
+                <span class="score-label">CONCEPTUAL DENSITY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Conceptual Density</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 5;"><span>5.0</span></div>
+                <span class="score-label">NARRATIVE DRIVE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Narrative Drive</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 7;"><span>7.0</span></div>
+                <span class="score-label">RESOLUTION</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Resolution</h3>
+                <p>Content to be added.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="final-score-section">
+            <h2>Final Verdict</h2>
+            <div class="final-score">7.39</div>
+            <div class="score-label">Overall Score</div>
+            <p style="margin-top: 25px; font-size: 1.1em; color: rgba(255,255,255,0.9);">
+                A singular, maddening, essential work. Not for everyone—but impossible to forget.
+            </p>
+        </div>
+
+        <footer style="text-align: center; padding: 40px 0; color: #666; font-size: 0.9em;">
+            <p>Generated by Cyberclaw TV Analysis System</p>
+            <p style="margin-top: 10px;">"The owls are not what they seem."</p>
+        </footer>
     </div>
 </body>
 </html>

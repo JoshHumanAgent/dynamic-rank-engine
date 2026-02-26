@@ -3,89 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Last of Us - "When you're lost in the darkness" | Dynamic Rank Engine</title>
+    <title>The Last of Us - 7-Dimension Analysis | TV Shows Ranked</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #050a05 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #388e3c; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #388e3c, #1b5e20); color: #c8e6c9; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #81c784; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(56,142,60,0.3), rgba(0,0,0,0.9)); border: 3px solid #388e3c; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #81c784; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #388e3c; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #81c784; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(56,142,60,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #81c784; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #81c784; font-weight: 700; }
+        :root {
+            --spore-green: #4a5d23;
+            --fungal-glow: #7d8f3c;
+            --decay-brown: #3d3120;
+            --mold-gray: #5c5648;
+            --infected-red: #8b3a3a;
+            --survivor-cream: #d4cbb3;
+            --dark-basement: #1a1814;
+            --cordyceps-orange: #a6682e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-basement);
+            color: var(--survivor-cream);
+            line-height: 1.7;
+            background-image: 
+                radial-gradient(ellipse at 20% 80%, rgba(74, 93, 35, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(166, 104, 46, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(61, 49, 32, 0.3) 0%, transparent 70%);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 2px solid var(--spore-green);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        header::after {
+            content: "🍄";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            background: var(--dark-basement);
+            padding: 0 1rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            color: var(--fungal-glow);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(125, 143, 60, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--mold-gray);
+            font-style: italic;
+        }
+        
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(74, 93, 35, 0.1);
+            border: 1px solid var(--spore-green);
+            border-radius: 4px;
+        }
+        
+        .meta-item {
+            text-align: center;
+        }
+        
+        .meta-label {
+            font-size: 0.75rem;
+            color: var(--mold-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .meta-value {
+            font-size: 1rem;
+            color: var(--fungal-glow);
+            font-weight: 600;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--cordyceps-orange);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--decay-brown);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            color: var(--fungal-glow);
+            margin: 2rem 0 1rem 0;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        .feels-like {
+            background: linear-gradient(135deg, rgba(74, 93, 35, 0.1) 0%, rgba(61, 49, 32, 0.2) 100%);
+            padding: 2rem;
+            border-left: 4px solid var(--spore-green);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2rem;
+        }
+        
+        .feels-like p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+        
+        .highlight {
+            color: var(--fungal-glow);
+            font-weight: 600;
+        }
+        
+        .dimension-block {
+            background: rgba(61, 49, 32, 0.3);
+            border: 1px solid var(--decay-brown);
+            border-radius: 6px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .dimension-block:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(74, 93, 35, 0.2);
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--decay-brown);
+        }
+        
+        .dimension-title {
+            font-size: 1.2rem;
+            color: var(--survivor-cream);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .dimension-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--fungal-glow);
+        }
+        
+        .dimension-content {
+            color: var(--survivor-cream);
+            opacity: 0.9;
+        }
+        
+        .dimension-content p {
+            margin-bottom: 0.8rem;
+            text-align: left;
+        }
+        
+        .final-score-block {
+            background: linear-gradient(135deg, rgba(74, 93, 35, 0.2) 0%, rgba(61, 49, 32, 0.4) 100%);
+            border: 2px solid var(--fungal-glow);
+            border-radius: 8px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-score-block::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--spore-green), var(--fungal-glow), var(--cordyceps-orange), var(--fungal-glow), var(--spore-green));
+        }
+        
+        .final-label {
+            font-size: 1rem;
+            color: var(--mold-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+        
+        .final-score {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--fungal-glow);
+            text-shadow: 0 0 30px rgba(125, 143, 60, 0.4);
+        }
+        
+        .score-breakdown {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--decay-brown);
+            font-size: 0.9rem;
+            color: var(--mold-gray);
+        }
+        
+        .quote-box {
+            background: rgba(139, 58, 58, 0.1);
+            border-left: 3px solid var(--infected-red);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .quote-box .attribution {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--mold-gray);
+            font-style: normal;
+        }
+        
+        .cast-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        
+        .cast-member {
+            background: rgba(74, 93, 35, 0.2);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--survivor-cream);
+            border: 1px solid var(--spore-green);
+        }
+        
+        .episode-highlight {
+            background: rgba(166, 104, 46, 0.1);
+            border: 1px solid var(--cordyceps-orange);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+        
+        .episode-highlight h4 {
+            color: var(--cordyceps-orange);
+            margin-bottom: 0.75rem;
+        }
+        
+        .spore-divider {
+            text-align: center;
+            margin: 2rem 0;
+            opacity: 0.3;
+            font-size: 1.5rem;
+            letter-spacing: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid var(--decay-brown);
+            font-size: 0.85rem;
+            color: var(--mold-gray);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .meta-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .dimension-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #7</div>
+        <header>
             <h1>The Last of Us</h1>
-            <p class="subtitle">"When you're lost in the darkness, look for the light"</p>
-            <div class="score-badge">
-                <span class="score-value">8.35</span>
-                <span class="score-label">Final Score</span>
+            <p class="subtitle">HBO's fungal apocalypse masterpiece</p>
+        </header>
+        
+        <div class="meta-info">
+            <div class="meta-item">
+                <div class="meta-label">Created By</div>
+                <div class="meta-value">Craig Mazin & Neil Druckmann</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Based On</div>
+                <div class="meta-value">Naughty Dog Video Game</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Seasons</div>
+                <div class="meta-value">2 (16 Episodes)</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Network</div>
+                <div class="meta-value">HBO (2023-)</div>
             </div>
         </div>
-
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2023-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">9</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">HBO</div></div>
-            <div class="info-item"><div class="info-label">Creators</div><div class="info-value">Craig Mazin, Neil Druckmann</div></div>
+        
+        <div class="cast-list">
+            <span class="cast-member">Pedro Pascal</span>
+            <span class="cast-member">Bella Ramsey</span>
+            <span class="cast-member">Gabriel Luna</span>
+            <span class="cast-member">Merle Dandridge</span>
+            <span class="cast-member">Nick Offerman</span>
+            <span class="cast-member">Murray Bartlett</span>
         </div>
-
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Last of Us is post-apocalyptic horror as father-daughter story. Twenty years after cordyceps infection destroyed civilization, Joel (Pedro Pascal), a smuggler haunted by his daughter's death, is hired to transport Ellie (Bella Ramsey), a 14-year-old girl immune to the infection, across America. The journey is brutal: infected (zombies by fungus), raiders, collapsing communities, the constant calculus of survival. "When you're lost in the darkness, look for the light," someone says. The show's thesis: there is no light, only the people you choose to protect.</p>
-            <p>The relationship between Joel and Ellie is everything—two damaged people, one who lost a daughter, one who never had parents. Their bond grows across the continent: Boston, Kansas City, the university, Jackson, Salt Lake City. "You have no idea what loss is," Joel tells her. He's wrong; Ellie knows loss intimately. By the finale, their relationship has replaced what they've both lost—and Joel makes a choice that defines the series. "Save who you can save," the show's ethos. Joel saves Ellie. He damns humanity to do it.</p>
-            <p>Episode three, "Long, Long Time," is the standout: a detour into Bill and Frank's relationship (Nick Offerman and Murray Bartlett), two men who found love in apocalypse. It'sbeautiful, tragic, complete— a self-contained story that deepens the world without advancing the plot. "This isn't the tragedy you think it is," Frank says. He's right. The show finds humanity in horror, love in collapse, purpose in survival. The infected are threat; but grief is the real enemy.</p>
-            <p>One season, nine episodes, season two announced. The Last of Us is video game adaptation as prestige television— HBO's most faithful, most acclaimed game-to-screen translation. Pedro Pascal and Bella Ramsey are perfect: weary and fierce, broken and determined. The production values: fungal horrors, overgrown cities, the quiet of empty America. "You have no idea what loss is," Joel said. He was wrong. Now he does. And he'll burn the world to avoid feeling it again.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">9</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
+        
+        <section id="feels-like">
+            <h2>🍄 What It Feels Like to Watch</h2>
+            <div class="feels-like">
+                <p>
+                    Watching <strong>The Last of Us</strong> feels like crawling through a dimly lit basement with a flickering flashlight, knowing something terrible waits in the darkness but unable to stop moving forward. It's the heavy, suffocating dread of Pedro Pascal's stoic silence—his weathered face carrying the weight of a man who's lost everything and is terrified to feel again. The Clickers don't just attack; they <em>vibrate</em> with fungal horror, their echolocation clicks echoing through abandoned corridors like the sound of death itself learning your location.
+                </p>
+                <p>
+                    The show excels at making the apocalypse feel personal. This isn't CG zombie hordes; it's intimate, practical horror. The fungal tendrils crawling through collapsed buildings, spore-filled rooms bathed in sickly green light, and the guttural, inhuman sounds of the infected—these elements create a tactile, breathing nightmare that seeps under your skin.
+                </p>
+                
+                <div class="episode-highlight">
+                    <h4>"Long, Long Time" — Episode 3</h4>
+                    <p>A complete departure from the expected zombie-killing formula, this episode delivers emotional devastation of the highest order. Nick Offerman and Murray Bartlett as Bill and Frank create a self-contained love story set against the apocalypse that is devastatingly beautiful. It's a masterclass in emotional storytelling that proves this show understands something rare: the apocalypse doesn't just create monsters; it reveals the depth of human connection when everything else is stripped away. You'll need tissues. Many, many tissues.</p>
+                </div>
+                
+                <p>
+                    This is the <span class="highlight">video game adaptation done right</span>—not by slavishly copying every beat, but by understanding the soul of the source material. It captures the game's essence: the brutal juxtaposition of tender human moments against unimaginable horror. When Joel and Ellie bond over a moment of normalcy in a world gone mad, it hits harder than any jump scare because you feel how fragile that happiness is.
+                </p>
+                <p>
+                    The show feels like <strong>survival in its purest form</strong>—not just physical, but emotional. It's about what we become when survival is all we have left, and what we're willing to do for the people we love. By the end, you're emotionally bruised, deeply invested, and somehow grateful for the experience.
+                </p>
             </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Pedro Pascal and Bella Ramsey are perfect. Nick Offerman's episode three performance is Emmy-worthy.</p>
-            <p><strong>Cinematography (9):</strong> Overgrown America. Fungal horror. Quiet beauty in devastation.</p>
-            <p><strong>Conceptual Density (8):</strong> Grief as enemy. Purpose as survival. Love as destruction. Deep emotional architecture.</p>
+        </section>
+        
+        <div class="spore-divider">◈ ◈ ◈</div>
+        
+        <section id="why-it-ranks">
+            <h2>📊 Why It Ranks — The 7 Dimensions</h2>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">👤 Characters</span>
+                    <span class="dimension-score">7.8<span style="font-size:0.6em;opacity:0.7">/10</span></span>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        The character work in The Last of Us is exceptional, particularly the central father-daughter dynamic that develops between Joel and Ellie. Pedro Pascal delivers a masterclass in restrained performance—his Joel is a man of few words, but every glance, every hesitation speaks volumes. He's not the action hero trope; he's a broken man learning to feel again, and Pascal's weathered, soulful eyes carry decades of pain.
+                    </p>
+                    <p>
+                        Bella Ramsey's Ellie is equally compelling—a foul-mouthed, fiercely independent teenager hiding vulnerability beneath layers of bravado. Their chemistry evolves naturally, never forced, creating a bond that feels earned through shared trauma and small moments of connection.
+                    </p>
+                    <p>
+                        The supporting cast shines in memorable guest appearances. The aforementioned Bill and Frank episode stands as a highlight, but every character—even those with limited screen time—feels fully realized. Merle Dandridge brings gravitas to Marlene, and Gabriel Luna's Tommy carries the weight of a man who tried to rebuild.
+                    </p>
+                    <p>
+                        <em>Why not higher?</em> Some antagonists in Season 2 feel slightly underdeveloped, and certain character motivations in the source material's more morally ambiguous moments don't translate as cleanly to screen. The density of characters in later episodes occasionally sacrifices depth for breadth.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">🌍 World Building</span>
+                    <span class="dimension-score">8.0<span style="font-size:0.6em;opacity:0.7">/10</span></span>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        The world of The Last of Us is a <strong>triumph of environmental storytelling</strong>. Every abandoned location tells a story—overgrown suburbs reclaiming concrete, desperate last stands frozen in time, quarantine zones cracking under authoritarian pressure. The production design team has created one of the most believable post-apocalyptic visions ever committed to screen.
+                    </p>
+                    <p>
+                        The show wisely expands the timeline glimpsed in the game, giving us the devastating initial outbreak through Sarah's eyes—a gut-punch of an opening that grounds the entire series in personal loss. The evolution from panic to QZ (Quarantine Zone) life to the lawless territories beyond feels historically textured, like we're watching actual history unfold.
+                    </p>
+                    <p>
+                        The FEDRA/Firefly political dynamics add layers of complexity. This isn't just zombies vs. survivors; it's competing visions of what civilization should look like after the fall. The Boston QZ's oppression, the Jackson commune's hopeful reconstruction, the scattered settlements each with their own rules—all of it creates a lived-in world that extends far beyond what we see on screen.
+                    </p>
+                    <p>
+                        The fungal infection itself is brilliantly realized—the scientific explanation (cordyceps adapted to humans) gives the horror a grounding in believable biology. Spore clouds, fungal tendril networks connecting the infected, the grotesque physical transformations—this is world-building that understands its monster.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">🎥 Cinematography</span>
+                    <span class="dimension-score">8.0<span style="font-size:0.6em;opacity:0.7">/10</span></span>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        Ksenia Sereda's cinematography crafts a visual language that's simultaneously beautiful and unsettling. The show employs a <strong>muted, desaturated palette</strong> that evokes decay—ochres, desaturated greens, browns, and the sickly phosphorescent glow of fungal growth. It's post-apocalyptic noir, and it's stunning.
+                    </p>
+                    <p>
+                        The camera work alternates between intimate, handheld proximity during character moments and sweeping, mournful wide shots of abandoned America. The contrast is deliberate—humanity in close-up, nature reclaiming civilization in the background. The use of practical lighting (flashlights, fires, bioluminescent fungus) creates atmosphere that CGI could never replicate.
+                    </p>
+                    <p>
+                        Standout sequences include the museum infiltration bathed in moonlight and spore-glow, the Kansas City hotel's claustrophobic corridors, and the heartbreaking beauty of "Long, Long Time" with its golden-hour domesticity juxtaposed against isolation. Each episode feels visually distinct while maintaining cohesive aesthetic unity.
+                    </p>
+                    <p>
+                        The show also knows when to simply let frames breathe—static shots of overgrown nature, fungal tendrils spreading like neural networks, the geometry of abandoned urban decay. It's contemplative cinema disguised as genre television.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">✨ Visual Spectacle</span>
+                    <span class="dimension-score">7.5<span style="font-size:0.6em;opacity:0.7">/10</span></span>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        The Last of Us understands that spectacle doesn't require explosion-filled set pieces. Its visual power comes from <strong>atmospheric dread and practical horror</strong>—the grotesque beauty of the infected, the scale of abandoned civilization, the visceral impact of practical effects.
+                    </p>
+                    <p>
+                        The Clicker designs are nightmarish—human forms twisted by fungal growth, faceplates of hardened mycelium, the way they move with jerky, unnatural precision. These aren't just monsters; they're evolutionary art, and seeing them in live-action surpasses the game's graphical limitations.
+                    </p>
+                    <p>
+                        The Bloater—a hulking mass of fungus and rage—is a triumph of creature design, its reveal a holy-shit moment of practical effects mastery. The infected make-up, the spore effects, the environmental decay—every visual element has been crafted with obsessive attention.
+                    </p>
+                    <p>
+                        <em>The restraint:</em> This isn't a show about constant action. Spectacle comes in bursts, which makes it more impactful when it arrives. Some viewers may find the pacing too measured, but this is deliberate—the horror means more when you've spent time with the characters. The budget is clearly substantial, but it's spent on atmosphere and detail rather than endless CGI carnage.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">🧠 Conceptual Density</span>
+                    <span class="dimension-score">7.4<span style="font-size:0.6em;opacity:0.7">/10</span></span>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        Beneath its genre surface, The Last of_us grapples with <strong>profound questions about humanity, ethics, and survival</strong>. What does family mean when biological bonds are severed? How do we maintain morality when the structures that enforce it have collapsed? What would you sacrifice for someone you love?
+                    </p>
+                    <p>
+                        The show explores the trolley problem in human terms—Joel's actions in the finale aren't presented as heroic or villainous but as human, messy, and devastatingly understandable. It asks whether the greater good can ever justify sacrificing an individual who never consented to be sacrificed.
+                    </p>
+                    <p>
+                        The nature of the virus-as-metaphor (connection, fungal networks echoing human communities) adds thematic richness. The infected aren't just monsters; they're what we become when connection goes wrong, when the bonds between us become parasitic rather than supportive.
+                    </p>
+                    <p>
+                        <em>Limitations:</em> While emotionally resonant, the philosophical exploration sometimes takes a backseat to survival narrative momentum. The show trusts viewers to find meaning rather than explicitly articulating themes. This rewards attentive viewing but may leave some wanting more overt intellectual engagement.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">📖 Narrative Drive</span>
+                    <span class="dimension-score">8.0<span style="font-size:0.6em;opacity:0.7">/10</span></span>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        The narrative structure—Joel escorting Ellie across America on a desperate quest for a potential cure—provides <strong>inherent momentum</strong> that carries through both seasons. It's episodic in the best way, each chapter a self-contained story that advances the larger journey.
+                    </p>
+                    <p>
+                        The pacing is deliberate, luxuriating in character moments that other shows would rush. This confidence pays off—we care about Joel and Ellie because we've spent time with them, not because the plot demands it. The show isn't afraid of quiet, of stillness, of conversation over confrontation.
+                    </p>
+                    <p>
+                        Season 1's structure builds to an inevitable, devastating conclusion that recontextualizes everything before it. Season 2 expands the scope, introducing new perspectives (Abby's storyline) that complicate the established narrative in fascinating, morally challenging ways.
+                    </p>
+                    <p>
+                        The adaptation from game to screen is instructive—certain sequences are expanded (the Bill/Frank episode), others condensed, but the narrative maintains its essential emotional architecture. The result feels simultaneously faithful and fresh, a difficult balancing act that succeeds admirably.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="dimension-block">
+                <div class="dimension-header">
+                    <span class="dimension-title">🔚 Resolution</span>
+                    <span class="dimension-score">7.4<span style="font-size:0.6em;opacity:0.7">/10</span></span>
+                </div>
+                <div class="dimension-content">
+                    <p>
+                        The season finales (of both seasons released so far) deliver <strong>emotionally wrenching, morally ambiguous conclusions</strong> that refuse easy answers. Season 1's finale is particularly audacious—what Joel does isn't presented as triumphant but as deeply human and deeply problematic.
+                    </p>
+                    <p>
+                        The show has the courage to sit with discomfort. We're not given tidy redemption arcs or clear-cut heroes. Instead, we have people making impossible choices and living with the consequences. The camera lingers on faces in the aftermath, letting us witness the weight of decisions rather than rushing to the next plot point.
+                    </p>
+                    <p>
+                        Season 2's resolution expands the scope in ways that promise a more complex narrative ahead, though some viewers may find its structural choices challenging. The decision to split perspectives and make us empathize with what could easily be considered "the antagonist" is narratively brave, if occasionally frustrating.
+                    </p>
+                    <p>
+                        <em>Caveat:</em> With the series ongoing, true resolution remains pending. The current endings serve as chapter breaks rather than definitive conclusions. This ambiguity is thematically appropriate for a show about ongoing survival, but may leave some viewers unsatisfied compared to complete, self-contained narratives.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="final-score-block">
+            <div class="final-label">Final Composite Score</div>
+            <div class="final-score">7.39</div>
+            <p style="color: var(--mold-gray); margin-top: 1rem; font-size: 1rem;">
+                A haunting, beautifully crafted adaptation that honors its source material while standing as its own achievement. The rare video game adaptation that transcends its origins to become essential television.
+            </p>
+            <div class="score-breakdown">
+                Characters 7.8 | World Building 8.0 | Cinematography 8.0 | Visual Spectacle 7.5 | Conceptual Density 7.4 | Narrative Drive 8.0 | Resolution 7.4
+            </div>
         </div>
-
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>("When You're Lost in the Darkness" (S1E1)</strong> — The outbreak. Sarah's death. Twenty years later.</p>
-            <p><strong>("Long, Long Time" (S1E3)</strong> — Bill and Frank. "This isn't the tragedy you think it is."</p>
-            <p><strong>("Left Behind" (S1E7)</strong> — Ellie's past. Riley. "I'm infected."</p>
-            <p><strong>("Look for the Light" (S1E9)</strong> — Season one finale. The choice. "Save who you can save."</p>
+        
+        <div class="quote-box">
+            "After all we've been through. Everything that I've done. It can't be for nothing."
+            <span class="attribution">— Joel Miller</span>
         </div>
-
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> HBO Max</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
-        </div>
+        
+        <footer>
+            <p>TV Shows Ranked • 7-Dimension Analysis Framework</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Analysis based on Seasons 1-2 (2023-2025)</p>
+        </footer>
     </div>
 </body>
 </html>

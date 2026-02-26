@@ -3,88 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Narcos - "Plata o plomo" | Dynamic Rank Engine</title>
+    <title>Narcos - 7-Dimension Analysis</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #4caf50; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #4caf50, #2e7d32); color: #e8f5e9; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #a5d6a7; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(76,175,80,0.3), rgba(0,0,0,0.9)); border: 3px solid #4caf50; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #a5d6a7; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #4caf50; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #a5d6a7; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(76,175,80,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #a5d6a7; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #a5d6a7; font-weight: 700; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #0d1b0d 0%, #1a2f1a 50%, #0f2610 100%);
+            color: #e8e8e8;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 100%);
+            border-bottom: 3px solid #2d5a2d;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #a8c9a8;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+        
+        .show-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            background: rgba(20, 40, 20, 0.6);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #d4af37;
+            margin-bottom: 50px;
+        }
+        
+        .meta-item {
+            padding: 10px 0;
+        }
+        
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #7aa87a;
+            margin-bottom: 5px;
+        }
+        
+        .meta-value {
+            font-size: 1rem;
+            color: #f0f0f0;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: #d4af37;
+            margin: 50px 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #2d5a2d;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .feels-like {
+            background: rgba(30, 50, 30, 0.5);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #3d6a3d;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feels-like::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 150px;
+            color: rgba(212, 175, 55, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .feels-like p {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #dcdcdc;
+            text-align: justify;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .rankings-section { margin-bottom: 2rem; }
+        .rankings-header { text-align: center; margin-bottom: 2.5rem; }
+        .rankings-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; color: #e0e0e0; }
+        .rankings-subtitle { color: #a0aec0; font-size: 1.1rem; }
+        
+        .dimension-block {
+            background: rgba(30,30,30,0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .dimension-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-width: 100px;
+        }
+        
+        .score-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: #e0e0e0;
+        }
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: conic-gradient(#d4af37 calc(var(--score) * 1%), rgba(255,255,255,0.1) 0);
+            z-index: -1;
+        }
+        .score-circle::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(30,30,30,0.9);
+        }
+        .score-label {
+            font-size: 0.75rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .dimension-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: #e0e0e0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .dimension-content p {
+            color: #c8c8c8;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .dimension-content p:last-child {
+            margin-bottom: 0;
+        }
+        @media (max-width: 768px) {
+            .dimension-block { grid-template-columns: 1fr; }
+        }
+        
+        .final-score-block {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(45, 90, 45, 0.3) 100%);
+            border: 3px solid #d4af37;
+            border-radius: 15px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .final-score-label {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #a8c9a8;
+            margin-bottom: 20px;
+        }
+        
+        .final-score-value {
+            font-size: 5rem;
+            font-weight: 700;
+            color: #d4af37;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+            line-height: 1;
+        }
+        
+        .score-summary {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            color: #b8b8b8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.9;
+        }
+        
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .score-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        .score-item-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7aa87a;
+            margin-bottom: 5px;
+        }
+        
+        .score-item-value {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #f0f0f0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            border-top: 1px solid #2d5a2d;
+            color: #5a8a5a;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; letter-spacing: 4px; }
+            h2 { font-size: 1.5rem; }
+            .feels-like { padding: 25px; }
+            .final-score-value { font-size: 3.5rem; }
+            .dimension-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .dimension-title { font-size: 1.1rem; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #46</div>
+        <header>
             <h1>Narcos</h1>
-            <p class="subtitle">"Plata o plomo"</p>
-            <div class="score-badge">
-                <span class="score-value">7.90</span>
-                <span class="score-label">Final Score</span>
+            <p class="subtitle">A Chronicle of Power, Corruption, and the American Dream in Reverse</p>
+        </header>
+        
+        <div class="show-meta">
+            <div class="meta-item">
+                <div class="meta-label">Created By</div>
+                <div class="meta-value">Chris Brancato, Carlo Bernard, Doug Miro</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Starring</div>
+                <div class="meta-value">Wagner Moura, Pedro Pascal, Boyd Holbrook, Maurice Compte, Diego Cataño</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Genre</div>
+                <div class="meta-value">Crime Drama / Biography</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Platform</div>
+                <div class="meta-value">Netflix</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Run</div>
+                <div class="meta-value">2015 - 2017</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Seasons / Episodes</div>
+                <div class="meta-value">3 Seasons / 30 Episodes</div>
             </div>
         </div>
+        
+        <h2>What It Feels Like to Watch</h2>
+        <div class="feels-like">
+            <p>Watching Narcos is like stepping into a fever dream of 1980s Colombia, where the humid jungle air practically drips from your screen and the weight of impossible wealth presses against every frame. You are immediately transported into a world where Pablo Escobar, portrayed with mesmerizing complexity by Wagner Moura, looms larger than life itself—a man who built an empire on cocaine and blood, yet somehow commanded the love of millions. The series immerses you in the gritty reality of the drug trade, where DEA agents Steve Murphy and Javier Peña navigate a labyrinth of corruption that extends from the streets of Medellín to the highest halls of Colombian government and even touches American shores.
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2015-2017</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">30</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Netflix</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Chris Brancato, Carlo Bernard, Doug Miro</div></div>
+The experience is visceral and documentary-like, thanks to the brilliant integration of archival footage that reminds you this is not merely fiction—this is history, raw and unfiltered. You feel the tension of every phone call, the danger in every corner, the sweat on every brow. The show doesn't glamorize Escobar; instead, it presents him as both a monster and a family man, a revolutionary and a terrorist, a philanthropist and a mass murderer. You're simultaneously repulsed and fascinated, unable to look away as the Medellín cartel rises to heights of power that seem almost mythological, only to crumble under the weight of its own excess and violence.
+
+There's a hypnotic rhythm to Narcos, punctuated by the omniscient narrator who guides you through this underworld like Virgil through the circles of hell. The Spanish-language dialogue, often untranslated, keeps you off-balance and immersed in authenticity. You feel the desperation of the Colombian people caught between Escobar's terror and the government's heavy-handed response. By the end, you're exhausted, exhilarated, and strangely hollow—witness to a tragedy that claimed thousands of lives and reshaped an entire nation. It's television as history lesson, as thriller, as character study, and as moral meditation on the cost of the drug war. Narcos doesn't just tell you about Pablo Escobar; it makes you understand why he became inevitable, why he lasted so long, and why his fall was never truly a victory.</p>
         </div>
-
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Narcos is the story of Pablo Escobar—and the Americans who hunted him. "Plata o plomo," Escobar says. Silver or lead. Take the bribe or take the bullet. The show opens with DEA agent Steve Murphy (Boyd Holbrook) narrating: "There's no reason this story should start with me. I'm nobody." But it does start with him, and with his partner Javier Peña (Pedro Pascal), and with their impossible task: bring down the man who controlled eighty percent of the world's cocaine.</p>
-            <p>Wagner Moura's Pablo Escobar is magnificent—charming, terrifying, oddly sympathetic, and utterly ruthless. He's a family man who orders assassinations. He's a populist who builds housing for the poor while bombing planes. He's a monster who believes his own mythology. "I'm not a criminal," he says. "I'm a businessman." He's both. The show's genius is showing how Escobar's rise was enabled by everyone: corrupt politicians, greedy bankers, American consumers, and an economic system that rewards those ruthless enough to exploit it.</p>
-            <p>The first two seasons follow Escobar's rise and fall: his election to congress, his war against the state, his imprisonment in La Catedral (a prison he built himself), his escape, and his death on a rooftop in Medellín. Season three follows the Cali Cartel—smoother, more corporate, more dangerous. "The Cali godfathers liked to say they were different from Pablo," Murphy narrates. "They were. They were worse." The show's thesis: the drug war is unwinnable because there's always another cartel, another kingpin, another supply meeting demand.</p>
-            <p>Three seasons, thirty episodes. Narcos spawned a Mexico sequel. It's essential viewing for understanding the drug war—not as a morality tale, but as a system. Escobar was a monster. He was also a symptom. "The cocaine business is a perfect market," a character says. "There will always be supply as long as there is demand." The war continues.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
+        
+        <h2>Why It Ranks</h2>
+        
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 75;"><span>7.5</span></div>
+                <span class="score-label">CHARACTERS</span>
             </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Wagner Moura IS Escobar. Pedro Pascal's Peña. Boyd Holbrook's Murphy. Brilliant ensemble.</p>
-            <p><strong>World Building (9):</strong> 1980s Colombia, Medellín bureaucracy, cartel politics. Immersive, educational, thrilling.</p>
-            <p><strong>Narrative Drive (9):</strong> Two seasons of Escobar cat-and-mouse, plus Cali. Never boring. Pacing is relentless.</p>
+            <div class="dimension-content">
+                <h3>Characters</h3>
+                <p>The character work in Narcos is anchored by Wagner Moura's transformative portrayal of Pablo Escobar, which elevates the entire series. Moura doesn't simply play Escobar—he embodies him completely, gaining significant weight and mastering the Colombian accent to create a figure of both immense charisma and terrifying menace. Escobar emerges as a fully realized paradox: a loving family man who murders without remorse, a man of the people who orders the assassination of presidential candidates, a self-made billionaire who sleeps in rural hideouts. The complexity is genuine and earned, making Escobar one of television's most compelling antiheroes precisely because he isn't framed as one—he's presented as a historical force of nature.</p>
+                
+                <p>Pedro Pascal's Javier Peña and Boyd Holbrook's Steve Murphy serve as our entry points into this world, though they sometimes feel overshadowed by Moura's dominating presence. Their dynamic as DEA partners navigating the impossible waters of Colombian corruption provides solid grounding, and Pascal in particular brings a world-weary determination that hints at depths beyond the script. The series excels at populating its world with memorable supporting figures: Maurice Compte's Colonel Carrillo represents the brutal efficiency of counter-narcotics operations, while Diego Cataño's Juan Pablo Escobar shows the generational trauma of growing up in the kingpin's shadow.</p>
+                
+                <p>Where the series falters slightly is in the development of its antagonists beyond Escobar himself. The Cali Cartel figures and various political players sometimes feel like plot devices rather than fully dimensional characters. The American characters, particularly in the first season, occasionally slip into "gringo observer" territory, their personal lives sketched rather than deeply explored. Nevertheless, the sheer force of Moura's performance and the authenticity of the Colombian cast—many of whom bring genuine regional flavor and emotional truth to their roles—carry the characterization to impressive heights. The show understands that in the world of narcotics trafficking, characters are defined by their choices under pressure, and it puts nearly everyone in impossible situations that reveal their true nature.</p>
+            </div>
         </div>
-
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Descenso" (S1E1)</strong> — The introduction. "There's no reason this story should start with me."</p>
-            <p><strong>"La Catedral" (S2E3)</strong> — Escobar's prison. A cage of his own making.</p>
-            <p><strong>"Al Fin Cayó!" (S2E10)</strong> — Escobar's death. The rooftop. "We got him."</p>
-            <p><strong>"Going Back to Cali" (S3E1)</strong> — The new enemy. "They were worse."</p>
+        
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 80;"><span>8.0</span></div>
+                <span class="score-label">WORLD BUILDING</span>
+            </div>
+            <div class="dimension-content">
+                <h3>World Building</h3>
+                <p>Narcos achieves a remarkable feat of world building by reconstructing 1980s Colombia with such meticulous detail that the past feels urgently present. The series transports viewers to a specific time and place—the era of Escobar's rise—when the cocaine boom transformed Colombia from a relatively obscure South American nation into the epicenter of a global criminal enterprise. The production design captures the contradictions of this world: the rustic simplicity of Escobar's early days in Medellín alongside the ostentatious luxury of his Hacienda Nápoles, complete with imported animals and golden bathrooms; the chaotic energy of Cali's streets versus the fortified isolation of cartel safe houses.</p>
+                
+                <p>The series excels at depicting the institutional ecosystem that allowed the drug trade to flourish. Narcos doesn't just show us cocaine being produced and smuggled; it maps the entire network of corruption that encompassed police departments, the military, the judiciary, congress, and even the presidency. The Extraditables movement, the Palace of Justice siege, the constitutional battle over extradition—these historical events are woven into the narrative with confidence and clarity. The viewer comes away understanding not just what happened, but the structural conditions that made it possible. The show captures the peculiar relationship between the cartels and Colombian society, where Escobar was simultaneously a Robin Hood figure and public enemy number one.</p>
+                
+                <p>The temporal scope of the world building impresses as well, spanning Escobar's early smuggling days through the peak of his power to his eventual downfall. We witness the evolution of counter-narcotics efforts, the shifting alliances within and between cartels, and the way American intervention complicated an already volatile situation. The series incorporates real news footage with seamless precision, creating a documentary-like texture that constantly reminds viewers this world actually existed. The ambient details—from the music of the era to the fashion, vehicles, and architecture—create an immersive environment that never feels like a set. Colombia itself becomes a character: beautiful, damaged, resilient, and haunted. The world of Narcos is one where violence is infrastructure, where everyone is compromised, and where the line between civilization and chaos is terrifyingly thin.</p>
+            </div>
         </div>
-
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US/UK:</strong> Netflix</p>
+        
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 75;"><span>7.5</span></div>
+                <span class="score-label">CINEMATOGRAPHY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Cinematography</h3>
+                <p>The cinematography of Narcos adopts a gritty, documentary-style aesthetic that serves the material perfectly, eschewing glossy Hollywood sheen for something earthier and more immediate. The visual approach draws from the tradition of political thrillers and war photography, utilizing handheld camera work that creates a sense of instability and danger. This is particularly effective in the action sequences, where shootouts and raids feel chaotic and unchoreographed, capturing the messy reality of urban warfare. The camera lingers on faces, allowing the weight of impossible decisions to register in close-up reactions and micro-expressions.</p>
+                
+                <p>The color palette deserves special mention for its atmospheric contribution. Narcos bathes Colombia in lush greens and humid browns, capturing the paradox of a beautiful tropical paradise harboring brutal violence. Night sequences employ deep shadows punctuated by the warm glow of streetlights or the harsh flash of police spotlights, creating a noir sensibility that transcends the typical crime drama. The transition between Colombia's different regions—mountainous Medellín, coastal areas, the urban density of Cali—is handled with geographic specificity that enhances the sense of place.</p>
+                
+                <p>The integration of archival footage represents one of the series' most distinctive visual strategies. Real photographs and video from the period are interwoven with the dramatized events, creating a temporal slippage that constantly reminds viewers of the history behind the fiction. This technique requires careful calibration to avoid jarring transitions, and for the most part, Narcos succeeds admirably. The archival materials ground the narrative in documentary reality while the dramatic footage provides emotional immediacy. However, the series occasionally relies on visual clichés of the crime genre—slow-motion violence, stylized drug processing montages—that feel somewhat familiar. The cinematography works best when it steps back and observes, letting the landscapes and faces carry the visual storytelling. The camera respects the locations, capturing Colombia's beauty without romanticizing it, acknowledging the violence without fetishizing it.</p>
+            </div>
         </div>
+        
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 75;"><span>7.5</span></div>
+                <span class="score-label">VISUAL SPECTACLE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Visual Spectacle</h3>
+                <p>Narcos delivers visual spectacle that operates on multiple registers, from the opulent excess of cartel wealth to the raw brutality of narco-terrorism. The show presents an empire built on cocaine through images of staggering abundance: cash piled in warehouses, exotic animals roaming private zoos, gold-plated weapons, and ostentatious celebrations that would make Gatsby blush. These moments of visual excess serve a narrative purpose—they dramatize the scale of Escobar's wealth and the seductive power of the drug trade. The infamous Hacienda Nápoles becomes a symbol of this excess, its absurd luxury contrasted against the poverty of rural Colombia, creating a visual metaphor for the inequality that fueled Escobar's popular support.</p>
+                
+                <p>The series stages action set pieces with kinetic energy that occasionally rivals feature films. The siege of the Palace of Justice, the numerous prison breaks, the constant assassinations and retaliations—these sequences are choreographed with intensity and clarity. The visual language of cartel violence becomes its own spectacle: car bombs in Bogotá, bodies displayed as messages, the infamous "plata o plomo" dichotomy made viscerally real. Yet Narcos generally avoids glamorizing this violence; the camera witnesses but doesn't celebrate, presenting brutality as both horrifying and bureaucratically routine. The visual impact of seeing Escobar's forces clash with the Search Bloc or Los Pepes carries genuine weight.</p>
+                
+                <p>However, Narcos is not primarily a spectacle-driven series, and its visual thrills serve the documentary realism rather than overwhelming it. The production lacks the cinematic polish of big-budget crime films, which is largely intentional but occasionally manifests as budget constraints—the sets sometimes feel contained, the explosions practical rather than spectacular. The spectacle works best when it's grounded in historical reality: the actual footage of Escobar's final moments, the real locations used for key scenes, the practical recreation of period vehicles and fashion. The visual power of Narcos comes from its commitment to authenticity rather than stylization. When the show does go big—the sprawling landscapes of Colombia, the massive operations of cocaine production and distribution—it delivers images that linger in the memory precisely because they feel earned by the narrative rather than imposed upon it.</p>
+            </div>
+        </div>
+        
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 70;"><span>7.0</span></div>
+                <span class="score-label">CONCEPTUAL DENSITY</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Conceptual Density</h3>
+                <p>Narcos engages with a rich tapestry of themes that extend far beyond the simple "rise and fall of a drug lord" narrative. At its core, the series explores the American Dream twisted into nightmare—a self-made man who achieves impossible wealth through criminal enterprise, only to find that success brings isolation, paranoia, and early death. Escobar embodies the dark inverse of meritocracy, his ascent enabled by the same entrepreneurial spirit celebrated in legitimate business, but applied to a product that destroys lives and communities. The show interrogates capitalism's shadow economy, where supply meets demand regardless of legality, and questions the moral architecture of a world where cocaine money flows through the same banking systems that handle respectable commerce.</p>
+                
+                <p>The series engages meaningfully with Colombian history and politics, dramatizing the cost of the drug war on Latin American societies often treated as mere backdrop in American narratives. Extradition, sovereignty, corruption, and the limits of state power emerge as genuine conceptual concerns. Narcos asks uncomfortable questions: What does it mean when criminals become more popular than the government? How does a nation survive when its institutions are compromised at every level? The show's examination of the relationship between the United States and Colombia—partnership and exploitation intertwined—adds geopolitical complexity. The DEA agents are neither heroes nor villains but operatives in a system whose contradictions they occasionally glimpse.</p>
+                
+                <p>Where the conceptual depth encounters limitations is in its occasional tendency toward historical determinism and its somewhat schematic treatment of good and evil. Some characters serve thematic functions more than psychological complexity. The series can feel at times like it's ticking boxes of the crime drama genre rather than genuinely interrogating its subjects. The ethical questions raised—about violence, state power, economic justice—are often presented more than resolved. Nevertheless, Narcos packs genuine intellectual substance into its propulsive narrative. It succeeds as both entertainment and edification, using Escobar's story to illuminate broader patterns of power, corruption, and the unintended consequences of prohibition. The show respects the intelligence of its audience enough to present complexity without demanding complete comprehension, allowing the moral and political ambiguities to resonate without forced resolution.</p>
+            </div>
+        </div>
+        
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 75;"><span>7.5</span></div>
+                <span class="score-label">NARRATIVE DRIVE</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Narrative Drive</h3>
+                <p>Narcos barrels forward with a narrative momentum befitting the cocaine trade it depicts—fast, relentless, and frequently overwhelming. The structure, organized around Escobar's rise and eventual fall, provides a clear through-line that keeps viewers locked in over three seasons of escalating intensity. The show employs a hybrid narrative approach, blending serialized long-form storytelling with procedural elements as the DEA builds cases and tracks targets. Each episode advances multiple plot threads: the cartel's operations, the political negotiations between Bogotá and Washington, the personal costs borne by those caught in the crossfire. This density ensures that lulls in action are filled with intrigue, character development, and historical context.</p>
+                
+                <p>The series benefits immensely from its narrated framework, with voiceover providing historical background, narrative transitions, and thematic commentary. This device—somewhat risky in prestige television where "show, don't tell" is gospel—actually enhances the documentary texture and allows for efficient movement through years of history. The narrator becomes a character in his own right, guiding viewers through the labyrinthine politics of Colombian drug trafficking with sardonic wisdom. The temporal jumps, geographical shifts, and large ensemble are managed with confidence that assumes audience engagement and intelligence.</p>
+                
+                <p>The narrative encounters challenges in its second and third seasons as the inevitability of Escobar's fate becomes increasingly apparent. The cat-and-mouse game between the kingpin and his pursuers, while historically accurate, occasionally stalls in repetitive cycles of near-capture and escape. The shift to Cali in later seasons requires significant reset of narrative investment, and the sprawling cast means some storylines receive more attention than others. Nevertheless, the overall architecture holds together impressively. Narcos understands that the downfall is built into the rise—that every empire contains the seeds of its destruction—and it structures its narrative to make this inevitable tragedy feel both surprising and earned. The pacing builds toward Escobar's end with inexorable force, making the final episodes genuinely suspenseful despite historical foreknowledge. It's storytelling that respects the urgency of the history it dramatizes, never losing sight of the human stakes in its sweep of events.</p>
+            </div>
+        </div>
+        
+        <div class="dimension-block">
+            <div class="dimension-score">
+                <div class="score-circle" style="--score: 75;"><span>7.5</span></div>
+                <span class="score-label">RESOLUTION</span>
+            </div>
+            <div class="dimension-content">
+                <h3>Resolution</h3>
+                <p>Narcos delivers a conclusion that honors the historical record while providing satisfying narrative closure to its central figure's story arc. Pablo Escobar's death on a Medellín rooftop in December 1993 is rendered with appropriate solemnity and inevitability—a king cornered at last, his empire in ruins, his family scattered, his body finally mortal. The series resists the temptation to romanticize this ending or to suggest that justice has been fully served. Escobar goes out not as a martyr nor as a complete villain, but as a man whose choices have led him to an unavoidable terminus. The final episodes of Season 2, which chronicle the last months of his life in hiding, achieve a surprising pathos as we witness the dissolution of the myth and the exposure of the frightened, hunted man beneath.</p>
+                
+                <p>The resolution extends beyond Escobar himself to address the aftermath of his reign. The series acknowledges that killing the kingpin did not solve cocaine trafficking—it simply reshuffled the power dynamics toward the Cali Cartel. This larger contextual honesty gives the conclusion genuine weight: we understand that the story we've witnessed is one chapter in a much longer tragedy. The fate of the various characters caught in Escobar's orbit—some dead, some imprisoned, some escaped, some irreparably damaged—receives appropriate attention. The DEA agents' personal journeys reach something like closure, though the open-ended nature of their work resists neat happy endings.</p>
+                
+                <p>Season 3's pivot to the Cali Cartel represents a narrative gamble that partially pays off—extending the series' scope while inevitably diluting the focused intensity of the Escobar narrative. The show attempts to suggest cyclical patterns, that the same stories repeat with different players, which is thematically appropriate but can't quite recapture the dramatic investment established earlier. Nevertheless, Narcos succeeds where many historical dramas fail: it delivers an ending that feels true to its subject matter without sacrificing narrative satisfaction. The final images of Escobar's body on the rooftop, photographed like any other cartel casualty, achieve a brutal poetry that encapsulates the show's perspective on power's ultimate fragility. The series concludes not with triumph but with reckoning, acknowledging that the war on drugs continues and that the costs already paid can never be recovered.</p>
+            </div>
+        </div>
+        
+        <div class="final-score-block">
+            <div class="final-score-label">Overall Assessment</div>
+            <div class="final-score-value">7.45</div>
+            <p class="score-summary">Narcos stands as one of Netflix's most ambitious and accomplished original series, successfully dramatizing recent history with the energy of a thriller and the depth of a documentary. Wagner Moura's transformation into Pablo Escobar anchors the show with a performance that transcends the crime drama genre, while the series' commitment to authenticity—in language, location, and historical detail—creates an immersive experience that feels genuinely transportive. The series occasionally struggles to balance its documentary impulses with dramatic necessities, and some supporting characters remain more functional than fully realized. Nevertheless, Narcos delivers a compelling examination of power, corruption, and the human cost of the drug trade, wrapped in a propulsive narrative that maintains tension across three seasons. It stands as essential viewing for anyone interested in Latin American history, the war on drugs, or simply masterful television storytelling. The show's legacy endures not just as entertainment but as a gateway to understanding one of the most turbulent periods in Colombian history.</p>
+            <div class="score-breakdown">
+                <div class="score-item">
+                    <div class="score-item-label">Characters</div>
+                    <div class="score-item-value">7.5</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">World Building</div>
+                    <div class="score-item-value">8.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">Cinematography</div>
+                    <div class="score-item-value">7.5</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">Visual Spectacle</div>
+                    <div class="score-item-value">7.5</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">Conceptual Density</div>
+                    <div class="score-item-value">7.0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">Narrative Drive</div>
+                    <div class="score-item-value">7.5</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-item-label">Resolution</div>
+                    <div class="score-item-value">7.5</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Narcos Analysis | TV Shows Ranked | Analysis generated for comprehensive review</p>
+        </footer>
     </div>
 </body>
 </html>

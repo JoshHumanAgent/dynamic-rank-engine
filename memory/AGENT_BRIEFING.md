@@ -170,7 +170,9 @@ Auth and user preferences are stored in Firestore. The app uses Firebase compat 
 
 - Don't add `batch-*.js` one-off scripts to `scripts/` — use the general-purpose scripts with config
 - Don't add commentary docs, reports, or logs to the repo root
-- Don't touch `_archived/` or anything in `tvshowsranked/` — that's the old folder
-- Don't auto-fetch posters for shows that already have poster URLs
+- Don't touch anything in `tvshowsranked/` — that's the old folder, this is `dynamic-rank-engine`
+- **NEVER overwrite or regenerate an existing `docs/shows/*.html` file** — if a file already exists, it contains hand-crafted detailed narrative content. Only generate HTML for shows where the file does NOT yet exist.
+- **NEVER auto-fetch posters for shows that already have a poster URL** — curated season-specific TMDB posters will be replaced with wrong images
 - Don't add a build step or package.json dependencies without asking
 - Don't duplicate data between files — `index.json` is the single source of truth
+- Don't run batch operations that touch more than one file without checking with Josh first

@@ -3,89 +3,856 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valley - "There's Nothing Happy About It" | Dynamic Rank Engine</title>
+    <title>Happy Valley (2014-2023) - 7-Dimension Analysis | TV Shows Ranked</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #2f4f4f; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #2f4f4f, #1a2f2f); color: #98fb98; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #90ee90; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(47,79,79,0.3), rgba(0,0,0,0.9)); border: 3px solid #2f4f4f; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #90ee90; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #2f4f4f; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #90ee90; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(47,79,79,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #90ee90; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #90ee90; font-weight: 700; }
+        :root {
+            --bg-color: #0a0a0f;
+            --card-bg: #12121a;
+            --accent: #8b0000;
+            --accent-glow: rgba(139, 0, 0, 0.3);
+            --text-primary: #e8e8e8;
+            --text-secondary: #9a9a9a;
+            --text-muted: #6a6a6a;
+            --border: #2a2a3a;
+            --gold: #d4af37;
+            --silver: #a8a8a8;
+            --bronze: #cd7f32;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Header */
+        .show-header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--accent);
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .show-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+            text-shadow: 0 0 60px var(--accent-glow);
+        }
+        
+        .meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .meta span {
+            margin: 0 12px;
+            color: var(--accent);
+        }
+        
+        .creator {
+            font-size: 1.1rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cast {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Score Badge */
+        .score-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(139, 0, 0, 0.1) 100%);
+            border: 1px solid var(--accent);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-top: 30px;
+        }
+        
+        .score-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        
+        .score-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Sections */
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        /* Feel Section */
+        .feel-section {
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(139, 0, 0, 0.05) 100%);
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .feel-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text-primary);
+        }
+        
+        .feel-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .feel-text p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        .character-name {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* Dimension Cards */
+        .dimension-grid {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .dimension-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .dimension-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(139, 0, 0, 0.15);
+        }
+        
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .dimension-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .dimension-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .dimension-score {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .dimension-score.high { color: var(--gold); }
+        .dimension-score.good { color: #90EE90; }
+        .dimension-score.moderate { color: var(--bronze); }
+        
+        .dimension-content {
+            padding: 30px;
+        }
+        
+        .dimension-content h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .dimension-content p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .dimension-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .strength-weakness {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .sw-box {
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .sw-box.strength {
+            background: rgba(144, 238, 144, 0.1);
+            border-left: 3px solid #90EE90;
+        }
+        
+        .sw-box.weakness {
+            background: rgba(139, 0, 0, 0.1);
+            border-left: 3px solid var(--accent);
+        }
+        
+        .sw-box h5 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+        
+        .sw-box.strength h5 { color: #90EE90; }
+        .sw-box.weakness h5 { color: var(--accent); }
+        
+        .sw-box ul {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .sw-box li {
+            margin-bottom: 5px;
+        }
+        
+        /* Final Score Section */
+        .final-score-section {
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(139, 0, 0, 0.1) 100%);
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-score-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 0, 0, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .final-score-display {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .final-score-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(4rem, 10vw, 6rem);
+            font-weight: 700;
+            color: var(--gold);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            margin-bottom: 15px;
+        }
+        
+        .final-score-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 30px;
+        }
+        
+        .score-breakdown {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .breakdown-item {
+            text-align: center;
+        }
+        
+        .breakdown-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .breakdown-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 5px;
+        }
+        
+        .tier-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
+            color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 10px 25px;
+            border-radius: 25px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .show-header {
+                padding: 40px 0;
+            }
+            
+            .feel-section {
+                padding: 25px;
+            }
+            
+            .dimension-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .strength-weakness {
+                grid-template-columns: 1fr;
+            }
+            
+            .final-score-section {
+                padding: 30px 20px;
+            }
+            
+            .score-breakdown {
+                gap: 20px;
+            }
+        }
+        
+        /* Quote Styling */
+        .quote-block {
+            border-left: 3px solid var(--gold);
+            padding-left: 25px;
+            margin: 25px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .quote-block cite {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Key Moment */
+        .key-moment {
+            background: rgba(139, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .key-moment h5 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .key-moment p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #73</div>
-            <h1>Happy Valley</h1>
-            <p class="subtitle">"There's Nothing Happy About It"</p>
+        <!-- Header -->
+        <header class="show-header">
+            <h1 class="title">Happy Valley</h1>
+            <div class="meta">
+                BBC One <span>•</span> 2014-2023 <span>•</span> 3 Seasons <span>•</span> 18 Episodes
+            </div>
+            <div class="creator">Created by Sally Wainwright</div>
+            <div class="cast">Sarah Lancashire • James Norton • Charlie Murphy • Siobhan Finneran • Shane Meadows</div>
             <div class="score-badge">
-                <span class="score-value">7.70</span>
+                <span class="score-number">7.22</span>
                 <span class="score-label">Final Score</span>
             </div>
-        </div>
+        </header>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2014-2023</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">18</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">BBC One</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Sally Wainwright</div></div>
-        </div>
-
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Happy Valley is a police drama that doesn't feel like a police drama. Sally Wainwright created a show about a Yorkshire police sergeant named Catherine Cawood, but the crimes she investigates are secondary to the grief she carries. Her daughter committed suicide after being raped. Her grandson is the child of that rape. The man responsible is out of prison. This is the context for everything.</p>
-            <p>Sarah Lancashire plays Catherine with a ferocity that's hard to describe. She's not a tortured detective—she's a grandmother raising a child who reminds her of the worst thing that ever happened to her family, and she's trying to do right by that child while working a job that exposes her to other people's tragedies. She's tired, she's angry, she's deeply competent, and she never stops.</p>
-            <p>The title is bitterly ironic. Happy Valley is what the area is called because of a drug problem that makes people numb. There's nothing happy about it. The show is set in Calderdale, West Yorkshire, and the landscape is a character—rolling hills, industrial towns, a beauty that doesn't erase the struggle.</p>
-            <p>James Norton plays Tommy Lee Royce, the man who destroyed Catherine's daughter and fathered her grandson. He's terrifying not because he's a criminal mastermind—he's not—but because he's chaotic, narcissistic, and genuinely believes he's the victim. The show understands that the scariest villains are petty men with grudges.</p>
-            <p>Three seasons, seven years apart. The first two deal with the same crime. The third, which arrived in 2023, feels like a different show—quieter, focused on Catherine's possible retirement, her relationship with her grandson, her decision about whether to keep fighting. It's a masterful conclusion to a story about people who can't stop, even when they want to.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">5</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">9</div><div class="dimension-weight">20% weight</div></div>
+        <!-- What It Feels Like to Watch -->
+        <section class="section">
+            <h2 class="section-title">What It Feels Like to Watch</h2>
+            <div class="feel-section">
+                <div class="feel-text">
+                    <p>Watching <span class="highlight">Happy Valley</span> is like standing on the edge of a Yorkshire moor in winter—breathtakingly beautiful, brutally cold, and impossible to turn away from. From the moment <span class="character-name">Sarah Lancashire</span> appears as Sergeant <span class="character-name">Catherine Cawood</span>, you're pulled into a world where the grit of everyday police work collides with the crushing weight of personal grief.</p>
+                    
+                    <p>This is not your typical police procedural. It's a <span class="highlight">deep character study</span> wrapped in a crime thriller, set against the atmospheric backdrop of Calder Valley in West Yorkshire. The landscape itself becomes a character—bleak, unforgiving, yet strangely beautiful. The gray skies and rain-slicked streets mirror Catherine's internal world: functional on the surface, turbulent beneath.</p>
+                    
+                    <p>The emotional core of the series is Catherine's relationship with trauma. Eight years before the series begins, her daughter <span class="character-name">Becky</span> was raped by <span class="character-name">Tommy Lee Royce</span> (James Norton) and subsequently took her own life, leaving behind a son, Ryan. Catherine's decision to raise Ryan while pursuing a career in law enforcement creates an impossible tension—she is both protector and avenger, grandmother and guardian, professional and deeply, personally invested.</p>
+                    
+                    <p>When Tommy Lee Royce is released from prison and becomes entangled in a kidnapping case, the show transforms from a police drama into something far more primal—a meditation on <span class="highlight">redemption, revenge, and the cyclical nature of violence</span>. Every interaction crackles with unspoken history. Every case Catherine solves carries the weight of the one she couldn't.</p>
+                    
+                    <p>The series feels <span class="highlight">relentlessly human</span>. It's filled with flawed people making impossible choices. Neil Ackroyd, Catherine's ex-husband, carries his own guilt. Clare, her sister, battles addiction while trying to support her family. Even the criminals are rendered with empathy—Tommy Lee Royce is terrifying not because he's a monster, but because he's recognizably human, capable of charm and warmth even as he destroys lives.</p>
+                    
+                    <p>What lingers after watching is the <span class="highlight">sheer authenticity</span> of the performances. Lancashire's portrayal of Catherine is one of the greatest performances in television history—raw, nuanced, and profoundly moving. You feel every setback, every small victory, every moment of bone-deep exhaustion. When she says, "I'm 47 years old, and I'm not going to take any more shit," it's not just a line—it's a philosophy, hard-won through suffering.</p>
+                    
+                    <p>Happy Valley demands emotional investment. It doesn't offer easy catharsis or tidy endings. Instead, it presents life in all its messy, painful, occasionally beautiful reality. It's television as <span class="highlight">emotional endurance</span>—and the rewards are extraordinary.</p>
+                </div>
             </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Sarah Lancashire's Catherine Cawood is one of the great television performances. James Norton makes a villain who's both pathetic and terrifying. Every role is cast perfectly.</p>
-            <p><strong>World Building (9):</strong> Calderdale exists. The show captures a specific place—its geography, its economy, its people—with authenticity that never feels like tourism.</p>
-            <p><strong>Resolution (9):</strong> The third season provides a perfect ending. Catherine's choice. The cycle broken. Seven years of story completed in a way that feels inevitable and right.</p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Episode 1" (S1E1)</strong> — Catherine's world established. Tommy released. The past collides with the present.</p>
-            <p><strong>"Episode 6" (S1E6)</strong> — The season one finale. Catherine and Tommy finally collide. Violence, consequence, aftermath.</p>
-            <p><strong>"Episode 6" (S3E6)</strong> — The series finale. Catherine's last day. A conversation with Ryan. An ending that earns every moment.</p>
-        </div>
+        <!-- Why It Ranks - 7 Dimensions -->
+        <section class="section">
+            <h2 class="section-title">Why It Ranks: The Seven Dimensions</h2>
+            
+            <div class="dimension-grid">
+                <!-- Dimension 1: Characters -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-title">
+                            <span class="dimension-number">1</span>
+                            Characters
+                        </h3>
+                        <span class="dimension-score high">8.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h4>Analysis</h4>
+                        <p>Happy Valley achieves near-perfection in character development. Catherine Cawood stands as one of television's most complex protagonists—a woman simultaneously hardened by trauma and softened by love, uncompromising in her work while struggling with impossible ethical dilemmas. Sarah Lancashire's performance captures every micro-expression, every suppressed emotion, every moment of black humor that makes Catherine feel utterly real.</p>
+                        
+                        <p>The supporting cast is equally remarkable. James Norton's Tommy Lee Royce is a masterclass in creating a villain who is terrifying precisely because of his humanity. He's not a cartoon monster but a damaged, manipulative narcissist who can be genuinely sympathetic in moments—a complexity that makes his violent outbursts all the more disturbing. Siobhan Finneran's Clare provides both comic relief and heartbreaking vulnerability. Charlie Murphy's Ann Gallagher evolves from victim to survivor with breathtaking authenticity.</p>
+                        
+                        <div class="key-moment">
+                            <h5>Key Moment</h5>
+                            <p>Season 2's kitchen confrontation between Catherine and Tommy, where years of pain, guilt, and twisted connection surface. The scene runs for nearly ten minutes without cutting—pure acting mastery.</p>
+                        </div>
+                        
+                        <div class="strength-weakness">
+                            <div class="sw-box strength">
+                                <h5>Strengths</h5>
+                                <ul>
+                                    <li>Sarah Lancashire's career-defining performance</li>
+                                    <li>Tommy Lee Royce's complex villainy</li>
+                                    <li>Authentic, lived-in relationships</li>
+                                    <li>Every character has clear motivation</li>
+                                    <li>Naturalistic dialogue and interactions</li>
+                                </ul>
+                            </div>
+                            <div class="sw-box weakness">
+                                <h5>Limitations</h5>
+                                <ul>
+                                    <li>Some secondary characters underdeveloped</li>
+                                    <li>Certain plot device characters feel thin</li>
+                                    <li>Occasional stereotypical "drug addict" tropes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Netflix, AMC+</p>
-            <p><strong>UK:</strong> BBC iPlayer</p>
-        </div>
+                <!-- Dimension 2: World Building -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-title">
+                            <span class="dimension-number">2</span>
+                            World Building
+                        </h3>
+                        <span class="dimension-score good">7.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h4>Analysis</h4>
+                        <p>The Calder Valley becomes a character in its own right—a post-industrial landscape of former mill towns, struggling communities, and stark natural beauty. Sally Wainwright, herself from Yorkshire, renders this world with documentary-level authenticity. The pubs, the police stations, the housing estates—all feel like real places populated by real people with generations of history.</p>
+                        
+                        <p>The show excels at depicting class dynamics and economic struggle without condescension. This is a world where opioid addiction, petty crime, and domestic violence are reality for many, but the series never indulges in poverty tourism. Instead, it shows the resilience, humor, and community bonds that exist alongside hardship. The police station dynamics feel authentic—the banter, the bureaucracy, the coping mechanisms officers develop to process trauma.</p>
+                        
+                        <div class="key-moment">
+                            <h5>Key Moment</h5>
+                            <p>The opening sequence of Season 1, where Catherine patrols her patch—introducing us to the geography and social fabric of the valley through her eyes, establishing her authority and her compassion.</p>
+                        </div>
+                        
+                        <div class="strength-weakness">
+                            <div class="sw-box strength">
+                                <h5>Strengths</h5>
+                                <ul>
+                                    <li>Authentic Northern English setting</li>
+                                    <li>Realistic portrayal of police culture</li>
+                                    <li>Class dynamics woven naturally</li>
+                                    <li>Stunning natural landscapes</li>
+                                    <li>Sense of lived-in history</li>
+                                </ul>
+                            </div>
+                            <div class="sw-box weakness">
+                                <h5>Limitations</h5>
+                                <ul>
+                                    <li>Limited scope—focused on one region</li>
+                                    <li>Some locations underutilized</li>
+                                    <li>Occasionally repetitive local color</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dimension 3: Cinematography -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-title">
+                            <span class="dimension-number">3</span>
+                            Cinematography
+                        </h3>
+                        <span class="dimension-score good">7.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h4>Analysis</h4>
+                        <p>The visual language of Happy Valley is deliberately restrained and naturalistic, preferring documentary realism over stylized gloss. Cinematographers like Matt Gray and Simon Chapman employ handheld cameras and available light to create a sense of immediacy and intimacy. The color palette is muted—grays, browns, and desaturated greens reflecting the Yorkshire landscape and the somber tone.</p>
+                        
+                        <p>Where the cinematography excels is in its restraint during crucial moments. The camera doesn't exploit violence or suffering but documents it with unflinching honesty. Long takes, particularly in dialogue scenes, create theatrical intensity and allow performances to breathe. The contrast between cramped interiors and expansive moorland shots creates visual poetry—the vastness of nature versus the constraints of urban life.</p>
+                        
+                        <div class="key-moment">
+                            <h5>Key Moment</h5>
+                            <p>The Season 3 finale's final sequence—a long tracking shot following Catherine through the valley that serves as both visual elegy and emotional resolution, cinematography elevated to storytelling.</p>
+                        </div>
+                        
+                        <div class="strength-weakness">
+                            <div class="sw-box strength">
+                                <h5>Strengths</h5>
+                                <ul>
+                                    <li>Naturalistic, documentary-style approach</li>
+                                    <li>Effective use of long takes</li>
+                                    <li>Beautiful landscape photography</li>
+                                    <li>Restrained, non-exploitative violence</li>
+                                    <li>Intimate framing choices</li>
+                                </ul>
+                            </div>
+                            <div class="sw-box weakness">
+                                <h5>Limitations</h5>
+                                <ul>
+                                    <li>Intentionally "ugly" aesthetic may not appeal to all</li>
+                                    <li>Limited visual variety in settings</li>
+                                    <li>Occasionally flat lighting in interiors</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dimension 4: Visual Spectacle -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-title">
+                            <span class="dimension-number">4</span>
+                            Visual Spectacle
+                        </h3>
+                        <span class="dimension-score moderate">5.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h4>Analysis</h4>
+                        <p>Happy Valley deliberately rejects spectacle in favor of realism. There are no elaborate action sequences, no stylized shootouts, no CGI enhancements. The visual impact lies in the power of the performances and the authenticity of the settings, not in grand set pieces. The "spectacle" here is human—Sarah Lancashire's face in a close-up, the weather-beaten landscape, the raw emotion of a confrontation.</p>
+                        
+                        <p>This isn't a weakness—it's a choice that serves the story. When violence does occur, it's sudden, messy, and disturbing precisely because it lacks Hollywood polish. The show earns its emotional impact through restraint, not excess. However, for viewers expecting traditionally "spectacular" television with high production value set pieces, Happy Valley will feel deliberately small-scale.</p>
+                        
+                        <div class="key-moment">
+                            <h5>Key Moment</h5>
+                            <p>The kidnapping rescue in Season 1—filmed with gritty realism rather than action-hero bravado. Catherine is exhausted, terrified, and barely in control. The lack of spectacle makes it more effective.</p>
+                        </div>
+                        
+                        <div class="strength-weakness">
+                            <div class="sw-box strength">
+                                <h5>Strengths</h5>
+                                <ul>
+                                    <li>Authenticity over artifice</li>
+                                    <li>Realistic violence carries weight</li>
+                                    <li>Yorkshire landscapes provide natural beauty</li>
+                                    <li>Human moments feel earned</li>
+                                </ul>
+                            </div>
+                            <div class="sw-box weakness">
+                                <h5>Limitations</h5>
+                                <ul>
+                                    <li>No memorable "set pieces"</li>
+                                    <li>Visual restraint may feel flat</li>
+                                    <li>Budget constraints occasionally visible</li>
+                                    <li>Limited scope for visual creativity</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dimension 5: Conceptual Density -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-title">
+                            <span class="dimension-number">5</span>
+                            Conceptual Density
+                        </h3>
+                        <span class="dimension-score good">7.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h4>Analysis</h4>
+                        <p>Happy Valley explores substantial themes with nuance and care. At its core is an examination of what justice means when the legal system fails you—Catherine is a police officer who understands intimately that the law doesn't always deliver moral justice. This tension—between professional duty and personal vengeance—permeates the series.</p>
+                        
+                        <p>The show interrogates trauma and its aftereffects with unusual honesty. Catherine isn't a plucky survivor who overcomes her pain; she's a woman carrying wounds that will never fully heal, learning to function despite them. The series explores addiction not as moral failing but as complex response to pain. It examines class and economic deprivation, motherhood and sacrifice, the nature of evil and whether redemption is possible.</p>
+                        
+                        <div class="key-moment">
+                            <h5>Key Moment</h5>
+                            <p>Catherine's monologue in therapy (Season 3), where she articulates the burden of her grief and her fear that Ryan may carry Tommy's darkness—a profound meditation on inherited trauma and maternal love.</p>
+                        </div>
+                        
+                        <div class="strength-weakness">
+                            <div class="sw-box strength">
+                                <h5>Strengths</h5>
+                                <ul>
+                                    <li>Complex exploration of trauma</li>
+                                    <li>Nuanced treatment of justice vs. revenge</li>
+                                    <li>Thoughtful class commentary</li>
+                                    <li>Nature of evil and redemption</li>
+                                    <li>Addiction and recovery realism</li>
+                                </ul>
+                            </div>
+                            <div class="sw-box weakness">
+                                <h5>Limitations</h5>
+                                <ul>
+                                    <li>Themes can feel familiar</li>
+                                    <li>Some philosophical questions left hanging</li>
+                                    <li>Occasional heavy-handedness</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dimension 6: Narrative Drive -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-title">
+                            <span class="dimension-number">6</span>
+                            Narrative Drive
+                        </h3>
+                        <span class="dimension-score high">8.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h4>Analysis</h4>
+                        <p>Sally Wainwright is a master of propulsive storytelling, and Happy Valley demonstrates her skill at its peak. Each season operates on multiple levels—police procedural, character study, and thriller—woven together seamlessly. The pacing is deliberate but never slow; every scene serves multiple purposes, advancing plot while deepening character.</p>
+                        
+                        <p>The series structure is brilliant in its architecture. Season 1 establishes the world and central conflict. Season 2 explores consequences and deepens relationships. Season 3 brings everything to a devastating, earned conclusion. The through-line of Catherine vs. Tommy provides narrative spine across nine years of television, while individual seasons feature satisfying self-contained mysteries.</p>
+                        
+                        <div class="key-moment">
+                            <h5>Key Moment</h5>
+                            <p>The midpoint of Season 1, when multiple plot threads—the kidnapping, Catherine's personal history, the organizational investigation—collide in a way that is both surprising and inevitable.</p>
+                        </div>
+                        
+                        <div class="strength-weakness">
+                            <div class="sw-box strength">
+                                <h5>Strengths</h5>
+                                <ul>
+                                    <li>Multi-layered plot architecture</li>
+                                    <li>Tight, efficient scene construction</li>
+                                    <li>Brilliant season-long structure</li>
+                                    <li>Tension sustained across three seasons</li>
+                                    <li>Satisfying payoff in finale</li>
+                                </ul>
+                            </div>
+                            <div class="sw-box weakness">
+                                <h5>Limitations</h5>
+                                <ul>
+                                    <li>Some plot elements strain credulity</li>
+                                    <li>Occasional contrivance to maintain tension</li>
+                                    <li>Long wait between seasons hurt momentum</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dimension 7: Resolution -->
+                <div class="dimension-card">
+                    <div class="dimension-header">
+                        <h3 class="dimension-title">
+                            <span class="dimension-number">7</span>
+                            Resolution
+                        </h3>
+                        <span class="dimension-score high">9.0</span>
+                    </div>
+                    <div class="dimension-content">
+                        <h4>Analysis</h4>
+                        <p>Happy Valley's conclusion stands as one of the finest series finales in television history. Season 3 doesn't merely wrap up plot threads; it completes character arcs, honors the emotional journey, and delivers profound catharsis without easy answers. The resolution between Catherine and Tommy—nine years in the making—subverts expectations while remaining true to both characters.</p>
+                        
+                        <p>The finale's power lies in its refusal to offer simple redemption or revenge. Instead, it finds something more complex and more truthful. Catherine doesn't "win" in the traditional sense—she survives, she endures, she makes peace with impossible choices. The final shot, ambiguous and moving, suggests continuity rather than closure. Life goes on, grief remains, love persists. It's a mature, brave ending that trusts the audience.</p>
+                        
+                        <div class="key-moment">
+                            <h5>Key Moment</h5>
+                            <p>The climactic confrontation between Catherine and Tommy in the finale—dialogue that encapsulates nine years of pain, obsession, and twisted connection. The writing and performances achieve transcendence.</p>
+                        </div>
+                        
+                        <div class="strength-weakness">
+                            <div class="sw-box strength">
+                                <h5>Strengths</h5>
+                                <ul>
+                                    <li>One of TV's greatest finales</li>
+                                    <li>Character arcs completed masterfully</li>
+                                    <li>Emotional catharsis earned</li>
+                                    <li>Surprising yet inevitable ending</li>
+                                    <li>Honors the show's complexity</li>
+                                </ul>
+                            </div>
+                            <div class="sw-box weakness">
+                                <h5>Limitations</h5>
+                                <ul>
+                                    <li>Some secondary plots rushed</li>
+                                    <li>Certain character fates left open</li>
+                                    <li>May frustrate viewers wanting definitive answers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Score -->
+        <section class="section">
+            <h2 class="section-title">Final Assessment</h2>
+            <div class="final-score-section">
+                <div class="final-score-display">
+                    <div class="final-score-number">7.22</div>
+                    <div class="final-score-label">Comprehensive Score</div>
+                    <div class="tier-badge">Gold Tier</div>
+                    
+                    <div class="score-breakdown">
+                        <div class="breakdown-item">
+                            <div class="breakdown-value">8.0</div>
+                            <div class="breakdown-label">Characters</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-value">7.0</div>
+                            <div class="breakdown-label">World Building</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-value">7.0</div>
+                            <div class="breakdown-label">Cinematography</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-value">5.0</div>
+                            <div class="breakdown-label">Visual Spectacle</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-value">7.0</div>
+                            <div class="breakdown-label">Conceptual Density</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-value">8.0</div>
+                            <div class="breakdown-label">Narrative Drive</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-value">9.0</div>
+                            <div class="breakdown-label">Resolution</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quote-block" style="margin-top: 40px;">
+                Happy Valley is a masterclass in what television can achieve when it trusts its audience and its performers. It's not always easy to watch—it's often devastating, occasionally overwhelming, and consistently demanding. But for those willing to invest, it offers rewards that few series can match. This is television as art, as therapy, as moral inquiry. Catherine Cawood joins the pantheon of great television characters, and Sarah Lancashire's performance belongs in the canon of screen acting. While it may lack visual spectacle, it more than compensates with emotional truth. The 7.22 score reflects not just technical achievement but something rarer: genuine human connection captured and preserved on screen.
+                <cite>— TV Shows Ranked Analysis</cite>
+            </div>
+        </section>
     </div>
 </body>
 </html>

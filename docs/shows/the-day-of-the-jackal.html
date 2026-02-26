@@ -1,91 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Day of the Jackal - "The Hunt" | Dynamic Rank Engine</title>
+    <title>The Day of the Jackal - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #2f4f4f; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #2f4f4f, #1a2f2f); color: #b0c4de; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #708090; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(47,79,79,0.3), rgba(0,0,0,0.9)); border: 3px solid #2f4f4f; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #708090; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #2f4f4f; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #708090; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(47,79,79,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #708090; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #708090; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #224</div>
-            <h1>The Day of the Jackal</h1>
-            <p class="subtitle">"The Hunt"</p>
-            <div class="score-badge">
-                <span class="score-value">7.28</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Year</div><div class="info-value">2024</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">10</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Sky/Peacock</div></div>
-            <div class="info-item"><div class="info-label">Developer</div><div class="info-value">Ronan Bennett</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Day of the Jackal reimagines Frederick Forsyth's classic thriller novel as a modern cat-and-mouse chase across Europe. Eddie Redmayne plays the Jackal, an elite assassin who operates with surgical precision—multiple identities, custom weapons, flawless execution. He's hired to kill a tech billionaire whose new surveillance tool could revolutionize global security. Lashana Lynch plays Bianca, the MI6 agent hunting him across borders, borders that mean nothing to either of them.</p>
-            <p>The show's pleasure is watching two professionals work. The Jackal plans assassinations like he's conducting surgery—every exit memorized, every contingency prepared, every identity disposable. Bianca tracks him through forensic accounting, intercepted communications, and the psychological profile of a man who doesn't officially exist. They're both brilliant. They're both damaged. Their collision is inevitable.</p>
-            <p>Eddie Redmayne transforms physically for each identity—the Jackal is less a person than a collection of masks. He speaks multiple languages, moves through the world without being seen, and maintains separate lives that occasionally bleed into each other. His wife and son know him as a businessman. They don't know what he does when he's "traveling for work."</p>
-            <p>The tension is relentless. Every episode tightens the net. The Jackal makes mistakes; Bianca makes mistakes. Both suffer personal costs that escalate as the hunt intensifies. The finale is a confrontation across multiple locations with consequences that change everyone involved.</p>
-            <p>This is prestige thriller work—smart, expensive, adult. The production values are cinematic. The European locations are gorgeous. And Eddie Redmayne proves he can be genuinely menacing, not just sympathetic.</p>
-        </div>
+<p>The Day of the Jackal arrived in November 2024 as television's most expensive and elegant cat-and-mouse thriller—a ten-episode adaptation of Frederick Forsyth's 1971 novel that updates the Cold War assassination plot for the age of private military contractors and populist tech billionaires. With a reported budget of £100 million, the series represents a significant investment by Sky Studios, Universal International Studios, and Carnival Films in prestige television. Eddie Redmayne's Jackal is a professional killer who treats assassination as craft: bespoke rifles, cultivated identities, a life of luxury between jobs. Lashana Lynch's Bianca Pullman is the MI6 weapons expert who becomes obsessed with catching him.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">7</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">6</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">7</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (9):</strong> Eddie Redmayne and Lashana Lynch are perfectly matched antagonists. Both make their characters feel real.</p>
-            <p><strong>Narrative Drive (9):</strong> Every episode advances the hunt. No filler. The tension never releases until the end.</p>
-            <p><strong>Cinematography (8):</strong> European locations shot like a feature film. Each identity transformation isvisually distinct.</p>
-        </div>
+<p>The experience of watching is one of parallel expertise. The series structures itself around both the hunter and the hunted—watching the Jackal prepare a kill, watching Pullman trace the evidence, the two trajectories spiraling toward collision. Created by Ronan Bennett with Brian Kirk as lead director and featuring music by Hauschka (Volker Bertelmann), the show respects competence on both sides: the Jackal's meticulous planning and Pullman's forensic intelligence. There's pleasure in watching professionals work, even when one is a murderer.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Episode 1"</strong> — The first kill. The contract. The Jackal introduced. Bianca's assignment.</p>
-            <p><strong>"Episode 5"</strong> — The midpoint. Both hunter and hunted make critical mistakes.</p>
-            <p><strong>"Episode 10"</strong> — The finale. Confrontation. Consequences. The shot.</p>
-        </div>
+<p>Filmed across four countries—Budapest and Hungary, Vienna and Austria, Croatia including Rijeka and Rabac, and various UK locations—over seven months, the production delivers genuine blockbuster scope. The pilot alone established the series' visual ambitions. Executive producers Eddie Redmayne, Lashana Lynch, Gareth Neame, and Sue Naegle assembled a team that knew how to spend money on screen.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Peacock</p>
-            <p><strong>UK:</strong> Sky Go, NOW</p>
+<p>Redmayne's performance deserves notice: his Jackal is cold without being inhuman, professional without being emotionless. The series gives him a family—a wife Nuria (Úrsula Corberó) who doesn't know his real profession, mother-in-law Marisa (Puchi Lagarde), and child Carlitos—who complicate the character without domesticating him. He kills for money but also, perhaps, for the satisfaction of doing something difficult well. The tragedy is that his skill serves death. Charles Dance appears as his employer Winthrop, adding gravitas to the shadowy figures who commission assassination.</p>
+
+<p>The series became Sky's biggest original launch, with 6.5 million UK viewers for the first episode in its first seven days, surpassing House of the Dragon. In the US, it was Peacock's most-watched original premiere of 2024. The critical response was positive (85% Rotten Tomatoes, 72 Metacritic), and the series earned two Golden Globe nominations—Best Television Series – Drama and Best Actor for Redmayne. The show was renewed for a second season in November 2024, with Weruche Opia and Pablo Schreiber joining as series regulars.</p>
+
+<h2>Why It Ranks #96</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.60</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>The Jackal:</strong> Eddie Redmayne brings unexpected warmth to a character defined by coldness. His Jackal has charm, wit, genuine affection for his family—all of which makes his professional cruelty more disturbing. The performance creates tension between the person and the killer, the man who plays with his child and the man who shoots strangers for money. Redmayne's Golden Globe nomination validates the quality of his work. It's a morally complex portrayal without moralizing, and Redmayne finds the human being beneath the assassin's mask.</p>
+        
+        <p><strong>The Pursuer:</strong> Lashana Lynch's Bianca Pullman provides the necessary counterweight—a woman whose professional obsession costs her family. Her pursuit of the Jackal mirrors his pursuit of targets: methodical, intense, consuming. The parallel between hunter and hunted is explicit and effective. Lynch brings physical presence and intelligence to a role that requires both. Her estranged husband Paul (Sule Rimi) and daughter Jasmine (Florisa Kamara) give her personal stakes beyond professional duty.</p>
+        
+        <p><strong>The Supporting Cast:</strong> The supporting architecture is solid. Úrsula Corberó as Nuria becomes crucial—her gradual discovery of her husband's profession provides dramatic tension separate from the chase. Charles Dance as Winthrop adds aristocratic menace. Chukwudi Iwuji as Osita Halcrow and Eleanor Matsuura as Zina Jansone populate the intelligence world effectively. Richard Dormer as gunsmith Norman Stoke and Kate Dickie as his wife Alison provide Northern Irish color.</p>
+        
+        <p><strong>Character Limitations:</strong> The characters serve the thriller format well, but the show hasn't yet had time to develop the depth that multi-season dramas achieve. The Jackal's psychology, while intriguing, remains somewhat opaque—we understand his methods better than his motivations. Pullman's backstory, particularly her reasons for leaving the police for MI6, could be explored with more depth.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Killing Eve (8) achieved similar cat-and-mouse chemistry with more psychological complexity. The Day of the Jackal prioritizes thriller efficiency over character depth, appropriate for its genre but limiting its ceiling.</p>
+        
+        <p><strong>Why 8:</strong> Strong central performances with effective supporting work. The characters serve the thriller format well and show promise for development in Season 2. Redmayne's Golden Globe nomination confirms the quality.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.13</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The International Assassin Economy:</strong> The series builds a world of private military contractors, black-ops financing, and the infrastructure that enables stateless violence. The Jackal operates in the gaps between jurisdictions, using money and expertise to move through systems that depend on bureaucratic blindness. It's a believable vision of how high-end assassination might actually function in the 21st century.</p>
+        
+        <p><strong>The Intelligence World:</strong> MI6's Section 303 emerges as a convincing workplace—competent but bureaucratic, staffed by people with complicated personal lives. The distinction between MI6 and the police, the chain of command, the international liaison relationships—all feel researched and authentic. The inclusion of American liaison Zina Jansone suggests global scope.</p>
+        
+        <p><strong>The Geographic Texture:</strong> Multiple European locations create a sense of scope—Vienna, Hungarian regions, Croatian coastal locations, UK settings—each with specific visual identity. The production filmed in Budapest, Vienna, and Croatia to create authentic European atmosphere. The Jackal's Spanish property (filmed in Rabac, Croatia) becomes a recurring location that grounds his domestic life.</p>
+        
+        <p><strong>Contemporary Resonance:</strong> The target—a tech billionaire activist—connects to current anxieties about unfettered power and the ethics of influence. The show understands modern assassination as political tool rather than personal vendetta. The updating of Forsyth's 1970s material feels necessary rather than gratuitous.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Bureau (8) built a more comprehensive intelligence world with authentic detail. The Americans (7.5) created deeper institutional texture. The Day of the Jackal builds what it needs without excess, prioritizing forward momentum over world-building depth.</p>
+        
+        <p><strong>Why 7.5:</strong> Effective thriller-world building with strong location work. The infrastructure of assassination is convincing without being elaborate. The contemporary updates feel organic.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Location Photography:</strong> The series' visual strength lies in its European locations—architecture, landscapes, cityscapes used to create scope and sophistication. The camera finds beauty in Budapest's blend of historic and modern, Vienna's imperial grandeur, Croatia's coastal drama. The cinematography serves the thriller's international aspirations with genuine cinematic quality.</p>
+        
+        <p><strong>Action Clarity:</strong> The action sequences—particularly the assassinations and confrontations—are shot with clarity rare in contemporary action. Spatial relationships are maintained; geography makes sense; we understand where everyone is and what's happening. The first episode's complex assassination demonstrates the production's technical competence. This shouldn't be remarkable, but in an era of shaky-cam confusion, it is.</p>
+        
+        <p><strong>The Luxury Aesthetic:</strong> The Jackal's lifestyle—expensive hotels, bespoke tailoring, careful attention to appearance—is captured with appropriate elegance. The contrast between his professional violence and personal refinement is visualized effectively. The costume and production design support the character's cultivated image.</p>
+        
+        <p><strong>Television as Cinema:</strong> With a £100 million budget for ten episodes, the series has genuine feature-film production values. Directors Brian Kirk, Anthony Philipson, Paul Wilmshurst, and Anu Menon bring cinematic sensibility to the small screen. Each episode feels like a movie, as critics noted.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Slow Horses (7) achieves similar British intelligence atmosphere with less money. The Day of the Jackal exceeds contemporary prestige thriller standards with its visual resources. Bond films (9) offer comparable scope; this is the closest television has come to that production value.</p>
+        
+        <p><strong>Why 8.5:</strong> Strong visual craft that serves both the action and the atmosphere. The European locations are used to full effect. The clarity of action filmmaking and the luxury aesthetic elevate the production beyond standard television.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6.5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.65</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Kill Sequences:</strong> The show's spectacle comes through its assassination set-pieces—elaborate preparations, patient waiting, precise execution. The opening sequence establishes the character's method and the show's interest in process. The Jackal's preparation of bespoke weapons, his careful reconnaissance, and his professional execution provide thrills through competence rather than chaos.</p>
+        
+        <p><strong>The Scope:</strong> With £100 million to spend, the show delivers genuine spectacle—the European locations, the action sequences, the production design. The Jackal's property in Spain (filmed in Croatia) provides gorgeous backdrop. The various international settings create a sense of global scope appropriate to a borderless assassin.</p>
+        
+        <p><strong>The Constraints:</strong> This is a thriller, not an action series. There are chases and gunfights, but the spectacle is moderate rather than overwhelming. The show prioritizes tension over display. Some critics, including David Fear of Rolling Stone, felt the show became a "Mid TV Travelogue"—gorgeous but insufficiently propulsive.</p>
+        
+        <p><strong>Practical Effects:</strong> The firearms preparation, the vehicle sequences, the stunt work all demonstrate professional craft. The show doesn't rely on CGI spectacle, preferring grounded practical effects that serve the realism.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Night Manager (7) achieved similar upscale thriller spectacle. True action series like 24 (7.5) deliver more relentless spectacle. The Day of the Jackal operates in comparable territory but prioritizes patience over constant stimulation.</p>
+        
+        <p><strong>Why 6.5:</strong> Appropriate spectacle for a character thriller with genuine production value. The action serves story rather than dominating it. The budget enables but doesn't dictate the spectacle choices.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Professional Killer:</strong> The series examines what kind of person becomes a professional assassin—not through explicit psychology but through demonstration. The Jackal's meticulous preparation, his compartmentalized life, his apparent ability to love his family while killing strangers: these raise questions about moral compartmentalization without answering them directly. The show trusts the audience to draw their own conclusions.</p>
+        
+        <p><strong>The Justification:</strong> The target—a tech billionaire with populist political ambitions—invites comparison to contemporary figures. The show doesn't explore this deeply, but the choice has resonance. The question of who deserves killing and who gets to decide is present without being the focus. The series seems aware of the ethical murk but chooses to dance along its edge rather than wade in.</p>
+        
+        <p><strong>Parallel Lives:</strong> The contrast between the Jackal's two families—his real family (Nuria, Carlitos) and his professional falsehoods—raises questions about identity and authenticity. Which life is the "real" one? The show suggests the Jackal himself may not know.</p>
+        
+        <p><strong>The Limits:</strong> As a thriller, the series prioritizes plot over philosophy. The conceptual material is present but subordinate to the momentum. Each episode advances the hunt more than the ideas. This isn't a criticism—the show knows its genre—but it limits the depth this dimension can achieve.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Killing Eve (7.5) explored similar morality with more psychological complexity. The Day of the Jackal prioritizes thriller mechanics over philosophical inquiry, appropriate to its adaptation source but limiting this dimension.</p>
+        
+        <p><strong>Why 7:</strong> Present but not central. The concepts are embedded in character rather than explored explicitly. The show raises questions it doesn't fully answer, trusting the premise to provide sufficient interest.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Chase Structure:</strong> The series builds momentum through its parallel narratives—the Jackal preparing kills, Pullman pursuing evidence, the inevitable collision approaching. Each episode advances both tracks, maintaining tension without requiring constant action. The structure is classic thriller efficiency.</p>
+        
+        <p><strong>The Episode Pacing:</strong> With ten episodes, the first season has room to breathe while maintaining urgency. The show balances standalone assignments with the overarching hunt. The season renewal allows cliffhanger endings that promise continuation without feeling like cheat.</p>
+        
+        <p><strong>The Family Tension:</strong> Added dimension: Nuria's growing suspicion of her husband creates a time bomb separate from the main chase. Will she discover his true profession? What will she do? This subplot provides additional propulsion and human stakes beyond the professional competition.</p>
+        
+        <p><strong>The Season Arc:</strong> The first season resolves satisfactorily while leaving obvious continuation. The confrontation between Jackal and Pullman promises future collision, but the season provides sufficient closure to feel complete. It's a well-constructed ten-hour narrative with appropriate escalation.</p>
+        
+        <p><strong>Comparative Assessment:</strong> 24 (9.5) represents maximum thriller drive. The Day of the Jackal achieves solid momentum with more sophistication and patience. The pacing serves the character study while maintaining genre thrills.</p>
+        
+        <p><strong>Why 8:</strong> Strong narrative drive that uses the cat-and-mouse structure effectively. The parallel tensions maintain momentum across episodes, and the family subplot adds depth to the propulsion.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.70</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Confrontation:</strong> The first season builds to the inevitable meeting between Jackal and Pullman—a confrontation that establishes the stakes for future seasons while providing immediate satisfaction. The resolution is satisfying without being neat; the thriller tradition (cat catches mouse, or doesn't) is respected without being simplistic.</p>
+        
+        <p><strong>The Open Door:</strong> The ending leaves room for continuation (the Jackal story has spawned multiple Forsyth novels and adaptations). This is common for modern prestige television—providing closure while preserving franchise potential. The renewal announcement confirms the continuation, making the slightly open ending feel like promise rather than frustration.</p>
+        
+        <p><strong>The Standalone Quality:</strong> Despite the open continuation, Season 1 tells a complete story with beginning, middle, and end. The various threads—the assassination plot, the family discovery, the professional hunt—all resolve satisfactorily. The show doesn't use the renewal to avoid resolution.</p>
+        
+        <p><strong>The Season 2 Setup:</strong> The addition of Weruche Opia and Pablo Schreiber as series regulars suggests expansion rather than repetition. The promise of new locations, new targets, and new complications gives the ending forward momentum.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Night Manager (7) achieved similar limited-series resolution. The Day of the Jackal follows the model competently, providing sufficient closure while promising continuation.</p>
+        
+        <p><strong>Why 7:</strong> Effective resolution for a single season while leaving continuation possible. The ending satisfies the narrative requirements while generating excitement for Season 2. The score reflects ongoing status appropriately.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.61</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.60 + World: 1.13 + Cine: 1.28 + Spectacle: 0.65 + <br>
+        Concepts: 1.05 + Drive: 1.20 + Resolution: 0.70 = <strong>7.61</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (10 episodes) | Status: Ongoing (Season 2 confirmed)<br>
+        Rank: #96 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 7 November 2024 | Creator: Ronan Bennett (based on Frederick Forsyth)<br>
+    Production: Sky Studios, Universal International Studios, Carnival Films | Budget: £100 million<br>
+    Cast: Eddie Redmayne, Lashana Lynch, Úrsula Corberó, Charles Dance, Chukwudi Iwuji, Eleanor Matsuura<br>
+    Awards: Golden Globe nominations for Series and Actor<br>
+    Filmed: Budapest, Vienna, Croatia, UK | Renewed: November 2024 for Season 2<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

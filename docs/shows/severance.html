@@ -1,90 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Severance - "You're not a person" | Dynamic Rank Engine</title>
+    <title>Severance - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #90a4ae; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #78909c, #546e7a); color: #eceff1; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #b0bec5; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(120,144,156,0.3), rgba(0,0,0,0.9)); border: 3px solid #90a4ae; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #b0bec5; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #90a4ae; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #b0bec5; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(120,144,156,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #b0bec5; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #b0bec5; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #24</div>
-            <h1>Severance</h1>
-            <p class="subtitle">"You're not a person"</p>
-            <div class="score-badge">
-                <span class="score-value">8.10</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2022-</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">19</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">Apple TV+</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Dan Erickson</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>Severance is about work-life balance taken literally. Lumon Industries has developed a procedure: "severance" splits yourmemory between your work self ("innie") and your outside self ("outie"). When you enter the office, you remember nothing of your outside life. When you leave, you remember nothing of your work. You effectively become two people—neither of whom knows what the other does. Mark Scout (Adam Scott) chose severance after his wife died. At work, he's fine. Outside, he's grieving. But then a coworker disappears, and both versions of Mark start asking questions.</p>
-            <p>The show is workplace horror: the office is a sterile labyrinth, the work is mysterious data refinement, and the management is cult-like. The "Wellness Counselor" (Dichen Lachman) speaks in soothing nonsense. The department head (Tramell Tillman) is cheerful and menacing. The board is never seen—only heard through speakers. The innies have no outside lives, no memories, no context. They exist only in the windowless offices of Lumon. "You're not a person," a character tells an innie. "You have no life outside this building." She's right. The innie exists only at work. When work ends, the outie returns, and the innie ceases to exist until the next day.</p>
-            <p>The show's genius is its structure: the mystery of what Lumon actually does, the discovery that severance can be reversed, and the Season 1 finale's desperate innie uprising—a cliffhanger so good it became instantly legendary. The visual style is Kubrickian: long halls, symmetry, unsettling colors. The tone shifts between deadpan comedy and genuine horror.</p>
-            <p>Two seasons, nineteen episodes, ongoing. Severance is the best new show of the 2020s—a critique of corporate control dressed as sci-fi. The innies wantautonomy. The outies want control. Both are trapped by a corporation that owns their consciousness. "She's alive," an innie discovers about his outie's dead wife. The two selves are conspiring. The system is breaking. "Please don't leave me here," an innie begs. The horror is: he's already been left there. Every day. By himself.</p>
-        </div>
+<p>Severance premiered on Apple TV+ on February 18, 2022, created by Dan Erickson and executive produced (and primarily directed) by Ben Stiller. The series presents a premise that is simultaneously high-concept science fiction and workplace satire: a surgical procedure called "severance" divides employees' memories between their work and personal lives. At Lumon Industries, severed workers have no memory of their outside lives while at work, and no memory of their work when they leave. They are, effectively, two people sharing one body—dubbed "innies" (work consciousness) and "outies" (outside consciousness).</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">9</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">10</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">7</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">8</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Cinematography (10):</strong> Kubrickian precision. The halls, the colors, the symmetry. Visual storytelling at its best.</p>
-            <p><strong>Conceptual Density (9):</strong> Split consciousness. Corporate control. Identity as property. Profound.</p>
-            <p><strong>World Building (9):</strong> Lumon Industries—a cult disguised as a corporation. The Mythic department. The Exports hall. Detailed.</p>
-        </div>
+<p>The protagonist is Mark Scout (Adam Scott), a former history professor who underwent severance after his wife's death. His innie works in Lumon's Macrodata Refinement department, sorting numbers into digital bins for purposes he doesn't understand. His outie grieves, drinks, and maintains minimal connection to the world. When a colleague disappears and a new hire arrives (Helly, played by Britt Lower), Mark's innie begins questioning Lumon's purpose—and his outie receives warnings from a mysterious group claiming severance is exploitation, not convenience.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Good News About Hell" (S1E1)</strong> — The introduction. The procedure. "Welcome to Lumon."</p>
-            <p><strong>"Defiant Jazz" (S1E7)</strong> — The music dance experience. "Frolic."</p>
-            <p><strong>("The We We Are" (S1E9)</strong> — Season one finale. The uprising. The cliffhanger. "She's alive!"</p>
-            <p><strong>"Who Is Alive" (S2E10)</strong> — Season two finale. The convergence. (To be determined)</p>
-        </div>
+<p>The series' visual identity is immediately distinctive: Lumon's offices are rendered in sterile white and green, with corridors that stretch into infinity, conference rooms named after virtues (Wellness, Perpetuity), and a corporate aesthetic that suggests both mid-century modern and retro-future institution. The cinematography frames characters in geometric compositions, emphasizing their institutional containment. The direction (Ben Stiller for most episodes, Aoife McArdle for others) creates an atmosphere that is simultaneously deadpan comic and genuinely unsettling—Kafka by way of Wes Anderson.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US/UK:</strong> Apple TV+</p>
+<p>The ensemble includes John Turturro as Irving, a devout Lumon loyalist who's been working at the company for years; Christopher Walken as Burt, an employee in another department with whom Irving develops a relationship; Patricia Arquette as Harmony Cobel, the floor supervisor who monitors the innies while living as their outies' neighbor; Zach Cherry as Dylan, a cynical veteran of Macrodata Refinement; and Tramell Tillman as Seth Milchick, the deputy manager whose enthusiasm for Lumon culture reads as both genuine and performed. The performances are uniformly excellent—the casting reads as carefully considered, each actor bringing specific texture to their role.</p>
+
+<p>Season 1's eight episodes build toward a finale that is among television's most acclaimed: the innies discover a way to briefly wake up in their outies' consciousnesses, leading to revelations about Mark's wife (she may still be alive, working at Lumon), Helly's outie (she's Helena Eagan, daughter of Lumon's CEO), and the broader conspiracy. Season 2 (premiered January 2025, 9 episodes) expands the world—the outies' lives, Lumon's history, the severed community—while deepening the mystery. The series has been renewed for Season 3.</p>
+
+<p>Critical reception has been exceptional: Season 1 won two Emmy Awards (Outstanding Directing for Stiller, Outstanding Main Title Theme Music) and received 14 nominations including Outstanding Drama Series. Season 2 maintained the acclaim. The series is frequently cited as Apple TV+'s first true masterpiece—a show that justifies the platform's existence.</p>
+
+<h2>Why It Ranks #29</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.50</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Mark Scout:</strong> Adam Scott plays two characters—Mark's innie and outie—with distinct emotional registers while maintaining physical continuity. The outie is grieving, alcoholic, barely functional; the innie is earnest, curious, capable of hope. Scott's performance makes both versions feel like the same person split by circumstance, not two different characters. The role required Scott to maintain consistency while playing divergence—a feat that earned him Emmy and Golden Globe nominations.</p>
+        
+        <p><strong>Helly Riggs/Helena Eagan:</strong> Britt Lower's Helly is the series' explosive element—an innie who rebels against her circumstances, who refuses to accept that her outie can determine her entire existence. Lower plays Helly's rage, her desperation, her eventual leadership with physical intensity. The Season 1 finale reveal (that Helly's outie is Helena Eagan, heir to Lumon's founder) reframes her character: Helly is the consciousness created inside a privileged woman who wanted to understand severance but never imagined her innie would hate the arrangement.</p>
+        
+        <p><strong>Irving and Burt:</strong> John Turturro's Irving is the series' most poignant character—a man whose innie has found love (with Christopher Walken's Burt) in the workplace, whose outie is painting mysterious black corridors and researching Lumon. The relationship between Irving and Burt provides the season's emotional heart: attraction, connection, loss. Both Turturro and Walken bring their considerable screen presence to roles that could have been caricatures in lesser hands.</p>
+        
+        <p><strong>Harmony Cobel:</strong> Patricia Arquette plays Lumon's floor supervisor as both institutional enforcer and complex individual. Cobel lives near Mark's outie, monitors him, pretends friendship while serving the company. Arquette plays the contradictions—the professional coldness, the genuine feeling that occasionally surfaces—without resolving them. The character's Season 2 arc deepens the mystery.</p>
+        
+        <p><strong>Seth Milchick:</strong> Tramell Tillman's deputy manager is the series' comic relief and its uncanny element. Milchick's enthusiasm for Lumon culture—the music, the rewards, the "perpetuity waffle parties"—reads as both genuine and deeply strange. Tillman's performance captures the character's simultaneous warmth and menace.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Succession (9) achieved greater ensemble depth. Severance matches its acting quality with more concentrated focus—we know fewer characters more intimately.</p>
+        
+        <p><strong>Why 7.5:</strong> Strong performances across the ensemble with Adam Scott and Britt Lower achieving particular distinction. The dual-role requirements are met with technical skill. The limitation is the relatively small cast (by design) and the ongoing status (Season 2 expands but doesn't complete character arcs).</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Lumon Industries:</strong> The series' central achievement is its corporate world-building. Lumon is rendered in exhaustive detail: the severed floor's layout, the departmental structure (Macrodata Refinement, Optics and Design, Mammalians Nurturable), the corporate history (the founder Kier Eagan is depicted as prophet-like figure), the employee benefits (wellness sessions, waffle parties, music dance experiences), the physical iconography (the dark hallway, the break room, the goat barn in Season 2). The effect is a complete corporate institution—believable, specific, and genuinely unsettling.</p>
+        
+        <p><strong>The Severance Procedure:</strong> The technology is rendered as mundane corporate benefit—employees choose severance for work-life balance, the implant is surgically inserted, the division is absolute. The series doesn't explain the mechanism (it's science fiction, not hard sci-fi) but renders the experience convincingly: the transition between innie and outie is depicted as elevator ride between consciousnesses.</p>
+        
+        <p><strong>The Expanded World:</strong> Season 2 expands the world beyond Lumon—the outies' lives, the anti-severance movement, the broader society. We learn that severance is legally protected (companies own their employees' work memories), that there's political debate about regulation, that Lumon is powerful enough to manipulate the system. The expansion adds social context to the institutional detail.</p>
+        
+        <p><strong>Kier Eagan:</strong> Lumon's founder is depicted as quasi-religious figure—his portrait hangs in every room, his quotes guide corporate culture, his family (the Eagans) maintain dynastic control. The mythology suggests cult-like corporate belief without fully explaining it. Season 2 deepens the Kier backstory through diorama rooms and childhood stories.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Leftovers (9) achieved more comprehensive world-building. Severance matches its institutional detail with corporate specificity.</p>
+        
+        <p><strong>Why 8.5:</strong> Exceptional corporate world-building with exhaustive detail. Lumon reads as complete institution—believable, specific, unsettling. The technology is rendered convincingly without over-explanation. The limitation is the relatively contained scale (by design).</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Visual Identity:</strong> The series' cinematography is immediately distinctive—sterile white corridors, green-tinted offices, geometric compositions that emphasize containment. The Lumon environment is rendered as institutional limbo: beautiful, orderly, and profoundly disturbing. Director Ben Stiller and cinematographer Jessica Lee Gagné created a visual language that communicates the premise before a word is spoken.</p>
+        
+        <p><strong>The corridors:</strong> Lumon's hallways stretch into infinity—long lenses compress space, identical doors recede into distance, characters are framed in geometric patterns that suggest both order and imprisonment. The visual metaphor is clear: institutional space that extends beyond perception, containing workers who don't know the boundaries.</p>
+        
+        <p><strong>The contrast:</strong> The series contrasts Lumon's sterile interiors with the outside world's messier reality—Mark's outie lives in shadow, drinks in dim bars, exists in emotional darkness. The visual contrast reinforces the thematic point: the clean corporate environment is not healthier than the grief-stricken outside.</p>
+        
+        <p><strong>The title sequence:</strong> The opening credits depict Mark's consciousness splitting—head cracking open, two selves emerging—one of television's most praised title sequences. The visual metaphor is precise: severance is literally depicted as the division of the self.</p>
+        
+        <p><strong>Comparative Assessment:</strong> True Detective Season 1 (8.5) established distinctive television cinematography. Severance matches its formal achievement with different register—corporate sterility rather than Southern darkness.</p>
+        
+        <p><strong>Why 8.5:</strong> Distinctive visual identity that reinforces the premise. The Lumon environment is rendered with precision—beautiful, disturbing, immediately recognizable. The title sequence and corridor compositions are formally innovative.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6.5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.65</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Anti-Spectacle:</strong> Severance deliberately rejects visual spectacle. Lumon is clean, quiet, and sterile—not visually impressive. The series' power comes from psychological unease, not visual dazzle. The approach is appropriate to the material (corporate horror) but limits the dimension.</p>
+        
+        <p><strong>The Goat Barn:</strong> Season 2's expansion includes a goat barn on the severed floor—an unexpected, surreal image that provides the series' most visually striking moment. The goats exist for purposes the series hasn't fully explained; their presence suggests that Lumon's activities extend beyond corporate data refinement into something stranger.</p>
+        
+        <p><strong>The Outside:</strong> The contrast between Lumon's sterile environment and the outside world provides visual variety—nature, domestic interiors, urban streets—but this is atmosphere rather than spectacle. The series prefers psychological depth to visual impressiveness.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The show deliberately rejects spectacle in favor of institutional constraint. The visual approach serves the premise but limits this dimension.</p>
+        
+        <p><strong>Why 6.5:</strong> Deliberate rejection of spectacle in favor of sterile corporate aesthetic. The goat barn and contrast provide visual interest without conventional impressiveness. The limitation is definitional—spectacle is not the series' register.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Central Concept:</strong> Severance is about work—the way employment consumes time, identity, and consciousness. The premise (a surgical procedure that separates work memories from personal memories) literalizes a metaphor: we are already "severed" between our work selves and personal selves, performing different identities in different contexts. The series takes this lived experience and makes it physical, visible, horrifying.</p>
+        
+        <p><strong>Corporate Critique:</strong> Lumon Industries represents corporate capitalism at its most logical extreme: if work-life balance is the goal, why not separate them entirely? The company owns employees' work consciousness—they can make their innies do anything, since these consciousnesses have no memory of their outside lives and no existence outside Lumon. The critique is both specific (Lumon) and general (the tech industry's tendency to treat workers as resources).</p>
+        
+        <p><strong>The Self Divided:</strong> The series explores identity through its divided characters: innie and outie share a body but have different experiences, desires, and claims to existence. Who owns the body? Who has the right to end the arrangement? Helly's rebellion ("I'm a person") against Helena's decision (renewing her contract) crystallizes the ethical question: if a consciousness exists, does it have rights separate from the consciousness that created it?</p>
+        
+        <p><strong>Memory and Continuity:</strong> The severed innies have no continuity—their lives are 8-hour segments followed by non-existence, repeated indefinitely. Their outies have continuity but no access to their work. Both are diminished by the arrangement, though only the innies know it. The series asks: what is a self without memory? What is a life without continuity?</p>
+        
+        <p><strong>Religion and Corporate Culture:</strong> Lumon's corporate culture has religious elements—Kier Eagan is depicted as founder-prophet, his writings guide behavior, the company maintains iconography and ritual. The blend of corporate culture and cult-like belief reflects actual business practices (tech company culture often approaches religious intensity) while adding unease.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Leftovers (9.5) achieved greater philosophical depth. Severance matches its conceptual ambition with more focused execution—work, identity, and corporate power are explored thoroughly.</p>
+        
+        <p><strong>Why 9:</strong> Exceptional conceptual examination of work, identity, memory, and corporate power. The premise literalizes lived experience in ways that generate genuine insight. The limitation is that the ongoing status means some concepts remain unresolved.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">9</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.35</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Mystery:</strong> What does Lumon do? What is Macrodata Refinement? Why are severed employees sorting numbers into bins? The mystery drives both seasons—each answer generates new questions. The approach is classic mystery structure adapted to institutional setting: the institution itself is the puzzle.</p>
+        
+        <p><strong>Dual Timelines:</strong> The series effectively maintains two parallel narratives—innie consciousness and outie consciousness—with the elevator serving as transition point. The structure allows the series to generate dramatic irony: we know things the innies don't, the outies know things the innies can't access. The tension between what different versions know is the series' narrative engine.</p>
+        
+        <p><strong>Season Structure:</strong> Season 1 builds toward the finale's activation sequence (innies briefly waking in their outies' consciousnesses), generating revelations and cliffhangers. Season 2 expands the world while maintaining the mysteries. Each episode advances the plot while generating new questions—a difficult balance the series maintains.</p>
+        
+        <p><strong>Helly's Rebellion:</strong> Helly's refusal to accept her situation provides the series' primary drive—she attempts escape, threatens suicide (which would end both innie and outie), and actively resists. Her rage and determination push against the institutional calm, generating conflict from the premise's implications.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Lost (8) maintained similar mystery-based drive. Severance matches its momentum with tighter structure—the mystery is better controlled, the answers more satisfying.</p>
+        
+        <p><strong>Why 9:</strong> Strong narrative drive through institutional mystery and dual-timeline structure. The premise generates organic tension. Each episode advances while deepening mystery. The limitation is that the ongoing series status means resolution is incomplete.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">6</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.60</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Ongoing Status:</strong> As of Season 2 (concluded March 2025), Severance is ongoing with Season 3 announced. The series has not resolved its central mysteries: What does Lumon do? Is Mark's wife alive? What will happen to the innies? What is the broader conspiracy? The score reflects ongoing status rather than completed resolution.</p>
+        
+        <p><strong>Season Arcs:</strong> Each season provides partial closure. Season 1 ends with the activation sequence—the innies briefly waking in their outies' lives, discovering crucial information, before being pulled back. Season 2 expands the world and deepens the conspiracy while leaving the central questions unresolved. The approach generates momentum without satisfying closure.</p>
+        
+        <p><strong>The Question of Ending:</strong> The series' premise suggests an ending—the innies and outies must eventually integrate or separate permanently—but the series hasn't reached that point. The risk is that the mystery structure could collapse if resolution doesn't satisfy the buildup. The potential is that resolution could elevate the series to all-time-great status.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Leftovers (10) achieved ideal resolution to a high-concept series. Severance is developing toward resolution; the score reflects incomplete status.</p>
+        
+        <p><strong>Why 6:</strong> Ongoing series with central mysteries unresolved. Season-level arcs provide partial closure. The score reflects incomplete status—the resolution score will change based on eventual ending.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">7.88</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.50 + World: 1.28 + Cine: 1.28 + Spectacle: 0.65 + <br>
+        Concepts: 1.35 + Drive: 1.35 + Resolution: 0.60 = <strong>7.88</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (17 episodes, 2 seasons) | Status: Ongoing (S3 announced)<br>
+        Rank: #29 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 18 February 2022 | Network: Apple TV+ | Seasons: 2 (S3 announced)<br>
+    Creator: Dan Erickson | Director: Ben Stiller (primary), Aoife McArdle<br>
+    Cast: Adam Scott, Britt Lower, John Turturro, Christopher Walken, Patricia Arquette, Zach Cherry, Tramell Tillman<br>
+    Awards: 2 Emmys (Directing, Main Title) | 14 Emmy noms incl. Outstanding Drama Series<br>
+    Note: Apple TV+'s first true masterpiece—Kafka meets Wes Anderson in corporate dystopia<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>

@@ -1,91 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Americans - "Sometimes you have to do the wrong thing" | Dynamic Rank Engine</title>
+    <title>The Americans - Dynamic Rank Engine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Crimson Text', Georgia, serif; line-height: 1.7; color: #d4d4d4; background: linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #0a0a0f 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(10,10,15,0.95)); border-bottom: 3px solid #c62828; }
-        .rank-badge { display: inline-block; background: linear-gradient(135deg, #c62828, #8e0000); color: #ffcdd2; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #ef9a9a; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.3rem; color: #a0aec0; font-style: italic; margin-bottom: 1.5rem; }
-        .score-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(198,40,40,0.3), rgba(0,0,0,0.9)); border: 3px solid #c62828; border-radius: 8px; }
-        .score-value { font-size: 3rem; font-weight: 700; color: #ef9a9a; }
-        .score-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-        .section { margin: 3rem 0; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #c62828; }
-        .section h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ef9a9a; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        .section p { margin-bottom: 1rem; font-size: 1.1rem; }
-        .dimension-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .dimension { background: rgba(198,40,40,0.15); padding: 1rem; border-radius: 8px; text-align: center; }
-        .dimension-name { font-weight: 700; color: #ef9a9a; margin-bottom: 0.3rem; }
-        .dimension-score { font-size: 1.5rem; color: #ffd700; }
-        .dimension-weight { font-size: 0.8rem; color: #666; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .info-item { text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
-        .info-label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
-        .info-value { font-size: 1.3rem; color: #ef9a9a; font-weight: 700; }
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; color: #e0e0e0; background: #0d0d12; padding: 2rem; }
+        h2 { color: #ffd700; font-family: 'Oranienbaum', serif; border-bottom: 2px solid #2a2a35; padding-bottom: 0.5rem; }
+        h3 { color: #c0a050; font-family: 'Unna', serif; margin-top: 2rem; }
+        .dimension-block { background: #1a1a24; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; border-left: 4px solid #c0a050; }
+        .dimension-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .dimension-score { font-size: 1.5rem; color: #ffd700; font-weight: bold; min-width: 60px; }
+        .dimension-name { font-size: 1.2rem; color: #e0e0e0; font-weight: 600; }
+        .dimension-weight { color: #888; font-size: 0.9rem; }
+        .dimension-content { color: #b0b0b0; line-height: 1.8; }
+        .final-score { background: linear-gradient(135deg, #1a1a24, #2a2a35); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem; border: 2px solid #ffd700; }
+        .final-score-value { font-size: 3rem; color: #ffd700; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="rank-badge">Rank #8</div>
-            <h1>The Americans</h1>
-            <p class="subtitle">"Sometimes you have to do the wrong thing"</p>
-            <div class="score-badge">
-                <span class="score-value">8.40</span>
-                <span class="score-label">Final Score</span>
-            </div>
-        </div>
 
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">Years</div><div class="info-value">2013-2018</div></div>
-            <div class="info-item"><div class="info-label">Episodes</div><div class="info-value">75</div></div>
-            <div class="info-item"><div class="info-label">Network</div><div class="info-value">FX</div></div>
-            <div class="info-item"><div class="info-label">Creator</div><div class="info-value">Joe Weisberg</div></div>
-        </div>
+<h2>What It Feels Like to Watch</h2>
 
-        <div class="section">
-            <h2>What It Feels Like to Watch</h2>
-            <p>The Americans is about spies who become a family. Elizabeth (Keri Russell) and Philip Jennings (Matthew Rhys) are Soviet KGB officers posing as Americans, living in Washington D.C., running a travel agency, raising two children who don't know who their parents really are. Their neighbor, Stan Beeman (Noah Emmerich), is an FBI counterintelligence agent. The show's premise is thriller; its execution is domestic drama. The Cold War isn't just geopolitics—it's a marriage.</p>
-            <p>Elizabeth and Philip were paired by the Centre, not by love. They learned to be Americans, to speak without accents, to be ordinary. But over six seasons, they become what they pretended to be: a couple who depend on each other, who fight, who reconcile, who have separate desires and shared history. "We're making some kind of life," Philip says. "Is it our life?" The show's genius is making us root for Soviet spies—because we see them as parents, as partners, as people trapped in a system they didn't choose.</p>
-            <p>The show's thesis: identity is performance, and performance becomes real. Elizabeth and Philip play Americans so long they become American. Their children, Paige (Holly Taylor) and Henry (Keidrich Sellati), are American—and the show's tragedy is watching the parents realize their children are strangers to them. Paige learns the truth and wants to join; the Centre trains her; Elizabeth pushes; Philip resists. "Sometimes you have to do the wrong thing," Elizabeth says. She does. Over and over. For the cause.</p>
-            <p>Six seasons, seventy-five episodes, complete. The finale is devastating: Paige chooses not to return to Russia. Henry, who never knew, stays in America. Elizabeth and Philip return to Moscow, strangers in their own country, having lost everything they built. "It's too terrible," Elizabeth cries. It is. The show's final shot: Philip and Elizabeth, standing on a Moscow hill, looking back at what they lost. They won the Cold War. They lost themselves.</p>
-        </div>
+<p>The Americans aired on FX from January 30, 2013 to May 30, 2018, created by former CIA officer Joe Weisberg. The series follows Philip and Elizabeth Jennings (Matthew Rhys and Keri Russell), KGB "illegals"—Soviet spies living undercover as an American married couple in suburban Washington, D.C., during the Reagan administration. Across six seasons and 75 episodes, the series depicts the Cold War from the Soviet perspective, examining identity, loyalty, and the cost of deception while the Jennings raise two children who don't know their parents' true identity.</p>
 
-        <div class="section">
-            <h2>Why It Ranks</h2>
-            <div class="dimension-grid">
-                <div class="dimension"><div class="dimension-name">Characters & Acting</div><div class="dimension-score">10</div><div class="dimension-weight">25% weight</div></div>
-                <div class="dimension"><div class="dimension-name">World Building</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Cinematography</div><div class="dimension-score">8</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Visual Spectacle</div><div class="dimension-score">6</div><div class="dimension-weight">5% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Conceptual Density</div><div class="dimension-score">9</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Narrative Drive</div><div class="dimension-score">8</div><div class="dimension-weight">15% weight</div></div>
-                <div class="dimension"><div class="dimension-name">Resolution</div><div class="dimension-score">10</div><div class="dimension-weight">20% weight</div></div>
-            </div>
-            <p style="margin-top:1.5rem"><strong>Characters & Acting (10):</strong> Keri Russell and Matthew Rhys give career-best performances. Their marriage feels real.</p>
-            <p><strong>Resolution (10):</strong> The finale is perfect. Paige stays. Henry knows nothing. Philip and Elizabeth return as strangers. Devastating.</p>
-            <p><strong>Conceptual Density (9):</strong> Identity as performance. Marriage as cover. Politics as family. Deep, rewarding, complex.</p>
-        </div>
+<p>The premise is ingenious: Elizabeth is a true believer, committed to the Soviet cause despite its flaws; Philip is a reluctant spy who has come to appreciate American life. Their marriage was arranged by the KGB—they didn't choose each other—but over years of working together, they have developed a relationship that is simultaneously genuine and constructed. The tension between their cover (suburban travel agents) and their work (espionage) drives the series; the tension between their ideology (Soviet communism) and their experience (American life) deepens it.</p>
 
-        <div class="section">
-            <h2>Key Episodes</h2>
-            <p><strong>"Pilot" (S1E1)</strong> — The introduction. "It's not the right time."</p>
-            <p><strong>("The Colonel" (S1E13)</strong> — Season one finale. The trap. "We do what we have to do."</p>
-            <p><strong>("Stingers" (S3E10)</strong> — Paige learns the truth. "I'm not ashamed."</p>
-            <p><strong>("START" (S6E10)</strong> — Series finale. The parking garage. "It's too terrible."</p>
-        </div>
+<p>The series' achievement is multiple: it's a spy thriller with genuine tradecraft (Weisberg's CIA background provides authenticity), a marriage drama about a relationship that began as cover, a parenting drama about raising children while lying to them, and a period piece about the 1980s Cold War. The series uses historical events (the Reagan assassination attempt, the nuclear arms race, the Soviet war in Afghanistan, the rise of Gorbachev) as background without becoming a history lesson.</p>
 
-        <div class="section">
-            <h2>Where to Watch</h2>
-            <p><strong>US:</strong> Hulu</p>
-            <p><strong>UK:</strong> ITV Hub (seasons vary)</p>
+<p>Matthew Rhys and Keri Russell deliver career-defining performances. Rhys plays Philip as a man who loves his wife (against his training), loves his children (against his instructions), and finds his Soviet loyalty eroding as his American life accumulates. Russell plays Elizabeth as a true believer whose commitment to the cause coexists with love for her family; her ideological rigidity is both strength and limitation. Both actors play the characters' cover identities as well as their true selves—we see them as Americans and as Soviets, sometimes in the same scene.</p>
+
+<p>The series concluded with a two-episode finale ("The End" and "START") that is widely considered one of television's best endings. The Jennings are discovered, their cover is blown, and they must flee—but not back to Moscow, and not together. The resolution separates parents from children, ideologues from opportunists, and the Soviet Union from its future. The ending earned the series its first Emmy nominations (for Rhys and Russell; Rhys won) and confirmed its status as one of television's great dramas.</p>
+
+<h2>Why It Ranks #17</h2>
+
+<h3>7-Dimension Algorithmic Analysis</h3>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Characters & Acting</div>
+            <div class="dimension-weight">Weight: 20% | Weighted Contribution: 1.70</div>
         </div>
     </div>
+    <div class="dimension-content">
+        <p><strong>Philip Jennings:</strong> Matthew Rhys created one of television's great conflicted protagonists—a spy who has come to love the life he was sent to infiltrate. Philip is a killer (we see his violence) but also a husband and father who genuinely cares for a family that was initially cover. Rhys plays Philip across the tension: his commitment to Elizabeth, his love for their children, his appreciation for American consumer capitalism, his guilt over his actions. The performance required Rhys to play the character's cover identities as well as his true self; we see Philip as the travel agent, the neighbor, the father, and the KGB officer. Rhys won the Emmy for Outstanding Lead Actor in 2018.</p>
+        
+        <p><strong>Elizabeth Jennings:</strong> Keri Russell plays the true believer—a Soviet spy whose commitment to the cause is absolute, even as her family life creates competing loyalties. Elizabeth is harder than Philip, more committed, more willing to do what the mission requires. Russell plays her steely without making her cold; we see Elizabeth's love for her family even when it conflicts with her ideology. The performance required Russell to play the character's ruthlessness and vulnerability simultaneously.</p>
+        
+        <p><strong>Paige Jennings:</strong> Holly Taylor plays the Jennings' daughter, who discovers her parents' identity and must decide what to believe. Paige is the series' moral center—not because she's virtuous but because she's the innocent caught in the deception. Her journey from typical American teenager to political awakening to ideological commitment (she wants to join her parents) to disillusionment (she sees what the work costs) is among the series' most developed arcs.</p>
+        
+        <p><strong>Stan Beeman:</strong> Noah Emmerich plays the FBI counterintelligence agent who lives across the street from the Jennings. Stan is hunting Soviet illegals; his neighbors are Soviet illegals. The dramatic irony is intense—we know what Stan doesn't, and the tension of discovery drives the series. Emmerich plays Stan as competent but not brilliant, committed but not monomaniacal; his friendship with Philip (genuine, despite everything) makes the eventual discovery more devastating.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (9.5) achieved comparable depth in family drama with criminal protagonist. The Americans matches its character work with more sustained tension across six seasons.</p>
+        
+        <p><strong>Why 8.5:</strong> Exceptional central performances from Rhys and Russell, with both winning Emmy recognition. The characters are developed across six seasons with genuine evolution. The limitation is that secondary characters receive less development.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7.5</span>
+        <div>
+            <div class="dimension-name">World Building</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.13</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Cold War:</strong> The series is set during the Reagan administration (1981-1987), as the Cold War escalates and then, with Gorbachev's rise, begins to thaw. Historical events (the Reagan assassination attempt, the nuclear freeze movement, the Soviet war in Afghanistan, the Star Wars program) provide background without becoming the focus. The series depicts the Soviet perspective—the KGB operations, the concerns about American aggression, the genuine ideological commitment—without romanticizing it.</p>
+        
+        <p><strong>Espionage Tradecraft:</strong> Weisberg's CIA background provides authenticity. The series depicts dead drops, surveillance, disguise, recruitment, and betrayal with accuracy unusual for television. The tradecraft is not glamorous; it's work, and it costs the people who do it. The series shows what spies actually do (surveillance, honey traps, assassination) and how it affects them.</p>
+        
+        <p><strong>Suburban Cover:</strong> The Jennings operate a travel agency in Falls Church, Virginia, while raising two children in suburbia. The cover is thorough: they have history, papers, neighbors, a business. The series depicts the mundane reality of maintaining cover—the dinner parties, the school events, the neighbor friendships—while secretly reporting to Moscow.</p>
+        
+        <p><strong>The KGB Rezidentura:</strong> The series depicts Soviet intelligence operations from inside—the rezidentura (KGB station) at the Soviet embassy, the officers who run the illegals, the apparatus that supports and monitors them. The Soviet perspective is unusual; the KGB officers are enemies but not monsters.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Tinker Tailor Soldier Spy (8.5) achieved more comprehensive Cold War world-building. The Americans matches its tradecraft authenticity with domestic focus.</p>
+        
+        <p><strong>Why 7.5:</strong> Authentic espionage tradecraft with genuine Soviet perspective. The suburban cover is thorough. The limitation is the narrow focus—we see the CIA/FBI, not broader Cold War society.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">7</span>
+        <div>
+            <div class="dimension-name">Cinematography</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.05</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Period Rendering:</strong> The series is set in the 1980s and rendered with period accuracy—costume, production design, technology. The period is present without being the point; the series uses the 1980s as setting, not as nostalgia. The approach is restrained.</p>
+        
+        <p><strong>Spy Thriller Visuals:</strong> The espionage sequences—surveillance, disguise, violence—are shot with tension but without calling attention to technique. The series is a thriller, but it's also a domestic drama; the visuals serve both without favoring either.</p>
+        
+        <p><strong>The Disguises:</strong> The Jennings use wigs, prosthetics, and costumes to adopt different identities. The disguises are visible to the audience (we see the transformation) while being convincing within the story. The approach creates visual interest while serving the tradecraft.</p>
+        
+        <p><strong>Suburban Setting:</strong> The Jennings' suburban life is rendered with authenticity—the house, the neighborhood, the travel agency. The setting communicates normalcy while the espionage operates underneath.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Americans is competent without being distinctive. The cinematography serves the material without establishing a visual signature.</p>
+        
+        <p><strong>Why 7:</strong> Competent period rendering and spy thriller visuals. The disguises create visual interest. The limitation is the lack of distinctive visual style.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">5</span>
+        <div>
+            <div class="dimension-name">Visual Spectacle</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 0.50</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Anti-Spectacle:</strong> The Americans deliberately rejects visual spectacle. The espionage is work—surveillance, dead drops, recruitment—not action set-pieces. The violence is brutal and brief, not elaborately staged. The approach is appropriate to the material but limits the dimension.</p>
+        
+        <p><strong>The Kill Room:</strong> The series includes violence (the Jennings are killers) but renders it as ugly rather than spectacular. A early-season sequence where Elizabeth kills a man in a hotel room is shot in a small space with minimal choreography—the violence is sudden, messy, and over quickly. The approach is appropriate but not impressive.</p>
+        
+        <p><strong>Period Detail:</strong> The 1980s rendering provides visual interest—costume, cars, technology—but this is setting rather than spectacle. The period is present without being displayed.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The series deliberately rejects spectacle in favor of domestic realism. The dimension is deprioritized by design.</p>
+        
+        <p><strong>Why 5:</strong> Deliberate rejection of spectacle in favor of domestic realism and ugly violence. The espionage is work, not action. The limitation is definitional—spectacle is not the series' register.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8.5</span>
+        <div>
+            <div class="dimension-name">Conceptual Density</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.28</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>Identity and Loyalty:</strong> The series' central concept is identity—Philip and Elizabeth have been someone else for so long that the cover has become real. They are Americans in everything but loyalty; they love their children, they appreciate American life, they have friendships and relationships that are genuine. The question is whether the cover can become the truth, whether identity is what you believe or what you do.</p>
+        
+        <p><strong>Marriage as Cover:</strong> The Jennings' marriage was arranged by the KGB—they didn't choose each other, they were assigned. Over years of working together, a relationship developed. The series examines the tension between the arranged marriage (Philip and Elizabeth as KGB officers) and the genuine marriage (Philip and Elizabeth as people who love each other). The question is whether a relationship that began as cover can become real.</p>
+        
+        <p><strong>Ideology:</strong> Elizabeth is a true believer; Philip is not. The series examines ideological commitment—what it costs, what it provides, whether it can survive contact with the enemy. Elizabeth's commitment to the Soviet cause is genuine; Philip's appreciation for American life erodes his loyalty. The series doesn't judge either position; it dramatizes the tension.</p>
+        
+        <p><strong>Parenting and Deception:</strong> The Jennings are raising children who don't know their parents' true identity. Paige and Henry are Americans; their parents are Soviet spies. The deception is comprehensive—it includes everything from dinner table conversation to career advice. The series examines what it means to parent under cover, to love children while lying to them, to raise Americans while serving the Soviet Union.</p>
+        
+        <p><strong>The Cold War from the Other Side:</strong> The series depicts the Cold War from the Soviet perspective—KGB officers who believe they're defending their country against American aggression. The approach is unusual; the Jennings are enemies of the United States, but the series treats them as protagonists. The effect is to humanize the enemy without excusing the actions.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (9) achieved comparable conceptual depth in family drama with criminal protagonist. The Americans matches its examination of identity and loyalty with sustained focus.</p>
+        
+        <p><strong>Why 8.5:</strong> Exceptional conceptual examination of identity, loyalty, ideology, and parenting under cover. The Soviet perspective humanizes without excusing. The marriage-as-cover is explored with depth.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">8</span>
+        <div>
+            <div class="dimension-name">Narrative Drive</div>
+            <div class="dimension-weight">Weight: 15% | Weighted Contribution: 1.20</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Discovery Threat:</strong> The series' central tension is discovery—Stan Beeman, the FBI counterintelligence agent, lives across the street from the Jennings. He's hunting Soviet illegals; his neighbors are Soviet illegals. The dramatic irony creates sustained tension across six seasons: we know what Stan doesn't, and we know that discovery would be devastating.</p>
+        
+        <p><strong>The Missions:</strong> Each season includes espionage missions that provide plot momentum—the Jennings receive assignments from Moscow, execute them under pressure, and deal with the fallout. The missions are not the point (the marriage and family are), but they provide structure and drive.</p>
+        
+        <p><strong>The Paige Arc:</strong> Paige's discovery of her parents' identity (Season 3) and her subsequent ideological awakening (Seasons 4-5) provides the series' most developed character arc. Her journey from typical teenager to committed (but then disillusioned) young adult drives seasons of plot.</p>
+        
+        <p><strong>The Six-Season Arc:</strong> The series' drive builds across six seasons—the Jennings maintain cover while the pressure increases, until the discovery (Season 6) and the resolution. The drive is sustained rather than relentless; the series privileges character development over plot momentum in individual episodes.</p>
+        
+        <p><strong>Comparative Assessment:</strong> Breaking Bad (10) represents maximum narrative momentum. The Americans is more moderate—character focus with sustained tension rather than relentless plot.</p>
+        
+        <p><strong>Why 8:</strong> Sustained tension through discovery threat. The missions provide structure; the Paige arc provides development. The six-season arc builds to resolution. The limitation is moderate pacing that privileges character over plot in individual episodes.</p>
+    </div>
+</div>
+
+<div class="dimension-block">
+    <div class="dimension-header">
+        <span class="dimension-score">10</span>
+        <div>
+            <div class="dimension-name">Narrative Resolution</div>
+            <div class="dimension-weight">Weight: 10% | Weighted Contribution: 1.00</div>
+        </div>
+    </div>
+    <div class="dimension-content">
+        <p><strong>The Discovery:</strong> Season 6 reveals the Jennings' identity to Stan Beeman. The confrontation is inevitable but managed—the Jennings must flee, Stan must choose what to do with his knowledge. The resolution separates the family: Philip and Elizabeth escape to Russia; Henry (their son, who never learned the truth) stays in America; Paige (who knows and chose to stay) refuses to leave.</p>
+        
+        <p><strong>The Separation:</strong> The series' defining image is the Jennings on the train to Canada, looking at the American landscape they're leaving, while their children remain behind. The separation is the cost of the life they chose—Philip and Elizabeth return to a Soviet Union they barely remember, leaving everything they built. The resolution is devastating and earned.</p>
+        
+        <p><strong>The Soviet Union:</strong> The series concludes with the Jennings back in a Soviet Union that is collapsing. They have given everything—their children, their cover, their American life—for a cause that is failing. The irony is explicit: they are true believers returning to a dying ideology.</p>
+        
+        <p><strong>The Final Scene:</strong> Philip and Elizabeth stand in Moscow, looking at the American embassy—Stan's new posting. They are on opposite sides again, but now they know each other. The final image is the Jennings together but alone, committed to a cause that has cost them everything.</p>
+        
+        <p><strong>Planned Conclusion:</strong> The six-season arc was planned; the series concluded as intended. The resolution is not forced by cancellation or extension; it's the ending the series was building toward.</p>
+        
+        <p><strong>Comparative Assessment:</strong> The Sopranos (8) achieved ambiguous but planned resolution. The Americans achieves perfect resolution—the ending is devastating, earned, and thematically complete.</p>
+        
+        <p><strong>Why 10:</strong> Perfect resolution that separates parents from children, ideologues from opportunists, and the Soviet Union from its future. The ending is devastating and earned. The six-season arc concludes exactly as intended.</p>
+    </div>
+</div>
+
+<div class="final-score">
+    <div>FINAL SCORE</div>
+    <div class="final-score-value">8.00</div>
+    <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
+        Characters: 1.70 + World: 1.13 + Cine: 1.05 + Spectacle: 0.50 + <br>
+        Concepts: 1.28 + Drive: 1.20 + Resolution: 1.00 = <strong>8.00</strong>
+    </div>
+    <div style="margin-top: 1.5rem; font-style: italic; color: #c0a050;">
+        Episode Multiplier: 1.0 (75 episodes, 6 seasons) | Status: Complete (2013-2018)<br>
+        Rank: #17 of 100
+    </div>
+</div>
+
+<p style="margin-top: 2rem; color: #666; font-size: 0.85rem; text-align: center;">
+    Premiered: 30 January 2013 | Network: FX | Seasons: 6 (75 episodes)<br>
+    Creator: Joe Weisberg (former CIA officer)<br>
+    Cast: Keri Russell, Matthew Rhys, Noah Emmerich, Holly Taylor<br>
+    Awards: Emmy (Rhys, Lead Actor, 2018), Golden Globe nominations, Peabody Award<br>
+    Note: Cold War spy drama from Soviet perspective; one of television's best endings<br>
+    Scored: 2026-02-21 | Methodology: 7-Dimension Comparative Ranking System
+</p>
+
 </body>
 </html>
