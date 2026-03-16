@@ -4110,24 +4110,36 @@
         const modifiedShows = new Set();
         const catKeys = ['char', 'world', 'cine', 'spect', 'conc', 'drive', 'resol'];
 
-        function recalcFinal(show) {
-            let val = (
-                (show.char * weights.char) +
-                (show.world * weights.world) +
-                (show.cine * weights.cine) +
-                (show.spect * weights.spect) +
-                (show.conc * weights.conc) +
-                (show.drive * weights.drive) +
-                (show.resol * weights.resol)
+        function calculateWeightedAverage(scores) {
+            return (
+                (scores.char * weights.char) +
+                (scores.world * weights.world) +
+                (scores.cine * weights.cine) +
+                (scores.spect * weights.spect) +
+                (scores.conc * weights.conc) +
+                (scores.drive * weights.drive) +
+                (scores.resol * weights.resol)
             ) / 100;
+        }
 
-            // Apply episode multiplier if enabled
+        function calculateFinalFromScores(scores, episodes) {
+            let val = calculateWeightedAverage(scores);
             if (multiplierEnabled) {
-                val = val * getMultiplier(show.episodes);
+                val *= getMultiplier(episodes);
             }
+            return parseFloat(val.toFixed(2));
+        }
 
-            show.final = parseFloat(val.toFixed(2));
+        function recalcFinal(show) {
+            const sourceScores = activeScores[show.title] || show;
+            show.final = calculateFinalFromScores(sourceScores, show.episodes);
             return show.final;
+        }
+
+        function recalculateAllShowFinals() {
+            shows.forEach(show => recalcFinal(show));
+            shows.sort((a, b) => b.final - a.final);
+            shows.forEach((show, idx) => { show.rank = idx + 1; });
         }
 
         function initScoreSystem() {
@@ -4149,28 +4161,8 @@
                     activeScores[show.title][key] = show[key];
                 });
 
-                // Calculate the base weighted average (unmultiplied)
-                const baseWeighted = (
-                    (show.char * weights.char) +
-                    (show.world * weights.world) +
-                    (show.cine * weights.cine) +
-                    (show.spect * weights.spect) +
-                    (show.conc * weights.conc) +
-                    (show.drive * weights.drive) +
-                    (show.resol * weights.resol)
-                ) / 100;
-
-                // Store the unmultiplied weighted average as base.final for recalculation reference
-                baseScores[show.title].calculatedFinal = parseFloat(baseWeighted.toFixed(2));
-
-                // USE JSON FINAL: Trust the AI-adjusted final score from JSON rather than recalculating
-                // The JSON final values have been human-reviewed and adjusted
-                baseScores[show.title].final = show.final;
+                baseScores[show.title].jsonFinal = show.final;
             });
-
-            // Re-sort after recalculating all finals
-            shows.sort((a, b) => b.final - a.final);
-            shows.forEach((show, idx) => { show.rank = idx + 1; });
 
             // Restore overrides from localStorage
             try {
@@ -4195,15 +4187,14 @@
                         }
                     });
 
-                    if (modifiedShows.size > 0) {
-                        // Re-sort and re-rank
-                        shows.sort((a, b) => b.final - a.final);
-                        shows.forEach((show, idx) => { show.rank = idx + 1; });
-                        updateSaveBar();
-                    }
                 }
             } catch (e) {
                 console.error('Failed to restore score overrides:', e);
+            }
+
+            recalculateAllShowFinals();
+            if (modifiedShows.size > 0) {
+                updateSaveBar();
             }
         }
 
@@ -4309,52 +4300,7 @@
 
         // Recalculate rankings with custom weights (shared function)
         function recalculateWithWeights() {
-            // Recalculate final scores using activeScores (includes modifications)
-            shows.forEach(show => {
-                const active = activeScores[show.title];
-                if (!active) return;
-
-                // Calculate weighted average from category scores
-                let val = (
-                    (active.char * weights.char) +
-                    (active.world * weights.world) +
-                    (active.cine * weights.cine) +
-                    (active.spect * weights.spect) +
-                    (active.conc * weights.conc) +
-                    (active.drive * weights.drive) +
-                    (active.resol * weights.resol)
-                ) / 100;
-
-                // Apply multiplier if enabled
-                if (multiplierEnabled) {
-                    val = val * getMultiplier(show.episodes);
-                }
-
-                show.final = parseFloat(val.toFixed(2));
-
-                // CRITICAL: Also update baseScores.final (unmultiplied) for slider calculations
-                // This ensures slider deltas are calculated from the correct baseline
-                const baseUnmultiplied = (
-                    (baseScores[show.title].char * weights.char) +
-                    (baseScores[show.title].world * weights.world) +
-                    (baseScores[show.title].cine * weights.cine) +
-                    (baseScores[show.title].spect * weights.spect) +
-                    (baseScores[show.title].conc * weights.conc) +
-                    (baseScores[show.title].drive * weights.drive) +
-                    (baseScores[show.title].resol * weights.resol)
-                ) / 100;
-                baseScores[show.title].final = parseFloat(baseUnmultiplied.toFixed(2));
-            });
-
-            // Re-sort shows by new final score
-            shows.sort((a, b) => b.final - a.final);
-
-            // Update ranks
-            shows.forEach((show, idx) => {
-                show.rank = idx + 1;
-            });
-
-            // Re-render
+            recalculateAllShowFinals();
             renderShows();
         }
 
@@ -4379,33 +4325,7 @@
             console.log('BEFORE toggle - Top 5:');
             shows.slice(0, 5).forEach((s, i) => console.log(`  ${i+1}. ${s.title.substring(0,20)}: ${s.final}`));
 
-            // Recalculate using activeScores (includes any slider modifications)
-            shows.forEach(show => {
-                const active = activeScores[show.title];
-                if (!active) return;
-
-                // Calculate from active scores (current values) with current weights
-                let val = (
-                    (active.char * weights.char) +
-                    (active.world * weights.world) +
-                    (active.cine * weights.cine) +
-                    (active.spect * weights.spect) +
-                    (active.conc * weights.conc) +
-                    (active.drive * weights.drive) +
-                    (active.resol * weights.resol)
-                ) / 100;
-
-                // Then apply multiplier if enabled
-                if (multiplierEnabled) {
-                    val = val * getMultiplier(show.episodes);
-                }
-
-                show.final = parseFloat(val.toFixed(2));
-            });
-
-            // Sort and re-rank
-            shows.sort((a, b) => b.final - a.final);
-            shows.forEach((s, i) => { s.rank = i + 1; });
+            recalculateAllShowFinals();
 
             // DEBUG: Show top 5 after
             console.log('AFTER toggle - Top 5:');
@@ -5503,19 +5423,7 @@
             activeScores[title][catKey] = newVal;
             show[catKey] = newVal;
 
-            // Calculate final from BASE + sum of all deltas (not cumulative)
-            let finalDelta = 0;
-            catKeys.forEach(k => {
-                const delta = activeScores[title][k] - baseScores[title][k];
-                finalDelta += delta * (weights[k] / 100);
-            });
-
-            // Apply episode multiplier if enabled
-            let newFinal = baseScores[title].final + finalDelta;
-            if (multiplierEnabled) {
-                newFinal = newFinal * getMultiplier(show.episodes);
-            }
-            show.final = parseFloat(newFinal.toFixed(2));
+            recalcFinal(show);
 
             // Track modification
             const isModified = catKeys.some(k => activeScores[title][k] !== baseScores[title][k]);
@@ -5640,20 +5548,20 @@
                 });
             }
 
-            // Update all rank badge colors on visible cards (text is set by template, don't overwrite)
+            // Update visible rank badges after cards move
             const currentCards = Array.from(list.querySelectorAll('.show-module[data-show-title]'));
             currentCards.forEach(card => {
                 const title = card.dataset.showTitle;
                 const show = shows.find(s => s.title === title);
                 if (!show) return;
-                const badge = card.querySelector('[data-rank-badge]');
-                if (badge) {
-                    // Only update color - text is correct from template render
+                const badges = card.querySelectorAll('[data-rank-badge]');
+                badges.forEach(badge => {
                     const tier = getTier(show.final);
                     const colors = { gold: '#d4af37', silver: '#a8a8b0', bronze: '#a87d4a' };
                     const c = colors[tier];
+                    badge.textContent = `#${show.rank}`;
                     badge.style.background = `linear-gradient(135deg,${c}99,${c})`;
-                }
+                });
             });
 
             // Refresh pinned shows
@@ -5801,7 +5709,6 @@
                                 }
                             });
                             if (hasChange) modifiedShows.add(title);
-                            recalcFinal(show);
                         });
 
                         // Optionally import weights
@@ -5810,25 +5717,7 @@
                             initWeightSliders();
                         }
 
-                        // Recalculate baseScores.final with imported/current weights
-                        shows.forEach(show => {
-                            if (baseScores[show.title]) {
-                                const baseUnmultiplied = (
-                                    (baseScores[show.title].char * weights.char) +
-                                    (baseScores[show.title].world * weights.world) +
-                                    (baseScores[show.title].cine * weights.cine) +
-                                    (baseScores[show.title].spect * weights.spect) +
-                                    (baseScores[show.title].conc * weights.conc) +
-                                    (baseScores[show.title].drive * weights.drive) +
-                                    (baseScores[show.title].resol * weights.resol)
-                                ) / 100;
-                                baseScores[show.title].final = parseFloat(baseUnmultiplied.toFixed(2));
-                            }
-                        });
-
-                        shows.forEach(show => recalcFinal(show));
-                        shows.sort((a, b) => b.final - a.final);
-                        shows.forEach((s, i) => { s.rank = i + 1; });
+                        recalculateAllShowFinals();
                         saveOverridesToStorage();
                         updateSaveBar();
                         renderShows();
@@ -5978,10 +5867,8 @@
                     show[key] = baseScores[show.title][key];
                     activeScores[show.title][key] = baseScores[show.title][key];
                 });
-                show.final = baseScores[show.title].final;
             });
-            shows.sort((a, b) => b.final - a.final);
-            shows.forEach((s, i) => { s.rank = i + 1; });
+            recalculateAllShowFinals();
 
             // Reset UI controls
             initWeightSliders();
@@ -6130,7 +6017,7 @@
                     renderPinnedShows();
                 }
 
-                // Score overrides — restore category scores and exact final
+                // Score overrides — restore category scores and recalculate finals from them
                 if (data.scoreOverrides) {
                     Object.entries(data.scoreOverrides).forEach(([title, scores]) => {
                         const show = shows.find(s => s.title === title);
@@ -6145,33 +6032,11 @@
                         });
                         if (changed) {
                             modifiedShows.add(title);
-                            if (typeof scores._final === 'number') {
-                                // Restore the exact final that was computed on the saving device
-                                show.final = scores._final;
-                            } else {
-                                // Fallback for old Firestore data without _final: use delta approach
-                                let finalDelta = 0;
-                                catKeys.forEach(k => {
-                                    finalDelta += (activeScores[title][k] - baseScores[title][k]) * (weights[k] / 100);
-                                });
-                                show.final = parseFloat((baseScores[title].final + finalDelta).toFixed(2));
-                            }
                         }
                     });
                 }
 
-                // For non-overridden shows: if weights are custom, recalculate their finals
-                // (matches what recalculateWithWeights does on the main PC after a weight change)
-                const hasCustomWeights = catKeys.some(k => weights[k] !== defaultWeights[k]);
-                if (hasCustomWeights) {
-                    shows.forEach(show => {
-                        if (!modifiedShows.has(show.title)) recalcFinal(show);
-                    });
-                }
-                // Non-overridden shows with default weights keep their JSON human-adjusted finals
-
-                shows.sort((a, b) => b.final - a.final);
-                shows.forEach((s, i) => { s.rank = i + 1; });
+                recalculateAllShowFinals();
                 updateSaveBar();
                 renderShows();
             } catch (err) {
